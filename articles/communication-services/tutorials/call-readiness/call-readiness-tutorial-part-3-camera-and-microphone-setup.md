@@ -39,7 +39,6 @@ First we'll create a new file called `DeviceSetup.tsx` and add some setup code, 
 
 ```tsx
 import { PrimaryButton, Stack } from '@fluentui/react';
-import { CallReadinessHelper } from './CallReadinessHelper';
 
 export const DeviceSetup = (props: {
   /** Callback to let the parent component know what the chosen user device settings were */
@@ -81,7 +80,6 @@ const App = (): JSX.Element => {
           <>
             <PreparingYourSession />
             <PreCallChecksComponent
-              callReadinessHelper={callReadinessHelper}
               onTestsSuccessful={() => setTestState('deviceSetup')}
             />
           </>
@@ -90,7 +88,6 @@ const App = (): JSX.Element => {
         {/* After the initial checks are complete, take the user to a device setup page call readiness checks are finished */}
         {testState === 'deviceSetup' && (
           <DeviceSetup
-            callReadinessHelper={callReadinessHelper}
             onDeviceSetupComplete={(userChosenDeviceState) => {
               setTestState('finished');
             }}
@@ -208,9 +205,9 @@ const useCallClientStateChange = (): CallClientState => {
 To allow the user to choose their camera, microphone and speaker, we'll use the `Dropdown` component from Fluent UI React.
 We'll create new components that will use the hooks we created in `deviceSetupHooks.tsx` to populate the dropdown and update
 the chosen device when the user selects a different device from the dropdown.
-To house these new components, we'll create a file called `DeviceSelectionComponent.tsx` that will export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
+To house these new components, we'll create a file called `DeviceSelectionComponents.tsx` that will export three new components: `CameraSelectionDropdown`, `MicrophoneSelectionDropdown` and `SpeakerSelectionDropdown`.
 
-`DeviceSelectionComponent.tsx`
+`DeviceSelectionComponents.tsx`
 
 ```tsx
 import { Dropdown } from '@fluentui/react';
@@ -285,6 +282,40 @@ const DeviceSelectionDropdown = (props: {
       selectedKey={props.selectedDevice?.id}
       onChange={(_, option) => props.onSelectionChange?.(option?.key as string | undefined)}
     />
+  );
+};
+```
+
+##### Add dropdowns to the Device Setup
+
+The camera, microphone and speaker dropdowns can then be added to the Device Setup component:
+
+`deviceSetup.tsx`
+
+```tsx
+...
+
+import { CameraSelectionDropdown, MicrophoneSelectionDropdown, SpeakerSelectionDropdown } from './DeviceSelectionComponents';
+
+...
+
+export const DeviceSetup = (props: {
+  /** Callback to let the parent component know what the chosen user device settings were */
+  onDeviceSetupComplete: (userChosenDeviceState: { cameraOn: boolean; microphoneOn: boolean }) => void
+}): JSX.Element => {
+  return (
+    <Stack verticalFill verticalAlign="center" horizontalAlign="center" tokens={{ childrenGap: '1rem' }}>
+      <Stack horizontal tokens={{ childrenGap: '2rem' }}>
+        <Stack tokens={{ childrenGap: '1rem' }} verticalAlign="center" verticalFill>
+          <CameraSelectionDropdown />
+          <MicrophoneSelectionDropdown />
+          <SpeakerSelectionDropdown />
+          <Stack.Item styles={{ root: { paddingTop: '0.5rem' }}}>
+            <PrimaryButton text="Continue" onClick={() => props.onDeviceSetupComplete({ cameraOn: false, microphoneOn: false })} />
+          </Stack.Item>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 };
 ```
@@ -434,6 +465,52 @@ const localPreviewContainerMergedStyles = (theme: ITheme): string =>
     background: theme.palette.neutralLighter,
     color: theme.palette.neutralTertiary
   });
+```
+
+##### Add the local preview to the device setup
+
+The local preview component can then be added to the Device Setup:
+
+`deviceSetup.tsx`
+
+```tsx
+...
+
+import { LocalPreview } from './LocalPreview';
+import { useState } from 'react';
+
+...
+
+export const DeviceSetup = (props: {
+  /** Callback to let the parent component know what the chosen user device settings were */
+  onDeviceSetupComplete: (userChosenDeviceState: { cameraOn: boolean; microphoneOn: boolean }) => void
+}): JSX.Element => {
+  const [microphoneOn, setMicrophoneOn] = useState(true);
+  const [cameraOn, setCameraOn] = useState(true);
+
+  return (
+    <Stack verticalFill verticalAlign="center" horizontalAlign="center" tokens={{ childrenGap: '1rem' }}>
+      <Stack horizontal tokens={{ childrenGap: '2rem' }}>
+        <Stack.Item>
+          <LocalPreview
+            cameraOn={cameraOn}
+            microphoneOn={microphoneOn}
+            cameraToggled={setCameraOn}
+            microphoneToggled={setMicrophoneOn}
+          />
+        </Stack.Item>
+        <Stack tokens={{ childrenGap: '1rem' }} verticalAlign="center" verticalFill>
+          <CameraSelectionDropdown />
+          <MicrophoneSelectionDropdown />
+          <SpeakerSelectionDropdown />
+          <Stack.Item styles={{ root: { paddingTop: '0.5rem' }}}>
+            <PrimaryButton text="Continue" onClick={() => props.onDeviceSetupComplete({ cameraOn, microphoneOn })} />
+          </Stack.Item>
+        </Stack>
+      </Stack>
+    </Stack>
+  );
+};
 ```
 
 ### Running the experience

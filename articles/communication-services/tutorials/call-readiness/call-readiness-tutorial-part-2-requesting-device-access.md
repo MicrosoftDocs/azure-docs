@@ -110,7 +110,7 @@ In this component we'll display different prompts to the user based on the devic
 - If we're requesting permissions, we'll display a prompt to the user encouraging them to accept the permissions request.
 - If the permissions are denied, we'll display a prompt to the user informing them that they've denied permissions, and that they'll need to grant permissions to continue.
 
-`CallReadinessCheckComponent`
+`PreCallChecksComponent.tsx`
 
 ```tsx
 import { useEffect, useState } from 'react';

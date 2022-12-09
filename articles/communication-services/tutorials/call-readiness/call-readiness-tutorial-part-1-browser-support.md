@@ -86,7 +86,7 @@ For this quickstart, we'll be modifying files inside of the `src` folder.
 Use the `npm install` command to install the Azure Communication Services Calling SDK and UI Library for JavaScript.
 
 ```bash
-npm install @azure/communication-calling@dev @azure/communication-react@dev
+npm install @azure/communication-calling@dev @azure/communication-chat @azure/communication-react@dev
 ```
 
 For this tutorial, we'll also use FluentUI for creating UI controls:
@@ -170,9 +170,9 @@ In this section, we'll create a page that displays "Preparing your session" whil
 
 ### Preparing Your Session Page
 
-Create a new file called `PreparingYourScreen.tsx` where we'll create a spinner to show to the user while we perform asynchronous checks in the background:
+Create a new file called `PreparingYourSession.tsx` where we'll create a spinner to show to the user while we perform asynchronous checks in the background:
 
-`PreparingYourScreen.tsx`
+`PreparingYourSession.tsx`
 
 ```tsx
 import { useTheme } from '@azure/communication-react';
@@ -229,6 +229,13 @@ In the `App.tsx` and a variable `testState` to track the state of the app and wh
 `App.tsx`
 
 ```tsx
+...
+
+import { useState } from 'react';
+import { PreparingYourSession } from './PreparingYourSession';
+
+...
+
 type TestingState = 'runningPreCallChecks' | 'finished';
 
 const App = (): JSX.Element => {
@@ -363,7 +370,6 @@ const App = (): JSX.Element => {
           <>
             <PreparingYourSession />
             <PreCallChecksComponent
-              callReadinessHelper={callReadinessHelper}
               onTestsSuccessful={() => setTestState('finished')}
             />
           </>
