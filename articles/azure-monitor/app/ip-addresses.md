@@ -21,7 +21,7 @@ Alternatively, you can subscribe to this page as an RSS feed by adding https://g
 
 You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or Status Monitor to send data to the portal.
 
-| Purpose | URL | Type |  IP | Ports |
+| Purpose | URL | Type | IP | Ports |
 | --- | --- | --- | --- | --- |
 | Telemetry | dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com<br/>\*.in.applicationinsights.azure.com<br/><br/> |Global<br/>Global<br/>Global<br/>Regional<br/>|| 443 |
 | Live Metrics | live.applicationinsights.azure.com<br/>rt.applicationinsights.microsoft.com<br/>rt.services.visualstudio.com<br/><br/>{region}.livediagnostics.monitor.azure.com<br/><br/>*Example for {region}: westus2<br/>Find all supported regions in [this table](#addresses-grouped-by-region-azure-public-cloud).*|Global<br/>Global<br/>Global<br/><br/>Regional<br/>|20.49.111.32/29<br/>13.73.253.112/29| 443 |
