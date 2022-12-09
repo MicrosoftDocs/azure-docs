@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.custom: subject-rbac-steps
 ms.topic: tutorial
-ms.date: 09/17/2021
+ms.date: 12/06/2022
 
 # Customer intent: I can call the Data plane REST APIs to perform CRUD operations on Microsoft Purview account.
 ---
@@ -43,7 +43,7 @@ To create a new service principal:
 
    The application ID is the `client_id` value in the sample code.
 
-To use the service principal (application), you need to know the service principal's password which can be found by:
+To use the service principal (application), you need to know the service principal's password that can be found by:
 
 1. From the Azure portal, search for and select **Azure Active Directory**, and then select **App registrations** from the left pane.
 1. Select your service principal (application) from the list.
@@ -69,7 +69,7 @@ Once the new service principal is created, you need to assign the data plane rol
 
 1. Select the **Role assignments** tab.
 
-1. Assign the following roles to the service principal created previously to access various data planes in Microsoft Purview. For detailed steps, see [Assign Azure roles using the Microsoft Purview portal](./how-to-create-and-manage-collections.md#add-role-assignments).
+1. Assign the following roles to the service principal created previously to access various data planes in Microsoft Purview. For detailed steps, see [Assign Azure roles using the Microsoft Purview governance portal](./how-to-create-and-manage-collections.md#add-role-assignments).
 
     * Data Curator role to access Catalog Data plane.
     * Data Source Administrator role to access Scanning Data plane.
