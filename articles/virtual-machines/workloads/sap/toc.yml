@@ -366,8 +366,6 @@
       href: https://blogs.sap.com/2022/08/02/embed-self-hosted-sap-fiori-launchpad-into-microsoft-teams/
     - name: Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba and Microsoft Teams
       href: https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/
-    - name: A hitchhiker's guide to Microsoft Teams and SAP Integration
-      href: https://www.youtube.com/watch?list=PLvqyDwoCkBXZ85LoFrNWv9Mj88TiDAc4g&v=AuCbL4SFKSc
   - name: Microsoft Power Platform
     items:
     - name: Overview of SAP integration
@@ -392,8 +390,6 @@
       href: https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/
     - name: Introduction to the Application Gateway WAF Triage Workbook
       href: https://techcommunity.microsoft.com/t5/azure-network-security-blog/introducing-the-application-gateway-waf-triage-workbook/ba-p/2973341
-    - name: Triage Web Application Firewall false positives for SAP with Azure Workbooks
-      href: https://www.youtube.com/watch?v=kAnWTqKlGGo&t=1530s
   - name: Connect SAP services with Azure AD
     items:
     - name: Secure access with SAP Cloud Identity Services and Azure AD
