@@ -5,7 +5,7 @@ author: mattmcinnes
 ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/29/2022
+ms.date: 12/9/2022
 ms.author: mattmcinnes
 ms.custom: GGAL-freshness822
 ---
