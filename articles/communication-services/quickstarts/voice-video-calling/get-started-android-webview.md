@@ -14,7 +14,7 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-Webview technology is an embedable browser that can be integrated directly into a native mobile application. If you want to develop an ACS calling application directly a native Android application, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
+Webview technology is an embeddable browser that can be integrated directly into a native mobile application. If you want to develop an ACS calling application directly a native Android application, besides using the Azure Communication Calling Android SDK, you can also use Azure Communication Calling Web SDK on Android WebView. In this quickstart, you'll learn how to run webapps developed with the Azure Communication Calling Web SDK in an Android WebView environment.
 
 ## Prerequisites
 
@@ -121,11 +121,11 @@ async function getDeviceLabels() {
 }
 ```
 
-:::image type="content" source="./media/android-webview/get-device-label.png" alt-text="getDeviceLabels() result":::
+:::image type="content" source="./media/android-webview/get-device-label.png" alt-text="Screenshot of getDeviceLabels() result.":::
 
 After you get the mapping between deviceId and label, you can use it to relate the label with the `id` from `DeviceManager.getCameras()` or `DeviceManager.getMicrophones()`
 
-:::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround":::
+:::image type="content" source="./media/android-webview/device-name-workaround.png" alt-text="Screenshot showing the device name workaround.":::
 
 ## Next steps
 
