@@ -10,7 +10,7 @@ ms.topic: include
 ms.workload: identity
 ms.date: 12/09/2022
 ms.author: jmprieur
-ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api
+ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api, engagement-fy23
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
 ---
 
@@ -31,7 +31,7 @@ First, register the web API in your Azure AD tenant and add a scope by following
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
-1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
+1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
 1. Select **Register**.
 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting **Save and continue**, and then enter the following details:
    - **Scope name**: `access_as_user`
