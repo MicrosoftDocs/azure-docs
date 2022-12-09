@@ -204,7 +204,10 @@ For example, the action named **Get file content using path** gets the content f
 
 ## Troubleshooting
 
-For more information, see [SFTP-SSH managed connector reference - Troubleshooting](/connectors/sftpwithssh/#troubleshooting).
+For more information, see the following documentation: 
+
+- [SFTP-SSH managed connector reference - Troubleshooting](/connectors/sftpwithssh/#troubleshooting).
+- [SFTP built-in connector reference - Troubleshooting](/azure/logic-apps/connectors/built-in/reference/sftp#troubleshooting)
 
 ## Next steps
 
