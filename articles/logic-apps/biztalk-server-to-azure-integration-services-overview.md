@@ -408,7 +408,7 @@ Beyond the core XML transformations, BizTalk Server also provides encoding and d
 
 - EDI schemas
 
-  EDI document schemas define the body of an EDI transaction document type. For your logic app workflows, all BizTalk EDI schemas in the [Microsoft Integration GitHub repository](https://github.com/microsoft/Integration/tree/master/BizTalk Server/Schema) are publicly available for you to use.
+  EDI document schemas define the body of an EDI transaction document type. For your logic app workflows, all BizTalk EDI schemas in the [Microsoft Integration GitHub repository](https://github.com/microsoft/Integration/tree/master/BizTalk%20Server/Schema) are publicly available for you to use.
 
 - Standard logic apps
 
