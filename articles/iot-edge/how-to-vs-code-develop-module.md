@@ -29,8 +29,8 @@ Visual Studio Code supports writing IoT Edge modules in the following programmin
 
 Azure IoT Edge supports the following device architectures:
 
-* X64
-* ARM32
+* AMD64
+* ARM32v7
 * ARM64
 
 For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).

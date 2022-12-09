@@ -97,21 +97,21 @@ Use the Docker documentation to install on your development machine:
 
 ## Set up VS Code and tools
 
-Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine.
+* Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine.
 
 ::: zone pivot="iotedge-dev-cli"
 
-Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
+* Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
 
-    ```cmd
-    pip3 install iotedgedev
-    ```
+   ```cmd
+   pip3 install iotedgedev
+   ```
 
-    > [!NOTE]
-    >
-    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
-    >
-    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+   > [!NOTE]
+   >
+   > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
+   >
+   > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
 
 ::: zone-end
 
@@ -138,9 +138,9 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
    ![View devices in your IoT hub](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
 
 
-[!INCLUDE [iot-edge-create-container-registry](../../includes/iot-edge-create-container-registry.md)]
-
 ::: zone-end
+
+[!INCLUDE [iot-edge-create-container-registry](../../includes/iot-edge-create-container-registry.md)]
 
 ## Create a new module project
 
@@ -170,53 +170,17 @@ In the Visual Studio Code command palette, search for and select **Azure IoT Edg
 
 The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to simple commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that contains a default module and all the required configuration files.
 
-1. Create a directory for your solution. 
+Create a directory for your solution.
 
-    ```bash
-    mkdir c:\dev\iotedgesolution
-    ```
+```bash
+mkdir c:\dev\iotedgesolution
+```
 
-1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
+Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for with a default C# module named *filtermodule*.
 
-    # [C\#](#tab/csharp)
-    
-    ```bash
-    iotedgedev solution init --template csharp
-    ```
-    
-    The solution includes a default C# module named *filtermodule*.
-    
-    # [Azure Functions](#tab/azfunctions)
-    
-    ```bash
-    iotedgedev solution init --template csharpfunction
-    ```
-
-    # [C](#tab/c)
-    
-    ```bash
-    iotedgedev solution init --template c
-    ```
-
-    # [Java](#tab/java)
-    
-    ```bash
-    iotedgedev solution init --template java
-    ```
-
-    # [Node.js](#tab/node)
-
-    ```bash
-    iotedgedev solution init --template nodejs
-    ```
-
-    # [Python](#tab/python)
-
-    ```bash
-    iotedgedev solution init --template python
-    ```
-
-    ---
+```bash
+iotedgedev solution init --template csharp
+```
 
 The *iotedgedev solution init* script prompts you to complete several steps including:
 
@@ -241,14 +205,50 @@ After solution creation, take a moment to familiarize yourself with the files th
 ### Set IoT Edge runtime version
 
 The IoT Edge extension defaults to the latest stable version of the IoT Edge runtime when it creates your deployment assets. Currently, the latest stable version is 1.4. If you're developing modules for devices running the 1.1 long-term support version or the earlier 1.0 version, update the IoT Edge runtime version in Visual Studio Code to match.
+::: zone pivot="iotedge-dev-ext"
 
 1. Select **View** > **Command Palette**.
-
 1. In the command palette, enter and run the command **Azure IoT Edge: Set default IoT Edge runtime version**.
-
 1. Choose the runtime version that your IoT Edge devices are running from the list.
 
-After selecting a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
+    Currently, the extension doesn't include a selection for the latest runtime versions. If you want to set the runtime version higher than 1.2, open *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+       "edgeAgent": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+       ...
+       "edgeHub": {
+       ...
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+       ...
+    ```
+
+1. After you select a new runtime version, your deployment manifest is dynamically updated to reflect the change to the runtime module images.
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-cli"
+
+1. In Visual Studio Code, open *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, if you want to use the IoT Edge runtime version 1.4, change the following lines in the deployment manifest file:
+
+    ```json
+    ...
+    "systemModules": {
+        "edgeAgent": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
+        ...
+        "edgeHub": {
+        ...
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+        ...
+    ```
+
+::: zone-end
 
 ### Provide your registry credentials to the IoT Edge agent
 
@@ -270,11 +270,15 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 
 Currently, Visual Studio Code can develop C# modules for Linux AMD64 and ARM32v7 devices. You need to select which architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64.
 
+::: zone pivot="iotedge-dev-ext"
+
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window.
 
    ![Select architecture icon in side bar](./media/tutorial-develop-for-linux/select-architecture.png)
 
-2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**.
+1. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so we'll keep the default **amd64**.
+
+::: zone-end
 
 ### Review the sample code
 
