@@ -71,7 +71,7 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 
 #### Step 3: Configure your Visual Studio project
 
-1. Extract the .zip file to a local folder that's close to the root of the disk. For example, extract to *C:\Azure-Samples*.
+1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
    It is recommended to extract the archive into a directory near the root of the drive to avoid errors caused by path length limitations on Windows.
 
