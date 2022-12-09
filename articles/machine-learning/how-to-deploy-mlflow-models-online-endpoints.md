@@ -22,7 +22,7 @@ ms.devlang: azurecli
 > * [v1](./v1/how-to-deploy-mlflow-models.md)
 > * [v2 (current version)](how-to-deploy-mlflow-models-online-endpoints.md)
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate an scoring script or an environment. This characteristic is usually referred as __no-code deployment__. 
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to an [online endpoint](concept-endpoints.md) for real-time inference. When you deploy your MLflow model to an online endpoint, you don't need to indicate a scoring script or an environment. This characteristic is usually referred as __no-code deployment__. 
 
 For no-code-deployment, Azure Machine Learning 
 
@@ -30,18 +30,18 @@ For no-code-deployment, Azure Machine Learning
 * Provides a MLflow base image/curated environment that contains the following items:
     * [`azureml-inference-server-http`](how-to-inference-server-http.md) 
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
-    * An scoring script to perform inference.
+    * A scoring script to perform inference.
 
 > [!NOTE]
 > For information about inputs format supported and limitation in online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference).
 
 > [!WARNING]
-> Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If your case, either enable egress connectivity or provide an scoring script as indicated at [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployment-with-a-scoring-script).
+> Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployment-with-a-scoring-script).
 
 
 ## About this example
 
-This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
+This example shows how you can deploy an MLflow model to an online endpoint to perform predictions. This example uses an MLflow model based on the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset contains ten baseline variables, age, sex, body mass index, average blood pressure, and six blood serum measurements obtained from n = 442 diabetes patients, as well as the response of interest, a quantitative measure of disease progression one year after baseline (regression).
 
 The model has been trained using an `scikit-learn` regressor and all the required preprocessing has been packaged as a pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
@@ -56,7 +56,7 @@ cd azureml-examples/cli/endpoints/online
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have a MLflow model registered in your workspace.  Particularly, this examples will register a model trained for the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease).
+* You must have a MLflow model registered in your workspace.  Particularly, this example will register a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
 
     * If you don't have an MLflow formatted model, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).
 
@@ -186,7 +186,7 @@ Follow these steps to deploy an MLflow model to an online endpoint for running i
 
     # [Studio](#tab/studio)
 
-    *You will perform this steps in the deployment stage.*
+    *You will perform this step in the deployment stage.*
 
 1. Let's create the endpoint:
     
@@ -202,7 +202,7 @@ Follow these steps to deploy an MLflow model to an online endpoint for running i
 
     # [Studio](#tab/studio)
 
-    *You will perform this steps in the deployment stage.*
+    *You will perform this step in the deployment stage.*
 
 1. Create a configuration for the deployment. 
     
@@ -226,7 +226,7 @@ Follow these steps to deploy an MLflow model to an online endpoint for running i
 
     # [Studio](#tab/studio)
 
-    *You will perform this steps in the deployment stage.*
+    *You will perform this step in the deployment stage.*
 
 1. Let's create the deployment:
     
