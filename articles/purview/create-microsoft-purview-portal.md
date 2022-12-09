@@ -52,16 +52,21 @@ For more information about the governance capabilities of Microsoft Purview, for
       > [!Note]
       > The Microsoft Purview, formerly Azure Purview, does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
-1. You can choose to enable the optional Event Hubs namespace by selecting the toggle. It's disabled by default. Enable this option if you want to be able to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka**:
-    - [Use Event Hubs and .NET to send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
+1. You can choose a name for your managed resource group. Microsoft Purview will create a managed storage account in this group that it will use during its processes.
+
+1. On  the **Networking** tab you can choose to connect to all networks, or to use a private endpoints. For more information and configuration options, see our [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
+
+1. On **Configuration** tab you can choose to configure Event Hubs namespaces to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka.
+    - [Steps to configure Event Hubs namespaces](manage-kafka-dotnet.md#configure-event-hubs)
+    - [Send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
     - [Publish and consume events for Microsoft Purview with Atlas Kafka](concept-best-practices-automation.md#streaming-apache-atlas)
 
-    :::image type="content" source="media/create-catalog-portal/event-hubs-namespace.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted under the Managed resources section of the Create Microsoft Purview account page.":::
+    :::image type="content" source="media/create-catalog-portal/configure-kafka-event-hubs.png" alt-text="Screenshot showing the Event Hubs configuration page in the Create Microsoft Purview account window.":::
 
     >[!NOTE]
-    > This option can be enabled or disabled after you have created your account in **Managed Resources** under settings on your Microsoft Purview account page in the Azure Portal.
+    > These options can be configured after you have created your account in **Kafka configuration** under settings on your Microsoft Purview account page in the Azure Portal.
     >
-    > :::image type="content" source="media/create-catalog-portal/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure Portal.":::
+    > :::image type="content" source="media/create-catalog-portal/select-kafka-configuration.png" alt-text="Screenshot showing Kafka configuration option on the Microsoft Purview account page in the Azure Portal.":::
 
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created account will appear in the list on your **Microsoft Purview accounts** page.
 

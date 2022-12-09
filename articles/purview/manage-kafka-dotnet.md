@@ -45,7 +45,7 @@ To send or receive Atlas Kafka topics messages, you'll need to configure at leas
 To authenticate with your Event Hubs, you can either use:
 
 - Microsoft Purview managed identity
-- [User assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)
+- [User assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) - only available when configuring namespaces after account creation.
 
 One of these identities will need **at least contributor permissions on your Event Hubs** to be able to configure them to use with Microsoft Purview.
 
