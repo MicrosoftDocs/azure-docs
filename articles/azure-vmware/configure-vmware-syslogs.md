@@ -42,15 +42,15 @@ Make sure you have an Azure VMware Solution private cloud with access to the vCe
 
 A Log Analytics workspace:
 
-• Contains your AVS private cloud logs.
+* Contains your AVS private cloud logs.
 
-• Is the workspace from which you can take desired actions, such as querying for logs.
+* Is the workspace from which you can take desired actions, such as querying for logs.
 
 In this section, you’ll:
 
-• Configure a Log Analytics workspace
+* Configure a Log Analytics workspace
 
-• Create a diagnostic setting in your private cloud to send your logs to this workspace
+* Create a diagnostic setting in your private cloud to send your logs to this workspace
 
 #### Create a resource
 
