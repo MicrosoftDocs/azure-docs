@@ -21,7 +21,7 @@ The following table lists summarizes details on updating each component:
 |--|--|--|--|--|
 |Cluster Kubernetes version (minor) upgrade|Roughly every three months|Yes| Automatic, Manual|[Upgrade an AKS cluster][upgrade-cluster]|
 |Cluster Kubernetes version upgrade to supported patch version|Approximately weekly. To determine the latest applicable version in your region, see the [AKS release tracker][release-tracker]|Yes|Automatic, Manual|[Upgrade an AKS cluster][upgrade-cluster]|
-|Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual||
+|Node image version upgrade|**Linux**: weekly<br>**Windows**: monthly|Yes|Automatic, Manual|[AKS node image upgrade][node-image-upgrade]|
 |Security patches and hot fixes for node images|As-necessary||||
 
 ## Automatic upgrades
@@ -41,6 +41,7 @@ For more information what cluster operations may trigger specific upgrade events
 [planned-maintenance]: ./planned-maintenance.md
 [upgrade-cluster]: ./upgrade-cluster.md
 [release-tracker]: ./release-tracker.md
+[node-image-upgrade]: ./node-image-upgrade.md
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
 [upgrade-patch]: ./supported-kubernetes-versions,md#kubernetes-version-support-policy
 [operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
