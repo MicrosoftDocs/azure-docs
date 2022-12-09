@@ -100,27 +100,27 @@ This issue can happen when the name of your custom environment uses terms reserv
 *Applies to: Azure CLI & Python SDK v1 (Deprecated)*
 
 To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
-1. Base image
+- Base image
     - Provide base image name, repository from which to pull it, and credentials if needed
     - Provide a conda specification
-2. Base Dockerfile 
+- Base Dockerfile 
     - Provide a Dockerfile
     - Provide a conda specification
-3. Docker build context
+- Docker build context
     - Provide the location of the build context (URL)
     - The build context must contain at least a Dockerfile, but may contain other files as well
 
 *Applies to: Azure CLI & Python SDK v2*
 
 To create a new environment, you must use one of the following approaches:
-1. Docker image
+- Docker image
     - Provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry
     - [Sample here](https://aka.ms/azureml/environment/create-env-docker-image-v2)
-2. Docker build context
+- Docker build context
     - Specify the directory that will serve as the build context
     - The directory should contain a Dockerfile and any other files needed to build the image
     - [Sample here](https://aka.ms/azureml/environment/create-env-build-context-v2)
-3. Conda specification 
+- Conda specification 
     - You must specify a base Docker image for the environment; the conda environment will be built on top of the Docker image provided
     - Provide the relative path to the conda file
     - [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
