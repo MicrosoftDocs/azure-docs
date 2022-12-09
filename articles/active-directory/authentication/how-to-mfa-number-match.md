@@ -55,21 +55,26 @@ Combined registration with Microsoft Authenticator will require number matching.
 
 ### AD FS adapter
 
-AD FS adapter will require number matching on supported versions of Windows Server. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. The AD FS adapter supports number matching only after installing one of the updates in the following table. Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
+AD FS adapter will require number matching on supported versions of Windows Server. On earlier versions, users will continue to see the **Approve**/**Deny** experience and won’t see number matching until you upgrade. The AD FS adapter supports number matching only after installing one of the updates in the following table. 
+
+>[!NOTE]
+>Unpatched versions of Windows Server don't support number matching. Users will continue to see the **Approve**/**Deny** experience and won't see number matching unless these updates are applied.
 
 | Version | Update |
 |---------|--------|
 | Windows Server 2022 | [November 9, 2021—KB5007205 (OS Build 20348.350)](https://support.microsoft.com/topic/november-9-2021-kb5007205-os-build-20348-350-af102e6f-cc7c-4cd4-8dc2-8b08d73d2b31) |
 | Windows Server 2019 | [November 9, 2021—KB5007206 (OS Build 17763.2300)](https://support.microsoft.com/topic/november-9-2021-kb5007206-os-build-17763-2300-c63b76fa-a9b4-4685-b17c-7d866bb50e48) |
 
-
 ### NPS extension
 
-Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). NPS extension versions beginning with 1.0.1.40 support number matching. 
+Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Beginning with version 1.2.2131.2, users are asked to enter a One-Time Passcode (OTP) by default when number matching is enabled. 
 
-Because the NPS extension can't show a number, a user who is enabled for number matching will still be prompted to **Approve**/**Deny**. However, you can create a registry key that overrides push notifications to ask a user to enter a One-Time Passcode (OTP). The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in the Authenticator app, other software tokens, and so on. 
+The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in Microsoft Authenticator, other software tokens, and so on. For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
-If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+>[!NOTE]
+>If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the *Approve**/**Deny** experience 
+
+Earlier versions of the NPS extension beginning with 1.0.1.40 also support number matching, but you need to create a registry key that overrides push notifications to ask a user to enter an OTP. If you don't create the registry key, or you run a version prior to 1.0.1.40, users who are enabled for number matching will be prompted to **Approve**/**Deny**.
 
 To create the registry key that overrides push notifications:
 
@@ -79,6 +84,8 @@ To create the registry key that overrides push notifications:
    Key: OVERRIDE_NUMBER_MATCHING_WITH_OTP
    Value = TRUE
 1. Restart the NPS Service. 
+
+If you are using Remote Desktop Gateway, the user account must be configured for phone verification or Microsoft Authenticator push notifications. If neither option is configured, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE. 
 
 ### Apple Watch unsupported for number matching
 
