@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial - Develop module for Linux devices using Azure IoT Edge'
+title: Develop module for Linux devices using Azure IoT Edge tutorial
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/18/2022
+ms.date: 12/09/2022
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
+zone_pivot_groups: iotedge-dev
 ---
 
 # Tutorial: Develop IoT Edge modules with Linux containers
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Set up your development machine.
-> * Use the IoT Edge tools for Visual Studio Code to create a new project.
+> * Use the IoT Edge tools to create a new project.
 > * Build your project as a [Docker container](/dotnet/architecture/microservices/container-docker-introduction) and store it in an Azure container registry.
 > * Deploy your code to an IoT Edge device.
 
@@ -96,30 +97,50 @@ Use the Docker documentation to install on your development machine:
 
 ## Set up VS Code and tools
 
+Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine.
+
+::: zone pivot="iotedge-dev-cli"
+
+Install the Python-based [Azure IoT Edge Dev Tool](https://pypi.org/project/iotedgedev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (3.6/3.7/3.8) and Pip3](https://www.python.org/) and then install the IoT Edge Dev Tool (iotedgedev) by running this command in your terminal.
+
+    ```cmd
+    pip3 install iotedgedev
+    ```
+
+    > [!NOTE]
+    >
+    > If you have multiple Python including pre-installed Python 2.7 (for example, on Ubuntu or macOS), make sure you are using `pip3` to install *IoT Edge Dev Tool (iotedgedev)*.
+    >
+    > For more information setting up your development machine, see [iotedgedev development setup](https://github.com/Azure/iotedgedev/blob/main/docs/environment-setup/manual-dev-machine-setup.md).
+
+::: zone-end
+
+::: zone pivot="iotedge-dev-ext"
+
 Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
 
-1. Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine.
+1. In VS Code, select **View** > **Extensions**.
 
-2. Once the installation is finished, select **View** > **Extensions**.
+1. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
 
-3. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
+1. Select **Install**. Each included extension installs individually.
 
-4. Select **Install**. Each included extension installs individually.
+1. When the extensions are done installing, open the command palette by selecting **View** > **Command Palette**.
 
-5. When the extensions are done installing, open the command palette by selecting **View** > **Command Palette**.
+1. In the command palette, search for and select **Azure: Sign in**. Follow the prompts to sign in to your Azure account.
 
-6. In the command palette, search for and select **Azure: Sign in**. Follow the prompts to sign in to your Azure account.
+1. In the command palette again, search for and select **Azure IoT Hub: Select IoT Hub**. Follow the prompts to select your Azure subscription and IoT hub.
 
-7. In the command palette again, search for and select **Azure IoT Hub: Select IoT Hub**. Follow the prompts to select your Azure subscription and IoT hub.
+1. Open the explorer section of Visual Studio Code by either selecting the icon in the activity bar on the left, or by selecting **View** > **Explorer**.
 
-8. Open the explorer section of Visual Studio Code by either selecting the icon in the activity bar on the left, or by selecting **View** > **Explorer**.
-
-9. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT hub that you selected through the command palette.
+1. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT hub that you selected through the command palette.
 
    ![View devices in your IoT hub](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
 
 
 [!INCLUDE [iot-edge-create-container-registry](../../includes/iot-edge-create-container-registry.md)]
+
+::: zone-end
 
 ## Create a new module project
 
@@ -128,6 +149,8 @@ The Azure IoT Tools extension provides project templates for all supported IoT E
 For this tutorial, we use the C# module template because it is the most commonly used template.
 
 ### Create a project template
+
+::: zone pivot="iotedge-dev-ext"
 
 In the Visual Studio Code command palette, search for and select **Azure IoT Edge: New IoT Edge Solution**. Follow the prompts and use the following values to create your solution:
 
@@ -141,7 +164,71 @@ In the Visual Studio Code command palette, search for and select **Azure IoT Edg
 
    ![Provide Docker image repository](./media/tutorial-develop-for-linux/image-repository.png)
 
-Once your new solution loads in the Visual Studio Code window, take a moment to familiarize yourself with the files that it created:
+::: zone-end
+
+::: zone pivot="iotedge-dev-cli"
+
+The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure IoT Edge development to simple commands driven by environment variables. It gets you started with IoT Edge development with the IoT Edge Dev Container and IoT Edge solution scaffolding that contains a default module and all the required configuration files.
+
+1. Create a directory for your solution. 
+
+    ```bash
+    mkdir c:\dev\iotedgesolution
+    ```
+
+1. Use the **iotedgedev solution init** command to create a solution and set up your Azure IoT Hub. Use the following command to create an IoT Edge solution for a specified development language.
+
+    # [C\#](#tab/csharp)
+    
+    ```bash
+    iotedgedev solution init --template csharp
+    ```
+    
+    The solution includes a default C# module named *filtermodule*.
+    
+    # [Azure Functions](#tab/azfunctions)
+    
+    ```bash
+    iotedgedev solution init --template csharpfunction
+    ```
+
+    # [C](#tab/c)
+    
+    ```bash
+    iotedgedev solution init --template c
+    ```
+
+    # [Java](#tab/java)
+    
+    ```bash
+    iotedgedev solution init --template java
+    ```
+
+    # [Node.js](#tab/node)
+
+    ```bash
+    iotedgedev solution init --template nodejs
+    ```
+
+    # [Python](#tab/python)
+
+    ```bash
+    iotedgedev solution init --template python
+    ```
+
+    ---
+
+The *iotedgedev solution init* script prompts you to complete several steps including:
+
+* Authenticate to Azure
+* Choose an Azure subscription
+* Choose or create a resource group
+* Choose or create an Azure IoT Hub
+* Choose or create an Azure IoT Edge device
+
+::: zone-end
+
+After solution creation, take a moment to familiarize yourself with the files that it created:
 
 * The **.vscode** folder contains a file called **launch.json**, which is used for debugging modules.
 * The **modules** folder contains a folder for each module in your solution. Right now, that should only be **SampleModule**, or whatever name you gave to the module. The SampleModule folder contains the main program code, the module metadata, and several Docker files.
