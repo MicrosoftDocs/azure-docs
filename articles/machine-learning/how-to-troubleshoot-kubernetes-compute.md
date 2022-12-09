@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot Kubernetes Compute for Machine Learning Tasks
-description: Learn how to troubleshoot some common Kubernetes compute errors for training jobs and model deployments. 
+description: Learn how to troubleshoot common Kubernetes compute errors for training jobs and model deployments. 
 titleSuffix: Azure Machine Learning
 author: jiaochenlu
 ms.author: chenlujiao
-ms.reviewer: 
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/11/2022
@@ -14,19 +14,19 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 # Troubleshoot Kubernetes Compute
 
-In this article, you'll learn how to troubleshoot some common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
+In this article, you'll learn how to troubleshoot common problems you may encounter with using [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) for training jobs and model deployments.
 
 ## Inference Guide
 
 ### How to check sslCertPemFile and sslKeyPemFile is correct?
-Below commands could be used to run sanity check for your cert and key. Expect the second command return "RSA key ok" without prompting you for password.
+Use the commands below to run a baseline check for your cert and key. This is to allow for any known errors to be surfaced. Expect the second command to return "RSA key ok" without prompting you for password.
 
 ```bash
 openssl x509 -in cert.pem -noout -text
 openssl rsa -in key.pem -noout -check
 ```
 
-Below commands could be used to verify whether sslCertPemFile and sslKeyPemFile are matched:
+Run the commands below to verify whether sslCertPemFile and sslKeyPemFile are matched:
 
 ```bash
 openssl x509 -in cert.pem -noout -modulus | md5sum
@@ -35,7 +35,7 @@ openssl rsa -in key.pem -noout -modulus | md5sum
 
 ### Kubernetes Compute errors
 
-Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guideline:
+Below is a list of error types in **compute scope** that you might encounter when using Kubernetes compute to create online endpoints and online deployments for real-time model inference, which you can trouble shoot by following the guidelines:
 
 
 * [ERROR: GenericComputeError](#error-genericcomputeerror)
@@ -52,8 +52,8 @@ Failed to get compute information.
 
 This error should occur when system failed to get the compute information from the Kubernetes cluster. You can check the following items to troubleshoot the issue:
 1. Check the Kubernetes cluster status. If the cluster isn't running, you need to start the cluster first.
-1. Check if the Kubernetes cluster is health.
-    1. You can check if the cluster health check report any issues, for example, the cluster is not reachable.
+1. Check the Kubernetes cluster health.
+    1. You can view the cluster health check report for any issues, for example, if the cluster is not reachable.
     1. You can go to your workspace portal to check the compute status.
 1. Check if the instance types is information is correct. You can check the supported instance types in the [Kubernetes compute](./how-to-attach-kubernetes-to-workspace.md) documentation.
 1. Try to detach and reattach the compute to the workspace if applicable.
@@ -71,7 +71,7 @@ Cannot find Kubernetes compute.
 
 This error should occur when:
 1. The system can't find the compute when create/update new online endpoint/deployment. 
-1. The compute of existing online endpoints/deployments has been removed. 
+1. The compute of existing online endpoints/deployments have been removed. 
 
 You can check the following items to troubleshoot the issue:
 1. Try to recreate the endpoint and deployment. 
@@ -102,16 +102,16 @@ The error message is as follows:
 Failed to connect to Kubernetes cluster: <message>
 ```
 
-This error should occur when the system  failed to connect to the Kubernetes cluster for unknown reason. You can check the following items to troubleshoot the issue:
+This error should occur when the system  failed to connect to the Kubernetes cluster for an unknown reason. You can check the following items to troubleshoot the issue:
 
-For AKS cluster:
+For AKS clusters:
 1. Check if the AKS cluster is shut down. 
     1. If the cluster isn't running, you need to start the cluster first.
 1. Check if the AKS cluster has enabled selected network by using authorized IP ranges. 
     1. If the AKS cluster has enabled authorized IP ranges, please make sure all the **AzureML control plane IP ranges** have been enabled for the AKS cluster. More information you can see this [document](how-to-deploy-kubernetes-extension.md#limitations).
 
 
-For both AKS cluster and Azure Arc enabled Kubernetes cluster:
+For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
 1. Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
 
 #### ERROR: ClusterNotReachable 
@@ -122,14 +122,14 @@ The error message is as follows:
 The Kubernetes cluster is not reachable. 
 ```
 
-This error should occur when the system can't connect to cluster. You can check the following items to troubleshoot the issue:
+This error should occur when the system can't connect to a cluster. You can check the following items to troubleshoot the issue:
 
 
-For AKS cluster:
+For AKS clusters:
 1. Check if the AKS cluster is shut down. 
     1. If the cluster isn't running, you need to start the cluster first.
 
-For both AKS cluster and Azure Arc enabled Kubernetes cluster:
+For an AKS cluster or an Azure Arc enabled Kubernetes cluster:
 1. Check if the Kubernetes API server is accessible by running `kubectl` command in cluster. 
 
 
@@ -139,7 +139,7 @@ For both AKS cluster and Azure Arc enabled Kubernetes cluster:
 
 #### AzureML Kubernetes job failed. E45004
 
-The error message is like below:
+If the error message is:
 
 ```bash
 AzureML Kubernetes job failed. E45004:"Training feature is not enabled, please enable it when install the extension."
@@ -149,13 +149,13 @@ Please check whether you have `enableTraining=True` set when doing the AzureML e
 
 #### Unable to mount data store workspaceblobstore. Give either an account key or SAS token
 
-If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this issue should occur when the compute is not specified with a managed identity, because the credential less machine learning workspace default storage account is not supported right now for training jobs. 
+If you need to access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, this issue should occur when the compute is not specified with a managed identity. This is because machine learning workspace default storage account without any credentials is not supported for training jobs. 
 
 To mitigate this issue, you can assign Managed Identity to the compute in compute attach step, or you can assign Managed Identity to the compute after it has been attached. More details could be found at [Assign Managed Identity to the compute target](how-to-attach-kubernetes-to-workspace.md#assign-managed-identity-to-the-compute-target).
 
 #### Unable to upload project files to working directory in AzureBlob because the authorization failed
 
-The error message is like below:
+If the error message is:
 
 ```bash
 Unable to upload project files to working directory in AzureBlob because the authorization failed. Most probable reasons are:
@@ -164,11 +164,11 @@ Unable to upload project files to working directory in AzureBlob because the aut
 
 You can check the following items to troubleshoot the issue:
 1. Make sure the storage account has enabled the exceptions of “Allow Azure services on the trusted service list to access this storage account” and the workspace is in the resource instances list. 
-1. And make sure the workspace has system assigned managed identity.
+1. Make sure the workspace has a system assigned managed identity.
 
 ### Encountered an error when attempting to connect to the Azure ML token service
 
-The error message is like below:
+If the error message is:
 
 ```bash
 AzureML Kubernetes job failed. 400:{"Msg":"Encountered an error when attempting to connect to the Azure ML token service","Code":400}
@@ -179,13 +179,13 @@ You can follow [Private Link troubleshooting section](#private-link-issue) to ch
 
 #### Job pod get stuck in Init state
 
-When the job runs longer than you expected and you find job pods get stuck in Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched,` it's a known issue because AzureML extension doesn't support download mode for input data currently. 
+If the job runs longer than you expected and if you find that your job pods are getting stuck in an Init state with this warning `Unable to attach or mount volumes: *** failed to get plugin from volumeSpec for volume ***-blobfuse-*** err=no volume plugin matched`,  the issue might be occurring because AzureML extension doesn't support download mode for input data. 
 
-Change to mount mode for your input data to mitigate the issue.
+To resolve this issue, change to mount mode for your input data.
 
 #### AzureML Kubernetes job failed
 
-The error message is like below:
+If the error message is:
 
 ```bash
 AzureML Kubernetes job failed. 137:PodPattern matched: {"containers":[{"name":"training-identity-sidecar","message":"Updating certificates in /etc/ssl/certs...\n1 added, 0 removed; done.\nRunning hooks in /etc/ca-certificates/update.d...\ndone.\n * Serving Flask app 'msi-endpoint-server' (lazy loading)\n * Environment: production\n   WARNING: This is a development server. Do not use it in a production deployment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:12342/ (Press CTRL+C to quit)\n","code":137}]}
@@ -208,4 +208,4 @@ If they set up private link from VNet to workspace correctly, DNS lookup will re
 curl https://{workspace_id}.workspace.westcentralus.api.azureml.ms/metric/v2.0/subscriptions/{subscription}/resourceGroups/{resource_group}/providers/Microsoft.MachineLearningServices/workspaces/{workspace_name}/api/2.0/prometheus/post -X POST -x {proxy_address} -d {} -v -k
 ```
 
-If they configured proxy and workspace with private link correctly, they can see it's trying to connect to an internal IP, and get response with http 401 that is expected as you don't provide token.
+If the proxy and workspace with private link is configured correctly, you can see it's trying to connect to an internal IP. This will return a response with http 401, which is expected when you don't provide token.

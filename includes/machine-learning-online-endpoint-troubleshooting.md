@@ -63,11 +63,8 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     The response contains an __address__. This address should be in the range provided by the virtual network
     
     > [!NOTE]
-    >
     > For Kubernetes online endpoint, the endpoint hostname should be the **CName** (domain name) which has been specified in your Kubernetes cluster. 
-    >
     > If it is an HTTP endpoint, the IP address will be contained in the endpoint URI which you can get directly in the Studio UI.
-    >
     > More ways to get the IP address of the endpoint can be found in [Secure Kubernetes online endpoint](../articles/machine-learning/how-to-secure-Kubernetes-online-endpoint.md#update-your-dns-with-an-fqdn).
 
 1. If the host name isn't resolved by the `nslookup` command:
@@ -93,7 +90,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     **For Kubernetes online endpoint**, 
 
     1. Check the DNS configuration in Kubernetes cluster.
-    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) work as expected, use the following the command:
+    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following the command:
         
         ```bash
         kubectl exec -it deploy/azureml-fe -- /bin/bash

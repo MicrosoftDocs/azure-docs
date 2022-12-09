@@ -91,7 +91,7 @@ The front-end component (azureml-fe) that routes incoming inference requests to 
 > When using a cluster configured as __dev-test__, the self-scaler is **disabled**. Even for FastProd/DenseProd clusters, Self-Scaler is only enabled when telemetry shows that it's needed.
 
 > [!NOTE]
-> The maximum allowed request payload is 100MB.
+> The maximum request payload is 100MB.
 
 Azureml-fe scales both up (vertically) to use more cores, and out (horizontally) to use more pods. When making the decision to scale up, the time that it takes to route incoming inference requests is used. If this time exceeds the threshold, a scale-up occurs. If the time to route incoming requests continues to exceed the threshold, a scale-out occurs.
 

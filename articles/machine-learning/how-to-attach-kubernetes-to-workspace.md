@@ -93,11 +93,11 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 A common challenge for developers is the management of secrets and credentials used to secure communication between different components of a solution. [Managed identities](../active-directory/managed-identities-azure-resources/overview.md) eliminate the need for developers to manage credentials.
 
-To access Azure Container Registry (ACR) for Docker image, and Storage Account for training data, attach Kubernetes compute with system-assigned or user-assigned managed identity enabled.
+To access Azure Container Registry (ACR) for a Docker image, and a Storage Account for training data, attach Kubernetes compute with a system-assigned or user-assigned managed identity enabled.
 
 ### Assign managed identity
 - You can assign a managed identity to the compute in the compute attach step.
-- If the compute has already been attached, you can update the settings of to use a managed identity in Azure Machine Learning studio.
+- If the compute has already been attached, you can update the settings to use a managed identity in Azure Machine Learning studio.
     - Go to [Azure Machine Learning studio](https://ml.azure.com). Select __Compute__, __Attached compute__, and select your attached compute.
     - Edit managed identity.
 
@@ -107,7 +107,7 @@ Azure offers a couple of ways to assign roles to a managed identity.
 - [Use Azure CLI to assign roles](../role-based-access-control/role-assignments-cli.md)
 - [Use Azure PowerShell to assign roles](../role-based-access-control/role-assignments-powershell.md)
 
-If you use the Azure portal to assign roles, and you have system-assigned managed identity, select User, group, or service principal. Click Select members, find and search the identity name formatted as `<workspace name>/computes/<compute target name>`.
+If you are using the Azure portal to assign roles and have a **system-assigned managed identity**, **Select User**, **Group Principal** or **Service Principal**, you can search for the identity name by selecting **Select members**. The identity name needs to be formatted as: `<workspace name>/computes/<compute target name>`.
 
 If you have user-assigned managed identity, select **Managed identity** to find the target identity.
 
