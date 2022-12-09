@@ -85,7 +85,6 @@ This project can be run in either Visual Studio or Visual Studio for Mac and can
 
    In the code:
    - `Enter_the_Application_Id_Here` is the application (client) ID for the registered application.
-        To find the values for the application (client) ID and the directory (tenant) ID, go to the app's **Overview** page in the Azure portal.
    - Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
    - Replace `Enter_the_Client_Secret_Here` with the client secret that you created in step 1.
     To generate a new key, go to the **Certificates & secrets** page.
