@@ -3,7 +3,7 @@ title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Ser
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 12/09/2022
 author: mgoedtel
 
 ---
@@ -30,7 +30,7 @@ Migration from in-tree to CSI is supported using two migration approaches:
 
 ### Migrate by creating a static volume
 
-Using this option, you create a PV by statically assigning `claimRef` to a new PVC that you'll create later and specify the `volumeName` for the *PersistentVolumeClaim*.
+Using this option, you create a PV by statically assigning `claimRef` to a new PVC that you'll create later, and specify the `volumeName` for the *PersistentVolumeClaim*.
 
 :::image type="content" source="media/csi-migrate-disk-volumes/csi-migration-static-pv-workflow.png" alt-text="Static volume workflow diagram.":::
 
@@ -77,11 +77,13 @@ The following are important considerations to evaluate:
 
     Replace **pvName** with the name of your selected PersistentVolume.
 
-2. Create new PV. First get a list of all of the PVCs in namespace sorted by **creationTimestamp**.  
+2. Get a list of all of the PVCs in namespace sorted by **creationTimestamp** by running the following command. Set the namespace using the `--namespace` argument along with the actual cluster namespace.
 
     ```bash
     kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     ```
+
+    This is step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When running the *CreatePV.sh* script, two of the parameters are start time and end time, with the idea that the script only migrates the PVCs created in that time frame.
 
 3. Create a file named `CreatePV.sh` and copy in the following Bash code:
 
@@ -171,44 +173,27 @@ The following are important considerations to evaluate:
           done
     ```
 
-4. Execute the script **CreatePV.sh** by running the following command:
+4. To create a new PersistentVolume for all PersistentVolumes in the namespace, execute the script **CreatePV.sh** with the following parameters:
+
+   * `namespace` - The cluster namespace
+   * `sourceStorageClass` - The in-tree storage driver-based StorageClass
+   * `targetCSIStorageClass` - Blah
+   * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
+   * `startTimeStamp` - Provide a start time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+   * `endTimeStamp` - Provide an end time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+
+   The script **CreatePV.sh**, does the following:
+
+   * Creates a new PersistentVolume for all PersistentVolumes in the namespace for a StorageClass.
+   * Creates new PersistentVolumeClaims using the new PersistentVolumes
+   * Configure new PVC name, for example `existing-pvc-csi`.
+   * Creates a new PVC with the PV name you specify.
 
     ```bash
     ./CreatePV.sh <namespace> <sourceIntreeStorageClass> <targetCSIStorageClass> <startTimestamp> <endTimestamp>
     ```
 
 5. Update your application to use the new PVC.
-
-6. Create a file named **Cleanup.sh** and copy in the following Bash code:
-
-    ```bash
-    # Patch the Persistent Volume in case ReclaimPolicy is Delete
-
-    #!/bin/sh
-    namespace=$1
-    while IFS= read -r line
-    do
-    echo "$line"
-    pvc="$(cut -d',' -f1 <<<"$line")"
-    pv="$(cut -d',' -f2 <<<"$line")"
-    echo $pv
-    reclaimPolicy="$(kubectl get pv "$(cut -d':' -f2 <<<"$pv")" -o jsonpath='{.spec.persistentVolumeReclaimPolicy}')"
-    if [[ $reclaimPolicy == "Retain" ]]; then
-    echo $deleting $pvc
-    kubectl delete pvc "$(cut -d':' -f2 <<<"$pvc")" -n $1
-    echo $deleting $pv
-    kubectl delete pv "$(cut -d':' -f2 <<<"$pv")"
-    else
-    echo "Update the reclaim policy before deleting PV $pv"
-    fi
-    done < "$2"
-    ```
-
-7. Execute the script **Cleanup.sh** to delete the original PVC and PV by running the following command:
-
-    ```bash
-    ./Cleanup.sh <namespace> <filename>
-    ```  
 
 ## Migrate by creating a dynamic volume
 
@@ -256,25 +241,27 @@ The following are important considerations to evaluate:
 
 Before proceeding, verify the following:
 
-* Application should be stopped and all in memory data should be flushed to disk.
-* `VolumeSnapshot` class should exist with the default value set to `custom-azure-disk-snapshot-sc`, as shown in the following example YAML:
+* For specific workloads where data is written to memory before being written to disk, the application should be stopped and to allow in-memory data to be flushed to disk.
+* `VolumeSnapshot` class should exist as shown in the following example YAML:
 
     ```yml
     apiVersion: snapshot.storage.k8s.io/v1
     kind: VolumeSnapshotClass
     metadata:
-      name: custom-azure-disk-snapshot-sc
+      name: custom-disk-snapshot-sc
     driver: disk.csi.azure.com
     deletionPolicy: Delete
     parameters:
       incremental: "false"
     ```
 
-1. Get list of all the PVCs in namespace sorted by *creationTimestamp* by running the following command:
+1. Get list of all the PVCs in a specified namespace sorted by *creationTimestamp* by running the following command. Set the namespace using the `--namespace` argument along with the actual cluster namespace.
 
     ```bash
-    kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
+    kubectl get pvc --namespace <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     ```
+
+    This is step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When running the *MigrateCSI.sh* script, two of the parameters are start time and end time, with the idea that the script only migrates the PVCs created in that time frame.
 
 2. Create a file named `MigrateToCSI.sh` and copy in the following Bash code:
 
@@ -296,7 +283,7 @@ Before proceeding, verify the following:
         if [ $i -eq 1 ]; then
           i=$((i+1))
         else
-    pvcCreationTime=$(kubectl get pvc $pvc -o jsonpath='{.metadata.creationTimestamp}')
+    pvcCreationTime=$(kubectl get pvc -n $namespace $pvc -o jsonpath='{.metadata.creationTimestamp}')
     if [[ $pvcCreationTime > $starttimestamp ]]; then
     if [[ $endtimestamp > $pvcCreationTime ]]; then
         pv="$(kubectl get pvc $pvc -n $namespace -o jsonpath='{.spec.volumeName}')"
@@ -369,15 +356,25 @@ Before proceeding, verify the following:
           fi
       fi
       fi
+        done
     ```
 
-3. Execute the script **MigrateToCSI.sh**, which does the following:
+3. To migrate the disk volumes, execute the script **MigrateToCSI.sh** with the following parameters:
+
+   * `namespace` - The cluster namespace
+   * `sourceStorageClass` - The in-tree storage driver-based StorageClass
+   * `targetCSIStorageClass` - Blah
+   * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
+   * `startTimeStamp` - Provide a start time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+   * `endTimeStamp` - Provide an end time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+
+    The script **MigrateToCSI.sh**, does the following:
 
     * Creates a full disk snapshot using the Azure CLI
     * Creates `VolumesnapshotContent`
     * Creates `VolumeSnapshot`
     * Creates a new PVC from `VolumeSnapshot`
-    * Creates a new file with the filename `<namespace>-timestamp`, which contains list of all old resources that needs to be cleaned up.
+    * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
     ./MigrateToCSI.sh <namespace> <sourceStorageClass> <TargetCSIstorageClass> <VolumeSnapshotClass> <startTimestamp> <endTimestamp>
