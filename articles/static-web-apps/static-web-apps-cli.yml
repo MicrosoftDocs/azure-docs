@@ -219,7 +219,7 @@ directCommands:
   name: swa build
   summary: Builds the application. If you have a Node.js application, it will install dependencies first.
   description: >-
-    Common use cases include: installing dependencies for the front-end app and API and run the build commands for both, only building the front-end or API project if the other doesn't have a build step.
+    Common use cases include: installing dependencies for the front-end app and API and running the build commands for both, only building the front-end or API project if the other doesn't have a build step.
   syntax: >-
     swa build
               [--app-location]
