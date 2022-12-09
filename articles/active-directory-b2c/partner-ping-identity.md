@@ -20,25 +20,25 @@ In this tutorial, learn how to extend the capabilities of Azure AD business-to-c
 
 Many e-commerce sites and web applications exposed to the internet are deployed behind proxy systems, or a reverse-proxy system. These proxy systems pre-authenticate, enforce policy, and route traffic. Typical scenarios include protecting web applications from inbound web traffic and providing a uniform session management across distributed server deployments.
 
-Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide the significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
+Generally, configurations include an authentication translation layer that externalizes the authentication from the web application. Reverse proxies provide the authenticated user context to the web applications, such as a header value in clear or digest form. The applications aren't using industry standard tokens such as Security Assertion Markup Language (SAML), OAuth, or Open ID Connect (OIDC). Instead, the proxy provides authentication context and maintains the session with the end-user agent such as browser or native application. As a service running as a man-in-the-middle, proxies provide significant session control. The proxy service is efficient and scalable, not a bottleneck for applications behind the proxy service. The diagram is a reverse-proxy implementation and communications flow.
 
   ![Reverse proxy implementation](./media/partner-ping/reverse-proxy.png)
 
 ## Modernization
 
-If you want to modernize an identity platform in such configurations, there are customer concerns:
+If you want to modernize an identity platform in such configurations, there might be customer concerns:
 
 - Decouple the effort to modernize applications from modernizing an identity platform
 - Environments with modern and legacy authentication, consuming from the modernized identity service provider
   - Drive the end-user experience consistency
   - Provide a single sign-in experience across applications
 
-The approach in this tutorial is Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
+In answer to these concerns, the approach in this tutorial is an Azure AD B2C, [PingAccess](https://www.pingidentity.com/en/software/pingaccess.html#:~:text=%20Modern%20Access%20Managementfor%20the%20Digital%20Enterprise%20,consistent%20enforcement%20of%20security%20policies%20by...%20More), and [PingFederate](https://www.pingidentity.com/en/software/pingfederate.html) integration.
 
 ## Shared environment
 
 A technically viable, and cost-effective, solution is to configure the reverse proxy system to use the modernized identity system, delegating authentication.  
-Proxies support the modern authentication protocols and use the redirect based (passive) authentication that sends users to the new identity provider (IdP).
+Proxies support the modern authentication protocols and use the redirect-based (passive) authentication that sends users to the new identity provider (IdP).
 
 ### Azure AD B2C as an identity provider
 
@@ -57,7 +57,7 @@ Configure PingAccess with OIDC, OAuth2, or SAML for authentication with an upstr
 
   ![PingAccess with O I D C implementation](./media/partner-ping/authorization-flow.png)
 
-In a typical Azure AD B2C deployment with policies exposing IdPs, there is a challenge. Because, PingAccess can be configured with one upstream IdP.  
+In a typical Azure AD B2C deployment with policies exposing IdPs, there is a challenge. Because, PingAccess is configured with one upstream IdP.  
 
 ### PingFederate federation proxy
 
@@ -75,7 +75,7 @@ To get started, you'll need:
 
 - An Azure subscription
   - If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
+- An [Azure AD B2C tenant](/tutorial-create-tenant.md) linked to your Azure subscription
 - PingAccess and PingFederate deployed in Docker containers or on Azure virtual machines (VMs)
 
 ## Connectivity and communication
@@ -97,76 +97,60 @@ You can use basic user flows or advanced Identity Enterprise Framework (IEF) pol
 
 In the advanced policies, configuration includes the IssuanceClaimPattern metadata element to AuthorityWithTfp value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
 
-## Configure PingAccess/PingFederate
+## Configure PingAccess and PingFederate
 
-The following section covers the required configuration.
-The diagram illustrates the overall user flow for the integration.
+Use the instrcutions in the following sections to configure PingAccess and PingFederate. See the following diagram of the overall integration user flow.
 
-![image shows the PingAccess and PingFederate integration](./media/partner-ping/pingaccess.png)
+  ![PingAccess and PingFederate integration](./media/partner-ping/pingaccess.png)
 
 ### Configure PingFederate as the token provider
 
-To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess is established followed by connectivity from PingAccess to PingFederate.  
-See [this article](https://docs.pingidentity.com/bundle/pingaccess-61/page/zgh1581446287067.html) for configuration steps.
+To configure PingFederate as the token provider for PingAccess, ensure connectivity from PingFederate to PingAccess. Confirm connectivity from PingAccess to PingFederate.  
+
+Go to pingidentity.com for, [Configure PingFederate as the token provider for PingAccess](https://docs.pingidentity.com/bundle/pingaccess-61/page/zgh1581446287067.html).
 
 ### Configure a PingAccess application for header-based authentication
 
-A PingAccess application must be created for the target web application for header-based authentication. Follow these steps.
+Use the following instructions to create a PingAccess application for the target web application, for header-based authentication. 
 
-#### Step 1 – Create a virtual host
+#### Create a virtual host
 
 >[!IMPORTANT]
->To configure for this solution, virtual host need to be created for every application. For more information regarding configuration considerations and their impacts, see [Key considerations](https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html).
+>Create a virtual host for every application. For more guidance, see [What can I configure with PingAccess?]([https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html](https://docs.pingidentity.com/bundle/pingaccess-71/page/kkj1564006722708.html).
 
-Follow these steps to create a virtual host:
+To create a virtual host:
 
-1. Go to **Settings** > **Access** > **Virtual Hosts**
+1. Go to **Settings** > **Access** > **Virtual Hosts**.
+2. Select **Add Virtual Host**.
+3. For **Host**, enter the FQDN portion of the Application URL.
+4. For **Port**, enter **443**.
+5. Select **Save**.
 
-2. Select **Add Virtual Host**
+#### Create a web session
 
-3. In the Host field, enter the FQDN portion of the Application URL
+To create a web session:
 
-4. In the Port field, enter **443**
-
-5. Select **Save**
-
-#### Step 2 – Create a web session
-
-Follow these steps to create a web session:
-
-1. Navigate to **Settings** > **Access** > **Web Sessions**
-
-2. Select **Add Web Session**
-
-3. Provide a **Name** for the web session.
-
-4. Select the **Cookie Type**, either **Signed JWT** or **Encrypted JWT**
-
-5. Provide a unique value for the **Audience**
-
-6. In the **Client ID** field, enter the **Azure AD Application ID**
-
-7. In the **Client Secret** field, enter the **Key** you generated for the application in Azure AD.
-
-8. Optional - You can create and use custom claims with the Microsoft Graph API. If you choose to do so, select **Advanced** and deselect the **Request Profile** and **Refresh User Attributes** options. For more information on using custom claims, see [use a custom claim](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
-
+1. Navigate to **Settings** > **Access** > **Web Sessions**.
+2. Select **Add Web Session**.
+3. Enter a **Name** for the web session.
+4. Select the **Cookie Type**: **Signed JWT** or **Encrypted JWT**.
+5. Enter a unique value for **Audience**.
+6. For **Client ID**, enter the **Azure AD Application ID**.
+7. For **Client Secret**, enter the **Key** you generated for the application in Azure AD.
+8. (Optional) Create and use custom claims with the Microsoft Graph API: Select **Advanced**. Deselect **Request Profile** and **Refresh User Attributes**. Learn more about custom claims: [Header-based single sign-on for on-premises apps with Azure AD App Proxy](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 9. Select **Save**
 
-#### Step 3 – Create identity mapping
+#### Create identity mapping
 
 >[!NOTE]
->Identity mapping can be used with more than one application if more than one application is expecting the same data in the header.
+>You can use identity mapping with more than one application, if they're expecting the same data in the header.
 
-Follow these steps to create identity mapping:
+To create identity mapping:
 
-1. Go to **Settings** > **Access** > **Identity Mappings**
-
-2. Select **Add Identity Mapping**
-
-3. Specify a **Name**
-
-4. Select the identity-mapping **Type of Header Identity Mapping**
-
+1. Go to **Settings** > **Access** > **Identity Mappings**.
+2. Select **Add Identity Mapping**.
+3. Specify a **Name*. 
+4. Select the identity-mapping **Type of Header Identity Mapping**.
 5. In the **Attribute-Mapping** table, specify the required mappings. For example,
 
    Attribute name | Header name |
@@ -179,7 +163,7 @@ Follow these steps to create identity mapping:
 
 6. Select **Save**
 
-#### Step 4 – Create a site
+#### Create a site
 
 >[!NOTE]
 >In some configurations, it is possible that a site may contain more than one application. A site can be used with more than one application, where appropriate.
