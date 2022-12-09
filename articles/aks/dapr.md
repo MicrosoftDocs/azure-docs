@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 09/08/2022
+ms.date: 11/07/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
@@ -145,29 +145,42 @@ When installing the Dapr extension, use the flag value that corresponds to your 
 
 Create the Dapr extension, which installs Dapr on your AKS or Arc-enabled Kubernetes cluster. For example, for an AKS cluster:
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr
 ```
 
 You have the option of allowing Dapr to auto-update its minor version by specifying the `--auto-upgrade-minor-version` parameter and setting the value to `true`:
 
-```azure-cli-interactive
+```azurecli
 --auto-upgrade-minor-version true
+```
+
+When configuring the extension, you can choose to install Dapr from a particular `--release-train`. Specify one of the two release train values:
+
+| Value    | Description                               |
+| -------- | ----------------------------------------- |
+| `stable` | Default.                                  |
+| `dev`    | Early releases, can contain experimental features. Not suitable for production. |
+
+For example:
+
+```azurecli
+--release-train stable
 ```
 
 ## Configuration settings
 
 The extension enables you to set Dapr configuration options by using the `--configuration-settings` parameter. For example, to provision Dapr with high availability (HA) enabled, set the `global.ha.enabled` parameter to `true`:
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -204,11 +217,11 @@ For a list of available options, see [Dapr configuration][dapr-configuration-opt
 
 The same command-line argument is used for installing a specific version of Dapr or rolling back to a previous version. Set `--auto-upgrade-minor-version` to `false` and `--version` to the version of Dapr you wish to install. If the `version` parameter is omitted, the extension will install the latest version of Dapr. For example, to use Dapr X.X.X: 
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version false \
 --version X.X.X
@@ -218,11 +231,11 @@ az k8s-extension create --cluster-type managedClusters \
 
 In some configurations, you may only want to run Dapr on certain nodes. You can limit the extension by passing a `nodeSelector` in the extension configuration. If the desired `nodeSelector` contains `.`, you must escape them from the shell and the extension. For example, the following configuration will install Dapr to only nodes with `topology.kubernetes.io/zone: "us-east-1c"`:
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -232,11 +245,11 @@ az k8s-extension create --cluster-type managedClusters \
 
 For managing OS and architecture, use the [supported versions](https://github.com/dapr/dapr/blob/b8ae13bf3f0a84c25051fcdacbfd8ac8e32695df/docker/docker.mk#L50) of the `global.daprControlPlaneOs` and `global.daprControlPlaneArch` configuration:
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
@@ -245,15 +258,51 @@ az k8s-extension create --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneArch=amd64”
 ```
 
+## Set automatic CRD updates
+
+Starting with Dapr version 1.9.2, CRDs are automatically upgraded when the extension upgrades. To disable this setting, you can set `hooks.applyCrds` to `false`. 
+
+```azurecli
+az k8s-extension upgrade --cluster-type managedClusters \
+--cluster-name myAKSCluster \
+--resource-group myResourceGroup \
+--name dapr \
+--extension-type Microsoft.Dapr \
+--auto-upgrade-minor-version true \
+--configuration-settings "global.ha.enabled=true" \
+--configuration-settings "dapr_operator.replicaCount=2" \
+--configuration-settings "global.daprControlPlaneOs=linux” \
+--configuration-settings "global.daprControlPlaneArch=amd64” \
+--configuration-settings "hooks.applyCrds=false"
+```
+
+## Configure the Dapr release namespace
+
+You can configure the release namespace. The Dapr extension gets installed in the `dapr-system` namespace by default. To override it, use `--release-namespace`. Include the cluster `--scope` to redefine the namespace.
+
+```azurecli
+az k8s-extension create \
+--cluster-type managedClusters \
+--cluster-name dapr-aks \
+--resource-group dapr-rg \
+--name my-dapr-ext \
+--extension-type microsoft.dapr \
+--release-train stable \
+--auto-upgrade false \
+--version 1.9.2 \
+--scope cluster \
+--release-namespace dapr-custom
+```
+
 ## Show current configuration settings
 
 Use the `az k8s-extension show` command to show the current Dapr configuration settings:  
 
-```azure-cli-interactive
+```azurecli
 az k8s-extension show --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension
+--name dapr
 ```
 
 ## Update configuration settings
@@ -262,9 +311,8 @@ az k8s-extension show --cluster-type managedClusters \
 > Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension, applicable to the following settings:
 > * `global.ha.*`
 > * `dapr_placement.*`
-
-> [!NOTE]
-> High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
+>
+> HA is enabled enabled by default. Disabling it requires deletion and recreation of the extension.
 
 To update your Dapr configuration settings, recreate the extension with the desired state. For example, assume we've previously created and installed the extension using the following configuration:
 
@@ -272,7 +320,7 @@ To update your Dapr configuration settings, recreate the extension with the desi
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \  
 --configuration-settings "global.ha.enabled=true" \
@@ -285,14 +333,14 @@ To update the `dapr_operator.replicaCount` from two to three, use the following 
 az k8s-extension create --cluster-type managedClusters \
 --cluster-name myAKSCluster \
 --resource-group myResourceGroup \
---name myDaprExtension \
+--name dapr \
 --extension-type Microsoft.Dapr \
 --auto-upgrade-minor-version true \
 --configuration-settings "global.ha.enabled=true" \
 --configuration-settings "dapr_operator.replicaCount=3"
 ```
 
-## Set the outbound proxy for Dapr extension for Azure Arc on-prem
+## Set the outbound proxy for Dapr extension for Azure Arc on-premises
 
 If you want to use an outbound proxy with the Dapr extension for AKS, you can do so by:
 
@@ -318,8 +366,8 @@ Troubleshoot Dapr errors via the [common Dapr issues and solutions guide][dapr-t
 
 If you need to delete the extension and remove Dapr from your AKS cluster, you can use the following command: 
 
-```azure-cli-interactive
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name myDaprExtension
+```azurecli
+az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name dapr
 ```
 
 ## Next Steps

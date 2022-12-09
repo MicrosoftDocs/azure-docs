@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 10/28/2022
+ms.date: 12/02/2022
 ---
 
 # Move operation support for resources
@@ -93,6 +93,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DigitalTwins](#microsoftdigitaltwins)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.Elastic](#microsoftelastic)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
@@ -960,7 +961,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccountnames | No | No | No |
 > | databaseaccounts | **Yes** | **Yes** | No |
 
 ## Microsoft.DomainRegistration
@@ -972,6 +972,13 @@ Jump to a resource provider namespace:
 > | generatessorequest | No | No | No |
 > | topleveldomains | No | No | No |
 > | validatedomainregistrationinformation | No | No | No |
+
+## Microsoft.Elastic
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | monitors | No | No | No |
 
 ## Microsoft.EnterpriseKnowledgeGraph
 

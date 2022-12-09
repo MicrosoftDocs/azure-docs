@@ -18,7 +18,7 @@ Azure Front Door also supports using managed identities to access Key Vault cert
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> Once you enable managed identities in Azure Front Door and grant proper permissions to access Key Vault, Azure Front Door will always use managed identities to access Key Vault for customer certificate. 
+> Once you enable managed identity in Azure Front Door and grant proper permissions to access Key Vault, Azure Front Door will always use managed identity to access Key Vault for customer certificate. **Make sure you add the managed identity permission to allow access to Key Vault after enabling**. If you fail to complete this step, custom certificate autorotation and adding new certificates will fail without permissions to Key Vault. If you disable managed identity, Azure Front Door will fallback to use the original configured AAD App. This is not the recommended solution.
 > 
 > You can grant two types of identities to an Azure Front Door profile:
 > * A **system-assigned** identity is tied to your service and is deleted if your service is deleted. The service can have only **one** system-assigned identity.

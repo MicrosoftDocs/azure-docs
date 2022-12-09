@@ -1,7 +1,7 @@
 ---
 title: How to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier
 description: Shows you how to use VMware Spring Cloud Gateway with Azure Spring Apps Enterprise tier to route requests to your applications.
-author: karlerickson
+author: KarlErickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
@@ -49,6 +49,7 @@ The route configuration definition includes the following parts:
 - OpenAPI URI: This URI references an OpenAPI specification. You can use a public URI endpoint such as `https://petstore3.swagger.io/api/v3/openapi.json` or a constructed URI such as `http://<app-name>/{relative-path-to-OpenAPI-spec}`, where *`<app-name>`* is the name of an application in Azure Spring Apps that includes the API definition. Both OpenAPI 2.0 and OpenAPI 3.0 specs are supported. The specification will also be shown in the API portal if enabled.
 - routes: A list of route rules to direct traffic to apps and apply filters.
 - protocol: The backend protocol of the application to which Spring Cloud Gateway routes traffic. The protocol's supported values are `HTTP` or `HTTPS`, and the default is `HTTP`. To secure traffic from Spring Cloud Gateway to your HTTPS-enabled application, you need to set the protocol to `HTTPS` in your route configuration.
+- app level routes: There are three route properties that you can configure at the app level to avoid repetition across all or most of the routes in the route configuration. The concrete routing rule will override the app level routing rule for the same property. You can define the following properties at the app level: `predicates`, `filters`, and `ssoEnabled`. If you use the `OpenAPI URI` feature to define routes, the only app level routing property to support is `filters`.
 
 Use the following command to create a route config. The `--app-name` value should be the name of an app hosted in Azure Spring Apps that the requests will route to.
 
@@ -63,7 +64,14 @@ The following example shows a JSON file that's passed to the `--routes-file` par
 
 ```json
 {
-   "open_api": {
+   "predicates": [
+      "<app-level-predicate-of-route>",
+   ],
+   "ssoEnabled": false,
+   "filters": [
+      "<app-level-filter-of-route>",
+   ],
+   "openApi": {
       "uri": "<OpenAPI-URI>"
    },
    "protocol": "<protocol-of-routed-app>",

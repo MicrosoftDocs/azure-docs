@@ -44,6 +44,8 @@ items:
       href: packet-core-dashboards.md
   - name: Security
     href: security.md
+  - name: Disconnected mode
+    href: disconnected-mode.md
 - name: How-to guides
   items:
   - name: Private mobile networks
@@ -62,6 +64,8 @@ items:
       href: create-a-site.md
     - name: Create a site - ARM template
       href: create-site-arm-template.md
+    - name: Delete a site
+      href: delete-a-site.md
   - name: Packet core
     items:
     - name: Modify a packet core instance

@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 11/17/2022
 #Customer intent: I need to understand the Azure Red Hat OpenShift support policies for OpenShift 4.0.
 ---
 
@@ -129,8 +129,12 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Series|Size|vCPU|Memory: GiB|
 |-|-|-|-|
 |NC4asT4v3|Standard_NC4as_T4_v3|4|28|
+|NC6sV3|Standard_NC6s_v3|6|112|
 |NC8asT4v3|Standard_NC8as_T4_v3|8|56|
+|NC12sV3|Standard_NC12s_v3|12|224|
 |NC16asT4v3|Standard_NC16as_T4_v3|16|110|
+|NC24sV3|Standard_NC24s_v3|24|448|
+|NC24rsV3|Standard_NC24rs_v3|24|448|
 |NC64asT4v3|Standard_NC64as_T4_v3|64|440|
 
 ### Memory and storage optimized

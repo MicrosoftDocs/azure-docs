@@ -2001,6 +2001,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/computer-vision/how-to/identity-analyze-video.md",
+            "redirect_url": "/azure/cognitive-services/computer-vision/overview-identity",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/csharp-detect-sdk.md",
             "redirect_url": "/azure/cognitive-services/face/quickstarts/csharp-sdk",
             "redirect_document_id": false
@@ -4989,6 +4994,11 @@
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md ",
             "redirect_url": "/azure/cognitive-services/speech-service/migrate-v3-0-to-v3-1",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/speech-service/long-audio-api.md",
+            "redirect_url": "/azure/cognitive-services/speech-service/batch-synthesis",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",
