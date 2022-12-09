@@ -70,7 +70,7 @@ Web applications that sign in users by using the Microsoft identity platform are
   - `https://login.microsoftonline.de/` for Azure AD Germany
   - `https://login.partner.microsoftonline.cn/common` for Azure AD China operated by 21Vianet
 - The audience in the tenant ID (`TenantId`). The options vary depending on whether your app is single tenant or multitenant.
-  - `TenantId` for a GUID obtained from the Azure portal to sign in users in your organization
+  - `TenantId` for a GUID obtained from the Azure portal to sign in users in your organization. You can also use a domain name.
   - `organizations` to sign in users in any work or school account
   - `common` to sign in users with any work or school account or Microsoft personal account
   - `consumers` to sign in users with a Microsoft personal account only
