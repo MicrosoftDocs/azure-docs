@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 12/09/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -126,7 +126,7 @@ No, only the [global Azure cloud](https://azure.microsoft.com/global-infrastruct
 
 ### I use IoT Central. Do I need to update my devices?
 
-Yes, IoT Central uses IoT Hub in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
+Yes, IoT Central uses both IoT Hub and DPS in the backend. The TLS migration will affect your solution, and you need to update your devices to maintain connection.
 
 ### How long will it take my devices to reconnect?
 
@@ -175,7 +175,7 @@ If your device disconnects but doesn't reconnect after the migration, try the fo
 
 * Check that your DNS resolution and handshake request completed without any errors.
 
-* Verify that the device has the DigiCert Global Root G2 certificate installed in the certificate store.
+* Verify that the device has both the DigiCert Global Root G2 certificate and the Baltimore certificate installed in the certificate store.
 
 * Use the following Kusto query to identify connection activity for your devices. For more information, see [Kusto Query Language (KQL) overview](/azure/data-explorer/kusto/query/).
 
