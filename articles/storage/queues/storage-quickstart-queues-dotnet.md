@@ -71,11 +71,7 @@ dotnet add package Azure.Storage.Queues
 From the project directory:
 
 1. Open the `Program.cs` file in your editor
-1. Remove the `Console.WriteLine("Hello, World");` statement
-1. Add `using` directives
-1. Update the `Main` method declaration to [support async code](/dotnet/csharp/whats-new/csharp-7#async-main)
-
-Here's the code:
+1. Update the existing code to match the following:
 
 ```csharp
 using Azure;
@@ -84,18 +80,25 @@ using Azure.Storage.Queues.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace QueuesQuickstartV12
-{
-    class Program
-    {
-        static async Task Main(string[] args)
-        {
-        }
-    }
-}
+Console.WriteLine("Hello, World!");
+
 ```
 
+## Authenticate to Azure
+
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+## [Passwordless](#tab/passwordless)
+
+[!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
+
+[!INCLUDE [cosmos-nosql-create-assign-roles](../../../includes/passwordless/cosmos-nosql/cosmos-nosql-create-assign-roles.md)]
+
+## [Connection String](#tab/connection-string)
+
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
+
+---
 
 ## Object model
 
@@ -119,7 +122,7 @@ Use the following .NET classes to interact with these resources:
 
 These example code snippets show you how to perform the following actions with the Azure Queue Storage client library for .NET:
 
-- [Get the connection string](#get-the-connection-string)
+- [Authenticate and create the client](#authenticate-using-defaultazurecredential)
 - [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
@@ -127,6 +130,54 @@ These example code snippets show you how to perform the following actions with t
 - [Receive messages from a queue](#receive-messages-from-a-queue)
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
+
+## [Passwordless](#tab/passwordless)
+
+### Authenticate using DefaultAzureCredential
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
+You can authenticate to Cosmos DB for NoSQL using `DefaultAzureCredential` by adding the `Azure.Identity` NuGet package to your application. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+
+```dotnetcli
+dotnet add package Azure.Identity
+```
+
+Inside the `Program.cs` file, add a using directive for the `Azure.Identity` namespace.
+
+```csharp
+using Azure.Identity
+```
+
+### Create a queue using a QueueClient
+
+Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
+
+> [!IMPORTANT]
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+
+Create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class. Then, call the [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
+
+Add this code to the end of the `Main` method:
+
+```csharp
+// Create a unique name for the queue
+string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
+string storageAccountName = "<your-storage-account-name>";
+
+Console.WriteLine($"Creating queue: {queueName}");
+
+// Instantiate a QueueClient to create and manipulate the queue
+// TODO: Replace the storageAccountName and queueName placeholders
+QueueClient queueClient = new QueueClient(
+    new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
+    new DefaultAzureCredential());
+
+// Create the queue
+await queueClient.CreateAsync();
+```
+
+## [Connection String](#tab/connection-string)
 
 ### Get the connection string
 
@@ -146,7 +197,7 @@ Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart samp
 string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue
+### Create a queue using a QueueClient
 
 Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
 
@@ -170,6 +221,8 @@ QueueClient queueClient = new QueueClient(connectionString, queueName);
 // Create the queue
 await queueClient.CreateAsync();
 ```
+
+---
 
 ### Add messages to a queue
 
