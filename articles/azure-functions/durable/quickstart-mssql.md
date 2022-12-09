@@ -40,7 +40,7 @@ If this is not the case, we suggest you start with one of the following articles
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on Nuget](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means including a reference to it in your `.csproj` file and building the project.
+You will need to install the latest version of the `Microsoft.DurableTask.SqlServer.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.DurableTask.SqlServer.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
 
 You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
@@ -48,7 +48,7 @@ You can install the Extension using the following [Azure Functions Core Tools CL
 func extensions install --package Microsoft.DurableTask.SqlServer.AzureFunctions --version <latestVersionOnNuget>
 ```
 
-For more information on installing Azure Functions Extensions via the Core Tools CLI, please see [this guide](../functions-run-local.md#install-extensions).
+For more information on installing Azure Functions Extensions via the Core Tools CLI, see [this guide](../functions-run-local.md#install-extensions).
 
 ## Set up your Database
 
@@ -84,7 +84,7 @@ docker run --name mssql-server -e 'ACCEPT_EULA=Y' -e "SA_PASSWORD=$pw" -e "MSSQL
 docker exec -d mssql-server /opt/mssql-tools/bin/sqlcmd -S . -U sa -P "$pw" -Q "CREATE DATABASE [$dbname] COLLATE $collation"
 ```
 
-After running these commands, you should have a local SQL Server running on Docker and listening on port `1443`. If port `1443` were to conflict with another service, you can re-run these commands after changing the variable `$port` to a different value.
+After running these commands, you should have a local SQL Server running on Docker and listening on port `1443`. If port `1443` conflicts with another service, you can re-run these commands after changing the variable `$port` to a different value.
 
 > [!NOTE]
 > To stop and delete a running container, you may use `docker stop <containerName>` and `docker rm <containerName>` respectively. You may use these commands to re-create your container, and to stop if after you're done with this quickstart. For more assistance, try `docker --help`.
@@ -173,7 +173,7 @@ The snippet above is a fairly *minimal* `host.json` example. Later, you may want
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the function app is running, it updates runtime state in the configured SQL database. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server, you can view the state of your orchestration instances with the following command:
+While the function app is running, it updates runtime state in the configured SQL database. You can test this is working as expected using your SQL query interface. For example, in our docker-based local SQL server container, you can view the state of your orchestration instances with the following `docker` command:
 
 ```bash
 docker exec -it mssql-server /opt/mssql-tools/bin/sqlcmd -S . -d $dbname -U sa -P "$pw"  -Q "SELECT TOP 5 InstanceID, RuntimeStatus, CreatedTime, CompletedTime FROM dt.Instances"
@@ -189,7 +189,7 @@ InstanceID                           RuntimeStatus        CreatedTime           
 
 ## Run your app on Azure
 
-To run your app in Azure, you will need a publicly accessible SQL Server. You can obtain one by creating an Azure SQL database.
+To run your app in Azure, you will need a publicly accessible SQL Server instance. You can obtain one by creating an Azure SQL database.
 
 ### Create an Azure SQL database
 
@@ -207,7 +207,7 @@ Below is an example of the portal view for obtaining the Azure SQL connection st
 
 ![An Azure connection string as found in the portal](./media/quickstart-mssql/mssql-azure-db-connection-string.png)
 
-In the portal, the connection string will have the database's password removed: it is replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your *Server name* in the "Essentials" view, and clicking "Reset password" in the resulting page. Below are some guiding images.
+In the Azure portal, the connection string will have the database's password removed: it is replaced with `{your_password}`. Replace that segment with the password you used to create the database earlier in this section. If you forgot your password, you may reset it by navigating to the database's blade in the Azure portal, selecting your *Server name* in the "Essentials" view, and clicking "Reset password" in the resulting page. Below are some guiding images.
 
 ![The Azure SQL database view, with the Server name option highlighted](./media/quickstart-mssql/mssql-azure-reset-pass-1.png)
 
@@ -235,4 +235,4 @@ After running a simple orchestrator, you should see at least one result, as show
 
 ![Azure SQL Query editor results for the SQL query provided.](./media/quickstart-mssql/mssql-azure-db-check.png)
 
-For more information about the Durable Task MSSQL backend architecture, configuration, and workload behavior, please see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
+For more information about the Durable Task MSSQL backend architecture, configuration, and workload behavior, see the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/).
