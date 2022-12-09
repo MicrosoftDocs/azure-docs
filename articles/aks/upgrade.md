@@ -15,8 +15,6 @@ An Azure Kubernetes Service (AKS) cluster will periodically need to be updated t
 - *Cluster Kubernetes version*: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important you upgrade to apply the latest security releases and to get access to the latest Kubernetes features.
 - *Node image version*: AKS regularly provides new node images with the latest OS and runtime updates. It's beneficial to upgrade your nodes' images regularly to ensure support for the latest AKS features and to apply essential security patches and hot fixes.
 
-These components can be updated manually or automatically by making use of features such as [auto upgrade][auto-upgrade] and [planned maintenance windows][planned-maintenance].
-
 The following table lists summarizes details on updating each component:
 
 |Component name|Frequency of upgrade|Planned Maintenance supported|Supported operation methods|Documentation link|
@@ -30,9 +28,11 @@ The following table lists summarizes details on updating each component:
 
 Automatic upgrades can be performed through [auto upgrade channels][auto-upgrade] or via [GitHub Actions][gh-actions-upgrade].
 
-## Next steps
+## Planned maintenance
 
-Learn about [auto upgrade][auto-upgrade] and [planned maintenance][planned-maintenance].
+ [Planned maintenance][planned-maintenance] allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system pods, helping to minimize workload impact.
+
+## Next steps
 
 For more information what cluster operations may trigger specific upgrade events, see the [AKS operator's guide on patching][operator-guide-patching].
 
@@ -41,5 +41,6 @@ For more information what cluster operations may trigger specific upgrade events
 [planned-maintenance]: ./planned-maintenance.md
 [upgrade-cluster]: ./upgrade-cluster.md
 [release-tracker]: ./release-tracker.md
+[gh-actions-upgrade]: ./node-upgrade-github-actions.md 
 [upgrade-patch]: ./supported-kubernetes-versions,md#kubernetes-version-support-policy
 [operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
