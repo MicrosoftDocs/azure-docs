@@ -76,7 +76,7 @@ Connect-MgGraph -Scopes ("User.ReadBasic.All Application.ReadWrite.All " `
                         + "AppRoleAssignment.ReadWrite.All")
 
 # Step 1. Check if a service principal exists for the client application. 
-#     If one does not exist, create it.
+#     If one doesn't exist, create it.
 $clientSp = Get-MgServicePrincipal -Filter "appId eq '$($clientAppId)'"
 if (-not $clientSp) {
    $clientSp = New-MgServicePrincipal -AppId $clientAppId
@@ -96,7 +96,7 @@ $grant = New-MgOauth2PermissionGrant -ResourceId $resourceSp.Id `
                                      -PrincipalId $user.Id
 
 # Step 3. Assign the app to the user. This ensures that the user can sign in if assignment
-#     is required, and ensures that the app shows up under the user's My Apps.
+#     is required, and ensures that the app shows up under the user's My Apps portal.
 if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
     Write-Warning ("A default app role assignment cannot be created because the " `
                  + "client application exposes user-assignable app roles. You must " `
@@ -156,6 +156,19 @@ In the example, the resource enterprise application is Microsoft Graph of object
    ```http
    GET https://graph.microsoft.com/v1.0/oauth2PermissionGrants?$filter=clientId eq 'b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94' and consentType eq 'principal'
    ```
+
+1. Assign the app to the user. This ensures that the user can sign in if assignment is required, and ensures that app is available through the user's My Apps portal. In the following example, `resourceId`represents the client app to which the user is being assigned. The user will be assigned the default app role which is `00000000-0000-0000-0000-000000000000`.
+
+    ```http
+        POST /servicePrincipals/resource-servicePrincipal-id/appRoleAssignedTo
+
+        {
+        "principalId": "3fbd929d-8c56-4462-851e-0eb9a7b3a2a5",
+        "resourceId": "b0d9b9e3-0ecf-4bfd-8dab-9273dd055a94",
+        "appRoleId": "00000000-0000-0000-0000-000000000000"
+        }
+    ```
+
 :::zone-end
 
 ## Next steps
