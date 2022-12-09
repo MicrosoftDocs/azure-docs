@@ -611,7 +611,6 @@ To increase the OS disk size in SUSE 12 SP4, SUSE SLES 12 for SAP, SUSE SLES 15,
    /dev/sdb1       3.9G   16M  3.7G   1% /mnt/resource
    tmpfs            93M     0   93M   0% /run/user/1000
    ```
-```
 
 ---
 
@@ -637,3 +636,4 @@ foreach($vmSize in $vmSizes){
        }
    }
 }
+```
