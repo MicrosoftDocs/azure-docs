@@ -13,6 +13,8 @@ metadata:
 title: Azure Arc-enabled data services FAQ
 summary: |
 
+This article provides answers to frequently asked questions.
+
 sections:
   -name: Azure Policy
    questions:
