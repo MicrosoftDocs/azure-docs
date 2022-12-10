@@ -46,4 +46,4 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- If your card was declined and you need help to troubleshoot, see [Troubleshoot a declined card](troubleshoot-declined-card).
+- If your card was declined and you need assistance with troubleshooting, see [Troubleshoot a declined card](troubleshoot-declined-card).
