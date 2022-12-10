@@ -531,7 +531,7 @@ Content-type: application/json
 
 You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
 
-> [!NOT] 
+> [!NOTE] 
 > There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach limit.
 
 Use the following commands to unlink a workspace from cluster:
