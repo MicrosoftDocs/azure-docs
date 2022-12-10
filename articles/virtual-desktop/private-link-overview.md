@@ -34,7 +34,7 @@ The following diagram shows how Private Link securely connects a local client to
 
 ## Network requirements
 
-If the connectivity to the Private EndPoints are filtered by a firewall, you should make sure but Clients and Session Hosts can connect to each Private Endpoints IPs using port 443 and only for the IP dedicated for the Gateway using TCP Dynamic Ports 1 - 65535.
+If the connectivity to the Private EndPoints are filtered by a firewall, you should make sure that Clients and Session Hosts can connect to each Private Endpoints IPs using port 443 and only for the IP dedicated for the Gateway using TCP Dynamic Ports 1 - 65535.
 
 ## Supported scenarios
 
