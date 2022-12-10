@@ -29,7 +29,7 @@ Either 2 or 4 byte Public ASN numbers should be used and be compatible with Azur
 ## Management VMs and default routes from on-premises
 
 > [!IMPORTANT]
-> Azure VMware Solution Management vms don't honor a default route from on-premises.
+> Azure VMware Solution Management VMs don't honor a default route from on-premises.
 
 If you're routing back to your on-premises networks using only a default route advertised towards Azure, the vCenter Server and NSX-T Manager VMs won't be compatible with that route.
 
