@@ -40,12 +40,23 @@ Azure Machine Learning is composed of multiple Azure services. There are multipl
 
 ## User-assigned managed identity
 
+### Workspace
+
 You can add a user-assigned managed identity when creating an Azure Machine Learning workspace from the [Azure portal](https://portal.azure.com). Use the following steps while creating the workspace:
 
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
 
-You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet) to create a workspace with user-assigned managed identity.
+The following [Azure RBAC role assignments](../role-based-access-control/role-assignments) are required on your user-assigned managed identity, so your Azure Machine Learning workspace can access data on the workspace-associated resources.
+
+|Resource|Role Assignment|
+|---|---|
+|Azure Storage|Contributor + optionally Storage Blob Data Contributor for data preview|
+|Azure Key Vault|Contributor + Key Vault Administrator or equivalent Key Vault Access Policies for data plane access|
+|Azure Container Registry|Contributor|
+|Azure Application Insights|Contributor|
+
+For automated creation of role assignments on your user-assigned managed identity, you may use [this ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment).
 
 > [!TIP]
 > For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use the `user-assigned-identity-for-cmk-encryption` (CLI) or `user_assigned_identity_for_cmk_encryption` (SDK) parameters to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.
