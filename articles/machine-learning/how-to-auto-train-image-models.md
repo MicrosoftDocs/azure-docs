@@ -189,7 +189,18 @@ The following is a sample JSONL file for image classification:
 
 Once your data is in JSONL format, you can create training and validation `MLTable` as shown below.
 
-<!-- :::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable"::: -->
+```yaml
+paths:
+  - file: ./train_annotations.jsonl
+transformations:
+  - read_json_lines:
+        encoding: utf8
+        invalid_lines: error
+        include_path_column: false
+  - convert_column_types:
+      - columns: image_url
+        column_type: stream_info
+```
 
 Automated ML doesn't impose any constraints on training or validation data size for computer vision tasks. Maximum dataset size is only limited by the storage layer behind the dataset (i.e. blob store). There's no minimum number of images or labels. However, we recommend starting with a minimum of 10-15 samples per label to ensure the output model is sufficiently trained. The higher the total number of labels/classes, the more samples you need per label.
 
@@ -810,6 +821,177 @@ If you want to use tiling, and want to control tiling behavior, the following pa
 ###  Test the deployment
 Please check this [Test the deployment](./tutorial-auto-train-image-models.md#test-the-deployment) section to test the deployment and visualize the detections from the model.
 
+## Generate explanations for predictions
+
+> [!IMPORTANT]
+> These settings are currently in public preview. They are provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!WARNING]
+>  **Model Explainability** is supported only for **multi-class classification** and **multi-label classification**.
+
+Some of the advantages of using Explainable AI (XAI) with AutoML for images:
+- Improves the transparency in the complex vision model predictions
+- Helps the users to understand the important features/pixels in the input image that are contributing to the model predictions
+- Helps in troubleshooting the models
+- Helps in discovering the bias
+
+### Explanations
+Explanations are **feature attributions** or weights given to each pixel in the input image based on its contribution to model's prediction. Each weight can be negative (negatively correlated with the prediction) or positive (positively correlated with the prediction). These attributions are calculated against the predicted class. For multi-class classification, exactly one attribution matrix of size `[3, valid_crop_size, valid_crop_size]` will be generated per sample, whereas for multi-label classification, attribution matrix of size `[3, valid_crop_size, valid_crop_size]` will be generated for each predicted label/class for each sample.
+
+Using Explainable AI in AutoML for Images on the deployed endpoint, users can get **visualizations** of explanations (attributions overlaid on an input image) and/or **attributions** (multi-dimensional array of size `[3, valid_crop_size, valid_crop_size]`) for each image. Apart from visualizations, users can also get attribution matrices to gain more control over the explanations (like generating custom visualizations using attributions or scrutinizing segments of attributions). All the explanation algorithms will use cropped square images with size `valid_crop_size` for generating attributions.
+
+
+Explanations can be generated either from **online endpoint** or **batch endpoint**. Once the deployment is done, this endpoint can be utilized to generate the explanations for predictions. In case of online deployment, make sure to pass `request_settings = OnlineRequestSettings(request_timeout_ms=90000)` parameter to `ManagedOnlineDeployment` and set `request_timeout_ms` to its maximum value to avoid **timeout issues** while generating explanations (refer to [register and deploy model section](#register-and-deploy-model)). Some of the explainability (XAI) methods like `xrai` consume more time (specially for multi-label classification as we need to generate attributions and/or visualizations against each predicted label). So, we recommend any GPU instance for faster explanations. For more information on input and output schema for generating explanations, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
+
+
+We support following state-of-the-art explainability algorithms in AutoML for images:
+   - [XRAI](https://arxiv.org/abs/1906.02825) (xrai)
+   - [Integrated Gradients](https://arxiv.org/abs/1703.01365) (integrated_gradients)
+   - [Guided GradCAM](https://arxiv.org/abs/1610.02391v4) (guided_gradcam)
+   - [Guided BackPropagation](https://arxiv.org/abs/1412.6806) (guided_backprop)
+
+Following table describes the explainability algorithm specific tuning parameters for XRAI and Integrated Gradients. Guided backpropagation and guided gradcam don't require any tuning parameters.
+
+| XAI algorithm | Algorithm specific parameters  | Default Values |
+|--------- |------------- | --------- |
+| `xrai` | 1. `n_steps`: The number of steps used by the approximation method. Larger number of steps lead to better approximations of attributions (explanations). Range of n_steps is [2, inf), but the performance of attributions starts to converge after 50 steps. <br> `Optional, Int` <br><br> 2. `xrai_fast`: Whether to use faster version of XRAI. if `True`, then computation time for explanations is faster but leads to less accurate explanations (attributions) <br>`Optional, Bool` <br> | `n_steps = 50` <br> `xrai_fast = True` |
+| `integrated_gradients` | 1. `n_steps`: The number of steps used by the approximation method. Larger number of steps lead to better attributions (explanations). Range of n_steps is [2, inf), but the performance of attributions starts to converge after 50 steps.<br> `Optional, Int` <br><br> 2. `approximation_method`: Method for approximating the integral. Available approximation methods are `riemann_middle` and `gausslegendre`.<br> `Optional, String` | `n_steps = 50` <br> `approximation_method = riemann_middle` |
+
+
+Internally XRAI algorithm uses integrated gradients. So, `n_steps` parameter is required by both integrated gradients and XRAI algorithms. Larger number of steps consume more time for approximating the explanations and it may result in timeout issues on the online endpoint.
+
+We recommend using XRAI > Guided GradCAM > Integrated Gradients > Guided BackPropagation algorithms for better explanations, whereas Guided BackPropagation > Guided GradCAM > Integrated Gradients > XRAI are recommended for faster explanations in the specified order.
+
+A sample request to the online endpoint looks like the following. This request generates explanations when `model_explainability` is set to `True`. Following request will generate visualizations and attributions using faster version of XRAI algorithm with 50 steps.
+
+```python
+import base64
+import json
+
+def read_image(image_path):
+    with open(image_path, "rb") as f:
+        return f.read()
+
+sample_image = "./test_image.jpg"
+
+# Define explainability (XAI) parameters
+model_explainability = True
+xai_parameters = {"xai_algorithm": "xrai",
+                  "n_steps": 50,
+                  "xrai_fast": True,
+                  "visualizations": True,
+                  "attributions": True}
+
+# Create request json
+request_json = {"input_data": {"columns":  ["image"],
+                               "data": [json.dumps({"image_base64": base64.encodebytes(read_image(sample_image)).decode("utf-8"),
+                                                    "model_explainability": model_explainability,
+                                                    "xai_parameters": xai_parameters})],
+                               }
+                }
+
+request_file_name = "sample_request_data.json"
+
+with open(request_file_name, "w") as request_file:
+    json.dump(request_json, request_file)
+
+resp = ml_client.online_endpoints.invoke(
+    endpoint_name=online_endpoint_name,
+    deployment_name=deployment.name,
+    request_file=request_file_name,
+)
+predictions = json.loads(resp)
+```
+
+For more information on generating explanations, see [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
+
+### Interpreting Visualizations
+Deployed endpoint returns base64 encoded image string if both `model_explainability` and `visualizations` are set to `True`. Decode the base64 string as described in [notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs) or use the following code to decode and visualize the base64 image strings in the prediction.
+
+```python
+import base64
+from io import BytesIO
+from PIL import Image
+
+def base64_to_img(base64_img_str):
+    base64_img = base64_img_str.encode("utf-8")
+    decoded_img = base64.b64decode(base64_img)
+    return BytesIO(decoded_img).getvalue()
+
+# For Multi-class classification:
+# Decode and visualize base64 image string for explanations for first input image
+# img_bytes = base64_to_img(predictions[0]["visualizations"])
+
+# For  Multi-label classification:
+# Decode and visualize base64 image string for explanations for first input image against one of the classes
+img_bytes = base64_to_img(predictions[0]["visualizations"][0])
+image = Image.open(BytesIO(img_bytes))
+```
+
+Following picture describes the Visualization of explanations for a sample input image.
+![Screenshot of visualizations generated by XAI for AutoML for images.](./media/how-to-auto-train-image-models/xai-visualization.jpg)
+
+Decoded base64 figure will have four image sections within a 2 x 2 grid.
+
+- Image at Top-left corner (0, 0) is the cropped input image
+- Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yellow white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
+- Image at bottom left corner (1, 0) is blended heatmap of attributions on cropped input image
+- Image at bottom right corner (1, 1) is the cropped input image with top 30 percent of the pixels based on attribution scores.
+
+
+### Interpreting Attributions
+Deployed endpoint returns attributions if both `model_explainability` and `attributions` are set to `True`. Fore more details, refer to [multi-class classification and multi-label classification notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
+
+These attributions give more control to the users to generate custom visualizations or to scrutinize pixel level attribution scores.
+Following code snippet describes a way to generate custom visualizations using attribution matrix. For more information on the schema of attributions for multi-class classification and multi-label classification, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
+
+Use the exact `valid_resize_size` and `valid_crop_size` values of the selected model to generate the explanations (default values are 256 and 224 respectively). Following code uses [Captum](https://captum.ai/) visualization functionality to generate custom visualizations. Users can utilize any other library to generate visualizations. For more details, please refer to the [captum visualization utilities](https://captum.ai/api/utilities.html#visualization).
+
+```python
+import colorcet as cc
+import numpy as np
+from captum.attr import visualization as viz
+from PIL import Image
+from torchvision import transforms
+
+def get_common_valid_transforms(resize_to=256, crop_size=224):
+
+    return transforms.Compose([
+        transforms.Resize(resize_to),
+        transforms.CenterCrop(crop_size)
+    ])
+
+# Load the image
+valid_resize_size = 256
+valid_crop_size = 224
+sample_image = "./test_image.jpg"
+image = Image.open(sample_image)
+# Perform common validation transforms to get the image used to generate attributions
+common_transforms = get_common_valid_transforms(resize_to=valid_resize_size,
+                                                crop_size=valid_crop_size)
+input_tensor = common_transforms(image)
+
+# Convert output attributions to numpy array
+
+# For Multi-class classification:
+# Selecting attribution matrix for first input image
+# attributions = np.array(predictions[0]["attributions"])
+
+# For  Multi-label classification:
+# Selecting first attribution matrix against one of the classes for first input image
+attributions = np.array(predictions[0]["attributions"][0])
+
+# visualize results
+viz.visualize_image_attr_multiple(np.transpose(attributions, (1, 2, 0)),
+                                  np.array(input_tensor),
+                                  ["original_image", "blended_heat_map"],
+                                  ["all", "absolute_value"],
+                                  show_colorbar=True,
+                                  cmap=cc.cm.bgyw,
+                                  titles=["original_image", "heatmap"],
+                                  fig_size=(12, 12))
+```
+
 ## Large datasets
 
 If you're using AutoML to train on large datasets, there are some experimental settings that may be useful.
@@ -882,7 +1064,6 @@ image_object_detection_job.set_training_parameters(
 
 ## Example notebooks
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
-
 
 
 ## Code examples
