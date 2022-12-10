@@ -69,7 +69,7 @@ You can have up to five active clusters per subscription per region. If the clus
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
 
-#### [CLI] (#tab/cli)
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
