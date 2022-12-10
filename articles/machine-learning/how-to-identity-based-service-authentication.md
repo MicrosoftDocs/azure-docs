@@ -47,12 +47,12 @@ You can add a user-assigned managed identity when creating an Azure Machine Lear
 1. From the __Basics__ page, select the Azure Storage Account, Azure Container Registry, and Azure Key Vault you want to use with the workspace.
 1. From the __Advanced__ page, select __User-assigned identity__ and then select the managed identity to use.
 
-The following [Azure RBAC role assignments](../role-based-access-control/role-assignments) are required on your user-assigned managed identity, so your Azure Machine Learning workspace can access data on the workspace-associated resources.
+The following [Azure RBAC role assignments](../role-based-access-control/role-assignments.md) are required on your user-assigned managed identity, so your Azure Machine Learning workspace can access data on the workspace-associated resources.
 
 |Resource|Role Assignment|
 |---|---|
 |Azure Storage|Contributor + optional Storage Blob Data Contributor to enable Studio data preview|
-|Azure Key Vault|Contributor + Key Vault Administrator or [equivalent Key Vault Access Policies](../key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) for data plane access|
+|Azure Key Vault|Contributor + Key Vault Administrator or [equivalent Key Vault Access Policies](../key-vault/general/rbac-guide.md?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) for data plane access|
 |Azure Container Registry|Contributor|
 |Azure Application Insights|Contributor|
 
