@@ -117,11 +117,11 @@ After a Receive port receives a message, MessageBox stores that message for proc
 
 ### Business processes
 
-This section describes options for designing and building executable business processes that run in BizTalk Server and Azure Integration Services.
+This section describes options for designing and building business processes that you can run in BizTalk Server and Azure Integration Services.
 
 #### BizTalk Server
 
-In BizTalk Server, orchestrations are executable business processes that can subscribe to (receive) and publish (send) messages through the MessageBox database. Orchestrations can construct new messages and can receive messages using the subscription and routing infrastructure. When subscriptions are filled for orchestrations, a new subscription instance is activated, and the message is delivered. For instance subscriptions, the instance is rehydrated if necessary, and the message is then delivered. When messages are sent from an orchestration, they're published to MessageBox in the same way as a message arriving at a receive location with the appropriate properties added to the database for routing.
+In BizTalk Server, orchestrations are executable business processes that can subscribe to (receive) messages and publish (send) messages through the MessageBox database. Orchestrations can construct new messages and can receive messages using the subscription and routing infrastructure. When MessageBox fills subscriptions for orchestrations, a new *instance* (orchestration run) activates, and MessageBox delivers the message. If necessary, the instance is rehydrated, and the message is then delivered. When messages are sent from an orchestration, they're published to MessageBox in the same way as a message arriving at a receive location with the appropriate properties added to the database for routing.
 
 To enable publish-subscribe messaging, orchestrations use bindings that help create subscriptions. Orchestration ports are logical ports that describe an interaction. To deliver messages, you must bind these logical ports to a physical port, but this binding process is nothing more than configuring subscriptions for message routing.
 
@@ -664,11 +664,11 @@ The following section describes options for handling large files in BizTalk Serv
 
 To address large file processing, BizTalk Server includes [optimizations](/biztalk/core/how-biztalk-server-processes-large-messages) based upon the following profiles:
 
-- Routing only
+- Message routing only
 
   If you use BizTalk Server only for routing messages based on promoted message properties, messages are streamed to the MessageBox database using the .NET XmlReader interface. BizTalk Server doesn't load individual message parts into memory, so in this scenario, out of memory errors aren't a problem. However, the primary consideration is the amount of time required to write very large messages (over 100 MB) to the MessageBox database. The BizTalk Server development team has successfully tested the processing of messages up to 1 GB when only performing routing. For more information, see [Optimizing pipeline performance](/biztalk/technical-guides/optimizing-pipeline-performance).
 
-- Mapping
+- Data transforms with maps
 
   When BizTalk Server transforms a document using a map, this potentially memory-intensive operation passes the message to the .NET XslCompiledTransform class, which loads the XSL style sheet. After the load operation successfully completes, multiple threads can simultaneously call the [Transform method](/biztalk/esb-toolkit/the-transformation-web-service). For more information, see [XslCompiledTransform Class](/dotnet/api/system.xml.xsl.xslcompiledtransform).
 
@@ -893,9 +893,9 @@ The process to get each component ready for deployment usually takes the followi
 
   1. Get your application ready for execution, if required.
 
-## Feature comparison table
+## Feature matchup
 
-This table provides a summary mapping between the resources, artifacts, features, and capabilities in BizTalk Server compared to Azure Integration Services, but note that the mapping isn't one-to-one. While Azure Integration Services is a key platform for integration workloads, make sure that you consider all the available Azure capabilities as a whole.
+The following table and diagram roughly show how resources, artifacts, features, and capabilities match up between BizTalk Server compared to Azure Integration Services, although the matchup won't be one-to-one. While Azure Integration Services is a key platform for integration workloads, make sure that you consider all the available Azure capabilities as a whole.
 
 | Feature or functionality | BizTalk Server | Azure |
 |--------------------------|----------------|-------|
@@ -917,6 +917,8 @@ This table provides a summary mapping between the resources, artifacts, features
 | Tracking | - BizTalk Server tracking capabilities (Receive ports, Send ports, pipelines, orchestrations) <br>- IIS tracking <br>- Azure API Management built-in analytics (hybrid capabilities) | - Azure Logic Apps run  history and tracked properties <br>- Azure Storage Account <br>- Azure Monitor (Application Insights) <br>- Azure API Management built-in analytics <br>- Custom solution, for example, Azure Event Hubs plus Azure Functions plus SQL Server plus Azure Data Explorer |
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | Azure Monitor (Application Insights, Log Analytics) |
 | Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
+
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/enterprise-integration-platform.png" alt-text="Screenshot showing hidden inputs and outputs in workflow run history after enabling secure inputs and outputs.":::
 
 ### Road map
 
