@@ -76,6 +76,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 * This policy can be used only once per policy definition.
 * [Policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
+* This policy is only applied when an API is accessed using a subscription key.
+
 
 
 ## Example
