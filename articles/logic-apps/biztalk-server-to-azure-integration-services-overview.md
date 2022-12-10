@@ -205,11 +205,17 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
 - APIs
 
-  You can reuse APIs, especially those managed with Azure API Management, within Azure Integration Services. After you add these APIs to Azure API Management, you can use the API Management connector in Consumption logic app workflows to easily access APIs in a managed and governed manner.
+  APIs enable digital experiences, make data and services reusable and universally accessible, simplify application integration, and underpin new digital products. ​With the proliferation and increasing dependency on APIs, organizations need to manage them as first-class assets throughout their lifecycle.​
+
+  You can reuse APIs, especially those managed with Azure API Management, within Azure Integration Services. After you add APIs to Azure API Management, you can use the API Management connector with Consumption logic app workflows to easily access APIs in a managed and governed manner. Azure Logic Apps also supports creating and using custom APIs so that your organization can promote reuse across the enterprise and avoid unnecessary redundant connectors that developers might otherwise create. Custom APIs also democratize who can use these APIs, rather than have developer figure out the mechanics to use a a particular API.
 
 - Custom connectors
 
-  If no prebuilt connectors exist for the APIs you want to use, you can wrap an internal or external API as a custom connector and access that connector from Consumption logic app workflows with the appropriate permissions. For Standard logic app workflows, you can create your own built-in service provider-based custom connectors. By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/azure/connectors/apis-list#custom-connectors-and-apis).
+  If no prebuilt connectors exist for the APIs you want to use, you can wrap an external or external API with an OpenAPI schema to create a custom connector and access that connector from Consumption logic app workflows with the appropriate permissions. The custom connector creates a contract between Azure Logic Apps and the API that allows the easy assembly of request messages and for Azure Logic Apps to receive a typed response that you can use in downstream actions. Both REST APIs and SOAP APIs are supported, and they can reference either public APIs or private APIs that exist on your local network. You can also use custom connectors with Microsoft Power Automate and Microsoft Power Apps.
+
+  For Standard logic app workflows, you can create your own built-in custom connectors that are based on a service provider.
+
+  By implementing a custom connector, you simplify the development experience by creating a common interface for sending request messages and receiving typed responses. For more information, see [Custom connectors and APIs](/azure/connectors/custom-connector-overview).
 
 ### Adapters and connectors
 
@@ -937,6 +943,6 @@ To stay updated about the latest investments, subscribe to the [Integrations on 
 You've learned more about how Azure Integration Services compares to BizTalk Server. Next, learn how to choose the best capabilities for your scenarios. Or, skip ahead to review suggested migration approaches.
 
 > [!div class="nextstepaction"]
-> [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-how-to-choose.md)
+> [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-choose-capabilities.md)
 >
 > [Migration approaches for BizTalk Server to Azure Integration Services](biztalk-server-azure-integration-services-migration-approaches.md)
