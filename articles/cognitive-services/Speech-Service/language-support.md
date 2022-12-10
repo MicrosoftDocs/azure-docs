@@ -65,7 +65,11 @@ Custom Neural Voice lets you create synthetic voices that are rich in speaking s
 
 Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
-With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.  
+With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.
+
+### Get locales via API and SDK
+
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
@@ -114,10 +118,6 @@ The table in this section summarizes the locales supported for the Intent Recogn
 [!INCLUDE [Language support include](includes/language-support/intent-recognizer-pattern-matcher.md)]
 
 ***
-
-## Get locales via API and SDK
-
-You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 ## Next steps
 
