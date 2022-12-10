@@ -87,7 +87,7 @@ API publishers can [create subscriptions](api-management-howto-create-subscripti
 
 ## Enable or disable subscription requirement for API or product access
 
-By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is recommended.
+By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured (anonymous) access to certain APIs, configuring another mechanism to secure client access is recommended.
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
@@ -128,7 +128,7 @@ When API Management receives an API request from a client without a subscription
 
 ### Summary table
 
-The following table summarizes how the gateway handles API requests with or without subscription keys in different scenarios.
+The following table summarizes how the gateway handles API requests with or without subscription keys in different scenarios. Configurations that could potentially enable unintended, anonymous API access are noted.
 
 
 |All products assigned to API require subscription  |API requires subscription  |API call with subscription key  |API call without subscription key<sup>1</sup>  | Typical scenarios |
@@ -138,7 +138,7 @@ The following table summarizes how the gateway handles API requests with or with
 |❌<sup>2</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 |❌<sup>2</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
 
-<sup>1</sup> Also includes keys that aren't configured for valid subscriptions in the API Management instance, such as `0000000000`. These invalid keys are treated by the gateway as the absence of a key.<br/>
+<sup>1</sup> Also includes keys that aren't configured for valid subscriptions in the API Management instance, such as `0000000000`. By default, such invalid keys are treated by the gateway as the absence of a key.<br/>
 <sup>2</sup> An open product exists.
 
 ### Considerations
