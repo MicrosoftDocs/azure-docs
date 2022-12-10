@@ -101,6 +101,12 @@ To access Azure Container Registry (ACR) for Docker image, and Storage Account f
     - Go to [Azure Machine Learning studio](https://ml.azure.com). Select __Compute__, __Attached compute__, and select your attached compute.
     - Edit managed identity.
 
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/edit-identity.png" alt-text="Screenshot of updating identity of the Kubernetes compute from Azure portal.":::
+    
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/update-identity2.png" alt-text="Screenshot of selecting identity of the Kubernetes compute from Azure portal.":::
+     
+
+
 ### Assign Azure roles to managed identity
 Azure offers a couple of ways to assign roles to a managed identity.
 - [Use Azure portal to assign roles](../role-based-access-control/role-assignments-portal.md)
