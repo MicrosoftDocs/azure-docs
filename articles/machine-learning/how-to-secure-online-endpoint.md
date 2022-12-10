@@ -62,7 +62,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
-* Azure Log Analytics and Application Insights aren't supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
+* Azure Log Analytics is partially supported and Application Insights isn't supported when using network isolation with a deployment. All metrics and `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are not supported as of now. As a workaround, you can use [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations?view=azure-python#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or Deployment log tab from Studio instead. For more details, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).
 
 * You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
 
