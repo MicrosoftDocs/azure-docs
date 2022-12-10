@@ -1,5 +1,5 @@
 ---
-title: Install the Microsoft Defender for IoT micro agent (Preview)
+title: Install the Microsoft Defender for IoT micro agent
 description: Learn how to install and authenticate the Defender for IoT micro agent.
 ms.date: 04/26/2022
 ms.topic: tutorial
@@ -7,7 +7,7 @@ ms.custom: mode-other
 #Customer intent: As an Azure admin I want to install the Defender for IoT agent on devices connected to an Azure IoT Hub
 ---
 
-# Tutorial: Install the Defender for IoT micro agent (Preview)
+# Tutorial: Install the Defender for IoT micro agent
 
 This tutorial will help you learn how to install and authenticate the Defender for IoT micro agent.
 
@@ -32,7 +32,7 @@ In this tutorial you'll learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
 ## Download and install the micro agent
 

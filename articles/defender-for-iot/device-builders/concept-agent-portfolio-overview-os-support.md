@@ -1,11 +1,11 @@
 ---
-title: Agent portfolio overview and OS support (Preview)
+title: Agent portfolio overview and OS support
 description: Microsoft Defender for IoT provides a large portfolio of agents based on the device type. 
 ms.date: 01/09/2022
 ms.topic: conceptual
 ---
 
-# Agent portfolio overview and OS support (Preview)
+# Agent portfolio overview and OS support
 
 Microsoft Defender for IoT provides a large portfolio of agents based on the device type.
 
@@ -31,6 +31,6 @@ The Microsoft Defender for IoT micro agent comes built in as part of the Azure R
 
 ## Next steps
 
-Learn more about [Micro agent Linux dependencies (Preview)](concept-micro-agent-linux-dependencies.md).
+Learn more about [Micro agent Linux dependencies](concept-micro-agent-linux-dependencies.md).
 
-Learn more about the [Standalone micro agent overview (Preview)](concept-standalone-micro-agent-overview.md).
+Learn more about the [Standalone micro agent overview](concept-standalone-micro-agent-overview.md).
