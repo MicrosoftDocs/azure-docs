@@ -32,7 +32,7 @@ Use the following table to compare feature and functional differences between th
 | Imperative bindings<sup>1</sup>  | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](dotnet-isolated-process-guide.md#dependency-injection) |
 | Middleware | Not supported | [Supported](dotnet-isolated-process-guide.md#middleware) |
-| Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via [dependency injection](functions-dotnet-class-library.md#dependency-injection) | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
+| Logging | [ILogger](dotnet/api/microsoft.extensions.logging.ilogger.md) passed to the function<br/>[ILogger&lt;T&gt;](dotnet/api/microsoft.extensions.logging.logger-1.md) via [dependency injection](functions-dotnet-class-library.md#dependency-injection) | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext](dotnet/api/microsoft.azure.functions.worker.functioncontext.md) or via [dependency injection](dotnet-isolated-process-guide.md#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
 | Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
