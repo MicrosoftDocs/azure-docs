@@ -51,7 +51,7 @@ The following [Azure RBAC role assignments](../role-based-access-control/role-as
 
 |Resource|Role Assignment|
 |---|---|
-|Azure Storage|Contributor + optionally Storage Blob Data Contributor for data preview|
+|Azure Storage|Contributor + optional Storage Blob Data Contributor to enable Studio data preview|
 |Azure Key Vault|Contributor + Key Vault Administrator or equivalent Key Vault Access Policies for data plane access|
 |Azure Container Registry|Contributor|
 |Azure Application Insights|Contributor|
