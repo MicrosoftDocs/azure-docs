@@ -222,9 +222,19 @@ Microsoft Defender for Containers brings threat detection and advanced defenses 
 
     :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Containers plan.":::
 
-1. On the Auto provisioning screen, toggle the switches **On**.
+1. On the Auto provisioning screen, perform the following:
 
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot showing the toggle switches for the Containers plan.":::
+2. (Optional) Create exclusion tags for clusters that you don’t wish to onboard for AuditLogs.
+
+3. (Optional) Enable “Defender’s extension for Azure Arc”. Learn more about Defender’s extension for Azure Arc ([How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud | Microsoft Learn](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc&toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json&tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api#protect-arc-enabled-kubernetes-clusters))
+
+4. (Optional) Enable “Azure Policy extension for Azure Arc”. Learn more about Azure Policy extension for Arc ([Learn Azure Policy for Kubernetes - Azure Policy | Microsoft Learn](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes))
+
+5. (Optional) Create exclusion tags for clusters that you don’t wish to onboard for Policy and Defender agents.
+
+7.  Continue through the remainder of the page of the connector wizard to add a role in AWS and execute the required Kubernetes script.
+
+9. If you chose to enable Defender’s extension for Azure Arc and Azure Policy extension for Azure Arc, they will now be automatically installed.
 
 1. Select **Save**.
 
