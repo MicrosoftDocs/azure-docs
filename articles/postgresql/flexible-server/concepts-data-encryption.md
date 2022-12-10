@@ -250,7 +250,7 @@ Follow the steps below to change\rotate key or identity after creation of server
 ```
 2. Update server with new key and\or identity
 ```azurecli-interactive
- <!-- az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name> -->
+  az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name>
 ```
 ## Limitations
 
