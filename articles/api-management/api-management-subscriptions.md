@@ -85,25 +85,67 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
-## How API Management handles requests with or without subscription keys
+## Enable or disable subscription requirement for API or product access
 
-By default, a developer can only access a product or API by using a subscription key. Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is recommended.
+By default when you create an API, a subscription key is required for API access. Similarly, when you create a product, by default a subscription key is required to access any API that's added to the product. Under certain scenarios, an API publisher might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is recommended.
 
 > [!CAUTION]
 > Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
+You can disable the subscription requirement at the time you create an API or product, or at a later date.
+
 To disable the subscription requirement using the portal:
 
-* **Disable requirement for product** - Disable **Requires subscription** on the **Settings** page of the product.  
-* **Disable requirement for API** - Disable **Subscription required** on the **Settings** page of the API. 
+* **Disable requirement for product** - On the **Settings** page of the product, disable **Requires subscription**  
+* **Disable requirement for API** - In the **Settings** page of the API, disable **Subscription required**. 
 
-After the subscription requirement is disabled, the selected API or APIs can be accessed without a subscription key.
+After the subscription requirement is disabled, the selected API or APIs can be accessed without a subscription key. 
+
+## How API Management handles requests with or without subscription keys
+
+### API request with a subscription key
+
+When API Management receives an API request from a client with a subscription key, it handles the request according to these rules: 
+
+1. Check if the key is associated with one of the following subscriptions:
+
+    * A subscription scoped to the API
+    * A subscription scoped to a product that's assigned to the API
+    * A subscription scoped to all APIs
+    * The service-scoped subscription (built-in all access subscription)
+
+    If the key is associated with one of these subscriptions, access is allowed and policies are applied depending on the configuration of the policy definition at that scope.
+
+1. Otherwise, access is denied.
+
+### API request without a subscription key
 
 When API Management receives an API request from a client without a subscription key, it handles the request according to these rules: 
 
 1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. 
 1. If an open product including the API isn't found, check whether the API requires a subscription. If a subscription isn't required, handle the request in the context of that API and operation.
 1. If no configured product or API is found, then access is denied.
+
+### Summary table
+
+The following table summarizes how the gateway handles API requests with or without subscription keys in different scenarios.
+
+
+|All products assigned to API require subscription  |API requires subscription  |API call with subscription key  |API call without subscription key<sup>1</sup>  | Typical scenarios |
+|---------|---------|---------|---------|----|
+|✔️     | ✔️     | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access denied        | Protected API access using product-scoped or API-scoped subscription  |
+|✔️     |  ❌    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |  Access allowed (API context)   | • Protected API access with product-scoped subscription<br/><br/>• Anonymous access to API. If anonymous access isn’t intended, configure API-level policies to enforce authentication and authorization. |
+|❌<sup>2</sup>     | ✔️    | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        |    Access allowed (open product context)     | •	Protected API access with API-scoped subscription<br/><br/>•	Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
+|❌<sup>2</sup>     |  ❌      | Access allowed:<br/><br/>• Product-scoped key<br/>• API-scoped key<br/>• All APIs-scoped key<br/>• Service-scoped key<br/><br/>Access denied:<br/><br/>• Other key not scoped to applicable product or API        | Access allowed (open product context)        | Anonymous access to API. If anonymous access isn’t intended, configure with product policies to enforce authentication and authorization  |
+
+<sup>1</sup> Also includes keys that aren't configured for valid subscriptions in the API Management instance, such as `0000000000`. These invalid keys are treated by the gateway as the absence of a key.<br/>
+<sup>2</sup> An open product exists.
+
+### Considerations
+
+-	API access in a product context is the same, whether the product is published or not. Unpublishing the product hides it from the developer portal, but it doesn’t invalidate new or existing subscription keys.
+-	Even if a product or API doesn't require a subscription, a subscription key that enables access to the product or API can still be used.
+-	API access "context" means the policies and access controls that are applied at a particular scope (for example, API or product).
 
 ## Next steps
 Get more information on API Management:
