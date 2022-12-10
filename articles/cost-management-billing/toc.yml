@@ -497,6 +497,8 @@
       href: manage/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
       href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
     - name: Azure account sign-up issues
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
