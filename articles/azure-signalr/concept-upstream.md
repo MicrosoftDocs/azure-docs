@@ -4,7 +4,7 @@ description: Get an introduction of upstream settings and protocols of upstream 
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 12/09/2022
 ms.author: lianwei
 ---
 

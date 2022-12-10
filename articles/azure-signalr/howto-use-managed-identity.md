@@ -4,7 +4,7 @@ description: Learn how managed identities work in Azure SignalR Service, and how
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/09/2022
 ms.author: lianwei
 ---
 
@@ -69,7 +69,7 @@ Once you've added a [system-assigned identity](#add-a-system-assigned-identity) 
 1. Browse to your SignalR instance.
 1. Select **Settings** from the menu.
 1. Select the **Serverless** service mode.
-1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.  See [URL template settings](concept-upstream#url-template-settings)
+1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.  See [URL template settings](concept-upstream.md#url-template-settings)
 1. Select Add one Upstream Setting and select any asterisk to get into a detailed page as shown below.
     :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
 
