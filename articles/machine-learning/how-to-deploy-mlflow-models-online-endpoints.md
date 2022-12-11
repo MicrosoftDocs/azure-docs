@@ -279,6 +279,9 @@ Once your deployment completes, your deployment is ready to serve request. One o
 
 :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
 
+> [!NOTE]
+> Notice how the key `input_data` has been used in this example instead of `inputs` as used in MLflow serving. This is because Azure Machine Learning requires a different input format to be able to automatically generate the swagger contracts for the endpoints. See [Considerations when deploying to real time inference](how-to-deploy-mlflow-models.md#considerations-when-deploying-to-real-time-inference) for details about expected input format.
+
 To submit a request to the endpoint, you can do as follows:
 
 # [Azure CLI](#tab/cli)
@@ -507,6 +510,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       }
     }
     ```
+
+    > [!NOTE]
+    > Notice how the key `dataframe_split` has been used in this example instead of `input_data`. This is because we are using an MLflow method `infer_and_parse_json_input` which uses the keys expected by MLflow serving (see [MLflow built-in deployment tools](https://www.mlflow.org/docs/latest/models.html#deploy-mlflow-models) for more input examples and formats). If you change the login in the scoring script, then the payload may be affected.
 
     To submit a request to the endpoint, you can do as follows:
     
