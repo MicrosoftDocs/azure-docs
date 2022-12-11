@@ -72,11 +72,72 @@ To edit or delete an existing rule:
 
     - Select **Delete** > **Yes** to confirm the deletion.
 
+## Create forwarding rules on an on-premises management console
+
+**To create a forwarding rule on the management console**:
+
+1. Sign in to the sensor.
+
+1. Select **Forwarding** on the side menu.
+
+1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
+
+1. In the Create Forwarding Rule window, enter a name for the rule
+
+    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
+
+   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
+
+1. Select the severity level from the drop-down menu.
+
+    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+
+1. Select any protocols to apply.
+
+    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
+
+1. Select which engines the rule should apply to.
+
+   Select the required engines, or choose them all. Alerts from selected engines will be sent.
+
+1. Select which notifications you want to forward:
+
+    -	**Report system notifications:** disconnected sensors, remote backup failures.
+
+    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
+
+1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
+
+    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
+
+1. Add another action if desired.
+
+1. Select **Save**.
+
+1. Test the rule you've just created.
+
+    1. On the row for your rule, select the **Run** button. A success notification is shown if the message sent successfully.
+    1. Go to your partner system to verify that the information sent by the sensor was received.
+
+### Edit or delete forwarding rules on an on-premises management console
+
+To edit or delete an existing rule:
+
+1. Sign into your on-premises management console and select **Forwarding** on the left.
+
+1. Find the row for your rule and then select either the **Edit** or **Delete** button.
+
+    - If you're editing the rule, [update the fields as needed](#create-forwarding-rules-on-an-on-premises-management-console) and select **Save**.
+
+    - If you're deleting the rule, select **Yes** to confirm the deletion.
+
 ## Configure alert forwarding rule actions
 
 This section describes how to configure settings for supported forwarding rule actions.
 
 ### Email address action
+
+Configure an **Email** action to forward alert data to the configured email address.
 
 In the **Actions** area, enter the following details:
 
@@ -89,6 +150,8 @@ In the **Actions** area, enter the following details:
 
 ### Syslog server actions
 
+Configure a Syslog server action to forward alert data to the selected type of Syslog server.
+
 In the **Actions** area, enter the following details:
 
 |Name  |Description  |
@@ -99,7 +162,7 @@ In the **Actions** area, enter the following details:
 | **Protocol** | Supported for text messages only. Select **TCP** or **UDP**. |
 | **Enable encryption** | Supported for CEF format only. Toggle on to configure a TLS encryption certificate file, key file, and passphrase. |
 
-Syslog outputs have the following syntax:
+The following sections describe the syslog output syntax for each format.
 
 #### Syslog text message output fields
 
@@ -137,23 +200,25 @@ Syslog outputs have the following syntax:
 
 ### Webhook server action
 
-Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends an HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.
+**Supported from the on-premises management console only**
 
-This action is available from the on-premises management console.
+Configure a **Webhook** action to send configure an integration that subscribes to Defender for IoT alert events. For example, send alert data to a webhook server to update an external SIEM system, SOAR system, or incident management system.
 
-**To define to a webhook action:**
+When you've configured alerts to be forwarded to a webhook server and an alert event is triggered, the on-premises management console sends an HTTP POST payload to the configured webhook URL.
 
-1. Select the Webhook action.
+In the **Actions** area, enter the following details:
 
-1. Enter the server address in the **URL** field.
-
-1. In the **Key** and **Value fields**, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
-
-1. Select **Save**.
+|Name  |Description  |
+|---------|---------|
+|**Server**     | Select **Webhook**.        |
+|**URL**     | Enter the webhook server URL.        |
+|**Key / Value**    | Enter key/value pairs to customize the HTTP header as needed. Supported characters include: <br>- **Keys** can contain only letters, numbers, dashes, and underscores. <br>- **Values** can contain only one leading and/or trailing space.  |
 
 ### Webhook extended
 
-Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert, and adds the following information to the report:
+**Supported from the on-premises management console only**
+
+Configure a **Webhook extended** action to send the following extra data to your webhook server:
 
 - sensorID
 - sensorName
@@ -167,105 +232,98 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 - handled
 - additionalInformation
 
-**To define a webhook extended action**:
+In the **Actions** area, enter the following details:
 
-1. Add the endpoint data URL in the URL field.
-
-1. (Optional) Customize the HTTP header with a key and value definition. Add extra headers by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: button.
-
-1. Select **Save**.
-
-Once the Webhook Extended forwarding rule has been configured, you can test the alert from the Forwarding screen on the management console.
-
-**To test the Webhook Extended forwarding rule**:
-
-1. In the management console, select **Forwarding** from the left-hand pane.
-
-1. Select the **run** button to test your alert.
-
-    :::image type="content" source="media/how-to-forward-alert-information-to-partners/run-button.png" alt-text="Select the run button to test your forwarding rule.":::
-
-You'll know the forwarding rule is working if you see the Success notification.
-
+|Name  |Description  |
+|---------|---------|
+|**Server**     | Select **Webhook extended**.        |
+|**URL**     | Enter the endpoint data URL.        |
+|**Key / Value**    | Enter key/value pairs to customize the HTTP header as needed. Supported characters include: <br>- **Keys** can contain only letters, numbers, dashes, and underscores. <br>- **Values** can contain only one leading and/or trailing space.  |
 
 ### NetWitness action
 
-Send alert information to a NetWitness server.
+Configure a **NetWitness** action to send alert information to a NetWitness server.
 
-**To define NetWitness forwarding parameters:**
+In the **Actions** area, enter the following details:
 
-1. Enter NetWitness **Hostname** and **Port** information.
+|Name  |Description  |
+|---------|---------|
+|**Server**     | Select **NetWitness**.        |
+|**Hostname / Port**     | Enter the NetWitness server's hostname and port. |
+|**Time zone**    | Enter the time zone you want to use in the time stamp for the alert detection at the SIEM. |
 
-1. Enter the time zone for the time stamp for the alert detection at the SIEM.
+### Other partner server integrations
 
-1. Select **Save**.
+You may be integrating Defender for IoT with a partner service to send alert or device inventory information to another security or device management system, or to communicate with partner-side firewalls.
 
-### Integrated vendor actions
+[Partner integrations](integrate-overview.md) can help to bridge previously siloed security solutions, enhance device visibility, and accelerate system-wide response to more rapidly mitigate risks.
 
-You might have integrated your system with a security, device management, or other industry vendor. These integrations let you:
+In such cases, use the **Actions** area to enter credentials and other information required to communicate with integrated partner services.
 
-  - Send alert information.
+For more information, see:
 
-  - Send device inventory information.
+- [Integrate Qradar with Microsoft Defender for IoT](tutorial-qradar.md)
+- [Integrate Splunk with Microsoft Defender for IoT](tutorial-splunk.md)
+- [Integrate CyberArk with Microsoft Defender for IoT](tutorial-cyberark.md)
+- [Integrate Fortinet with Microsoft Defender for IoT](tutorial-fortinet.md)
+- [Integrate ClearPass with Microsoft Defender for IoT](tutorial-clearpass.md)
+- [Integrate Forescout with Microsoft Defender for IoT](tutorial-forescout.md)
+- [Integrate Palo-Alto with Microsoft Defender for IoT](tutorial-palo-alto.md)
 
-  - Communicate with vendor-side firewalls.
+## Configure alert groups in partner services
 
-Integrations help bridge previously siloed security solutions, enhance device visibility, and accelerate system-wide response to more rapidly mitigate risks.
+When you configure forwarding rules to send alert data to Syslog servers, QRadar, and ArcSight, *alert groups* are automatically applied and are available in those partner servers.
 
-Use the actions section to enter the credentials and other information required to communicate with integrated vendors.
+*Alert groups* help SOC teams using those partner solutions to manage alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized into a *discovery* group, and will include any alerts about new devices, VLANs, user accounts, MAC addresses, and more.
 
-For details about setting up forwarding rules for the integrations, refer to the relevant partner integration articles.
+Alert groups appear in partner services with the following prefixes:
 
+|Prefix  |Partner service  |
+|---------|---------|
+|`cat`     |  [QRadar](tutorial-qradar.md), [ArcSight](integrations/arcsight.md), [Syslog CEF](#syslog-cef-output-fields), [Syslog LEEF](#syslog-leef-output-fields)       |
+|`Alert Group`     |   [Syslog text messages](#syslog-text-message-output-fields)      |
+|`alert_group`     | [Syslog objects](#syslog-object-output-fields)        |
 
-## Create forwarding rules on an on-premises management console
+To use alert groups in your integration, make sure to configure your partner services to display the alert group name.
 
-**To create a forwarding rule on the management console**:
+By default, alerts are grouped as follows:
 
-1. Sign in to the sensor.
+:::row:::
+    :::column:::
+    - Abnormal communication behavior
+    - Custom alerts
+    - Remote access
+    - Abnormal HTTP communication behavior
+    - Discovery
+    - Restart and stop commands
+    - Authentication
+    - Firmware change
+    - Scan
+    - Unauthorized communication behavior
+    - Illegal commands
+    :::column-end:::
+    :::column:::
+    - Sensor traffic
+    - Bandwidth anomalies
+    - Internet access
+    - Suspicion of malware
+    - Buffer overflow
+    - Operation failures
+    - Suspicion of malicious activity
+    - Command failures
+    - Operational issues
+    - Configuration changes
+    - Programming
+    :::column-end:::
+:::row-end:::
 
-1. Select **Forwarding** on the side menu.
-
-1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
-
-1. In the Create Forwarding Rule window, enter a name for the rule
-
-    :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/management-console-create-forwarding-rule.png" alt-text="Screenshot of the Create Forwarding Rule window..":::
-
-   Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
-
-1. Select the severity level from the drop-down menu.
-
-    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-
-1. Select any protocols to apply.
-
-    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-1. Select which engines the rule should apply to.
- 
-   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
-
-1. Select which notifications you want to forward:
- 
-    -	**Report system notifications:** disconnected sensors, remote backup failures.
-
-    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic and engine that detected the event.
-
-1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
-
-    Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-1. Add another action if desired.
-
-1. Select **Save**.
-
-You can learn more [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information). You can also [Test forwarding rules](how-to-forward-alert-information-to-partners.md#test-forwarding-rules), or [Edit and delete forwarding rules](how-to-forward-alert-information-to-partners.md#edit-and-delete-forwarding-rules). You can also learn more about [Forwarding rules and alert exclusion rules](how-to-forward-alert-information-to-partners.md#forwarding-rules-and-alert-exclusion-rules).
+For more information and to create custom alert groups, [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
 ## Troubleshoot forwarding rules
 
 If your forwarding alert rules aren't working as expected, check the following details:
 
-- **Certificate validation**. Forwarding rules for Syslog CEF, Microsoft Sentinel, and QRadar support encryption and certificate validation.
+- **Certificate validation**. Forwarding rules for [Syslog CEF](#syslog-server-actions), Microsoft Sentinel, and [QRadar](tutorial-qradar.md) support encryption and certificate validation.
 
     If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#about-certificate-validation) and the certificate can't be verified, the alerts aren't forwarded.
 
@@ -291,65 +349,3 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 > [!div class="nextstepaction"]
 > [Forward alert information](how-to-forward-alert-information-to-partners.md)
-
-
-
-
-
-
-## Accelerate incident workflows by using alert groups
-
-Alert groups let SOC teams view and filter alerts in their SIEM solutions and then manage these alerts based on enterprise security policies and business priorities. For example, alerts about new detections are organized in a discovery group. This group includes alerts that deal with detecting new devices, new VLANs, new user accounts, new MAC addresses, and more.
-
-Alert groups are applied when you create forwarding rules for the following partner solutions:
-
-  - Syslog servers
-
-  - QRadar
-
-  - ArcSight
-
-
-The relevant alert group appears in partner output solutions. 
-
-### Requirements
-
-The alert group will appear in supported partner solutions with the following prefixes:
-
-- **cat** for QRadar, ArcSight, Syslog CEF, Syslog LEEF
-
-- **Alert Group** for Syslog text messages
-
-- **alert_group** for Syslog objects
-
-These fields should be configured in the partner solution to display the alert group name. If there's no alert associated with an alert group, the field in the partner solution will display **NA**.
-
-### Default alert groups
-
-The following alert groups are automatically defined:
-
-- Abnormal communication behavior
-- Custom alerts
-- Remote access
-- Abnormal HTTP communication behavior
-- Discovery
-- Restart and stop commands
-- Authentication
-- Firmware change
-- Scan
-- Unauthorized communication behavior
-- Illegal commands
-- Sensor traffic
-- Bandwidth anomalies
-- Internet access
-- Suspicion of malware
-- Buffer overflow
-- Operation failures
-- Suspicion of malicious activity
-- Command failures
-- Operational issues
-- Configuration changes
-- Programming
-
-Alert groups are predefined. For details about alerts associated with alert groups, and about creating custom alert groups, contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
-
