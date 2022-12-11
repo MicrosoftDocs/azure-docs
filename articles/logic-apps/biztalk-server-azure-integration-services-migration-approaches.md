@@ -12,7 +12,7 @@ ms.date: 12/15/2022
 # Migration approaches for moving from BizTalk Server to Azure Integration Services
 
 
-## Strategies
+## Strategy options
 
 ### Lift and shift
 
@@ -20,7 +20,7 @@ In the Azure Marketplace, you can find the option to [provision virtual machines
 
 With organizations embracing digital transformation by moving to or adopting the cloud, many have the common tasks to discontinue their VMware, Hyper-V, or physical server infrastructure and migrate this functionality to IaaS on Azure. This choice helps reduce the previously mentioned challenges, but doesn't address the BizTalk codebase.
 
-Starting with BizTalk Server 2013 and later, you can choose to run your BizTalk servers on premises as before, or run them on a virtual server in Azure. Running your BizTalk Server environment in the cloud offers the following advantages:
+With BizTalk Server 2013 and later, you can choose to run your BizTalk servers on premises as before, or run them on a virtual server in Azure. Running your BizTalk Server environment in the cloud offers the following advantages:
 
 - No need for private hardware or infrastructure, so no hardware maintenance.
 - Increased availability for your server infrastructure, which can span multiple datacenters or be replicated in availability zones.
@@ -32,35 +32,144 @@ Starting with BizTalk Server 2013 and later, you can choose to run your BizTalk 
 
 ### Hybrid integration
 
-BizTalk Server and Azure Integration Services capabilities might overlap, but they work better if you use them together. The main reasons that many organizations choose not to move their entire infrastructure to the cloud might be:  
+Although BizTalk Server and Azure Integration Services capabilities might overlap, they work better when you use them together. Most organizations who don't move their entire infrastructure to the cloud mainly have the following reasons:
 
-Company policies  
+- Company policies
+- Country policies  
+- Industry domain-specific policies  
 
-Country policies  
+Also, not all functionalities or applications exist in the cloud, or some that are available might not be as robust as those on premises. However, to keep pace with the cloud revolution and to extend business capabilities, many organizations start by using SaaS offerings alongside their on-premises systems. Many business processes can benefit from cloud-based development and implementation strategies.
 
-Industry domain-specific policies  
+By adopting a hybrid integration strategy, you can still reap value from the technology investments in the systems that your organization depends on, but still benefit from new functionality, improved performance, and lower cost structure of cloud-based applications such as Azure.
 
-Not all functionalities or applications are available on the cloud, and they might not be as robust as those available on-premise. To keep pace with the cloud revolution and to extend business capabilities, companies have to begin to use SaaS services along with what they have on-premise. Many business processes can benefit from cloud development and implementation strategies.  
+With BizTalk Server 2016, the separate release of [Microsoft BizTalk Server Adapter for Logic Apps](/biztalk/core/logic-app-adapter) provided the opportunity for you to implement part of your integration logic as a service on Azure by using Azure Logic Apps to connect hundreds of cloud services. This adapter helped with both on-premises integrations and hybrid integrations by offering the following capabilities:
 
-With the release of the Logic Apps Adapter in BizTalk Server 2016, you can implement part of the integration logic as a service on Azure by using Logic Apps to connect to hundreds of cloud services. But there are more features available:  
+- Integrate cloud services with BizTalk Server using built-in adapters such as Azure Logic Apps, Azure Service Bus, Azure Event Hubs, Azure Blob Storage, and Office 365 Mail, Schedule, and Contacts.
 
-Integrate cloud services with built-in adapters for cloud, Logic Apps, Service Bus, Event Hubs, Office365 Mail, Schedule, and Contacts, or Blob Storage  
+- Use the BizTalk Server connector in Azure Logic Apps to connect from Azure Logic Apps to BizTalk server.
 
-Use BizTalk Server Connector in Logic Apps to connect to BizTalk from Logic Apps  
+- Publish BizTalk Server endpoints using Azure API Management so that organizations can expose endpoints to internal developers and external partners.
 
-Publish BizTalk Server endpoints using Azure API Management, enabling organizations to expose endpoints to external partner and internal developers  
+With BizTalk Server 2020, installation automatically included the adapter for Azure Logic Apps along with the built-in adapters for easily connecting with the cloud environment.
 
-BizTalk Server 2020 provides adapters to connect easily with the cloud environment, which will help with their on-premises integrations and with their hybrid integrations.  
+### Big bang
 
-A hybrid integration strategy enables companies to maintain their technology investments in the systems they rely on, but still take advantage of new functions, improved performance, and the lower cost structure of cloud-based applications such as Microsoft Azure Cloud.
+A "big bang" or "direct changeover" approach requires lots of planning and isn't recommended for organizations that are unfamiliar with Azure Logic Apps or that have large systems or solutions to migrate. When an organization implements a new technology stack, new learnings usually often result. By investing too early or too much, you won't have the opportunity to benefit from lessons learned and adjust without risking significant rework.
 
-### Iterative (recommended) 
+This approach might also take longer to reap or accrue value. If you've already completed some migration activities, but you haven't yet released them into production due to other pending or in-progress work, your migrated artifacts aren't generating value for your organization.
+
+### Iterative (recommended)
 
 This approach provides the opportunity for your organization to incrementally achieve value, but sooner than they might otherwise. Your project team can learn about the technology stack early by using retrospectives. For example, you can deploy an existing BizTalk interface or project to production and then learn about the solution's needs, which include management, scalability, operations, and monitoring. After you gain this knowledge, you can plan sprints to optimize existing capabilities or introduce new patterns that you can subsequently use in future work. 
 
-Independent of the approach you take, if you are going to Azure and Azure Integration Service, you should always think about refactoring your BizTalk Server solutions into cloud-native solutions (or serverless) and then decommission your server infrastructure. This choice will be an excellent fit if the strategy is to transform the business towards being entirely cloud-based.  
+Regardless of your approach, if you plan on moving to Azure Integration Services or Azure in general, strongly consider refactoring your BizTalk Server solutions into serverless or cloud-native solutions before you decommission your server infrastructure. This choice is an excellent strategy if your organization wants to transform the business completely to the cloud.
 
-## Best practices
+## Plan for migration
+
+The following section provides guidance around planning for migration and the areas to consider.
+
+### Readiness planning
+
+Readiness represents a critical part in your planning process. When you understand your project's breadth and depth, predictability improves across multiple dimensions, such as costs, complexity, timelines, and your project's overall success. The following list includes specific areas to review and address as part of your project's charter process.
+
+| Area | Description |
+|------|-------------|
+| Inventory | Capture data about all your interfaces and applications so you can learn the number of interfaces and applications that you need to migrate. During this cataloguing process, collect the following information to provide context: <br><br>- Adapters in use <br>- BizTalk Server features in use, such as Business Activity Monitoring, Business Rules Engine, EDI, and so on <br>- Custom code, such as expressions, maps, and pipeline components <br>- Message throughput <br>- Message sizes <br>- Dependencies |
+| Complexity | To help you learn the levels of complexity in your interfaces, examine the types of business rules in those interfaces and the technical requirements that need customization to meet their needs or performance requirements. |
+| Value | Assess the value of your interfaces so you can determine the priority for which interfaces to reimplement. While starting with low risk interfaces might make sense, after you're comfortable working with Azure Integration Services, make sure to first focus on the highest value work. |
+| Costs | Establish the project's scope and estimate costs because a migration project requires capital to start execution. Secure the project's budget, whether achieved through capital or operational budget planning, and manage the project's scope along the way. |
+| Application and system dependencies | Identify and account for these dependencies when you start project planning, so you can avoid surprises as you start project execution. |
+| Risk registry | Create and use this artifact to identify and track any risks that surface while you work through project planning exercises. When you understand the risks, you can proactively mitigate them and communicate to leadership. You can also remove blockers early when they're less costly to address. |
+
+### Migration tools
+
+The Azure Integration Migrator command-line tool, also called the [BizTalk Migration tool](https://github.com/Azure/aimbiztalk), is a Microsoft open-source project that can help you in the planning and execution phases for your migration project along with moving BizTalk Server applications to Azure Integration Services. You can also use this tool to uncover useful insights and strategies for migrating your solutions to the cloud.
+
+This tool runs through the following phases:
+
+1. **Discover**
+
+   Pulls BizTalk Server resources and identifies the BizTalk artifacts to migrate. Reads the assemblies and binding file information.
+
+   **Requirements**: The MSI for the Biztalk Server application and all referenced BizTalk Server applications
+
+1. **Parse**
+
+   Reads the BizTalk Server artifacts and builds a source data model for the BizTalk Server application.
+
+1. **Analyze**
+
+   Builds an Azure Integration Services target data model using the source data model from the Parse stage. Basically, the tool reviews the BizTalk Server resources, identifies which items can migrate, and builds a data model of the Azure Integration Services target.  
+
+1. **Report**
+
+   Generates a report that outlines the found BizTalk Server resources and the items that can migrate. The report also contains detailed information about the contents in the source and target applications along with details about any potential problems with the conversion.
+
+1. **Convert**
+
+   Generates Azure Manager Resource templates and Azure CLI scripts that you can use to build the applications in Azure by using the target data model.
+
+1. **Verify**
+
+   This phase isn't currently built into the tool, but you run the installation scripts to deploy your application to Azure. You can then assess whether the generated application provides the same functionality as your BizTalk Server on-premises application.
+
+[**DIAGRAM**]
+
+### Key team roles and skills for successful migration
+
+To successfully migrate integration workflows from BizTalk Server to Azure Integration Services, establish a team that has the following important roles and skills, which span multiple disciplines:
+
+| Role | Skills |
+|------|--------|
+| Project managers | Accountable for leading the overall project and delivers the agreed-upon scope within the boundaries for time and budget. |
+| Scrum leader | Actively manages the backlog and facilitates prioritization for the project's activities. |
+| Architects | Make sure that the project aligns with enterprise architectural principles and provide guidance about how to navigate uncertainty and roadblocks. |
+| Developers | Actively work on migrating components from BizTalk Server to Azure Integration Services. |
+| Quality assurance testers | Create test plans and execute testing against those plans. Track, communicate, and triage bugs and defects as part of project sprint planning. |
+| User acceptance testers (UAT) | Provide the business stakeholders who help make sure no regressions are introduced by moving interfaces from an existing platform to a new platform. |
+| Change management specialists | Assess the impact on existing processes and roles. Build a plan to help mitigate any perceived issues before they emerge. |
+
+To help provide some or all the resources previously described, consider partners who have experience with performing migrations. As team members, they can help reduce risk, improve time to market, and make the project more predictable with their skill sets and expertise.
+
+### Build process planning
+
+For build planning, Microsoft recommends that you include sprints and work items to handle foundational services, such as authentication, logging, exception handling, and so on. This inclusion helps avoid rework later in development cycles caused by not addressing underlying needs. You also want to avoid blocked developers due to decisions that require other stakeholders to make.
+
+The following list covers only some areas to consider: 
+
+| Area | Description |
+|------|-------------|
+| Authentication | Address the following questions and others about authentication before you get too deep into development cycles. <br><br>- Does your organization have any standards around authentication schemes? <br>- Can you use managed identities and service principals in Azure? <br>- Are basic authentication and API keys permitted or not? <br><br>This activity can be a good opportunity to bring in your enterprise architects who can make sure to get clear agreements about which authentication schemes to use. |
+| Logging | Consider collecting and store telemetry in a centralized data repository, which is a popular pattern that integration solutions use. <br><br>For example, Azure Logic Apps (Standard) can push telemetry to Application Insights in Azure Monitor. Azure Logic Apps (Consumption) can push telemetry to Log Analytics, also in Azure Monitor. You can also include tracked properties so that developers can include more context as messages flow through the integration platform. For example, this data might include work order numbers, purchase order information, or anything else that might be useful, helpful, and relevant for your organization. <br><br>Arguably, each organization's solution might differ, based on the organization's needs. For example, some organizations want full control over what and when data gets logged. In this scenario, you might create APIs or custom connectors, and then instrument your code based on specific milestones. <br><br>Regardless which approach you choose, make sure that your developers clearly understand expectations to avoid future rework. |
+| Exception Handling | : Is another area where clarity needs to be created early. Before any new logic apps are created, an exception handling strategy and pattern needs to be accounted for. Once again, a goal needs to involve avoiding future re-work.  
+
+ 
+
+There are a few considerations when you address exception handling: 
+
+How will you use Scopes and Configure run after settings to detect exceptions? 
+
+How you can use the result() expression to better understand where in our workflow an exception has occurred and some additional information on the underlying exception root cause. 
+
+Once you have established how you want to catch exceptions, how do you want to log this information and communicate to stakeholders? Decisions here need to align with your logging strategy that we just discussed. Ideally, you have established a process that will actively look for new error events within your logging data store. From there, you can respond to these events and orchestrate an exception process. This may involve filtering out (or aggregating) duplicate error events, logging a ticket into the organization’s IT Service Management solution and addressing notifications. You may have different paths for notifications based upon severity information and time of day. By building out a workflow to manage this process, you can achieve agility. 
+
+Analytics: Are really important so that you can demonstrate overall health and hygiene to your stakeholders. When establishing your analytics needs, consider the different lenses that your stakeholders will be looking through. For example: 
+
+An Executive audience will not be concerned with overall technical nuances but may be interested in overall health, transaction counts/volume and the business value that those transactions are generating. 
+
+A Line Manager may be more interested in overall health but may start to get interested in more technical details such as performance characteristics to ensure that SLAs are being met. 
+
+Support Analysts will likely be interested in overall service health, exceptions and performance bottlenecks. 
+
+ 
+
+As you put together your Analytics strategy, you need to consider the type of data and who will be interested in that data. This will ensure that you are tracking the right information and it will be accessible for reporting reasons. Should you discover coverage gaps you may need to revisit your Logging work items and add appropriate tasks to address these gaps. 
+
+ 
+
+Cadence: The frequency and delivery of integration building blocks may vary from organization to organization based upon their Project Management Office (PMO) methodology. Regardless of the style of delivery that your organization uses, you need to account for learnings that will emerge as you provision these building blocks. While detailed planning will reduce the need for re-work, there is no substitute from actually shipping integration projects and learning from those experiences. The last thing that you want to do is introduce a lot of technical debt into a brand-new platform. The best way to mitigate is to plan for some remediation sprints/cycles early in your journey so that you can course correct before it becomes infeasible to do so. 
+
+## Best practices for migration
 
 While best practices might vary across organizations, consider a conscious effort to promote consistency, which helps reduce unnecessary efforts that "reinvent the wheel" and the redundancy of similar common components. When you help enable reusability, your organization can more quickly build interfaces that become easier to support. Time to market is a key enabler for digital transformation, so a top priority is reducing unnecessary friction for developers and support teams.
 
