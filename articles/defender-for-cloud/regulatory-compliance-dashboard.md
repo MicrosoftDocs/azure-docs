@@ -240,9 +240,9 @@ Users that have one Defender bundle enabled can enable additional standards.
 
 Available AWS regulatory standards:
 
-CIS 1.2.0
-PCI DSS 3.2.1
-AWS Foundational Security Best Practices
+- CIS 1.2.0
+- PCI DSS 3.2.1
+- AWS Foundational Security Best Practices
 
 To add regulatory compliance standards on AWS accounts:
 
