@@ -19,7 +19,7 @@ To complete this procedure, you need the following:
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
 - When use the Azure portal to create a data collection rule for collecting text logs, Azure Monitor automatically creates a destination table in your Log Analytics workspace. When you create a data collection rule using the API, you must first [create a custom table](../logs/create-custom-table.md#create-a-custom-table) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A machine that generates file-based text logs.
+- A machine that write logs to a text file.
 
 ## Create data collection rule to collect text logs
 
