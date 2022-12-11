@@ -38,7 +38,7 @@ By default, function apps created in the Azure portal, by the Azure CLI, or from
 
 ### Migrating existing function apps
 
-When your app has existing functions, you must take precautions before moving to a later runtime version. The following articles detail breaking changes between versions, including language-specific breaking changes. They also provide you with step-by-step instructions for a successful migration of you existing function app. 
+When your app has existing functions, you must take precautions before moving to a later runtime version. The following articles detail breaking changes between versions, including language-specific breaking changes. They also provide you with step-by-step instructions for a successful migration of your existing function app. 
 
 + [Migrate from runtime version 3.x to version 4.x](./migrate-version-3-version-4.md) 
 + [Migrate from runtime version 1.x to version 4.x](./migrate-version-1-version-4.md)
