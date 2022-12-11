@@ -30,7 +30,7 @@ The [data collection rule](../essentials/data-collection-rule-overview.md) defin
 - Which source log files Azure Monitor Agent scans for new events.
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
-- 
+
 Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 To create the data collection rule in the Azure portal:
