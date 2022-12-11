@@ -36,7 +36,7 @@ For no-code-deployment, Azure Machine Learning
 > For information about inputs format supported and limitation in online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference).
 
 > [!WARNING]
-> Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployment-with-a-scoring-script).
+> Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a __private network without egress connectivity__ is not supported by the moment. If that's your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployment-with-a-scoring-script).
 
 
 ## About this example
@@ -340,7 +340,7 @@ You will typically select this workflow when:
 > [!WARNING]
 > Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio](https://ml.azure.com), please switch to the CLI or the SDK.
 
-### Create an online deployment using an scoring script and custom environment
+### Steps
 
 Use the following steps to deploy an MLflow model with a custom scoring script.
 
@@ -473,72 +473,72 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
 1. Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using a sample request file along with the `invoke` method.
 
-**sample-request-sklearn-custom.json**
+    **sample-request-sklearn-custom.json**
+    
+    ```json
+    {
+      "dataframe_split": {
+        "columns": [
+          "age",
+          "sex",
+          "bmi",
+          "bp",
+          "s1",
+          "s2",
+          "s3",
+          "s4",
+          "s5",
+          "s6"
+        ],
+        "data": [
+          [ 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0 ],
+          [ 10.0,2.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0]
+        ],
+        "index": [0,1]
+      }
+    }
+    ```
 
-```json
-{
-  "dataframe_split": {
-    "columns": [
-      "age",
-      "sex",
-      "bmi",
-      "bp",
-      "s1",
-      "s2",
-      "s3",
-      "s4",
-      "s5",
-      "s6"
-    ],
-    "data": [
-      [ 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0 ],
-      [ 10.0,2.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0]
-    ],
-    "index": [0,1]
-  }
-}
-```
-
-To submit a request to the endpoint, you can do as follows:
-
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/mlflow/sample-request-sklearn-custom.json
-```
-
-# [Python](#tab/sdk)
-
-```python
-ml_client.online_endpoints.invoke(
-    endpoint_name=endpoint_name,
-    deployment_name=deployment.name,
-    request_file="sample-request-sklearn-custom.json",
-)
-```
-
-# [Studio](#tab/studio)
-
-MLflow models can use the __Test__ tab to create invocations to the created endpoints. To do that:
-
-1. Go to the __Endpoints__ tab and select the new endpoint created.
-1. Go to the __Test__ tab.
-1. Paste the content of the file `sample-request-sklearn-custom.json`.
-1. Click on __Test__.
-1. The predictions will show up in the box on the right.
-
----
-
-The response will be similar to the following text:
-
-```json
-{
-  "predictions": [ 
-    11633.100167144921,
-    8522.117402884991
-  ]
-}
-```
+    To submit a request to the endpoint, you can do as follows:
+    
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/mlflow/sample-request-sklearn-custom.json
+    ```
+    
+    # [Python](#tab/sdk)
+    
+    ```python
+    ml_client.online_endpoints.invoke(
+        endpoint_name=endpoint_name,
+        deployment_name=deployment.name,
+        request_file="sample-request-sklearn-custom.json",
+    )
+    ```
+    
+    # [Studio](#tab/studio)
+    
+    MLflow models can use the __Test__ tab to create invocations to the created endpoints. To do that:
+    
+    1. Go to the __Endpoints__ tab and select the new endpoint created.
+    1. Go to the __Test__ tab.
+    1. Paste the content of the file `sample-request-sklearn-custom.json`.
+    1. Click on __Test__.
+    1. The predictions will show up in the box on the right.
+    
+    ---
+    
+    The response will be similar to the following text:
+    
+    ```json
+    {
+      "predictions": [ 
+        11633.100167144921,
+        8522.117402884991
+      ]
+    }
+    ```
 
 ## Clean up resources
 
