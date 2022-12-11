@@ -242,7 +242,7 @@ To create the data collection rule in the Azure portal:
 
 1. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
-1. The final step is to create a data collection association that associates the data collection rule to the agents with the log file to be collected. You can associate the same data collection rule with multiple agents:
+1. Create a data collection association that associates the data collection rule to the agents with the log file to be collected. You can associate the same data collection rule with multiple agents:
 
     1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you just created.
     
