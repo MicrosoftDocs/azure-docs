@@ -37,11 +37,11 @@ To differentiate between Consumption and Standard logic app resources, you can u
 - Consumption: **LACon**
 - Standard: **LAStd**
 
-From a organizational perspective, you might designing a naming pattern that includes business unit, department, application purpose, and optionally, the deployment environment, such as `DEV`, `UAT`, `PROD`, and so on, for example:
+From a organizational perspective, you might designing a naming pattern that includes the business unit, department, application, and optionally, the deployment environment, such as `DEV`, `UAT`, `PROD`, and so on, for example:
 
 `LAStd-<*business-unit-name*>-<*department-name* or *application-name*>-<*environment-name*>`
 
-Suppose you have a Standard logic app in development that implements workflows for the HR department in the Corporate Services business unit. You might name the logic app resource **LAStd-CorporateServices-HR-DEV**.
+Suppose you have a Standard logic app in development that implements workflows for the HR department in the Corporate Services business unit. You might name the logic app resource **LAStd-CorporateServices-HR-DEV**, and use [Pascal Case notation](https://www.theserverside.com/definition/Pascal-case) where appropriate for consistency.
 
 #### Logic app workflow names
 
@@ -58,9 +58,9 @@ Here are a couple more considerations for designing your workflow naming convent
 
 #### Workflow operation names
 
-When you add a trigger or action to your workflow, the designer automatically uses the default generic name for that operation. However, operation names must be unique within your workflow so the designer appends sequential numbers, which makes readability and deciphering the developer's original intent difficult.
+When you add a trigger or action to your workflow, the designer automatically assigns the default generic name for that operation. However, operation names must be unique within your workflow, so the designer appends sequential numerical suffixes on subsequent operation instances, which makes readability and deciphering the developer's original intent difficult.
 
-To make operation names simpler to understand, you can add a brief task descriptor after the default text and use Pascal Case notation for consistency. For example, for the Parse JSON action, you can use a name such as **Parse JSON-ChangeEmployeeRecord**. With this approach or other similar approaches, you'll continue to remember that the action is **Parse JSON** and the action's specific purpose. So, if you need to use this action's outputs later in downstream workflow actions, you can more easily identify and find those outputs.
+To make operation names more meaningful and easier to understand, you can add a brief task descriptor after the default text and use Pascal Case notation for consistency. For example, for the Parse JSON action, you can use a name such as **Parse JSON-ChangeEmployeeRecord**. With this approach or other similar approaches, you'll continue to remember that the action is **Parse JSON** and the action's specific purpose. So, if you need to use this action's outputs later in downstream workflow actions, you can more easily identify and find those outputs.
 
 > [!NOTE]
 >
@@ -74,61 +74,44 @@ To avoid later possible rework and problems around downstream dependencies, whic
 
 #### Connection names
 
-Beyond a consistent naming convention for both Logic Apps and workflows, it is also recommended to have consistent and meaningful names for your connections. This is important for a few reasons: 
+When you create a connection in your workflow, the underlying connection resource automatically gets a generic name, such as **sql** or **office365**. Like operation names, connection names must also be unique. Subsequent connections with the same type get a sequential numerical suffix, for example, **sql-1**, **sql-2**, and so on. Such names don't have any context, and make differentiating and mapping connections to their logic apps extremely challenging, especially for developers who are unfamiliar with the space and have to take on maintenance for those logic apps.
 
-Readability 
+So, meaningful and consistent connection names are important for the following reasons:
 
-Knowledge transfer/supportability 
+- Readability
+- Easier knowledge transfer and supportability
+- Governance 
 
-Governance 
+Again, having a naming convention is critical, although the format isn't overly important. For example, you can use the following pattern as a guideline:
 
-By not renaming your connections you can end up with default names like sql, sql-1, sql-2, sql-3 for example. As you can imagine, this level of information does not afford context if a new developer picks up the maintenance of a specific logic app. 
+`CN-<*connector-name*>-<*logic-app-or-workflow-name*>`
 
-Once again, the format of the naming convention is not overly important, but having one is. As an example, you can use the following as a guideline: CN-{Connector}-{ResourceName}. If we take a practical example of this convention, then we can end up with the following: CN-ServiceBus-OrderQueue. For additional information on this topic, please refer to the following blog post. 
+As a concrete example, you might rename a Service Bus connection in an **OrderQueue** logic app or workflow with **CN-ServiceBus-OrderQueue** as the new name. For more information, see the Serverless360 blog post [Logic app best practices, tips, and tricks: #11 connectors naming convention](https://www.serverless360.com/blog/logic-app-best-practices-tips-and-tricks-11-connectors-naming-convention).
 
-Use Scopes and Configure Run After Settings 
+### Handle exceptions with scopes and "Run after" options
 
-Scopes provide a couple of different capabilities: 
+[Scopes](/azure/logic-apps/logic-apps-control-flow-run-steps-group-scopes) provide the capability to group multiple actions so that you can implement Try-Catch-Finally behavior. The **Scope** action's functionality is similar to the **Region** concept in Visual Studio. On the designer, you can collapse and expand a scope's contents to improve developer productivity.
 
-It allows you to group a set of actions together, much like a Region found in Visual Studio. You can subsequently collapse and expand this grouping to improve developer productivity. 
+When you implement this pattern, you can also specify when to run the **Scope** action and the actions inside, based on the preceding action's execution status, which can be **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. To set up this behavior, use the **Scope** action's [**Run after** (`runAfter`) options](/azure/logic-apps/logic-apps-exception-handling#manage-the-run-after-behavior):
 
-You can use scopes to implement ‘Try-Catch-Finally’ semantics. To implement this pattern, developers can take advantage of Configure Run After settings on an action and choose when the action should run based upon the result of the previous actions execution. The options include when a previous action’s run: 
+- **Is successful**
+- **Has failed**
+- **Is skipped**
+- **Has timed out**
 
-Is successful 
+### Shared services
 
-Has failed 
+When you build integration solutions, consider creating and using shared services for common tasks. You can have your team build and expose a collection of shared services that your project team and others can use. Everyone gains increased productivity, uniformity, and the capability to enforce governance on your organization's solutions. The following sections describe some areas where you might consider introducing shared services:
 
-Is skipped 
+| Shared service | Reasons |
+|----------------|---------|
+| Centralized logging | Provides common patterns for how developers instrument their code with appropriate logging. You can then set up diagnostic views that help you determine interface health and supportability. |
+| Business tracking and business activity monitoring | Capture and expose data so that business subject matter experts can better understand the state of their business transactions and perform self-service analytic queries. |
+| Configuration data | Separating your application configuration data from your code is a good practice so that you can move your application from one environment to another. However, if every project implements this is capability in a unique way, you are unable to take advantage of economy of scale. By providing a unified approach to access configuration data, project teams can focus on solving the business problem rather than  
+| Custom Connectors | Perhaps you have some internal systems where there is not a public connector available in Azure Logic Apps and you would like to create a custom connector that can be built one and then shared with other project teams so that they can leverage it. |
+| System of Record data feeds | Every organization has common data sets that need to be leveraged when integrating systems in a corporate environment. Being able to expose these data feeds as APIs (or connectors) is advantageous so that other project teams can leverage it and avoid reinventing the wheel. |
 
-Has timed out 
-
-Shared Services 
-
-When building integration solutions, it is important to consider using shared services for common functions. Having a team build a set of shared services and then exposing them so that other project teams can leverage them allows for better productivity, uniformity and allows organizations to enforce governance on solutions. 
-
-Some areas where you want to consider introducing shared services include: 
-
-Centralized logging 
-
-Having common patterns on how developers instrument their code with appropriate logging so that a diagnostic view can be established that helps determine interface health and supportability. 
-
-Business tracking/Business Activity Monitoring 
-
-Capturing and exposing data that allows business subject matter experts to understand the state of their business transactions so that those users can perform self-service analytic queries. 
-
-Configuration data 
-
-Separating your application configuration data from your code is a good practice so that you can move your application from one environment to another. However, if every project implements this is capability in a unique way, you are unable to take advantage of economy of scale. By providing a unified approach to access configuration data, project teams can focus on solving the business problem rather than  
-
-Custom Connectors 
-
-Perhaps you have some internal systems where there is not a public connector available in Azure Logic Apps and you would like to create a custom connector that can be built one and then shared with other project teams so that they can leverage it. 
-
-System of Record data feeds 
-
-Every organization has common data sets that need to be leveraged when integrating systems in a corporate environment. Being able to expose these data feeds as APIs (or connectors) is advantageous so that other project teams can leverage it and avoid reinventing the wheel. 
-
-Learn from failures 
+### Learn from failures 
 
 It is important for you, from time to time, to do an assessment of your existing Logic Apps, especially when they have failed. Not only analyze the business process to see what can be improved but you should also analyze the run history of your logic apps and learn from the failures or mistakes that are happening. 
 
