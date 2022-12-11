@@ -30,7 +30,7 @@ The analyze response for each API returns different objects. API responses conta
 
 | Response content | Description | API |
 |--|--|--|
-| pages| Words, lines and spans recognized from each page of the input document | Read, Layout, General Document, Prebuilt models and Custom models| 
+| pages| Words, lines and spans recognized from each page of the input document | Read, Layout, General Document, Prebuilt models and Custom models|
 | paragraphs| The content recognized by paragraphs | Read, Layout, General Document, Prebuilt models and Custom models| 
 | styles| Text element properties identified | Read, Layout, General Document, Prebuilt models and Custom models| 
 | languages| The identified language associated with each span of the text extracted | Read |
@@ -38,7 +38,7 @@ The analyze response for each API returns different objects. API responses conta
 | keyValuePairs| Key value pairs recognized by the pre trained model. The key is a span of text from the document with the associated value | General document, Invoice |
 | documents| Fields recognized are returned in the ```fields``` dictionary within the list of documents| Prebuilt models, Custom models|
 
-For more information on the objects retured by each API, see [model data extraction](concept-model-overview.md#model-data-extraction).
+For more information on the objects returned by each API, see [model data extraction](concept-model-overview.md#model-data-extraction).
 
 ## Element properties
 
@@ -80,6 +80,13 @@ A line is an ordered sequence of consecutive content elements separated by a vis
 A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited by indentation, additional spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
 Select paragraphs may also be associated a with functional role in the document.  Currently supported roles include page header, page footer, page number, title, section heading, and footnote.
 
+#### Page
+
+A page is a grouping of content that typically corresponds to one side of a sheet of paper.  For rendered pages, it is characterized by width and height in the specified unit.  In general, images use pixel while PDFs use inch.  The angle property describes the overall text angle in degrees for pages that may be rotated.
+
+> [!NOTE]
+> For spreadsheets (ex. xslx), each sheet is mapped to a page.  For presentations (ex. pptx), each slide is mapped to a page.  For file formats without a native concept of pages without rendering (ex. html, docx), the main content of the file is considered a single page.
+
 #### Table
 
 A table organizes content into a group of cells in a grid layout.  The rows and columns may be visually separated by grid lines, color banding, or greater spacing.
@@ -88,13 +95,6 @@ The position of a table cell is specified by its row and column indices.  A cell
 Based on its position and styling, a cell may be classified as general content, row header, column header, stub head, or description.  A row header cell is typically the first cell in a row that describe the other cells in the row.  Similarly, a column header cell is typically the first cell in a column that describes the other cells in a column.  A row/column may contain multiple header cells to describe hierarchical content.  A stub head cell is typically the cell in the first row and first column position.  It may be empty or describe the values in the header cells in the same row/column.  A description cell generally appears at the very top or bottom of a table, describing the overall table content.  However, it may sometimes appear in the middle of a table to break the table into sections.  Typically, description cells span across multiple cells in a single row. A table may further have an associated caption and a set of footnotes.  A table caption specifies content that explains the table.  Unlike a description cell, a caption typically lies outside the grid layout.  A table footnote annotates content inside the table, often marked with a footnote symbol.  It is often found below the table grid.
 
 Layout tables differs from document fields extracted from tabular data.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  To extract structured data from documents with diverse visual layout (ex. itemized details of a receipt) generally requires significant postprocessing to map the row/column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information are exposed as document fields.  Such trained models can also handle tabular data without headers as well as structured data in non-tabular forms for example the work experience section of a resume.
-
-#### Page
-
-A page is a grouping of content that typically corresponds to one side of a sheet of paper.  For rendered pages, it is characterized by width and height in the specified unit.  In general, images use pixel while PDFs use inch.  The angle property describes the overall text angle in degrees for pages that may be rotated.
-
-> [!NOTE]
-> For spreadsheets (ex. xslx), each sheet is mapped to a page.  For presentations (ex. pptx), each slide is mapped to a page.  For file formats without a native concept of pages without rendering (ex. html, docx), the main content of the file is considered a single page.
 
 #### Form field (key value pair)
 
@@ -168,4 +168,48 @@ The semantic schema of a document type is described by the fields it may contain
 **Structured types**
 
 * Array: List of fields of the same type
+
+```json
+"Items": {
+    "type": "array",
+    "valueArray": [
+
+    ]
+}
+
+```
+
 * Object: Named list of subfields of potentially different types
+
+```json
+"InvoiceTotal": {
+    "type": "currency",
+    "valueCurrency": {
+        "currencySymbol": "$",
+        "amount": 110
+    },
+    "content": "$110.00",
+    "boundingRegions": [
+        {
+            "pageNumber": 1,
+            "polygon": [
+                7.3842,
+                7.465,
+                7.9181,
+                7.465,
+                7.9181,
+                7.6089,
+                7.3842,
+                7.6089
+            ]
+        }
+    ],
+    "confidence": 0.945,
+    "spans": [
+        {
+            "offset": 806,
+            "length": 7
+        }
+    ]
+}
+```

@@ -74,6 +74,7 @@ As of October 18, 2022, Form Recognizer custom neural model training will only b
 * West Europe
 * West US2
 * US Gov Arizona
+* US Gov Virginia
 
 
 

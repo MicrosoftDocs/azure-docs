@@ -45,9 +45,8 @@ Before you start labeling, it's a good idea to look at a few different samples o
 
 * Optional fields - If your documents contain documents with options fields, validate that the training dataset has a few documents with the optionality represented.
 
-## Labeling best practices
+## Start by identifying the fields
 
-The labeling best practices video is a detailed walk through of all the best practices 
 Take the time to identify each of the fields you plan to label in the dataset, paying attention to optional fields. Define the fields with the type that best matches the supported types.
 
 Use the following guidelines to defining the fields:
@@ -71,8 +70,10 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 | Model type | Form fields | Selection marks | Tabular fields | Signature | Region |
 |--|--|--|--|--|--|
-| Custom neural | Supported| Supported | Supported | Unsupported | Unsupported |
+| Custom neural | Supported| Supported | Supported | Unsupported | Supported<sup>1</sup> |
 | Custom template | Supported| Supported | Supported | Supported | Supported |
+
+<sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the extracted text is used as is.
 
 ## Tabular fields
 
