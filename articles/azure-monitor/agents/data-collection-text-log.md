@@ -13,7 +13,7 @@ ms.reviewer: shseth
 Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect text logs from monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
 
 ## Prerequisites
-To complete this procedure, you need the following: 
+To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
@@ -50,7 +50,7 @@ To create the data collection rule in the Azure portal:
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
 1. On the **Resources** tab: 
-    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, virtual machine scale sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
+    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
         > [!IMPORTANT]
         > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
@@ -67,7 +67,7 @@ To create the data collection rule in the Azure portal:
 
     [ ![Screenshot that shows the Add data source screen for a data collection rule in Azure portal.](media/data-collection-text-log/custom-text-log-data-collection-rule.png)](media/data-collection-text-log/custom-text-log-data-collection-rule.png#lightbox)
 
-1. Specify the following:
+1. Specify the following information:
  
     - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
     
@@ -106,7 +106,7 @@ To create the data collection rule in the Azure portal:
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
 
-1. Paste the Resource Manager template below into the editor:
+1. Paste this Resource Manager template into the editor:
 
     ```json
     {
@@ -253,7 +253,7 @@ To create the data collection rule in the Azure portal:
 
 1. Select **Review + create** and then **Create** when you review the details.
 
-1. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
+1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
     :::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
 
@@ -265,7 +265,7 @@ To create the data collection rule in the Azure portal:
 
 1. Create a data collection association that associates the data collection rule to the agents with the log file to be collected. You can associate the same data collection rule with multiple agents:
 
-    1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you just created.
+    1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you created.
     
         :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with data collection rules menu item.":::
     
@@ -273,7 +273,7 @@ To create the data collection rule in the Azure portal:
     
         :::image type="content" source="media/data-collection-text-log/add-resources.png" lightbox="media/data-collection-text-log/add-resources.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
     
-    1. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Click **Apply**.
+    1. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Select **Apply**.
     
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
@@ -282,7 +282,7 @@ To create the data collection rule in the Azure portal:
 Use the following steps to troubleshoot collection of text logs. 
 
 ### Check if any custom logs have been received
-Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created will not be uploaded.
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If records aren't returned, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created won't be uploaded.
 
 ``` kusto
 <YourCustomLog>_CL
@@ -337,7 +337,7 @@ This file pattern should correspond to the logs on the agent machine.
 
 
 ### Verify that the text logs are being populated
-The agent will only collect new content written to the log file being collected. If you are experimenting with the text logs collection feature, you can use the following script to generate sample logs.
+The agent will only collect new content written to the log file being collected. If you're experimenting with the text logs collection feature, you can use the following script to generate sample logs.
 
 ```powershell
 # This script writes a new log entry at the specified interval indefinitely.
