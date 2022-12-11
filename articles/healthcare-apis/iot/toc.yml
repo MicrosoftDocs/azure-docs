@@ -76,7 +76,7 @@ items:
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
-    - name: Device and destination mappings
+    - name: Device and FHIR destination mappings
       href: iot-troubleshoot-mappings.md
 - name: Concepts
   expanded: false
