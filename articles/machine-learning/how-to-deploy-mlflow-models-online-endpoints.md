@@ -33,7 +33,7 @@ For no-code-deployment, Azure Machine Learning
     * A scoring script to perform inference.
 
 > [!WARNING]
-> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](##customizing-mlflow-model-deployments-with-a-scoring-script).
+> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments](#customizing-mlflow-model-deployments-with-a-scoring-script).
 
 
 ## About this example
@@ -125,10 +125,10 @@ To create a model in Azure Machine Learning, open the Models page in Azure Machi
 
 ---
 
-3. (Alternatively) If your model was logged inside of a run, you can register it directly.
+Alternatively, if your model was logged inside of a run, you can register it directly.
 
 > [!TIP]
-> To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommed to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an expample, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
+> To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommend to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an example, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
 
 # [Azure CLI](#tab/cli)
 
