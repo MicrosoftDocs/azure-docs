@@ -174,7 +174,7 @@ Azure ML pipelines are reusable ML workflows that usually consist of several com
 
 ## Create component 1: data prep (using programmatic definition)
 
-Let's start by creating the first component. This component handles the preprocessing of the data. The preprocessing task is performed in the *data_prep.py* python file.
+Let's start by creating the first component. This component handles the preprocessing of the data. The preprocessing task is performed in the *data_prep.py* Python file.
 
 First create a source folder for the data_prep component:
 
@@ -228,9 +228,9 @@ Now that both your components are defined and registered, you can start implemen
 
 Here, you'll use *input data*, *split ratio* and *registered model name* as input variables. Then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
-The python functions returned by `load_component()` work as any regular python function that we'll use within a pipeline to call each step.
+The Python functions returned by `load_component()` work as any regular Python function that we'll use within a pipeline to call each step.
 
-To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
+To code the pipeline, you use a specific `@dsl.pipeline` decorator that identifies the Azure ML pipelines. In the decorator, we can specify the pipeline description and default resources like compute and storage. Like a Python function, pipelines can have inputs. You can then create multiple instances of a single pipeline with different inputs.
 
 Here, we used *input data*, *split ratio* and *registered model name* as input variables. We then call the components and connect them via their inputs/outputs identifiers. The outputs of each step can be accessed via the `.outputs` property.
 
