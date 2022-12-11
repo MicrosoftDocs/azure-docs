@@ -32,11 +32,8 @@ For no-code-deployment, Azure Machine Learning
     * [`mlflow-skinny`](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst)
     * A scoring script to perform inference.
 
-> [!NOTE]
-> For information about inputs format supported and limitation in online endpoints, view [Considerations when deploying to real-time inference](#considerations-when-deploying-to-real-time-inference).
-
 > [!WARNING]
-> Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a __private network without egress connectivity__ is not supported by the moment. If that's your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployment-with-a-scoring-script).
+> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or provide a scoring script as indicated at [Customizing MLflow model deployments with a scoring script](##customizing-mlflow-model-deployments-with-a-scoring-script).
 
 
 ## About this example
@@ -329,7 +326,7 @@ MLflow models can be deployed to online endpoints without indicating a scoring s
 You will typically select this workflow when:
 
 > [!div class="checklist"]
-> - You need to customize the way the model is run, for instance, use an specific flavor to load it with mlflow.<flavor>.load().
+> - You need to customize the way the model is run, for instance, use an specific flavor to load it with `mlflow.<flavor>.load_model()`.
 > - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
 > - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
 > - Your endpoint is under a private link-enabled workspace.
@@ -458,9 +455,17 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     # [Python](#tab/sdk)
     
     ```python
-    environment = Environment(
-        conda_file="sklearn-diabetes/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=endpoint_name,
+        model=model,
+        environment=environment,
+        code_configuration=CodeConfiguration(
+            code="sklearn-diabetes/src",
+            scoring_script="score.py"
+        ),
+        instance_type="Standard_F4s_v2",
+        instance_count=1,
     )
     ```
     
