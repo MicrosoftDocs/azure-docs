@@ -93,11 +93,11 @@ workspace = "<workspace>"
 ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
 ```
 
----
-
 # [Studio](#tab/studio)
 
 Navigate to [Azure Machine Learning Studio](https://ml.azure.com).
+
+---
 
 ### Registering the model
 
@@ -125,6 +125,8 @@ model = ml_client.models.create_or_update(
 To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
 
 :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
+
+---
 
 3. (Alternatively) If your model was logged inside of a run, you can register it directly.
 
@@ -263,7 +265,6 @@ ml_client.models.create_or_update(
 
     1. Provide a name and authentication type for the endpoint, and then select __Next__.
     1. When selecting a model, select the MLflow model registered previously. Select __Next__ to continue.
-
     1. When you select a model registered in MLflow format, in the Environment step of the wizard, you don't need a scoring script or an environment.
 
         :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/ncd-wizard.png" alt-text="Screenshot showing no code and environment needed for MLflow models":::
