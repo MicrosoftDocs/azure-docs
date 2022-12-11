@@ -59,7 +59,11 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
+- A read-only lock on a **storage account** prevents the creation of a blob container.
+
 - A cannot-delete lock on a **storage account** doesn't protect account data from deletion or modification. It only protects the storage account from deletion. If a request uses [data plane operations](control-plane-and-data-plane.md#data-plane), the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. If the request uses [control plane operations](control-plane-and-data-plane.md#control-plane), however, the lock protects those resources.
+
+- A cannot-delete lock on a **storage account** prevents the deletion of a blob container.
 
   If a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), for example, which is a control plane operation, the deletion fails. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use a control plane operation.
 

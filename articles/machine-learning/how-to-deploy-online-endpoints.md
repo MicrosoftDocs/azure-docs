@@ -305,7 +305,7 @@ In this article, we first define names of online endpoint and deployment for deb
     model = Model(path="../model-1/model/sklearn_regression_model.pkl")
     env = Environment(
         conda_file="../model-1/environment/conda.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+        image="mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -371,7 +371,7 @@ The preceding YAML uses a general-purpose type (`Standard_DS2_v2`) and a non-GPU
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
 > [!NOTE]
-> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubermentes compute target](./how-to-attach-kubernetes-anywhere.md)
+> To use Kubernetes instead of managed endpoints as a compute target, see [Introduction to Kubernetes compute target](./how-to-attach-kubernetes-anywhere.md)
 
 ### Use more than one model
 

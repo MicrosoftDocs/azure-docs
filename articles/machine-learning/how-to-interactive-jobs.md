@@ -183,7 +183,7 @@ To interact with your running job, click the button **Debug and monitor** on the
 
 Clicking the applications in the panel opens a new tab for the applications. You can access the applications only when they are in **Running** status and only the **job owner** is authorized to access the applications. If you're training on multiple nodes, you can pick the specific node you would like to interact with.
 
-:::image type="content" source="media/interactive-jobs/interactive-jobs-right-panel.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the users data":::
+:::image type="content" source="media/interactive-jobs/interactive-jobs-application-list.png" alt-text="Screenshot of interactive jobs right panel information. Information content will vary depending on the user's data.":::
 
 It might take a few minutes to start the job and the training applications specified during job creation. If you don't see the above options, make sure you have enabled the "Debug & monitor your training jobs" flight via the [preview panel](./how-to-enable-preview-features.md#how-do-i-enable-preview-features).
 
