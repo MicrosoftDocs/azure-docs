@@ -50,7 +50,7 @@ Ports per instance should be calculated as below:
 
 **Number of frontend IPs * 64K / Number of backend instances** 
 
-If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, it's possible that virtual machine scale set scaling up could be blocked or that the new VMs won't receive sufficient SNAT ports. 
+If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, it's possible that virtual machine scale set scaling out could be blocked or that the new VMs won't receive sufficient SNAT ports. 
 
 For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 

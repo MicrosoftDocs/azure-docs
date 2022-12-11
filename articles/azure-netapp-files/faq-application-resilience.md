@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 11/17/2022
+ms.date: 12/6/2022
 ---
 # Application resilience FAQs for Azure NetApp Files
 
@@ -22,6 +22,7 @@ Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transp
 * Citrix App Laying
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
 * Microsoft SQL Server (not Linux SQL Server)
+
 **Custom applications are not supported with SMB Continuous Availability.**
 
 ## I'm running IBM MQ on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the NFS protocol?

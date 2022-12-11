@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
 ---
 
-# What are Microsoft Entra access reviews?
+# What are access reviews?
 
 Microsoft Entra access reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right people have continued access.
 
@@ -51,15 +51,15 @@ Azure AD enables you to collaborate with users from inside your organization and
 
 ## Where do you create reviews?
 
-Depending on what you want to review, you will create your access review in Microsoft Entra access reviews, Azure AD enterprise apps (in preview), Microsoft Entra PIM, or Microsoft Entra entitlement management.
+Depending on what you want to review, you will create your access review in access reviews, Azure AD enterprise apps (in preview), PIM, or entitlement management.
 
 | Access rights of users | Reviewers can be | Review created in | Reviewer experience |
 | --- | --- | --- | --- |
-| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self-review | Microsoft Entra access reviews</br>Azure AD groups | Access panel |
-| Assigned to a connected app | Specified reviewers</br>Self-review | Microsoft Entra access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
-| Azure AD role | Specified reviewers</br>Self-review | [Microsoft Entra PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-| Azure resource role | Specified reviewers</br>Self-review | [Microsoft Entra PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
-| Access package assignments | Specified reviewers</br>Group members</br>Self-review | Microsoft Entra entitlement management | Access panel |
+| Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self-review | access reviews</br>Azure AD groups | Access panel |
+| Assigned to a connected app | Specified reviewers</br>Self-review | access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
+| Azure AD role | Specified reviewers</br>Self-review | [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure resource role | Specified reviewers</br>Self-review | [PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Access package assignments | Specified reviewers</br>Group members</br>Self-review | entitlement management | Access panel |
 
 ## License requirements
 
