@@ -143,11 +143,79 @@ The following list covers only some areas to consider:
 | Logging | Consider collecting and store telemetry in a centralized data repository, which is a popular pattern that integration solutions use. <br><br>For example, Azure Logic Apps (Standard) can push telemetry to Application Insights in Azure Monitor. Azure Logic Apps (Consumption) can push telemetry to Log Analytics, also in Azure Monitor. You can also include tracked properties so that developers can include more context as messages flow through the integration platform. For example, this data might include work order numbers, purchase order information, or anything else that might be useful, helpful, and relevant for your organization. <br><br>Arguably, each organization's solution might differ, based on the organization's needs. For example, some organizations want full control over what and when data gets logged. In this scenario, you might create APIs or custom connectors, and then instrument your code based on specific milestones. <br><br>Regardless which approach you choose, make sure that your developers clearly understand expectations to avoid future rework. |
 | Exception Handling | Address having a strategy and consistent pattern early to handle exceptions and errors to avoid future rework. Make sure to create clarity around this area early before creating any logic apps. The following list includes some questions to answer when you address exception handling: <br><br>- How will you use scopes and "Run after" settings to detect exceptions? <br>- How can you use the `result()` expression to better understand where an exception happens in a workflow and to find more information about the underlying root cause? <br>- After you choose how to catch exceptions, how do you want to log this data and communicate to stakeholders? <br><br>Make sure these decisions align with your logging strategy as previously mentioned. Ideally, you've established a process that actively looks for new error events in your logging data store. From there, you can respond to these events and orchestrate an exception process. You might have to filter out or aggregate duplicate error events, log a ticket in your organization's IT Service Management solution, and choose how to send notifications. You might have different paths for notifications, based upon issue severity and time of day. You can achieve agility by building a workflow to manage this process. |
 | Analytics | To demonstrate your solution's overall health and hygiene to your stakeholders, consider the different lenses that your stakeholders use to look through, for example: <br><br>- Executives might be more interested in overall health, transaction counts or volume, and the business value that those transactions generate, but not overall technical nuances. <br>- A frontline manager might be more interested in overall health but could also become interested in technical details, such as performance characteristics, to make sure that SLAs are met. <br>- Support analysts are likely interested in overall service health, exceptions, and performance bottlenecks. <br><br>While you put together your analytics strategy, consider your stakeholders and the type of data that interests them. This thought process helps you make sure that you track useful and helpful information and make that data accessible for reporting purposes. If you find coverage gaps, you might have to revisit your logging-related work items, and add appropriate tasks to address these gaps. |
-| Cadence | When you ship your integration projects and learn from those experiences, make sure to capture the lessons that inevitably emerge. Plan remediation sprints or cycles early in your journey so you can correct course early as possible. That way, you can avoid introducing too much technical debt into your new platform. |
+| Cadence | When you ship your integration projects and learn from those experiences, make sure to capture the lessons that inevitably emerge. Plan remediation sprints or cycles early in your journey so you can correct course early, before the cost becomes too great. That way, you can avoid introducing too much technical debt into your new platform. |
 
 ### Deployment
 
+When you anticipate and prepare a deployment plan, you increase your opportunities for a successful deployment. With BizTalk Server, after you created all the infrastructure and environments, you shifted focus to solution deployment.
 
+With Azure, this experience differs with some activities to consider first, such as addressing infrastructure deployment between different environments, which can include different Azure subscriptions, Azure resource groups, or some combination, for example: 
+
+- Azure Key Vault: secrets and access policies 
+- Azure Service Bus: queues, topics, subscriptions, filters, and access policies
+- Azure App Service: plans, networking, and authentication 
+
+You can then subsequently focus on solution deployment between different environments.
+
+### Testing 
+
+To make sure that your stakeholders are satisfied with the solution that you're providing, testing is important to consider for any migration project. A new solution should provide more value compared to the previous solution, without any regressions that might impact the business.
+
+Consider the following testing recommendations for your migration project:
+
+- Establish a baseline by answering the following questions:
+
+  1. Do you have existing tests?
+  1. Do the tests run without errors?
+  1. Are the test results accurate?
+
+  To have confidence that your team hasn't introduced regressions, you need the capability to compare results from the new platform against reliable tests from your existing platform. So, if you don't have a baseline, make sure to establish one.
+
+  Naturally, you don't want to spend many resources establishing tests against a platform that's retiring, but you need to answer the question, "How do I know everything works successfully?" If you're in this situation, start establishing your baseline based on priorities and create a plan to mitigate areas where you have gaps.
+
+- Establish a test strategy for the new platform.
+
+  Assuming that you're comfortable with your baseline, you can now think about how you to test on your new platform. If you had trouble establishing your baseline, take the opportunity to set up a strong foundation for your new platform.
+
+  When you think about testing for your new platform, keep automation top of mind. Although having a platform allows you to quickly build interfaces, relying on manual tests erodes those productivity gains.
+
+- Automation Testing: Azure Logic Apps (Standard) provides the ability to perform Automation testing. We will discuss to solutions that are freely available on GitHub. 
+
+Automated Testing with Logic Apps Standard (Logic Apps Engineering Team): Automated testing used to be difficult with Logic Apps, but that’s no longer the case with the addition of Logic Apps Standard. As it is based on the Azure Functions runtime, it can run anywhere, and we can write tests for workflows that can be executed locally or in a CI/CD pipeline. A sample project demonstrating how this can be done is located here: https://github.com/Azure/logicapps/tree/master/LogicAppsSampleTestFramework 
+
+The capabilities provided in this framework include: 
+
+Write automated tests for end-to-end Logic Apps functionality.  
+
+Fine-grained validation at the run and action levels.  
+
+Tests can be checked into a git repo and run either locally or as part of CI/CD pipelines.  
+
+Mocking capabilities for HTTP actions and Azure connectors.  
+
+Configurability that allows tests to use different setting values from production.   
+
+Integration Playbook: Logic Apps Standard Testing (Michael Stephenson – Microsoft MVP)  
+
+This framework builds on top of the one provided by Microsoft and includes support for additional scenarios. Using this framework, you will be able to: 
+
+Connect to a workflow in logic app standard 
+
+Get the call back url to trigger the workflow from a test 
+
+Check the results of the workflow that ran 
+
+Check the actions from the workflow run history 
+
+Make it easy to plug into automated testing frameworks that logic app developers might use 
+
+Make it easy to plug into specflow for BDD for logic apps 
+
+Regardless of which approach you take, you will be well on your way to having repeatable, consistent automated integration tests. 
+
+Static Results: Regardless of whether you choose to use automated tests or not, a feature that you can take advantage of is Static Results. Using Static Results, you can temporarily set mock responses at the action level. This will allow you to emulate the behavior of a specific system that you would ordinarily call. This allows developers to do some initial testing in isolation and also reduces the amount of data created in line of business systems.  
+
+Side by Side Testing: In an ideal situation, you will have your baseline set of integration tests for your BizTalk environment and have established automated tests for Azure Integration Services. You will now be able to execute tests in a side-by-side manner that will allow you to verify your interfaces using the same data sets and improving overall test accuracy  
 
 
 ## Best practices for migration
