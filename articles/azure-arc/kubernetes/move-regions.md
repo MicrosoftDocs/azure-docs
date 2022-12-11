@@ -1,14 +1,11 @@
 ---
 title: "Move Arc-enabled Kubernetes clusters between regions"
-services: azure-arc
-ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: how-to
 ms.custom: subject-moving-resources
 author: anraghun
 ms.author: anraghun
-description: "Manually move your Azure Arc-enabled Kubernetes between regions"
-keywords: "Kubernetes, Arc, Azure, K8s, containers, region, move"
+description: "Manually move your Azure Arc-enabled Kubernetes (or connected cluster resources) between regions."
 #Customer intent: As a Kubernetes cluster administrator, I want to move my Arc-enabled Kubernetes cluster to another Azure region.
 ---
 

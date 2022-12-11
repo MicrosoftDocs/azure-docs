@@ -45,16 +45,17 @@ ms.date: 09/27/2022
 | `max_concurrency_per_instance` | integer| Define the number of processes on each node of compute.<br><br>For a GPU compute, the default value is 1.<br>For a CPU compute, the default value is the number of cores.|||
 | `retry_settings.max_retries` | integer | Define the number of retries when mini-batch is failed or timeout. If all retries are failed, the mini-batch will be marked as failed to be counted by `mini_batch_error_threshold` calculation. ||2|
 | `retry_settings.timeout` | integer | Define the timeout in seconds for executing custom run() function. If the execution time is higher than this threshold, the mini-batch will be aborted, and marked as a failed mini-batch to trigger retry.|(0, 259200]|60|
+| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. |||
+
 
 ### Attributes of the `task` key
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** The type of task. Only applicable for `run_function` by now.<br><br> In `run_function` mode, you're required to provide `code`, `entry_script`, and `program_arguments` to define python script with executable functions and arguments. Note: Parallel job only supports python script in this mode. | run_function | run_function |
+| `type` | const | **Required.** The type of task. Only applicable for `run_function` by now.<br><br> In `run_function` mode, you're required to provide `code`, `entry_script`, and `program_arguments` to define Python script with executable functions and arguments. Note: Parallel job only supports Python script in this mode. | run_function | run_function |
 | `code` | string | Local path to the source code directory to be uploaded and used for the job. |||
-| `entry_script` | string | The python file that contains the implementation of pre-defined parallel functions. For more information, see [Prepare entry script to parallel job](). |||
+| `entry_script` | string | The Python file that contains the implementation of pre-defined parallel functions. For more information, see [Prepare entry script to parallel job](). |||
 | `environment` | string or object | **Required** The environment to use for running the task. The value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an inline environment, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they aren't supported for inline environments.|||
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. |||
 | `program_arguments` | string | The arguments to be passed to the entry script. May contain  "--\<arg_name\> ${{inputs.\<intput_name\>}}" reference to inputs or outputs.<br><br> Parallel job provides a list of predefined arguments to set configuration of parallel run. For more information, see [predefined arguments for parallel job](#predefined-arguments-for-parallel-job). |||
 | `append_row_to` | string | Aggregate all returns from each run of mini-batch and output it into this file. May reference to one of the outputs of parallel job by using the expression \${{outputs.<output_name>}} |||
 
