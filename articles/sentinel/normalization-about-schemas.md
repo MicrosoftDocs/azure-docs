@@ -19,6 +19,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
+[ [Audit Event](normalization-schame-audit.md) | 0.1 | Preview |
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
 | [DNS Activity](dns-normalization-schema.md) | 0.1.4 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
