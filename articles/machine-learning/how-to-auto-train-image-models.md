@@ -903,10 +903,10 @@ resp = ml_client.online_endpoints.invoke(
 predictions = json.loads(resp)
 ```
 
-For more information on generating explanations, see [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
+For more information on generating explanations, see [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
 ### Interpreting Visualizations
-Deployed endpoint returns base64 encoded image string if both `model_explainability` and `visualizations` are set to `True`. Decode the base64 string as described in [notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs) or use the following code to decode and visualize the base64 image strings in the prediction.
+Deployed endpoint returns base64 encoded image string if both `model_explainability` and `visualizations` are set to `True`. Decode the base64 string as described in [notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs) or use the following code to decode and visualize the base64 image strings in the prediction.
 
 ```python
 import base64
@@ -940,7 +940,7 @@ Decoded base64 figure will have four image sections within a 2 x 2 grid.
 
 
 ### Interpreting Attributions
-Deployed endpoint returns attributions if both `model_explainability` and `attributions` are set to `True`. Fore more details, refer to [multi-class classification and multi-label classification notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
+Deployed endpoint returns attributions if both `model_explainability` and `attributions` are set to `True`. Fore more details, refer to [multi-class classification and multi-label classification notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
 
 These attributions give more control to the users to generate custom visualizations or to scrutinize pixel level attribution scores.
 Following code snippet describes a way to generate custom visualizations using attribution matrix. For more information on the schema of attributions for multi-class classification and multi-label classification, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
