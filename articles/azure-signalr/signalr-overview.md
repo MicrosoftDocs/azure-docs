@@ -74,7 +74,7 @@ SignalR Service is designed for large-scale real-time applications. SignalR Serv
 
 **Remove the burden to self-host SignalR:**
 
-Compared to self-hosted SignalR applications, switching to SignalR Service will remove the need to manage back planes that handle the scaling and client connections. The fully managed service also simplifies web applications and saves hosting cost. SignalR Service offers global reach and world-class data center and network, scales to millions of connections, guarantees SLA, while providing Azure's standard compliance and security.
+Compared to self-hosted SignalR applications, switching to SignalR Service will remove the need to manage back planes that handle the scaling and client connections. The fully managed service also simplifies web applications and saves hosting cost. SignalR Service offers global reach and world-class data center and network, scales to millions of connections, and provides Azure's standard compliance and security.
 
 SignalR Service supports both server-based configurations and serverless environments through integration with Azure Functions and Event Grid.
 
