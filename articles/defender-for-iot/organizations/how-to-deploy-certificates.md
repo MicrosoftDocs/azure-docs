@@ -48,7 +48,7 @@ Validation is carried out twice:
 
     - Defender for IoT system components, for example, a sensor and on-premises management console.
 
-    - Defender for IoT and certain third party servers defined in Forwarding rules.  For more information, see [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information).  
+    - Defender for IoT and certain third party servers defined in alert forwarding rules. For more information, see [Forward OT alert information](how-to-forward-alert-information-to-partners.md).
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 

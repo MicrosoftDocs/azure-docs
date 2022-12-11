@@ -38,7 +38,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
 
     | Column | Description
     |--|--|
-    | **Severity**|  A predefined alert severity assigned by the sensor that you can [modify as needed](#manage-alert-status-and-severity). |
+    | **Severity**|  A predefined alert severity assigned by the sensor that you can [modify as needed](#manage-alert-severity-and-status). |
     | **Name** |  The alert title. |
     | **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
     | **Engine** |  The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform. |

@@ -152,7 +152,7 @@ This version includes the following new updates and fixes:
 
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
+- [Bi-directional alert synch between sensors and the Azure portal](alerts.md#managing-alerts-in-a-hybrid-deployment)
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
@@ -237,7 +237,7 @@ This version includes the following new updates and fixes:
     - A new **Backup Activity with Antivirus Signatures** alert
     - Alert management changes during software updates
 
-- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#customize-alert-rules): Hit count data, advanced scheduling options, and more supported fields and protocols
+- [Enhancements for creating custom alerts on the sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor): Hit count data, advanced scheduling options, and more supported fields and protocols
 
 - [Modified CLI commands](references-work-with-defender-for-iot-cli-commands.md): Including the following new commands:
 
@@ -294,7 +294,7 @@ This version includes the following new updates and fixes:
 - [New integration APIs](api/management-integration-apis.md)
 - [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
 - [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alert-information)
+- [Export alert enhancements](how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
 
 ### 10.5.2
 

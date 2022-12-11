@@ -91,7 +91,7 @@ Alert statuses are fully synchronized between the Azure portal and the sensor. T
 
 Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
 
-[Learning](#manage-alert-status-and-severity) an alert in Azure also updates the alert in the sensor console.
+Learning an alert in Azure also updates the alert in the sensor console. For more information, see [Learning alert traffic](#learning-alert-traffic).
 
 ## Accelerating OT alert workflows
 
@@ -101,7 +101,7 @@ Setting an alert status to **Closed** or **Muted** on a sensor updates the alert
 
     For example, for an environment running MODBUS, you might add a rule to detect any written commands to a memory register on a specific IP address and ethernet destination.
 
-    For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
+    For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor).
 
 - **Create custom alert comments**. Create a set of custom alert comments that other users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or additional insights or warnings about the event.
 
@@ -109,11 +109,11 @@ Setting an alert status to **Closed** or **Muted** on a sensor updates the alert
 
     :::image type="content" source="media/alerts/alert-comments.png" alt-text="Screenshot of the alert comments area.":::
 
-    For more information, see [Accelerate incident workflows by using alert comments](how-to-view-alerts.md#accelerate-incident-workflows-by-using-alert-comments).
+    For more information, see [Create custom alert comments on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-comments-on-an-ot-sensor).
 
 - **Create alert exclusion rules**: If you're working with an on-premises management console, define *alert exclusion rules* to ignore events across multiple sensors that meet specific criteria. For example, you might create an alert exclusion rule to ignore all events that would trigger irrelevant alerts during a specific maintenance window. Alerts ignored by exclusion rules aren't shown on the Azure portal, sensor, or on-premises management console, or in the event logs.
 
-    For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
+    For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
 - **Forward alert data to partner systems**, including SIEMs, syslog servers, email addresses and more. For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 

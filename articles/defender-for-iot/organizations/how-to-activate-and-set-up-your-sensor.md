@@ -232,7 +232,7 @@ You can access console tools from the side menu.  Tools help you:
 | Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. |
 | Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate sensor detections in the Device Map](how-to-work-with-the-sensor-device-map.md#investigate-sensor-detections-in-the-device-map). |
 | Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md).|
-| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
+| Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that requires your attention.  For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md).|
 
 ### Analyze
 
@@ -249,7 +249,7 @@ You can access console tools from the side menu.  Tools help you:
 | Tools| Description |
 |---|---|
 | System settings | Configure the system settings. For example, define DHCP settings, provide mail server details, or create port aliases.   |
-| Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules). |
+| Custom alert rules |  Use custom alert rules to more specifically pinpoint activity or traffic of interest to you. For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor). |
 | Users |  Define users and roles with various access levels. For more information, see [Create and manage users on an OT network sensor](manage-users-sensor.md).  |
 | Forwarding |  Forward alert information to partners that integrate with Defender for IoT, for example, Microsoft Sentinel, Splunk, ServiceNow. You can also send to email addresses, webhook servers, and more. <br /> See [Forward alert information](how-to-forward-alert-information-to-partners.md) for details. |
 
