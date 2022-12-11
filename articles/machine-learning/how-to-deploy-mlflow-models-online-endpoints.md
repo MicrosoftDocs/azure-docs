@@ -33,7 +33,7 @@ For no-code-deployment, Azure Machine Learning
     * A scoring script to perform inference.
 
 > [!WARNING]
-> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments](#customizing-mlflow-model-deployments-with-a-scoring-script).
+> __Workspaces without public network access:__ Azure Machine Learning performs dynamic installation of packages when deploying MLflow models with no-code deployment. As a consequence, deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments](#customizing-mlflow-model-deployments).
 
 
 ## About this example
@@ -233,7 +233,7 @@ ml_client.models.create_or_update(
     ---
     
     > [!NOTE]
-    > `scoring_script` and `environment` auto generation are only supported for `pyfunc` model's flavor. To use a different flavor, see [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployments-with-a-scoring-script).
+    > `scoring_script` and `environment` auto generation are only supported for `pyfunc` model's flavor. To use a different flavor, see [Customizing MLflow model deployments](#customizing-mlflow-model-deploymentst).
 
 1. Let's create the deployment:
     
@@ -319,7 +319,7 @@ The response will be similar to the following text:
 > For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 
-## Customizing MLflow model deployments with a scoring script
+## Customizing MLflow model deployments
 
 MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate it to customize how inference is executed.
 
@@ -369,6 +369,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
         predictions_to_json(raw_predictions, result)
         return result.getvalue()
     ```
+
+    > [!TIP]
+    > The previous scoring script is provided as an example about how to perform inference of an MLflow model. You can adapt this example to your needs or change any of its parts to reflect your scenario.
 
 1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see The MLmodel format). We are going then to build the environment using the conda dependencies from the file. However, we need also to include the package `azureml-inference-server-http` which is required for Online Deployments in Azure Machine Learning.
     
@@ -547,9 +550,27 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
 ## Clean up resources
 
-Once you're done with the endpoint, use the following command to delete it:
+Once you're done with the endpoint, you can delete the associated resources:
+
+# [Azure CLI](#tab/cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
+
+# [Python](#tab/sdk)
+    
+```python
+ml_client.online_endpoints.begin_delete(endpoint_name)
+```
+
+# [Studio](#tab/studio)
+
+1. Navigate to the __Endpoints__ tab on the side menu.
+1. Select the tab __Online endpoints__.
+1. Select the endpoint you want to delete.
+1. Click on __Delete__.
+1. The endpoint all along with its deployments will be deleted.
+
+---
 
 ## Next steps
 
