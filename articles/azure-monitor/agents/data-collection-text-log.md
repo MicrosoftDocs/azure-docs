@@ -362,6 +362,8 @@ If everything is configured properly, but you're still not collecting log data, 
 
 ## Next steps
 
-- Learn more about the [Azure Monitor Agent](azure-monitor-agent-overview.md).
-- Learn more about [data collection rules](../essentials/data-collection-rule-overview.md).
-- Learn more about [data collection endpoints](../essentials/data-collection-endpoint-overview.md).
+Learn more about: 
+
+- [Azure Monitor Agent](azure-monitor-agent-overview.md).
+- [Data collection rules](../essentials/data-collection-rule-overview.md).
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 

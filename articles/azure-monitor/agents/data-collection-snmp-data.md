@@ -125,7 +125,7 @@ To edit the output behavior configuration of snmptrapd:
 
 If you configured snmptrapd to send events to syslog, follow the steps described in [Collect events and performance counters with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). Make sure to select **Linux syslog** as the data source when you define the data collection rule for Azure Monitor Agent.
 
-If you configured snmptrapd to write events to a file, follow the steps described in [Collect text and IIS logs with Azure Monitor agent](../agents/data-collection-text-log.md).
+If you configured snmptrapd to write events to a file, follow the steps described in [Collect text logs with Azure Monitor Agent](../agents/data-collection-text-log.md).
 
 ## Next steps
 
