@@ -48,7 +48,7 @@ To create the data collection rule in the Azure portal:
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
 1. On the **Resources** tab: 
-    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, virtual machine scale sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
+    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
         > [!IMPORTANT]
         > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
@@ -63,7 +63,7 @@ To create the data collection rule in the Azure portal:
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **IIS Logs**.
 
-    [ ![Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.](media/data-collection-iis/iis-data-collection-rule.png) ](media/data-collection-iis/iis-data-collection-rule.png#lightbox)
+    [ ![Screenshot that shows the Azure portal form to select basic performance counters in a data collection rule.](media/data-collection-iis/iis-data-collection-rule.png)](media/data-collection-iis/iis-data-collection-rule.png#lightbox)
 
 1. Optionally, specify a file pattern to identify the directory where the log files are located. 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
@@ -80,7 +80,7 @@ To create the data collection rule in the Azure portal:
 Use the following steps to troubleshoot collection of IIS logs. 
 
 ### Check if any IIS logs have been received
-Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
+Start by checking if any records have been collected for your IIS logs by running the following query in Log Analytics. If the query doesn't return records, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
 
 ``` kusto
 W3CIISLog
@@ -133,9 +133,9 @@ Open IIS Manager and verify that the logs are being written in W3C format.
 
 :::image type="content" source="media/data-collection-text-log/iis-log-format-setting.png" lightbox="media/data-collection-text-log/iis-log-format-setting.png" alt-text="Screenshot of IIS logging configuration dialog box on agent machine.":::
 
-Open IIS log on the agent machine to verify logs are in W3C format.
+Open the IIS log on the agent machine to verify logs are in W3C format.
 
-:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of IIS log on agent machine showing the header specifies W3C format.":::
+:::image type="content" source="media/data-collection-text-log/iis-log-format.png" lightbox="media/data-collection-text-log/iis-log-format.png" alt-text="Screenshot of an IIS log on an agent machine showing the header specifies W3C format.":::
 
 ### Share logs with Microsoft
 If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
