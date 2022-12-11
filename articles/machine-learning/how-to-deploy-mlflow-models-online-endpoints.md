@@ -58,112 +58,115 @@ cd azureml-examples/cli/endpoints/online
 
 * You must have a MLflow model registered in your workspace.  Particularly, this example will register a model trained for the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html).
 
-    * If you don't have an MLflow formatted model, you can [convert your custom ML model to MLflow format](how-to-convert-custom-model-to-mlflow.md).
 
+### Connect to your workspace
 
-## Deploy an MLflow model to an online endpoint
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
 
-Follow these steps to deploy an MLflow model to an online endpoint for running inference over new data:
+# [Azure CLI](#tab/cli)
 
-1. First, let's connect to Azure Machine Learning workspace where we are going to work on.
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
 
-    # [Azure CLI](#tab/cli)
-    
-    ```azurecli
-    az account set --subscription <subscription>
-    az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
-    ```
+# [Python](#tab/sdk)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+```python
+from azure.ai.ml import MLClient, Input
+from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+from azure.ai.ml.constants import AssetTypes
+from azure.identity import DefaultAzureCredential
+```
+
+2. Configure workspace details and get a handle to the workspace:
+
+```python
+subscription_id = "<subscription>"
+resource_group = "<resource-group>"
+workspace = "<workspace>"
+
+ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+```
+
+---
+
+# [Studio](#tab/studio)
+
+Navigate to [Azure Machine Learning Studio](https://ml.azure.com).
+
+### Registering the model
+
+Online Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
    
-    # [Python](#tab/sdk)
-   
-    The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
-   
-    1. Import the required libraries:
-   
-    ```python
-    from azure.ai.ml import MLClient, Input
-    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-    from azure.ai.ml.constants import AssetTypes
-    from azure.identity import DefaultAzureCredential
-    ```
-   
-    2. Configure workspace details and get a handle to the workspace:
-   
-    ```python
-    subscription_id = "<subscription>"
-    resource_group = "<resource-group>"
-    workspace = "<workspace>"
-   
-    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-    ```
+# [Azure CLI](#tab/cli)
 
-    # [Studio](#tab/studio)
+```azurecli
+MODEL_NAME='sklearn-diabetes'
+az ml model create --name $MODEL_NAME --type "mlflow_model" --path "sklearn-diabetes/model"
+```
 
-    Navigate to [Azure Machine Learning Studio](https://ml.azure.com).
+# [Python](#tab/sdk)
 
+```python
+model_name = 'sklearn-diabetes'
+model_local_path = "sklearn-diabetes/model"
+model = ml_client.models.create_or_update(
+        Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
+)
+```
 
-2. Online Endpoint can only deploy registered models. In this case, we already have a local copy of the model in the repository, so we only need to publish the model to the registry in the workspace. You can skip this step if the model you are trying to deploy is already registered.
-   
-    # [Azure CLI](#tab/cli)
-   
-    ```azurecli
-    MODEL_NAME='sklearn-diabetes'
-    az ml model create --name $MODEL_NAME --type "mlflow_model" --path "sklearn-diabetes/model"
-    ```
-   
-    # [Python](#tab/sdk)
-   
-    ```python
-    model_name = 'sklearn-diabetes'
-    model_local_path = "sklearn-diabetes/model"
-    model = ml_client.models.create_or_update(
-         Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
-    )
-    ```
+# [Studio](#tab/studio)
 
-    # [Studio](#tab/studio)
+To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
 
-    To create a model in Azure Machine Learning, open the Models page in Azure Machine Learning. Select **Register model** and select where your model is located. Fill out the required fields, and then select __Register__.
-
-    :::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
+:::image type="content" source="./media/how-to-manage-models/register-model-as-asset.png" alt-text="Screenshot of the UI to register a model." lightbox="./media/how-to-manage-models/register-model-as-asset.png":::
 
 3. (Alternatively) If your model was logged inside of a run, you can register it directly.
 
-    > [!TIP]
-    > To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommed to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an expample, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
+> [!TIP]
+> To register the model, you will need to know the location where the model has been stored. If you are using `autolog` feature of MLflow, the path will depend on the type and framework of the model being used. We recommed to check the jobs output to identify which is the name of this folder. You can look for the folder that contains a file named `MLModel`. If you are logging your models manually using `log_model`, then the path is the argument you pass to such method. As an expample, if you log the model using `mlflow.sklearn.log_model(my_model, "classifier")`, then the path where the model is stored is `classifier`.
 
-    # [Azure CLI](#tab/cli)
-    
-    Use the Azure ML CLI v2 to create a model from a training job output. In the following example, a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
+# [Azure CLI](#tab/cli)
 
-    ```bash
-    az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/artifacts/$MODEL_PATH
-    ```
-    
-    > [!NOTE]
-    > The path `$MODEL_PATH` is the location where the model has been stored in the run.
+Use the Azure ML CLI v2 to create a model from a training job output. In the following example, a model named `$MODEL_NAME` is registered using the artifacts of a job with ID `$RUN_ID`. The path where the model is stored is `$MODEL_PATH`.
 
-    # [Python](#tab/sdk)
-   
-    ```python
-    ml_client.models.create_or_update(
-        Model(
-            path=f"azureml://jobs/{RUN_ID}/outputs/artifacts/{MODEL_PATH}"
-            name="run-model-example",
-            description="Model created from run.",
-            type=AssetTypes.MLFLOW_MODEL
-        )
-    ) 
-    ```
-   
-    > [!NOTE]
-    > The path `MODEL_PATH` is the location where the model has been stored in the run.
+```bash
+az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/artifacts/$MODEL_PATH
+```
 
-    # [Studio](#tab/studio)
+> [!NOTE]
+> The path `$MODEL_PATH` is the location where the model has been stored in the run.
 
-    :::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+# [Python](#tab/sdk)
 
-3. Configure the endpoint. The following example configures the name and authentication mode of the endpoint:
+```python
+ml_client.models.create_or_update(
+    Model(
+        path=f"azureml://jobs/{RUN_ID}/outputs/artifacts/{MODEL_PATH}"
+        name="run-model-example",
+        description="Model created from run.",
+        type=AssetTypes.MLFLOW_MODEL
+    )
+) 
+```
+
+> [!NOTE]
+> The path `MODEL_PATH` is the location where the model has been stored in the run.
+
+# [Studio](#tab/studio)
+
+:::image type="content" source="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" lightbox="media/how-to-deploy-mlflow-models-online-endpoints/mlflow-register-model-output.gif" alt-text="Screenshot showing how to download Outputs and logs from Experimentation run":::
+
+---
+
+## Deploy an MLflow model to an online endpoint
+
+1. First. we need to configure the endpoint where the model will be deployed. The following example configures the name and authentication mode of the endpoint:
     
     # [Azure CLI](#tab/cli)
     
@@ -204,7 +207,7 @@ Follow these steps to deploy an MLflow model to an online endpoint for running i
 
     *You will perform this step in the deployment stage.*
 
-1. Create a configuration for the deployment. 
+1. Now, it is time to configure the deployment. A deployment is a set of resources required for hosting the model that does the actual inferencing. 
     
     # [Azure CLI](#tab/cli)
 
@@ -227,6 +230,11 @@ Follow these steps to deploy an MLflow model to an online endpoint for running i
     # [Studio](#tab/studio)
 
     *You will perform this step in the deployment stage.*
+
+    ---
+    
+    > [!NOTE]
+    > `scoring_script` and `environment` auto generation are only supported for `pyfunc` model's flavor. To use a different flavor, see [Customizing MLflow model deployments with a scoring script](#customizing-mlflow-model-deployments-with-a-scoring-script).
 
 1. Let's create the deployment:
     
@@ -309,18 +317,233 @@ The response will be similar to the following text:
 ]
 ```
 
----
-
 > [!IMPORTANT]
 > For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 
-### Delete endpoint
+## Customizing MLflow model deployments with a scoring script
+
+MLflow models can be deployed to online endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate it to customize how inference is executed.
+
+You will typically select this workflow when:
+
+> [!div class="checklist"]
+> - You need to customize the way the model is run, for instance, use an specific flavor to load it with mlflow.<flavor>.load().
+> - You need to do pre/pos processing in your scoring routine when it is not done by the model itself.
+> - The output of the model can't be nicely represented in tabular data. For instance, it is a tensor representing an image.
+> - Your endpoint is under a private link-enabled workspace.
+
+> [!IMPORTANT]
+> If you choose to indicate an scoring script for an MLflow model deployment, you will also have to specify the environment where the deployment will run.
+
+> [!WARNING]
+> Customizing the scoring script for MLflow deployments is only available from the Azure CLI or SDK for Python. If you are creating a deployment using [Azure ML studio](https://ml.azure.com), please switch to the CLI or the SDK.
+
+### Create an online deployment using an scoring script and custom environment
+
+Use the following steps to deploy an MLflow model with a custom scoring script.
+
+1. Create a scoring script:
+
+    __score.py__
+
+    ```python
+    import logging
+    import mlflow
+    import os
+    from io import StringIO
+    from mlflow.pyfunc.scoring_server import infer_and_parse_json_input, predictions_to_json
+
+    def init():
+        global model
+        global input_schema
+        # This name is model.id of model that we want to deploy deserialize the model file back
+        # into a sklearn model
+        model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model')
+        model = mlflow.pyfunc.load_model(model_path)
+        input_schema = model.metadata.get_input_schema()
+    
+    def run(raw_data):
+        data = infer_and_parse_json_input(raw_data, input_schema)
+        result = model.predict(data)
+        
+        result = StringIO()
+        predictions_to_json(raw_predictions, result)
+        return result.getvalue()
+    ```
+
+1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see The MLmodel format). We are going then to build the environment using the conda dependencies from the file. However, we need also to include the package `azureml-inference-server-http` which is required for Online Deployments in Azure Machine Learning.
+    
+    The conda definition file looks as follows:
+
+    __conda.yml__
+
+    ```yml
+    channels:
+    - conda-forge
+    dependencies:
+    - python=3.7.11
+    - pip
+    - pip:
+      - mlflow
+      - scikit-learn==0.24.1
+      - cloudpickle==2.0.0
+      - psutil==5.8.0
+      - pandas==1.5.2
+      - azureml-inference-server-http
+    name: mlflow-env
+    ```
+
+    > [!NOTE]
+    > Note how the package `azureml-inference-server-http` has been added to the original conda dependencies file. 
+
+    We will use this conda dependencies file to create the environment:
+
+    # [Azure CLI](#tab/cli)
+    
+    *The environment will be created inline in the deployment configuration.*
+    
+    # [Python](#tab/sdk)
+    
+    ```python
+    environment = Environment(
+        conda_file="sklearn-diabetes/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    )
+    ```
+    
+    # [Studio](#tab/studio)
+    
+    On [Azure ML studio portal](https://ml.azure.com), follow these steps:
+    
+    1. Navigate to the __Environments__ tab on the side menu.
+    1. Select the tab __Custom environments__ > __Create__.
+    1. Enter the name of the environment, in this case `sklearn-mlflow-online-py37`.
+    1. On __Select environment type__ select __Use existing docker image with conda__.
+    1. On __Container registry image path__, enter `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04`.
+    1. On __Customize__ section copy the content of the file `sklearn-diabetes/environment/conda.yml` we introduced before. 
+    1. Click on __Next__ and then on __Create__.
+    1. The environment is ready to be used.   
+
+    ---
+
+1. Let's create the deployment now:
+
+    # [Azure CLI](#tab/cli)
+    
+    Create a deployment configuration file:
+    
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+    name: sklearn-diabetes-custom
+    endpoint_name: my-endpoint
+    model: azureml:sklearn-diabetes@latest
+    environment: 
+      image: mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04
+      conda_file: mlflow/sklearn-diabetes/environment/conda.yml
+    code_configuration:
+      source: mlflow/sklearn-diabetes/src
+      scoring_script: score.py
+    instance_type: Standard_F2s_v2
+    instance_count: 1
+    ```
+    
+    Create the deployment:
+    
+    ```azurecli
+    az ml online-deployment create -f deployment.yml
+    ```
+    
+    # [Python](#tab/sdk)
+    
+    ```python
+    environment = Environment(
+        conda_file="sklearn-diabetes/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    )
+    ```
+    
+    # [Studio](#tab/studio)
+    
+    > [!IMPORTANT]
+    > You can't create custom MLflow deployments in Online Endpoints using the Azure Machine Learning portal. Switch to [Azure ML CLI](?tabs=azure-cli) or the [Azure ML SDK for Python](?tabs=python).
+
+    ---
+
+1. Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using a sample request file along with the `invoke` method.
+
+**sample-request-sklearn-custom.json**
+
+```json
+{
+  "dataframe_split": {
+    "columns": [
+      "age",
+      "sex",
+      "bmi",
+      "bp",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6"
+    ],
+    "data": [
+      [ 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0 ],
+      [ 10.0,2.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0]
+    ],
+    "index": [0,1]
+  }
+}
+```
+
+To submit a request to the endpoint, you can do as follows:
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file endpoints/online/mlflow/sample-request-sklearn-custom.json
+```
+
+# [Python](#tab/sdk)
+
+```python
+ml_client.online_endpoints.invoke(
+    endpoint_name=endpoint_name,
+    deployment_name=deployment.name,
+    request_file="sample-request-sklearn-custom.json",
+)
+```
+
+# [Studio](#tab/studio)
+
+MLflow models can use the __Test__ tab to create invocations to the created endpoints. To do that:
+
+1. Go to the __Endpoints__ tab and select the new endpoint created.
+1. Go to the __Test__ tab.
+1. Paste the content of the file `sample-request-sklearn-custom.json`.
+1. Click on __Test__.
+1. The predictions will show up in the box on the right.
+
+---
+
+The response will be similar to the following text:
+
+```json
+{
+  "predictions": [ 
+    11633.100167144921,
+    8522.117402884991
+  ]
+}
+```
+
+## Clean up resources
 
 Once you're done with the endpoint, use the following command to delete it:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
-
 
 ## Next steps
 
