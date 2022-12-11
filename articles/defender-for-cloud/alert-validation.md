@@ -30,7 +30,7 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. As a user with the role **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. As a user with the role **Subscription Contributor**, from the toolbar on the security alerts page, select **Sample alerts**.
 1. Select the subscription.
 1. Select the relevant Microsoft Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
@@ -103,7 +103,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. Wait 30 minutes.
 
-1. In the Azure portal, navigate to the Defender for Cloud's alerts page.
+1. In the Azure portal, navigate to the Defender for Cloud's security alerts page.
 
 1. On the relevant Kubernetes cluster, locate the following alert `Microsoft Defender for Cloud test alert for K8S (not a threat)` 
 
@@ -149,7 +149,7 @@ You can simulate alerts for both of the control plane, and workload alerts with 
 
 1. Wait 10 minutes.
 
-1. In the Azure portal, navigate to the Defender for Cloud's alerts page.
+1. In the Azure portal, navigate to the Defender for Cloud's security alerts page.
 
 1. On the relevant AKS cluster, locate the following alert `Microsoft Defender for Cloud test alert (not a threat)`.
 

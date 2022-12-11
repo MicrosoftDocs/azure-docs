@@ -1,8 +1,8 @@
 ---
 title: Manage Virtual Machine restore points
 description: Managing Virtual Machine Restore Points
-author: dikethir
-ms.author: dikethir
+author: mamccrea
+ms.author: mamccrea
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to

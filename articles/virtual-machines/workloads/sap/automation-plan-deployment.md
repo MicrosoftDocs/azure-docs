@@ -1,6 +1,6 @@
 ---
 title: Plan your SAP deployment with the automation framework on Azure
-description: Prepare for using the SAP deployment automation framework on Azure. Steps include planning for credentials management, DevOps structure, and deployment scenarios.
+description: Prepare for using the SAP on Azure Deployment Automation Framework. Steps include planning for credentials management, DevOps structure, and deployment scenarios.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,12 +11,12 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
 
 For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Credentials management
 
@@ -71,9 +71,9 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 ## DevOps structure
 
-The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
+The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
+For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.

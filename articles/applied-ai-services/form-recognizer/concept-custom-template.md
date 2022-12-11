@@ -1,23 +1,23 @@
 ---
-title: Form Recognizer custom template model
+title: Custom template document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about the custom template model type, its features and how you train a model with high accuracy to extract data from structured or templated forms
+description: Use the custom template document model to train a model to extract data from structured or templated forms.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 12/02/2022
 ms.author: lajanuar
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom template model
+# Custom template document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-Custom template (formerly custom form) is an easy-to-train model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
+Custom template (formerly custom form) is an easy-to-train document model that accurately extracts labeled key-value pairs, selection marks, tables, regions, and signatures from documents. Template models use layout cues to extract values from documents and are suitable to extract fields from highly structured documents with defined visual templates.
 
 Custom template models share the same labeling format and strategy as custom neural models, with support for more field types and languages.
 
@@ -28,6 +28,12 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 | Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
 |:--:|:--:|:--:|:--:|:--:|
 | Supported| Supported | Supported | Supported| Supported |
+
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document. For more information, *see* [Custom model build mode](concept-custom.md#build-mode)
 
 ## Tabular fields
 

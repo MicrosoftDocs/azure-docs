@@ -149,7 +149,7 @@ az aks create -n <clusterName> -g <resourceGroupName> -l <location> \
 
 - *Can I customize Cilium configuration?*
 
-    No, the Cilium configuration is managed by AKS can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
+    No, the Cilium configuration is managed by AKS and can't be modified. We recommend that customers who require more control use [AKS BYO CNI](./use-byo-cni.md) and install Cilium manually.
 
 - *Can I use `CiliumNetworkPolicy` custom resources instead of Kubernetes `NetworkPolicy` resources?*
 

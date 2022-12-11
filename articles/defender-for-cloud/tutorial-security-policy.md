@@ -3,7 +3,7 @@ title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 01/25/2022
+ms.date: 10/31/2022
 ---
 
 # Manage security policies
@@ -45,8 +45,6 @@ To view your security policies in Defender for Cloud:
     1. To assign and manage custom initiatives, select **Add custom initiatives**. For more information, see [Using custom security initiatives and policies](custom-security-policies.md).
 
     1. To view and edit the default initiative, select it and proceed as described below.
-
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        

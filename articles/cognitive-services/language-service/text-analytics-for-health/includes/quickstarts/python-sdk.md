@@ -1,10 +1,10 @@
 ---
-author: aahill
+author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 07/11/2022
-ms.author: aahi
+ms.author: jboback
 ms.custom: ignite-fall-2021
 ---
 

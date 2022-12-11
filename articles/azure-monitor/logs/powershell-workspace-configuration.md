@@ -1,6 +1,6 @@
 ---
 title: Configure a Log Analytics workspace in Azure Monitor using PowerShell
-description: PowerShell samples showing how to configure a Log Analytics workspace in Azure Monitor to collect data from various data sources.
+description: PowerShell samples show how to configure a Log Analytics workspace in Azure Monitor to collect data from various data sources.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -12,17 +12,17 @@ ms.custom: devx-track-azurepowershell
 ---
 # Configure a Log Analytics workspace in Azure Monitor using PowerShell
 
-The following sample script configures the workspace to collect multiple types of logs from virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md).
+The following sample script configures the workspace to collect multiple types of logs from virtual machines by using the [Log Analytics agent](../agents/log-analytics-agent.md).
 
 This script performs the following functions:
 
-1. Create a workspace
-1. Enable collection of IIS logs from computers with the Windows agent installed
-1. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-1. Collect syslog events from Linux computers
-1. Collect Error and Warning events from the Application Event Log from Windows computers
-1. Collect Memory Available Mbytes performance counter from Windows computers
-1. Collect a custom log
+1. Create a workspace.
+1. Enable collection of IIS logs from computers with the Windows agent installed.
+1. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec).
+1. Collect Syslog events from Linux computers.
+1. Collect Error and Warning events from the Application Event Log from Windows computers.
+1. Collect Memory Available Mbytes performance counter from Windows computers.
+1. Collect a custom log.
 
 ```powershell
 $ResourceGroup = "my-resource-group"
@@ -63,11 +63,11 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> The format for the **CustomLogRawJson** parameter which defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) to retrieve the configuration for an existing Custom Log. The **Properties** property is the configuration required for the **CustomLogRawJson** parameter.
+> The format for the `CustomLogRawJson` parameter that defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) to retrieve the configuration for an existing custom log. The `Properties` property is the configuration required for the `CustomLogRawJson` parameter.
 
-In the above example regexDelimiter was defined as "\\n" for newline. The log delimiter may also be a timestamp.  These are the supported formats:
+In the preceding example, `regexDelimiter` was defined as `\\n` for newline. The log delimiter might also be a timestamp. The following table lists the formats that are supported.
 
-| Format | Json RegEx format uses two `\\` for every `\` in a standard RegEx so if testing in a RegEx app reduce `\\` to `\` |
+| Format | JSON RegEx format uses two `\\` for every `\` in a standard RegEx, so if testing in a RegEx app, reduce `\\` to `\` |
 | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` |
@@ -82,13 +82,14 @@ In the above example regexDelimiter was defined as "\\n" for newline. The log de
 | `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
-1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
-2. Workspace name must be unique per resource group. If you use a workspace name that is already exists, also in soft-delete in your resource group, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
-   * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
-   * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace
-   * Create a new workspace using the same workspace name
+When you create a workspace that was deleted in the last 14 days and is in a [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have a different outcome depending on your workspace configuration. For example:
 
+- If you provide the same workspace name, resource group, subscription, and region as in the deleted workspace, your workspace will be recovered. The recovered workspace includes data, configuration, and connected agents.
+- A workspace name must be unique per resource group. If you use a workspace name that already exists and is also in soft delete in your resource group, you'll get an error. The error will state "The workspace name 'workspace-name' is not unique" or "conflict." To override the soft delete, permanently delete your workspace, and create a new workspace with the same name, follow these steps to recover the workspace first and then perform a permanent delete:
+
+   * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace.
+   * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace.
+   * Create a new workspace by using the same workspace name.
 
 ## Next steps
-* [Review Log Analytics PowerShell cmdlets](/powershell/module/az.operationalinsights/) for additional information on using PowerShell for configuration of Log Analytics.
+[Review Log Analytics PowerShell cmdlets](/powershell/module/az.operationalinsights/) for more information on using PowerShell for configuration of Log Analytics.

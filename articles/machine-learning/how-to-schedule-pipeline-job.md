@@ -1,5 +1,5 @@
 ---
-title: Schedule Azure Machine Learning pipeline jobs (preview)
+title: Schedule Azure Machine Learning pipeline jobs
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule pipeline jobs that allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
 services: machine-learning
@@ -7,12 +7,13 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: lochen
 author: cloga
+ms.reviewer: lagayhar
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: devx-track-python, ignite-2022
 ---
 
-# Schedule machine learning pipeline jobs (preview)
+# Schedule machine learning pipeline jobs
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -177,7 +178,7 @@ When define schedule, we support following expression that will be resolved to r
 
 | Expression | Description |Supported properties|
 |----------------|----------------|-------------|
-|`${{create_context.trigger_time}}`|The time when the schedule is triggered.|String type inputs of pipeline job|
+|`${{creation_context.trigger_time}}`|The time when the schedule is triggered.|String type inputs of pipeline job|
 |`${{name}}`|The name of job.|outputs.path of pipeline job|
 
 ## Manage schedule

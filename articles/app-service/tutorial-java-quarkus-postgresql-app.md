@@ -102,8 +102,8 @@ Follow these steps to create an Azure PostgreSQL database in your subscription. 
         --resource-group $RESOURCE_GROUP \
         --name $DB_SERVER_NAME \
         --location $LOCATION \
-        --admin-user $DB_USERNAME \
-        --admin-password $DB_PASSWORD \
+        --admin-user $ADMIN_USERNAME \
+        --admin-password $ADMIN_PASSWORD \
         --sku-name GP_Gen5_2
     ```
 

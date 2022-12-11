@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 08/29/2022
+ms.date: 11/28/2022
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -132,6 +132,11 @@ To request an exception from the Azure Machine Learning product team, use the st
 | --- | --- |
 | Steps in a pipeline | 30,000 |
 | Workspaces per resource group | 800 |
+
+### Azure Machine Learning integration with Synapse
+Synapse spark clusters have a default limit of 12-2000, depending on your subscription offer type. This limit can be increased by submitting a support ticket and requesting for quota increase under the "Machine Learning Service: Spark vCore Quota" category.
+
+:::image type="content" source="./media/how-to-manage-quotas/spark-vcore-quota-increase.png" alt-text="Screenshot of the quota increase form with the Spark vCore Quota category selected.":::
 
 ### Virtual machines
 Each Azure subscription has a limit on the number of virtual machines across all services. Virtual machine cores have a regional total limit and a regional limit per size series. Both limits are separately enforced.
