@@ -27,7 +27,7 @@ To complete this procedure, you need:
 
 ## Create a data collection rule
 
-To send data to Log Analytics, create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 ### [Portal](#tab/portal)
 
