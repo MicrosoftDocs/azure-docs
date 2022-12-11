@@ -61,9 +61,26 @@ To create the data collection rule in the Azure portal:
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select **Custom Text Logs**.
 
-    [ ![Screenshot that shows the Add data source screen for a data collection rule in Azure portal.](media/data-collection-text-log/custom-text-log-data-collection-rule.png) ](media/data-collection-text-log/custom-text-log-data-collection-rule.png#lightbox)
+    [ ![Screenshot that shows the Add data source screen for a data collection rule in Azure portal.](media/data-collection-text-log/custom-text-log-data-collection-rule.png)](media/data-collection-text-log/custom-text-log-data-collection-rule.png#lightbox)
 
-1. Optionally, specify a file pattern to identify the directory where the log files are located. 
+1. Specify the following:
+ 
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    
+        Examples of valid inputs: 
+        - `20220122-MyLog.txt` 
+        - `ProcessA_MyLog.txt`  
+        - `ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt` 
+    
+        > [!NOTE]
+        > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To support collecting log data in this scenario, you can use a file wildcard. The canonical form is `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
+    
+    
+    - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Prerequisites](#prerequisites). 
+    
+    - **Record delimiter** - Will be used in the future to allow delimiters other than the currently supported end of line (`/r/n`). 
+    - **Transform** - Add an [ingestion-time transformation](../essentials/data-collection-transformations.md) or leave as **source** if you don't need to transform the collected data.
+ 
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
     [ ![Screenshot that shows the destination tabe of the Add data source screen for a data collection rule in Azure portal.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
