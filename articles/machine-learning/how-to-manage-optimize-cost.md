@@ -3,7 +3,7 @@ title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: joburges
 ms.custom: subject-cost-optimization, event-tier1-build-2022
 ms.service: machine-learning
 ms.subservice: core
@@ -83,7 +83,7 @@ Low-Priority VMs have a single quota separate from the dedicated quota value, wh
 
 ## Schedule compute instances
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop) to automatically start and stop the compute instance to save cost when you aren't planning to use it.
 
 ## Use reserved instances
 

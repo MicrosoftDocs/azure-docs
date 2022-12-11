@@ -75,13 +75,13 @@ To complete this tutorial, you need to:
     The easiest way to migrate only the schema is to use pg_dump with the -s option. For more information, see the [examples](https://www.postgresql.org/docs/9.6/app-pgdump.html#PG-DUMP-EXAMPLES) in the Postgres pg_dump tutorial.
 
     ```
-    pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
+    pg_dump -O -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
     For example, to dump a schema file for the **dvdrental** database, use the following command:
 
     ```
-    pg_dump -o -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
+    pg_dump -O -h localhost -U postgres -d dvdrental -s  > dvdrentalSchema.sql
     ```
 
 2. Create an empty database in the target service, which is Azure Database for PostgreSQL. To connect and create a database, refer to one of the following articles:

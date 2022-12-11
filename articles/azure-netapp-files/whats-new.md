@@ -12,18 +12,26 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/20/2022
+ms.date: 11/09/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+## November 2022 
+
+* [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage. 
+
+* [Encrypted SMB connections to Domain Controller](create-active-directory-connections.md#encrypted-smb-dc) (Preview)
+
+    With the Encrypted SMB connections to Active Directory Domain Controller capability you can now specify whether encryption should be used for communication between SMB server and domain controller in Active Directory connections. When enabled, only SMB3 will be used for encrypted domain controller connections.
+
 ## October 2022
 
 * [Availability zone volume placement](manage-availability-zone-volume-placement.md) (Preview) 
 
-    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well Architected Framework](/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). 
+    Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption. Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice to support enterprise, mission-critical HA deployments across multiple AZs. Azure’s push towards the use of [availability zones (AZs)](../availability-zones/az-overview.md#availability-zones) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in Azure’s [Well-Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). 
 
 * [Application volume group for SAP HANA](application-volume-group-introduction.md) now generally available (GA)
 
@@ -33,8 +41,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md#supported-regions).
 
-    Standard network features now includes Global VNet peering. You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
-    [!INCLUDE [Standard network features pricing](includes/standard-networking-pricing.md)]
+    Standard network features now includes Global VNet peering. 
+
+    Regular billing for Standard network features on Azure NetApp Files began November 1, 2022.
     
 ## July 2022
 
@@ -61,8 +70,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Azure NetApp Files datastores for Azure VMware Solution](https://azure.microsoft.com/blog/power-your-file-storageintensive-workloads-with-azure-vmware-solution) is now in public preview. This new integration between Azure VMware Solution and Azure NetApp Files will enable you to [create datastores via the Azure VMware Solution resource provider with Azure NetApp Files NFS volumes](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and mount the datastores on your private cloud clusters of choice. Along with the integration of Azure disk pools for Azure VMware Solution, this will provide more choice to scale storage needs independently of compute resources. For your storage-intensive workloads running on Azure VMware Solution, the integration with Azure NetApp Files helps to easily scale storage capacity beyond the limits of the local instance storage for Azure VMware Solution provided by vSAN and lower your overall total cost of ownership for storage-intensive workloads.
 
-    Regional Coverage: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East US, France Central, Germany West Central, Japan West, North Central US, North Europe, South Central US, Southeast Asia, Switzerland West, UK South, UK West, West Europe, West US. Regional coverage will expand as the preview progresses.
-
 * [Azure Policy built-in definitions for Azure NetApp Files](azure-policy-definitions.md#built-in-policy-definitions)  
 
     Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Azure NetApp Files already supports Azure Policy via custom policy definitions. Azure NetApp Files now also provides built-in policy to enable organization admins to restrict creation of unsecure NFS volumes or audit existing volumes more easily. 
@@ -75,8 +82,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [SMB Continuous Availability (CA) shares support for Citrix App Layering](enable-continuous-availability-existing-smb.md) (Preview)
 
-    [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. App Layering can be used to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix).
-
+    [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. App Layering can be used to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix). Custom applications are not supported with SMB Continuous Availability.
 
 ## April 2022
 

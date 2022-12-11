@@ -1,25 +1,24 @@
 ---
-title: Form Recognizer custom neural model
+title: Custom neural document model - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn about custom neural (neural) model type, its features and how you train a model with high accuracy to extract data from structured and unstructured documents.
+description: Use the custom neural document model to train a model to extract data from structured, semistructured, and unstructured documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/10/2022
+ms.date: 12/02/2022
 ms.author: lajanuar
 ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# Form Recognizer custom neural model
+# Custom neural document model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
-
-Custom neural models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+Custom neural document models or neural models are a deep learned model type that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -38,6 +37,12 @@ Custom neural models currently only support key-value pairs and selection marks 
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
 
 <sup>1</sup> Region labels in custom neural models will use the results from Layout for specified region. This is different from template models, where if no value is present text is generated at training time.
+
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance across companies. Neural models currently only support English text. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
 ## Tabular fields
 

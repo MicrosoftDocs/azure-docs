@@ -303,6 +303,8 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+      - name: Test disaster recovery
+        href: test-disaster-recovery.md
     - name: Manage availability zones
       items:
       - name: Manage availability zone volume placement
@@ -337,6 +339,8 @@
     href: /azure/templates/microsoft.netapp/allversions
   - name: Azure CLI
     href: /cli/azure/netappfiles
+  - name: Manage preview features with Terraform Cloud and AzAPI Provider
+    href: https://techcommunity.microsoft.com/t5/azure-architecture-blog/managing-azure-netapp-files-preview-features-with-terraform/ba-p/3657714
   - name: AzAcSnap command reference 
     items: 
     - name: -c configure

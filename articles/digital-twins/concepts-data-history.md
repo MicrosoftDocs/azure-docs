@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand data history for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/28/2022
+ms.date: 12/02/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -25,7 +25,7 @@ For more of an introduction to data history, including a quick demo, watch the f
 
 <iframe src="https://aka.ms/docs/player?id=2f9a9af4-1556-44ea-ab5f-afcfd6eb9c15" width="1080" height="530"></iframe>
 
-## Required resources and data flow
+## Resources and data flow
 
 Data history requires the following resources:
 * Azure Digital Twins instance, with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
@@ -44,6 +44,20 @@ Data moves through these resources in this order:
 
 When working with data history, use the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the APIs.
 
+### History from multiple Azure Digital Twins instances
+
+If you'd like, you can have multiple Azure Digital Twins instances historize twin property updates to the same Azure Data Explorer cluster.
+
+Each Azure Digital Twins instance will have its own data history connection targeting the same Azure Data Explorer cluster. Within the cluster, instances can send their twin data to either...
+* **different tables** in the Azure Data Explorer cluster.
+* **the same table** in the Azure Data Explorer cluster. To do this, specify the same Azure Data Explorer table name while [creating the data history connections](how-to-use-data-history.md#set-up-data-history-connection). In the [data history table schema](#data-schema), the `ServiceId` column will contain the URL of the source Azure Digital Twins instance, so you can use this field to resolve which Azure Digital Twins instance emitted each record.
+
+## Creating a data history connection
+
+Once all the [resources](#resources-and-data-flow) and [permissions](#required-permissions) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command set is [az dt data-history](/cli/azure/dt/data-history).
+
+For step-by-step instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+
 ### Required permissions
 
 In order to set up a data history connection, your Azure Digital Twins instance must have the following permissions to access the Event Hubs and Azure Data Explorer resources. These roles enable Azure Digital Twins to configure the event hub and Azure Data Explorer database on your behalf (for example, creating a table in the database). These permissions can optionally be removed after data history is set up.
@@ -53,11 +67,7 @@ In order to set up a data history connection, your Azure Digital Twins instance 
 
 Later, your Azure Digital Twins instance must have the following permission on the Event Hubs resource while data history is being used: **Azure Event Hubs Data Sender** (you can also opt instead to keep **Azure Event Hubs Data Owner** from data history setup).
 
-## Creating a data history connection
-
-Once all the [required resources](#required-resources-and-data-flow) are set up, you can use the [Azure CLI](/cli/azure/what-is-azure-cli), [Azure portal](https://portal.azure.com), or the [Azure Digital Twins SDK](concepts-apis-sdks.md) to create the data history connection between them. The CLI command is part of the [az iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) extension.
-
-For instructions on how to set up a data history connection, see [Use data history with Azure Data Explorer](how-to-use-data-history.md).
+These permissions can be assigned using the Azure CLI or Azure portal.
 
 ## Data schema
 
@@ -72,8 +82,8 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 | `ModelId` | String | The DTDL model ID (DTMI) |
 | `Key` | String | The name of the updated property |
 | `Value` | Dynamic | The value of the updated property |
-| `RelationshipId` | String | For properties defined on relationships (as opposed to twins or devices), this column contains the ID of the relationship; otherwise, empty |
-| `RelationshipTarget` | String | For properties defined on relationships, this column defines the twin ID of the twin targeted by the relationship; otherwise, empty |
+| `RelationshipId` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the ID of the relationship. When a *twin* property is updated, this field is empty. |
+| `RelationshipTarget` | String | When a property defined on a *relationship* (as opposed to twins or devices) is updated, this field is populated with the twin ID of the twin targeted by the relationship. When a *twin* property is updated, this field is empty. |
 
 Below is an example table of twin property updates stored to Azure Data Explorer.
 

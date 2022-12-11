@@ -9,9 +9,8 @@ ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/28/2022
-
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Manage container properties and metadata with .NET
@@ -23,8 +22,6 @@ Blob containers support system properties and user-defined metadata, in addition
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for .NET maintains these properties for you.
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
-
-Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
 ## Retrieve container properties
 
@@ -44,7 +41,9 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadata](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadata)
 - [SetMetadataAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setmetadataasync)
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage comma-separates and concatenates the two values and return HTTP response code 200 (OK).
+Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
+
+Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a container.
 
@@ -53,7 +52,7 @@ The following code example sets metadata on a container.
 To retrieve metadata, call one of the following methods:
 
 - [GetProperties](/dotnet/api/azure.storage.blobs.blobcontainerclient.getproperties)
-- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync).
+- [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getpropertiesasync)
 
 Then, read the values, as shown in the example below.
 

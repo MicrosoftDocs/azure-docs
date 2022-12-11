@@ -5,7 +5,8 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 08/19/2022
+ms.custom: engagement-fy23
 ---
 
 # Discover web apps and SQL Server instances in an existing project
