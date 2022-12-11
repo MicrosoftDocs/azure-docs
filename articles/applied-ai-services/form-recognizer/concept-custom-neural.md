@@ -27,11 +27,13 @@ Custom neural models share the same labeling format and strategy as [custom temp
 
 ## Model capabilities
 
-Custom neural models currently only support key-value pairs and selection marks, future releases will include support for structured fields (tables) and signature.
+Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases will include support for signatures.
 
 | Form fields | Selection marks | Tabular fields | Signature | Region |
 |:--:|:--:|:--:|:--:|:--:|
-| Supported | Supported | Supported | Unsupported | Unsupported |
+| Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
+
+<sup>1</sup> Region labels in custom neural models will use the results from Layout for specified region. This is different from template models, where if no value is present text is generated at training time.
 
 ## Tabular fields
 
@@ -50,7 +52,7 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-As of September 16, 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
+As of October 18, 2022, Form Recognizer custom neural model training will only be available in the following Azure regions until further notice:
 
 * Australia East
 * Brazil South
@@ -58,6 +60,8 @@ As of September 16, 2022, Form Recognizer custom neural model training will only
 * Central India
 * Central US
 * East Asia
+* East US
+* East US2
 * France Central
 * Japan East
 * South Central US
@@ -65,6 +69,9 @@ As of September 16, 2022, Form Recognizer custom neural model training will only
 * UK South
 * West Europe
 * West US2
+* US Gov Arizona
+
+
 
 > [!TIP]
 > You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed above to **any other region** and use it accordingly.
