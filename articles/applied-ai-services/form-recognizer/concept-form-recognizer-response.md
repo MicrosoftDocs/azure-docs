@@ -7,7 +7,7 @@ manager: netahw
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 12/01/2022
 ms.author: vikurpad
 recommendations: false
 ---
