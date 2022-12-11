@@ -269,8 +269,8 @@ Start by checking if any records have been collected for your custom log table b
 | order by TimeGenerated desc
 ```
 
-### Verify that you created custom table
-As described in [Create new table in Log Analytics workspace](#create-new-table-in-log-analytics-workspace) above, you must create the custom log table before you can send data to it.
+### Verify that you created a custom table
+You must [create a custom log table](../logs/create-custom-table.md#create-a-custom-table) in your Log Analytics workspace before you can send data to it.
 
 ### Verify that the agent is sending heartbeats successfully
 Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.

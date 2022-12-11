@@ -69,7 +69,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 
 #### [Portal](#tab/azure-portal)
 
-For information on how to install Azure Monitor Agent from the Azure portal, see [Create a data collection rule](data-collection-rule-azure-monitor-agent.md##create-a-data-collection-rule). This process creates the rule, associates it to the selected resources, and installs Azure Monitor Agent on them if it's not already installed.
+For information on how to install Azure Monitor Agent from the Azure portal, see [Create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). This process creates the rule, associates it to the selected resources, and installs Azure Monitor Agent on them if it's not already installed.
 
 #### [PowerShell](#tab/azure-powershell)
 
