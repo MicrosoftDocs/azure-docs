@@ -73,22 +73,22 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 1. Import the required libraries:
 
-```python
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
-from azure.ai.ml.constants import AssetTypes
-from azure.identity import DefaultAzureCredential
-```
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+    from azure.ai.ml.constants import AssetTypes
+    from azure.identity import DefaultAzureCredential
+    ```
 
 2. Configure workspace details and get a handle to the workspace:
 
-```python
-subscription_id = "<subscription>"
-resource_group = "<resource-group>"
-workspace = "<workspace>"
-
-ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
-```
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
 
 # [Studio](#tab/studio)
 
@@ -144,11 +144,12 @@ az ml model create --name $MODEL_NAME --path azureml://jobs/$RUN_ID/outputs/arti
 # [Python](#tab/sdk)
 
 ```python
+model_name = 'sklearn-diabetes'
+
 ml_client.models.create_or_update(
     Model(
         path=f"azureml://jobs/{RUN_ID}/outputs/artifacts/{MODEL_PATH}"
-        name="run-model-example",
-        description="Model created from run.",
+        name=model_name,
         type=AssetTypes.MLFLOW_MODEL
     )
 ) 
@@ -233,7 +234,7 @@ ml_client.models.create_or_update(
     ---
     
     > [!NOTE]
-    > `scoring_script` and `environment` auto generation are only supported for `pyfunc` model's flavor. To use a different flavor, see [Customizing MLflow model deployments](#customizing-mlflow-model-deploymentst).
+    > `scoring_script` and `environment` auto generation are only supported for `pyfunc` model's flavor. To use a different flavor, see [Customizing MLflow model deployments](#customizing-mlflow-model-deployments).
 
 1. Let's create the deployment:
     
@@ -412,7 +413,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
         image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
     ```
-    
+
     # [Studio](#tab/studio)
     
     On [Azure ML studio portal](https://ml.azure.com), follow these steps:
@@ -471,7 +472,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
         instance_count=1,
     )
     ```
-    
+
     # [Studio](#tab/studio)
     
     > [!IMPORTANT]
@@ -524,7 +525,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
         request_file="sample-request-sklearn-custom.json",
     )
     ```
-    
+
     # [Studio](#tab/studio)
     
     MLflow models can use the __Test__ tab to create invocations to the created endpoints. To do that:
