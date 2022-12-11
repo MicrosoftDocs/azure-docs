@@ -218,7 +218,7 @@ The actions you can take on entities using this playbook type include:
 - Blocking a compromised user.
 - Blocking traffic from a malicious IP address in your firewall.
 - Isolating a compromised host on your network.
-- Adding an IP address to a safe/unsafe address watchlist, or to your external CMDB. ***(???)***
+- Adding an IP address to a safe/unsafe address watchlist, or to your external CMDB.
 - Getting a file hash report from an external threat intelligence source and adding it to an incident as a comment.
 
 ## How to run a playbook
