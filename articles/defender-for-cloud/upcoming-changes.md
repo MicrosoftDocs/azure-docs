@@ -18,8 +18,19 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
+| [Running container images should have vulnerability findings resolved recommendation will soon be released for General Availability (GA)](#running-container-images-should-have-vulnerability-findings-resolved-recommendation-will-soon-be-released-for-general-availability-ga) | January 2023 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
+
+### Running container images should have vulnerability findings resolved recommendation will soon be released for General Availability (GA)
+
+**Estimated date for change: January 2023**
+
+Running container images recommendation described in [View vulnerabilities for images running on your AKS clusters](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#view-vulnerabilities-for-images-running-on-your-aks-clusters) is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy, and isn't included in the calculations of your secure score.
+
+This recommendation will soon be released for General Availability (GA) and so *will* be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score.
+
+Remediate them wherever possible (learn how in [Review and remediate recommendations](https://learn.microsoft.com/en-us/azure/architecture/framework/security/monitor-remediate#review-and-remediate-recommendations)).
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
