@@ -434,6 +434,10 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
 
+### Workbook limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-workbooks.md)]
+
 ## Service Bus limits
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/service-bus-quotas-table.md)]
