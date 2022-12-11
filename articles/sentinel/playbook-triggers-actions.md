@@ -109,20 +109,42 @@ Basic playbook to send incident details over mail:
 
     !["Alert trigger simple add comment example"](media/playbook-triggers-actions/alert-comment.png)
 
-## Work with entities
-
-> [!NOTE]
-> If a playbook created with the **Entity trigger** makes use of the **Incident ARM ID** field, then in the event that this playbook is triggered in a context unconnected to an incident, this field will be populated with a null value. The playbook will still run, but any actions that refer to the incident ID will be skipped.
-> 
-> Examples of this situation might be if the playbook was run from an entity page accessed from the **Entity behavior** page, or as the result of a hunting query.
-
-### Usage example - disable a user
+### Disable a user
 
 - Playbook is triggered by **Microsoft Sentinel Entity**
 
     :::image type="content" source="media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
 
-### Work with specific Entity types
+### Entity playbooks with no incident ID
+
+Playbooks created with the **Entity trigger** often make use of the **Incident ARM ID** field (for example, in order to update an incident after taking action on the entity).
+
+If such a playbook is triggered in a **context unconnected to an incident** (for example, when threat hunting), then there is **no incident** whose ID can populate this field. In this case, the field will be populated with a null value.
+
+**As a result, the playbook may fail to run to completion.** To prevent this failure, it's recommended to create a condition that will check for a value in the incident ID field before taking any actions on it, and prescribe a different set of actions if the field has a null value - that is, if the playbook isn't being run from an incident.
+
+1. Before the first action that refers to the **Incident ARM ID** field, add a step of type **Condition**.
+
+1. Select the **Choose a value** field and enter the **Add dynamic content** dialog.
+
+1. Select the **Expression** tab and the **length(collection)** function.
+
+1. Select the **Dynamic content** tab and the **Incident ARM ID** field.
+
+1. Verify the resulting expression is `length(triggerBody()?['IncidentArmID'])` and select **OK**.
+
+    :::image type="content" source="media/playbook-triggers-actions/condition-incident-id.png" alt-text="Screenshot of dynamic content dialog to select fields for a playbook condition.":::
+
+1. Set the **operator** and **value** in the condition to "is greater than" and "0".
+
+    :::image type="content" source="media/playbook-triggers-actions/condition-length.png" alt-text="Screenshot of final definition of condition described in the previous screenshot.":::
+
+1. In the **True** frame, add the actions to be taken if the playbook is run from an incident context.
+
+    In the **False** frame, add the actions to be taken if the playbook is run from a non-incident context.
+
+
+## Work with specific Entity types
 
 The **Entities** dynamic field is an array of JSON objects, each of which represents an entity. Each entity type has its own schema, depending on its unique properties.
 

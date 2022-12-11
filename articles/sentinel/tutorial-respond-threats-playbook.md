@@ -230,7 +230,7 @@ This screenshot shows the actions and conditions you would add in creating the p
 
 See [**Use triggers and actions in Microsoft Sentinel playbooks**](playbook-triggers-actions.md) for details about actions you can add to playbooks for different purposes.
 
-In particular, note this important information about [**working with playbooks based on the entity trigger**](playbook-triggers-actions.md#work-with-entities).
+In particular, note this important information about [**playbooks based on the entity trigger in a non-incident context**](playbook-triggers-actions.md#entity-playbooks-with-no-incident-id).
 
 ## Automate threat responses
 
@@ -376,4 +376,7 @@ You can see the run history for playbooks on a given entity by selecting the **R
 ## Next steps
 
 In this tutorial, you learned how to use playbooks and automation rules in Microsoft Sentinel to respond to threats. 
+- Learn more about [authenticating playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)
+- Learn more about [using triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md)
+- Learn more about 
 - Learn how to [proactively hunt for threats](hunting.md) using Microsoft Sentinel.
