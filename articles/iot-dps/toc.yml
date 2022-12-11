@@ -157,7 +157,7 @@ items:
   - name: Python (Management)
     href: /python/api/azure-mgmt-iothubprovisioningservices
   - name: Azure IoT SDK for C API documentation
-    href: /azure/iot-hub/iot-c-sdk-ref
+    href: /azure/iot-hub/iot-hub-device-sdk-c-intro
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template
@@ -187,11 +187,11 @@ items:
   - name: Azure IoT samples
     items:
     - name: C# (.NET)
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/
+      href: https://github.com/Azure-Samples/azure-iot-samples-csharp
     - name: Node.js
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-node/
     - name: Java
-      href: https://azure.microsoft.com/resources/samples/azure-iot-samples-java/
+      href: https://github.com/Azure-Samples/azure-iot-samples-java
     - name: Python
       href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
     - name: iOS Platform

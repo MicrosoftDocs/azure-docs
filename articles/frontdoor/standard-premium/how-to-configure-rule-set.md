@@ -30,7 +30,7 @@ This article shows how to create a Rule Set and your first set of rules using th
     > [!NOTE]
     > * To delete a condition or action from a rule, use the trash can on the right-hand side of the specific condition or action.
     > * To create a rule that applies to all incoming traffic, do not specify any conditions.
-    > * To stop evaluating remaining rules if a specific rule is met, check **Stop evaluating remaining rule**. If this option is checked and all remaining rules in the Rule Set will not be executed regardless if the matching conditions were met.
+    > * To stop evaluating remaining rules if a specific rule is met, check **Stop evaluating remaining rule**. If this option is checked then all remaining rules in the Rule Set will not be executed regardless if the matching conditions were met.
     > * All paths in Rules Engine are case sensitive.
     > * Header names should adhere to [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6).
 

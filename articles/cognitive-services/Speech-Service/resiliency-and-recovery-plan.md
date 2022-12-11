@@ -69,7 +69,7 @@ You should create Speech Service resources in both a main and a secondary region
 Custom Speech Service doesn't support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps, you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
 
 1.  Create your custom model in one main region (Primary).
-2.  Run the [CopyModelToSubscriptionToSubscription](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscriptionToSubscription) operation to replicate the custom model to all prepared regions (Secondary).
+2.  Run the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) operation to replicate the custom model to all prepared regions (Secondary).
 3.  Go to Speech Studio to load the copied model and create a new endpoint in the secondary region. See how to deploy a new model in [Deploy a Custom Speech model](./how-to-custom-speech-deploy-model.md).
     -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](./speech-services-quotas-and-limits.md).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.

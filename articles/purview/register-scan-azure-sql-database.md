@@ -38,7 +38,7 @@ When setting up scan, you can further scope the scan after providing the databas
 
 ### Known limitations
 
-* Microsoft Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 300 columns.
+* Microsoft Purview doesn't support over 800 columns in the Schema tab and it will show "Additional-Columns-Truncated" if there are more than 800 columns.
 * Column level lineage is currently not supported in the lineage tab. However, the columnMapping attribute in properties tab of Azure SQL Stored Procedure Run captures column lineage in plain text.
 * Stored procedures running remotely from data integration tools like Azure Data Factory is currently not supported
 * Data lineage extraction is currently not supported for Functions, Triggers.

@@ -190,6 +190,8 @@ Congratulations, you're running an API in Azure App Service with CORS support.
 
 You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code. See how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors).
 
+The built-in App Service CORS feature does not have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
+
 > [!NOTE]
 > Don't try to use App Service CORS and your own CORS code together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
 >

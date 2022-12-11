@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: deeikele
+author: deeikele
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 #Customer intent: As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---

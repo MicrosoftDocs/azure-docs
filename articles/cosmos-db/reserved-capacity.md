@@ -91,6 +91,10 @@ When your reservation expires, your Azure Cosmos DB instances continue to run an
 
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
+## Exceeding reserved capacity
+
+When you reserve capacity for your Azure Cosmos DB resources, you are reserving [provisioned thorughput](set-throughput.md). If the provisioned throughput is exceeded, requests beyond that provisioning will be rate-limited. For more information, see [provisioned throughput types](how-to-choose-offer.md#overview-of-provisioned-throughput-types).
+
 ## Next steps
 
 The reservation discount is applied automatically to the Azure Cosmos DB resources that match the reservation scope and attributes. You can update the scope of the reservation through the Azure portal, PowerShell, Azure CLI, or the API.

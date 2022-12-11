@@ -293,7 +293,7 @@ kubectl get deployment ama-logs-rs -n=kube-system
 The output should resemble the following, which indicates that it was deployed properly:
 
 ```output
-User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
+User@aksuser:~$ kubectl get deployment ama-logs-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 ama-logs-rs   1         1         1            1            3h
 ```

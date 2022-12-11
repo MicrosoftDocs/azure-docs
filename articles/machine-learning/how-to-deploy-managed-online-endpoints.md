@@ -19,11 +19,6 @@ ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, s
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
@@ -671,7 +666,7 @@ Using the `MLClient` created earlier, we'll get a handle to the endpoint. The en
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data

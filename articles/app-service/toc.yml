@@ -435,6 +435,8 @@
         href: provision-resource-terraform.md
 - name: Reference
   items:
+    - name: Subdomain takeover
+      href: reference-dangling-subdomain-prevention.md
     - name: Monitoring data
       href: monitor-app-service-reference.md
     - name: Azure CLI

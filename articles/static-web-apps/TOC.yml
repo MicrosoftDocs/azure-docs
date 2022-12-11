@@ -141,7 +141,12 @@
         - name: Blazor
           href: deploy-blazor.md
         - name: Next.js
-          href: deploy-nextjs.md
+          href: nextjs.md
+          items:
+          - name: Statically generated Next.js
+            href: deploy-nextjs-static-export.md
+          - name: Hybrid Next.js application (preview)
+            href: deploy-nextjs-hybrid.md
         - name: Nuxt.js
           href: deploy-nuxtjs.md
     - name: Add a database with Mongoose.js and Azure Cosmos DB

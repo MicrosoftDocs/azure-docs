@@ -40,13 +40,13 @@ At the end of this quickstart, you'll have a working spring app running on Azure
 
 Use the following steps to provision a service instance.
 
-1. Select **Try It** and sign in to your Azure account in [Azure Cloud Shell](/azure/cloud-shell/overview).
+1. Select **Try It** and sign in to your Azure account in [Azure Cloud Shell](../cloud-shell/overview.md).
 
    ```azurecli-interactive
    az account show
    ```
 
-1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](/azure/storage/common/storage-introduction) instance with your subscription to persist files across sessions.
+1. Azure Cloud Shell workspaces are temporary. On initial start, the shell prompts you to associate an [Azure Storage](../storage/common/storage-introduction.md) instance with your subscription to persist files across sessions.
 
    :::image type="content" source="media/quickstart/azure-storage-subscription.png" alt-text="Screenshot of Azure Storage subscription." lightbox="media/quickstart/azure-storage-subscription.png":::
 

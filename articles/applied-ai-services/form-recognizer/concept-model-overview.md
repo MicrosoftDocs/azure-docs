@@ -206,4 +206,4 @@ Learn how to use Form Recognizer v3.0 in your applications by following our [**F
 
 * [Learn how to process your own forms and documents](quickstarts/try-sample-label-tool.md) with our [Form Recognizer sample tool](https://fott-2-1.azurewebsites.net/)
 
-* Complete a [Form Recognizer quickstart](quickstarts/try-sdk-rest-api.md) and get started creating a document processing app in the development language of your choice.
+* Complete a [Form Recognizer quickstart](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api) and get started creating a document processing app in the development language of your choice.

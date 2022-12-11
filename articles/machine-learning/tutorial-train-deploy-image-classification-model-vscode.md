@@ -61,7 +61,7 @@ The first thing you have to do to build an application in Azure Machine Learning
     $schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
     name: TeamWorkspace
     location: WestUS2
-    friendly_name: team-ml-workspace
+    display_name: team-ml-workspace
     description: A workspace for training machine learning models
     tags:
       purpose: training
@@ -114,13 +114,11 @@ Like workspaces and compute targets, training jobs are defined using resource te
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: 
-    local_path: src
+code: src
 command: >
     python train.py
-environment: azureml:AzureML-TensorFlow2.4-Cuda11-OpenMpi4.1.0-py36:1
-compute:
-    target: azureml:gpu-cluster
+environment: azureml:AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11-gpu:48
+compute: azureml:gpu-cluster
 experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```

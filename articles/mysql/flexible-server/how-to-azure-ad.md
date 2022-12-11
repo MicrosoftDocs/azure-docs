@@ -52,7 +52,7 @@ For guidance about how to grant and use the permissions, refer [Microsoft Graph 
 After you grant the permissions to the UMI, they're enabled for all servers or instances that are created with the UMI assigned as a server identity.
 
 > [!IMPORTANT]
-> Only a [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Privileged Role Administrator](/azure/active-directory/roles/permissions-reference#privileged-role-administrator) can grant these permissions.
+> Only a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) can grant these permissions.
 
 - Select a valid Azure AD user or an Azure AD group in the customer tenant to be **Azure AD administrator**. Once Azure AD authentication support has been enabled, Azure AD Admins can be added as security principals with permissions to add Azure AD Users to the MySQL server.  
 

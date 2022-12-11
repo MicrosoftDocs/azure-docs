@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-text-analytics
 # Quickstart: Using Text Analytics for health client library and REST API
 
 > [!IMPORTANT]
-> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported.
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 ::: zone pivot="programming-language-csharp"
 

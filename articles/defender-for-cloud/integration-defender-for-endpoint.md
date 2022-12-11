@@ -29,7 +29,7 @@ For more information about migrating servers from Defender for Endpoint to Defen
 | Release state:                               | General availability (GA)                                                                                                                                    |
 | Pricing:                                     | Requires [Microsoft Defender for Servers Plan 1 or Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)                                                                                                                                                                                                           |
 | Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc-enabled machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Azure Virtual Desktop](../virtual-desktop/overview.md) (formerly Windows Virtual Desktop), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 11 or Windows 10 (except if running Azure Virtual Desktop or Windows 10 Enterprise multi-session)           |
-| Required roles and permissions:              | * To enable/disable the integration: **Security admin** or **Owner**<br>* To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
+| Required roles and permissions:              | - To enable/disable the integration: **Security admin** or **Owner**<br>- To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
 | Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government (Windows only)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts     <br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP projects                                                      |
 
 ## Benefits of integrating Microsoft Defender for Endpoint with Defender for Cloud
@@ -346,7 +346,7 @@ If you enabled the integration, but still don't see the extension running on you
 
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
-Defender for Endpoint is included at no extra cost with **Microsoft Defender for Servers**. Alternatively, it can be purchased separately for 50 machines or more.
+Licenses for Defender for Endpoint for servers are included with **Microsoft Defender for Servers**. Alternatively, you can [purchase licenses for Defender for Endpoint](https://www.microsoft.com/en-us/security/business/get-started/contact-us) for servers separately.
 
 ### Do I need to buy a separate anti-malware solution to protect my machines?
 No. With MDE integration in Defender for Servers, you'll also get malware protection on your machines.
@@ -366,7 +366,7 @@ Full instructions for switching from a non-Microsoft endpoint solution are avail
 
 ### Which Microsoft Defender for Endpoint plan is supported in Defender for Servers?
 
-Defender for Servers Plan 1 and Plan 2 provides the capabilities of [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint). -->
+Defender for Servers Plan 1 and Plan 2 provides the capabilities of [Microsoft Defender for Endpoint Plan 2](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint).
 
 ## Next steps
 

@@ -209,8 +209,8 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="dstapptype"></a>**DstAppType** | Optional | AppType | The type of the destination application. For a list of allowed values and further information, refer to [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>This field is mandatory if [DstAppName](#dstappname) or [DstAppId](#dstappid) are used. |
 | <a name="dstprocessname"></a>**DstProcessName**              | Optional     | String     |   The file name of the process that terminated the network session. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | <a name="process"></a>**Process**        | Alias        |            | Alias to the [DstProcessName](#dstprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
-| **SrcProcessId**| Optional    | String  | The process ID (PID) of the process that terminated the network session.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **SrcProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that terminated the network session.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
+| **DstProcessId**| Optional    | String  | The process ID (PID) of the process that terminated the network session.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **DstProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that terminated the network session.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 
 
 ### Source system fields
@@ -330,7 +330,7 @@ If the event is reported by one of the endpoints of the network session, it migh
 The following are the changes in version 0.2.1 of the schema:
 
 - Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
-- Added the fields `**`NetworkConnectionHistory`**`, `**`SrcVlanId`**`, `**`DstVlanId`**`, `InnerVlanId`, and `OuterVlanId`.
+- Added the fields `NetworkConnectionHistory`, `SrcVlanId`, `DstVlanId`, `InnerVlanId`, and `OuterVlanId`.
 
  
 The following are the changes in version 0.2.2 of the schema:

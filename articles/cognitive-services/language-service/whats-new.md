@@ -28,7 +28,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 * Expanded language support for:
     * [Sentiment analysis](./sentiment-opinion-mining/language-support.md)
     * [Key phrase extraction](./key-phrase-extraction/language-support.md)
-    * [Named entity recognition](./key-phrase-extraction/language-support.md)
+    * [Named entity recognition](./named-entity-recognition/language-support.md)
+    * [Text Analytics for health](./text-analytics-for-health/language-support.md)
 * [Multi-region deployment](./concepts/custom-features/multi-region-deployment.md) and [project asset versioning](./concepts/custom-features/project-versioning.md) for: 
     * [Conversational language understanding](./conversational-language-understanding/overview.md)
     * [Orchestration workflow](./orchestration-workflow/overview.md)
@@ -40,7 +41,8 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Conversational language understanding](./conversational-language-understanding/service-limits.md#regional-availability)
     * [Orchestration workflow](./orchestration-workflow/service-limits.md#regional-availability)
     * [Custom text classification](./custom-text-classification/service-limits.md#regional-availability) 
-    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability)
+    * [Custom named entity recognition](./custom-named-entity-recognition/service-limits.md#regional-availability) 
+* Document type as an input supported for [Text Analytics for health](./text-analytics-for-health/how-to/call-api.md) FHIR requests 
 
 ## September 2022
 

@@ -109,6 +109,6 @@ We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absol
 
 
 ## Next Steps
-- [Autoscale flapping](/azure/azure-monitor/autoscale/autoscale-flapping)
+- [Autoscale flapping](./autoscale-flapping.md)
 - [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)

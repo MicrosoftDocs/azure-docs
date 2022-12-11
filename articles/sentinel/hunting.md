@@ -49,7 +49,7 @@ Use queries before, during, and after a compromise to take the following actions
 >
 > - Now in public preview, you can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
 >
-> - Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find additional queries and data sources.
+> - Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries), to find additional queries and data sources.
 
 ## Use the hunting dashboard
 
@@ -65,7 +65,7 @@ The following table describes detailed actions available from the hunting dashbo
 
 | Action | Description  |
 | --------- | --------- |
-| **See how queries apply to your environment**      | Select the **Run all queries (Preview)** button, or select a subset of queries using the check boxes to the left of each row and select the **Run selected queries (Preview)** button. <br><br>Running your queries can take anywhere from a few seconds to many minutes, depending on how many queries are selected, the time range, and the amount of data that is being queried.      |
+| **See how queries apply to your environment**      | Select the **Run all queries (Preview)** button, or select a subset of queries using the checkboxes to the left of each row and select the **Run selected queries (Preview)** button. <br><br>Running your queries can take anywhere from a few seconds to many minutes, depending on how many queries are selected, the time range, and the amount of data that is being queried.      |
 | **View the queries that returned results**         | After your queries are done running, view the queries that returned results using the **Results** filter: <br>- Sort to see which queries had the most or fewest results. <br>- View the queries that are not at all active in your environment by selecting *N/A* in the **Results** filter. <br>- Hover over the info icon (**i**) next to the *N/A* to see which data sources are required to make this query active.  |
 | **Identify spikes in your data**                   | Identify spikes in the data by sorting or filtering on **Results delta** or **Results delta percentage**. <br><br>This compares the results of the last 24 hours against the results of the previous 24-48 hours, highlighting any large differences or relative difference in volume.   |
 | **View queries mapped to the MITRE ATT&CK tactic** | The **MITRE ATT&CK tactic bar**, at the top of the table, lists how many queries are mapped to each MITRE ATT&CK tactic. The tactic bar gets dynamically updated based on the current set of filters applied. <br><br>This enables you to see which MITRE ATT&CK tactics show up when you filter by a given result count, a high result delta, *N/A* results, or any other set of filters.        |
@@ -115,7 +115,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 1. Add a filter in the query to only show event ID 4688.
 
-1. Add a filter in the query on the CommandLine to contain only instances of cscript.exe.
+1. Add a filter in the query on the command line to contain only instances of cscript.exe.
 
 1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
@@ -139,7 +139,7 @@ During the hunting and investigation process, you may come across query results 
 
 - Investigate a single bookmarked finding by selecting the bookmark and then clicking **Investigate** in the details pane to open the investigation experience. You can also directly select a listed entity to view that entity’s corresponding entity page.
 
-    You can also create an incident from one or more bookmarks or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
+    You can also create an incident from one or more bookmarks, or add one or more bookmarks to an existing incident. Select a checkbox to the left of any bookmarks you want to use, and then select **Incident actions** > **Create new incident** or **Add to existing incident**. Triage and investigate the incident like any other.
 
 > [!TIP]
 > Bookmarks stand to represent key events that are noteworthy and should be escalated to incidents if they are severe enough to warrant an investigation. Events such as potential root causes, indicators of compromise, or other notable events should be raised as a bookmark.
@@ -163,7 +163,7 @@ For more information, see:
 - [The Infosec Jupyter Book](https://infosecjupyterbook.com)
 - [Real Python tutorials](https://realpython.com)
 
-The following table describes some methods of using Juypter notebooks to help your processes in Microsoft Sentinel:
+The following table describes some methods of using Jupyter notebooks to help your processes in Microsoft Sentinel:
 
 |Method  |Description  |
 |---------|---------|

@@ -44,8 +44,11 @@ Mongoose is an object data modeling (ODM) library for MongoDB and Node.js. You c
 1. Install the mongoose npm module, which is an API that's used to talk to MongoDB.
 
     ```bash
-    npm i mongoose --save
+    npm install mongoose@5.13.15 --save
     ```
+
+    > [!IMPORTANT]
+    > Azure Cosmos DB for MongoDB is compatible with up to version `5.13.15` of Mongoose. For more information, please see the [issue discussion](https://github.com/Automattic/mongoose/issues/11072) in the Mongoose GitHub repository.
 
 1. In the **server** folder, create a file named **mongo.js**. You'll add the connection details of your Azure Cosmos DB account to this file.
 

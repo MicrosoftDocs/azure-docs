@@ -223,4 +223,4 @@ There are two places where you can see the expiration date in the Azure portal.
 
 ## Next steps
 
-- [Create an Automation account using the Azure portal](/azure/automation/quickstarts/create-azure-automation-account-portal)
+- [Create an Automation account using the Azure portal](../../automation/quickstarts/create-azure-automation-account-portal.md)

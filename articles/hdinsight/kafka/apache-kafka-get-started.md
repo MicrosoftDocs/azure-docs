@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
-ms.date: 03/30/2022
+ms.date: 10/19/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -89,7 +89,8 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
 1. Review the configuration for the cluster. Change any settings that are incorrect. Finally, select **Create** to create the cluster.
 
-    :::image type="content" source="./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png" alt-text="kafka cluster configuration summary" border="true":::
+    :::image type="content" source="./media/apache-kafka-get-started/azure-hdinsight-40-portal-cluster-review-create-kafka.png" alt-text="Screenshot showing kafka cluster configuration summary for HDI version 4.0." border="true":::
+
 
     It can take up to 20 minutes to create the cluster.
 

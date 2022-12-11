@@ -592,7 +592,7 @@ The request payload may include Action Information as [defined in the DICOM Stan
 |:---|:---|
 |`202 (Accepted)`|	The request was accepted by the server, but the Target Workitem state hasn't necessarily changed yet.|
 |`400 (Bad Request)`|	There was a problem with the syntax of the request.|
-|`401 (Unauthorized)`|	The client isn;t authenticated.
+|`401 (Unauthorized)`|	The client isn't authenticated.
 |`403 (Forbidden)`              | The user isn't authorized. |
 |`404 (Not Found)`|	The Target Workitem wasn't found.
 |`409 (Conflict)`|	The request is inconsistent with the current state of the Target Workitem. For example, the Target Workitem is in the **SCHEDULED** or **COMPLETED** state.

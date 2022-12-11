@@ -146,7 +146,7 @@ When using Azure App Service with Easy Auth behind Azure Front Door or other rev
 
 1) Disable Caching for the authentication workflow
 
-    See [Disable cache for auth workflow](/azure/static-web-apps/front-door-manual#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
+    See [Disable cache for auth workflow](../static-web-apps/front-door-manual.md#disable-cache-for-auth-workflow) to learn more on how to configure rules in Azure Front Door to disable caching for authentication and authorization-related pages.
 
 2) Use the Front Door endpoint for redirects
 

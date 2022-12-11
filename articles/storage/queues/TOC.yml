@@ -293,9 +293,9 @@
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK
-      href: /python/api/overview/azure/storage/management
+      href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
-      href: /javascript/api/overview/azure/storage/management
+      href: /javascript/api/overview/azure/storage#management
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue

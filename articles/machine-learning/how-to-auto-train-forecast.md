@@ -3,8 +3,9 @@ title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning Python SDK.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado 
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
@@ -248,7 +249,7 @@ The table shows resulting feature engineering that occurs when window aggregatio
 
 ![target rolling window](./media/how-to-auto-train-forecast/target-roll.svg)
 
-View a Python code example applying the [target rolling window aggregate feature](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
+View a Python code example applying the [target rolling window aggregate feature](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb).
 
 ### Short series handling
 
@@ -295,7 +296,7 @@ best_run, fitted_model = local_run.get_output()
 
 Use the best model iteration to forecast values for data that wasn't used to train the model. 
 
-The [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) function allows specifications of when predictions should start, unlike the `predict()` method, which is typically used for classification and regression tasks. The forecast_quantiles() method by default generates a point forecast or a mean/median forecast which doesn't have a cone of uncertainty around it. Learn more in the [Forecasting away from training data notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb).
+The [forecast_quantiles()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#forecast-quantiles-x-values--typing-any--y-values--typing-union-typing-any--nonetype----none--forecast-destination--typing-union-typing-any--nonetype----none--ignore-data-errors--bool---false-----azureml-data-abstract-dataset-abstractdataset) function allows specifications of when predictions should start, unlike the `predict()` method, which is typically used for classification and regression tasks. The forecast_quantiles() method by default generates a point forecast or a mean/median forecast which doesn't have a cone of uncertainty around it. Learn more in the [Forecasting away from training data notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb).
 
 In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin is at the end of training data in this case. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
 
@@ -317,7 +318,7 @@ fitted_model.forecast_quantiles(
     test_dataset, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-You can calculate model metrics like, root mean squared error (RMSE) or mean absolute percentage error (MAPE) to help you estimate the models performance. See the Evaluate section of the [Bike share demand notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb) for an example. 
+You can calculate model metrics like, root mean squared error (RMSE) or mean absolute percentage error (MAPE) to help you estimate the models performance. See the Evaluate section of the [Bike share demand notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb) for an example. 
 
 After the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. 
 
@@ -349,7 +350,7 @@ The following diagram shows the workflow for the many models solution.
 
 ![Many models concept diagram](./media/how-to-auto-train-forecast/many-models.svg)
 
-The following code demonstrates the key parameters users need to set up their many models run. See the [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) for a many models forecasting example 
+The following code demonstrates the key parameters users need to set up their many models run. See the [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) for a many models forecasting example 
 
 ```python
 from azureml.train.automl.runtime._many_models.many_models_parameters import ManyModelsTrainParameters
@@ -386,7 +387,7 @@ To further visualize this, the leaf levels of the hierarchy contain all the time
 
 The hierarchical time series solution is built on top of the Many Models Solution and share a similar configuration setup.
 
-The following code demonstrates the key parameters to set up your hierarchical time series forecasting runs. See the [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb), for an end to end example. 
+The following code demonstrates the key parameters to set up your hierarchical time series forecasting runs. See the [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb), for an end to end example. 
 
 ```python
 
@@ -428,12 +429,12 @@ hts_parameters = HTSTrainParameters(
 
 ## Example notebooks
 
-See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml) for detailed code examples of advanced forecasting configuration including:
+See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-azureml) for detailed code examples of advanced forecasting configuration including:
 
-* [holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [rolling-origin cross validation](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [configurable lags](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [rolling window aggregate features](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling-origin cross validation](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [configurable lags](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [rolling window aggregate features](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
 
 
 ## Next steps

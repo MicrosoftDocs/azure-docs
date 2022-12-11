@@ -1,9 +1,9 @@
 ---
 title: Azure Center for SAP solutions (preview)
-description: Azure Center for SAP solutions (ACSS) is an Azure offering that makes SAP a top-level workload on Azure. You can use ACSS to deploy or manage SAP systems on Azure seamlessly.
+description: Azure Center for SAP solutions is an Azure offering that makes SAP a top-level workload on Azure. You can use Azure Center for SAP solutions to deploy or manage SAP systems on Azure seamlessly.
 ms.service: azure-center-sap-solutions
 ms.topic: overview
-ms.date: 07/19/2022
+ms.date: 10/19/2022
 ms.author: ladolan
 author: lauradolan
 #Customer intent: As a developer, I want to learn about Azure Center for SAP solutions so that I can decide to use the service with a new or existing SAP system.
@@ -13,13 +13,13 @@ author: lauradolan
 
 [!INCLUDE [Preview content notice](./includes/preview.md)]
 
-*Azure Center for SAP solutions (ACSS)* is an Azure offering that makes SAP a top-level workload on Azure. ACSS is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.
+*Azure Center for SAP solutions* is an Azure offering that makes SAP a top-level workload on Azure. Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.
 
-The guided deployment experience takes care of creating the necessary compute, storage and networking components needed to run your SAP system. ACSS then helps automate the installation of the SAP software according to Microsoft best practices.
+The guided deployment experience takes care of creating the necessary compute, storage and networking components needed to run your SAP system. Azure Center for SAP solutions then helps automate the installation of the SAP software according to Microsoft best practices.
 
-In ACSS, you either create a new SAP system or register an existing one, which then creates a *Virtual Instance for SAP solutions (VIS)*. The VIS brings SAP awareness to Azure by providing management capabilities, such as being able to see the status and health of your SAP systems. Another example is quality checks and insights, which allow you to know when your system isn't following documented best practices and standards.
+In Azure Center for SAP solutions, you either create a new SAP system or register an existing one, which then creates a *Virtual Instance for SAP solutions (VIS)*. The VIS brings SAP awareness to Azure by providing management capabilities, such as being able to see the status and health of your SAP systems. Another example is quality checks and insights, which allow you to know when your system isn't following documented best practices and standards.
 
-You can use ACSS to deploy the following types of SAP systems:
+You can use Azure Center for SAP solutions to deploy the following types of SAP systems:
 
 - Single server
 - Distributed
@@ -31,12 +31,12 @@ For existing SAP systems that run on Azure, there's a simple registration experi
 - SAP systems that run on Windows, SUSE and RHEL Linux operating systems
 - SAP systems that run on HANA, DB2, SQL Server, Oracle, Max DB, or SAP ASE databases
 
-ACSS brings services, tools and frameworks together to provide an end-to-end unified experience for deployment and management of  SAP workloads on Azure, creating the foundation for you to build innovative solutions for your unique requirements.
+Azure Center for SAP solutions brings services, tools and frameworks together to provide an end-to-end unified experience for deployment and management of  SAP workloads on Azure, creating the foundation for you to build innovative solutions for your unique requirements.
 
 ## What is a Virtual Instance for SAP solutions?
-When you use ACSS, you'll create a *Virtual Instance for SAP solutions (VIS)* resource. The VIS is a logical representation of an SAP system on Azure. 
+When you use Azure Center for SAP solutions, you'll create a *Virtual Instance for SAP solutions (VIS)* resource. The VIS is a logical representation of an SAP system on Azure. 
 
-Every time that you [create a new SAP system through ACSS](deploy-s4hana.md), or [register an existing SAP system to ACSS](register-existing-system.md), Azure creates a VIS. A VIS contains the metadata for the entire SAP system. 
+Every time that you [create a new SAP system through Azure Center for SAP solutions](deploy-s4hana.md), or [register an existing SAP system to Azure Center for SAP solutions](register-existing-system.md), Azure creates a VIS. A VIS contains the metadata for the entire SAP system. 
 
 Each VIS consists of:
 
@@ -51,7 +51,7 @@ Each VIS consists of:
 
 Inside the VIS, the SID is the parent resource. Your VIS resource is named after the SID of your SAP system. Any ASCS, Application Server, or database instances are child resources of the SID. The child resources are associated with one or more VM resources outside of the VIS. A standalone system has all three instances mapped to a single VM. A distributed system has one ASCS and one Database instance, with each mapped to a VM. High Availability (HA) deployments have the ASCS and Database instances mapped to multiple VMs to enable HA. A distributed or HA type SAP system can have multiple Application Server instances linked to their respective VMs. 
 
-## What can you do with ACSS? 
+## What can you do with Azure Center for SAP solutions? 
 
 After you create a VIS, you can:
 
@@ -66,4 +66,4 @@ After you create a VIS, you can:
 ## Next steps
 
 - [Create a network for a new VIS deployment](prepare-network.md)
-- [Register an existing SAP system in ACSS](register-existing-system.md)
+- [Register an existing SAP system in Azure Center for SAP solutions](register-existing-system.md)

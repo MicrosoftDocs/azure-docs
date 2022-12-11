@@ -1,15 +1,15 @@
 ---
 title: SAP deployment automation framework DevOps hands-on lab
-description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure.
+description: DevOps Hands-on lab for the SAP deployment automation framework on Azure.
 author: mimergel
 ms.author: mimergel
 ms.reviewer: kimforss
-ms.date: 12/14/2021
+ms.date: 10/19/2022
 ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
 
-# SAP Deployment Automation Framework DevOps - Hands-on lab
+# SAP deployment automation framework DevOps - Hands-on lab
 
 This tutorial shows how to perform the deployment activities of the [SAP deployment automation framework on Azure](automation-deployment-framework.md) using Azure DevOps Services.
 

@@ -62,9 +62,9 @@ The following table describes the metrics that are available for Azure AD DS.
 
 ## Azure Monitor alert
 
-You can configure metric alerts for Azure AD DS to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](/azure/azure-monitor/alerts/alerts-overview). 
+You can configure metric alerts for Azure AD DS to be notified of possible problems. Metric alerts are one type of alert for Azure Monitor. For more information about other types of alerts, see [What are Azure Monitor Alerts?](../azure-monitor/alerts/alerts-overview.md). 
 
-To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](/azure/azure-monitor/roles-permissions-security). 
+To view and manage Azure Monitor alert, a user needs to be assigned [Azure Monitor roles](../azure-monitor/roles-permissions-security.md). 
  
 In Azure Monitor or Azure AD DS Metrics, click **New alert** and configure an Azure AD DS instance as the scope. Then choose the metrics you want to measure from the list of available signals:
 

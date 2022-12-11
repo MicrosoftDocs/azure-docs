@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: mongodb
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 07/22/2022
+ms.date: 10/17/2022
 ms.custom: devx-track-dotnet, ignite-2022
 ---
 

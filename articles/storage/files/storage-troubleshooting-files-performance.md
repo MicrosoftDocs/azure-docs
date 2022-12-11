@@ -62,7 +62,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 #### Solution
 
-- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
+- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
 - If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload

@@ -24,12 +24,6 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Partners
 
-### Cisco
-
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
-|-----|-----|-----|-----|-----|
-|Cisco Hyperflex on VMware <br/> Cisco IKS ESXi 6.7 U3 |1.21.13|v1.9.0_2022-07-12|16.0.312.4243| Not validated |
-
 ### Dell
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version

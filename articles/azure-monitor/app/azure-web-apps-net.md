@@ -22,6 +22,8 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
 
 ## Enable auto-instrumentation monitoring
 
+For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
+
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
 

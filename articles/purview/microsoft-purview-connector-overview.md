@@ -42,7 +42,7 @@ The table below shows the supported capabilities for each data source. Select th
 || [Hive Metastore Database](register-scan-hive-metastore-source.md) | [Yes](register-scan-hive-metastore-source.md#register) | No | [Yes*](register-scan-hive-metastore-source.md#lineage) | No| No |
 || [MongoDB](register-scan-mongodb.md) | [Yes](register-scan-mongodb.md#register) | No | No | No | No |
 || [MySQL](register-scan-mysql.md) | [Yes](register-scan-mysql.md#register) | No | [Yes](register-scan-mysql.md#lineage) | No | No |
-|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  No | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
+|| [Oracle](register-scan-oracle-source.md) | [Yes](register-scan-oracle-source.md#register)|  [Yes](register-scan-oracle-source.md#scan) | [Yes*](register-scan-oracle-source.md#lineage) | No| No |
 || [PostgreSQL](register-scan-postgresql.md) | [Yes](register-scan-postgresql.md#register) | No | [Yes](register-scan-postgresql.md#lineage) | No | No |
 || [SAP Business Warehouse](register-scan-sap-bw.md) | [Yes](register-scan-sap-bw.md#register) | No | No | No | No |
 || [SAP HANA](register-scan-sap-hana.md) | [Yes](register-scan-sap-hana.md#register) | No | No | No | No |

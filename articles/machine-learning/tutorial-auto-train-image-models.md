@@ -46,7 +46,7 @@ You'll write code using the Python SDK in this tutorial and learn the following 
 
 * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md#create-the-workspace) if you don't already have an Azure Machine Learning workspace.
 
-* Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook. 
+* Download and unzip the [**odFridgeObjects.zip*](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) data file. The dataset is annotated in Pascal VOC format, where each image corresponds to an xml file. Each xml file contains information on where its corresponding image file is located and also contains information about the bounding boxes and the object labels. In order to use this data, you first need to convert it to the required JSONL format as seen in the [Convert the downloaded data to JSONL](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb) section of the notebook. 
 
 # [Azure CLI](#tab/cli)
 
@@ -61,7 +61,7 @@ This tutorial is also available in the [azureml-examples repository on GitHub](h
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 
-This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
+This tutorial is also available in the [azureml-examples repository on GitHub](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items). If you wish to run it in your own local environment, setup using the following instructions
 
 * Use the following commands to install Azure ML Python SDK v2:
    * Uninstall previous preview version:
@@ -263,13 +263,13 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 # [Python SDK](#tab/python)
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 
 ---
 
 Next step is to create `MLTable` from your data in jsonl format as shown below. MLtable package your data into a consumable object for training.
 
-:::code language="yaml" source="~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/data/training-mltable-folder/MLTable":::
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -292,7 +292,7 @@ validation_data:
 
 You can create data inputs from training and validation MLTable with the following code:
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=data-load)]
 
 ---
 
@@ -312,7 +312,7 @@ primary_metric: mean_average_precision
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=image-object-detection-configuration)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=image-object-detection-configuration)]
 
 ---
 
@@ -336,7 +336,7 @@ limits:
 
 # [Python SDK](#tab/python)
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=limit-settings)]
 
 ---
 
@@ -397,9 +397,9 @@ search_space:
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=sweep-settings)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=search-space-settings)]
 
 ---
 
@@ -420,7 +420,7 @@ az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZUR
 
 When you've configured your AutoML Job to the desired settings, you can submit the job.
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=submit-run)]
 
 ---
 
@@ -464,11 +464,11 @@ CLI example not available, please use Python SDK.
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=best_run)] 
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_local_dir)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=download_model)]
 ---
 
 ### Register the model
@@ -485,7 +485,7 @@ Register the model either using the azureml path or your locally downloaded path
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=register_model)]    
 ---
 
 After you register the model you want to use, you can deploy it using the managed online endpoint [deploy-managed-online-endpoint](how-to-deploy-managed-online-endpoint-sdk-v2.md)
@@ -505,7 +505,7 @@ auth_mode: key
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=endpoint)]    
 ---
 
 ### Create the endpoint
@@ -524,7 +524,7 @@ az ml online-endpoint create --file .\create_endpoint.yml --workspace-name [YOUR
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_endpoint)]
 ---
 We can also create a batch endpoint for batch inferenching on large volumes of data over a period of time. Checkout the [object detection batch scoring](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items-batch-scoring) notebook for batch inferencing using the batch endpoint.
 
@@ -560,7 +560,7 @@ readiness_probe:
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=deploy)]
 ---
 
 
@@ -579,7 +579,7 @@ az ml online-deployment create --file .\create_deployment.yml --workspace-name [
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_deploy)]
 ---
 
 ### Update traffic:
@@ -596,7 +596,7 @@ az ml online-endpoint update --name 'od-fridge-items-endpoint' --traffic 'od-fri
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=update_traffic)]
 ---
 
 ## Test the deployment
@@ -610,11 +610,11 @@ CLI example not available, please use Python SDK.
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
 ---
 
 ## Visualize detections
@@ -630,7 +630,7 @@ CLI example not available, please use Python SDK.
 # [Python SDK](#tab/python)
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=visualize_detections)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=visualize_detections)]
 ---
 
 ## Clean up resources
@@ -672,7 +672,7 @@ In this automated machine learning tutorial, you did the following tasks:
     # [Python SDK](#tab/python)
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-    * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
+    * Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs). Please check the folders with 'automl-image-' prefix for samples specific to building computer vision models.
     
     ---
 

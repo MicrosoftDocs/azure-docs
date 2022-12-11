@@ -124,6 +124,8 @@
         href: ./samples/iso-27001.md
       - name: PCI DSS 3.2.1
         href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 3.2.1 v2018 Audit
+        href: ./samples/PCIv3_2_1_2018_audit.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted v3.5

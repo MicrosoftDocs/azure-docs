@@ -12,7 +12,7 @@ ms.date: 09/30/2022
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Reader role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
-    - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](/azure/dms/resource-custom-roles-sql-db-managed-instance-ads)
+    - As an alternative to using the above built-in roles, you can assign a custom role as defined in [this article.](../articles/dms/resource-custom-roles-sql-db-managed-instance-ads.md)
     > [!IMPORTANT]
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
@@ -22,7 +22,7 @@ ms.date: 09/30/2022
     - Azure storage account file share or blob container 
 
     > [!IMPORTANT]
-    > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](/azure/storage/common/storage-account-create) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
+    > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../articles/storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
     > - You need to take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
@@ -43,5 +43,5 @@ ms.date: 09/30/2022
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share. Also, see [recommendations](/azure/dms/migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations) for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
-* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/azure/dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
+* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share. Also, see [recommendations](../articles/dms/migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations) for using self-hosted integration runtime](migration-using-azure-data-studio.md#recommendations-for-using-self-hosted-integration-runtime-for-database-migrations)
+* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](../articles/dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)

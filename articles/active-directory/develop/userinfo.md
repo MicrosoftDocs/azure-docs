@@ -17,13 +17,13 @@ ms.custom: aaddev
 
 # Microsoft identity platform UserInfo endpoint
 
-Part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) is returns information about an authenticated user. In the Microsoft identity platform, the UserInfo endpoint is hosted by Microsoft Graph at https://graph.microsoft.com/oidc/userinfo. 
+As part of the OpenID Connect (OIDC) standard, the [UserInfo endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) returns information about an authenticated user. In the Microsoft identity platform, the UserInfo endpoint is hosted by Microsoft Graph at https://graph.microsoft.com/oidc/userinfo. 
 
 ## Find the .well-known configuration endpoint
 
 You can find the UserInfo endpoint programmatically by reading the `userinfo_endpoint` field of the OpenID configuration document at `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. We don't recommend hard-coding the UserInfo endpoint in your applications. Instead, use the OIDC configuration document to find the endpoint at runtime.
 
-The UserInfo endpoint is typically called automatically by [OIDC-compliant libraries](https://openid.net/developers/certified/) to get information about the user.From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), the Microsoft identity platform produces the name claims, subject claim, and email when available and consented to. 
+The UserInfo endpoint is typically called automatically by [OIDC-compliant libraries](https://openid.net/developers/certified/) to get information about the user. From the [list of claims identified in the OIDC standard](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims), the Microsoft identity platform produces the name claims, subject claim, and email when available and consented to. 
 
 ## Consider using an ID token instead
 
@@ -33,7 +33,7 @@ If you require more details about the user like manager or job title, call the [
 
 ## Calling the UserInfo endpoint
 
-UserInfo is a standard OAuth bearer token API hosted by Microsoft Graph. Call the UserInfo endpoint as you would any Microsoft Graph API by using the access token your application received when it requested access to Microsoft Graph. The UserInfo endpoint returns a JSON response containing claims about the user.
+UserInfo is a standard OAuth bearer token API hosted by Microsoft Graph. Call the UserInfo endpoint as you would call any Microsoft Graph API by using the access token your application received when it requested access to Microsoft Graph. The UserInfo endpoint returns a JSON response containing claims about the user.
 
 ### Permissions
 
@@ -69,11 +69,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
 ```jsonc
 {
     "sub": "OLu859SGc2Sr9ZsqbkG-QbeLgJlb41KcdiPoLYNpSFA",
-    "name": "Mikah Ollenburg", // names all require the “profile” scope.
+    "name": "Mikah Ollenburg", // all names require the “profile” scope.
     "family_name": " Ollenburg",
     "given_name": "Mikah",
     "picture": "https://graph.microsoft.com/v1.0/me/photo/$value",
-    "email": "mikoll@contoso.com" //requires the “email” scope.
+    "email": "mikoll@contoso.com" // requires the “email” scope.
 }
 ```
 

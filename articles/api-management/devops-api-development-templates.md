@@ -105,7 +105,7 @@ Review [Automated API deployments with APIOps][28] in the Azure Architecture Cen
 [14]: https://owasp.org/www-community/api_security_tools
 [15]: https://github.com/postmanlabs/newman
 [16]: https://learning.postman.com/docs/getting-started/creating-the-first-collection/
-[17]: /azure/azure-resource-manager/templates/deployment-tutorial-pipeline
+[17]: ../azure-resource-manager/templates/deployment-tutorial-pipeline.md
 [18]: https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template
 [19]: https://marketplace.visualstudio.com/items?itemName=charleszipp.azure-pipelines-tasks-terraform
 [20]: https://learn.hashicorp.com/tutorials/terraform/github-actions

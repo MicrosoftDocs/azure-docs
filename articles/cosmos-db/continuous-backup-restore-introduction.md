@@ -56,6 +56,7 @@ The following configurations aren't restored after the point-in-time recovery:
 * Consistency settings. By default, the account is restored with session consistency.  
 * Regions.
 * Stored procedures, triggers, UDFs.
+* Role-based access control assignments. These will need to be re-assigned.
 
 You can add these configurations to the restored account after the restore is completed.
 
@@ -142,7 +143,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies. These policies grant the permissions for the account to change any VNET, firewall configuration.
 
-* Azure Cosmso DB for SQL or MongoDB accounts that create unique index after the container is created aren't supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb/custom-commands.md).
+* Azure Cosmos DB for SQL or MongoDB accounts that create unique index after the container is created aren't supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb/custom-commands.md).
 
 * The point-in-time restore functionality always restores to a new Azure Cosmos DB account. Restoring to an existing account is currently not supported. If you're interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative.
 

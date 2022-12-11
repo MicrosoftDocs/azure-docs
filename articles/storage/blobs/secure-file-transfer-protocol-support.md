@@ -1,26 +1,23 @@
 ---
-title: SFTP support for Azure Blob Storage (preview) | Microsoft Docs
+title: SFTP support for Azure Blob Storage | Microsoft Docs
 description: Blob storage now supports the SSH File Transfer Protocol (SFTP). 
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management. 
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
+> SFTP support for Azure Blob Storage is not yet generally available in the West Europe region. 
 
 Here's a video that tells you more about it.
 
@@ -32,7 +29,7 @@ Prior to the release of this feature, if you wanted to use SFTP to transfer data
 
 Now, with SFTP support for Azure Blob Storage, you can enable an SFTP endpoint for Blob Storage accounts with a single click. Then you can set up local user identities for authentication to connect to your storage account with SFTP via port 22. 
 
-This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md).
+This article describes SFTP support for Azure Blob Storage. To learn how to enable SFTP for your storage account, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md).
 
 > [!Note]
 > SFTP is a platform level service, so port 22 will be open even if the account option is disabled. If SFTP access is not configured then all requests will receive a disconnect from the service.
@@ -41,7 +38,7 @@ This article describes SFTP support for Azure Blob Storage. To learn how to enab
 
 SFTP support requires hierarchical namespace to be enabled. Hierarchical namespace organizes objects (files) into a hierarchy of directories and subdirectories in the same way that the file system on your computer is organized. The hierarchical namespace scales linearly and doesn't degrade data capacity or performance. 
 
-Different protocols are supported by the hierarchical namespace. SFTP is one of these available protocols.
+Different protocols are supported by the hierarchical namespace. SFTP is one of these available protocols. The following image shows storage access via multiple protocols and REST APIs. For easier reading, this image uses the term Gen2 REST to refer to the Azure Data Lake Storage Gen2 REST API.
 
 > [!div class="mx-imgBorder"]
 > ![hierarchical namespace](./media/secure-file-transfer-protocol-support/hierarchical-namespace-and-sftp-support.png)
@@ -134,7 +131,7 @@ To get started, enable SFTP support, create a local user, and assign permissions
 
 ### Known supported clients
 
-The following clients have compatible algorithm support with SFTP for Azure Blob Storage (preview). See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting.
+The following clients have compatible algorithm support with SFTP for Azure Blob Storage. See [Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-known-issues.md) if you're having trouble connecting.
 
 - AsyncSSH 2.1.0+
 - Axway
@@ -165,10 +162,9 @@ See the [limitations and known issues article](secure-file-transfer-protocol-kno
 
 ## Pricing and billing
 
-> [!IMPORTANT]
-> During the public preview, the use of SFTP does not incur any additional charges. However, the standard transaction, storage, and networking prices for the underlying Azure Data Lake Store Gen2 account still apply. SFTP might incur additional charges when the feature becomes generally available.  
+Enabling the SFTP endpoint has a cost of $0.30 per hour. We will start applying this hourly cost on or after December 1, 2022. 
 
-Transaction and storage costs are based on factors such as storage account type and the endpoint that you use to transfer data to the storage account. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
+Transaction, storage, and networking prices for the underlying storage account apply. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage).
 
 ## See also
 

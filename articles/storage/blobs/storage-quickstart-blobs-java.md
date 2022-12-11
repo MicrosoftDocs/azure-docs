@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 10/07/2022
+ms.date: 10/20/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -217,9 +217,7 @@ You can also authorize requests to Azure Blob Storage by using the account acces
 
 The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme#defaultazurecredential).
 
-:::image type="content" source="./media/storage-quickstart-blobs-java/defaultazurecredential-flow-java.png" alt-text="A diagram of the credential flow.":::
-
-For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Visual Studio Code sign-in credentials with when developing locally. Your app can then use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 #### Assign roles to your Azure AD user account
 
@@ -284,7 +282,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](/azure/role-based-access-control/resource-provider-operations#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role), but any role which includes this action will work.
+> If you plan to use connection strings, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privilege built-in role with permissions for this action is [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
@@ -434,9 +432,11 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean-up process, check your *data* folder for the two files. You can open them and observe that they're identical.
+Before you begin the cleanup process, check your *data* folder for the two files. You can compare them and observe that they're identical.
 
-After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
+## Clean up resources
+
+After you've verified the files and finished testing, press the **Enter** key to delete the test files along with the container you created in the storage account. You can also use [Azure CLI](storage-quickstart-blobs-cli.md#clean-up-resources) to delete resources.
 
 ## Next steps
 

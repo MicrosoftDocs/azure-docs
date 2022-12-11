@@ -101,4 +101,4 @@ Operations on managed identities can be performed by using an Azure Resource Man
 * [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
 * [How to use managed identities with Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Implementing managed identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing)
-* Use [workload identity federation for managed identities](/azure/active-directory/develop/workload-identity-federation) to access Azure Active Directory (Azure AD) protected resources without managing secrets
+* Use [workload identity federation for managed identities](../develop/workload-identity-federation.md) to access Azure Active Directory (Azure AD) protected resources without managing secrets

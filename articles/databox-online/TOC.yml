@@ -538,7 +538,7 @@
   - name: Shared reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/#stack_edge
+      href: https://azure.microsoft.com/products/azure-stack/edge/
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK

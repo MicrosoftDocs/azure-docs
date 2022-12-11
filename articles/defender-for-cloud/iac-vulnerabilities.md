@@ -9,14 +9,16 @@ ms.custom: ignite-2022
 
 # Discover misconfigurations in Infrastructure as Code (IaC)
 
-Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, extra support is located in the YAML configuration that can be used to run a specific tool, or several of the tools. For example, setting up the action or extension to run Infrastructure as Code (IaC) scanning only. This can help reduce pipeline run time.
+Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps extension, you can configure the YAML configuration file to run a single tool or multiple tools. For example, you can set up the action or extension to run Infrastructure as Code (IaC) scanning tools only. This can help reduce pipeline run time.
 
 ## Prerequisites
 
-- [Configure Microsoft Security DevOps GitHub action](github-action.md).
-- [Configure the Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Configure Microsoft Security DevOps for GitHub and/or Azure DevOps based on your source code management system:
+  - [Microsoft Security DevOps GitHub action](github-action.md)
+  - [Microsoft Security DevOps Azure DevOps extension](azure-devops-extension.md).
+- Ensure you have an IaC template in your repository.
 
-## View the results of the IaC scan in GitHub 
+## Configure IaC scanning and view the results in GitHub
 
 1. Sign in to [GitHub](https://www.github.com). 
 
@@ -30,7 +32,7 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     ```yml
     with:
-        categories: 'Iac"
+        categories: 'IaC'
     ```
 
     > [!NOTE] 
@@ -43,19 +45,19 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/commit-change.png" alt-text="Screenshot that shows where to select commit change on the githib page.":::
 
-1. (Optional) Skip this step if you already have an IaC template in your repository.
+1. (Optional) Add an IaC template to your repository. Skip if you already have an IaC template in your repository.
 
-    Follow this link to [Install an IaC template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux).
+    For example, [commit an IaC template to deploy a basic Linux web application](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) to your repository.
 
     1. Select `azuredeploy.json`.
     
-        :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the deploy.json file is located.":::
+        :::image type="content" source="media/tutorial-iac-vulnerabilities/deploy-json.png" alt-text="Screenshot that shows where the azuredeploy.json file is located.":::
 
     1. Select **Raw**
     
     1. Copy all the information in the file.
 
-        ```Bash
+        ```json
         {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -144,25 +146,26 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
     :::image type="content" source="media/tutorial-iac-vulnerabilities/file-added.png" alt-text="Screenshot that shows that the new file you created has been added to your repository.":::
 
-1. Select **Actions**. 
 
-1. Select the workflow to see the results.
+1. Confirm the Microsoft Security DevOps scan completed:
+    1. Select **Actions**. 
+    2. Select the workflow to see the results.
 
-1. Navigate in the results to the scan results section.
+1. Navigate to **Security** > **Code scanning alerts** to view the results of the scan (filter by tool as needed to see just the IaC findings).
 
-1. Navigate to **Security** > **Code scanning alerts** to view the results of the scan.
-
-## View the results of the IaC scan in Azure DevOps
+## Configure IaC scanning and view the results in Azure DevOps
 
 **To view the results of the IaC scan in Azure DevOps**
 
-1. Sign in to [Azure DevOps](https://dev.azure.com/)
+1. Sign in to [Azure DevOps](https://dev.azure.com/).
 
-1. Navigate to **Pipeline**.
+1. Select the desired project
 
-1. Locate the pipeline with MSDO Azure DevOps Extension is configured.
+1. Select **Pipeline**.
 
-1. Select **Edit**.
+1. Select the pipeline where the Microsoft Security DevOps Azure DevOps Extension is configured.
+
+1. **Edit** the pipeline configuration YAML file adding the following lines:
 
 1. Add the following lines to the YAML file
 
@@ -175,20 +178,29 @@ Once you have set up the Microsoft Security DevOps GitHub action or Azure DevOps
 
 1.  Select **Save**.
 
-1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit
+1. (Optional) Add an IaC template to your repository. Skip if you already have an IaC template in your repository.
+
+1.  Select **Save** to commit directly to the main branch or Create a new branch for this commit.
 
 1.  Select **Pipeline** > **`Your created pipeline`** to view the results of the IaC scan.
 
 1. Select any result to see the details.
 
-## Remediate PowerShell based rules:
+## View details and remediation information on IaC rules included with Microsoft Security DevOps
+
+### PowerShell-based rules
 
 Information about the PowerShell-based rules included by our integration with [PSRule for Azure](https://aka.ms/ps-rule-azure/rules). The tool will only evaluate the rules under the [Security pillar](https://azure.github.io/PSRule.Rules.Azure/en/rules/module/#security) unless the option `--include-non-security-rules` is used.
 
 > [!NOTE]
-> Severity levels are scaled from 1 to 3. Where 1 = High, 2 = Medium, 3 = Low.
+> PowerShell-based rules are included by our integration with [PSRule for Azure](https://aka.ms/ps-rule-azure/rules). The tool will evaluate all rules under the [Security pillar](https://azure.github.io/PSRule.Rules.Azure/en/rules/module/#security).
 
 ### JSON-Based Rules:
+
+JSON-based rules for ARM templates and bicep files are provided by [Template-Analyzer](https://github.com/Azure/template-analyzer#template-best-practice-analyzer-bpa).  Below are details on template-analyzer's rules and remediation details.
+
+> [!NOTE]
+> Severity levels are scaled from 1 to 3. Where 1 = High, 2 = Medium, 3 = Low.
 
 #### TA-000001: Diagnostic logs in App Services should be enabled
 
@@ -200,7 +212,7 @@ Audits the enabling of diagnostic logs on the app. This enables you to recreate 
 
 #### TA-000002: Remote debugging should be turned off for API Apps
 
-Remote debugging requires inbound ports to be opened on an API app. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on an API app. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -210,7 +222,7 @@ Remote debugging requires inbound ports to be opened on an API app. These ports 
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps) in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -218,7 +230,7 @@ Enable FTPS enforcement for enhanced security.
 
 API apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https) in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -226,7 +238,7 @@ API apps should require HTTPS to ensure connections are made to the expected ser
 
 API apps should require the latest TLS version.
 
-**Recommendation**: To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions) in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -242,13 +254,13 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
 #### TA-000008: Remote debugging should be turned off for Function Apps
 
-Remote debugging requires inbound ports to be opened on a function app. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on a function app. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -258,7 +270,7 @@ Remote debugging requires inbound ports to be opened on a function app. These po
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -266,7 +278,7 @@ Enable FTPS enforcement for enhanced security.
 
 Function apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure, server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -274,7 +286,7 @@ Function apps should require HTTPS to ensure connections are made to the expecte
 
 Function apps should require the latest TLS version.
 
-**Recommendation**: To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+**Recommendation**: To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -290,13 +302,13 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
 #### TA-000014: Remote debugging should be turned off for Web Applications
 
-Remote debugging requires inbound ports to be opened on a web application. These ports become easy targets for compromise from various internet based attacks. If you no longer need to use remote debugging, it should be turned off.
+Remote debugging requires inbound ports to be opened on a web application. These ports become easy targets for compromise from various internet-based attacks. If you no longer need to use remote debugging, it should be turned off.
 
 **Recommendation**: To disable remote debugging, in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), remove the *remoteDebuggingEnabled* property or update its value to `false`.
 
@@ -306,7 +318,7 @@ Remote debugging requires inbound ports to be opened on a web application. These
 
 Enable FTPS enforcement for enhanced security.
 
-**Recommendation**: To [enforce FTPS](/azure/app-service/deploy-ftp?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
+**Recommendation**: To [enforce FTPS](../app-service/deploy-ftp.md?tabs=portal#enforce-ftps), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *ftpsState* property, setting its value to `"FtpsOnly"` or `"Disabled"` if you don't need FTPS enabled.
 
 **Severity level**: 1
 
@@ -314,7 +326,7 @@ Enable FTPS enforcement for enhanced security.
 
 Web apps should require HTTPS to ensure connections are made to the expected server and data in transit is protected from network layer eavesdropping attacks.
 
-**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](/azure/app-service/configure-ssl-bindings#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
+**Recommendation**: To [use HTTPS to ensure server/service authentication and protect data in transit from network layer eavesdropping attacks](../app-service/configure-ssl-bindings.md#enforce-https), in the [Microsoft.Web/Sites resource properties](/azure/templates/microsoft.web/sites?tabs=json#siteproperties-object), add (or update) the *httpsOnly* property, setting its value to `true`.
 
 **Severity level**: 2
 
@@ -323,7 +335,7 @@ Web apps should require HTTPS to ensure connections are made to the expected ser
 Web apps should require the latest TLS version.
 
 **Recommendation**: 
-To [enforce the latest TLS version](/azure/app-service/configure-ssl-bindings#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
+To [enforce the latest TLS version](../app-service/configure-ssl-bindings.md#enforce-tls-versions), in the [Microsoft.Web/sites/config resource properties](/azure/templates/microsoft.web/sites/config-web?tabs=json#SiteConfig), add (or update) the *minTlsVersion* property, setting its value to `1.2`.
 
 **Severity level**: 1
 
@@ -339,7 +351,7 @@ Cross-Origin Resource Sharing (CORS) should not allow all domains to access your
 
 For enhanced authentication security, use a managed identity. On Azure, managed identities eliminate the need for developers to have to manage credentials by providing an identity for the Azure resource in Azure AD and using it to obtain Azure Active Directory (Azure AD) tokens.
 
-**Recommendation**: To [use Managed Identity](/azure/app-service/overview-managed-identity?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
+**Recommendation**: To [use Managed Identity](../app-service/overview-managed-identity.md?tabs=dotnet), in the [Microsoft.Web/sites resource managed identity property](/azure/templates/microsoft.web/sites?tabs=json#ManagedServiceIdentity), add (or update) the *type* property, setting its value to `"SystemAssigned"` or `"UserAssigned"` and providing any necessary identifiers for the identity if required.
 
 **Severity level**: 2
 
@@ -347,7 +359,7 @@ For enhanced authentication security, use a managed identity. On Azure, managed 
 
 Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles, which are error prone. Using custom roles is treated as an exception and requires a rigorous review and threat modeling.
 
-**Recommendation**: [Use built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles](/azure/role-based-access-control/built-in-roles)
+**Recommendation**: [Use built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles](../role-based-access-control/built-in-roles.md)
 
 **Severity level**: 3
 
@@ -355,7 +367,7 @@ Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC
 
 It is important to enable encryption of Automation account variable assets when storing sensitive data. This step can only be taken at creation time. If you have Automation Account Variables storing sensitive data that are not already encrypted, then you will need to delete them and recreate them as encrypted variables. To apply encryption of the Automation account variable assets, in Azure PowerShell - run [the following command](/powershell/module/az.automation/set-azautomationvariable?view=azps-5.4.0&viewFallbackFrom=azps-1.4.0): `Set-AzAutomationVariable -AutomationAccountName '{AutomationAccountName}' -Encrypted $true -Name '{VariableName}' -ResourceGroupName '{ResourceGroupName}' -Value '{Value}'`
 
-**Recommendation**: [Enable encryption of Automation account variable assets](/azure/automation/shared-resources/variables?tabs=azure-powershell)
+**Recommendation**: [Enable encryption of Automation account variable assets](../automation/shared-resources/variables.md?tabs=azure-powershell)
 
 **Severity level**: 1
 
@@ -371,7 +383,7 @@ Enable only connections via SSL to Redis Cache. Use of secure connections ensure
 
 To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes Service Management API server. It is recommended to limit access to authorized IP ranges to ensure that only applications from allowed networks can access the cluster.
 
-**Recommendation**: [Restrict access by defining authorized IP ranges](/azure/aks/api-server-authorized-ip-ranges) or [set up your API servers as private clusters](/azure/aks/private-clusters)
+**Recommendation**: [Restrict access by defining authorized IP ranges](../aks/api-server-authorized-ip-ranges.md) or [set up your API servers as private clusters](../aks/private-clusters.md)
 
 **Severity level**: 1
 
@@ -379,7 +391,7 @@ To ensure that only applications from allowed networks, machines, or subnets can
 
 To provide granular filtering on the actions that users can perform, use Role-Based Access Control (RBAC) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies. To Use Role-Based Access Control (RBAC) you must recreate your Kubernetes Service cluster and enable RBAC during the creation process.
 
-**Recommendation**: [Enable RBAC in Kubernetes clusters](/azure/aks/operator-best-practices-identity#use-azure-rbac)
+**Recommendation**: [Enable RBAC in Kubernetes clusters](../aks/operator-best-practices-identity.md#use-azure-rbac)
 
 **Severity level**: 1
 
@@ -387,7 +399,7 @@ To provide granular filtering on the actions that users can perform, use Role-Ba
 
 Upgrade your Kubernetes service cluster to a later Kubernetes version to protect against known vulnerabilities in your current Kubernetes version. [Vulnerability CVE-2019-9946](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-9946) has been patched in Kubernetes versions 1.11.9+, 1.12.7+, 1.13.5+, and 1.14.0+. Running on older versions could mean you are not using latest security classes. Usage of such old classes and types can make your application vulnerable.
 
-**Recommendation**: To [upgrade Kubernetes service clusters](/azure/aks/upgrade-cluster), in the [Microsoft.ContainerService/managedClusters resource properties](/azure/templates/microsoft.containerservice/managedclusters?tabs=json#managedclusterproperties-object), update the *kubernetesVersion* property, setting its value to one of the following versions (making sure to specify the minor version number): 1.11.9+, 1.12.7+, 1.13.5+, or 1.14.0+.
+**Recommendation**: To [upgrade Kubernetes service clusters](../aks/upgrade-cluster.md), in the [Microsoft.ContainerService/managedClusters resource properties](/azure/templates/microsoft.containerservice/managedclusters?tabs=json#managedclusterproperties-object), update the *kubernetesVersion* property, setting its value to one of the following versions (making sure to specify the minor version number): 1.11.9+, 1.12.7+, 1.13.5+, or 1.14.0+.
 
 **Severity level**: 1
 
@@ -395,7 +407,7 @@ Upgrade your Kubernetes service cluster to a later Kubernetes version to protect
 
 Service Fabric clusters should only use Azure Active Directory for client authentication. A Service Fabric cluster offers several entry points to its management functionality, including the web-based Service Fabric Explorer, Visual Studio and PowerShell. Access to the cluster must be controlled using AAD.
 
-**Recommendation**: [Enable AAD client authentication on your Service Fabric clusters](/azure/service-fabric/service-fabric-cluster-creation-setup-aad)
+**Recommendation**: [Enable AAD client authentication on your Service Fabric clusters](../service-fabric/service-fabric-cluster-creation-setup-aad.md)
 
 **Severity level**: 1
 
@@ -417,7 +429,7 @@ Set the data retention for your SQL Server's auditing to storage account destina
 
 #### TA-000029: Azure API Management APIs should use encrypted protocols only
 
-Set the protocols property to only include HTTPs.
+Set the protocols property to only include HTTPS.
 
 **Recommendation**: To use encrypted protocols only, add (or update) the *protocols* property in the [Microsoft.ApiManagement/service/apis resource properties](/azure/templates/microsoft.apimanagement/service/apis?tabs=json), to only include HTTPS. Allowing any additional protocols (for example, HTTP, WS) is insecure.
 
@@ -427,7 +439,7 @@ Set the protocols property to only include HTTPs.
 
 - Learn more about the [Template Best Practice Analyzer](https://github.com/Azure/template-analyzer).
 
-In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for only Infrastructure as Code misconfigurations.
+In this tutorial you learned how to configure the Microsoft Security DevOps GitHub Action and Azure DevOps Extension to scan for Infrastructure as Code (IaC) security misconfigurations and how to view the results.
 
 ## Next steps
 

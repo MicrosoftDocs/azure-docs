@@ -23,7 +23,8 @@ In this quickstart, you do the following actions:
 
 ## Prerequisites
 
-- [Create and configure a project](quickstart-create-and-configure-projects.md).
+- [Create and configure a dev center](quickstart-create-and-configure-devcenter.md)
+- [Create and configure a project](quickstart-create-and-configure-projects.md)
 - Install the Deployment Environments Azure CLI Extension
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
     2. Install the Deployment Environments AZ CLI extension:
@@ -42,6 +43,9 @@ In this quickstart, you do the following actions:
     ```azurecli
     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-environments-0.1.0-py3-none-any.whl
     ```
+
+>[!NOTE]
+> Only users with a [Deployment Environments user](how-to-configure-deployment-environments-user.md) role or a [DevCenter Project Admin](how-to-configure-project-admin.md) role or a built-in role with appropriate permissions will be able to create environments.
 
 ## Create an Environment
 
@@ -79,7 +83,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
 
 1. Create an environment by using a *catalog-item* ('infra-as-code' template) from the list of available catalog items.
     ```azurecli
-    az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> 
+    az devcenter dev environment create --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
         --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
     ```
@@ -87,7 +91,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
     If the specific *catalog-item* requires any parameters use `--deployment-parameters` and provide the parameters as a json-string or json-file, for example:  
     ```json
     $params = "{ 'name': 'firstMsi', 'location': 'northeurope' }"
-    az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> 
+    az devcenter dev environment create --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
         --catalog-item-name <catalog-item-name> ---catalog-name <catalog-name> 
         --parameters $params

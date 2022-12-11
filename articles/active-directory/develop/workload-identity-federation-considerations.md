@@ -166,7 +166,7 @@ The following Azure Resource Manager template (ARM template) example creates thr
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-It is possible to use a deny [Azure Policy](/azure/governance/policy/overview) as in the following ARM template example:
+It is possible to use a deny [Azure Policy](../../governance/policy/overview.md) as in the following ARM template example:
 
 ```json
 { 

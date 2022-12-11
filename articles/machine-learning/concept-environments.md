@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: larryfr
-author: Blackmist
+author: ositanachi  
+ms.author: osiotugo 
+ms.reviewer: larryfr
 ms.date: 09/23/2021
 ---
 

@@ -293,9 +293,9 @@
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK
-      href: /python/api/overview/azure/storage/management
+      href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
-      href: /javascript/api/overview/azure/storage/management
+      href: /javascript/api/overview/azure/storage#management
   - name: Spring Cloud Azure
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/files/toc.json#resource-handing
   - name: Monitoring Azure Files reference

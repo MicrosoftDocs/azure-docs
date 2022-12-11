@@ -6,8 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.author: larryfr
-author: blackmist
+author: ositanachi  
+ms.author: osiotugo
+ms.reviewer: larryfr
 ms.date: 04/05/2022
 ms.custom: sdkv1, event-tier1-build-2022
 ---

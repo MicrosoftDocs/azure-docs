@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an Apache Kafka cluster
 ms.service: hdinsight
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
-ms.date: 08/26/2022
+ms.date: 10/19/2022
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -100,7 +100,7 @@ $httpCredential = Get-Credential -Message "Enter the cluster login credentials" 
 $sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
-$clusterVersion = "3.6"
+$clusterVersion = "4.0"
 $clusterType="Kafka"
 $disksPerNode=2
 

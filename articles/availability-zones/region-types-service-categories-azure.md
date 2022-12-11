@@ -2,7 +2,8 @@
 title: Azure services
 description: Learn about Region types and service categories in Azure.
 author: obeling
-ms.service: azure-resource-manager
+ms.service: reliability
+ms.subservice: availability-zones
 ms.topic: conceptual
 ms.date: 12/10/2021
 ms.author: mamccrea

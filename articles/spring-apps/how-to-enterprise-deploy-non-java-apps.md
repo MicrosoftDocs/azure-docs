@@ -52,34 +52,34 @@ Your application must conform to the following restrictions:
 
 The following table indicates the features supported for each language.
 
-| Feature                                                         | Java | Python | Node | .NET Core | Go |
-|-----------------------------------------------------------------|------|--------|------|-----------|----|
-| App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Azure Monitor                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Out of box APM integration                                      | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| Blue/green deployment                                           | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Custom domain                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Scaling - manual scaling (in/out, up/down)                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Application Configuration Service for VMware Tanzu®             | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| VNET                                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| Bring your own storage                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Integrate service binding with Resource Connector               | ✔️   | ❌    | ❌   | ❌       | ❌ |
-| Availability Zone                                               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| App Lifecycle events                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Automate app deployments with Terraform and Azure Pipeline Task | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Soft Deletion                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| Interactive diagnostic experience (AppLens-based)               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
-| SLA                                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ |
+| Feature                                                         | Java | Python | Node | .NET Core | Go |[Static Files](how-to-enterprise-deploy-static-file.md)|
+|-----------------------------------------------------------------|------|--------|------|-----------|----|-----------|
+| App lifecycle management                                        | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Assign endpoint                                                 | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Azure Monitor                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Out of box APM integration                                      | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Blue/green deployment                                           | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Custom domain                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Scaling - auto scaling                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Scaling - manual scaling (in/out, up/down)                      | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Managed Identity                                                | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Application Configuration Service for VMware Tanzu®             | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| VNET                                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Outgoing IP Address                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| E2E TLS                                                         | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Advanced troubleshooting - thread/heap/JFR dump                 | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Bring your own storage                                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Integrate service binding with Resource Connector               | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Availability Zone                                               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| App Lifecycle events                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Reduced app size - 0.5 vCPU and 512 MB                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Automate app deployments with Terraform and Azure Pipeline Task | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Soft Deletion                                                   | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| Interactive diagnostic experience (AppLens-based)               | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
+| SLA                                                             | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 
 ## Next steps
 

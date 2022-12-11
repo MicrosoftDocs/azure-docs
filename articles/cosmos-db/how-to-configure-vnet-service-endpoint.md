@@ -279,8 +279,6 @@ To migrate an Azure Cosmos DB account from using IP firewall rules to using virt
 
 After an Azure Cosmos DB account is configured for a service endpoint for a subnet, each request from that subnet is sent differently to Azure Cosmos DB. The requests are sent with virtual network and subnet source information instead of a source public IP address. These requests will no longer match an IP filter configured on the Azure Cosmos DB account, which is why the following steps are necessary to avoid downtime.
 
-Before proceeding, enable the Azure Cosmos DB service endpoint on the virtual network and subnet using the step shown above in "Enable the service endpoint for an existing subnet of a virtual network".
-
 1. Get virtual network and subnet information:
 
    ```powershell
@@ -314,6 +312,8 @@ Before proceeding, enable the Azure Cosmos DB service endpoint on the virtual ne
    ```
 
 1. Repeat the previous steps for all Azure Cosmos DB accounts accessed from the subnet.
+
+1. Enable the Azure Cosmos DB service endpoint on the virtual network and subnet using the step shown in the [Enable the service endpoint for an existing subnet of a virtual network](#configure-using-powershell) section of this article.
 
 1. Remove the IP firewall rule for the subnet from the Azure Cosmos DB account's Firewall rules.
 

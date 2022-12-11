@@ -68,6 +68,8 @@ With debug on, the Data Preview tab will light-up on the bottom panel. Without d
 
 :::image type="content" source="media/data-flow/datapreview.png" alt-text="Data preview":::
 
+You can sort columns in data preview and rearrange columns using drag and drop. Additionally, there is an export button on the top of the data preview panel that you can use to export the preview data to a CSV file for offline data exploration. You can use this feature to export up to 1,000 rows of preview data.
+
 > [!NOTE]
 > File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.
 

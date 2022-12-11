@@ -88,6 +88,12 @@ The activity log uses a diagnostic setting but has its own user interface becaus
 
 This section discusses requirements and limitations.
 
+### Time before telemetry gets to destination
+
+Once you have set up a diagnostic setting, data should start flowing to your selected destination(s) with 90 minutes. If you get no information within 24 hours, then either 
+- no logs are being generated or 
+- something is wrong in the underlying routing mechanism. Try disabling the configuration and then reenabling it. Contact Azure support through the Azure portal if you continue to have issues. 
+
 ### Metrics as a source
 
 There are certain limitations with exporting metrics:

@@ -4,14 +4,14 @@ description: Learn how to add and manage libraries to workspace in Azure Synapse
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/21/2022
 ms.author: shuaijunye
 ms.subservice: spark
 ---
 
 # Workspace packages
 
-Workspace packages can be custom or private wheel or jar files. You can upload these packages to your workspace and later assign them to a specific Spark pool.
+Workspace packages can be custom or private wheel (Python), jar (Scala/Java), or tar.gz (R) files. You can upload these packages to your workspace and later assign them to a specific Spark pool.
 
 To add workspace packages:
 1. Navigate to the **Manage** > **Workspace packages** tab.

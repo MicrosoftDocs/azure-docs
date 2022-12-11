@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Language role-based access control
 
-Azure Cognitive Service for Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](/azure/role-based-access-control/) for more information.
+Azure Cognitive Service for Language supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your projects authoring resources. See the [Azure RBAC documentation](../../../role-based-access-control/index.yml) for more information.
 
 ## Enable Azure Active Directory authentication 
 
@@ -35,7 +35,7 @@ Azure RBAC can be assigned to a Language resource. To grant access to an Azure r
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
 
 ## Language role types
 

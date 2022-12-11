@@ -99,18 +99,18 @@ The following sections describe the four stages in the architecture.
 
 The following Azure services are used in this architecture.
 
-- [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
-- [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](/azure/service-bus-messaging/service-bus-messaging-overview) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
+- [Key Vault](../key-vault/general/basic-concepts.md) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](../service-bus-messaging/service-bus-messaging-overview.md) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
-- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
-- [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
+- [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
-- [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
-- [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
-- [Azure Bastion](/azure/bastion/bastion-overview) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
-- [Application Insights](/azure/azure-monitor/app/app-insights-overview) provides extensible application performance management and monitoring for live web apps.
-- [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
+- [Azure Kubernetes Services](../aks/intro-kubernetes.md) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
+- [Container Registry](../container-registry/container-registry-intro.md) to store and manage your container images and related artifacts.
+- [Virtual Machine](../virtual-machines/overview.md) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
+- [Azure Bastion](../bastion/bastion-overview.md) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
+- [Application Insights](../azure-monitor/app/app-insights-overview.md) provides extensible application performance management and monitoring for live web apps.
+- [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
 
 The following Geospatial libraries are also used:
 
@@ -138,13 +138,13 @@ To catalog more data sources or to catalog your own data source, consider the fo
 
 Security provides assurances against deliberate attacks and the abuse of your valuable data and systems. For more information, see [Overview of the security pillar](/azure/architecture/framework/security/overview).
 
-- Azure Kubernetes Service [Container Security](https://learn.microsoft.com/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
-- API Management Service [Security baseline](https://learn.microsoft.com/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
-- [Azure Database for PostgreSQL Security](https://learn.microsoft.com/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
+- Azure Kubernetes Service [Container Security](/azure/aks/concepts-security) implementation ensures the processors are built and run as containers are secure.
+- API Management Service [Security baseline](/azure/aks/concepts-security) provides recommendations on how to secure your cloud solutions on Azure.
+- [Azure Database for PostgreSQL Security](/azure/postgresql/flexible-server/concepts-security) covers in-depth the security at multiple layers when data is stored in PostgreSQL Flexible Server including data at rest and data in transit scenarios.
 
 ### Cost optimization
 
-Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](https://learn.microsoft.com/azure/architecture/framework/cost/overview).
+Cost optimization is about looking at ways to reduce unnecessary expenses and improve operational efficiencies. For more information, see [Overview of the cost optimization pillar](/azure/architecture/framework/cost/overview).
 
 As this solution is intended for learning and development, we have used minimal configuration for the Azure resources. This minimal configuration runs a sample solution on a sample dataset.
 
@@ -154,7 +154,7 @@ Users can also adjust the configurations to meet their workload and scaling need
 
 Performance efficiency is the ability of your workload to scale to meet the demands placed on it by users in an efficient manner. For more information, see [Performance efficiency pillar overview](/azure/architecture/framework/scalability/overview). Additionally, the following guidance can be useful in maximizing performance efficiency:
 
-- [Monitor and tune](/azure/postgresql/single-server/tutorial-monitor-and-tune) provides a way to monitor your data and tune your database to improvement performance.
+- [Monitor and tune](../postgresql/single-server/tutorial-monitor-and-tune.md) provides a way to monitor your data and tune your database to improvement performance.
 - [Performance tuning a distributing application](/azure/architecture/performance/) walks through a few different scenarios, how to identify key metrics and improve performance.
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/baseline-aks) recommends baseline infrastructure architecture to deploy an Azure Kubernetes Service (AKS) cluster on Azure.
 - [Improve the performance of an API by adding a caching policy in Azure API Management](/training/modules/improve-api-performance-with-apim-caching-policy/) is a training module on improving performance through Caching Policy.

@@ -14,7 +14,7 @@ This article describes the prerequisites that must be completed in your Azure su
 
 ## Access control
 
-To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](/azure/role-based-access-control/check-access) before starting the setup.
+To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access on the Azure subscription. First, [confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
 
 ## Add enterprise application
 

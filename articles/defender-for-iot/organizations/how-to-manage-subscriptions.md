@@ -184,21 +184,40 @@ Delete all sensors that are associated with the subscription prior to removing t
 
 ## Move existing sensors to a different subscription
 
-Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan and register the sensors under the new subscription, and then remove them from the old subscription. This process may include some downtime, and historic data isn't migrated.
+Business considerations may require that you apply your existing IoT sensors to a different subscription than the one you’re currently using. To do this, you'll need to onboard a new plan to the new subscription, register the sensors under the new subscription, and then remove them from the previous subscription.
+
+Billing changes will take effect one hour after cancellation of the previous subscription, and will be reflected on the next month's bill. Devices will be synchronized from the sensor to the new subscription automatically. Manual edits made in the portal will not be migrated. New alerts created by the sensor will be created under the new subscription, and existing alerts in the old subscription can be closed in bulk.
 
 **To switch to a new subscription**:
 
-1. Onboard a new plan to the new subscription you want to use. For more information, see:
+**For OT sensors**:
 
-    [Onboard a plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) in the Azure portal
+1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use. 
 
-    [Onboard a plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) in Defender for Endpoint
+1. Create a new activation file by [following the steps to onboard an OT sensor](onboard-sensors.md#onboard-ot-sensors). 
+    - Replicate site and sensor hierarchy as is.
+    - For sensors monitoring overlapping network segments, create the activation file under the same zone. Identical devices that are detected in more than one sensor in a zone, will be merged into one device.  
 
-1. Onboard your sensors again under the new subscription. For OT sensors, [upload a new activation](how-to-manage-individual-sensors.md#upload-new-activation-files) file for your sensors.
+1. [Upload a new activation file](how-to-manage-individual-sensors.md#upload-new-activation-files) for your sensors under the new subscription.
 
-1. Delete the sensor identities from the legacy subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
 
-1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the legacy subscription.
+1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+
+**For Enterprise IoT sensors**:
+
+1. In Defender for Endpoint, [onboard a new plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) to the new subscription you want to use.
+
+1. In the Azure portal, [follow the steps to register an Enterprise IoT sensor](tutorial-getting-started-eiot-sensor.md#register-an-enterprise-iot-sensor) under the new subscription.
+
+1. Log into your sensor and run the activation command you saved when registering the sensor under the new subscription.
+
+1. Delete the sensor identities from the previous subscription. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
+
+1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
+
+> [!NOTE]
+> If the previous subscription was connected to Microsoft Sentinel, you will need to connect the new subscription to Microsoft Sentinel and remove the old subscription. For more information, see [Connect Microsoft Defender for IoT with Microsoft Sentinel](/azure/sentinel/iot-solution).
 
 ## Next steps
 

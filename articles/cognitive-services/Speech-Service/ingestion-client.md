@@ -14,12 +14,12 @@ ms.author: eur
 
 # Ingestion Client with Azure Cognitive Services
 
-The Ingestion Client is a tool released by Microsoft on [GitHub](/azure/cognitive-services/speech-service/ingestion-client) that helps you quickly deploy a call center transcription solution to Azure with a no-code approach. 
+The Ingestion Client is a tool released by Microsoft on GitHub that helps you quickly deploy a call center transcription solution to Azure with a no-code approach. 
 
 > [!TIP]
 > You can use the tool and resulting solution in production to process a high volume of audio.
 
-Ingestion Client uses the [Azure Cognitive Service for Language](/azure/cognitive-services/language-service/), [Azure Cognitive Service for Speech](/azure/cognitive-services/speech-service/), [Azure storage](https://azure.microsoft.com/product-categories/storage/), and [Azure Functions](https://azure.microsoft.com/services/functions/). 
+Ingestion Client uses the [Azure Cognitive Service for Language](../language-service/index.yml), [Azure Cognitive Service for Speech](./index.yml), [Azure storage](https://azure.microsoft.com/product-categories/storage/), and [Azure Functions](https://azure.microsoft.com/services/functions/). 
 
 ## Get started with the Ingestion Client
 
@@ -43,13 +43,13 @@ Internally, the tool uses Speech and Language services, and follows best practic
 
 The following Speech service features are used by the Ingestion Client:
 
-- [Batch speech-to-text](/azure/cognitive-services/speech-service/batch-transcription): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
-- [Speaker identification](/azure/cognitive-services/speech-service/speaker-recognition-overview): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
+- [Batch speech-to-text](./batch-transcription.md): Transcribe large amounts of audio files asynchronously including speaker diarization and is typically used in post-call analytics scenarios. Diarization is the process of recognizing and separating speakers in mono channel audio data.
+- [Speaker identification](./speaker-recognition-overview.md): Helps you determine an unknown speaker’s identity within a group of enrolled speakers and is typically used for call center customer verification scenarios or fraud detection.
 
 Language service features used by the Ingestion Client:
 
-- [Personally Identifiable Information (PII) extraction and redaction](/azure/cognitive-services/language-service/personally-identifiable-information/how-to-call-for-conversations): Identify, categorize, and redact sensitive information in conversation transcription.
-- [Sentiment analysis and opinion mining](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
+- [Personally Identifiable Information (PII) extraction and redaction](../language-service/personally-identifiable-information/how-to-call-for-conversations.md): Identify, categorize, and redact sensitive information in conversation transcription.
+- [Sentiment analysis and opinion mining](../language-service/sentiment-opinion-mining/overview.md): Analyze transcriptions and associate positive, neutral, or negative sentiment at the utterance and conversation-level.
 
 Besides Cognitive Services, these Azure products are used to complete the solution:
 
@@ -65,6 +65,6 @@ The tool is built to show customers results quickly. You can customize the tool 
 
 ## Next steps
 
-* [Learn more about Cognitive Services features for call center](/azure/cognitive-services/speech-service/call-center-overview)
-* [Explore the Language service features](/azure/cognitive-services/language-service/overview#available-features)
-* [Explore the Speech service features](/azure/cognitive-services/speech-service/overview)
+* [Learn more about Cognitive Services features for call center](./call-center-overview.md)
+* [Explore the Language service features](../language-service/overview.md#available-features)
+* [Explore the Speech service features](./overview.md)

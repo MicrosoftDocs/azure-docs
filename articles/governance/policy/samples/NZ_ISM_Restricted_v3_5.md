@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NZ ISM Restricted v3.5
 description: Details of the NZ ISM Restricted v3.5 Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 10/10/2022
+ms.date: 10/12/2022
 ms.topic: sample
 ms.custom: generated
 ---

@@ -1,19 +1,19 @@
 ---
-title: Build queries with Cloud Security Explorer
+title: Build queries with cloud security explorer
 titleSuffix: Defender for Cloud
-description: Learn how to build queries in Cloud Security Explorer to find vulnerabilities that exist on your multicloud environment.
+description: Learn how to build queries in cloud security explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
 ms.custom: ignite-2022
 ms.date: 10/03/2022
 ---
 
-# Cloud Security Explorer
+# Cloud security explorer
 
 Defender for Cloud's contextual security capabilities assists security teams in the reduction of the risk of impactful breaches. Defender for Cloud uses environmental context to perform a risk assessment of your security issues, and identifies the biggest security risks and distinguishes them from less risky issues.
 
-By using the Cloud Security Explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the Cloud Security Graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
+By using the cloud security explorer, you can proactively identify security risks in your cloud environment by running graph-based queries on the cloud security graph, which is Defender for Cloud's context engine. You can prioritize your security team's concerns, while taking your organization's specific context and conventions into account.  
 
-With the Cloud Security Explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more. 
+With the cloud security explorer, you can query all of your security issues and environment context such as assets inventory, exposure to internet, permissions, lateral movement between resources and more. 
 
 ## Availability
 
@@ -24,9 +24,9 @@ With the Cloud Security Explorer, you can query all of your security issues and 
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 
-## Build a query with the Cloud Security Explorer
+## Build a query with the cloud security explorer
 
-You can use the Cloud Security Explorer to build queries that can proactively hunt for security risks in your environments. 
+You can use the cloud security explorer to build queries that can proactively hunt for security risks in your environments. 
 
 **To build a query**:
 
@@ -34,7 +34,7 @@ You can use the Cloud Security Explorer to build queries that can proactively hu
 
 1. Navigate to **Microsoft Defender for Cloud** > **Cloud Security Explorer**.
 
-    :::image type="content" source="media/concept-cloud-map/cloud-security-explorer.png" alt-text="Screenshot of the Cloud Security Explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer.png":::
+    :::image type="content" source="media/concept-cloud-map/cloud-security-explorer.png" alt-text="Screenshot of the cloud security explorer page." lightbox="media/concept-cloud-map/cloud-security-explorer.png":::
 
 1. Select a resource from the drop-down menu.
 
@@ -58,7 +58,7 @@ You can alter any template to search for specific results by changing the query 
 
 ## Query options
 
-The following information can be queried in the Cloud Security Explorer:
+The following information can be queried in the cloud security explorer:
 
 - **Recommendations** - All Defender for Cloud security recommendations.
 

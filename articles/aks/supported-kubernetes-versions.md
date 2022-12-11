@@ -191,7 +191,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.22  | Aug-04-21 | Sept 2021   | Dec 2021  | 1.25 GA |
 | 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | 1.26 GA |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
-| 1.25 | Aug 2022 | Oct 2022 | Nov 2022 | 1.28 GA
+| 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | 1.28 GA
 | 1.26 | Dec 2022 | Jan 2023 | Mar 2023 | 1.29 GA
 
 ## FAQ

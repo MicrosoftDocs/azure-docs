@@ -2,7 +2,7 @@
 title: Understand how effects work
 description: Azure Policy definitions have various effects that determine how compliance is managed and reported.
 author: timwarner-msft
-ms.date: 09/23/2022
+ms.date: 10/20/2022
 ms.topic: conceptual
 ms.author: timwarner
 ---
@@ -613,8 +613,11 @@ This effect is useful for testing situations or for when the policy definition h
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
 
-An alternative to the Disabled effect is **enforcementMode**, which is set on the policy assignment.
-When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+> [!NOTE]
+> Policy definitions that use the **Disabled** effect have the default compliance state **Compliant** after assignment.
+
+An alternative to the **Disabled** effect is **enforcementMode**, which is set on the policy assignment.
+When **enforcementMode** is **Disabled**_**, resources are still evaluated. Logging, such as Activity
 logs, and the policy effect don't occur. For more information, see
 [policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
@@ -747,10 +750,7 @@ Example: Gatekeeper v2 admission control rule to allow only the specified contai
 
 ## Manual (preview)
 
-The new `manual` (preview) effect enables you to define and track your own custom attestation
-resources. Unlike other Policy definitions that actively scan for evaluation, the Manual effect
-allows for manual changes to the compliance state. To change the compliance for a manual policy,
-you'll need to create an attestation for that compliance state.
+The new `manual` (preview) effect enables you to self-attest the compliance of resources or scopes. Unlike other policy definitions that actively scan for evaluation, the Manual effect allows for manual changes to the compliance state. To change the compliance of a resource or scope targeted by a manual policy, you'll need to create an [attestation](attestation-structure.md). The [best practice](attestation-structure.md#best-practices) is to design manual policies that target the scope which defines the boundary of resources whose compliance need attesting.
 
 > [!NOTE]
 > During Public Preview, support for manual policy is available through various Microsoft Defender

@@ -104,7 +104,7 @@ After running your workflow on-demand and checking that everything is working fi
 
 ## Next steps
 - [Preparing user accounts for Lifecycle workflows (preview)](tutorial-prepare-azure-ad-user-accounts.md)
-- [Automate employee offboarding tasks after their last day of work with Microsoft Graph (preview)](tutorial-scheduled-leaver-graph.md)
+- [Automate employee offboarding tasks after their last day of work using Lifecycle Workflows APIs](/graph/tutorial-lifecycle-workflows-scheduled-leaver)
 
 
 
