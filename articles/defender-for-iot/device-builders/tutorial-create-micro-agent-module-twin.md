@@ -44,7 +44,7 @@ In this tutorial you'll learn how to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md#agent-portfolio-overview-and-os-support-preview).
+- Verify you are running one of the following [operating systems](concept-agent-portfolio-overview-os-support.md).
 
 - An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
