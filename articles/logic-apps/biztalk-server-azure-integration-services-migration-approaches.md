@@ -11,6 +11,55 @@ ms.date: 12/15/2022
 
 # Migration approaches for moving from BizTalk Server to Azure Integration Services
 
+
+## Strategies
+
+### Lift and shift
+
+In the Azure Marketplace, you can find the option to [provision virtual machines that include BizTalk licensing with the pay-as-you-go model](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftbiztalkserver.biztalk-server?tab=Overview). This offering provides the benefit from using Microsoft's Infrastructure as a Service (IaaS) capabilities through a consumption-based pricing model. Although using these virtual machines can alleviate some challenges in managing BizTalk Server infrastructure, this approach doesn't address [support lifecycle schedules and deadlines](/lifecycle/products/biztalk-server-2020) for BizTalk Server.
+
+With organizations embracing digital transformation by moving to or adopting the cloud, many have the common tasks to discontinue their VMware, Hyper-V, or physical server infrastructure and migrate this functionality to IaaS on Azure. This choice helps reduce the previously mentioned challenges, but doesn't address the BizTalk codebase.
+
+Starting with BizTalk Server 2013 and later, you can choose to run your BizTalk servers on premises as before, or run them on a virtual server in Azure. Running your BizTalk Server environment in the cloud offers the following advantages:
+
+- No need for private hardware or infrastructure, so no hardware maintenance.
+- Increased availability for your server infrastructure, which can span multiple datacenters or be replicated in availability zones.
+- Access your servers from anywhere through the internet.
+- Microsoft backs up your images.
+- Fast deployment for new servers using built-in images available on Azure Marketplace.
+- Fast scale-up for your servers by changing virtual machine sizes to add memory and CPU, add hard drives, and so on
+- Improved security for your environment by using Azure Security Center. This service identifies security threats and provides you with an investigation path when security incidents occur
+
+### Hybrid integration
+
+BizTalk Server and Azure Integration Services capabilities might overlap, but they work better if you use them together. The main reasons that many organizations choose not to move their entire infrastructure to the cloud might be:  
+
+Company policies  
+
+Country policies  
+
+Industry domain-specific policies  
+
+Not all functionalities or applications are available on the cloud, and they might not be as robust as those available on-premise. To keep pace with the cloud revolution and to extend business capabilities, companies have to begin to use SaaS services along with what they have on-premise. Many business processes can benefit from cloud development and implementation strategies.  
+
+With the release of the Logic Apps Adapter in BizTalk Server 2016, you can implement part of the integration logic as a service on Azure by using Logic Apps to connect to hundreds of cloud services. But there are more features available:  
+
+Integrate cloud services with built-in adapters for cloud, Logic Apps, Service Bus, Event Hubs, Office365 Mail, Schedule, and Contacts, or Blob Storage  
+
+Use BizTalk Server Connector in Logic Apps to connect to BizTalk from Logic Apps  
+
+Publish BizTalk Server endpoints using Azure API Management, enabling organizations to expose endpoints to external partner and internal developers  
+
+BizTalk Server 2020 provides adapters to connect easily with the cloud environment, which will help with their on-premises integrations and with their hybrid integrations.  
+
+A hybrid integration strategy enables companies to maintain their technology investments in the systems they rely on, but still take advantage of new functions, improved performance, and the lower cost structure of cloud-based applications such as Microsoft Azure Cloud.
+
+### Iterative (recommended) 
+
+This approach provides the opportunity for your organization to incrementally achieve value, but sooner than they might otherwise. Your project team can learn about the technology stack early by using retrospectives. For example, you can deploy an existing BizTalk interface or project to production and then learn about the solution's needs, which include management, scalability, operations, and monitoring. After you gain this knowledge, you can plan sprints to optimize existing capabilities or introduce new patterns that you can subsequently use in future work. 
+
+Independent of the approach you take, if you are going to Azure and Azure Integration Service, you should always think about refactoring your BizTalk Server solutions into cloud-native solutions (or serverless) and then decommission your server infrastructure. This choice will be an excellent fit if the strategy is to transform the business towards being entirely cloud-based.  
+
 ## Best practices
 
 While best practices might vary across organizations, consider a conscious effort to promote consistency, which helps reduce unnecessary efforts that "reinvent the wheel" and the redundancy of similar common components. When you help enable reusability, your organization can more quickly build interfaces that become easier to support. Time to market is a key enabler for digital transformation, so a top priority is reducing unnecessary friction for developers and support teams.
@@ -105,25 +154,20 @@ When you build integration solutions, consider creating and using shared service
 
 | Shared service | Reasons |
 |----------------|---------|
-| Centralized logging | Provides common patterns for how developers instrument their code with appropriate logging. You can then set up diagnostic views that help you determine interface health and supportability. |
+| Centralized logging | Provide common patterns for how developers instrument their code with appropriate logging. You can then set up diagnostic views that help you determine interface health and supportability. |
 | Business tracking and business activity monitoring | Capture and expose data so that business subject matter experts can better understand the state of their business transactions and perform self-service analytic queries. |
-| Configuration data | Separating your application configuration data from your code is a good practice so that you can move your application from one environment to another. However, if every project implements this is capability in a unique way, you are unable to take advantage of economy of scale. By providing a unified approach to access configuration data, project teams can focus on solving the business problem rather than  
-| Custom Connectors | Perhaps you have some internal systems where there is not a public connector available in Azure Logic Apps and you would like to create a custom connector that can be built one and then shared with other project teams so that they can leverage it. |
-| System of Record data feeds | Every organization has common data sets that need to be leveraged when integrating systems in a corporate environment. Being able to expose these data feeds as APIs (or connectors) is advantageous so that other project teams can leverage it and avoid reinventing the wheel. |
+| Configuration data | Separate your application configuration data from your code so that you can more easily move your application between environments. Make sure to provide a unified consistent and easily replicable approach to access configuration data so that project teams can focus on solving the business problem rather than spending time on application configurations for deployment. Otherwise, if every project approached this separation in a unique way, you can't benefit from economies of scale. |
+| Custom connectors | Create custom connectors for internal systems that don't have prebuilt connectors in Azure Logic Apps to simplify for your project team and others. |
+| Common datasets or data feeds | Expose common datasets and feeds as APIs or connectors for project teams to use, and avoid reinventing the wheel. Every organization has common data sets that they need to integrate systems in an enterprise environment. |
 
 ### Learn from failures 
 
-It is important for you, from time to time, to do an assessment of your existing Logic Apps, especially when they have failed. Not only analyze the business process to see what can be improved but you should also analyze the run history of your logic apps and learn from the failures or mistakes that are happening. 
+From time to time, assess and evaluate your existing logic apps, especially when they fail. Not only analyze the business process to find what and where you can improve, but also analyze your workflow's run history to learn from failures, mistakes, and errors that happened. Azure Logic Apps provides such rich run history, you have a high probability to discover new things about your app as you review your workflow's run history. Like all code development, some edge or corner cases can emerge. As you make discoveries, update your interfaces to account for these situations and improve your solutions' overall reliability.
 
-Much like developing any code, there are going to be edge (or corner) cases that will emerge. As these new discoveries become available, you can subsequently update your interfaces to account for these situations and improve the overall reliability of your solutions. 
+One reality for project teams is that developers try to generically capture errors to at least gain some protection from problems. As your team discovers and better understands where things might go wrong, you can get more prescriptive on how to protect against issues.
 
-Another reality is, as developers, we tend to try to capture errors more generically so that we at least have some protection from errors. As we understand where things may go wrong, we can subsequently become more prescriptive on how we protect ourselves from known issues as we discover them. 
+DevOps is another area that you want to periodically evaluate. As Microsoft or the community introduces new templates or approaches, evaluate these updates to determine whether you can gain more benefits.
 
-Since Logic Apps has such a rich run history, you are bound to learn new things about your application as you view run your workflow’s run history. 
-
-DevOps is another area where you want to evaluate periodically. As new templates, or approaches, are introduced either by Microsoft or the community you will want to evaluate these updates to determine whether or not additional benefits can be realized. 
-
-Much like how organizations perform regular penetration tests or phishing exercises, Security is not a set and forget activity. As new authentication schemes and approaches  
-
+Similar to how organizations perform regular penetration testing or phishing exercises, security is never a set-and-forget activity. As new authentication schemes and approaches become available, review your security measures and incorporate new developments that make sense for your solutions and scenarios.
 
 ## Next steps
