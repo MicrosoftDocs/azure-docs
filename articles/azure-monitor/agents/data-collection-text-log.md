@@ -2,144 +2,97 @@
 title: Collect text logs with Azure Monitor Agent 
 description: Configure collection of filed-based text logs using a data collection rule on virtual machines with the Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 12/11/2022
+author: guywi-ms
+ms.author: guywild
 ms.reviewer: shseth
-
 ---
 
 # Collect text logs with Azure Monitor Agent
-This article describes how to configure the collection of file-based text logs with [Azure Monitor Agent](azure-monitor-agent-overview.md). Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. 
 
+Many applications log information to text files instead of standard logging services such as Windows Event log or Syslog. This article explains how to collect text logs from monitored machines using [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a [data collection rule (DCR)](../essentials/data-collection-rule-overview.md). 
 
 ## Prerequisites
-To complete this procedure, you need the following: 
+To complete this procedure, you need: 
 
-- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac) .
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
+- When use the Azure portal to create a data collection rule for collecting text logs, Azure Monitor automatically creates a destination table in your Log Analytics workspace. When you create a data collection rule using the API, you must first [create a custom table](../logs/create-custom-table.md#create-a-custom-table) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- A machine that generates file-based text logs.
-## Steps to collect text logs
-The steps to configure log collection are as follows. The detailed steps for each are provided in the sections below:
+- A machine that write logs to a text file.
 
-1. Create a new table in your workspace to receive the collected data. 
-2. Create a data collection endpoint for the Azure Monitor agent to connect.
-3. Create a data collection rule to define the structure of the log file and destination of the collected data.
-4. Create association between the data collection rule and the agent collecting the log file.
+## Create data collection rule to collect text logs
+
+The data collection rule defines: 
+
+- Which source log files Azure Monitor Agent scans for new events.
+- How Azure Monitor transforms events during ingestion.
+- The destination Log Analytics workspace and table to which Azure Monitor sends the data.
+
+Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 > [!NOTE]
-> This feature is currently in public preview and isn't completely implemented in the Azure portal. This tutorial uses Azure Resource Manager templates for steps that can't yet be performed with the portal.
+> It can take up to 5 minutes for data to be sent to the destinations after you create the data collection rule.
+### [Portal](#tab/portal)
 
-## Create new table in Log Analytics workspace
-The custom table must be created before you can send data to it. When you create the table, you provide its name and a definition for each of its columns. 
+To create the data collection rule in the Azure portal:
 
-Use the **Tables - Update** API to create the table with the PowerShell code below. This code creates a table called *MyTable_CL* with two columns. Modify this schema to collect a different table. 
+1. On the **Monitor** menu, select **Data Collection Rules**.
+1. Select **Create** to create a new data collection rule and associations.
 
-> [!IMPORTANT]
-> Custom tables have a suffix of *_CL*; for example, *tablename_CL*. The *tablename_CL* in the DataFlows Streams must match the *tablename_CL* name in the Log Analytics workspace.
+    [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 
-1. Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
 
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" lightbox="../logs/media/tutorial-workspace-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening Cloud Shell in the Azure portal.":::
+    - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
+    - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
 
-2. Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the Cloud Shell prompt to run it. 
+    [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
-    ```PowerShell
-    $tableParams = @'
-    {
-        "properties": {
-            "schema": {
-                "name": "MyTable_CL",
-                "columns": [
-                    {
-                        "name": "TimeGenerated",
-                        "type": "DateTime"
-                    }, 
-                    {
-                        "name": "RawData",
-                        "type": "String"
-                    }
-                ]
-            }
-        }
-    }
-    '@
+1. On the **Resources** tab: 
+    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
-    Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/MyTable_CL?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
-    ```
+        > [!IMPORTANT]
+        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
+    
+        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
+    1. Select **Enable Data Collection Endpoints**.
+    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
 
-## Create data collection endpoint
-A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required for the agent to connect to send the data to Azure Monitor. The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent. If you already have a data collection endpoint for the agent, then you can use the existing one.
+    [ ![Screenshot that shows the Resources tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
-1. In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
+1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
+1. Select **Custom Text Logs**.
 
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows the Azure portal with template entered in the search box and Deploy a custom template highlighted in the search results.":::
+    [ ![Screenshot that shows the Add data source screen for a data collection rule in Azure portal.](media/data-collection-text-log/custom-text-log-data-collection-rule.png)](media/data-collection-text-log/custom-text-log-data-collection-rule.png#lightbox)
 
-2. Click **Build your own template in the editor**.
+1. Specify the following information:
+ 
+    - **File Pattern** - Identifies where the log files are located on the local disk. You can enter multiple file patterns separated by commas.  
+    
+        Examples of valid inputs: 
+        - 20220122-MyLog.txt 
+        - ProcessA_MyLog.txt  
+        - ErrorsOnly_MyLog.txt, WarningOnly_MyLog.txt 
+    
+        > [!NOTE]
+        > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
+    
+    
+    - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Prerequisites](#prerequisites). 
+    
+    - **Record delimiter** - Will be used in the future to allow delimiters other than the currently supported end of line (`/r/n`). 
+    - **Transform** - Add an [ingestion-time transformation](../essentials/data-collection-transformations.md) or leave as **source** if you don't need to transform the collected data.
+ 
+1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
+    [ ![Screenshot that shows the destination tabe of the Add data source screen for a data collection rule in Azure portal.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 
-3. Paste the Resource Manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
+1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
+1. Select **Create** to create the data collection rule.
 
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal screen to edit Resource Manager template.":::
-
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "dataCollectionEndpointName": {
-                "type": "string",
-                "metadata": {
-                    "description": "Specifies the name of the Data Collection Endpoint to create."
-                }
-            },
-            "location": {
-                "type": "string",
-                "metadata": {
-                    "description": "Specifies the location in which to create the Data Collection Endpoint."
-                }
-            }
-        },
-        "resources": [
-            {
-                "type": "Microsoft.Insights/dataCollectionEndpoints",
-                "name": "[parameters('dataCollectionEndpointName')]",
-                "location": "[parameters('location')]",
-                "apiVersion": "2021-04-01",
-                "properties": {
-                    "networkAcls": {
-                    "publicNetworkAccess": "Enabled"
-                    }
-                }
-            }
-        ],
-        "outputs": {
-            "dataCollectionEndpointId": {
-                "type": "string",
-                "value": "[resourceId('Microsoft.Insights/dataCollectionEndpoints', parameters('dataCollectionEndpointName'))]"
-            }
-        }
-    }
-    ```
-
-
-4. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
-
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/custom-deployment-values.png" lightbox="../logs/media/tutorial-workspace-transformations-api/custom-deployment-values.png" alt-text="Screenshot that shows portal screen to edit custom deployment values for data collection endpoint.":::
-
-5. Click **Review + create** and then **Create** when you review the details. 
-
-6. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion URI** since you'll need this in a later step.
-
-    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" lightbox="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-overview.png" alt-text="Screenshot that shows the DCE Overview pane in the portal with details of data collection endpoint uri.":::
-
-7. Click **JSON View** to view other details for the DCE. Copy the **Resource ID** since you'll need this in a later step.
-
-    :::image type="content" source="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" lightbox="../logs/media/tutorial-logs-ingestion-api/data-collection-endpoint-json.png" alt-text="Screenshot that shows JSON view for data collection endpoint with the resource ID.":::
-
-
-## Create data collection rule
-The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) defines the schema of data that being collected from the log file, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+### [Resource Manager template](#tab/arm)
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
@@ -149,27 +102,11 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/deploy-custom-template.png" alt-text="Screenshot that shows the Azure portal with template entered in the search box and Deploy a custom template highlighted in the search results.":::
 
-2. Click **Build your own template in the editor**.
+1. Select **Build your own template in the editor**.
 
     :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot that shows portal screen to build template in the editor.":::
 
-3. Paste one of the Resource Manager templates below into the editor and then change the following values:
-
-    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file.
-    - `filePatterns`: Specifies the location and file pattern of the log files to collect. This defines a separate pattern for Windows and Linux agents.
-    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace.
-
-
-4. Click **Save**.
-
-    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal screen to edit Resource Manager template.":::
-
-    **Data collection rule for text log**
-    
-    See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
-    
-    > [!IMPORTANT]
-    > Custom data collection rules have a suffix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
+1. Paste this Resource Manager template into the editor:
 
     ```json
     {
@@ -295,42 +232,57 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
     }
     ```
 
-5. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** and **Endpoint Resource ID**. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
+1. Update the following values in the Resource Manager template:
+
+    - `streamDeclarations`: Defines the columns of the incoming data. This must match the structure of the log file.
+    - `filePatterns`: Specifies the location and file pattern of the log files to collect. This defines a separate pattern for Windows and Linux agents.
+    - `transformKql`: Specifies a [transformation](../logs/../essentials//data-collection-transformations.md) to apply to the incoming data before it's sent to the workspace.
+
+    See [Structure of a data collection rule in Azure Monitor (preview)](../essentials/data-collection-rule-structure.md#custom-logs) if you want to modify the text log DCR.
+    
+    > [!IMPORTANT]
+    > Custom data collection rules have a suffix of *Custom-*; for example, *Custom-rulename*. The *Custom-rulename* in the stream declaration must match the *Custom-rulename* name in the Log Analytics workspace.
+
+1. Select **Save**.
+
+    :::image type="content" source="../logs/media/tutorial-workspace-transformations-api/edit-template.png" lightbox="../logs/media/tutorial-workspace-transformations-api/edit-template.png" alt-text="Screenshot that shows portal screen to edit Resource Manager template.":::
+
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** and **Endpoint Resource ID**. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
     :::image type="content" source="media/data-collection-text-log/custom-deployment-values.png" lightbox="media/data-collection-text-log/custom-deployment-values.png" alt-text="Screenshot that shows the Custom Deployment screen in the portal to edit custom deployment values for data collection rule.":::
 
-6. Click **Review + create** and then **Create** when you review the details.
+1. Select **Review + create** and then **Create** when you review the details.
 
-7. When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
+1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
     :::image type="content" source="media/data-collection-text-log/data-collection-rule-details.png" lightbox="media/data-collection-text-log/data-collection-rule-details.png" alt-text="Screenshot that shows the Overview pane in the portal with data collection rule details.":::
 
-8. Change the API version to **2021-09-01-preview**.
+1. Change the API version to **2021-09-01-preview**.
 
     :::image type="content" source="media/data-collection-text-log/data-collection-rule-json-view.png" lightbox="media/data-collection-text-log/data-collection-rule-json-view.png" alt-text="Screenshot that shows JSON view for data collection rule.":::
 
-9. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
+1. Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
 
-## Create association with agent
-The final step is to create a data collection association that associates the data collection rule to the agents with the log file to be collected. A single data collection rule can be used with multiple agents.
+1. Create a data collection association that associates the data collection rule to the agents with the log file to be collected. You can associate the same data collection rule with multiple agents:
 
-1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you just created.
+    1. From the **Monitor** menu in the Azure portal, select **Data Collection Rules** and select the rule that you created.
+    
+        :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with data collection rules menu item.":::
+    
+    1. Select **Resources** and then select **Add** to view the available resources.
+    
+        :::image type="content" source="media/data-collection-text-log/add-resources.png" lightbox="media/data-collection-text-log/add-resources.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
+    
+    1. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Select **Apply**.
+    
+        :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
-    :::image type="content" source="media/data-collection-text-log/data-collection-rules.png" lightbox="media/data-collection-text-log/data-collection-rules.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with data collection rules menu item.":::
-
-2. Select **Resources** and then click **Add** to view the available resources.
-
-    :::image type="content" source="media/data-collection-text-log/add-resources.png" lightbox="media/data-collection-text-log/add-resources.png" alt-text="Screenshot that shows the Data Collection Rules pane in the portal with resources for the data collection rule.":::
-
-3. Select either individual agents to associate the data collection rule, or select a resource group to create an association for all agents in that resource group. Click **Apply**.
-
-    :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
-
+---
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
 ### Check if any custom logs have been received
-Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created will not be uploaded.
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If records aren't returned, check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range. It can take 5-7 minutes for new data from your tables to be uploaded.  Only new data will be uploaded any log file last written to prior to the DCR rules being created won't be uploaded.
 
 ``` kusto
 <YourCustomLog>_CL
@@ -338,8 +290,8 @@ Start by checking if any records have been collected for your custom log table b
 | order by TimeGenerated desc
 ```
 
-### Verify that you created custom table
-As described in [Create new table in Log Analytics workspace](#create-new-table-in-log-analytics-workspace) above, you must create the custom log table before you can send data to it.
+### Verify that you created a custom table
+You must [create a custom log table](../logs/create-custom-table.md#create-a-custom-table) in your Log Analytics workspace before you can send data to it.
 
 ### Verify that the agent is sending heartbeats successfully
 Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
@@ -385,7 +337,7 @@ This file pattern should correspond to the logs on the agent machine.
 
 
 ### Verify that the text logs are being populated
-The agent will only collect new content written to the log file being collected. If you are experimenting with the text logs collection feature, you can use the following script to generate sample logs.
+The agent will only collect new content written to the log file being collected. If you're experimenting with the text logs collection feature, you can use the following script to generate sample logs.
 
 ```powershell
 # This script writes a new log entry at the specified interval indefinitely.
@@ -431,6 +383,8 @@ If everything is configured properly, but you're still not collecting log data, 
 
 ## Next steps
 
-- Learn more about the [Azure Monitor Agent](azure-monitor-agent-overview.md).
-- Learn more about [data collection rules](../essentials/data-collection-rule-overview.md).
-- Learn more about [data collection endpoints](../essentials/data-collection-endpoint-overview.md).
+Learn more about: 
+
+- [Azure Monitor Agent](azure-monitor-agent-overview.md).
+- [Data collection rules](../essentials/data-collection-rule-overview.md).
+- [Best practices for cost management in Azure Monitor](../best-practices-cost.md). 
