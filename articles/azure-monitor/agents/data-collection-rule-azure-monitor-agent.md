@@ -13,14 +13,19 @@ ms.reviewer: shseth
 
 This article describes how to collect events and performance counters from virtual machines by using Azure Monitor Agent.
 
-To collect data from virtual machines by using Azure Monitor Agent, you'll:
+## Prerequisites
+To complete this procedure, you need: 
 
-1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
-1. Associate the data collection rule to specific virtual machines.
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server with the logs you want to collect. 
+    
+    - The log file must be stored on a local drive of the machine on which Azure Monitor Agent is running. 
+    - Each entry in the log file must be delineated with an end of line. 
+    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries or renaming where a file is moved and a new file with the same name is opened. 
 
-    You can associate virtual machines to multiple data collection rules. Define each data collection rule to address a particular requirement. Associate one or more data collection rules to a virtual machine based on the specific data you want the machine to collect.
-
-## Create data collection rule and association
+## Create a data collection rule
 
 To send data to Log Analytics, create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 

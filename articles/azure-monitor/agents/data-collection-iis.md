@@ -11,7 +11,7 @@ ms.reviewer: shseth
 
 # Collect IIS logs with Azure Monitor Agent
 
-The Internet Information Service (IIS) logs data to the local disk of Windows machines. This article describes how to create a data collection rule (DCR) that sets up [Azure Monitor Agent](azure-monitor-agent-overview.md) to collect IIS logs from monitored machines. 
+The Internet Information Service (IIS) logs data to the local disk of Windows machines. This article explains how to collect IIS logs from monitored machines with [Azure Monitor Agent](azure-monitor-agent-overview.md) by creating a data collection rule (DCR). 
 
 ## Prerequisites
 To complete this procedure, you need: 
@@ -24,13 +24,14 @@ To complete this procedure, you need:
     - The log file must be stored on a local drive of the machine on which Azure Monitor Agent is running. 
     - Each entry in the log file must be delineated with an end of line. 
     - The log file must not allow circular logging, log rotation where the file is overwritten with new entries or renaming where a file is moved and a new file with the same name is opened. 
-
 ## Create data collection rule to collect IIS logs
 The [data collection rule](../essentials/data-collection-rule-overview.md) defines: 
 
 - Which source log files Azure Monitor Agent scans for new events.
 - How Azure Monitor transforms events during ingestion.
 - The destination Log Analytics workspace and table to which Azure Monitor sends the data.
+- 
+Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 To create the data collection rule in the Azure portal:
 
