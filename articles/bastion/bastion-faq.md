@@ -4,7 +4,7 @@ description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/21/2022
+ms.date: 11/21/2022
 ms.author: cherylmc
 ---
 # Azure Bastion FAQ
@@ -15,9 +15,9 @@ ms.author: cherylmc
 
 The browser must support HTML 5. Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
-### <a name="pricingpage"></a>What is the pricing?
+### <a name="pricingpage"></a>How does pricing work?
 
-For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
+Azure Bastion pricing is a combination of hourly pricing based on SKU and instances (scale units), plus data transfer rates. Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For the latest pricing information, see the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
 
 ### <a name="ipv6"></a>Is IPv6 supported?
 
@@ -91,6 +91,10 @@ Azure Bastion is deployed within VNets or peered VNets, and is associated to an 
 ### <a name="zone-redundant"></a>Does Bastion support zone redundancies?
 
 Currently, by default, new Bastion deployments don't support zone redundancies. Previously deployed bastions may or may not be zone-redundant. The exceptions are Bastion deployments in Korea Central and Southeast Asia, which do support zone redundancies.
+
+### <a name="azure-ad-guests"></a>Does Bastion support Azure AD guest accounts?
+
+Yes, [Azure AD guest accounts](../active-directory/external-identities/what-is-b2b.md) can be granted access to Bastion and can connect to virtual machines.
 
 ## <a name="vm"></a>VM features and connection FAQs
 
@@ -170,6 +174,10 @@ Currently, 1920x1080 (1080p) is the maximum supported resolution.
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
 Azure Bastion currently doesn't support timezone redirection and isn't timezone configurable.
+
+### <a name="disconnect"></a>Will an existing session disconnect during maintenance on the Bastion host?
+
+Yes, existing sessions on the target Bastion resource will disconnect during maintenance on the Bastion resource. 
 
 ## <a name="peering"></a>VNet peering FAQs
 

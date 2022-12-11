@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -25,7 +25,18 @@ Use this quickstart to create a sentiment analysis application with the client l
 
 [!INCLUDE [Create an Azure resource](../../../includes/create-resource.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-an-azure-resource" target="_target">I ran into an issue</a>
+
+[!INCLUDE [Get your key and endpoint](../../../includes/get-key-endpoint.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Get-your-key-and-endpoint" target="_target">I ran into an issue</a>
+
 [!INCLUDE [Create environment variables](../../../includes/environment-variables.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Language&Product=Sentiment-analysis&Page=quickstart&Section=Create-environment-variables" target="_target">I ran into an issue</a>
 
 ### Create a new Node.js application
 
@@ -56,7 +67,7 @@ npm install @azure/ai-text-analytics@5.1.0
 
 ## Code example
 
-Open the file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Open the file and copy the below code. Then run the code.
 
 ```javascript
 "use strict";
@@ -68,7 +79,7 @@ const languageKey = process.env.LANGUAGE_KEY;
 const languageEndpoint = process.env.LANGUAGE_ENDPOINT;
 
 // Authenticate the client with your key and endpoint.
-const textAnalyticsClient = new TextAnalyticsClient(LanguageEndpoint,  new AzureKeyCredential(languageKey));
+const textAnalyticsClient = new TextAnalyticsClient(languageEndpoint,  new AzureKeyCredential(languageKey));
 
 // Example method for detecting sentiment and opinions in text.
 async function sentimentAnalysisWithOpinionMining(client){

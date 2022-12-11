@@ -54,7 +54,7 @@ For more information about the governance capabilities of Microsoft Purview, for
 
 1. You can choose to enable the optional Event Hubs namespace by selecting the toggle. It's disabled by default. Enable this option if you want to be able to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka**:
     - [Use Event Hubs and .NET to send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
-    - [Publish and consume events for Microsoft Purview with Atlas Kafka](concept-best-practices-automation.md#streaming-atlas-kafka)
+    - [Publish and consume events for Microsoft Purview with Atlas Kafka](concept-best-practices-automation.md#streaming-apache-atlas)
 
     :::image type="content" source="media/create-catalog-portal/event-hubs-namespace.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted under the Managed resources section of the Create Microsoft Purview account page.":::
 

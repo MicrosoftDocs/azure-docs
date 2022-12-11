@@ -9,7 +9,9 @@ ms.topic: how-to
 ms.date: 09/23/2022
 ms.author: alexwolf
 ms.subservice: common
-ms.custom: devx-track-csharp, ignite-2022
+ms.devlang: csharp
+ms.custom: devx-track-csharp, ignite-2022, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet
+
 ---
 
 # Configure passwordless connections between multiple Azure apps and services

@@ -237,7 +237,7 @@ spec:
 After you've created the Kubernetes secret, you can reference it by setting an environment variable in your pod, as shown in the following example code:
 
 > [!NOTE]
-> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes. These two methods can exist independently from the other.
+> The example here demonstrates access to a secret through env variables and through volume/volumeMount. This is for illustrative purposes; a typical application would use one method or the other.  However, be aware that in order for a secret to be available through env variables, it first must be mounted by at least one pod.
 
 ```yml
 kind: Pod
@@ -311,6 +311,9 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 |total_rotation_reconcile|The total number of rotation reconciles|`os_type=<runtime os>`, `rotated=<true or false>`|
 |total_rotation_reconcile_error|The total number of rotation reconciles with error|`os_type=<runtime os>`, `rotated=<true or false>`, `error_type=<error code>`|
 |total_rotation_reconcile_error|The distribution of how long it took to rotate secrets-store content for pods|`os_type=<runtime os>`|
+
+## Troubleshooting
+You can find generic troubleshooting steps for the _Azure Key Vault Provider for Secrets Store CSI Driver_ [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/)
 
 ## Next steps
 

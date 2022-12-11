@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 07/28/2022
+ms.date: 12/08/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity
@@ -189,14 +189,14 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
 1. Select **Add role assignment**.
 
-1. On the **Role** page, choose a role:
+1. On the **Role** page, select the roles needed for your search service:
 
    | Role | Usage |
    |------|-------|
    | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
    | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants write permissions necessary for debug sessions, knowledge store object projections, and enrichment cache. |
-   | **Storage Table Data Contributor** | Grants write permissions necessary for knowledge store table projections. |
+   | **Storage Blob Data Contributor** | Grants read permissions for indexer access, plus write permissions for debug sessions, knowledge store object projections, and enrichment cache. |
+   | **Storage Table Data Contributor** | Grants read permissions for indexer access, plus write permissions for knowledge store table projections. |
 
 1. On the **Members** page, select **Managed Identity**.
 
@@ -241,7 +241,8 @@ A knowledge store definition includes a connection string to Azure Storage. On A
 
 ```json
 "knowledgeStore": {
-  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
+  "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};"
+}
 ```
 
 [**Enrichment cache:**](search-howto-incremental-index.md)
@@ -252,7 +253,7 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 "cache": {
   "enableReprocessing": true,
   "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name};"
-},
+}
 ```
 
 [**Debug session:**](cognitive-search-debug-session.md)

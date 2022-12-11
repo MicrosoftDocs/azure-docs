@@ -2,7 +2,7 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 11/18/2022
 ms.reviewer: JeffWo
 
 ---
@@ -29,6 +29,9 @@ If your IT security policies do not allow computers on your network to connect t
 
 Before starting, review the following requirements.
 
+>[!Note]
+>From 1 February 2023, System Center Operations Manager version lower than [2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) will stop sending data to Log Analytics workspace. Ensure your agents are on SCOM Agent version 10.19.10177.0 ([2019 UR3](/system-center/scom/release-build-versions?view=sc-om-2019#agents) or later) or 10.22.10056.0 ([2022 RTM](/system-center/scom/release-build-versions?view=sc-om-2022#agents)) and SCOM Management Group version is SCOM 2022 & 2019 UR3 or later version.
+
 * Azure Monitor supports the following:
     * System Center Operations Manager 2022
     * System Center Operations Manager 2019
@@ -39,7 +42,17 @@ Before starting, review the following requirements.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
 * A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/workspace-design.md).
 * You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#azure-rbac).
-
+* Supported Regions - The following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
+    - West Central US
+    - Australia South East
+    - West Europe
+    - East US
+    - South East Asia
+    - Japan East
+    - UK South
+    - Central India
+    - Canada Central
+    - West US 2
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  

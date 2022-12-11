@@ -83,8 +83,8 @@ For any rule, regardless of type, you can add http header filtering. Http header
 
 * **X-Forwarded-For**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-For) for identifying the originating IP address of a client connecting through a proxy server. Accepts valid CIDR values.
 * **X-Forwarded-Host**. [Standard header](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host) for identifying the original host requested by the client. Accepts any string up to 64 characters in length.
-* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by third party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
-* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by third party proxies to identify health probes. Accepts any string up to 64 characters in length.
+* **X-Azure-FDID**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the reverse proxy instance. Azure Front Door will send a guid identifying the instance, but it can also be used by third party proxies to identify the specific instance. Accepts any string up to 64 characters in length.
+* **X-FD-HealthProbe**. [Custom header](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend) for identifying the health probe of the reverse proxy. Azure Front Door will send "1" to uniquely identify a health probe request. The header can also be used by third party proxies to identify health probes. Accepts any string up to 64 characters in length.
 
 Some use cases for http header filtering are:
 * Restrict access to traffic from proxy servers forwarding the host name

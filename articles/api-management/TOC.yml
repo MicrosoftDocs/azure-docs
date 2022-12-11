@@ -120,7 +120,7 @@
               href: front-door-api-management.md
             - name: Enable zone redundancy
               displayName: Availability zones
-              href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+              href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
@@ -279,6 +279,8 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Defend against DDoS attacks
+              href: protect-with-ddos-protection.md
             - name: Mitigate OWASP API threats
               href: mitigate-owasp-api-threats.md
               displayName: OWASP top 10, vulnerability, vulnerabilities
@@ -358,6 +360,8 @@
           href: api-management-howto-log-event-hubs.md
         - name: Log requests with Azure Application Insights
           href: api-management-howto-app-insights.md
+        - name: Visualize data using Managed Grafana
+          href: visualize-using-managed-grafana-dashboard.md
       - name: Troubleshoot
         items:
           - name: Diagnose issues in production
@@ -427,6 +431,8 @@
         href: virtual-network-reference.md
       - name: Self-hosted gateway configuration
         href: self-hosted-gateway-settings-reference.md  
+      - name: Diagnostic logs settings
+        href: diagnostic-logs-reference.md
 - name: Resources
   items:
       - name: FAQ

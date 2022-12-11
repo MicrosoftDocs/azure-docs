@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 12/11/2022
 ms.custom: ignite-2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
@@ -29,6 +29,7 @@ By default, every Azure subscription has the Microsoft cloud security benchmark 
 Available regulatory standards:
 
 - PCI-DSS v3.2.1
+- PCI DSS v4
 - SOC TSP
 - ISO 27001:2013
 - Azure CIS 1.1.0
@@ -49,13 +50,15 @@ Available regulatory standards:
 - Australian Government ISM Protected
 - RMIT Malaysia
 
-**AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
-Users that have one Defender bundle enabled cab enable CIS and PCI as well (same as regulatory compliance for Azure).
+**AWS**: When users onboard, every AWS account has the AWS Foundational Security Best Practices assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+
+Users that have one Defender bundle enabled can enable additional standards. 
 
 Available AWS regulatory standards:
 
-- AWS CIS 1.2.0
-- AWS PCI DSS 3.2.1
+- CIS 1.2.0
+- PCI DSS 3.2.1
+- AWS Foundational Security Best Practices
 
 To add regulatory compliance standards on AWS accounts:
 
@@ -70,15 +73,16 @@ To add regulatory compliance standards on AWS accounts:
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-**GCP**:  By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks.
+**GCP**: When users onboard, every GCP project has the GCP standard assigned. 
+
+Users that have one Defender bundle enabled can enable additional standards. 
 
 Available GCP regulatory standards:
 
-- GCP CIS 1.1.0
-- GCP CIS 1.2.0
-- GCP ISO 27001
-- GCP NIST 800 53
+- CIS 1.1.0, 1.2.0
 - PCI DSS 3.2.1
+- NIST 800 53
+- ISO 27001
 
 > [!TIP]
 > Standards are added to the dashboard as they become available. The preceding list might not contain recently added standards.
