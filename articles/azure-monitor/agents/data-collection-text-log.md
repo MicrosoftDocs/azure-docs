@@ -71,7 +71,7 @@ To create the data collection rule in the Azure portal:
 1. Select **Review + create** to review the details of the data collection rule and association with the set of virtual machines.
 1. Select **Create** to create the data collection rule.
 
-### [PowerShell](#tab/powershell)
+### [Resource Manager template](#tab/arm)
 
 1. The data collection rule requires the resource ID of your workspace. Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
