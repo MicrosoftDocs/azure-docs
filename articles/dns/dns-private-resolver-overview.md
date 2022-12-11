@@ -109,12 +109,12 @@ The **DNS servers** setting on a VNet can be used to assign **Custom** DNS serve
 
 Consider the [benefits](#azure-dns-private-resolver-benefits) of using the private resolver for DNS resolution instead of VM-based custom DNS servers.
 
-If DNS forwarding is not required, replace the VM-based DNS server IP addresses with the IP address of your private resolver inbound endpoint. This solution works across different regions and can enable a [cross-regional reduntant design](tutorial-dns-private-resolver-failover.md). The endpoints also have built-in [resiliency](private-resolver-reliability.md) so that if one availability zone (AZ) in the region fails, the other instances continue to work. 
+You can replace the VM-based DNS server IP addresses with the IP address of your private resolver inbound endpoint. This solution works across different regions and can enable a [cross-regional reduntant design](tutorial-dns-private-resolver-failover.md). The endpoints also have built-in [resiliency](private-resolver-reliability.md) so that if one availability zone (AZ) in the region fails, the other instances continue to work. 
 
-If forwarding is required, use the **Default (Azure-provided)** setting on your VNet and link the VNet to a [DNS forwarding ruleset](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets). 
+Alternatively, use the **Default (Azure-provided)** setting on your VNet and link the VNet to a [DNS forwarding ruleset](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets) within the same region. This is the recommended design. 
 
 > [!NOTE]
-> - Private DNS zones are not resolved when Custom DNS servers are configured.
+> - Private DNS zones are not resolved when Custom DNS servers are configured, unless the private zone is linked to the VNet where the query originates.
 > - DNS forwarding rulesets are regional. A ruleset can't be linked to a VNet in another region. 
 > - Review the restrictions section below for detailed information.
 
