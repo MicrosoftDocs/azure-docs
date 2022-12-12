@@ -11,6 +11,8 @@ Use Microsoft Defender for IoT's security recommendations to enhance your networ
 
 Defender for IoT security recommendations are generated for devices detected by both OT and Enterprise IoT network sensors.
 
+<!--add public preview-->
+
 ## View security recommendations
 
 View all current recommendations for your organization on the Defender for IoT **Recommendations** page on the Azure portal. For example:
