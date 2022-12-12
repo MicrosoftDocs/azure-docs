@@ -98,7 +98,7 @@ For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2
 
 ## Create a job environment
 
-To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
+To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
 
 AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
 
@@ -131,7 +131,7 @@ After running the training job, you'll deploy the model, then use it to produce 
 
 ## Create training script
 
-Let's start by creating the training script - the *main.py* python file.
+Let's start by creating the training script - the *main.py* Python file.
 
 First create a source folder for the script:
 

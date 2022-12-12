@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 11/07/2022
+ms.date: 12/12/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
@@ -275,6 +275,9 @@ az k8s-extension upgrade --cluster-type managedClusters \
 --configuration-settings "global.daprControlPlaneArch=amd64” \
 --configuration-settings "hooks.applyCrds=false"
 ```
+
+> [!NOTE]
+> CRDs are only applied in case of upgrades and are skipped during downgrades.
 
 ## Configure the Dapr release namespace
 
