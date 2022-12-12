@@ -2539,6 +2539,8 @@
         href: visma-tutorial.md
       - name: VMware Horizon - Unified Access Gateway
         href: vmware-horizon-unified-access-gateway-tutorial.md
+      - name: VMware Identity Service
+        href: vmware-identity-service-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic

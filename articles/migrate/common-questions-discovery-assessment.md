@@ -5,7 +5,7 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/24/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
@@ -15,7 +15,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
-- Questions about [server migration](common-questions-server-migration.md)
+- Questions about [Migration and modernization](common-questions-server-migration.md)
 - Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
@@ -305,7 +305,7 @@ The differences between agentless visualization and agent-based visualization ar
 
 **Requirement** | **Agentless** | **Agent-based**
 --- | --- | ---
-Support |Available for VMware VMs in general availability (GA).<br/><br/> Available for Hyper-V VMs and physical servers in public preview. | In General Availability (GA).
+Support | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | In General Availability (GA).
 Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Microsoft Monitoring agent (MMA)](../azure-monitor/agents/agent-windows.md), and the [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md). 
 Prerequisites | [Review](concepts-dependency-visualization.md#agentless-analysis) the prerequisites and deployment requirements. | [Review](concepts-dependency-visualization.md#agent-based-analysis) the prerequisites and deployment requirements.
 Log Analytics | Not required. | Azure Migrate uses the [Service Map](../azure-monitor/vm/service-map.md) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-analysis).
