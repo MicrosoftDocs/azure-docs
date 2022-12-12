@@ -60,7 +60,7 @@ When you view the service details, the IP address of the internal load balancer 
 It may take a minute or two for the IP address to change from *\<pending\>* to an actual internal IP address, as shown in the following example:
 
 ```
-$ kubectl get service internal-app
+kubectl get service internal-app
 
 NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
@@ -69,6 +69,8 @@ internal-app   LoadBalancer   10.0.248.59   10.240.0.7    80:30555/TCP   2m
 ## Specify an IP address
 
 If you want to use a specific IP address with the internal load balancer, add the *loadBalancerIP* property to the load balancer YAML manifest. In this scenario, the specified IP address must reside in the same subnet as the AKS cluster, but it can't already be assigned to a resource. For example, you shouldn't use an IP address in the range designated for the Kubernetes subnet within the AKS cluster.
+
+For more information on subnets, see [Add a node pool with a unique subnet][unique-subnet].
 
 ```yaml
 apiVersion: v1
@@ -89,7 +91,7 @@ spec:
 When you view the service details, the IP address in the *EXTERNAL-IP* column should reflect your specified IP address.
 
 ```
-$ kubectl get service internal-app
+kubectl get service internal-app
 
 NAME           TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
@@ -101,10 +103,11 @@ For more information on configuring your load balancer in a different subnet, se
 
 ### Before you begin
 
-You must have the following resources installed:
+You must have the following resources:
 
-* Azure CLI version 2.0.59 or later
-* Kubernetes version 1.22.x or later
+* Azure CLI version 2.0.59 or later.
+* Kubernetes version 1.22.x or later.
+* An existing resource group with a VNet and subnet. This resource group is where you'll [create the private endpoint](#create-a-private-endpoint-to-the-private-link-service). If you don't have these resources, see [Create a virtual network and subnet][aks-vnet-subnet].
 
 ### Create a Private Link service connection
 
@@ -134,22 +137,27 @@ kubectl apply -f internal-lb-pls.yaml
 
 This command creates an Azure load balancer in the node resource group that's connected to the same virtual network as your AKS cluster.
 
-When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. In this context, *External* refers to the external interface of the load balancer. It doesn't mean that it receives a public, external IP address. 
+When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. In this context, *External* refers to the external interface of the load balancer. It doesn't mean that it receives a public, external IP address.
 
 It may take a minute or two for the IP address to change from *\<pending\>* to an actual internal IP address, as shown in the following example:
 
 ```
-$ kubectl get service internal-app
+kubectl get service internal-app
 
 NAME           TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 internal-app   LoadBalancer   10.125.17.53  10.125.0.66   80:30430/TCP   64m
 ```
 
-A Private Link Service object is also created. This Private Link Service object connects to the frontend IP configuration of the load balancer associated with the Kubernetes service. You can get the details of the Private Link Service object with the following command:
+A Private Link Service object is also created. This Private Link Service object connects to the frontend IP configuration of the load balancer associated with the Kubernetes service. You can get the details of the Private Link Service object with the following sample command:
 
-```
-$ AKS_MC_RG=$(az aks show -g myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-$ az network private-link-service list -g ${AKS_MC_RG} --query "[].{Name:name,Alias:alias}" -o table
+```azurecli-interactive
+# Create a variable for the resource group
+
+AKS_MC_RG=$(az aks show -g myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+
+# List the private link service
+
+az network private-link-service list -g $AKS_MC_RG --query "[].{Name:name,Alias:alias}" -o table
 
 Name      Alias
 --------  -------------------------------------------------------------------------
@@ -159,16 +167,21 @@ pls-xyz   pls-xyz.abc123-defg-4hij-56kl-789mnop.eastus2.azure.privatelinkservice
 
 ### Create a Private Endpoint to the Private Link service
 
-A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service created above. To do so, follow the example shown below:
+A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service created above. To do so, follow the sample commands shown below. 
 
-```azurecli
-$ AKS_PLS_ID=$(az network private-link-service list -g ${AKS_MC_RG} --query "[].id" -o tsv)
+```azurecli-interactive
+# Create a variable for the private link service
+
+AKS_PLS_ID=$(az network private-link-service list -g $AKS_MC_RG --query "[].id" -o tsv)
+
+# Create the private endpoint
+
 $ az network private-endpoint create \
     -g myOtherResourceGroup \
     --name myAKSServicePE \
     --vnet-name myOtherVNET \
     --subnet pe-subnet \
-    --private-connection-resource-id ${AKS_PLS_ID} \
+    --private-connection-resource-id $AKS_PLS_ID \
     --connection-name connectToMyK8sService
 ```
 
@@ -237,3 +250,5 @@ Learn more about Kubernetes services in the [Kubernetes services documentation][
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [different-subnet]: #specify-a-different-subnet
+[aks-vnet-subnet]: configure-kubenet#create-a-virtual-network-and-subnet
+[unique-subnet]: use-multiple-node-pools#add-a-node-pool-with-a-unique-subnet
