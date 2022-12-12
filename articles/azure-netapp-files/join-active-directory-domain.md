@@ -62,3 +62,4 @@ Refer to [Understand guidelines for Active Directory Domain Services site design
 
 * [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
 * [Modify an Active Directory Connection](modify-active-directory-connections.md)
+* [Configure ACLs for NFSv4.1](configure-access-control-lists-nfsv4.md)

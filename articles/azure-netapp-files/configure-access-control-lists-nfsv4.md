@@ -10,9 +10,9 @@ ms.author: anfdocs
 ---
 # Configure access control lists on NFSv4.1 with Azure NetApp Files
 
-Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs on NFSv4.1 can provide granular file security via NFSv4.1 without Kerberbos or without access via SMB from Windows clients. 
+Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs on NFSv4.1 can provide granular file security via NFSv4.1 without Kerberos or access via SMB from Windows clients.
 
-ACLs contain access control entities (ACEs), which specify the permissions of individual users or groups. When assigning user roles, use the user email address if you are using a Linux VM joined to an Active Directory Domain. Otherwise, you will need user IDs to set permissions.  
+ACLs contain access control entities (ACEs), which specify the permissions (read, write, etc.) of individual users or groups. When assigning user roles, use the user email address if youre using a Linux VM joined to an Active Directory Domain. Otherwise, provide user IDs to set permissions. 
 
 ## Requirements
 
@@ -37,7 +37,7 @@ Linux joined. Not using Kerberos. -->
 
 ## Configure ACLs for NFSv4.1
 
-1. In the root of your virtual machine, install the `nfs-utils` package to mount NFS volumes and the `nfs-acl-tools` package to view and modify NFSv4 ACls. 
+1. In the root of your virtual machine, install the `nfs-utils` package to mount NFS volumes and the `nfs-acl-tools` package to view and modify NFSv4 ACLs. 
     ```bash
     sudo yum install -y nfs-utils
     sudo yum install -y nfs4-acl-tools
@@ -49,20 +49,18 @@ Linux joined. Not using Kerberos. -->
 
 1. Use the command `nfs4_getfacl <path>` to view the existing ACL on a directory or file.
     
-    The default NFSv4,1 ACL is a close representation of the POSIX permissions of 770.
+    The default NFSv4.1 ACL is a close representation of the POSIX permissions of 770.
     - `A::OWNER@:rwaDxtTnNcCy` - owner has full (RWX) access
     - `A:g:GROUP@:rwaDxtTnNcy` - group has full (RWX) access
     - `A::EVERYONE@:tcy` - everyone else has no access
 
 1. To modify an ACE for a user, use the `nfs4_setfacl` command: `nfs4_setfacl -a|x A|D::<user|group>:<permissions_alias> <file>`
-    * Use `-a` to add permission. Use `-x` to remove permission.
-    * `A` creates access; `D` denies access.
-    * In an Active Directory-joined set up, enter an email address for the user. Otherwise, enter the numerical user ID.
-    * Permission aliases aliases for read, write, append, execute, etc.
+    - Use `-a` to add permission. Use `-x` to remove permission.
+    - `A` creates access; `D` denies access.
+    - In an Active Directory-joined set up, enter an email address for the user. Otherwise, enter the numerical user ID.
+    - Permission aliases include read, write, append, execute, etc.
     In the following Active Directory-joined example, user regan@contoso.com is given read, write, and execute access to `/nfsldap/engineering`:
     `nfs4_setfacl -a A::regan@contoso.com:RWX /nfsldap/engineering`
-
-When a user who is not authenticated attempts to access the directory, they will not be able to view the directory or access it. 
 
 ## Next steps
 
