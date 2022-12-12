@@ -17,6 +17,14 @@ zone_pivot_groups: front-door-tiers
 
 In this article, you'll learn how Azure Front Door Standard and Premium tier routes and Rule set behaves when you have caching enabled. Azure Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing.
 
+## Caching architecture
+
+<!-- TODO -->
+- If caching is configured, the PoP checks its cache for an available response
+- There are also regional caches, which means that the PoP might check another nearby PoP for a cached response if it doesn't have one itself
+- If a cacheable response isn't available, it sends the request to the origin
+- Because each PoP manages its own cache, you might still see traffic come through to your origin even if you served cached responses, because traffic might arrive from multiple PoPs
+
 ## Request methods
 
 Only the `GET` request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
@@ -207,6 +215,7 @@ Front Door attaches the `X-Cache` header to responses, with one of the following
 
 ::: zone pivot="front-door-standard-premium"
 
+<!-- TODO verify this -->
 Cache behavior and duration can be configured in Rules Engine. Rules Engine caching configuration will always override the route configuration.
 
 * **When caching is disabled**, Azure Front Door doesn’t cache the response contents, irrespective of origin response directives.
