@@ -341,6 +341,6 @@ This use case demonstrates how non-local users are able to perform account linki
 
 ### Next steps
 
-* [Azure AD B2C global identity framework](azure-ad-b2c-global-identity-solutions.md)
+* [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-* [Azure AD B2C global identity framework proof of concept](azure-ad-b2c-global-identity-proof-of-concept.md)
+* [Azure AD B2C global identity proof of concept](azure-ad-b2c-global-identity-proof-of-concept.md)
