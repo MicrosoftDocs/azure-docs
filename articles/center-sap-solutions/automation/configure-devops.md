@@ -169,7 +169,7 @@ To pull the code from GitHub, you need a GitHub service connection. For more inf
 
 To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
-:::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
+:::image type="content" source="./media/devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection for GitHub":::
 
 Choose _Github_ as the service connection type. Choose 'Azure Pipelines' in the OAuth Configuration drop-down.
 
