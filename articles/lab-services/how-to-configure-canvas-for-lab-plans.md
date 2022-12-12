@@ -10,14 +10,7 @@ ms.custom: engagement-fy23
 
 # Configure Canvas to use Azure Lab Services
 
-In this article, you learn how to configure [Canvas](https://www.instructure.com/canvas) to use Azure Lab Services. Add the Azure Lab Services app to let educators and students access to their labs directly from Canvas without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Canvas](./lab-services-within-canvas-overview.md).
-
-To use Azure Lab Services in Canvas, perform the following steps:
-
-1. Enable the Azure Lab Services app in your school's Canvas instance.
-1. Optionally, add the Azure Lab Services app at the account level.
-1. Add the Azure Lab Services app to a course.
-1. Link lab plan resources to Canvas.
+In this article, you learn how to add the Azure Lab Services app to [Canvas](https://www.instructure.com/canvas). The Azure Lab Services app lets educators and students access to their labs directly from Canvas without navigating to the Azure Lab Services portal. Learn more about the [benefits of using Azure Lab Services within Canvas](./lab-services-within-canvas-overview.md).
 
 For information about creating and managing labs in Canvas, see [Create and manage labs in Canvas](./how-to-manage-labs-within-canvas.md).
 
@@ -26,7 +19,7 @@ For information about creating and managing labs in Canvas, see [Create and mana
 ## Prerequisites
 
 - An Azure Lab Services lab plan. Follow these steps to [Create a lab plan in the Azure portal](./tutorial-setup-lab-plan.md), if you don't have one yet.
-- To add the Azure Lab Services app to Canvas, your account needs Canvas administrator permissions.
+- To add the Azure Lab Services app, your Canvas user account needs Canvas administrator permissions.
 - To link lab plans, your account needs: 
     - Canvas administrator permissions.
     - Reader role on the Azure subscription.
