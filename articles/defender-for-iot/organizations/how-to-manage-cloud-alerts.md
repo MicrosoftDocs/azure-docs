@@ -7,9 +7,6 @@ ms.topic: how-to
 
 # View and manage alerts from the Azure portal
 
-> [!IMPORTANT]
-> The **Alerts** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
 If you're integrating with Microsoft Sentinel, the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
@@ -45,7 +42,7 @@ This section describes how to view alert details in the Azure portal.
 
 **To view Defender for IoT alerts on the Azure portal**:
 
-Go to **Defender for IoT** > **Alerts (Preview)**.
+Go to **Defender for IoT** > **Alerts**.
 
 The following alert details are displayed by default in the grid:
 
@@ -154,7 +151,7 @@ Alert management across all interfaces functions as follows:
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
-## Access alert PCAP data (Public preview)
+## Access alert PCAP data
 
 **Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
 

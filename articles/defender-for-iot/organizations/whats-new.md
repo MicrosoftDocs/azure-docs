@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 12/12/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -14,6 +14,25 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+
+## January 2023
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [Alerts GA in the Azure portal](#alerts-ga-in-the-azure-portal)    |
+
+### Alerts GA in the Azure portal
+
+The **Alerts** page in the Azure portal is now out for General Availability. Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that need your attention.
+
+For more information, see:
+
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Investigate and respond to an OT network alert](respond-ot-alert.md)
+- [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+Specific alerts triggered by the Enterprise IoT sensor remain in public preview.
 
 ## December 2022
 
