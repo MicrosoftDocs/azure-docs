@@ -88,8 +88,43 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
 1. Scroll down past the video and the section named **Start with a common trigger**.
 
-1. Under **Templates**, select **Blank Logic App**.
+1. Select **When a HTTP Request is received**. 
 
-   ![Screenshot showing the template gallery and selected template, "Blank Logic App".](./media/ tutorial-logic-apps-with-mysql/choose-logic-app-template.png)
+   ![Screenshot showing the template gallery and selected template, "HTTP request Logic App".](./media/ tutorial-logic-apps-with-mysql/add-http-request-trigger.png)
+1. Add a sample payload in json 
+    ```json
+    {
+    "orderNumber":"100",
+    "orderDate":"2023-01-01",
+    "orderStatus":"Shipped"
+    }
+    ```
+    
+   ![Screenshot showing sample payload , "HTTP request Logic App payload"](./media/ tutorial-logic-apps-with-mysql/add-http-sample-payload.png)
+    
+1. A HTTP request body payload will be generated 
+    
+    ![Screenshot showing sample payload is generated , "HTTP request sample payload"](./media/ tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png)
+    
+## Add an MySQL database action
+Following a HTTP request trigger, you can add an action which is a subsequent step that runs some operation in the workflow.You can add an action get, insert or update or delete data in the MySQL database. 
 
-   After you select the template, the designer shows an empty workflow.
+1. Add a **New Step** in the workflow
+
+2. Search for **Azure database for MySQL** connector. 
+    ![Screenshot searching for azure database for mysql , "Search for Azure database for MySQL"](./media/ tutorial-logic-apps-with-mysql/search-for-azure-db-for-mysql.png)
+
+3.  View all the actions for Azure database for MySQL connector. 
+    
+     ![Screenshot Azure database for mysql action listed, "Actions for Azure database for MySQL"](./media/ tutorial-logic-apps-with-mysql/azure-db-for-mysql-connector-actions.png)
+
+4. Select the **Insert Row** action . Select **Change connection** to add a new connection 
+     ![Screenshot Insert row action for Azure database for MySQL, "insert row action for Azure database for MySQL"](./media/ tutorial-logic-apps-with-mysql/insert-row-action-mysql-database.png)
+    
+5. Add a new connection to the existing Azure database for MySQL database. 
+         ![Screenshot add new connection for Azure database for MySQL, "add new connection for Azure database for MySQL"](./media/ tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png)
+    
+
+    
+    
+    
