@@ -19,6 +19,8 @@ The Azure Machine Learning inference HTTP server [(preview)](https://azure.micro
 
 The server can also be used when creating validation gates in a continuous integration and deployment pipeline. For example, start the server with the candidate script and run the test suite against the local endpoint.
 
+This article targets both you want to use the inference server to debug locally and to use the inference server with online endpoints.
+
 ## Prerequisites
 
 - Requires: Python >=3.7
