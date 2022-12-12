@@ -116,11 +116,11 @@ Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2
 <!-- end 1.1 -->
 :::moniker-end
 
-## Migrations between EFLOW LTS and EFLOW CR trains
+## Migration between EFLOW 1.1LTS and EFLOW 1.4LTS
 
 IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
 
-Migration between EFLOW 1.1LTS to EFLOW 1.4LTS is available. This migration will handle the VM migration from 1.1LTS version to 1.4LTS version, including the following:
+Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2112.1212.1)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. This migration will handle the VM migration from 1.1LTS version to 1.4LTS version, including the following:
 - IoT Edge runtime
 - Containers
 - Networking and VM configuration
