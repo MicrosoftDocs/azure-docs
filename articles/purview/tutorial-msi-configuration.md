@@ -220,7 +220,7 @@ This script can help you automatically complete the following tasks:
   
 - SQL databases:
   - SQL role. Assign the **db_datareader** role to Microsoft Purview MSI.
-
+  
 #### Azure Synapse (Synapse) dedicated pool
 
 - RBAC. Assign the Azure RBAC **Reader** role to Microsoft Purview MSI on the selected scope. Verify the assignment. 
