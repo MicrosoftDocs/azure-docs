@@ -50,14 +50,14 @@ For example, a single private endpoint gets created for all the different origin
 
 A new private endpoint gets created in the following scenario:
 
-1. If the region, resource ID or group ID changes:
+* If the region, resource ID or group ID changes:
 
     :::image type="content" source="./media/private-link/multiple-endpoints.png" alt-text="Diagram showing a multiple private endpoint created because changes in the region and resource ID for the origin.":::
 
     > [!NOTE]
     > The Private Link location and the hostname has changed, resulting in extra private endpoints created and requires approval for each one.
 
-2. When the Azure Front Door profile changes:
+* When the Azure Front Door profile changes:
 
     :::image type="content" source="./media/private-link/multiple-profiles.png" alt-text="Diagram showing a multiple private endpoint created because the origin is associated with multiple Azure Front Door profiles.":::
 
@@ -66,23 +66,23 @@ A new private endpoint gets created in the following scenario:
 
 ### Private endpoint removal
 
-If AFD-Profile-1 gets deleted, then PE1 private endpoint across all the origin will also get deleted.
-
 When an Azure Front Door profile get deleted, private endpoints associated with the profile will also get deleted. 
 
 #### Single private endpoint
 
-:::image type="content" source="./media/private-link/single-endpoint.png" alt-text="Diagram showing a single private endpoint created for origins created in the same Azure Front Door profile.":::
+If AFD-Profile-1 gets deleted, then PE1 private endpoint across all the origin will also get deleted.
+
+:::image type="content" source="./media/private-link/delete-endpoint.png" alt-text="Diagram showing if AFD-Profile-1 gets deleted then PE1 across all origins will get deleted.":::
 
 #### Multiple private endpoints
 
-1. If AFD-Profile-1 gets deleted, all private endpoints from PE1 through PE4 will get deleted.
+* If AFD-Profile-1 gets deleted, all private endpoints from PE1 through PE4 will get deleted.
  
-    :::image type="content" source="./media/private-link/multiple-endpoints.png" alt-text="Diagram showing a multiple private endpoint created because changes in the region and resource ID for the origin.":::
+    :::image type="content" source="./media/private-link/delete-multiple-endpoints.png" alt-text="Diagram showing if AFD-Profile-1 gets deleted, all private endpoints from PE1 through PE4 gets deleted.":::
 
-2. Deleting a Front Door profile won't affect private endpoints created for a different Front Door profile. 
+* Deleting a Front Door profile won't affect private endpoints created for a different Front Door profile. 
 
-    :::image type="content" source="./media/private-link/multiple-profiles.png" alt-text="Diagram showing a multiple private endpoint created because the origin is associated with multiple Azure Front Door profiles.":::
+    :::image type="content" source="./media/private-link/delete-multiple-profiles.png" alt-text="Diagram showing Azure Front Door profile getting deleted won't affect private endpoints in other Front Door profiles.":::
 
     For example:
     
