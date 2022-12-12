@@ -193,6 +193,20 @@ Since we are not reserving the original request body, accessing it later in the 
 
 ```
 
+### Accessing the body as URL-encoded form data
+
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+
+```xml
+<set-body> 
+@{ 
+    var inBody = context.Request.Body.AsFormUrlEncodedContent();
+    return JsonConvert.SerializeObject(inBody); 
+} 
+</set-body>
+
+```
+
 ### Filter response based on product
 
 This example shows how to perform content filtering by removing data elements from the response received from a backend service when using the `Starter` product. The example backend response includes root-level properties similar to the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api). 
