@@ -1,12 +1,12 @@
 ---
-title: Labs concepts
+title: Troubleshoot lab VM access
 titleSuffix: Azure Lab Services
 description: Learn the different approaches for troubleshooting lab VMs in Azure Lab Services. Understand how each approach affects user data.
 services: lab-services
 ms.service: lab-services
 author: ntrogh
 ms.author: nicktrog
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 12/05/2022
 ---
 
@@ -52,7 +52,7 @@ When you redeploy a lab VM, Azure Lab Services will shut down the VM, move the V
 
 Learn more about how to [redeploy a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#redeploy-vms).
 
-When you reset a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reset as a refresh of the entire lab VM, including the underlying VM. After you reset a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. To avoid losing data on the VM, [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
+When you reset a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reset as a refresh of the entire VM. After you reset a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. To avoid losing data on the VM, [store the user data outside the lab VM](#store-user-data-outside-the-lab-vm).
 
 Learn more about how to [reset a lab VM in the Azure Lab Services website](./how-to-reset-and-redeploy-vm.md#reset-vms).
 

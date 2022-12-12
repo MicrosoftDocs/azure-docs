@@ -18,7 +18,7 @@ Learn more about [strategies for troubleshooting lab VMs](./concept-approaches-t
 
 ## Reset VMs
 
-When you reset a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reset as a refresh of the entire lab, including the underlying VM.
+When you reset a lab VM, Azure Lab Services will shut down the VM, delete it, and recreate a new lab VM from the original template VM. You can think of a reset as a refresh of the entire VM.
 
 You can reset a lab VM that is assigned to you. If you have the Lab Assistant, Lab Contributor, or Lab Operator role, you can reset any lab VM for which you have permissions.
 
