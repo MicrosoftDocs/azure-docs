@@ -49,12 +49,12 @@ You can create an application group using the Azure portal by following these st
           	:::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Azure AD option.":::
 
 ### [Supported Security Context type](#supported-security-context-type)
-Review the auto-generated **Client group ID**, which is the unique ID associated with the application group..The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID.The following table  shows  auto generated Client Group ID for different security Context type: 
+Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID. The following table  shows auto generated Client Group ID for different security Context type: 
     
 | Security Context type | Auto-generated client group ID|
 | ---| ---		| 
 | Namespace shared access key	| `NamespaceSASKeyName=<NamespaceLevelKeyName>` |
-| AAD App ID 		| `AADAppID=<AppID>`				|
+| Azure AD Application		| `AADAppID=<AppID>`				|
 | Event Hubs shared access key 	| `EntitySASKeyName=<EntityLevelKeyName>` 	| 
 		
 > [!NOTE]
