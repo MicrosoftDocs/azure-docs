@@ -26,40 +26,6 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 ## November 2022
 
-### Packet core 2211
-
-**Type:** New release
-
-**Date available:** December 5, 2022
-
-The 2211 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2211 release notes](azure-private-5g-core-release-notes-2211.md).
-
-### Multiple data networks
-
-**Type:** Feature
-
-**Date available:** December 5, 2022
-
-You can now configure up to three data networks per site instead of one. To use this feature, you must upgrade to the 2211 packet core release.
-
-To add additional data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
-
-### Easier site deletion
-
-**Type:** Feature
-
-**Date available:** December 5, 2022
-
-Previously, you had to delete all the ARM resources associated with a site before deleting the site resource. You can now delete a site and its associated resources in one step. See [Delete a site](delete-a-site.md).
-
-### Azure Stack Edge (ASE) version validation
-
-**Type:** Feature
-
-**Date available:** December 5, 2022
-
-You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. Note that this only applies when using the Azure portal.
-
 ### 2022-11-01 API
 
 **Type:** New release
@@ -189,6 +155,52 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 ```
 
 ---
+
+### Packet core 2211
+
+**Type:** New release
+
+**Date available:** December 5, 2022
+
+The 2211 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2211 release notes](azure-private-5g-core-release-notes-2211.md).
+
+### Multiple data networks
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+You can now configure up to three Attached Data Networks for each Packet Core instead of one. To use this feature, you must upgrade to the 2211 packet core release.
+
+The operator can provision UEs as subscribed in one or more Data Networks and apply Data Network-specific policy and QoS, allowing UEs to use multiple Layer 3 uplink networks selected based on policy or UE preference. 
+
+Each Data Network can have its own configuration for DNS, UE IP address pools, N6 IP configuration, and NAT. This concept also maps directly to 4G APNs. 
+
+This feature has the following limitations: 
+
+- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled.
+
+- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning overlapping IP address spaces across the Data Networks are not possible). 
+
+- Metrics are not yet reported on a per-Data Network basis.
+
+To add additional data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
+
+### Easier site deletion
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+Previously, you had to delete all the ARM resources associated with a site before deleting the site resource. You can now delete a site and its associated resources in one step. See [Delete a site](delete-a-site.md).
+
+### Azure Stack Edge (ASE) version validation
+
+**Type:** Feature
+
+**Date available:** December 5, 2022
+
+You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. Note that this only applies when using the Azure portal.
 
 
 ## October 2022
