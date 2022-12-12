@@ -102,11 +102,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |---------------|--------------|------------|-----------------|
 | <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
-|<a name="application"></a>**Application** | Alias || Alias to [TargetAppName](#targetappname)
+|<a name="application"></a>**Application** | Alias || Alias to [TargetAppName](#targetappname) |
 | **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="targeturl"></a>**TargetUrl** |Optional |URL |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
-| <a name="targetprocessname"></a>**TargetProcessName**              | Optional     | String     |   The file name of the process that initiated the audit event. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  || **TargetProcessId**| Optional    | String | The process ID (PID) of the process that initiated the audit event.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **TargetProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit evnet. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`     
+| <a name="targetprocessname"></a>**TargetProcessName**              | Optional     | String     |   The file name of the process that initiated the audit event. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
+| **TargetProcessId**| Optional    | String | The process ID (PID) of the process that initiated the audit event.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **TargetProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit evnet. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 
 ### Target system fields
@@ -148,7 +149,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="src"></a>**Src** | Recommended       | Alias     |    A unique identifier of the source device. <br><br>This field might alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
-| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. This value is mandatory if **SrcHostname** is specified. If the session uses network address translation, `SrcIpAddr` is the publicly visible address, and not the original address of the source, which is stored in [SrcNatIpAddr](#srcnatipaddr)<br><br>Example: `77.138.103.108` |
+| <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. <br><br>Example: `77.138.103.108` |
 | **IpAddr** | Alias || Alias to [SrcIpAddr](#srcipaddr), or to [TargetIpAddr](#targetipaddr) if [SrcIpAddr](#srcipaddr) is not provided. |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. Might not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
 | <a name="srchostname"></a> **SrcHostname** | Recommended | Hostname | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |

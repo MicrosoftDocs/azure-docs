@@ -19,7 +19,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
-| [Audit Event](normalization-schame-audit.md) | 0.1 | Preview |
+| [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
 | [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
 | [DNS Activity](dns-normalization-schema.md) | 0.1.5 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
@@ -188,7 +188,7 @@ When the value provided by the source is an FQDN, or when the value may be eithe
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name="scopedid"></a>**ScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **Scope** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="scopeid"></a>**ScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **Scope** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="scope"></a>**Scope** | Optional | String | The cloud platform scope the device belongs to. **Scope** map to a subscription on Azure and to an account on AWS. | 
 | <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). Typically this field will also identify the type of [Scope](#scope) and [ScopeId](#scopeid). This field is required if the [DvcId](#dvcid) field is used. |
 | **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [DvcId](#dvcid). |
