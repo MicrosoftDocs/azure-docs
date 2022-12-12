@@ -15,7 +15,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
-- Questions about [server migration](common-questions-server-migration.md)
+- Questions about [Migration and modernization](common-questions-server-migration.md)
 - Get questions answered in the [Azure Migrate forum](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate)
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?

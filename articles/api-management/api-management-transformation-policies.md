@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -346,7 +346,7 @@ In this example the policy routes the request to a service fabric backend, using
 >   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
 >   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
- For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
+ For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessageBody` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -394,6 +394,19 @@ Since we are not reserving the original request body, accessing it later in the 
         inBody[0] = 'm'; 
     } 
     return inBody.ToString(); 
+} 
+</set-body>
+
+```
+
+#### Example accessing the body as URL-encoded form data
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+
+```xml
+<set-body> 
+@{ 
+    var inBody = context.Request.Body.AsFormUrlEncodedContent();
+    return JsonConvert.SerializeObject(inBody); 
 } 
 </set-body>
 
