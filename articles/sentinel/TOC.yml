@@ -392,6 +392,8 @@
       href: create-incident-manually.md
     - name: Delete incidents
       href: delete-incident.md
+    - name: Remediate threats while investigating
+      href: respond-threats-during-investigation.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
