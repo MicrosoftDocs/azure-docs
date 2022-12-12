@@ -1,5 +1,5 @@
 ---
-title: Customer data storage for European customers in Azure Active Directory
+title: Customer data storage and processing for European customers in Azure Active Directory
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
 author: barclayn
@@ -15,15 +15,18 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Customer data storage for European customers in Azure Active Directory
+# Customer data storage and processing for European customers in Azure Active Directory
 
 Azure Active Directory (Azure AD) stores customer data in a geographic location based on how a tenant was created and provisioned. The following list provides information about how the location is defined:
 
+* **Azure Active Directory Multi Tenant Collaboration** - With multi tenant collaboration scenarios enabled, customers can configure their tenant to collaborate with users from a different tenant. For example, a customer can: 1) invite users to their tenant in a B2B context; 2) create a multi tenant SaaS application allowing other third party tenants to provision the application in the third party tenant; or 3) two or more tenants can be affiliated with one another and act as a single tenant in certain scenarios such as Multi tenant organization (MTO) formation, tenant to tenant sync, and shared e-mail domain sharing. Customer configuration and use of multi tenant collaboration may occur with tenants outside of the EU Data Boundary resulting in some customer data, such as user and device account data and object (application and group) configuration data, stored and processed in the location of the collaborating tenant.
 * **Azure portal or Azure AD API** - A customer selects a location from the pre-defined list.
-* **Microsoft 365** - The location is based on a customer provided billing address.
+* **Application Proxy** - Allows customers to access their on-premises web applications externally. Customers may choose advanced routing configurations that allow customer data to egress outside of the EU Data Boundary, including user account data, usage data, and application configuration data.
 * **Dynamics 365 and Power Platform** - A customer provisions their tenant in a pre-defined location.
 * **EU Customer Data Residency** - For customers who provided a location in Europe, Azure AD stores most of the customer data in Europe, except where noted later in this article.
 * **EU Customer Data Boundary** - For customers who provided a location that is part of the EU Data Boundary list of countries, Azure AD stores and processes most of the customer data in Europe.
+* **Microsoft 365** - The location is based on a customer provided billing address.
+* **Microsoft 365 Multi Geo** - Microsoft 365 Multi-Geo provides customers with the ability to expand their Microsoft 365 presence to multiple geographic regions or countries within a single existing Microsoft 365 tenant. Azure Active Directory will egress customer data to perform backup authentication to the geo(s) configured by the customer. Types of customer data include user and device account data, branding data, and object (application and group) configuration data.
 
 The following sections provide information about customer data that doesn't meet the EU Customer Data Residency or EU Customer Data Boundary commitments.
 
