@@ -359,8 +359,8 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     def init():
         global model
         global input_schema
-        # This name is model.id of model that we want to deploy deserialize the model file back
-        # into a sklearn model
+        # The path 'model' corresponds to the path where the MLflow artifacts where stored when
+        # registering the model using MLflow format.
         model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model')
         model = mlflow.pyfunc.load_model(model_path)
         input_schema = model.metadata.get_input_schema()
@@ -394,7 +394,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       - scikit-learn==0.24.1
       - cloudpickle==2.0.0
       - psutil==5.8.0
-      - pandas==1.5.2
+      - pandas==1.3.5
       - azureml-inference-server-http
     name: mlflow-env
     ```
