@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 12/08/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -18,7 +18,19 @@ The listed features were released in the last three months. For information abou
 
 ## December 2022
 
+- [Create and run playbooks on entities on-demand (Preview)](#create-and-run-playbooks-on-entities-on-demand-preview)
 - [Customize more alert properties (Preview)](#customize-more-alert-properties-preview)
+
+### Create and run playbooks on entities on-demand (Preview)
+
+SOC analysts can now take immediate action on a particular entity representing a threat actor, while in the middle of investigating an incident or hunting for threats, without leaving those contexts or having to pivot to other screens or apps. 
+
+Similarly, SOC engineers can now encapsulate a series of automated actions in workflows that run on a specific entity, so that analysts can use these workflows in the scenarios above.
+
+These improvements for SOC efficiency and productivity are thanks to the **new entity trigger for playbooks**.
+
+- Learn more about [running playbooks on entities on-demand](respond-threats-during-investigation.md).
+- Learn more about [creating playbooks based on the entity trigger](tutorial-respond-threats-playbook.md#create-a-playbook).
 
 ### Customize more alert properties (Preview)
 
