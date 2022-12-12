@@ -49,7 +49,7 @@ To edit a site's details, select the site's name on the **Sites and sensors** pa
 
 - **Tags**: (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag.
 
-- **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel. 
+- **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.
 
     In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
 
@@ -59,7 +59,7 @@ When you're done, select **Save** to save your changes.
 
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a specific sensor name to drill down to more details for that sensor.
 
-Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page. 
+Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
 
 |Task |Description  |
 |---------|---------|
@@ -76,6 +76,14 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 | **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
+
+## Forensics data stored by the sensor
+
+The following types of forensics data are stored locally on the sensor:
+
+Each type of forensics data is stored for a set period of time, or up until it reaches the maximum allowed storage capacity. For more information about data retention, see Data retention x-ref.
+
+To retrieve forensics data from the sensor's local storage to the cloud's global storage, use the data mining reports x-ref.
 
 ## Reactivate an OT sensor
 
@@ -105,7 +113,6 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
 >
 > For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
-
 
 ## Understand sensor health (Public preview)
 
