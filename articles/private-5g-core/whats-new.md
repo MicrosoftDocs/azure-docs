@@ -60,8 +60,9 @@ Make the following changes for each 2022-04-01-preview API template that you wan
         | MediumPackage | G5 |
         | LargePackage | G10 |
 
-2. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
-3. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
+1. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
+1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
+1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This ensures that the resources are created in the required order.
 
 See below for a comparison between templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
@@ -78,10 +79,10 @@ See below for a comparison between templates using the 2022-04-01-preview and th
         "properties": {
           "networkFunctions": [
             {
-              "id": "[resourceId('Microsoft.MobileNetwork/packetCoreControlPlanes', parameters('siteName'))]"
+              "id": "[resourceId('Microsoft.MobileNetwork/packetCoreControlPlanes', parameters('siteID'))]"
             },
             {
-              "id": "[resourceId('Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes', parameters('siteName'), parameters('siteName'))]"
+              "id": "[resourceId('Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes', parameters('siteID'), parameters('siteID'))]"
             }
           ]
         },
@@ -114,7 +115,6 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 ```
 
 # [2022-11-01 API](#tab/2022-11-01)
-<!-- "sites": "parameters('siteName')", - should this have a new site ID parameter instead? -->
 ```json
 {
     ...
@@ -142,7 +142,7 @@ See below for a comparison between templates using the 2022-04-01-preview and th
         "apiVersion": "2022-11-01",
         ...
         "properties": {
-          "sites": "parameters('siteName')",
+          "sites": "parameters('siteID')",
           "localDiagnosticsAccess": {
             "authenticationType": "Password"
           },
