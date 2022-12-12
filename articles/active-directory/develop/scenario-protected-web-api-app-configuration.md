@@ -49,7 +49,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> A client application requests the bearer token to the Microsoft identity platform *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens.
+> A client application requests the bearer token to the Microsoft identity platform *for the web API*. The API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens.
 > 
 > In the future, the web API might require that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.
 
@@ -59,7 +59,7 @@ This section describes how to configure a bearer token.
 
 ### Config file
 
-You need specify the TenantId only if you want to accept access tokens from a single tenant (line-of-business app). Otherwise, it can be left as `common`. The different values can be:
+You need specify the `TenantId` only if you want to accept access tokens from a single tenant (line-of-business app). Otherwise, it can be left as `common`. The different values can be:
   - A GUID (Tenant ID = Directory ID)
   - `common` can be any organization and personal accounts
   - `organizations` can be any organization
@@ -81,7 +81,7 @@ You need specify the TenantId only if you want to accept access tokens from a si
 }
 ```
 
-#### Case where you used a custom App ID URI for your web API
+#### Using a custom App ID URI for a web API
 
 If you've accepted the default App ID URI proposed by the Azure portal, you don't need to specify the audience (see [Application ID URI and scopes](scenario-protected-web-api-app-registration.md#scopes-and-the-application-id-uri)). Otherwise, add an `Audience` property whose value is the App ID URI for your web API. This typically starts with `api://`.
 
@@ -93,7 +93,6 @@ If you've accepted the default App ID URI proposed by the Azure portal, you don'
     "TenantId": "common",
     "Audience": "Enter_the_Application_ID_URI_here"
   },
-  // more lines
 }
 ```
 
@@ -105,7 +104,7 @@ When an app is called on a controller action that holds an **[Authorize]** attri
 
 Microsoft recommends you use the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet package when developing a web API with ASP.NET Core.
 
-_Microsoft.Identity.Web_ provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
+*Microsoft.Identity.Web* provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for .NET. It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
 
 #### ASP.NET for .NET 6.0
 
@@ -120,7 +119,7 @@ dotnet new webapi --auth SingleOrg
 
 **Visual Studio** - To create a web API project in Visual Studio, select **File** > **New** > **Project** > **ASP.NET Core Web API**.
 
-Both the .NET CLI and Visual Studio project templates create a _Program.cs_ file that looks similar this code snippet. Notice the `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
+Both the .NET CLI and Visual Studio project templates create a *Program.cs* file that looks similar this code snippet. Notice `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication;
@@ -186,7 +185,7 @@ This table describes the validators:
 
 #### Customizing token validation
 
-The validators are associated with properties of the **TokenValidationParameters** class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
+The validators are associated with properties of the *TokenValidationParameters* class. The properties are initialized from the ASP.NET and ASP.NET Core configuration.
 
 In most cases, you don't need to change the parameters. Apps that aren't single tenants are exceptions. These web apps accept users from any organization or from personal Microsoft accounts. Issuers in this case must be validated. Microsoft.Identity.Web takes care of the issuer validation as well.
 
