@@ -200,7 +200,7 @@ ml_client.models.create_or_update(
     # [Python](#tab/sdk)
     
     ```python
-    ml_client.begin_create_or_update(endpoint).result()
+    ml_client.begin_create_or_update(endpoint)
     ```
 
     # [Studio](#tab/studio)
@@ -245,14 +245,14 @@ ml_client.models.create_or_update(
     # [Python](#tab/sdk)
 
     ```python
-    ml_client.online_deployments.begin_create_or_update(blue_deployment).result()
+    ml_client.online_deployments.begin_create_or_update(blue_deployment)
     ```
 
     Once created, we need to set the traffic to this deployment.
 
     ```python
     endpoint.traffic = {blue_deployment.name: 100}
-    ml_client.begin_create_or_update(endpoint).result()
+    ml_client.begin_create_or_update(endpoint)
     ```
 
     # [Studio](#tab/studio)
