@@ -1039,8 +1039,6 @@ items:
       href: vm/vminsights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
-    - name: Configure workspace
-      href: vm/vminsights-configure-workspace.md
     - name: Enable and configure
       items:
       - name: Overview
@@ -1085,6 +1083,10 @@ items:
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
+    - name: Legacy
+      items:
+      - name: Configure workspace
+        href: vm/vminsights-configure-workspace.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
   - name: Network insights
