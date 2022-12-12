@@ -366,6 +366,11 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
         input_schema = model.metadata.get_input_schema()
     
     def run(raw_data):
+        json_data = json.loads(raw_data)
+        if "input_data" not in json_data.keys():
+            raise Exception("Request must contain a top level key named 'input_data'")
+        
+        serving_input = json.dumps(json_data["input_data"])
         data = infer_and_parse_json_input(raw_data, input_schema)
         result = model.predict(data)
         
@@ -376,6 +381,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
     > [!TIP]
     > The previous scoring script is provided as an example about how to perform inference of an MLflow model. You can adapt this example to your needs or change any of its parts to reflect your scenario.
+
+    > [!WARNING]
+    > __MLflow 2.0 advisory__: The provided scoring script will work with both MLflow 1.X and MLflow 2.X. However, be advised that the expected input/output formats on those versions may vary. Check the environment definition used to ensure you are using the expected MLflow version. Notice that MLflow 2.0 is only supported in Python 3.8+.
 
 1. Let's create an environment where the scoring script can be executed. Since our model is MLflow, the conda requirements are also specified in the model package (for more details about MLflow models and the files included on it see The MLmodel format). We are going then to build the environment using the conda dependencies from the file. However, we need also to include the package `azureml-inference-server-http` which is required for Online Deployments in Azure Machine Learning.
     
@@ -485,34 +493,9 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
 
 1. Once your deployment completes, your deployment is ready to serve request. One of the easier ways to test the deployment is by using a sample request file along with the `invoke` method.
 
-    **sample-request-sklearn-custom.json**
+    **sample-request-sklearn.json**
     
-    ```json
-    {
-      "dataframe_split": {
-        "columns": [
-          "age",
-          "sex",
-          "bmi",
-          "bp",
-          "s1",
-          "s2",
-          "s3",
-          "s4",
-          "s5",
-          "s6"
-        ],
-        "data": [
-          [ 1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0 ],
-          [ 10.0,2.0,9.0,8.0,7.0,6.0,5.0,4.0,3.0,2.0]
-        ],
-        "index": [0,1]
-      }
-    }
-    ```
-
-    > [!NOTE]
-    > Notice how the key `dataframe_split` has been used in this example instead of `input_data`. This is because we are using an MLflow method `infer_and_parse_json_input` which uses the keys expected by MLflow serving (see [MLflow built-in deployment tools](https://www.mlflow.org/docs/latest/models.html#deploy-mlflow-models) for more input examples and formats). If you change the login in the scoring script, then the payload may be affected.
+    :::code language="json" source="~/azureml-examples-main/cli/endpoints/online/mlflow/sample-request-sklearn.json":::
 
     To submit a request to the endpoint, you can do as follows:
     
@@ -528,7 +511,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     ml_client.online_endpoints.invoke(
         endpoint_name=endpoint_name,
         deployment_name=deployment.name,
-        request_file="sample-request-sklearn-custom.json",
+        request_file="sample-request-sklearn.json",
     )
     ```
 
@@ -538,7 +521,7 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
     
     1. Go to the __Endpoints__ tab and select the new endpoint created.
     1. Go to the __Test__ tab.
-    1. Paste the content of the file `sample-request-sklearn-custom.json`.
+    1. Paste the content of the file `sample-request-sklearn.json`.
     1. Click on __Test__.
     1. The predictions will show up in the box on the right.
     
@@ -554,6 +537,10 @@ Use the following steps to deploy an MLflow model with a custom scoring script.
       ]
     }
     ```
+
+    > [!WARNING]
+    > __MLflow 2.0 advisory__: In MLflow 1.X, the key `predictions` will be missing.
+
 
 ## Clean up resources
 
