@@ -62,7 +62,7 @@ The main example in this doc uses managed online endpoints for deployment. To us
 # [ARM template](#tab/arm)
 
 > [!NOTE]
-> While the Azure CLI and CLI extension for machine learning are used in these steps, they are not the main focus. They are used more as utilities, passing templates to Azure and checking the status of template deployments.
+> While the Azure CLI and CLI extension for machine learning are used in these steps, they're not the main focus. they're used more as utilities, passing templates to Azure and checking the status of template deployments.
 
 [!INCLUDE [basic prereqs cli](../../includes/machine-learning-cli-prereqs.md)]
 
@@ -354,7 +354,7 @@ For more information on creating an environment, see
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_model":::
 
-1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into an environment variables:
+1. Part of the environment is a conda file that specifies the model dependencies needed to host the model. The following example demonstrates how to read the contents of the conda file into environment variables:
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="read_condafile":::
 
@@ -398,7 +398,7 @@ When using a template for deployment, you must first upload the scoring file(s) 
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="upload_code":::
 
-1. The following example demonstrates hwo to register the code using a template:
+1. The following example demonstrates how to register the code using a template:
 
     :::code language="azurecli" source="~/azureml-examples-main/deploy-arm-templates-az-cli.sh" id="create_code":::
 
