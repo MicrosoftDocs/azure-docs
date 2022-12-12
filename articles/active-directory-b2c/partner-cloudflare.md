@@ -57,7 +57,7 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 
 The settings appear in the following image.
 
-    ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
+   ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
 
 ### Configure the Web Application Firewall
 
@@ -67,7 +67,7 @@ Go to your Cloudflare settings, and use the Cloudflare content to [configure the
 
 In the top pane of the console, use the firewall option to add, update, or remove firewall rules. For example, the following firewall setting enables CAPTCHA for incoming requests to *contosobank.co.uk* domain before the request goes to Azure Front Door.
 
-    ![Screenshot of enforcing captcha.](./media/partner-cloudflare/configure-firewall-rule.png)
+   ![Screenshot of enforcing captcha.](./media/partner-cloudflare/configure-firewall-rule.png)
 
 Learn more: [Cloudflare Firewall Rules](https://support.cloudflare.com/hc/articles/360016473712-Cloudflare-Firewall-Rules)
 
