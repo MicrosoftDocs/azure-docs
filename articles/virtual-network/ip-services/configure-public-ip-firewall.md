@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 12/12/2021
-ms.custom: template-how-to 
+ms.custom: FY23 content-maintenance
 ---
 
 # Manage a public IP address with Azure Firewall
