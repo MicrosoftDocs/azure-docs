@@ -497,7 +497,7 @@
             - name: validate-content
               href: validate-content-policy.md
             - name: validate-graphql-request
-              hewd: validate-graphql-request-policy.md
+              href: validate-graphql-request-policy.md
             - name: validate-headers
               href: validate-headers-policy.md
             - name: validate-jwt
