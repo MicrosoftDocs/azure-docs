@@ -1,7 +1,7 @@
 ---
-title: What is Azure OpenAI? (Preview)
+title: What's new in Azure OpenAI?
 titleSuffix: Azure Cognitive Services
-description: Apply advanced language models to variety of use cases with the Azure OpenAI service 
+description: Learn about the latest news and features updates for Azure OpenAI
 manager: nitinme
 author: mrbullwinkle
 ms.author: mbullwin
