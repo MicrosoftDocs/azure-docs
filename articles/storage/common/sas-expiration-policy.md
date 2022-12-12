@@ -7,10 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2022
+ms.date: 12/12/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Configure an expiration policy for shared access signatures
@@ -52,15 +53,15 @@ To configure a SAS expiration policy in the Azure portal, follow these steps:
 1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
 
     > [!NOTE]
-    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set a **Recommended upper limit for SAS expiry interval**:
+    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set the **Recommended upper limit for SAS expiry interval** values:
     >
     > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal" lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
 
-1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
+1. Specify the time values under **Recommended upper limit for SAS expiry interval** for the recommended interval for any new shared access signatures that are created on resources in this storage account.
 
     :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal" lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png":::
 
-1. Select the **Save** button to save your changes.
+1. Select **Save** to save your changes.
 
 #### [PowerShell](#tab/azure-powershell)
 

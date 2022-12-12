@@ -6,10 +6,11 @@ services: storage
 author: jimmart-dev
 
 ms.author: jammart
-ms.date: 12/02/2022
+ms.date: 12/12/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
+ms.custom: engagement-fy23
 ---
 
 # Get storage account configuration information
@@ -173,7 +174,7 @@ az storage account show-connection-string --resource-group <resource-group> --na
 
 ## Get the creation time of the account access keys for a storage account
 
-If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing configurations or tasks that rely on the keys, such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
+If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing configurations or other tasks that rely on them, such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
@@ -181,7 +182,7 @@ To display the creation time of the account access keys for a storage account in
 
 1. Navigate to your storage account in the Azure portal.
 1. On the **Overview** page, in the **Essentials** section, select the **JSON View** link.
-1. For the **API version**, select the most recent version.
+1. On the **Resource JSON** page, select the most recent **API version**.
 1. In the JSON under *properties* you will see the *keyCreationTime* for *key1* and *key2*.
 
     :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot of the JSON View of a storage account showing one account access key with null values and another with a date and time stamp" lightbox="media/storage-account-get-info/key-creation-time-portal.png":::
