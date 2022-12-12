@@ -6,8 +6,8 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/27/2020
-ms.author: cynthn
+ms.date: 12/12/2022
+ms.author: mattmcinnes
 ms.reviewer: olayemio 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -45,7 +45,7 @@ az disk create --resource-group myResourceGroup --location EastUS --name myManag
 
 
 
-If you want to export a data disk from the image version, add `--gallery-image-reference-lun` to specify the LUN location of the data disk to export. 
+If you want to export a data disk from the image version, add `--gallery-image-reference-lun` to specify the LUN location of the data disk to be exported. 
 
 In this example, we export the data disk located at LUN 0 of the image version to create a managed disk named *myManagedDataDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
