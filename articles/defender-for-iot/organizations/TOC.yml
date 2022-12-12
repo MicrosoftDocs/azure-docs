@@ -96,13 +96,11 @@
     - name: Azure portal
       href: how-to-manage-cloud-alerts.md
     - name: Sensor console
-      items:
-      - name: View alerts from a sensor console
-        href: how-to-view-alerts.md
-      - name: Manage alert workflows from a sensor console
-        href: how-to-accelerate-alert-incident-response.md
+      href: how-to-view-alerts.md
     - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Accelerate on-premises alert workflows
+      href: how-to-accelerate-alert-incident-response.md
     - name: Forward on-premises alert data
       href: how-to-forward-alert-information-to-partners.md
   - name: Visualize and monitor data
