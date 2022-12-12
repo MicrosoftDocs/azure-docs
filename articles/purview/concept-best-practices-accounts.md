@@ -53,7 +53,7 @@ If your organization has data in multiple geographies and you must keep metadata
 
 Currently, Microsoft Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions under different Azure Active Directory tenants, it's recommended deploying separate Microsoft Purview accounts under each tenant. 
 
-An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Microsoft Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant.md). 
+An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Microsoft Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant-cross-tenant.md). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Microsoft Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 
