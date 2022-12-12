@@ -193,7 +193,7 @@ Since we are not reserving the original request body, accessing it later in the 
 
 ```
 
-### Example accessing the body as URL-encoded form data
+### Accessing the body as URL-encoded form data
 
 The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
 
