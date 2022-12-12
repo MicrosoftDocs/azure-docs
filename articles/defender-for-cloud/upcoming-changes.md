@@ -30,8 +30,6 @@ The [Running container images should have vulnerability findings resolved](https
 
 This recommendation will soon be released for General Availability (GA) and so *will* be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score.
 
-Remediate them wherever possible (learn how in [Review and remediate recommendations](https://learn.microsoft.com/en-us/azure/architecture/framework/security/monitor-remediate#review-and-remediate-recommendations)).
-
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
 **Estimated date for change: December 2022**
