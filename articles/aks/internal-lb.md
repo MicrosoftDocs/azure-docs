@@ -250,5 +250,5 @@ Learn more about Kubernetes services in the [Kubernetes services documentation][
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [different-subnet]: #specify-a-different-subnet
-[aks-vnet-subnet]: configure-kubenet.md#create-a-virtual-network-and-subnet
-[unique-subnet]: use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
+[aks-vnet-subnet]: /aks/configure-kubenet.md#create-a-virtual-network-and-subnet
+[unique-subnet]: /aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet
