@@ -51,7 +51,7 @@ The Experian integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-   ![screenshot for experian-architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
+   ![Diagram of the Experian architecture.](media/partner-experian/experian-architecture-diagram.png)
 
 1. User arrives at sign-in page, creates a new account, and enters information. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the middle-layer API and passes the user attributes.
