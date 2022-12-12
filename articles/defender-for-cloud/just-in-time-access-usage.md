@@ -6,7 +6,7 @@ ms.date: 12/11/2022
 ---
 # Secure your management ports with just-in-time access
 
-You can use Microsoft Defender for Cloud's just-in-time (JIT) access to protect your Azure virtual machines (VMs) from unauthorized network access. Many times firewalls contain allow rules that leave your VMs vulnerable to attack. JIT let's you allow access to your VMs only when the access is needed, on the ports needed, and for the period of time needed.
+You can use Microsoft Defender for Cloud's just-in-time (JIT) access to protect your Azure virtual machines (VMs) from unauthorized network access. Many times firewalls contain allow rules that leave your VMs vulnerable to attack. JIT lets you allow access to your VMs only when the access is needed, on the ports needed, and for the period of time needed.
 
 Learn more about [how JIT works](just-in-time-access-overview.md) and the [permissions required to configure and use JIT](just-in-time-access-overview.md#what-permissions-are-needed-to-configure-and-use-jit).
 
@@ -44,7 +44,7 @@ You can use Defender for Cloud or you can programmatically enable JIT VM access 
 
 ### Enable JIT on your VMs from Microsoft Defender for Cloud
 
-:::image type="content" source="./media/just-in-time-access-usage/configure-just-in-time-access.gif" alt-text="Configuring JIT VM access in Microsoft Defender for Cloud.":::
+:::image type="content" source="./media/just-in-time-access-usage/configure-just-in-time-access.gif" alt-text="Screenshot showing configuring JIT VM access in Microsoft Defender for Cloud.":::
 
 From Defender for Cloud, you can enable and configure the JIT VM access.
 
@@ -150,7 +150,7 @@ You can enable JIT on a VM from the Azure virtual machines pages of the Azure po
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-![jit just-in-time request.](./media/just-in-time-access-usage/jit-request-vm.png)
+![Screenshot showing jit just-in-time request.](./media/just-in-time-access-usage/jit-request-vm.png)
 
 To request access from Azure virtual machines:
 
