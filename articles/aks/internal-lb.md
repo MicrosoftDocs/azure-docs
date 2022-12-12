@@ -111,7 +111,7 @@ You must have the following resources:
 
 ### Create a Private Link service connection
 
-To attach an Azure Private Link service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the example below. For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/topics/pls-integration/) design document.
+To attach an Azure Private Link service to an internal load balancer, create a service manifest named `internal-lb-pls.yaml` with the service type *LoadBalancer* and the *azure-load-balancer-internal* and *azure-pls-create* annotation as shown in the following example. For more options, refer to the [Azure Private Link Service Integration](https://kubernetes-sigs.github.io/cloud-provider-azure/topics/pls-integration/) design document.
 
 ```yaml
 apiVersion: v1
@@ -167,7 +167,7 @@ pls-xyz   pls-xyz.abc123-defg-4hij-56kl-789mnop.eastus2.azure.privatelinkservice
 
 ### Create a Private Endpoint to the Private Link service
 
-A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service created above. To do so, follow the sample commands shown below. 
+A Private Endpoint allows you to privately connect to your Kubernetes service object via the Private Link Service you created. To do so, follow the sample commands.
 
 ```azurecli-interactive
 # Create a variable for the private link service
@@ -189,7 +189,7 @@ $ az network private-endpoint create \
 
 When you create your AKS cluster, you can specify advanced networking settings. These settings allow you to deploy the cluster into an existing Azure virtual network and subnets. For example, you can deploy your AKS cluster into a private network connected to your on-premises environment and run services that are only accessible internally.
 
-For more information, see configure your own virtual network subnets with [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
+For more information, see [configure your own virtual network subnets with Kubenet][use-kubenet] or [with Azure CNI][advanced-networking].
 
 You don't need to make any changes to the previous steps to deploy an internal load balancer that uses a private network in an AKS cluster. The load balancer is created in the same resource group as your AKS cluster, but it's instead connected to your private virtual network and subnet, as shown in the following example:
 
