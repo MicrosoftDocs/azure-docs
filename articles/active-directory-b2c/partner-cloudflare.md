@@ -51,13 +51,13 @@ On cloudflare.com, you can [create an account](https://dash.cloudflare.com/sign-
 
 1. To enable WAF for a domain, in the DNS console for the CNAME entry, turn on the proxy setting from the DNS console for the CNAME entry as shown.
 
-    ![Image shows how to select proxy settings](./media/partner-cloudflare/select-proxy-settings.png)
+    ![Screenshot of proxy settings.](./media/partner-cloudflare/select-proxy-settings.png)
 
 2. Under the DNS pane, toggle the **Proxy status** option to **Proxied**. It turns orange.
 
 The settings appear in the following image.
 
-   ![Image shows how to select proxied](./media/partner-cloudflare/select-proxied.png)
+    ![Screenshot of proxied status.](./media/partner-cloudflare/select-proxied.png)
 
 ### Configure the Web Application Firewall
 
@@ -67,7 +67,7 @@ Go to your Cloudflare settings, and use the Cloudflare content to [configure the
 
 In the top pane of the console, use the firewall option to add, update, or remove firewall rules. For example, the following firewall setting enables CAPTCHA for incoming requests to *contosobank.co.uk* domain before the request goes to Azure Front Door.
 
-   ![Image shows how to enforce captcha](./media/partner-cloudflare/configure-firewall-rule.png)
+    ![Screenshot of enforcing captcha.](./media/partner-cloudflare/configure-firewall-rule.png)
 
 Learn more: [Cloudflare Firewall Rules](https://support.cloudflare.com/hc/articles/360016473712-Cloudflare-Firewall-Rules)
 
@@ -75,14 +75,14 @@ Learn more: [Cloudflare Firewall Rules](https://support.cloudflare.com/hc/articl
 
 1. Complete CAPTCHA when access to the custom domain is requested.
 
-    ![Image shows cloudflare WAF enforce CAPTCHA](./media/partner-cloudflare/enforce-captcha.png)
+    ![Screenshot of Cloudflare WAF enforce CAPTCHA.](./media/partner-cloudflare/enforce-captcha.png)
 
 > [!NOTE]
 > Cloudflare has functionality to customize block pages. See, [Configuring Custom Pages (Error and Challenge)](https://support.cloudflare.com/hc/en-us/articles/200172706-Configuring-Custom-Pages-Error-and-Challenge-).  
 
 2. The Azure AD B2C policy sign-in dialog appears.
 
-    ![Image shows Azure AD B2C policy log in](./media/partner-cloudflare/azure-ad-b2c-policy.png)
+    ![Screenshot of Azure AD B2C policy sign-in.](./media/partner-cloudflare/azure-ad-b2c-policy.png)
 
 ## Resources
 
