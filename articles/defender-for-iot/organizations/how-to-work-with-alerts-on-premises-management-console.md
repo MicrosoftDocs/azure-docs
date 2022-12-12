@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # View and manage alerts on the on-premises management console
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 This article describes how to view Defender for IoT alerts on an on-premises management console, which aggregates alerts from all connected OT sensors. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [OT network sensor](how-to-view-alerts.md).
 
@@ -23,7 +23,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 ## View alerts on the on-premises management console
 
-1. Sign into the on-premises management console and select **Alerts** on the left.
+1. Sign into the on-premises management console and select **Alerts** on the left-hand menu.
 
     Alerts are shown in a simple table, showing the sensor that triggered the alert and alert details in two columns.
 
@@ -47,7 +47,7 @@ Select **Clear** to remove all filters.
 
 ## Manage alert status
 
-Use the following options to manage alert status on your on-premises management console, depending on the alert type. Some alerts support acknowledgement, some support muting, and some support both. <!--why would we have both?-->
+Use the following options to manage alert status on your on-premises management console, depending on the alert type. Some alerts support acknowledgment, some support muting, and some support both. <!--why would we have both?-->
 
 Both acknowledging and muting an alert hide it for this instance of the alert only. The alert is triggered again if the same event occurs.
 

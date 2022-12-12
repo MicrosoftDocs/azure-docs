@@ -8,7 +8,7 @@ ms.topic: how-to
 
 # Forward on-premises OT alert information
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 This article describes how to configure your OT sensor or on-premises management console to forward alerts to partner services, syslog servers, email addresses, and more. Forwarded alert information includes details like:
 
@@ -42,7 +42,7 @@ This article describes how to configure your OT sensor or on-premises management
 
 ## Create forwarding rules on an OT sensor
 
-1. Sign into the OT sensor and select **Forwarding** on the left > **+ Create new rule**.
+1. Sign into the OT sensor and select **Forwarding** on the left-hand menu > **+ Create new rule**.
 
 1. In the **Add forwarding rule** pane, enter a meaningful rule name, and then define rule conditions and actions as follows:
 
@@ -55,7 +55,7 @@ This article describes how to configure your OT sensor or on-premises management
 
 1. When you're done configuring the rule, select **Save**. The rule is listed on the **Forwarding** page.
 
-1. Test the rule you've just created:
+1. Test the rule you've created:
 
     1. Select the options menu (**...**) for your rule > **Send Test Message**.
     1. Go to your partner system to verify that the information sent by the sensor was received.
@@ -64,7 +64,7 @@ This article describes how to configure your OT sensor or on-premises management
 
 To edit or delete an existing rule:
 
-1. Sign into your OT sensor and select **Forwarding** on the left.
+1. Sign into your OT sensor and select **Forwarding** on the left-hand menu.
 
 1. Select the options menu (**...**) for your rule, and then do one of the following:
 
@@ -76,15 +76,13 @@ To edit or delete an existing rule:
 
 **To create a forwarding rule on the management console**:
 
-1. Sign in to the on-premises management console and select **Forwarding** on the left.
+1. Sign in to the on-premises management console and select **Forwarding** on the left-hand menu.
 
 1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
 
 1. In the **Create Forwarding Rule** window, enter a meaningful name for the rule.
 
-1. Select the [severity level](alert-engine-messages.md#alert-severities) from the drop-down menu.
-
-    This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. 
+1. Select a [severity level](alert-engine-messages.md#alert-severities) from the drop-down menu to select the minimum severity alert you want to forward. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.
 
 1. Select any protocols to apply.
 
@@ -102,7 +100,7 @@ To edit or delete an existing rule:
 
     For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).
 
-1. Select **Save** and then test the rule you've just created:
+1. Select **Save** and then test the rule you've created:
 
     1. On the row for your rule, select the **Run** button. A success notification is shown if the message sent successfully.
     1. Go to your partner system to verify that the information sent by the sensor was received.
@@ -111,7 +109,7 @@ To edit or delete an existing rule:
 
 To edit or delete an existing rule:
 
-1. Sign into your on-premises management console and select **Forwarding** on the left.
+1. Sign into your on-premises management console and select **Forwarding** on the left-hand menu.
 
 1. Find the row for your rule and then select either the **Edit** or **Delete** button.
 
@@ -184,13 +182,13 @@ The following sections describe the syslog output syntax for each format.
 | Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
 | Hostname | Sensor IP |
-| Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
+| Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine, and depends on the time-zone configuration. <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 
 ### Webhook server action
 
 **Supported from the on-premises management console only**
 
-Configure a **Webhook** action to send configure an integration that subscribes to Defender for IoT alert events. For example, send alert data to a webhook server to update an external SIEM system, SOAR system, or incident management system.
+Configure a **Webhook** action to configure an integration that subscribes to Defender for IoT alert events. For example, send alert data to a webhook server to update an external SIEM system, SOAR system, or incident management system.
 
 When you've configured alerts to be forwarded to a webhook server and an alert event is triggered, the on-premises management console sends an HTTP POST payload to the configured webhook URL.
 

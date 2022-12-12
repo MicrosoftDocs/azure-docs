@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # View and manage alerts on your OT sensor
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 This article describes how to view Defender for IoT alerts directly on an OT network sensor. You can also view OT alerts on the [Azure portal](how-to-manage-cloud-alerts.md) or an [on-premises management console](how-to-work-with-alerts-on-premises-management-console.md).
 
@@ -19,7 +19,7 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
 - **To view alerts on the OT sensor**, sign into your sensor as an **Admin**, **Security Analyst**, or **Viewer** user.
 
-- **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *Learning* or *Muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
+- **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *learning* or *muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -68,7 +68,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 ## View details and remediate a specific alert
 
-1. Sign into the OT sensor and select **Alerts** on the left.
+1. Sign into the OT sensor and select **Alerts** on the left-hand menu.
 
 1. Select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
 
@@ -76,7 +76,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
     :::image type="content" source="media/alerts/alerts-on-sensor.png" alt-text="Screenshot of an alert selected from the Alerts page on an OT sensor.":::
 
-1. The alert details page provides more details about the alert, as well as a set of remediation steps on the **Take action** tab.
+1. The alert details page provides more details about the alert, and a set of remediation steps on the **Take action** tab.
 
     Use the following tabs to gain more contextual insight:
 
@@ -110,7 +110,7 @@ Make sure to update your alert status once you've taken remediation steps so tha
     1. Locate the learned alert and open its alert details page.
     1. Toggle off the **Alert learn** option. For example:
 
-    After you unlearn an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
+    After you unlearn an alert, alerts are retriggered whenever the sensor senses the selected traffic combination.
 
 - **To mute an alert**:
 

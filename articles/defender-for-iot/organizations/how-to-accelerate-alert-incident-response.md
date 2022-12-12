@@ -8,7 +8,7 @@ ms.topic: how-to
 
 # Accelerate on-premises OT alert workflows
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 This article describes the following methods for reducing alert fatigue in your team:
 
@@ -36,7 +36,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 1. Sign into your OT sensor and select **System Settings** > **Network Monitoring**> **Alert Comments**.
 
-1. In the **Alert comments** pane, in the **Description** field, enter the new comment, and select **Add**. The new comment appears in the Description list below.
+1. In the **Alert comments** pane, in the **Description** field, enter the new comment, and select **Add**. The new comment appears in the **Description** list below the field.
 
     For example:
 
@@ -67,7 +67,7 @@ For example, for an environment running MODBUS, you might add a rule to detect a
     |**Conditions**     | Define one or more conditions that must be met to trigger the alert. <br><br>- Select the **+** sign to create a condition set with multiple conditions that use the **AND** operator. The **+** sign is enabled only after selecting an **Alert protocol** value.<br>- If you select a MAC address or IP address as a variable, you must convert the value from a dotted-decimal address to decimal format. <br><br> You must add at least one condition to create a custom alert rule.        |
     |**Detected**     | Define a date and/or time range for the traffic you want to detect. Customize the days and time range to fit with maintenance hours or set working hours.      |
     |**Action**     | Define an action you want Defender for IoT to take automatically when the alert is triggered. <br>Have Defender for IoT create either an alert or event, with the specified severity.        |
-    |**PCAP included** | If you've selected to create an event, clear the **PCAP included** option as needed. If you've selected to create an alert, the PCAP is always included and cannot be removed. |
+    |**PCAP included** | If you've selected to create an event, clear the **PCAP included** option as needed. If you've selected to create an alert, the PCAP is always included, and can't be removed. |
 
     For example:
 
@@ -97,7 +97,7 @@ For example, if you know that all the OT devices monitored by a specific sensor 
 
 **To create an alert exclusion rule**:
 
-1. Sign into your on-premises management console and select **Alert Exclusion** on the left.
+1. Sign into your on-premises management console and select **Alert Exclusion** on the left-hand menu.
 
 1. On the **Alert Exclusion** page, select the **+** add rule button at the top-right.
 
@@ -105,10 +105,10 @@ For example, if you know that all the OT devices monitored by a specific sensor 
 
     |Name  |Description  |
     |---------|---------|
-    |**Name**     |  Enter a meaningful name for your rule. The name cannot contain quotes (`"`).      |
+    |**Name**     |  Enter a meaningful name for your rule. The name can't contain quotes (`"`).      |
     |**By Time Period**     |   Select a time zone and the specific time period you want the exclusion rule to be active, and then select **ADD**. <br><br>Use this option to create separate rules for different time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.      |
     |**By Device Address**     |   Select and enter the following values, and then select **ADD**: <br>- Select whether the designated device is a source, destination, or both a source and destination device. <br>- Select whether the address is an IP address, MAC address, or subnet <br>- Enter the value of the IP address, MAC address, or subnet. |
-    |**By Alert Title**     |  Select one or more alerts to add to the exclusion rule and then select **ADD**. To find alert titles, enter all or part of an alert title and select the one you want from the dropdown list.        |
+    |**By Alert Title**     |  Select one or more alerts to add to the exclusion rule and then select **ADD**. To find alert titles, enter all, or part of an alert title and select the one you want from the dropdown list.        |
     |**By Sensor Name**     |  Select one or more sensors to add to the exclusion rule and then select **ADD**. To find sensor names, enter all or part of the sensor name and select the one you want from the dropdown list.         |
 
     > [!IMPORTANT]

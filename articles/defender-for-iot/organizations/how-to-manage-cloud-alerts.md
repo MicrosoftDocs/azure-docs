@@ -89,7 +89,7 @@ Supported grouping options include *Engine*, *Name*, *Sensor*, *Severity*, and *
 
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-detected.png" alt-text="Screenshot of an alert selected from Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/alert-detected.png":::
 
-1. The alert details page provides more details about the alert, as well as a set of remediation steps on the **Take action** tab. For example:
+1. The alert details page provides more details about the alert, and a set of remediation steps on the **Take action** tab. For example:
 
     :::image type="content" source="media/how-to-view-manage-cloud-alerts/alert-full-details.png" alt-text="Screenshot of the alert details page on the Azure portal.":::
 

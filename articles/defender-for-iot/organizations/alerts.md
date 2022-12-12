@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Microsoft Defender for IoT alerts
 
-Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that need your attention.
+Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. Alerts are triggered when OT or Enterprise IoT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
 For example:
 
@@ -36,8 +36,10 @@ The Azure portal and OT network sensors also provide the following extra investi
 |**Alerts on the Azure portal**     | - View related MITRE ATT&CK tactics and techniques <br>- Use out-of-the-box workbooks for visibility into high priority alerts <br>- View alerts from Microsoft Sentinel and run deeper investigations with [Microsoft Sentinel playbooks and workbooks](concept-sentinel-integration.md).        |
 |**OT network sensors and איק on-premises management console**     | - View the alert's source and destination in the **Device map**, and view related events on the **Event timeline**.  <br>- Accelerate alert workflows with custom alert rules and comments.  <br>- Forward sensor alerts to directly to partner vendors, including SIEM systems, MSSP systems, and more.      |
 
+For more information, see:
 
-For details about alert management options per user role, see Defender for IoT user roles and permissions in [Azure](roles-azure.md) and for [OT network sensors and on-premises management consoles](roles-on-premises.md).
+- [Azure user roles and permissions for Defender for IoT](roles-azure.md)
+- [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 
 ### Enterprise IoT alerts
 
@@ -53,7 +55,7 @@ If you don't want to see the alert again for the same traffic pattern, instruct 
 
 While you can *learn* alerts on the Azure portal or on OT network sensors, you can only *unlearn* alerts on the OT network sensor.
 
-After *learning* an alert, the alert is automatically closed and the learn action is added to the alert's **Event Timeline**. Devices related to the learned traffic, including source and destination devices, aren't calculated when the sensor generates reports, such as [Risk assessment](how-to-create-risk-assessment-reports.md) or [Attack vector](how-to-create-attack-vector-reports.md) reports.
+After you've *learned* an alert, the alert is automatically closed, and the learn action is added to the alert's **Event Timeline**. Devices related to the learned traffic, including source and destination devices, aren't calculated when the sensor generates reports, such as [Risk assessment](how-to-create-risk-assessment-reports.md) or [Attack vector](how-to-create-attack-vector-reports.md) reports.
 
 Other examples of traffic you might want to *Learn* include:
 
@@ -102,7 +104,7 @@ Setting an alert status to **Closed** or **Muted** on a sensor or on-premises ma
 
     For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor).
 
-- **Create custom alert comments**. Create a set of custom alert comments that other OT sensor users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or additional insights or warnings about the event.
+- **Create custom alert comments**. Create a set of custom alert comments that other OT sensor users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or other insights or warnings about the event.
 
     As team members triage alerts, they can reuse any of these custom comments. Alert comments are shown in a comments area on an alert details page. For example:
 
@@ -128,7 +130,7 @@ On an OT network sensor:
 
 - If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
 
-Updating an alert’s status, learning the alert, or muting the alert doesn’t impact how long the alert is displayed.
+Updating an alert’s status, learning the alert, or muting the alert doesn’t affect how long the alert is displayed.
 
 <!--missing more info. is this replicated to the portal? cm? sentinel?-->
 
