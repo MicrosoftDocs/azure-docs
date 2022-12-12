@@ -12,14 +12,14 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses dynamic targeting to select hosts
 
-You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this guide, we'll show you how to dynamically target a VMSS to shut down based on availability zone. Running this experiment can help you test failover to a VMSS instance in a different region in the case of an outage.
+You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this guide, we'll show you how to dynamically target a Virtual Machine Scale Set to shut down based on availability zone. Running this experiment can help you test failover to a Virtual Machine Scale Sets instance in a different region in case of an outage.
 
-These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. Currently, only VMSS shutdown supports dynamic targeting.
+These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. Currently, only Virtual Machine Scale Sets shutdown supports dynamic targeting.
 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An Azure VMSS instance
+- An Azure Virtual Machine Scale Sets instance
  
 ## Launch Azure Cloud Shell
 
@@ -32,32 +32,32 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 > [!NOTE]
 > These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
 
-## Enable Chaos Studio on your VMSS instance
+## Enable Chaos Studio on your Virtual Machine Scale Sets instance
 
-Chaos Studio cannot inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. VMSS only has one target type (Microsoft-VirtualMachineScaleSet) and one capability (shutdown), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
+Chaos Studio can't inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Virtual Machine Scale Sets only has one target type (Microsoft-VirtualMachineScaleSet) and one capability (shutdown), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
 
-1. Create a [target for your VMSS](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding:
+1. Create a [target for your Virtual Machine Scale Sets](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding:
 
     ```azurecli-interactive  
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-2. Create the capabilities on the VMSS target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding, specifying The `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
+2. Create the capabilities on the Virtual Machine Scale Sets target by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding, specifying The `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
 
     ```azurecli-interactive
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-You have now successfully onboarded your Virtual Machine Scale Set to Chaos Studio.
+You've now successfully onboarded your Virtual Machine Scale Set to Chaos Studio.
 
 ## Create an experiment
 
-With your VMSS now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel. 
+With your Virtual Machine Scale Sets now onboarded, you can create your experiment. A chaos experiment defines the actions you want to take against target resources, organized into steps, which run sequentially, and branches, which run in parallel. 
 
-1. Formulate your experiment JSON starting with the [VMSS shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample below. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md). Note that at this time dynamic targeting is only available with the VMSS Shutdown 2.0 fault, and can only filter on availability zones.
+1. Formulate your experiment JSON starting with the following [Virtual Machine Scale Sets shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample. Modify the JSON to correspond to the experiment you want to run using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md). At this time dynamic targeting is only available with the Virtual Machine Scale Set Shutdown 2.0 fault, and can only filter on availability zones.
 
-    - Use the `filter` element to configure the list of Azure availability zones to filter targets by. If you don't provide a `filter`, the fault will shut down all instances in the VMSS.
-    - The experiment will target all VMSS instances in the specified zones.
+    - Use the `filter` element to configure the list of Azure availability zones to filter targets by. If you don't provide a `filter`, the fault will shut down all instances in the Virtual Machine Scale Set.
+    - The experiment will target all Virtual Machine Scale Sets instances in the specified zones.
 
     ```json
      {
@@ -114,7 +114,7 @@ With your VMSS now onboarded, you can create your experiment. A chaos experiment
     }
     ```
     
-2. Create the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure you have saved and uploaded your experiment JSON and update `experiment.json` with your JSON filename.
+2. Create the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure you've saved and uploaded your experiment JSON and update `experiment.json` with your JSON filename.
 
     ```azurecli-interactive
     az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2021-09-15-preview --body @experiment.json
@@ -122,11 +122,11 @@ With your VMSS now onboarded, you can create your experiment. A chaos experiment
 
     Each experiment creates a corresponding system-assigned managed identity. Note of the `principalId` for this identity in the response for the next step.
 
-## Give experiment permission to your VMSS
+## Give experiment permission to your Virtual Machine Scale Sets
 
 When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully.
 
-Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource. Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
+Give the experiment access to your resource(s) using the following command, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource. Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
 
 ```azurecli-interactive
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
@@ -134,7 +134,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## Run your experiment
 
-You're now ready to run your experiment. To see the impact, check the portal to view the states of your VMSS instances and then check your services to ensure they're running as expected even when some VMSS instances are shut down.
+You're now ready to run your experiment. To see the impact, check the portal to view if your Virtual Machine Scale Sets targets are shut down. If they're shut down, check to see that the services running on your Virtual Machine Scale Sets are still running as expected.
 
 1. Start the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
@@ -145,7 +145,7 @@ You're now ready to run your experiment. To see the impact, check the portal to 
 2. The response includes a status URL that you can use to query experiment status as the experiment runs.
 
 ## Next steps
-Now that you have run a dynamically targeted VMSS shutdown experiment, you are ready to:
+Now that you've run a dynamically targeted Virtual Machine Scale Sets shutdown experiment, you're ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
 
