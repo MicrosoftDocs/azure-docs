@@ -29,7 +29,7 @@ When you acquire a lease, you'll obtain a lease ID that your code can use to ope
 
 The following example acquires a 30-second lease for a container:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java" id="Snippet_AcquireLease":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_AcquireLeaseContainer":::
 
 ## Renew a lease
 
@@ -39,7 +39,7 @@ If your lease expires, you can renew it. To renew an existing lease, use the fol
 
 The following example renews a lease for a blob:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java" id="Snippet_RenewLease":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_RenewLeaseContainer":::
 
 ## Release a lease
 
@@ -49,7 +49,7 @@ You can either wait for a lease to expire or explicitly release it. When you rel
 
 The following example releases the lease on a blob:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java" id="Snippet_ReleaseLease":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_ReleaseLeaseContainer":::
 
 ## Break a lease
 
@@ -59,7 +59,7 @@ When you break a lease, the lease ends, and other clients can't acquire a lease 
 
 The following example breaks the lease on a blob:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java" id="Snippet_BreakLease":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_BreakLeaseContainer":::
 
 ## Lease states and actions
 
@@ -67,15 +67,15 @@ The following diagram shows the five states of a lease, and the commands or even
 
 :::image type="content" source="./media/blob-dev-guide/storage-dev-guide-container-lease.png" alt-text="A diagram showing container lease states and state change triggers." lightbox="./media/blob-dev-guide/storage-dev-guide-container-lease.png"::: 
 
-A lease can be in one of five states. The table below shows these five states, gives a brief description of each, and lists the lease actions allowed in a given state. These lease actions cause state transitions, as shown in the diagram above.
+The following table lists the five lease states, gives a brief description of each, and lists the lease actions allowed in a given state. These lease actions cause state transitions, as shown in the diagram above.
   
 | Lease state | Description | Lease actions allowed |  
 | --- | --- | --- |
-| **Available** | Lease is unlocked and can be acquired | `acquire` |
-| **Leased** | Lease is locked | `acquire` (same lease ID only), `renew`, `change`, `release`, and `break` |
-| **Expired** | Lease duration has expired | `acquire`, `renew`, `release`, and `break` |
-| **Breaking** | Lease has been broken, but the lease will continue to be locked until the break period has expired | `release` and `break` |
-| **Broken** | Lease has been broken, and the break period has expired | `acquire`, `release`, and `break` |
+| **Available** | The lease is unlocked and can be acquired. | `acquire` |
+| **Leased** | The lease is locked. | `acquire` (same lease ID only), `renew`, `change`, `release`, and `break` |
+| **Expired** | The lease duration has expired. | `acquire`, `renew`, `release`, and `break` |
+| **Breaking** | The lease has been broken, but the lease will continue to be locked until the break period has expired. | `release` and `break` |
+| **Broken** | The lease has been broken, and the break period has expired. | `acquire`, `release`, and `break` |
 
 ## See also
 
