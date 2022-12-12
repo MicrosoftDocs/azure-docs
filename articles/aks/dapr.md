@@ -5,7 +5,7 @@ author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
-ms.date: 11/07/2022
+ms.date: 12/12/2022
 ms.custom: devx-track-azurecli, ignite-fall-2021, event-tier1-build-2022, references_regions
 ---
 
