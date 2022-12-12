@@ -19,11 +19,11 @@ The following section describes how to create proof of concept implementations f
 
 ## Funnel tenant
 
-1. [Create a tenant.](../active-directory-b2c/tutorial-create-tenant.md)
+1. [Create a tenant.](tutorial-create-tenant.md)
 
-1. **[Configure federations to each Azure AD B2C tenant/policy combination]** (This one too)
+1. [Configure federations to each Azure AD B2C tenant/policy combination](tenant-management.md).
 
-1. Configure client_id mapping to region – use **[Lookup claim transformation]** (Not sure what this is meaning to point to. Perhaps content that was removed from the paper?) to emulate.
+1. Configure client_id mapping to region – use [lookup claim transformation](general-transformations.md) to emulate.
 
    ~~~json
    <ClaimsTransformation Id="ClientIdToRegion" TransformationMethod="LookupValue">
