@@ -33,7 +33,7 @@ This section contains the following examples:
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-14":::
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
@@ -171,7 +171,7 @@ More samples for the Azure SQL output binding are available in the [GitHub repos
 This section contains the following examples:
 
 * [HTTP trigger, write a record to a table](#http-trigger-write-record-to-table-java)
-<!-- * [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-java) -->
+* [HTTP trigger, write to two tables](#http-trigger-write-to-two-tables-java)
 
 The examples refer to a `ToDoItem` class (in a separate file `ToDoItem.java`) and a corresponding database table:
 
@@ -233,6 +233,7 @@ public class PostToDo {
     public HttpResponseMessage run(
             @HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             @SQLOutput(
+                name = "toDoItem",
                 commandText = "dbo.ToDo",
                 connectionStringSetting = "SqlConnectionString")
                 OutputBinding<ToDoItem> output) throws JsonParseException, JsonMappingException, JsonProcessingException {
@@ -247,8 +248,6 @@ public class PostToDo {
     }
 }
 ```
-
-<!-- commented out until issue with java library resolved
 
 <a id="http-trigger-write-to-two-tables-java"></a>
 ### HTTP trigger, write to two tables
@@ -267,9 +266,9 @@ The second table, `dbo.RequestLog`, corresponds to the following definition:
 
 ```sql
 CREATE TABLE dbo.RequestLog (
-    Id int identity(1,1) primary key,
-    RequestTimeStamp datetime2 not null,
-    ItemCount int not null
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    RequestTimeStamp DATETIME2 NOT NULL DEFAULT(GETDATE()),
+    ItemCount INT NOT NULL
 )
 ```
 
@@ -298,32 +297,50 @@ public class RequestLog {
 
 
 ```java
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger and SQL output binding function processed a request.');
-    context.log(req.body);
+package com.function;
 
-    const newLog = {
-        RequestTimeStamp = Date.now(),
-        ItemCount = 1
-    }
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.sql.annotation.SQLOutput;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-    if (req.body) {
-        context.bindings.todoItems = req.body;
-        context.bindings.requestLog = newLog;
-        context.res = {
-            body: req.body,
-            mimetype: "application/json",
-            status: 201
-        }
-    } else {
-        context.res = {
-            status: 400,
-            body: "Error reading request body"
-        }
+import java.util.Optional;
+
+public class PostToDoWithLog {
+    @FunctionName("PostToDoWithLog")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @SQLOutput(
+                name = "toDoItem",
+                commandText = "dbo.ToDo",
+                connectionStringSetting = "SqlConnectionString")
+                OutputBinding<ToDoItem> output,
+            @SQLOutput(
+                name = "requestLog",
+                commandText = "dbo.RequestLog",
+                connectionStringSetting = "SqlConnectionString")
+                OutputBinding<RequestLog> outputLog,
+            final ExecutionContext context) throws JsonParseException, JsonMappingException, JsonProcessingException {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+
+        String json = request.getBody().get();
+        ObjectMapper mapper = new ObjectMapper();
+        ToDoItem newToDo = mapper.readValue(json, ToDoItem.class);
+        newToDo.Id = UUID.randomUUID();
+        output.setValue(newToDo);
+
+        RequestLog newLog = new RequestLog();
+        newLog.ItemCount = 1;
+        outputLog.setValue(newLog);
+
+        return request.createResponseBuilder(HttpStatus.CREATED).header("Content-Type", "application/json").body(output).build();
     }
 }
-``` -->
-
+```
 
 ::: zone-end  
 
@@ -819,6 +836,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 |---------|---------|
 | **commandText** | Required.  The name of the table being written to by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+|**name** |  Required. The unique name of the function binding. | 
 
 ::: zone-end  
 

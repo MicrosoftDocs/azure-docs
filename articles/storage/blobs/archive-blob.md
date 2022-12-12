@@ -11,6 +11,8 @@ ms.date: 08/24/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Archive a blob

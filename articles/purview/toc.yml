@@ -30,6 +30,10 @@ items:
       href: quickstart-data-share.md
     - name: .NET data sharing
       href: quickstart-data-share-dotnet.md
+  - name: Data Policy
+    items:
+    - name: Create a simple DevOps policy
+      href: how-to-policies-devops-azure-sql-db.md
 - name: Tutorials
   items:
   - name: Deployment checklist
@@ -100,16 +104,18 @@ items:
     href: catalog-permissions.md
   - name: Data map
     items:
+    - name: Classification
+      href: concept-classification.md
+    - name: Data lineage
+      href: concept-data-lineage.md
     - name: Elastic data map
       href: concept-elastic-data-map.md
+    - name: Metamodel
+      href: concept-metamodel.md
     - name: Resource sets
       href: concept-resource-sets.md
     - name: Scans and ingestion
       href: concept-scans-and-ingestion.md
-    - name: Data lineage
-      href: concept-data-lineage.md
-    - name: Classification
-      href: concept-classification.md
   - name: Data catalog
     items:
     - name: Business glossary
@@ -136,10 +142,6 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
-  - name: Master Data Management
-    items:
-    - name: Profisee
-      href: how-to-deploy-profisee-purview-integration.md
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
@@ -153,6 +155,8 @@ items:
       displayName: Create and manage credentials
     - name: Manage integration runtimes
       href: manage-integration-runtimes.md
+    - name: Manage assets with Metamodel
+      href: how-to-metamodel.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
     - name: Request access to data asset
@@ -167,34 +171,24 @@ items:
       href: register-scan-azure-arc-enabled-sql-server.md
     - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-      displayName: Register and scan Azure Blob Storage
     - name: Azure Files
       href: register-scan-azure-files-storage-source.md
-      displayName: Register and scan Azure Files
     - name: Azure Cosmos DB
       href: register-scan-azure-cosmos-database.md
-      displayName: Register and scan Azure Cosmos DB
     - name: Azure Database for MySQL
       href: register-scan-azure-mysql-database.md
-      displayName: Register and scan an Azure database for MySQL
     - name: Azure Database for PostgreSQL
       href: register-scan-azure-postgresql.md
-      displayName: Register and scan an Azure database for PostgreSQL
     - name: Azure Data Explorer
       href: register-scan-azure-data-explorer.md
-      displayName: Register and scan Azure Data Explorer Kusto
     - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
-      displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
     - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
-      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
-      displayName: Register and scan Azure SQL DB
     - name: Azure SQL Managed Instance
       href: register-scan-azure-sql-managed-instance.md
-      displayName: Register and scan Azure SQL DB Managed Instance
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
@@ -289,8 +283,12 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
+    - name: Create & manage glossaries
+      href: how-to-create-manage-glossary.md
     - name: Create & manage terms
-      href: how-to-create-import-export-glossary.md
+      href: how-to-create-manage-glossary-term.md
+    - name: Import & export terms
+      href: how-to-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
   - name: Classify
@@ -317,8 +315,10 @@ items:
       href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
-    - name: Disable or enable Data Estate Insights
-      href: enable-disable-data-estate-insights.md
+    - name: Disable Data Estate Insights
+      href: disable-data-estate-insights.md
+    - name: Schedule report refresh
+      href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
@@ -365,6 +365,8 @@ items:
         href: how-to-policies-devops-azure-sql-db.md
       - name: DevOps policies - Azure Arc enabled SQL Servers
         href: how-to-policies-devops-arc-sql-server.md
+      - name: DevOps policies - Resource groups or Subscriptions
+        href: how-to-policies-devops-resource-group.md
     - name: Data owner policies
       items:
       - name: Data owner policies - Author and publish policies
@@ -383,6 +385,10 @@ items:
         href: how-to-view-self-service-data-access-policy.md
       - name: Delete self-service data access policy
         href: how-to-delete-self-service-data-access-policy.md
+      - name: Self-service policies Azure SQL DB
+        href: how-to-policies-self-service-azure-sql-db.md
+      - name: Self-service policies Azure Storage
+        href: how-to-policies-self-service-storage.md
   - name: Workflows
     items:
     - name: Self-service hybrid data access
@@ -394,7 +400,9 @@ items:
     - name: Manage workflow runs
       href: how-to-workflow-manage-runs.md
     - name: Workflow connectors
-      href: how-to-use-workflow-connectors.md      
+      href: how-to-use-workflow-connectors.md    
+    - name: Workflow dynamic content
+      href: how-to-use-workflow-dynamic-content.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
   - name: Manage Kafka notifications - .NET
@@ -405,6 +413,10 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
+  - name: Master Data Management
+    items:
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
 - name: Reference
   items:
     - name: Product glossary reference

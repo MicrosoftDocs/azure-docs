@@ -69,11 +69,12 @@ You can link existing Azure services in your Azure subscriptions to your IoT hub
 
 IoT Hub currently supports the following Azure services as additional endpoints:
 
-* Azure Storage containers
+* Storage containers
 * Event Hubs
 * Service Bus Queues
 * Service Bus Topics
-
+* Cosmos DB (preview)
+   
 For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 ## Endpoint Health

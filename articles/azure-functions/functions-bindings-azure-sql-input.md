@@ -33,7 +33,7 @@ This section contains the following examples:
 
 The examples refer to a `ToDoItem` class and a corresponding database table:
 
-:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-14":::
+:::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
@@ -196,6 +196,7 @@ public class GetToDoItems {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "toDoItems",
                 commandText = "SELECT * FROM dbo.ToDo",
                 commandType = "Text",
                 connectionStringSetting = "SqlConnectionString")
@@ -220,6 +221,7 @@ public class GetToDoItem {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "toDoItems",
                 commandText = "SELECT * FROM dbo.ToDo",
                 commandType = "Text",
                 parameters = "@Id={Query.id}",
@@ -251,6 +253,7 @@ public class DeleteToDo {
                 authLevel = AuthorizationLevel.ANONYMOUS)
                 HttpRequestMessage<Optional<String>> request,
             @SQLInput(
+                name = "toDoItems",
                 commandText = "dbo.DeleteToDo",
                 commandType = "StoredProcedure",
                 parameters = "@Id={Query.id}",
@@ -803,6 +806,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
 | **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. | 
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is ["Text"](/dotnet/api/system.data.commandtype#fields) for a query and ["StoredProcedure"](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
+|**name** |  Required. The unique name of the function binding. | 
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. Neither the parameter name nor the parameter value can contain a comma (`,`) or an equals sign (`=`). |
 
 ::: zone-end 

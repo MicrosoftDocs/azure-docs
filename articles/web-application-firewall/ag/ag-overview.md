@@ -5,7 +5,7 @@ description: This article provides an overview of Web Application Firewall (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/06/2022
+ms.date: 11/08/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -101,11 +101,35 @@ The geomatch operator is now available for custom rules. See [geomatch custom ru
 
 For more information on custom rules, see [Custom Rules for Application Gateway.](custom-waf-rules-overview.md)
 
-### Bot mitigation
+### Bot protection rule set
 
-A managed Bot protection rule set can be enabled for your WAF to block or log requests from known malicious IP addresses, alongside the managed ruleset. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Microsoft Defender for Cloud.
+You can enable a managed bot protection rule set to take custom actions on requests from all bot   categories.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bot's client IPs are logged in the Firewall log, see more information below. You may access WAF logs from storage account, event hub, or log analytics. 
+Three bot categories are supported:
+
+- **Bad**
+
+   Bad bots include bots from malicious IP addresses and bots that have falsified their identities. Bad bots with malicious IPs are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise.
+- **Good**
+
+   Good bots include validated search engines such as Googlebot, bingbot, and other trusted user agents.
+
+- **Unknown**
+
+   Unknown bots are classified via published user agents without additional validation. For example, market analyzer, feed fetchers, and data collection agents. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
+
+Bot signatures are managed and dynamically updated by the WAF platform.
+
+:::image type="content" source="../media/ag-overview/bot-rule-set.png" alt-text="Screenshot of bot rule set.":::
+
+You may assign Microsoft_BotManagerRuleSet_1.0 by using the **Assign** option under **Managed Rulesets**:
+
+:::image type="content" source="../media/ag-overview/assign-managed-rule-sets.png" alt-text="Screenshot of Assign managed rule sets.":::
+
+If Bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Malicious bots are blocked, verified search engine crawlers are allowed, unknown search engine crawlers are blocked, and unknown bots are logged by default. You can set custom actions to block, allow, or log  for different types of bots.
+
+You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
+
 
 ### WAF modes
 
@@ -148,7 +172,7 @@ In Anomaly Scoring mode, traffic that matches any rule isn't immediately blocked
 There's a threshold of 5 for the Anomaly Score to block traffic. So, a single *Critical* rule match is enough for the Application Gateway WAF to block a request, even in Prevention mode. But one *Warning* rule match only increases the Anomaly Score by 3, which isn't enough by itself to block the traffic.
 
 > [!NOTE]
-> The message that's logged when a WAF rule matches traffic includes the action value "Blocked." But the traffic is actually only blocked for an Anomaly Score of 5 or higher. For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
+> The message that's logged when a WAF rule matches traffic includes the action value "Matched." If the total anomaly score of all matched rules is 5 or greater, and the WAF policy is running in Prevention mode, the request will trigger a mandatory anomaly rule with the action value "Blocked" and the request will be stopped. However, if the WAF policy is running in Detection mode, the request will trigger the action value "Detected" and the request will be logged and passed to the backend. For more information, see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](web-application-firewall-troubleshoot.md#understanding-waf-logs). 
 
 ### Configuration
 
