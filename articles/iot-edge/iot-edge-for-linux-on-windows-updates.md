@@ -130,13 +130,13 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
 
 1. Get the latest Azure EFLOW 1.1LTS [(1.1.2112.1212.1)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
 1. For auto-download migration (needs Internet connection), skip this step. If the EFLOW VM has limited/no internet access, download the necessary files before starting the migration.
-    1. [1.4.2.12122 Standalone MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_SA)
-    1. [1.4.2.12122 Update MIS](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_Update)
+    - [1.4.2.12122 Standalone MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_SA)
+    - [1.4.2.12122 Update MIS](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_Update)
 1. Open an elevated PowerShell session
 1. Start the EFLOW migration
 
     >[!NOTE]
-    >You can migrate with one single cmdlet by using the `-autoConfirm` flag. If specified Confirm-EflowMigration doesnt needs to be called to proceed with 1.4 migration.
+    >You can migrate with one single cmdlet by using the `-autoConfirm` flag with the ` Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
 
     1. If you're using the auto-download migration option run the following cmdlet
         ```powershell
