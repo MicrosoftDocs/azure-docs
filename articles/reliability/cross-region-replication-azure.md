@@ -86,19 +86,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | US Government |US Gov Iowa\* |US Gov Virginia\* |
 | US Government |US Gov Virginia\* |US Gov Texas\* |
 
-(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by doing the following:
-
-1. Go to [New support request in the Azure portal](https://portal.azure.com/#blade/Microsoft\_Azure\_Support/HelpAndSupportBlade/newsupportrequest).
-
-1. For **Summary**, enter *Enable {Region-Name} region* (e.g. Enable UAE Central region).
-
-1. For **Issue type**,  select *Subscription management*.
-
-1. For **Subscription**, select your Azure subscription.
-
-1. For **Problem type**, select *Compute-VM(cores-vCPUs) subscription limit increases.
-
-1. Submit your request.
+(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](https://learn.microsoft.com/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
