@@ -147,7 +147,9 @@ To learn how to create a Create an active directory application, service princip
 
 ---
 
-### Update service principal for registry authentication
+### Update for registry authentication
+
+# [Service principal](#tab/userlevel)
 
 Update the Azure service principal credentials to allow push and pull access to your container registry. This step enables the GitHub workflow to use the service principal to [authenticate with your container registry](../container-registry/container-registry-auth-service-principal.md) and to push and pull a Docker image. 
 
@@ -168,6 +170,23 @@ az role assignment create \
   --scope $registryId \
   --role AcrPush
 ```
+
+# [OpenID Connect](#tab/openid)
+
+You need to given your application permission to access the Azure Container Registry. 
+
+1. In Azure portal, go to [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). 
+1. Search for your OpenID Connect app registration and copy the **Application (client) ID**. 
+1. Grant permissions for your app to your resource group. You'll need to set permissions at the resource group level so that you can create Azure Container instances. 
+
+    ```azurecli
+    az role assignment create \
+    --assignee <appID> \
+    --role Contributor \
+     --scope /subscriptions/<subscription-id>/resourceGroups/<resource-group>
+    ```
+---
+
 
 ### Save credentials to GitHub repo
 
@@ -258,6 +277,16 @@ jobs:
 on: [push]
 name: Linux_Container_Workflow_OIDC
 
+permissions:
+  id-token: write
+  contents: read
+
+on:
+  push:
+    branches:
+    - main
+    - release/*
+
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
@@ -273,22 +302,22 @@ jobs:
            tenant-id: ${{ secrets.AZURE_TENANT_ID }}
            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-       - name: Build and push image
-         id: build-image
-         run: |
-          az acr build --image ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }} --registry ${{ secrets.REGISTRY_LOGIN_SERVER }} --file "Dockerfile" .
+        - name: Build and push image
+          id: build-image
+          run: |
+           az acr build --image ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }} --registry ${{ secrets.REGISTRY_LOGIN_SERVER }} --file "Dockerfile" .
 
-       - name: 'Deploy to Azure Container Instances'
-         uses: 'azure/aci-deploy@v1'
-         with:
-          resource-group: ${{ secrets.RESOURCE_GROUP }}
-          dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
-          image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
-          registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-          registry-username: ${{ secrets.REGISTRY_USERNAME }}
-          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-          name: aci-sampleapp
-          location: 'west us'
+        - name: 'Deploy to Azure Container Instances'
+          uses: 'azure/aci-deploy@v1'
+          with:
+           resource-group: ${{ secrets.RESOURCE_GROUP }}
+           dns-name-label: ${{ secrets.RESOURCE_GROUP }}${{ github.run_number }}
+           image: ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
+           registry-login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+           registry-username: ${{ secrets.REGISTRY_USERNAME }}
+           registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+           name: aci-sampleapp
+           location: 'west us'
 ```
 
 ---
