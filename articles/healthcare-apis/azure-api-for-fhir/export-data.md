@@ -61,7 +61,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | \_type | Yes | Allows you to specify which types of resources will be included. For example, \_type=Patient would return only patient resources|
 | \_typefilter | Yes | To request finer-grained filtering, you can use \_typefilter along with the \_type parameter. The value of the _typeFilter parameter is a comma-separated list of FHIR queries that further restrict the results |
 | \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container isn’t specified, the data will be exported to a new container. |
-| \_till | No |  Allows you to only export resources that have been modified since the time provided. This parameter is applicable to only System-Level export. |
+| \_till | No |  Allows you to only export resources that have been modified till the time provided. This parameter is applicable to only System-Level export. In this case, if historical versions exist, export guarantees true snapshot view, or, in other words, enables time travel. |
 
 > [!Note]
 > Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
