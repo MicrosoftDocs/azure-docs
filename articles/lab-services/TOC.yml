@@ -125,10 +125,12 @@
     href: lab-plan-setup-guide.md
   - name: Lab creation guide
     href: setup-guide.md
+  - name: Transition to August 2022 Update
+    href: migrate-to-2022-update.md  
   - name: Create & configure lab plans (admin)
     items:
     - name: Request core limit increase
-      href: how-to-request-capacity-increase.md
+      href: how-to-request-capacity-increase.md?tabs=Labplans
     - name: Determine Usage and Quota
       href: how-to-determine-your-quota-usage.md    
     - name: Create and manage lab plans
@@ -229,7 +231,7 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: How to troubleshoot a VM
+    - name: Troubleshoot a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
@@ -237,31 +239,19 @@
       href: lab-user-support-information.md
   - name: Use labs within Canvas
     items:
-      - name: Create a lab from Canvas
-        href: how-to-get-started-create-lab-within-canvas.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-canvas.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-canvas.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-canvas.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-canvas.md
-      - name: Access a VM (student view)
+      - name: Configure Canvas to use the service
+        href: how-to-configure-canvas-for-lab-plans.md
+      - name: Create & manage labs
+        href: how-to-manage-labs-within-canvas.md
+      - name: Access a lab VM
         href: how-to-access-vm-for-students-within-canvas.md     
   - name: Use labs within Teams
     items:
-      - name: Create a lab from Teams
-        href: how-to-get-started-create-lab-within-teams.md
-      - name: Manage user lists
-        href: how-to-manage-user-lists-within-teams.md
-      - name: Manage VM pool
-        href: how-to-manage-vm-pool-within-teams.md
-      - name: Delete labs
-        href: how-to-delete-lab-within-teams.md
-      - name: Schedules and settings
-        href: how-to-create-schedules-within-teams.md
-      - name: Access a VM (student view)
+      - name: Configure Teams to use the service
+        href: how-to-configure-teams-for-lab-plans.md
+      - name: Create & manage labs
+        href: how-to-manage-labs-within-teams.md
+      - name: Access a lab VM
         href: how-to-access-vm-for-students-within-teams.md 
   - name: Earlier releases
     items:
@@ -299,6 +289,10 @@
       href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
+- name: Troubleshoot & debug
+  items:
+  - name: Troubleshoot lab VM Access
+    href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
   - name: .NET

@@ -39,7 +39,7 @@ This procedure describes how to create new users for an on-premises management c
     |**Last Name**     |   Enter the user's last name.      |
     |**Role**     |  Select a user role. For more information, see [On-premises user roles](roles-on-premises.md#on-premises-user-roles).      |
     |**Remote Sites Access Group**     | Available for the on-premises management console only.   <br><br> Select either **All** to assign the user to all global access groups, or **Specific** to assign them to a specific group only, and then select the group from the drop-down list.   <br><br>For more information, see [Define global access permission for on-premises users](#define-global-access-permission-for-on-premises-users).  |
-    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one numbers<br>- At least one symbol|
+    |**Password**     |   Select the user type, either **Local** or **Active Directory User**. <br><br>For local users, enter a password for the user. Password requirements include: <br>- At least eight characters<br>- Both lowercase and uppercase alphabetic characters<br>- At least one number<br>- At least one symbol|
 
     > [!TIP]
     > Integrating with Active Directory lets you associate groups of users with specific permission levels. If you want to create users using Active Directory, first configure [Active Directory on the on-premises management console](#integrate-users-with-active-directory) and then return to this procedure.
@@ -107,7 +107,7 @@ This procedure describes how to recover either the *cyberx* or *support* user pa
     >
     > Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensors were onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the on-premises management console again.
 
-1. Select **Next**. A system-generated password for your on-premises management console appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+1. Select **Next**. A system-generated password for your on-premises management console appears for you to use for the selected user. Make sure to write down the password as it won't be shown again.
 
 1. Select **Next** again to sign into your on-premises management console.
 
@@ -137,7 +137,7 @@ For more information, see [Active Directory support on sensors and on-premises m
     |**Domain Controller FQDN**     |  The fully qualified domain name (FQDN), exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`.       |
     |**Domain Controller Port**     |  The port on which your LDAP is configured.       |
     |**Primary Domain**     |  The domain name, such as `subdomain.domain.com`, and then select the connection type for your LDAP configuration. <br><br>Supported connection types include: **LDAPS/NTLMv3** (recommended), **LDAP/NTLMv3**, or **LDAP/SASL-MD5**       |
-    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users. <!--what?-->|
+    |**Active Directory Groups**     | Select **+ Add** to add an Active Directory group to each permission level listed, as needed. <br><br>When you enter a group name, make sure that you enter the group name as it's defined in your Active Directory configuration on the LDAP server. Then, make sure to use these groups when creating new sensor users from Active Directory.<br><br>        Supported permission levels include **Read-only**, **Security Analyst**, **Admin**, and **Trusted Domains**.<br><br>        Add groups as **Trusted endpoints** in a separate row from the other Active Directory groups. To add a trusted domain, add the domain name and the connection type of a trusted domain. You can configure trusted endpoints only for users who were defined under users.|
 
     Select **+ Add Server** to add another server and enter its values as needed, and **Save** when you're done.
 
@@ -219,7 +219,7 @@ Before you create access groups, we also recommend that you:
 
 If you later modify a topology entity and the change affects the rule logic, the rule is automatically deleted.
 
-If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
+If modifications to topology entities affect rule logic so that all rules are deleted, the access group remains but users won't be able to sign in to the on-premises management console. Instead, users are notified to contact their on-premises management console administrator for help with signing in. [Update the settings](#add-new-on-premises-management-console-users) for these users so that they're no longer part of the legacy access group.
 
 ## Control user session timeouts
 

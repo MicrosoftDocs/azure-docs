@@ -9,7 +9,7 @@ ms.custom: event-tier1-build-2022
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/25/2022
+ms.date: 12/05/2022
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -19,6 +19,23 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+
+## 2022-12-05
+
+### Azure Machine Learning SDK for Python v1.48.0
+  + **Breaking changes**  
+    + Python 3.6 support has been deprecated for AzureML SDK packages.
+  
+  + **Bug fixes and improvements**
+    + **azureml-core**
+      + Storage accounts created as a part of workspace creation now set blob public access to disabled by default
+    + **azureml-responsibleai**
+      + Updated azureml-responsibleai package and notebooks to raiwidgets and responsibleai packages v0.23.0
+      + Added model serializer and pyfunc model to azureml-responsibleai package for saving and retrieving models easily
+    + **azureml-train-automl-runtime**
+      + Added docstring for ManyModels Parameters and HierarchicalTimeSeries Parameters
+      + Fixed bug where generated code does not do train/test splits correctly.
+      + Fixed a bug that was causing forecasting generated code training jobs to fail.
 
 ## 2022-10-25
 

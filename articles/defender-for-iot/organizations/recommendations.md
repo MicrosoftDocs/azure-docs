@@ -1,7 +1,7 @@
 ---
 title: Enhance security posture with security recommendations - Microsoft Defender for IoT
 description: Learn about how to find security recommendations for devices detected by Microsoft Defender for IoT.
-ms.date: 11/23/2022
+ms.date: 12/12/2022
 ms.topic: how-to
 ---
 
@@ -11,7 +11,8 @@ Use Microsoft Defender for IoT's security recommendations to enhance your networ
 
 Defender for IoT security recommendations are generated for devices detected by both OT and Enterprise IoT network sensors.
 
-<!--add public preview-->
+> [!IMPORTANT]
+> The **Recommendations** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## View security recommendations
 

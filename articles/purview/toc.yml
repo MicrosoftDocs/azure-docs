@@ -142,10 +142,6 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
-  - name: Master Data Management
-    items:
-    - name: Profisee
-      href: how-to-deploy-profisee-purview-integration.md
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
@@ -287,8 +283,12 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
+    - name: Create & manage glossaries
+      href: how-to-create-manage-glossary.md
     - name: Create & manage terms
-      href: how-to-create-import-export-glossary.md
+      href: how-to-create-manage-glossary-term.md
+    - name: Import & export terms
+      href: how-to-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
   - name: Classify
@@ -411,6 +411,10 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
+  - name: Master Data Management
+    items:
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
 - name: Reference
   items:
     - name: Product glossary reference

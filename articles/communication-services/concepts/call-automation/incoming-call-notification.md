@@ -47,9 +47,20 @@ This architecture has the following benefits:
 
 To check out a sample payload for the event and to learn about other calling events published to Event Grid, check out this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 
+Below is an example of an Event Grid Webhook subscription where the event type filter is listening only to the `IncomingCall` event.
+
+![Image showing IncomingCall subscription.](./media/subscribe-incoming-call-event-grid.png)
+
 ## Call routing in Call Automation or Event Grid
 
 You can use [advanced filters](../../../event-grid/event-filtering.md) in your Event Grid subscription to subscribe to an `IncomingCall` notification for a specific source/destination phone number or Azure Communication Services identity and sent it to an endpoint such as a Webhook subscription. That endpoint application can then make a decision to **redirect** the call using the Call Automation SDK to another Azure Communication Services identity or to the PSTN.
+
+> [!NOTE]
+> In many cases you will want to configure filtering in Event Grid due to the scenarios described above generating an `IncomingCall` event so that your application only receives events it should be responding to. For example, if you want to redirect an inbound PSTN call to an ACS endpoint and you don't use a filter, your Event Grid subscription will receive two `IncomingCall` events; one for the PSTN call and one for the ACS user even though you had not intended to receive the second notification. Failure to handle these scenarios using filters or some other mechanism in your application can cause infinite loops and/or other undesired behavior.
+
+Below is an example of an advanced filter on an Event Grid subscription watching for the `data.to.PhoneNumber.Value` string starting with a PSTN phone number of `+18005551212.
+
+![Image showing Event Grid advanced filter.](./media/event-grid-advanced-filter.png)
 
 ## Number assignment
 

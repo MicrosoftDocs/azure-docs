@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 11/01/2022
+ms.date: 12/01/2022
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,16 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
+
+## November 2022
+
+### Updated articles
+
+- [Review permissions granted to enterprise applications](manage-application-permissions.md)
+- [Assign users and groups to an application](assign-user-or-group-access-portal.md)
+- [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort](silverfort-azure-ad-integration.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Restore an enterprise application in Azure AD](restore-application.md)
 
 ## October 2022
 
@@ -37,9 +47,3 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 
 - [Manage app consent policies](manage-app-consent-policies.md)
 - [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
-
-## August 2022
-
-### Updated articles
-
-- [Hide an enterprise application](hide-application-from-user-portal.md)

@@ -1,9 +1,8 @@
 ---
 title: Azure Stream Analytics job states
 description: This article describes the four different states of a Stream Analytics job; running, stopped, degraded, and failed.
-author: sidramadoss
-ms.author: sidram
-
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019

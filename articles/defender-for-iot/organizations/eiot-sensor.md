@@ -189,9 +189,7 @@ If you're a Defender for Endpoint customer with an Enterprise IoT plan, you'll b
 
 For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md) and [Microsoft 365 Defender device discovery](/microsoft-365/security/defender-endpoint/machines-view-overview).
 
-After detecting new devices with the Enterprise IoT network sensor, you may need to edit the number of committed devices in your Enterprise IoT plan.
-
-You can only edit the number of committed devices on a monthly or annual commitment, as trial commitments automatically include 1,000 devices for 30 days. For more information, see:
+If you're on a monthly commitment, you may want to edit the number of committed devices in your Enterprise IoT plan. For more information, see:
 
 - [Calculate committed devices for Enterprise IoT monitoring](manage-subscriptions-enterprise.md#calculate-committed-devices-for-enterprise-iot-monitoring)
 - [Defender for IoT subscription billing](billing.md)

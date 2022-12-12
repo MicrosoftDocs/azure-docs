@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator that will begin to be enabled by default for all users starting February 27, 2023.<br> 
+>Number matching is a key security upgrade to traditional second factor notifications in Microsoft Authenticator. We will remove the admin controls and enforce the number match experience tenant-wide for all users starting February 27, 2023.<br> 
 >We highly recommend enabling number matching in the near term for improved sign-in security.
 
 ## Prerequisites
@@ -37,8 +37,6 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
 - [NPS extension](howto-mfa-nps-extension.md)
 
-Number matching is available for sign-in for Azure Government. However, it's currently not available for Authenticator setup in combined registration. Number matching will be available for Authenticator setup in [combined registration](howto-registration-mfa-sspr-combined.md) by November 30, 2022 for Azure Government.
-
 Number matching isn't supported for Apple Watch notifications. Apple Watch users need to use their phone to approve notifications when number matching is enabled.
 
 ### Multifactor authentication
@@ -53,7 +51,7 @@ During self-service password reset, the Authenticator app notification will show
 
 ### Combined registration
 
-When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. Number matching will be available for Authenticator setup in combined registration in Azure Government by November 30, 2022.
+When a user goes through combined registration to set up the Authenticator app, the user is asked to approve a notification as part of adding the account. For users who are enabled for number matching, this notification will show a number that they need to type in their Authenticator app notification. 
 
 ### AD FS adapter
 
