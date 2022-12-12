@@ -29,15 +29,14 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
  
 ### Data flow
 
-- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#data-preview)
+- Incremental only is available in SAP CDC - get changes only from SAP system without initial full load  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
 - Source partitions in initial full data load of SAP CDC to improve performance  [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#mapping-data-flow-properties)
 - A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
 
 ### Data Movement
 
-- OAuth authentication is supported in Snowflake connector regarding Copy activity   [Learn more](connector-sap-change-data-capture.md?tabs=data-factory#transform-data-with-the-sap-cdc-connector9)
-- •	Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
-- 
+- OAuth authentication is supported in Snowflake connector regarding Copy activity [Learn more](connector-snowflake.md#oauth-authentication)
+- Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface
 
