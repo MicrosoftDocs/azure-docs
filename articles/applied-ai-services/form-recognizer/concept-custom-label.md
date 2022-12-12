@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 12/01/2022
 ms.author: vikurpad
 ms.custom: references_regions
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
