@@ -99,7 +99,7 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
 - You can assign a managed identity to the compute in the compute attach step.
 - If the compute has already been attached, you can update the settings to use a managed identity in Azure Machine Learning studio.
     - Go to [Azure Machine Learning studio](https://ml.azure.com). Select __Compute__, __Attached compute__, and select your attached compute.
-    - Edit managed identity.
+    - Select the pencil icon to edit managed identity.
 
     :::image type="content" source="media/how-to-attach-arc-kubernetes/edit-identity.png" alt-text="Screenshot of updating identity of the Kubernetes compute from Azure portal.":::
     
