@@ -366,7 +366,7 @@ When you have a new version pipeline job with optimized performance, you can upd
 
 1. In the new version pipeline job detail page, select **Schedule** -> **Update to existing schedule**.
 
-        :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the of jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
+     :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the of jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
 
 2. Select an existing schedule from the table. 
 
@@ -470,7 +470,7 @@ You can delete a schedule from the schedule detail page or all schedules tab.
 
 Since schedules are usually used for production, to reduce impact of operations, workspace admins may want to restrict access to creating and managing schedules within a workspace.
 
-Currently there are three action rules related to schedules and you can configure in Azure portal. You can learn more details about [how to manage access to an Azure Machine Learning workspace.](create-custom-role.md)
+Currently there are three action rules related to schedules and you can configure in Azure portal. You can learn more details about [how to manage access to an Azure Machine Learning workspace.](how-to-assign-roles.md#create-custom-role)
 
 | Action | Description                                                                | Rule                                                          |
 |--------|----------------------------------------------------------------------------|---------------------------------------------------------------|
