@@ -52,4 +52,4 @@ Virtual machines that run in a cloud service are also supported. Only cloud serv
 
 - Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
-- Learn how to [plan and understand the design considerations to adopt Microsoft Defender for Cloud](security-center-planning-and-operations-guide.md).
+- Learn how to [plan and understand the design considerations to adopt Microsoft Defender for Cloud](defender-for-cloud-planning-and-operations-guide.md).
