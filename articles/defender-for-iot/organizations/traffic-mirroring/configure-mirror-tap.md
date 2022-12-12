@@ -36,17 +36,19 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **Garland P1GCCAS**
 
-    When using a Garland TAP, make sure jumpers are set as follows:
+    When using a Garland TAP, make sure to refer to the **Tap Aggregation** diagram under the **Network Diagrams** tab [here](https://www.garlandtechnology.com/products/aggregator-tap-copper).
 
-    :::image type="content" source="../media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
+    :::image type="content" source="../media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Diagram of US Robotics switch." lightbox="../media/how-to-set-up-your-network/jumper-setup-v2.jpg":::
 
 - **IXIA TPA2-CU3**
 
-    :::image type="content" source="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
+    :::image type="content" source="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Image of IXIA TPA2-CU3." border="false" lightbox="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png":::
 
 - **US Robotics USR 4503**
 
-    When using a US Robotics TAP, make sure **Aggregation mode** is active.
+    When using a US Robotics TAP, make sure **Aggregation mode** is active. For more information, see [the installation guide](https://www.usr.com/files/9814/7819/2756/4503-ig.pdf)
+
+    :::image type="content" source="../media/how-to-set-up-your-network/us-robotics-usr-4503.png" alt-text="Image of US Robotics USR 4503." border="false" lightbox="../media/how-to-set-up-your-network/us-robotics-usr-4503.png":::
 
 ## Next steps
 
