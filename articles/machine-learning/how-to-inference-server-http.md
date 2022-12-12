@@ -258,6 +258,23 @@ For example, a GET request to `/score` will be logged as follows:
 2022-11-29 16:54:29,313 I [21] azmlinfsrv.access - GET /score?a=10 200 15 21ms
 ```
 
+## Troubleshooting guide
+In this section, we'll provide an overview of how the inference server works and basic troubleshooting tips. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
+
+### General(?)
+<To be updated>
+
+### Server version
+
+The server package `azureml-inference-server-http` is published to PyPI. You can find our changelog and all previous versions on our [PyPI page](https://pypi.org/project/azureml-inference-server-http/).
+- 0.4.x: This is the version that is bundled in training images ≤ `20220601` and in `azureml-defaults>=1.34,<=1.43`. `0.4.13` is the last stable version. If you use the server before version `0.4.11`, you may see Flask dependency issues like cannot import name `Markup` from `jinja2` and you're strongly recommended to upgrade to `0.4.13` or `0.7.x`, if possible.
+- 0.6.x: This is the version that is preinstalled in inferencing images ≤ 20220516. The latest stable version is `0.6.1`.
+- 0.7.x: This is the first version that supports Flask 2. You can find the latest stable version from our PyPI page .
+- 0.8.x: 
+Most of the development work happens in `0.7.x` and above. Update to `0.8.x` if they are on an earlier version.
+
+
+
 ## Frequently asked questions
 
 ### 1. I encountered the following error during server startup:
