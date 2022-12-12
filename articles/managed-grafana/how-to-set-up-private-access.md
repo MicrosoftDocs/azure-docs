@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: managed-grafana
 ms.topic: how-to 
-ms.date: 11/10/2022
+ms.date: 12/12/2022
 ms.custom: template-how-to
 ---
 
@@ -22,7 +22,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 
 Public access is enabled by default when you create an Azure Grafana workspace. Disabling public access prevents all traffic from accessing the resource unless you go through a private endpoint.
 
-To disable access to the Azure Managed Grafana instance from public network, follow the process below.
+Disable access to the Azure Managed Grafana instance from public network.
 
 ### [Portal](#tab/azure-portal)
 
@@ -35,10 +35,10 @@ To disable access to the Azure Managed Grafana instance from public network, fol
 
 ### [Azure CLI](#tab/azure-cli)
 
-In the CLI, run the following code:
+In the CLI, run the [az grafana update](/cli/azure/grafana#az-grafana-update) command and replace the placeholders `<grafana-workspace>` and `<resource-group>` with your own information:
 
 ```azurecli-interactive
-az grafana update --name <name-of-the-grafana-workspace> --enable-public-network false
+az grafana update --name <grafana-workspace> ---resource-group <resource-group> --public-network-access disabled
 ```
 
 ---
@@ -107,40 +107,40 @@ Once deployment is complete, you'll get a notification that your endpoint has be
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To set up your private endpoint, you need a virtual network. If you don't have one yet, create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Replace the placeholder texts `<vnet-name>`, `<rg-name>`, and `<subnet-name>` with a name for your new virtual network, a resource group name, and a subnet name.
+1. To set up your private endpoint, you need a virtual network. If you don't have one yet, create a virtual network with [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Replace the placeholder texts `<vnet>`, `<resource-group>`, `<subnet>`, and `<vnet-location>` with the name of your new virtual network,  resource group, and name, and vnet location.
 
     ```azurecli-interactive
-    az network vnet create --name <vnet-name> --resource-group <rg-name> --subnet-name <subnet-name> --location <vnet-location>
+    az network vnet create --name <vnet> --resource-group <resource-group> --subnet-name <subnet> --location <vnet-location>
     ```
 
     > [!div class="mx-tdBreakAll"]
     > | Placeholder      | Description                                                                                                                                           | Example           |
     > |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
-    > | `<vnet-name>`    | Enter a name for your new virtual network. A virtual network enables Azure resources to communicate privately with each other, and with the internet. | `MyVNet`          |
-    > | `<rg-name>`      | Enter the name of an existing resource group for your virtual network.                                                                                | `MyResourceGroup` |
-    > | `<subnet-name>`  | Enter a name for your new subnet. A subnet is a network inside a network. This is where the private IP address is assigned.                           | `MySubnet`        |
+    > | `<vnet>`    | Enter a name for your new virtual network. A virtual network enables Azure resources to communicate privately with each other, and with the internet. | `MyVNet`          |
+    > | `<resource-group>`      | Enter the name of an existing resource group for your virtual network.                                                                                | `MyResourceGroup` |
+    > | `<subnet>`  | Enter a name for your new subnet. A subnet is a network inside a network. This is where the private IP address is assigned.                           | `MySubnet`        |
     > | `<vnet-location>`| Enter an Azure region. Your virtual network must be in the same region as your private endpoint.                                                      | `centralus`       |
 
-1. Run the command [az grafana show](/cli/azure/grafana#az-grafana-show) to retrieve the properties of the Azure Managed Grafana workspace, for which you want to set up private access. Replace the placeholder `name` with the name of your workspace.
+1. Run the command [az grafana show](/cli/azure/grafana#az-grafana-show) to retrieve the properties of the Azure Managed Grafana workspace, for which you want to set up private access. Replace the placeholder `<grafana-workspace` with the name of your workspace.
 
     ```azurecli-interactive
-    az grafana show --name <name>
+    az grafana show --name <grafana-workspace>
     ```
 
-    This command generates an output with information about your Azure Managed Grafana workspace. Note down the `id` value. For instance: */subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.Dashboard/grafana/my-azure-managed-grafana*.
+    This command generates an output with information about your Azure Managed Grafana workspace. Note down the `id` value. For instance: `/subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.Dashboard/grafana/my-azure-managed-grafana`.
 
-1. Run the command [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private endpoint for your Azure Managed Grafana instance. Replace the placeholder texts `<resource-group>`, `<private-endpoint-name>`, `<vnet-name>`, `<private-connection-resource-id>`, `<connection-name>`, and `<location>` with your own information.
+1. Run the command [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private endpoint for your Azure Managed Grafana instance. Replace the placeholder texts `<resource-group>`, `<private-endpoint>`, `<vnet>`, `<private-connection-resource-id>`, `<connection-name>`, and `<location>` with your own information.
 
     ```azurecli-interactive
-    az network private-endpoint create --resource-group <resource-group> --name <private-endpoint-name> --vnet-name <vnet-name> --subnet Default --private-connection-resource-id <private-connection-resource-id> --connection-name <connection-name> --location <location> --group-id grafana
+    az network private-endpoint create --resource-group <resource-group> --name <private-endpoint> --vnet-name <vnet> --subnet Default --private-connection-resource-id <private-connection-resource-id> --connection-name <connection-name> --location <location> --group-id grafana
     ```
 
     > [!div class="mx-tdBreakAll"]
     > | Placeholder                        | Description                                                                                                                      | Example                                                                                                        |
     > |------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
     > | `<resource-group>`                 | Enter the name of an existing resource group for your private endpoint.                                                          | `MyResourceGroup`                                                                                              |
-    > | `<private-endpoint-name>`          | Enter a name for your new private endpoint.                                                                                      | `MyPrivateEndpoint`                                                                                            |
-    > | `<vnet-name>`                      | Enter the name of an existing vnet.                                                                                              | `Myvnet`                                                                                                       |
+    > | `<private-endpoint>`          | Enter a name for your new private endpoint.                                                                                      | `MyPrivateEndpoint`                                                                                            |
+    > | `<vnet>`                      | Enter the name of an existing vnet.                                                                                              | `Myvnet`                                                                                                       |
     > | `<private-connection-resource-id>` | Enter your Azure Managed Grafana workspace's private connection resource ID. This is the ID you saved from the output of the previous step. | `/subscriptions/123/resourceGroups/MyResourceGroup/providers/Microsoft.Dashboard/grafana/my-azure-managed-grafana`|
     > | `<connection-name>`                | Enter a connection name.                                                                                                         |`MyConnection`                                                                                                  |
     > | `<location>`                       | Enter an Azure region. Your private endpoint must be in the same region as your virtual network.                                 |`centralus`                                                                                                     |  
@@ -165,33 +165,33 @@ Go to **Networking** > **Private Access** in your Azure Managed Grafana workspac
 
 #### Review private endpoint connection details
 
-Run the  [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to review all private endpoint connections linked to your Azure Managed Grafana workspace and check their connection state. Replace the placeholder texts `resource-group` and `azure-managed-grafana-workspace` with the name of the resource group and the name of the workspace.
+Run the  [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to review all private endpoint connections linked to your Azure Managed Grafana workspace and check their connection state. Replace the placeholders `<resource-group>` and `<grafana-workspace>` with the name of the resource group and Azure Managed Grafana workspace.
 
 ```azurecli-interactive
-az network private-endpoint-connection list --resource-group <resource-group> --name <azure-managed-grafana-workspace> --type Microsoft.Dashboard/grafana
+az network private-endpoint-connection list --resource-group <resource-group> --name <grafana-workspace> --type Microsoft.Dashboard/grafana
 ```
 
-Optionally, to get the details of a specific private endpoint, use the [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) command. Replace the placeholder texts `resource-group` and `azure-managed-grafana-workspace` with the name of the resource group and the name of the Azure Managed Grafana resource.
+Optionally, to get the details of a specific private endpoint, use the [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) command. Replace the placeholder texts `<resource-group>` and `<grafana-workspace>` with the name of the resource group and the name of the Azure Managed Grafana workspace.
 
 ```azurecli-interactive
-az network private-endpoint-connection show --resource-group <resource-group> --name <azure-managed-grafana-workspace> --type Microsoft.Dashboard/grafana
+az network private-endpoint-connection show --resource-group <resource-group> --name <grafana-workspace> --type Microsoft.Dashboard/grafana
 ```
 
 #### Get connection approval
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory and you have [sufficient permissions](../private-link/rbac-permissions.md), the connection request will be auto-approved. Otherwise, you must wait for the owner of that resource to approve your connection request.
 
-To approve a private endpoint connection, use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command. Replace the placeholder texts `resource-group`, `private-endpoint`, and `<azure-managed-grafana-workspace>` with the name of the resource group, the name of the private endpoint and the name of the Azure Managed Grafana resource.
+To approve a private endpoint connection, use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command. Replace the placeholder texts `<resource-group>`, `<private-endpoint>`, and `<grafana-workspace>` with the name of the resource group, the name of the private endpoint and the name of the Azure Managed Grafana resource.
 
 ```azurecli-interactive
-az network private-endpoint-connection approve --resource-group <resource-group> --name <private-endpoint> --type Microsoft.Dashboard/grafana --resource-name <azure-managed-grafana-workspace>
+az network private-endpoint-connection approve --resource-group <resource-group> --name <private-endpoint> --type Microsoft.Dashboard/grafana --resource-name <grafana-workspace>
 ```
 
 For more information about the connection approval models, go to [Manage Azure Private Endpoints](../private-link/manage-private-endpoint.md#private-endpoint-connections).
 
 #### Delete a private endpoint connection
 
-To delete a private endpoint connection, use the [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) command. Replace the placeholder texts `resource-group` and `private-endpoint` with the name of the resource group and the name of the private endpoint.
+To delete a private endpoint connection, use the [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) command. Replace the placeholder texts `<resource-group>` and `<private-endpoint>` with the name of the resource group and the name of the private endpoint.
 
 ```azurecli-interactive
 az network private-endpoint-connection delete --resource-group <resource-group> --name <private-endpoint>
