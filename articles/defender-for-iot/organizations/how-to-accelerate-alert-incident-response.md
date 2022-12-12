@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 
 
-# Accelerate alert workflows on an OT network sensor
+# Accelerate on-premises alert workflows
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
