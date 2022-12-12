@@ -29,7 +29,7 @@ When you acquire a lease, you'll obtain a lease ID that your code can use to ope
 
 The following example acquires a 30-second lease for a container:
 
-:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_AcquireLeaseContainer":::
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_AcquireLeaseContainer":::
 
 ## Renew a lease
 
