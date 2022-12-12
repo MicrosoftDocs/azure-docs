@@ -27,7 +27,8 @@ The following table describes the capabilities provided using a regional versus 
 | Supports local account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
 | Supports federated account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
 | Supports authenticating local accounts for users signing in from outside their registered region| ![Checkbox](media/azure-ad-b2c-global-identity-design-global-identity-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Supports authenticating federated accounts for users signing in from outside their registered region using cross-tenant API-based look up| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Supports authenticating federated accounts for users signing in from outside their registered region using cross-tenant API-based look up|
+ ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
 | Prevents sign up from multiple different regions| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
 | Applications in each region have a set of endpoints to connect with| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
 | All applications connect to a single set of endpoints, regardless of which region they're hosted| | ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
