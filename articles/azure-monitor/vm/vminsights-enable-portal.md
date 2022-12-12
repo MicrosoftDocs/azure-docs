@@ -50,16 +50,16 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
  
 1. Select **Enable** on the introduction page to view the configuration. 
  
-1. Select **Azure Monitor agent** from the **Monitoring configuration** page and then select **Azure Monitor agent**. 
+1. Select **Azure Monitor agent** from the **Monitoring configuration** page. 
 
 1. If a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) hasn't already been created for unmonitored machines, then one will be created with the following details. 
 
     - **Guest performance** enabled.
     - **Processes and dependencies** disabled.
 
-1. If you want this configuration, select **Configure** to start the agent installation, or select a different data collection rule from the dropdown. Only data collection rules enabled for VM insights will be included.
+1. If you want this configuration, select **Configure** to start the agent installation. Otherwise, select a different data collection rule from the dropdown. You can only select data collection rules enabled for VM insights.
  
-1. If you want a different configuration or want to use a different Log Analytics workspace, then click **Create new** to create a new data collection rule. This will allow you to select a workspace and specify whether you want to collect processes and dependencies to enable the [map feature in VM insights](vminsights-maps.md).
+1. If you want a different configuration or want to use a different Log Analytics workspace, select **Create new** to create a new data collection rule. This will allow you to select a workspace and specify whether you want to collect processes and dependencies to enable the [map feature in VM insights](vminsights-maps.md).
 
     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
