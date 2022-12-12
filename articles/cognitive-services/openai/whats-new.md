@@ -19,19 +19,19 @@ keywords:
 
 ### New features
 
-* **The latest models from OpenAI.** Azure OpenAI provides access to all the latest models including the GPT-3.5 series​
+* **The latest models from OpenAI.** Azure OpenAI provides access to all the latest models including the GPT-3.5 series​.
 
-* **New API version (2022-12-01).** This update includes several customer requested enhancements including token usage information in the API response, improved error messages for files, alignment with OpenAI on fine-tuning creation data structure and support for the suffix parameter to allow customer naming of fine-tuned jobs.  ​
+* **New API version (2022-12-01).** This update includes several requested enhancements including token usage information in the API response, improved error messages for files, alignment with OpenAI on fine-tuning creation data structure, and support for the suffix parameter to allow custom naming of fine-tuned jobs.  ​
 
 * **Higher request per second limits.** 50 for non-Davinci models. 20 for DaVinci models.​
 
-* **Faster fine-tune deployments.** Deploy an Ada and Curie Fine-tuned models in under 10 minutes​
+* **Faster fine-tune deployments.** Deploy an Ada and Curie fine-tuned models in under 10 minutes.​
 
-* **Higher training limits:** 40M training tokens for Ada, Babbage and Curie; 10M for Davinci​
+* **Higher training limits:** 40M training tokens for Ada, Babbage, and Curie. 10M for Davinci.​
 
-* **Process for requesting modifications to the abuse & miss-use data logging & human review.** Today, the service logs request/response data for the purposes of abuse and miss-use detection to ensure that these powerful models aren't abused. However, many customers have strict data privacy and security requirements that require greater control over their data. To support these use cases, we're releasing a new process for customers to modify the content filtering policies or turn off the abuse logging for low-risk use cases. This process follows the established Limited Access process within the cognitive services and existing OpenAI customers can apply here: {link}.​
+* **Process for requesting modifications to the abuse & miss-use data logging & human review.** Today, the service logs request/response data for the purposes of abuse and misuse detection to ensure that these powerful models aren't abused. However, many customers have strict data privacy and security requirements that require greater control over their data. To support these use cases, we're releasing a new process for customers to modify the content filtering policies or turn off the abuse logging for low-risk use cases. This process follows the established Limited Access process within Azure Cognitive Services and existing OpenAI customers can apply here: {link}.​
 
-* **Customer managed key (CMK) encryption.** CMK provides customers greater control over managing their data in the Azure OpenAI Service by providing their own encryption keys used for storing training data and customized models. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. Learn more here: {link}​
+* **Customer managed key (CMK) encryption.** CMK provides customers greater control over managing their data in the Azure OpenAI Service by providing their own encryption keys used for storing training data and customized models. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. [Learn more from our encryption at rest documentation](azure/cognitive-services/openai/encrypt-data-at-rest).
 
 * **Lockbox support**​
 
@@ -71,13 +71,13 @@ keywords:
 }
 ```
 
-**Content filtering** is temporarily **off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filter them from the response. [Learn More​](/azure/cognitive-services/openai/concepts/content-filter)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](/azure/cognitive-services/openai/concepts/content-filter)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 
-​**Customer Actions:**​
+​**Customer actions**​
 
-* Contact Azure Support if you would like these turned on for your subscription​
+* Contact Azure Support if you would like these turned on for your subscription​.
 * Apply for filtering modifications {link}, if you would like to have them remain off. (This option will be for low-risk use cases only.)​
 
 ## Next steps
