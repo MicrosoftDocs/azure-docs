@@ -392,7 +392,7 @@ As noted earlier, the script specified in `CodeConfiguration(scoring_script="sco
 
 As noted earlier, the script specified in `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). 
 
-When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store and then register it:
+When using a template for deployment, you must first upload the scoring file(s) to an Azure Blob store, and then register it:
 
 1. The following example uses the Azure CLI command `az storage blob upload-batch` to upload the scoring file(s):
 
