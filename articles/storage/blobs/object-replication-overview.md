@@ -4,7 +4,6 @@ titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
 services: storage
 author: normesta
-
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/09/2022
@@ -39,7 +38,7 @@ Enabling change feed and blob versioning may incur additional costs. For more in
 
 Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported.
 
-Object replication is supported for accounts that are encrypted with customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+Object replication is supported for accounts that are encrypted with either microsoft-managed keys or customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
 Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 

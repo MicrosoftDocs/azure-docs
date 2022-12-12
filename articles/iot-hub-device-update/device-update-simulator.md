@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) sim
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
 author: kgremban
 ms.author: kgremban
-ms.date: 1/26/2022
+ms.date: 12/2/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
@@ -155,7 +155,7 @@ In this section, you use the files `TutorialImportManifest_Sim.importmanifest.js
 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage accounts and Containers." lightbox="media/import-update/storage-account-ppr.png":::
 
-1. In your container, select **Upload** and go to the files you downloaded in step 1. After you've selected all your update files, select **Upload**. Then select the **Select** button to return to the **Import update** page.
+1. In your container, select **Upload** and go to the files you downloaded in step 1. Select the **TutorialImportManifest_Sim.importmanifest.json** and the **adu-update-image-raspberrypi3.swu** files. After you've selected all your update files, select **Upload**. Then select the **Select** button to return to the **Import update** page.
 
    :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files." lightbox="media/import-update/import-select-ppr.png":::
 

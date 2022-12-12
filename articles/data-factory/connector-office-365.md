@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse, ignite-2022
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 11/28/2022
 ms.author: jianleishen
 ---
 # Copy and transform data from Microsoft 365 (Office 365) into Azure using Azure Data Factory or Synapse Analytics
@@ -26,9 +26,9 @@ This Microsoft 365 (Office 365) connector is supported for the following capabil
 
 | Supported capabilities|IR |
 |---------| --------|
-|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312;|
 |[Mapping data flow](concepts-data-flow-overview.md) (source/-)|&#9312;|
-|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md) (source/-)|&#9312;|
 
 <small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 

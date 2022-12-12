@@ -7,7 +7,7 @@ ms.reviwer: nikeist
 
 ---
 
-# Data collection transformations in Azure Monitor (preview)
+# Data collection transformations in Azure Monitor
 Transformations in Azure Monitor allow you to filter or modify incoming data before it's sent to a Log Analytics workspace. This article provides a basic description of transformations and how they are implemented. It provides links to other content for actually creating a transformation.
 
 ## Why to use transformations
@@ -24,7 +24,7 @@ The following table describes the different goals that transformations can be us
 ## Supported tables
 Transformations may be applied to the following tables in a Log Analytics workspace. 
 
-- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs (preview)](../logs/tables-feature-support.md)
+- Any Azure table listed in [Tables that support transformations in Azure Monitor Logs](../logs/tables-feature-support.md)
 - Any custom table
 
 
@@ -56,7 +56,20 @@ There are multiple methods to create transformations depending on the data colle
 | Type | Reference |
 |:---|:---|
 | Logs ingestion API with transformation | [Send data to Azure Monitor Logs using REST API (Azure portal)](../logs/tutorial-logs-ingestion-portal.md)<br>[Send data to Azure Monitor Logs using REST API (Resource Manager templates)](../logs/tutorial-logs-ingestion-api.md) |
-| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal (preview)](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates (preview)](../logs/tutorial-workspace-transformations-api.md)
+| Transformation in workspace DCR | [Add workspace transformation to Azure Monitor Logs using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Add workspace transformation to Azure Monitor Logs using resource manager templates](../logs/tutorial-workspace-transformations-api.md)
+
+## Cost for transformations
+There is no direct cost for transformations, but you may incur charges for the following:
+
+- If your transformation increases the size of the incoming data, adding a calculated column for example, then you're charged at the normal rate for ingestion of that additional data.
+- If your transformation reduces the incoming data by more than 50%, then you're charged for ingestion of the amount of filtered data above 50%.
+
+The formula to determine the filter ingestion charge from transformations is  `[GB filtered out by transformations] - ( [Total GB ingested] / 2 )`. For example, suppose that you ingest 100 GB on a particular day, and transformations remove 70 GB. You would be charged for 70 GB - (100 GB / 2) or 20 GB. To avoid this charge, you should use other methods to filter incoming data before the transformation is applied.
+
+See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor) for current charges for ingestion and retention of log data in Azure Monitor.
+
+> [!IMPORTANT]
+> If Azure Sentinel is enabled for the Log Analytics workspace, then there is no filtering ingestion charge regardless of how much data the transformation filters.
 
 
 ## Next steps

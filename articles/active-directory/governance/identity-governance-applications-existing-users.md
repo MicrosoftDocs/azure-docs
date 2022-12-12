@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Govern an application's existing users - Microsoft PowerShell
 
-There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md).
+There are two common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with a Microsoft Entra identity governance feature such as [access reviews](access-reviews-application-preparation.md).
 
 ### Application migrated to Azure AD after using its own identity provider
 
@@ -57,7 +57,7 @@ This article illustrates the process for managing application role assignments b
 
 In Azure AD, a service principal (`ServicePrincipal`) represents an application in a particular organization's directory. `ServicePrincipal` has a property called `AppRoles` that lists the roles that an application supports, such as `Marketing specialist`. `AppRoleAssignment` links a user to a service principal and specifies which role that user has in that application.
 
-You might also be using [Azure AD entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package. 
+You might also be using [Microsoft Entra entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package. 
 
 When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
 

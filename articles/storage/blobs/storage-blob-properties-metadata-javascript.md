@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/28/2022
+ms.date: 11/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -34,7 +34,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
 
 The following code example sets blob HTTP  system properties on a blob.
 
-To set the HTTP properties for a blob, call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
+To set the HTTP properties for a blob, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
 
 ```javascript
 /*
@@ -53,10 +53,9 @@ async function setHTTPHeaders(blobClient, headers) {
 }
 ```
 
-
 ## Set metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs with
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then send a JSON object of name-value pairs with
 
 - [BlobClient.setMetadata](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-setmetadata) returns a [BlobGetPropertiesResponse object](/javascript/api/@azure/storage-blob/blobgetpropertiesresponse).
 

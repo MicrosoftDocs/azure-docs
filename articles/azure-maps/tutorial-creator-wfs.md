@@ -48,7 +48,7 @@ To query all collections in your dataset:
 3. Enter the following URL to [WFS API](/rest/api/maps/v2/wfs). The request should look like the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
     ```
 
 4. Select **Send**.
@@ -94,7 +94,7 @@ To query the unit collection in your dataset:
 3. Enter the following URL:
 
     ```http
-    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0
+    https://us.atlas.microsoft.com/wfs/datasets/{datasetId}/collections/unit/items?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2.0
     ```
 
 4. Select **Send**.

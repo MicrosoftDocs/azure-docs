@@ -66,13 +66,14 @@ The following table lists the limits for the [Try Azure Cosmos DB](https://aka.m
 
 | Resource | Limit |
 | --- | --- |
-| Duration of the trial | 30 days¹²  |
+| Duration of the trial | 30 days¹² |
+| Type of account | Single node |
+| vCores | 2 |
+| Memory (GiB) | 8 |
+| Maximum storage size (GiB) | 128 |
 
 ¹ A new trial can be requested after expiration.
 ² After expiration, the information stored in your account is deleted. You can upgrade your account prior to expiration and migrate the information stored.
-
-> [!NOTE]
-> Try Azure Cosmos DB supports global distribution in only the **East US**, **North Europe**, **Southeast Asia**, and **North Central US** regions. Azure support tickets can't be created for Try Azure Cosmos DB accounts. However, support is provided for subscribers with existing support plans.
 
 ---
 
@@ -157,7 +158,9 @@ If you desire, you can migrate your existing data from the free account to the n
 
 1. Back in the **Upgrade** page from the [Start upgrade](#start-upgrade) section of this guide, insert the connection string of the new Azure Cosmos DB account in the **Connection string** field.
 
-1. Select **Next** to move the data to your account.
+1. Select the region where you account was created.
+
+1. Select **Finish** to move the data to your account.
 
 #### [MongoDB / Cassandra / Gremlin / Table](#tab/mongodb+cassandra+gremlin+table)
 

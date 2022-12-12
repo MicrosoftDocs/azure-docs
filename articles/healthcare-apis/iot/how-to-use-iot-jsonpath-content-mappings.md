@@ -1,11 +1,11 @@
 ---
-title: IotJsonPathContentTemplate mappings in MedTech service device mapping - Azure Health Data Services
-description: This article describes how to use IotJsonPathContentTemplate mappings with MedTech service device mapping. 
+title: How to use IotJsonPathContentTemplate mappings in the MedTech service device mapping - Azure Health Data Services
+description: This article describes how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 11/30/2022
 ms.author: jasteppe
 ---
 
@@ -272,6 +272,6 @@ With each of these examples, you're provided with:
 In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
-> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

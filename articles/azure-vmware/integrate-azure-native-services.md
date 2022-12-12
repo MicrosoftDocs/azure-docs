@@ -63,7 +63,7 @@ If you're new to Azure or unfamiliar with any of the services previously mention
 
 - [Automation account authentication overview](../automation/automation-security-overview.md)
 - [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md) and [Azure Monitor](../azure-monitor/overview.md)
-- [Planning](../security-center/security-center-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Microsoft Defender for Cloud
+- [Planning](../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md) and [Supported platforms](../security-center/security-center-os-coverage.md) for Microsoft Defender for Cloud
 - [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview.md)
 - [What is Azure Arc enabled servers?](../azure-arc/servers/overview.md) and [What is Azure Arc enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Update Management overview](../automation/update-management/overview.md)

@@ -28,7 +28,7 @@ Depending on your scenario, you may want to adjust the lifespan of tokens issued
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
 
 ### Set a custom token expiration time
-When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follow:
+When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follows:
 
 ```javascript
 const tokenOptions = { tokenExpiresInMinutes: 60 };
@@ -101,7 +101,7 @@ Let's assume we have a Node.js application built on Express with the `/getTokenF
 ```javascript
 app.post('/getTokenForTeamsUser', async (req, res) => {
     const identityClient = new CommunicationIdentityClient("<COMMUNICATION_SERVICES_CONNECTION_STRING>");
-    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken);
+    let communicationIdentityToken = await identityClient.getTokenForTeamsUser(req.body.teamsToken, '<AAD_CLIENT_ID>', '<TEAMS_USER_OBJECT_ID>');
     res.json({ communicationIdentityToken: communicationIdentityToken.token });
 });
 ```
