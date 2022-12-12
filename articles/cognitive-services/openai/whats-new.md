@@ -71,7 +71,7 @@ keywords:
 }
 ```
 
-**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](/azure/cognitive-services/openai/concepts/content-filter)
+**Content filtering is temporarily off** by default. Azure content moderation works differently than OpenAI. Azure OpenAI runs content filters during the generation call to detect harmful or abusive content and filters them from the response. [Learn More​](./concepts/content-filter.md)
 
 ​These models will be re-enabled in Q1 2023 and be on by default. ​
 
