@@ -19,7 +19,7 @@ This feature is applied per nodepool, so new and existing node pools must be con
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed][azure-cli-install].
+* [Azure CLI installed][azure-cli-install] (version 2.43.0 or greater).
 * A base64 encoded certificate string or a text file with certificate.
 
 ### Limitations
