@@ -1,7 +1,7 @@
 ---
-title: View alerts details on the sensor Alerts page - Microsoft Defender for IoT
-description: View alerts detected by your Defender for IoT sensor.
-ms.date: 06/02/2022
+title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
+description: Learn about viewing and managing alerts on an OT network sensor.
+ms.date: 12/12/2022
 ms.topic: how-to
 ---
 
@@ -68,7 +68,9 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 ## View details and remediate a specific alert
 
-1. On the **Alerts** page, select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
+1. Sign into the OT sensor and select **Alerts** on the left.
+
+1. Select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
 
     Select **View full details** to drill down further. For example:
 
@@ -95,9 +97,8 @@ Make sure to update your alert status once you've taken remediation steps so tha
 - **To manage alert status**:
 
     1. Select one or more alerts in the grid.
-    1. Use the toolbar ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
-
-    The ::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
+    1. Use the toolbar :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
+    The :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
 
 - **To learn one or more alerts**, do one of the following:
 
@@ -114,7 +115,7 @@ Make sure to update your alert status once you've taken remediation steps so tha
 - **To mute an alert**:
 
     1. Open the alert details page for a mutable alert.
-    1. On the **Take Action* tab, select **Mute**.
+    1. On the **Take Action** tab, select **Mute**.
 
 ## Access alert PCAP data
 
@@ -125,13 +126,15 @@ To access raw traffic files for your alert, select one of the following in the t
 - **Download Full PCAP**
 - **Download Filtered PCAP**
 
+For example:
+
 :::image type="content" source="media/alerts/download-pcap-sensor.png" alt-text="Screenshot of the Download PCAP options on the OT sensor.":::
 
 ### Export alerts to CSV or PDF
 
 You may want to export a selection of alerts to a CSV or PDF file for offline sharing and reporting.
 
-- Export alerts to a CSV file from the main **Alerts** page, one at a time, or in bulk.
+- Export alerts to a CSV file from the main **Alerts** page. Export alerts one at a time or in bulk.
 - Export alerts to a PDF file one at a time only, either from the main **Alerts** page or an alert details page.
 
 **To export alerts to a CSV file**:
@@ -155,7 +158,7 @@ The file is generated, and you're prompted to save it locally.
 
 Custom alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
 
-If your admin has created custom comments for your team to add to alerts, add them from the **Comments** section on an alert details page.
+If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-custom-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
 
 From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
 

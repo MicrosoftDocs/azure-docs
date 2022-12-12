@@ -1,6 +1,6 @@
 ---
 title: Microsoft Defender for IoT alerts
-description: Learn about the resources for managing Microsoft Defender for IoT alerts across the Azure portal, OT network sensors, and on-premises management consoles.
+description: Learn about Microsoft Defender for IoT alerts across the Azure portal, OT network sensors, and on-premises management consoles.
 ms.date: 12/12/2022
 ms.topic: how-to
 ---
@@ -17,10 +17,6 @@ Use the details shown on the **Alerts** page, or on an alert details page, to in
 
 > [!TIP]
 > Use remediation steps to help your SOC teams understand OT issues and resolutions. We recommend that you review recommended remediation steps before updating an alert status or taking action on the device or network.
->
-
-> [!NOTE]
-> The **Alerts** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Alert management options
