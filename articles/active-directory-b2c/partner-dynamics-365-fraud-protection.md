@@ -44,7 +44,7 @@ Microsoft DFP integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-   ![Image shows microsoft dynamics365 fraud protection architecture diagram](./media/partner-dynamics365-fraud-protection/microsoft-dynamics-365-fraud-protection-diagram.png)
+   ![Diagram of Microsoft Dynamics365 fraud protection architecture.](./media/partner-dynamics365-fraud-protection/microsoft-dynamics-365-fraud-protection-diagram.png)
 
 1. The user arrives at a sign-in page, selects option to create a new account, and enters information. Azure AD B2C collects user attributes.
 2. Azure AD B2C calls the Microsoft DFP API and passes the user attributes.
