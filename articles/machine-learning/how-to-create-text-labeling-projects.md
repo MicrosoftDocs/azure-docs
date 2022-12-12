@@ -144,7 +144,9 @@ At the beginning of your labeling project, the items are shuffled into a random 
 
 For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
 
-The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution.
+The exact number of labeled items necessary to start assisted labeling isn't a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution. 
+
+When you're using consensus labeling, the consensus label is used for training.
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
@@ -182,6 +184,24 @@ On the right side is a distribution of the labels for those tasks that are compl
 ### Data tab
 
 On the **Data** tab, you can see your dataset and review labeled data. Scroll through the labeled data to see the labels. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
+
+If your project uses consensus labeling, you'll also want to review those images without a consensus.  To do so:
+
+1. Select the **Data** tab.
+1. On the left, select  **Review labels**.
+1. On the top right, select **All filters**.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/select-filters.png" alt-text="Screenshot: select filters to review consensus label problems.":::
+
+1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus was not achieved among the labelers.
+
+    :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
+
+1. For each inage in need of review, select the **Consensus label** dropdown to view the conflicting labels. 
+
+    :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels.":::
+
+1. While you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
 
 ### Details tab
 
