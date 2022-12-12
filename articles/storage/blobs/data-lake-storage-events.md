@@ -290,7 +290,7 @@ Create an Azure Function that runs the Job.
 
 10. Replace the contents of the code file with this code, and then click the **Save** button:
 
-    ```cs
+    ```csharp
     using "Microsoft.Azure.EventGrid"
     using "Newtonsoft.Json"
     using Microsoft.Azure.EventGrid.Models;

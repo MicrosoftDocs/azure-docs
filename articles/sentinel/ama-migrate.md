@@ -43,17 +43,15 @@ The following tables show gap analyses for the log types that currently rely on 
 |**Sysmon**     |    Collection only      |      Collection only   |
 |**DNS logs**     |   [Windows DNS servers via AMA connector](connect-dns-ama.md) (Public preview)       | [Windows DNS Server connector](data-connectors/windows-server-dns-solution-for-sentinel.md) (Public preview)        |
 
-
 ### Linux logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
 |---------|---------|---------|
 |**Syslog**     |  Collection only      |   [Syslog data connector](connect-syslog.md)      |
-|**Common Event Format (CEF)**     |  Collection only       |  [CEF data connector](connect-common-event-format.md)       |
+|**Common Event Format (CEF)**     |  [CEF via AMA data connector](connect-cef-ama.md)       |  [CEF data connector](connect-common-event-format.md)       |
 |**Sysmon**     |   Collection only    |  Collection only      |
 |**Custom logs**     |   -       |  Collection only       |
 |**Multi-homing**     |   Collection only      |     -     |
-
 
 ## Recommended migration plan
 
