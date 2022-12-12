@@ -77,9 +77,9 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
 > You can also set the SAS expiration policy as you create a storage account by setting the `-SasExpirationPeriod` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
 > [!NOTE]
-> If you get error message *"No KeyCreationTime for key: key\<key number>, please regenerate that key"*, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
+> If you get an error message indicating that the creation time for a key has not been set, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
 
-To verify that the policy has been applied, use the `SasPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command.
+To verify that the policy has been applied, check the storage account's SasPolicy property.
   
 ```powershell
 $account.SasPolicy
@@ -105,7 +105,7 @@ az storage account update \
 > You can also set the SAS expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
 
 > [!NOTE]
-> If you get error message *"No KeyCreationTime for key: key\<key number>, please regenerate that key"*, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
+> If you get an error message indicating that the creation time for a key has not been set, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{SasPolicy:sasPolicy}` for the `-query` parameter.
   

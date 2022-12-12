@@ -174,7 +174,7 @@ az storage account show-connection-string --resource-group <resource-group> --na
 
 ## Get the creation time of the account access keys for a storage account
 
-If the creation time of the account access keys for a storage account are null, the keys will need to be rotated before performing configurations or other tasks that rely on them, such as [configuring a SAS expiration policy](sas-expiration-policy.md). You can get the creation time of the account access keys for a storage account by using the Azure portal, PowerShell, or Azure CLI.
+If the **keyCreationTime** property of one or both of the account access keys for a storage account is null, then you will need to rotate the keys before you can configure a key expiration policy or a SAS expiration policy. You can check the **keyCreationTime** for a storage account by using the Azure portal, PowerShell, or Azure CLI.
 
 # [Azure portal](#tab/portal)
 
