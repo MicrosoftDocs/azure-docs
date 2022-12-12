@@ -99,24 +99,25 @@ This is similar guidance to restoring an existing dedicated SQL pool, however th
 
 1. Open PowerShell.
 
-2. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. Powershell command to valiate the version is below.
-```powershell
-foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
-```
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to valiate the version is below.
 
-3. Connect to your Azure account and list all the subscriptions associated with your account.
+   ```powershell
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   ```
 
-4. Select the subscription that contains the database to be restored.
+1. Connect to your Azure account and list all the subscriptions associated with your account.
 
-5. List the restore points for the dedicated SQL pool (formerly SQL DW).
+1. Select the subscription that contains the database to be restored.
 
-6. Pick the desired restore point using the RestorePointCreationDate.
+1. List the restore points for the dedicated SQL pool (formerly SQL DW).
 
-7. Select the destination subscription in which the database should be restored.
+1. Pick the desired restore point using the RestorePointCreationDate.
 
-8. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
+1. Select the destination subscription in which the database should be restored.
 
-9. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
+1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
+
+1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
 ```powershell
 $SourceSubscriptionName="<YourSubscriptionName>"
@@ -164,19 +165,21 @@ The following PowerShell script for cross-tenant restore works in the same way a
 > [!NOTE]
 > If you intend to restore your dedicated SQL pool (formerly SQL DW) to a Synapse workspace, use the additional PowerShell steps provided in [Restore an existing dedicated SQL pool](../backuprestore/restore-sql-pool.md). For more information on the differences between dedicated SQL pools, see [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
-1.    Open a PowerShell terminal.
-1.    Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. Powershell command to valiate the version is below.
-```powershell
-foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
-```
-3.    Connect to your Azure account using `Connect-AzAccount`. 
-4.    List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the source dedicated SQL pool to be restored.
-5.    List the restore points for the dedicated SQL pool using `Get-AzSqlDatabaseRestorePoint`.
-6.    Pick the desired restore point, setting the variable `$PointInTime`.
-7.    In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
-8.    Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
-9.    Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
-10.    Verify that the restored dedicated SQL pool (formerly SQL DW) is online in the new tenant.
+1. Open a PowerShell terminal.
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A sample PowerShell command to valiate the version is below.
+
+   ```powershell
+      foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   ```
+
+1. Connect to your Azure account using `Connect-AzAccount`. 
+1. List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the source dedicated SQL pool to be restored.
+1. List the restore points for the dedicated SQL pool using `Get-AzSqlDatabaseRestorePoint`.
+1. Pick the desired restore point, setting the variable `$PointInTime`.
+1. In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
+1. Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
+1. Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
+1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online in the new tenant.
 
 ```powershell
 $SourceSubscriptionName="<YourSubscriptionName>"
