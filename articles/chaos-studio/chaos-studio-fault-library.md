@@ -662,7 +662,7 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 
 | Property | Value |
 |-|-|
-| Capability Names | Version 1.0 |
+| Capability Name | Version 1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
 | Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
@@ -702,10 +702,10 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 
 | Property | Value |
 |-|-|
-| Capability Names | Shutdown-2.0 |
+| Capability Name | Shutdown-2.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
 | [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones, and the filter is only applied to VMSS resources within a zone.<ul><li>If no filter is specified, this fault will shut down all instances in the VMSS.</li><li>The experiment will target all VMSS instances in the specified zones.</li><li>If a filter results in no targets, the experiment will fail.</li></ul> |
