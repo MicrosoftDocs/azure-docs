@@ -4,7 +4,7 @@ description: Describes Bicep logical operators that evaluate conditions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 12/12/2022
 ---
 
 # Bicep logical operators
@@ -56,6 +56,18 @@ Output from the example:
 | `andResultParm` | boolean | true |
 | `andResultExp` | boolean | true |
 
+To avoid *The language expression property 'foo' doesn't exist* exception with [Bicep objects](./data-types.md#objects), you can use the And logical operator as shown in the following example:
+
+```bicep
+param objectToTest object = {
+  one: 1
+  two: 2
+  three: 3
+}
+
+output foo bool = contains(objectToTest, 'four') && objectToTest.four == 4
+```
+
 ## Or ||
 
 `operand1 || operand2`
@@ -92,6 +104,16 @@ Output from the example:
 | ---- | ---- | ---- |
 | `orResultParm` | boolean | true |
 | `orResultExp` | boolean | true |
+
+To avoid *The language expression property array index 'x' is out of bounds* exception, you can use the Or logical operator as shown in the following example:
+
+```bicep
+param emptyArray array = []
+param numberArray array = [1, 2, 3]
+
+output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
+output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+```
 
 ## Not !
 
