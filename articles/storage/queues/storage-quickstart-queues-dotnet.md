@@ -68,9 +68,8 @@ dotnet add package Azure.Storage.Queues
 
 ### Set up the app framework
 
-From the project directory:
-
-1. Open the `Program.cs` file in your editor
+1. Open the project in your editor of choice
+1. Open the `program.cs` file
 1. Update the existing code to match the following:
 
 ```csharp
@@ -143,7 +142,7 @@ You can authenticate a `QueueClient` to Storage Queue using `DefaultAzureCredent
 dotnet add package Azure.Identity
 ```
 
-Inside the `Program.cs` file, add a using directive for the `Azure.Identity` namespace.
+At the top of the `Program.cs` file, add a using directive for the `Azure.Identity` namespace.
 
 ```csharp
 using Azure.Identity
@@ -158,17 +157,17 @@ Decide on a name for the new queue. The following code appends a GUID value to t
 
 Create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class. Then, call the [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
 
-Add this code to the end of the `Main` method:
+Add the code below to the end of the `Program.cs` file. Make sure to replace the `"<your-storage-account-name>` placeholder value.
 
 ```csharp
 // Create a unique name for the queue
+// TODO: Replace the <your-storage-account-name> placeholder 
 string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
 string storageAccountName = "<your-storage-account-name>";
 
 Console.WriteLine($"Creating queue: {queueName}");
 
 // Instantiate a QueueClient to create and manipulate the queue
-// TODO: Replace the storageAccountName and queueName placeholders
 QueueClient queueClient = new QueueClient(
     new Uri($"https://{storageAccountName}.queue.core.windows.net/{queueName}"),
     new DefaultAzureCredential());
@@ -206,7 +205,7 @@ Decide on a name for the new queue. The following code appends a GUID value to t
 
 Create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class. Then, call the [`CreateAsync`](/dotnet/api/azure.storage.queues.queueclient.createasync) method to create the queue in your storage account.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 // Create a unique name for the queue
@@ -228,7 +227,7 @@ await queueClient.CreateAsync();
 
 The following code snippet asynchronously adds messages to queue by calling the [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) method. It also saves a [`SendReceipt`](/dotnet/api/azure.storage.queues.models.sendreceipt) returned from a `SendMessageAsync` call. The receipt is used to update the message later in the program.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 Console.WriteLine("\nAdding messages to the queue...");
@@ -245,7 +244,7 @@ SendReceipt receipt = await queueClient.SendMessageAsync("Third message");
 
 Peek at the messages in the queue by calling the [`PeekMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. This method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 Console.WriteLine("\nPeek at the messages in the queue...");
@@ -275,7 +274,7 @@ await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Thi
 
 Download previously added messages by calling the [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 Console.WriteLine("\nReceiving messages from the queue...");
@@ -290,7 +289,7 @@ Delete messages from the queue after they're been processed. In this case, proce
 
 The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 Console.WriteLine("\nPress Enter key to 'process' messages and delete them from the queue...");
@@ -312,7 +311,7 @@ foreach (QueueMessage message in messages)
 
 The following code cleans up the resources the app created by deleting the queue using the [`DeleteAsync`](/dotnet/api/azure.storage.queues.queueclient.deleteasync) method.
 
-Add this code to the end of the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
 Console.WriteLine("\nPress Enter key to delete the queue...");
