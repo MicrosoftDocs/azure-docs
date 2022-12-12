@@ -31,11 +31,11 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
 1. In the Azure search box, enter `logic apps`, and select **Logic apps**.
 
-   ![Screenshot that shows Azure portal search box with "logic apps" as the search term and "Logic Apps" as the selected result.](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+   ![Screenshot that shows Azure portal search box with "logic apps" as the search term and "Logic Apps" as the selected result.](./media/ tutorial-logic-apps-with-mysql/find-select-logic-apps.png)
 
 1. On the **Logic apps** page, select **Add**.
 
-   ![Screenshot showing the Azure portal and Logic Apps service page and "Add" option selected.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Screenshot showing the Azure portal and Logic Apps service page and "Add" option selected.](./media/ tutorial-logic-apps-with-mysql/add-new-logic-app.png)
 
 1. On the **Create Logic App** pane, on the **Basics** tab, provide the following basic information about your logic app:
 
@@ -72,7 +72,7 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
    When you're done, your settings look similar to this version:
 
-   ![Screenshot showing the Azure portal and logic app resource creation page with details for new logic app.](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Screenshot showing the Azure portal and logic app resource creation page with details for new logic app.](./media/ tutorial-logic-apps-with-mysql/create-logic-app-settings.png)
 
 1. When you're ready, select **Review + Create**.
 
@@ -82,7 +82,7 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
 1. After Azure successfully deploys your app, select **Go to resource**. Or, find and select your logic app resource by typing the name in the Azure search box.
 
-   ![Screenshot showing the resource deployment page and selected button, "Go to resource".](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
+   ![Screenshot showing the resource deployment page and selected button, "Go to resource".](./media/ tutorial-logic-apps-with-mysql/go-to-new-logic-app-resource.png)
 
    The designer's template page opens to show an introduction video and commonly used triggers.
 
@@ -90,6 +90,6 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
 1. Under **Templates**, select **Blank Logic App**.
 
-   ![Screenshot showing the template gallery and selected template, "Blank Logic App".](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Screenshot showing the template gallery and selected template, "Blank Logic App".](./media/ tutorial-logic-apps-with-mysql/choose-logic-app-template.png)
 
    After you select the template, the designer shows an empty workflow.
