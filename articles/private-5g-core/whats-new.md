@@ -38,7 +38,7 @@ If you use the Azure portal to manage your deployment and all your resources wer
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used an API version older than the 2022-04-01-preview to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Before November 15, delete these resources and redeploy them using the 2022-04-01-preview API.
+If you used an API version older than the 2022-04-01-preview to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Before December 12, delete these resources and redeploy them using the 2022-04-01-preview API.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 
