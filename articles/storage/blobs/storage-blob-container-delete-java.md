@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devguide-java
 
 # Delete and restore a container in Azure Storage using the Java client library
 
-This article shows how to delete containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). If you've enabled container soft delete, you can restore deleted containers.
+This article shows how to delete containers with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme). If you've enabled [container soft delete](soft-delete-container-overview.md), you can restore deleted containers.
 
 ## Delete a container
 
@@ -41,7 +41,7 @@ The following example shows how to delete all containers that start with a speci
 
 ## Restore a deleted container
 
-When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. You can restore a soft deleted container by calling the following method of the `BlobServiceClient` class:
+When container soft delete is enabled for a storage account, a deleted container and its contents may be recovered within a specified retention period. To learn more about container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md). You can restore a soft deleted container by calling the following method of the `BlobServiceClient` class:
 
 - [undeleteBlobContainer](/java/api/com.azure.storage.blob.blobserviceclient)
 
