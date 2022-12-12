@@ -89,7 +89,7 @@ System-assigned managed identity is the default authentication method provided t
 
 1. Azure Managed Grafana can also access data sources with managed identity disabled. You can use a service principal for authentication, using a client ID and secret. To use this method, in the **Permissions** tab, set the box **System assigned managed identity** to **Off**.
 
-1. **Add role assignment to this identity with 'Monitoring Reader' role on target subscription** is disabled.
+1. **Add role assignment to this identity with 'Monitoring Reader' role on target subscription**.
 
 1. Under **Grafana administrator role**, if you have the Owner or User Access Administrator role for the subscription, the box **Include myself** is checked by default. Optionally select **Add** to grant the Grafana administrator role to more members. If you don't have the necessary role, you won't be able to manage Grafana access rights yourself.
 
