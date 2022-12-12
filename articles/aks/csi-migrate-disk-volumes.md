@@ -3,7 +3,7 @@ title: Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Ser
 description: Learn how to migrate from in-tree persistent volume to the Container Storage Interface (CSI) driver in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/09/2022
+ms.date: 12/12/2022
 author: mgoedtel
 
 ---
@@ -62,7 +62,12 @@ The following are important considerations to evaluate:
 
     This step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When you run the *CreatePV.sh* script, two of the parameters are start time and end time that enable you to only migrate the PVCs during that period of time.
 
-3. Create a file named `CreatePV.sh` and copy in the following Bash code:
+3. Create a file named **CreatePV.sh** and copy in the following code. The script does the following:
+
+    * Creates a new PersistentVolume with name `existing-pv-csi` for all PersistentVolumes in namespaces for storage class `storageClassName`.
+    * Configure new PVC name as `existing-pvc-csi`.
+    * Updates the application (deployment/StatefulSet) to refer to new PVC.
+    * Creates a new PVC with the PV name you specify.
 
     ```bash
     #!/bin/sh
@@ -159,13 +164,6 @@ The following are important considerations to evaluate:
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
-   The script **CreatePV.sh**, does the following:
-
-    * Creates a new PersistentVolume with name `existing-pv-csi` for all PersistentVolumes in namespaces for storage class `storageClassName`.
-    * Configure new PVC name as `existing-pvc-csi`.
-    * Updates the application (deployment/StatefulSet) to refer to new PVC.
-    * Creates a new PVC with the PV name you specify.
-
     ```bash
     ./CreatePV.sh <namespace> <sourceIntreeStorageClass> <targetCSIStorageClass> <startTimestamp> <endTimestamp>
     ```
@@ -220,7 +218,13 @@ Before proceeding, verify the following:
 
     This step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When you run the *MigrateCSI.sh* script, two of the parameters are start time and end time that enable you to only migrate the PVCs during that period of time.
 
-2. Create a file named `MigrateToCSI.sh` and copy in the following Bash code:
+2. Create a file named **MigrateToCSI.sh** and copy in the following code. The script does the following:
+
+    * Creates a full disk snapshot using the Azure CLI
+    * Creates `VolumesnapshotContent`
+    * Creates `VolumeSnapshot`
+    * Creates a new PVC from `VolumeSnapshot`
+    * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
     #!/bin/sh
@@ -324,14 +328,6 @@ Before proceeding, verify the following:
    * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
-
-    The script **MigrateToCSI.sh**, does the following:
-
-    * Creates a full disk snapshot using the Azure CLI
-    * Creates `VolumesnapshotContent`
-    * Creates `VolumeSnapshot`
-    * Creates a new PVC from `VolumeSnapshot`
-    * Creates a new file with the filename `<namespace>-timestamp`, which contains a list of all old resources that needs to be cleaned up.
 
     ```bash
     ./MigrateToCSI.sh <namespace> <sourceStorageClass> <TargetCSIstorageClass> <VolumeSnapshotClass> <startTimestamp> <endTimestamp>
