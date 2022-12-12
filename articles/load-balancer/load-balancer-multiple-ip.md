@@ -618,8 +618,7 @@ In this section, you'll discover the public IP address for each website. You'll 
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the virtual machines and load balancer with the following steps:
+If you're not going to continue to use this application, delete the virtual machines and load balancer with the following steps:
 
 1. In the search box at the top of the portal, enter **Resource group**.  Select **Resource groups** in the search results.
 
