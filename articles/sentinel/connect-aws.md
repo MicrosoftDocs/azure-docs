@@ -8,6 +8,15 @@ ms.author: yelevin
 ---
 
 ---
+title: Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
+description: Use the AWS connector to delegate Microsoft Sentinel access to AWS resource logs, creating a trust relationship between Amazon Web Services and Microsoft Sentinel.
+author: yelevin
+ms.topic: how-to
+ms.date: 12/12/2022
+ms.author: yelevin
+
+---
+
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
 
 Use the Amazon Web Services (AWS) connectors to pull AWS service logs into Microsoft Sentinel. These connectors work by granting Microsoft Sentinel access to your AWS resource logs. Setting up the connector establishes a trust relationship between Amazon Web Services and Microsoft Sentinel. This is accomplished on AWS by creating a role that gives permission to Microsoft Sentinel to access your AWS logs.
@@ -30,7 +39,7 @@ This document explains how to configure the new AWS S3 connector. The process of
 
     - Configure your AWS service(s) to send logs to an **S3 bucket**.
 
-    - Create a **Simple Queue Service (SQS) queue** to provide notifications.
+    - Create a **Simple Queue Service (SQS) queue** to provide notification.
 
     - Create an **assumed role** to grant permissions to your Microsoft Sentinel account (external ID) to access your AWS resources.
 
@@ -38,7 +47,7 @@ This document explains how to configure the new AWS S3 connector. The process of
 
 - In Microsoft Sentinel:
 
-    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal.
+    - Enable and configure the **AWS S3 Connector** in the Microsoft Sentinel portal. See the instructions below.
 
 Each side's process produces information used by the other side. This sharing creates secure communication.
 
@@ -146,22 +155,38 @@ The manual setup consists of the following steps:
 1. Under **Configuration**, copy the **External ID (Workspace ID)** and paste it aside.
  
 1. In your AWS management console, under **Security, Identity & Compliance**, select **IAM**.
+
+   :::image type="content" source="media/connect-aws/aws-select-iam.png" alt-text="Screenshot of Amazon Web Services console.":::
+
 1. Choose **Roles** and select **Create role**.
 
    :::image type="content" source="media/connect-aws/aws-select-roles.png" alt-text="Screenshot of A W S roles creation screen.":::
 
 1. Choose **Another AWS account.** In the **Account ID** field, enter the number **197857026523** (you can copy and paste it from here). This number is **Microsoft Sentinel's service account ID for AWS**. It tells AWS that the account using this role is a Microsoft Sentinel user.
+
+   :::image type="content" source="media/connect-aws/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
+
 1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next: Permissions**.
-1. Enter a **Role name**:
-1. Add **permissions** and enter a **Tag** (optional). Then select **Create Role**.
+
+   :::image type="content" source="media/connect-aws/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
+
+1. Enter a **Role name**.
+
+   :::image type="content" source="media/connect-aws/aws-create-role.png" alt-text="Screenshot of role naming screen.":::
+
+1. Add **Permissions** and enter a **Tag** (optional). Then select **Create Role**.
+
+   :::image type="content" source="media/connect-aws/aws-add-tags.png" alt-text="Screenshot of tags screen.":::
+
 1. [Apply IAM permissions policies](/azure/sentinel/connect-aws?tabs=s3&branch=main). For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](/azure/sentinel/connect-aws?tabs=s3) in our GitHub repo.
-    
 
 1. In the **Roles** list, select the new role you created.
 
    :::image type="content" source="media/connect-aws/aws-select-role.png" alt-text="Screenshot of roles list screen.":::
 
 1. Copy the **Role ARN** and paste it aside.
+
+   :::image type="content" source="media/connect-aws/aws-copy-role-arn.png" alt-text="Screenshot of copying role A R N.":::
 
 1. In the AWS SQS dashboard, select the SQS queue you created, and copy the URL of the queue.
 
@@ -177,16 +202,16 @@ The manual setup consists of the following steps:
 
 #### Configure an AWS service to export logs to an S3 bucket
 
-- - [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
+- [Publish a VPC flow log to an S3 bucket](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html).
 
-   > [!NOTE]
-   > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
-   
+    > [!NOTE]
+    > If you choose to customize the log's format, you must include the *start* attribute, as it maps to the *TimeGenerated* field in the Log Analytics workspace. Otherwise, the *TimeGenerated* field will be populated with the event's *ingested time*, which doesn't accurately describe the log event.
+
 - [Export your GuardDuty findings to an S3 bucket](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html).
 
-- > [!NOTE]
-   > The *TimeGenerated* field is populated with the finding's *Update at* value.
-   
+    > [!NOTE]
+    > The *TimeGenerated* field is populated with the finding's *Update at* value.
+
 - AWS CloudTrail trails are stored in S3 buckets by default.
     - [Create a trail for a single account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html).
     - [Create a trail spanning multiple accounts across an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html).
@@ -206,7 +231,8 @@ Permissions policies that must be applied to the [Microsoft Sentinel role you cr
 - AmazonSQSReadOnlyAccess
 - AWSLambdaSQSQueueExecutionRole
 - AmazonS3ReadOnlyAccess
-- KMS (Key Management Service) access
+- KMS access
+
    For information on these and additional policies that should be applied for ingesting the different types of AWS service logs, see the [AWS S3 connector permissions policies page](https://github.com/Azure/Azure-Sentinel/blob/master/DataConnectors/AWS-S3/AwsRequiredPolicies.md) in our GitHub repo.
 
 ## Known issues and troubleshooting
@@ -284,10 +310,11 @@ You must have write permission on the Microsoft Sentinel workspace.
 
 1. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
 
-1. > [!IMPORTANT]
+    > [!IMPORTANT]
     > As of December 1, 2020, the **AwsRequestId** field has been replaced by the **AwsRequestId_** field (note the added underscore). The data in the old **AwsRequestId** field will be preserved through the end of the customer's specified data retention period.
-    
+
 ---
+
 ## Next steps
 
 In this document, you learned how to connect to AWS resources to ingest their logs into Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
