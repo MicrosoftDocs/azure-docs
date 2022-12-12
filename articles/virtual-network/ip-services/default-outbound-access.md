@@ -55,7 +55,7 @@ If you deploy a virtual machine in Azure and it doesn't have explicit outbound c
 
 There are multiple ways to turn off default outbound access:
 
-*	Add an explicit outbound connectivity method.
+*  Add an explicit outbound connectivity method.
 
     * Associate a NAT gateway to the subnet of your virtual machine.
 
@@ -65,7 +65,7 @@ There are multiple ways to turn off default outbound access:
     
     * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single one with a Standard public IP will prevent default outbound access for the virtual machine).
 
-*	Use Flexible orchestration mode for Virtual Machine Scale Sets.
+*  Use Flexible orchestration mode for Virtual Machine Scale Sets.
 
     * Flexible scale sets are secure by default. Any instances created via Flexible scale sets won't have the default outbound access IP associated to it. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machines/flexible-virtual-machine-scale-sets.md)
 
