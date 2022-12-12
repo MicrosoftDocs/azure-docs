@@ -35,7 +35,7 @@ This article describes the steps for deploying the self-hosted gateway component
 5. Select the **Kubernetes** tab under **Deployment scripts**.
 6. Select the **\<gateway-name\>.yml** file link and download the YAML file.
 7. Select the **copy** icon at the lower-right corner of the **Deploy** text box to save the `kubectl` commands to the clipboard.
-8. When using Azure Kubernetes Service (AKS), run `az aks get-credentials --resource-group <resource-group-name> --name <resource-name> --admin` in a new terminal session
+8. When using Azure Kubernetes Service (AKS), run `az aks get-credentials --resource-group <resource-group-name> --name <resource-name> --admin` in a new terminal session.
 9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/shgw/registry-portal) downloaded from the Microsoft Artifact Registry.
   - The first step creates a Kubernetes secret that contains the access token generated in step 4. Next, it creates a Kubernetes deployment for the self-hosted gateway which uses a ConfigMap with the configuration of the gateway.
 10. Run the following command to check if the deployment succeeded. Note that it might take a little time for all the objects to be created and for the pods to initialize.
