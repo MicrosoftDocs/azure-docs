@@ -6,7 +6,7 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/22/2022
+ms.date: 12/12/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -19,7 +19,7 @@ In this article, you'll learn how Azure Front Door Standard and Premium tier rou
 
 ## Request methods
 
-Only the GET request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
+Only the `GET` request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
 
 ::: zone-end
 
@@ -31,7 +31,7 @@ The following document specifies behaviors for Azure Front Door (classic) with r
 
 ## Delivery of large files
 
-Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full or byte-range file request, the Front Door environment requests the file from the origin in chunks of 8 MB.
+Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called *object chunking*. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full or byte-range file request, the Front Door environment requests the file from the origin in chunks of 8 MB.
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
 
@@ -96,18 +96,30 @@ These profiles support the following compression encodings:
 - [Gzip (GNU zip)](https://en.wikipedia.org/wiki/Gzip)
 - [Brotli](https://en.wikipedia.org/wiki/Brotli)
 
-If a request supports gzip and Brotli compression, Brotli compression takes precedence.</br>
-When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a transfer-encoding: chunked.
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported.
+If a request supports gzip and Brotli compression, Brotli compression takes precedence.
+
+When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a `Transfer-Encoding: chunked` response header.
+
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door PoP, then response sizes greater than 8 MB aren't supported.
 
 ::: zone-end
 
 > [!NOTE]
-> Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `accept-encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on the Origin or create a Rules Set rule to remove `accept-encoding` from the request for byte range requests.
+> Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `Accept-Encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on the origin, or create a Rules Engine rule to remove tge `Accept-Encoding` header from the request for byte range requests.
 
 ## Query string behavior
 
-With Azure Front Door, you can control how files are cached for a web request that contains a query string. In a web request with a query string, the query string is that portion of the request that occurs after a question mark (?). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (=). Each key-value pair is separated by an ampersand (&). For example, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. If there's more than one key-value pair in a query string of a request then their order doesn't matter.
+With Azure Front Door, you can control how files are cached for a web request that contains a query string.
+
+In a web request with a query string, the query string is that portion of the request that occurs after a question mark (`?`). A query string can contain one or more key-value pairs, in which the field name and its value are separated by an equals sign (`=`). Each key-value pair is separated by an ampersand (&).
+
+For example, the URL `http://www.contoso.com/content.mov?field1=value1&field2=value2` contains two query strings:
+- `field1`, with a value of `value1`.
+- `field2`, with a value of `value2`.
+
+If there's more than one key-value pair in a query string of a request then their order doesn't matter.
+
+When you configure caching, you specify how the cache should handle query strings. The following behaviors are supported:
 
 * **Ignore query strings**: In this mode, Azure Front Door passes the query strings from the client to the origin on the first request and caches the asset. All ensuing requests for the asset that are served from the Front Door environment ignore the query strings until the cached asset expires.
 
@@ -155,12 +167,15 @@ Cache purges on the Front Door are case-insensitive. Additionally, they're query
 
 ## Cache expiration
 
-The following order of headers is used to determine how long an item will be stored in our cache:</br>
-1. Cache-Control: s-maxage=\<seconds>
-2. Cache-Control: max-age=\<seconds>
-3. Expires: \<http-date>
+The following order of headers is used to determine how long an item will be stored in our cache:
 
-Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored.  If no Cache-Control is present, the default behavior is that Front Door will cache the resource for X amount of time where X gets randomly picked between 1 to 3 days.
+1. `Cache-Control: s-maxage=<seconds>`
+1. `Cache-Control: max-age=<seconds>`
+1. `Expires: <http-date>`
+
+Some `Cache-Control` response header values indicate that the response isn't cacheable. These values include `private`, `no-cache`, and `no-store`. Front Door honors these header values and won't cache the responses, even if you override the caching behaviour by using the Rules Engine.
+
+If the `Cache-Control` header isn't present on the response from the origin, by default Front Door will randomly determine a cache duration between 1 and 3 days.
 
 > [!NOTE]
 > Cache expiration can't be greater than **366 days**.
@@ -168,18 +183,25 @@ Cache-Control response headers that indicate that the response won't be cached s
 
 ## Request headers
 
-The following request headers won't be forwarded to a origin when using caching.
-- Content-Length
-- Transfer-Encoding
-- Accept
-- Accept-Charset
-- Accept-Language
+The following request headers won't be forwarded to the origin when caching is enabled:
+
+- `Content-Length`
+- `Transfer-Encoding`
+- `Accept`
+- `Accept-Charset`
+- `Accept-Language`
 
 ## Response headers
 
-The following response headers will be stripped if the origin response is cacheable. For example, Cache control header has max-age value.
+If the origin response is cacheable, then the `Set-Cookie` header is removed before the response is sent to the client.
 
-- Set-Cookie
+Front Door attaches the `X-Cache` header to responses, with one of the following values:
+
+- `TCP_HIT`: The first byte of the request is a cache hit in the Front Door edge. 
+- `TCP_REMOTE_HIT`: The first byte of the request is a cache hit in the regional cache (origin shield layer) but a miss in the edge cache. 
+- `TCP_MISS`: The first byte of the request is a cache miss, and the content is served from the origin.
+- `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
+- `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
 
 ## Cache behavior and duration
 
@@ -187,9 +209,10 @@ The following response headers will be stripped if the origin response is cachea
 
 Cache behavior and duration can be configured in Rules Engine. Rules Engine caching configuration will always override the route configuration.
 
-* When *caching* is **disabled**, Azure Front Door doesn’t cache the response contents, irrespective of origin response directives.
+* **When caching is disabled**, Azure Front Door doesn’t cache the response contents, irrespective of origin response directives.
 
-* When *caching* is **enabled**, the cache behavior is different based on the cache behavior value selected.
+* **When caching is enabled**, the cache behavior is different based on the cache behavior value selected:
+
    * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from 1 to 3 days.  
    * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door will use the specified cache duration. This behavior will only be applied if the response is cacheable. 
@@ -204,9 +227,9 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 Cache behavior and duration can be configured in both the Front Door designer routing rule and in Rules Engine. Rules Engine caching configuration will always override the Front Door designer routing rule configuration.
 
-* When *caching* is **disabled**, Azure Front Door (classic) doesn’t cache the response contents, irrespective of origin response directives.
+* **When caching is disabled**, Azure Front Door (classic) doesn’t cache the response contents, irrespective of origin response directives.
 
-* When *caching* is **enabled**, the cache behavior is different for different values of *Use cache default duration*.
+* **When caching is enabled**, the cache behavior is different for different values of *Use cache default duration*.
     * When *Use cache default duration* is set to **Yes**, Azure Front Door (classic) will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days.
     * When *Use cache default duration* is set to **No**, Azure Front Door (classic) will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
 
