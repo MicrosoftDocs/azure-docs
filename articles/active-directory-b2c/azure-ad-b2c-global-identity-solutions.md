@@ -24,13 +24,13 @@ Azure AD B2C is a globally distributed service made up of several components:
 
 * Directory
 
-* [Application registrations](../../active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga.md)
+* [Application registrations](tutorial-register-applications?tabs=app-reg-ga.md)
 
-* [User flows and custom policies](../../active-directory-b2c/user-flow-overview.md)
+* [User flows and custom policies](user-flow-overview.md)
 
-* [Sign-in options](../../active-directory-b2c/sign-in-options.md)
+* [Sign-in options](sign-in-options.md)
 
-* [Keys](../../active-directory-b2c/tokens-overview.md)
+* [Keys](tokens-overview.md)
 
 When creating an Azure AD B2C solution, you must provide a location to host the service. This location only pertains to the region in which the user profile data will be stored, while the rest of the service that processes your sign-in runs globally.
 
