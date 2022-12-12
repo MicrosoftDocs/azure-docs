@@ -94,7 +94,7 @@ For more information, see:
 
 ### 2021 quarter 2 (April, May, June)
 #### Premium, hot, and cool storage reservations 
-Azure Files supports storage reservations (also referred to as *reserved instances*). Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+Azure Files supports storage reservations (also referred to as *reserved instances*). Azure Files Reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports Reservations on the premium, hot, and cool tiers. Reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 For more information, see:
 
