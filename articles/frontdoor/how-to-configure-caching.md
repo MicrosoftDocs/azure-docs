@@ -5,13 +5,13 @@ services: frontdoor
 author: johndowns
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 12/12/2022
 ms.author: jodowns
 ---
 
 # Configure caching on Azure Front Door
 
-This article shows you how to configure caching on Azure Front Door.
+This article shows you how to configure caching on Azure Front Door. To learn more about caching, see [Caching with Azure Front Door](front-door-caching.md).
 
 ## Prerequisites
 
