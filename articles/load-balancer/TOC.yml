@@ -188,14 +188,16 @@
       href: egress-only.md
   - name: Virtual machine scale sets
     items:
-    - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
-      href: update-load-balancer-with-vm-scale-set.md
+    - name: Configure inbound NAT rules for Virtual Machine Scale Sets
+      href: configure-inbound-NAT-rules-vm-scale-set.md
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - PowerShell
       href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
+    - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
+      href: update-load-balancer-with-vm-scale-set.md
   - name: Upgrade from a basic to standard load balancer
     items:
     - name: Upgrade options and guidance
