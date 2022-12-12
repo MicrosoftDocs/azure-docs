@@ -315,8 +315,10 @@ items:
       href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
-    - name: Disable or enable Data Estate Insights
-      href: enable-disable-data-estate-insights.md
+    - name: Disable Data Estate Insights
+      href: disable-data-estate-insights.md
+    - name: Schedule report refresh
+      href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
