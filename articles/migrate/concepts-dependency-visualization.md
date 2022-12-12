@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
-ms.date: 08/04/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
@@ -27,7 +27,7 @@ There are two options for deploying dependency analysis
 
 **Option** | **Details** | **Public cloud** | **Azure Government**
 ----  |---- | ----
-**Agentless** | For VMware VMs, dependency data is gathered from servers by connecting via the vCenter Server using the vSphere APIs.<br/><br/> For Hyper-V VMs and physical servers, dependency data is gathered by directly connecting to Windows servers using PowerShell remoting and to Linux servers using SSH connection.<br/><br/>No agents need to be installed on target servers.| Supported | Supported
+**Agentless** | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | Supported | Supported
 **Agent-based analysis** | Uses the [Service Map solution](../azure-monitor/vm/service-map.md) in Azure Monitor, to enable dependency visualization and analysis.<br/><br/> You need to install agents on each on-premises server that you want to analyze. | Supported | Not supported.
 
 ## Agentless analysis
@@ -39,7 +39,6 @@ Agentless dependency analysis works by capturing TCP connection data from server
 After discovery of dependency data begins, polling begins:
 
 - The Azure Migrate appliance polls TCP connection data from servers every five minutes to gather data.
-- Data is collected from guest servers via vCenter Server, using vSphere APIs.
 - Polling gathers this data:
 
     - Name of processes that have active connections.

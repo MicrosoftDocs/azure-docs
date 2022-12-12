@@ -49,4 +49,4 @@ This article provides information about limitations and known issues related to 
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md)

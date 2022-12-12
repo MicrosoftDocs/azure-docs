@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/26/2022
+ms.date: 11/28/2022
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -42,7 +42,7 @@ If your data store is located inside an on-premises network, an Azure virtual ne
 
 If your data store is a managed cloud data service, you can use the Azure Integration Runtime. If the access is restricted to IPs that are approved in the firewall rules, you can add [Azure Integration Runtime IPs](azure-integration-runtime-ip-addresses.md) to the allowed list.
 
-The Snowflake account that is used for Source or Sink should have the necessary `USAGE` access on the database and read/write access on schema and the tables/views under it.. In addition, it should also have `CREATE STAGE` on the schema to be able to create the External stage with SAS URI.
+The Snowflake account that is used for Source or Sink should have the necessary `USAGE` access on the database and read/write access on schema and the tables/views under it. In addition, it should also have `CREATE STAGE` on the schema to be able to create the External stage with SAS URI.
 
 The following Account properties values must be set
 
@@ -151,7 +151,7 @@ The following properties are supported for a Snowflake linked service when using
 
 ### OAuth authentication 
 
-The following properties are supported for a Snowflake linked service when using **OAuth** authenticaition. 
+The following properties are supported for a Snowflake linked service when using **OAuth** authentication. Refer this [article](https://docs.snowflake.com/en/user-guide/oauth-azure.html#step-1-configure-the-oauth-resource-in-azure-ad) for the steps of configuring Snowflake as an OAuth resource in Azure AD. 
 
 | Property         | Description                                                  | Required | 
 | :--------------- | :----------------------------------------------------------- | :------- | 
@@ -416,7 +416,7 @@ To copy data to Snowflake, the following properties are supported in the Copy ac
 
 If your source data store and format meet the criteria described in this section, you can use the Copy activity to directly copy from source to Snowflake. The service checks the settings and fails the Copy activity run if the following criteria is not met:
 
-- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake)..
+- The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication. If you want to directly copy data from Azure Data Lake Storage Gen2 in the following supported format, you can create an Azure Blob linked service with SAS authentication against your ADLS Gen2 account, to avoid using  [staged copy to Snowflake](#staged-copy-to-snowflake).
 
 - The **source data format** is **Parquet**, **Delimited text**, or **JSON** with the following configurations:
 
