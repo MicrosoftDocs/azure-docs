@@ -106,7 +106,7 @@ This guide assumes you don't have a managed identity, a storage account or an on
 
     Install them with the following code: 
     
-[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=install-packages)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb?name=install-packages)]
 
 
 Install them with the following code:
@@ -143,7 +143,7 @@ Install them with the following code:
 
     Install them with the following code: 
     
-[!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=install-packages)]
+   [!notebook-python[] (~/azureml-examples-main/sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-uai.ipynb?name=install-packages)]
     
 ---
 
