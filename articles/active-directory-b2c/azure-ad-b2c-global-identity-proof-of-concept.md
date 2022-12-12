@@ -74,7 +74,7 @@ The following section describes how to create proof of concept implementations f
 
 ## Sign in
 
-1. Configure identifier to region lookup via global lookup table, use [lookup claim transformation](../active-directory-b2c/general-transformations) to emulate.
+1. Configure identifier to region lookup via global lookup table, use [lookup claim transformation](general-transformations.md) to emulate.
 
    ~~~json
    <ClaimsTransformation Id="UserIdToRegion" TransformationMethod="LookupValue">
