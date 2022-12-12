@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Monitor Azure Private 5G Core with Azure Monitor platform metrics
 
-*Platform metrics* are measurements over time collected from Azure resources and stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or the Azure Monitor REST API to query for metrics that you can then store and analyze elsewhere.
+*Platform metrics* are measurements over time collected from Azure resources and stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or query the Azure Monitor REST API for metrics to analyze with third-party monitoring tools.
 
 Azure Private 5G Core platform metrics are collected at the site level. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
@@ -49,7 +49,7 @@ As an example, you can export the platform metrics to data storage and processin
 > [!NOTE]
 > Exporting mobile network metrics to another application for third-party application integration or longer data retention period may incur extra costs. See the relevant documentation for each tool you want to use to check the pricing information.
 
-Not all metrics displayed in the Azure portal will be available for retrieval using the Azure Monitor REST API. For more information on which mobile network metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
+Not all metrics displayed in the Azure portal are available via the Azure Monitor REST API. For more information on which mobile network metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 You can find more information on using the Azure Monitor REST API to construct queries and retrieve metrics at [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).
 
