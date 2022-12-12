@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Queue Storage client library v12 - .NET"
-description: Learn how to use the Azure Queue Storage client library v12 for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+title: "Quickstart: Azure Queue Storage client library - .NET"
+description: Learn how to use the Azure Queue Storage client library for .NET to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: normesta
 ms.author: normesta
 ms.date: 07/24/2020
@@ -11,11 +11,11 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 
-# Quickstart: Azure Queue Storage client library v12 for .NET
+# Quickstart: Azure Queue Storage client library for .NET
 
 Get started with the Azure Queue Storage client library version 12 for .NET. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
-Use the Azure Queue Storage client library v12 for .NET to:
+Use the Azure Queue Storage client library for .NET to:
 
 - Create a queue
 - Add messages to a queue
@@ -40,22 +40,22 @@ Additional resources:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Queue Storage client library v12 for .NET.
+This section walks you through preparing a project to work with the Azure Queue Storage client library for .NET.
 
 ### Create the project
 
-Create a .NET Core application named `QueuesQuickstartV12`.
+Create a .NET Core application named `QueuesQuickstart`.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstartV12`. This command creates a simple "hello world" C# project with a single source file named `Program.cs`.
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `QueuesQuickstart`. This command creates a simple "hello world" C# project with a single source file named `Program.cs`.
 
    ```console
-   dotnet new console -n QueuesQuickstartV12
+   dotnet new console -n QueuesQuickstart
    ```
 
-1. Switch to the newly created `QueuesQuickstartV12` directory.
+1. Switch to the newly created `QueuesQuickstart` directory.
 
    ```console
-   cd QueuesQuickstartV12
+   cd QueuesQuickstart
    ```
 
 ### Install the package
@@ -87,7 +87,7 @@ Console.WriteLine("Hello, World!");
 
 [!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [dotnet-default-azure-credential-overview](../../../includes/passwordless/dotnet-default-azure-credential-overview.md)]
 
@@ -130,7 +130,7 @@ These example code snippets show you how to perform the following actions with t
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 
-## [Passwordless](#tab/passwordless)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 ### Add the Azure Identity client library
 
@@ -182,10 +182,10 @@ await queueClient.CreateAsync();
 
 The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `Main` method:
+Add this code to the end of the `Program.cs` file:
 
 ```csharp
-Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Queue Storage client library - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable called
@@ -220,6 +220,9 @@ QueueClient queueClient = new QueueClient(connectionString, queueName);
 // Create the queue
 await queueClient.CreateAsync();
 ```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
 
 ---
 
@@ -341,7 +344,7 @@ dotnet run
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue Storage client library v12 - .NET quickstart sample
+Azure Queue Storage client library - .NET quickstart sample
 
 Creating queue: quickstartqueues-5c72da2c-30cc-4f09-b05c-a95d9da52af2
 
