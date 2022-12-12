@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/09/2022
+ms.date: 12/12/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -46,7 +46,7 @@ Before you begin, ensure that:
 - You have your Microsoft account with access credentials to access Azure portal.
 - You have access to an Azure Stack Edge Pro GPU device. This device will be configured and activated as per the detailed instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
 - You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device as per the instructions in [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
-- You have a client to access your device. The client system is running a supported operating system. If using a Windows client, make sure that it is running PowerShell 5.0 or later.
+- You have a client to access your device. The client system is running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
 - Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription as per the detailed instructions in [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to this resource group.
 - To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
@@ -56,7 +56,7 @@ Before you begin, ensure that:
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed: 
 - If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You would also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
 
-   Here is a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
+   Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
    ```azurepowershell
    az login
@@ -75,7 +75,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      ```
 
    - Reserve all the supplied vCPUs that you got from the preceding step into `Set-HcsNumaLpMapping` command. The device will automatically reboot at this point. Wait for the reboot to complete.
-   Here is an example output where all the vcpus were reserved:
+   Here's an example output where all the vcpus were reserved:
 
      ```azurepowershell
      [10.126.77.42]: PS>hostname
@@ -86,7 +86,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      [10.126.77.42]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39" -AssignAllCpusToRoot $false
     ```
 
-Tabs for 1-node and 2-node
+### [Single node](#tab/1-node)
 
 ## Step 1. Enable Azure Kubernetes Service (AKS) and custom locations
 
@@ -122,14 +122,14 @@ Use the following steps to assign static IP pools in the local UI of your device
 
 1. If you didn’t create virtual networks earlier, select **Add virtual network** to create a Virtual network. You’ll need to specify the virtual switch associated with the virtual network, VLAN ID, and subnet mask and gateway.
 
-1. In an example shown here, we have configured three virtual networks. In each of these virtual networks, VLAN is **0** and subnet mask and gateway match the external values; for example, **255.255.0.0** and **192.168.0.1**.
+1. In an example shown here, we've configured three virtual networks. In each of these virtual networks, VLAN is **0** and subnet mask and gateway match the external values; for example, **255.255.0.0** and **192.168.0.1**.
    1. **First virtual network** – Name is **N2** and associated with **vswitch-port5**.
    1. **Second virtual network** – Name is **N3** and associated with **vswitch-port5**.
    1. **Third virtual network** – Name is **N6** and associated with **vswitch-port6**.
  
       ![Screenshots that show the Add virtual network dialogs in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png)
 
-    1. Once all three virtual networks are configured, they will be listed under the virtual networks as shown below. 
+    1. Once all three virtual networks are configured, they'll be listed under the virtual networks as shown below. 
  
        ![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)
 
@@ -210,7 +210,7 @@ Follow these steps to deploy the AKS cluster.
 
 1. Select **Add** to configure the Azure Kubernetes Service.
 
-1. On the **Create Kubernetes service** blade, select the Kubernetes **Node size** for the infrastructure VM. In this example, we have chosen a VM size for **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
+1. On the **Create Kubernetes service** dialog, select the Kubernetes **Node size** for the infrastructure VM. In this example, we have chosen a VM size for **Standard_F16s_HPN – 16 vCPUs, 32.77 GB memory**.
 
    > [!NOTE]
    > If the node size dropdown isn’t populated, wait a few minutes so that it is synchronized after VMs are enabled in the preceding step.
@@ -229,8 +229,8 @@ Follow these steps to deploy the AKS cluster.
 
    1. Specify a name for your Arc enabled Kubernetes cluster or accept the provided default.
 
-   1. Select a region where you will create a resource for your Arc enabled Kubernetes cluster. A filtered list of supported regions is displayed in the dropdown list. For more information, see [supported regions for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).  
-   1. Select **Configure**. You can also reset the Arc settings in this blade to default by selecting the **Reset to default** option.
+   1. Select a region where you'll create a resource for your Arc enabled Kubernetes cluster. A filtered list of supported regions is displayed in the dropdown list. For more information, see [supported regions for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/overview.md).  
+   1. Select **Configure**. You can also reset the Arc settings by selecting the **Reset to default** option.
 
 1. Select **Create** to create the Kubernetes service.
 
@@ -251,9 +251,13 @@ Follow these steps to deploy the AKS cluster.
 
    The **Arc-enabled Kubernetes** will also show up as **Running**.
 
-   ![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-running.png)
+   ![Screenshot that shows the Azure Kubernetes Service Overview page with status of the Kubernetes service.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png)
 
-   If you are planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
+   If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
+
+### [Two node](#tab/2-node)
+
+---
 
 ## Add a persistent volume
 
@@ -276,7 +280,7 @@ To use cloud tiering, you can create an Edge cloud share with the **Use the shar
 
 For the shares that were created with the **Use the share with Edge compute** option unchecked, you can add a persistent volume using the following steps.
 
-1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Cloud storage gateway** > **Shares**. You can see the that the device currently has shares with the **Used for compute** status enabled.
+1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Cloud storage gateway** > **Shares**. You can see that the device currently has shares with the **Used for compute** status enabled.
 
    ![Screenshot that shows the Cloud storage gateway shares with Edge compute enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-cloud-storage-gateway-shares-with-edge-compute-enabled.png)
 
@@ -294,20 +298,35 @@ For the shares that were created with the **Use the share with Edge compute** op
 
 1. In the **Azure Kubernetes Service** > **Overview** page, the **Persistent volumes** tile shows the persistent volumes that exist. These volumes were created automatically when the shares were created with the **Use the share with Edge compute** option enabled. To create a new persistent volume, select **+ Add persistent volume**.
 
-1. In the **Add persistent volumes** blade, select the share for which you want to create the persistent volume.
+1. In the **Add persistent volumes** dialog, select the share for which you want to create the persistent volume.
 
    ![Screenshot that shows the Azure Stack Edge dialog for Add Persistent volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-persistent-volumes.png)
 
-![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+1. You’ll see a notification that the persistent volume is being created. This operation may take a couple of minutes to complete.
 
-![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+   ![Screenshot that shows a Notifications dialog that the Adding Persistent Volumes operation has successfully completed.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-adding-persistent-volumes-success-notification.png)
 
+1. After the persistent volume is created, the **Overview** page updates to include the newly added persistent volume. 
+
+   ![Screenshot that shows the Azure Kubernetes Service Overview page with Persistent Volumes.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-persistent-volumes.png)
+
+1. Select **View all persistent volumes** to see the newly created persistent volume.
 
 ## Remove the Kubernetes Service
 
-![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+Use the following steps in the Azure portal to remove the Azure Kubernetes Service.
 
-![Screenshot that shows...](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/artwork-file.png)
+1. In your Azure Stack Edge resource, go to **Azure Kubernetes Service** > **Overview**.
+
+1. From the top command bar, select **Remove**.
+
+   ![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png)
+
+1. Select the configured addon that you want to remove along with the Azure Kubernetes service. Azure Arc enabled Kubernetes is an addon. Once you select **Remove**, all Kubernetes configurations and the selected addon will be removed. The operation is irreversible and can’t be undone. Select **OK** to confirm.
+
+   ![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove confirmation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png)
 
 ## Next steps
 
+To install Fusion Core, follow the instructions in the article for Fusion Core along with this article.
+ 
