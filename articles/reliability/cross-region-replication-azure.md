@@ -1,12 +1,12 @@
 ---
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
-author: awysza
+author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 3/01/2022
-ms.author: rarco
+ms.date: 12/12/2022
+ms.author: anaharris
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
@@ -86,7 +86,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | US Government |US Gov Iowa\* |US Gov Virginia\* |
 | US Government |US Gov Virginia\* |US Gov Texas\* |
 
-(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request in the Azure portal](https://portal.azure.com/#blade/Microsoft\_Azure\_Support/HelpAndSupportBlade/newsupportrequest).
+(\*) Certain regions are access restricted to support specific customer scenarios, such as in-country disaster recovery. These regions are available only upon request by [creating a new support request](https://learn.microsoft.com/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
