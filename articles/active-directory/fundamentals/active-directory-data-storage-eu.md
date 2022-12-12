@@ -26,19 +26,19 @@ Azure Active Directory (Azure AD) stores customer data in a geographic location 
 * **Microsoft 365** - The location is based on a customer provided billing address.
 * **Microsoft 365 Multi Geo** - Microsoft 365 Multi-Geo provides customers with the ability to expand their Microsoft 365 presence to multiple geographic regions or countries within a single existing Microsoft 365 tenant. Azure Active Directory will egress customer data to perform backup authentication to the geo(s) configured by the customer. Types of customer data include user and device account data, branding data, and object (application and group) configuration data.
 
-The following sections provide information about customer data that doesn't meet the EU Customer Data Residency or EU Customer Data Boundary commitments.
+The following sections provide information about customer data that doesn't meet the EU Customer Data Residency or EU Data Boundary commitments.
 
 ## Services permanently excluded from the EU Data Boundary
 
 * **Reason for customer data egress** - Some forms of communication rely on a network that is operated by global providers, such as phone calls and SMS. Device vendor-specific services such Apple Push Notifications, may be outside of Europe.
 * **Types of customer data being egressed** - User account data, such as phone number.
-* **Customer data location at rest** - In EU Customer Data Boundary.
+* **Customer data location at rest** - In EU Data Boundary.
 * **Customer data processing** - Some processing may occur globally.
 * **Services** - Multi-Factor Authentication
 
 ## Services temporarily excluded from the EU Data Residency and EU Data Boundary
 
-Some services have work in progress to be EU Customer Data Residency and EU Customer Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU as part of their service operations:
+Some services have work in progress to be EU Customer Data Residency and EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU as part of their service operations:
 
 * **Reason for customer data egress** - To provide reliable and scalable service, Microsoft performs regular analytics that involve transfers of data outside the region.
 * **Types of customer data being egressed** - User and device account and usage data, service configuration, such as application, policy, and group.  
@@ -56,19 +56,19 @@ Some services incorrectly stored data out of the region. The following details e
 
 ## Services temporarily excluded from the EU Data Boundary
 
-Some services have work in progress to be EU Customer Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU Customer Data Boundary as part of their service operations:
+Some services have work in progress to be EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
 
 * **Reason for customer data egress** - These features haven't completed changes to fully process user or admin transactions, such as sign-in or object and application configuration actions within the EU Data Boundary.
 * **Types of customer data being egressed** - User and device account and usage data, service configuration, such as application, policy, group, and terms of use configuration.
-* **Customer data location at rest** - In the EU Customer Data Boundary.
+* **Customer data location at rest** - In the EU Data Boundary.
 * **Customer data processing** - Some processing may occur globally.  
 * **Services** - Azure Active Directory Connect, Azure Active Directory Connect Health, Enterprise Application Management, Dynamic Groups Service, MyAccount, MyApps, MySign-Ins, Reporting and Audit Insights, Self-Service Credentials Management, Self-Service Group Management, Sign-In, Terms of Use
 
-Some services have email specific data that will become compliant in the coming months. The following details explain the customer data that these features currently transfer out of the EU Customer Data Boundary as part of their service operations:
+Some services have email specific data that will become compliant in the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
 
 * **Reason for customer data egress** - To provide email notifications, some data is processed outside of the region.  
 * **Types of customer data being egressed** - User account data, such as email address.  
-* **Customer data location at rest** - In EU Customer Data Boundary.
+* **Customer data location at rest** - In EU Data Boundary.
 * **Customer data processing**- Some processing may occur globally.
 * **Services** - Azure Active Directory Sync Fabric, Azure Certificate Service, Enterprise App Management, Identity Governance, JIT
 
