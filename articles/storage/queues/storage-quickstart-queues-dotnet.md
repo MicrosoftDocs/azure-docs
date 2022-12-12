@@ -121,8 +121,8 @@ Use the following .NET classes to interact with these resources:
 
 These example code snippets show you how to perform the following actions with the Azure Queue Storage client library for .NET:
 
-- [Authenticate and create the client](#authenticate-using-defaultazurecredential)
-- [Create a queue](#create-a-queue)
+- [Authenticate and create the client](#add-the-azure-identity-client-library)
+- [Create a queue](#create-a-queue-using-the-queue-client)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
@@ -148,7 +148,7 @@ At the top of the `Program.cs` file, add a using directive for the `Azure.Identi
 using Azure.Identity
 ```
 
-### Authenticate a QueueClient and create a queue
+### Create a queue using the QueueClient
 
 Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
 
@@ -196,7 +196,7 @@ Console.WriteLine("Azure Queue Storage client library v12 - .NET quickstart samp
 string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue using a QueueClient
+### Create a queue using the QueueClient
 
 Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
 
