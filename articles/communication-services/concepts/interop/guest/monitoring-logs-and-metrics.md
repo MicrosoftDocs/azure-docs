@@ -19,11 +19,9 @@ In this article, you will learn which Azure logs, Azure metrics & Teams logs are
 Authentication API metrics emit records for every operation called on the Identity SDK or API (for example, creating a user `CreateIdentity` or issue of a token `CreateToken`). Chat API metrics emit records for every chat API call made via chat SDKs or APIs (for example, creating a thread or sending a message).
 
 Call summary and call diagnostics logs are emitted only for the following participants of the meeting:
-- Organizer of the meeting if actively joined the meeting
-- Azure Communication Services users joining the meeting from the same tenant (even when in the lobby)
-- Additional Teams users joining the meeting only if the organizer and current Azure Communication Services resource are in the same tenant
-- Bots
-- Phone number legs
+- Organizer of the meeting if actively joined the meeting.
+- Azure Communication Services users joining the meeting from the same tenant. This includes users rejected in the lobby and Azure Communication Services users from different resources but in the same tenant.
+- Additional Teams users, phone users and bots joining the meeting only if the organizer and current Azure Communication Services resource are in the same tenant.
 
 If Azure Communication Services resource and Teams meeting organizer tenants are different, then some fields of the logs are redacted. You can find more information in the call summary & diagnostics logs [documentation](./../analytics/call-logs-azure-monitor.md). Bots indicate service logic provided during the meeting. Here is a list of frequently used bots:
 - b1902c3e-b9f7-4650-9b23-5772bd429747 - Teams convenient recording
