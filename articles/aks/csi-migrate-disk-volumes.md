@@ -10,9 +10,9 @@ author: mgoedtel
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 
-The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use the CSI driver.
+The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, your existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use the CSI driver.
 
-To make this process as simple as possible, and to ensure no data loss, this article recommends different approaches and includes scripts to help ensure a smooth migration from in-tree to Azure Disks and Files CSI drivers.
+To make this process as simple as possible, and to ensure no data loss, this article provides different migration options. These options include scripts to help ensure a smooth migration from in-tree to Azure Disks and Files CSI drivers.
 
 ## Before you begin
 
@@ -21,7 +21,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 
 ## Migration options for disk volumes
 
-Migration from in-tree to CSI is supported using two migration approaches:
+Migration from in-tree to CSI is supported using two migration options:
 
 * Create a static volume
 * Create a dynamic volume
@@ -37,11 +37,11 @@ The benefits of this approach are:
 * It is simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you are only performing a logical deletion of Kubernetes PV/PVC, the actual physical data is not deleted.
-* No additional costs as the result of not having to create any additional objects such as disk, snapshots, etc.
+* No extra costs as the result of not having to create more objects such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
 
-* Transition to static volumes from original dynamic-style volumes require constructing and managing PV objects manually for all options.
+* Transition to static volumes from original dynamic-style volumes requires constructing and managing PV objects manually for all options.
 * Potential application downtime when redeploying the new application with reference to the new PVC object.
 
 ### Migration steps
@@ -60,7 +60,7 @@ The following are important considerations to evaluate:
     kubectl get pvc -n <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     ```
 
-    This is step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When running the *CreatePV.sh* script, two of the parameters are start time and end time, with the idea that the script only migrates the PVCs created in that time frame.
+    This step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When you run the *CreatePV.sh* script, two of the parameters are start time and end time that enable you to only migrate the PVCs during that period of time.
 
 3. Create a file named `CreatePV.sh` and copy in the following Bash code:
 
@@ -154,7 +154,7 @@ The following are important considerations to evaluate:
 
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
-   * `targetCSIStorageClass` - Blah
+   * `targetCSIStorageClass` - The CSI storage driver-based StorageClass
    * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
@@ -180,7 +180,7 @@ Using this option, you dynamically create a Persistent Volume from a Persistent 
 
 The benefits of this approach are:
 
-* It's less risky because all new objects are created while retaining additional copies with snapshots.
+* It's less risky because all new objects are created while retaining other copies with snapshots.
 
 * No need to construct PVs separately and add volume name in PVC manifest.
 
@@ -218,7 +218,7 @@ Before proceeding, verify the following:
     kubectl get pvc --namespace <namespace> --sort-by=.metadata.creationTimestamp -o custom-columns=NAME:.metadata.name,CreationTime:.metadata.creationTimestamp,StorageClass:.spec.storageClassName,Size:.spec.resources.requests.storage
     ```
 
-    This is step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When running the *MigrateCSI.sh* script, two of the parameters are start time and end time, with the idea that the script only migrates the PVCs created in that time frame.
+    This step is helpful if you have a large number of PVs that need to be migrated, and you want to migrate a few at a time. Running this command enables you to identify which PVCs were created in a given time frame. When you run the *MigrateCSI.sh* script, two of the parameters are start time and end time that enable you to only migrate the PVCs during that period of time.
 
 2. Create a file named `MigrateToCSI.sh` and copy in the following Bash code:
 
@@ -320,7 +320,7 @@ Before proceeding, verify the following:
 
    * `namespace` - The cluster namespace
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
-   * `targetCSIStorageClass` - Blah
+   * `targetCSIStorageClass` - The CSI storage driver-based StorageClass
    * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
    * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
    * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
@@ -339,7 +339,7 @@ Before proceeding, verify the following:
 
 4. Update your application to use the new PVC.
 
-5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate additional cost.
+5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate more cost.
 
 ## Next steps
 
