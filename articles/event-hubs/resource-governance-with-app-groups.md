@@ -33,15 +33,15 @@ You can create an application group using the Azure portal by following these st
 1. On the **Add application group** page, follow these steps:
     1. Specify a **name** for the application group.
     1. Confirm that **Enabled** is selected. To have the application group in the disabled state first, clear the **Enabled** option. This flag determines whether the clients of an application group can access Event Hubs or not.
-    1. For **Security context type**, select **Namespace Shared access policy**, **Event Hub Shared Access Policy** or **AAD application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
+    1. For **Security context type**, select **Namespace Shared access policy**, **event hub Shared Access Policy** or **AAD application**.Application group supports the selection of SAS key at either namespace or at entity (event hub) level. When you create the application group, you should associate with either a shared access signatures (SAS) or Azure Active Directory(Azure AD) application ID, which is used by client applications. 
     1. If you selected **Namespace Shared access policy**:
         1. For **SAS key name**, select the SAS policy that can be used as a security context for this application group.You can select **Add SAS Policy** to add a new policy and then associate with the application group. 
 	
-              :::image type="content" source="./media/resource-governance-with-app-groups/Create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
+              :::image type="content" source="./media/resource-governance-with-app-groups/create-application-groups-with-namespace-shared-access-key.png" alt-text="Screenshot of the Add application group page with Namespace Shared access policy option selected.":::
      1. If you selected **Event Hubs Shared access policy**:
         1. For **SAS key name**, copy the SAS policy name from Event Hubs "Shared Access Policies" Page and paste into textbox
     
-              :::image type="content" source="./media/resource-governance-with-app-groups/Create-application-groups-with-eventhub shared-access-key.png" alt-text="Screenshot of the Add application group page with Event Hub Shared access policy option selected.":::
+              :::image type="content" source="./media/resource-governance-with-app-groups/create-application-groups-with-event-hub-shared-access-key.png" alt-text="Screenshot of the Add application group page with event hub Shared access policy option selected.":::
      
       1. If you selected **AAD application**:
           1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
@@ -81,7 +81,7 @@ Review the auto-generated **Client group ID**, which is the unique ID associated
 
 
 ### [Azure CLI](#tab/cli)
-Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create) to create an application group at Event Hubs namespace or event Hubs level. You must set --client-app-group-identifier based on the security
+Use the CLI command: [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create) to create an application group at Event Hubs namespace or event hub level. You must set --client-app-group-identifier based on the security
 context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 The following example creates an application group named `myAppGroup` in the namespace `mynamespace` in the Azure resource group `MyResourceGroup`. It uses the following configurations.
@@ -103,7 +103,7 @@ az eventhubs namespace application-group create --namespace-name mynamespace \
 To learn more about the CLI command, see [`az eventhubs namespace application-group create`](/cli/azure/eventhubs/namespace/application-group#az-eventhubs-namespace-application-group-create). 
 
 ### [Azure PowerShell](#tab/powershell)
-Use the PowerShell command: [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group  at Event Hubs namespace or event Hubs level. You must set -ClientAppGroupIdentifier based on the security
+Use the PowerShell command: [`New-AzEventHubApplicationGroup`](/powershell/module/az.eventhub/new-azeventhubapplicationgroup) to create an application group  at Event Hubs namespace or event hub level. You must set -ClientAppGroupIdentifier based on the security
 context type you are choosing. Please review the [table](#supported-security-context-type) above to know supported Security context type
 
 The following example uses the [`New-AzEventHubThrottlingPolicyConfig`](/powershell/module/az.eventhub/new-azeventhubthrottlingpolicyconfig) to create two policies that will be associated with the application.
@@ -368,7 +368,7 @@ You can use the below example query to find out all the throttled requests in ce
     | where Outcome_s =="Throttled"  
 	
   ``` 
-Due to restrictions at protocol level, throttled request logs are not generated for consumer operations with Event Hub ( `OutgoingMessages` or `OutgoingBytes`). when requests are throttled at consumer side, you would observe sluggish egress throughput. 
+Due to restrictions at protocol level, throttled request logs are not generated for consumer operations within event hub ( `OutgoingMessages` or `OutgoingBytes`). when requests are throttled at consumer side, you would observe sluggish egress throughput. 
 
 ## Next steps
 
