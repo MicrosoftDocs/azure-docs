@@ -13,27 +13,22 @@ ms.custom: mvc, engagement-fy23
 ---
 # Tutorial: Move Azure VMs across regions
 
-Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
-
 This tutorial shows you how to move Azure VMs and related network/storage resources to a different Azure region using [Azure Resource Mover](overview.md).
+
+Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Check prerequisites and requirements.
-> * Select the resources you want to move.
-> * Resolve resource dependencies.
-> * Prepare and move the source resource group. 
-> * Prepare and move the other resources.
-> * Decide whether you want to discard or commit the move. 
-> * (Optionally) remove resources in the source region after the move.
+> * Move Azure VMs to another region with Azure Resource Mover.
+> * Move resources associated with VMs to another region.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario and use the default options. 
+> Tutorials show the quickest path for trying out a scenario and uses the default options. 
 
 ## Sign in to Azure
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com). 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin and sign in to the [Azure portal](https://portal.azure.com). 
 
 ## Prerequisites
 
@@ -57,16 +52,12 @@ To prepare VMs for the move, follow the given steps:
     - On Windows VMs, install the latest Windows updates.
     - On Linux VMs, follow distributor guidance so that machines have the latest certificates and CRL. 
 1. Allow outbound connectivity from VMs:
-    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these [URLs](support-matrix-move-region-azure-vm.md#url-access)
+    - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these [URLs](support-matrix-move-region-azure-vm.md#url-access).
     - If you're using network security group (NSG) rules to control outbound connectivity, create these [service tag rules](support-matrix-move-region-azure-vm.md#nsg-rules).
 
 ## Select resources 
 
-Before you select the resources you want to move, note that:
-
-- All supported resource types in resource groups within the selected source region are displayed.
-- Resources that have already been added for moving across regions aren't shown.
-- You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
+Note that, all supported resource types in resource groups within the selected source region are displayed. The resources that have already been added for moving across regions aren't shown. You move resources to a target region in the same subscription as the source region. If you want to change the subscription, you can do that after the resources are moved.
 
 To select the resources you want to move, follow these steps:
 
@@ -78,17 +69,19 @@ To select the resources you want to move, follow these steps:
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/get-started.png" alt-text="Screenshot displays button to add resources to move to another region." lightbox="./media/tutorial-move-region-virtual-machines/get-started.png":::
 
-3. In **Move resources** > **Source + destination** tab: 
+3. In **Move resources** > **Source + destination** tab, do the following: 
     1. Select the source subscription and region.
-    1. Under **Destination**, select the region to which you want to move the VMs. Then select **Next**.
+    1. Under **Destination**, select the region to which you want to move the VMs.
+    1. Select **Next**.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/source-target.png" alt-text="Screenshot displays page to select source and destination region." lightbox="./media/tutorial-move-region-virtual-machines/source-target.png":::
 
-6. In **Move resources** > **Resources to move** tab:
+6. In **Move resources** > **Resources to move** tab, do the following:
     1. Select **Select resources**.
-    2. In **Select resources**, select the VM. You can only add the [resources supported for the move](#prepare-vms). Then select **Done**.
+    2. In **Select resources**, select the VM. You can only add the [resources supported for the move](#prepare-vms). 
+    1. Select **Done**.
 
-    :::image type="content" source="./media/tutorial-move-region-virtual-machines/select-vm.png" alt-text="Screenshot displays page to select VMs to move." lightbox="./media/tutorial-move-region-virtual-machines/select-vm.png":::
+        :::image type="content" source="./media/tutorial-move-region-virtual-machines/select-vm.png" alt-text="Screenshot displays page to select VMs to move." lightbox="./media/tutorial-move-region-virtual-machines/select-vm.png":::
 
     1. Select **Next**.
 1. In **Review**, check the source and the destination settings. 
@@ -112,8 +105,8 @@ To resolve dependencies before the move, follow these steps:
 2. If dependencies are found, select **Add dependencies** to add them. 
 3. On **Add dependencies**, leave the default **Show all dependencies** option. This option:
 
-    - Shows all dependencies and iterates through all of the direct and indirect dependencies for a resource. For example, for a VM it shows the NIC, virtual network, network security groups (NSGs), etc.
-    - Show first-level dependencies shows only the direct dependencies. For example, for a VM it shows the NIC, but not the virtual network.
+    - **Show all dependencies** iterates through all the direct and indirect dependencies for a resource. For example, for a VM, it shows the NIC, virtual network, network security groups (NSGs), and so on.
+    - **Show first-level dependencies only** shows only direct dependencies. For example, for a VM it shows the NIC but not the virtual network.
 
 4. Select the dependent resources you want to add and select **Add dependencies**. You can monitor the progress in the notifications.
 
@@ -133,8 +126,8 @@ During the Prepare process, Resource Mover generates Azure Resource Manager (ARM
 
 Prepare as follows:
 
-1. In **Across regions**, select the source resource group > **Prepare**.
-2. In **Prepare resources**, select **Prepare** to start the process.
+1. On the **Across regions** pane, select the source resource group > **Prepare**.
+2. On **Prepare resources** pane, select **Prepare** to start the process.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/prepare-resource-group.png" alt-text="Screenshot displays Prepare resource group." lightbox="./media/tutorial-move-region-virtual-machines/prepare-resource-group.png":::
 
@@ -144,18 +137,18 @@ Prepare as follows:
  
 ### Move the source resource group
 
-To start the move, follows these steps:
+**To start the move, follows these steps:**
 
-1. In **Across regions**, select the resource group > **Initiate Move**
-2. ln **Move Resources**, select **Initiate move**. The resource group moves into an *Initiate move in progress* state.
+1. On **Across regions** pane, select the resource group > **Initiate Move**.
+2. On **Move Resources** pane, select **Initiate move**. The resource group moves into an *Initiate move in progress* state.
 3. After initiating the move, the target resource group is created, based on the generated ARM template. The source resource group moves into a *Commit move pending* state.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/commit-move-pending.png" alt-text="Screenshot displays select the initiate move button." lightbox="./media/tutorial-move-region-virtual-machines/commit-move-pending.png":::
 
-To commit and finish the move process:
+**To commit and finish the move process:**
 
-1. In **Across regions**, select the resource group > **Commit move**.
-2. ln **Move Resources**, select **Commit**.
+1. On **Across regions** pane, select the resource group > **Commit move**.
+2. On **Move Resources** pane select **Commit**.
 
 > [!NOTE]
 > After committing the move, the source resource group is in a *Delete source pending* state.
@@ -166,7 +159,7 @@ Now that the source resource group is moved, you can prepare to move other resou
 
 To move resources that are in the *Prepare pending* state, follow these steps:
 
-1. In **Across regions**, verify that the resources are now in a *Prepare pending* state, with no issues. If they're not, validate again and resolve any outstanding issues.
+1. On **Across regions** pane, verify that the resources are now in a *Prepare pending* state, with no issues. If they're not, validate again and resolve any outstanding issues.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/prepare-pending.png" alt-text="Screenshot displays page showing resources in prepare pending state." lightbox="./media/tutorial-move-region-virtual-machines/prepare-pending.png":::
 
@@ -185,16 +178,16 @@ Now that the source resource group is moved, you can prepare to move the other r
 > - VM data is replicated periodically to the target region. This doesn't affect the source VM.
 > - Resource Move generates ARM templates for the other source resources.
 > - After preparing resources, they're in an *Initiate move pending* state.
-
-:::image type="content" source="./media/tutorial-move-region-virtual-machines/initiate-move-pending.png" alt-text="Screenshot displays page showing resources in initiate move pending state." lightbox="./media/tutorial-move-region-virtual-machines/initiate-move-pending.png":::
+> :::image type="content" source="./media/tutorial-move-region-virtual-machines/initiate-move-pending.png" alt-text="Screenshot displays page showing resources in initiate move pending state." lightbox="./media/tutorial-move-region-virtual-machines/initiate-move-pending.png":::
 
 
 ## Initiate the move
 
 With resources prepared, you can now initiate the move. To start the move, follow these steps:
 
-1. In **Across regions**, select resources with state *Initiate move pending*. Then select **Initiate move**.
-2. In **Move resources**, select **Initiate move**.
+1. On **Across regions** pane, select resources with state *Initiate move pending*. 
+1. Select **Initiate move** to start the process.
+1. On **Move resources** tab, select **Initiate move**.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/initiate-move.png" alt-text="Screenshot displays select for the initiate move button." lightbox="./media/tutorial-move-region-virtual-machines/initiate-move.png":::
 
@@ -204,8 +197,7 @@ With resources prepared, you can now initiate the move. To start the move, follo
 > - For VMs, replica VMs are created in the target region. The source VM is shut down, and some downtime occurs (usually minutes).
 > - Resource Mover recreates other resources using the ARM templates that were prepared. There's usually no downtime.
 > - After moving resources, they're in a *Commit move pending* state.
-
-:::image type="content" source="./media/tutorial-move-region-virtual-machines/delete-source-pending.png" alt-text="Screenshot displays page showing resources in *Delete source pending* state." lightbox="./media/tutorial-move-region-virtual-machines/delete-source-pending.png":::
+> :::image type="content" source="./media/tutorial-move-region-virtual-machines/delete-source-pending.png" alt-text="Screenshot displays page showing resources in *Delete source pending* state." lightbox="./media/tutorial-move-region-virtual-machines/delete-source-pending.png":::
 
 
 ## Manage the move
@@ -220,8 +212,8 @@ After the initial move, you can decide if you want to commit the move or discard
 
 You can discard the move as follows:
 
-1. In **Across regions**, select resources with state *Commit move pending*, and select **Discard move**.
-2. In **Discard move**, select **Discard**.
+1. On **Across regions** pane, select resources with state *Commit move pending*, and select **Discard move**.
+2. On **Discard move** pane, select **Discard**.
 3. Track move progress in the notifications bar.
 
 
@@ -232,8 +224,8 @@ You can discard the move as follows:
 
 If you want to complete the move process, commit the move. To commit the move, follow these steps:
 
-1. In **Across regions**, select resources with state *Commit move pending*, and select **Commit move**.
-2. In **Commit resources**, select **Commit**.
+1. On **Across regions** pane, select resources with state *Commit move pending*, and select **Commit move**.
+2. On **Commit resources** pane, select **Commit**.
 
     :::image type="content" source="./media/tutorial-move-region-virtual-machines/commit-resources.png" alt-text="Screenshot displays page to commit resources to finalize move." lightbox="./media/tutorial-move-region-virtual-machines/commit-resources.png":::
 
@@ -262,7 +254,7 @@ After the move, you can optionally delete resources in the source region. To del
 > [!NOTE]
 > A few resources, for example key vaults and SQL Server servers, can't be deleted from the portal, and must be deleted from the resource property page.
 
-1. In **Across Regions**, select the name of the source resource that you want to delete.
+1. On **Across Regions** pane, select the name of the source resource that you want to delete.
 2. Select **Delete source**.
 
 ## Delete additional resources created for move
@@ -271,7 +263,7 @@ After the move, you can manually delete the move collection and Site Recovery re
 
 Before you delete the additional resources created for the move, note that:
 
-- The move collection is hidden by default. To see it you need to turn on hidden resources.
+- The move collection is hidden by default. To see it you must turn on hidden resources.
 - The cache storage has a lock that must be deleted, before it can be deleted.
 
 To delete the additional resources created for the move, follow these steps: 
@@ -286,10 +278,4 @@ To delete the additional resources created for the move, follow these steps:
 
 ## Next steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Moved Azure VMs to another Azure region.
-> * Moved resources associated with VMs to another region.
-
-Now, try [moving Azure SQL databases and elastic pools to another region](./tutorial-move-region-sql.md).
+See [Moving Azure SQL databases and elastic pools to another region](./tutorial-move-region-sql.md).
