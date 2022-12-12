@@ -111,6 +111,12 @@
   items:
   - name: Common questions about Site Recovery
     href: site-recovery-faq.yml
+  - name: About Backup center
+    items:
+    - name: Backup center overview
+      href: ../backup/backup-center-overview.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Support requirements for Backup center
+      href: ../backup/backup-center-support-matrix.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure disaster recovery architecture
@@ -221,6 +227,12 @@
       href: transport-layer-security.md
 - name: How-to Guides
   items:
+  - name: Use Backup center
+    items:
+    - name: Obtain insights
+      href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
+    - name: Perform actions
+      href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Azure to Azure disaster recovery
     items:
     - name: Set up networking
@@ -537,6 +549,8 @@
   items:
   - name: Common questions about monitoring
     href: monitoring-common-questions.md
+  - name: Monitor and operate backups and disaster recovery using Backup center
+    href: ../backup/backup-center-monitor-operate.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
   - name: Monitor Site Recovery
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs

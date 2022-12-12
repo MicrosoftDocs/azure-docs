@@ -85,10 +85,6 @@ At the failure of schema conversion, the job behavior will follow the [output da
 - Schema checking in query testing isn't available.
 - Checkpoints for delta lake aren't taken by Stream Analytics.
 
-## Regions Availability
-
-The feature is currently supported in West Central US, Japan East and Canada Central. 
-
 ## Next steps
 
 * [Create a Stream Analytics job writing to Delta Lake Table in ADLS Gen2](write-to-delta-lake.md)
