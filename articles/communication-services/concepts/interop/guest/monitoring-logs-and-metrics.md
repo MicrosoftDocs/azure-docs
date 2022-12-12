@@ -12,10 +12,11 @@ ms.subservice: teams-interop
 
 # Monitor Logs for Teams external users
 
-In this article, you will learn which Azure logs and metrics are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](./../metrics#authentication-api-requests) and [Chat API](./../metrics#chat-api-request-metric-operations). Communication Services resource additionally tracks the following logs: [Call Summary](./../analytics/call-logs-azure-monitor#call-summary-log) and [Call Diagnostic](./../analytics/call-logs-azure-monitor#call-diagnostic-log) Log.
+In this article, you will learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](./../metrics#authentication-api-requests) and [Chat API](./../metrics#chat-api-request-metric-operations). Communication Services resource additionally tracks the following logs: [Call Summary](./../analytics/call-logs-azure-monitor#call-summary-log) and [Call Diagnostic](./../analytics/call-logs-azure-monitor#call-diagnostic-log) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
+
+## Azure logs & metrics
 
 Authentication API metrics emit records for every operation called on the Identity SDK or API (for example, creating a user `CreateIdentity` or issue of a token `CreateToken`). Chat API metrics emit records for every chat API call made via chat SDKs or APIs (for example, creating a thread or sending a message).
-
 
 Call summary and call diagnostics logs are emitted only for the following participants of the meeting:
 - Organizer of the meeting if actively joined the meeting
@@ -24,11 +25,11 @@ Call summary and call diagnostics logs are emitted only for the following partic
 - Bots
 - Phone number legs
 
-If Azure Communication Services resource and Teams meeting organizer tenants are different, then some fields of the logs are redacted. You can find more information in the call summary & diagnostics logs [documentation](./../analytics/call-logs-azure-monitor.md).
-
-## Bots
-Bots indicate service logic provided during the meeting. Here is a list of frequently used bots:
+If Azure Communication Services resource and Teams meeting organizer tenants are different, then some fields of the logs are redacted. You can find more information in the call summary & diagnostics logs [documentation](./../analytics/call-logs-azure-monitor.md). Bots indicate service logic provided during the meeting. Here is a list of frequently used bots:
 - b1902c3e-b9f7-4650-9b23-5772bd429747 - Teams convenient recording
+
+## Microsoft Teams logs
+Teams administrator can see Teams external users in the overview of the meeting (section `Manage users` -> `Select user` -> `Meetings & calls` -> `Select meeting`). The summary logs can be found when selecting individual Teams external users (continue `Participant details` -> `Anonymous user`). For more details about the call legs, proceed with [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com). You can learn more about the call quality dashboard [here](microsoftteams/cqd-what-is-call-quality-dashboard.md).
 
 ## Next steps
 
