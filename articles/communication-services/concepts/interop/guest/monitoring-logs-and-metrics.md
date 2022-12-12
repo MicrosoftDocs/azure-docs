@@ -12,7 +12,7 @@ ms.subservice: teams-interop
 
 # Monitor Logs for Teams external users
 
-In this article, you will learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](../../metrics#authentication-api-requests) and [Chat API](../../metrics#chat-api-request-metric-operations). Communication Services resource additionally tracks the following logs: [Call Summary](../../analytics/call-logs-azure-monitor#call-summary-log) and [Call Diagnostic](../../analytics/call-logs-azure-monitor#call-diagnostic-log) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
+In this article, you will learn which Azure logs, Azure metrics & Teams logs are emitted for Teams external users when joining Teams meetings. Azure Communication Services user joining Teams meeting emits the following metrics: [Authentication API](../../metrics.md) and [Chat API](../../metrics.md). Communication Services resource additionally tracks the following logs: [Call Summary](../../analytics/call-logs-azure-monitor.md) and [Call Diagnostic](../../analytics/call-logs-azure-monitor.md) Log. Teams administrator can use [Teams Admin Center](https://aka.ms/teamsadmincenter) and [Teams Call Quality Dashboard](https://cqd.teams.microsoft.com) to review logs stored for Teams external users joining Teams meetings organized by the tenant.
 
 ## Azure logs & metrics
 
