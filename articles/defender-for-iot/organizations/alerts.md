@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for IoT alerts
 description: Learn about the resources for managing Microsoft Defender for IoT alerts across the Azure portal, OT network sensors, and on-premises management consoles.
-ms.date: 03/10/2022
+ms.date: 12/12/2022
 ms.topic: how-to
 ---
 
@@ -13,10 +13,14 @@ For example:
 
 :::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Screenshot of the Alerts page in the Azure portal." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
 
-Defender for IoT provides recommended remediation steps for each alert, such as taking action on a related device or on the network process that triggered the alert.
+Use the details shown on the **Alerts** page, or on an alert details page, to investigate and take action that remediates any risk to your network, either from related devices or the network process that triggered the alertץ
 
 > [!TIP]
 > Use remediation steps to help your SOC teams understand OT issues and resolutions. We recommend that you review recommended remediation steps before updating an alert status or taking action on the device or network.
+>
+
+> [!NOTE]
+> The **Alerts** page in Defender for IoT on the Azure portal is in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Alert management options
@@ -33,27 +37,27 @@ The Azure portal and OT network sensors also provide the following extra investi
 
 |Location  |Extra options  |
 |---------|---------|
-|**Alerts on the Azure portal**     | - View related MITRE ATT&CK tactics and techniques <br>- Use out-of-the-box workbooks for visibility into high priority alerts <br>- Run a deeper investigation with other Microsoft services, such as [Microsoft Sentinel playbooks and workbooks](concept-sentinel-integration.md).        |
-|**OT network sensors**     | - View the alert's source and destination in the **Device map**, and view related events on the **Event timeline**.   - <br>- Forward sensor alerts to directly to partner vendors, including SIEM systems, MSSP systems, and more.      |
+|**Alerts on the Azure portal**     | - View related MITRE ATT&CK tactics and techniques <br>- Use out-of-the-box workbooks for visibility into high priority alerts <br>- View alerts from Microsoft Sentinel and run deeper investigations with [Microsoft Sentinel playbooks and workbooks](concept-sentinel-integration.md).        |
+|**OT network sensors and איק on-premises management console**     | - View the alert's source and destination in the **Device map**, and view related events on the **Event timeline**.  <br>- Accelerate alert workflows with custom alert rules and comments.  <br>- Forward sensor alerts to directly to partner vendors, including SIEM systems, MSSP systems, and more.      |
 
-> [!NOTE]
-> Alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only. For more information, see <xref>.
->
 
-For details about alert options per user role, see Defender for IoT user roles and permissions in [Azure](roles-azure.md) and for [OT network sensors and on-premises management consoles](roles-on-premises.md).
+For details about alert management options per user role, see Defender for IoT user roles and permissions in [Azure](roles-azure.md) and for [OT network sensors and on-premises management consoles](roles-on-premises.md).
 
-## Learning alert traffic
+### Enterprise IoT alerts
+
+If you have an [Enterprise IoT plan](eiot-defender-for-endpoint.md) with Microsoft Defender for Endpoint, alerts for Enterprise IoT devices detected by Microsoft Defender for Endpoint are available in Defender for Endpoint only.
+
+For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and the [Alerts queue in Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/alerts-queue-endpoint-detection-response).
+
+## Learning OT alert traffic
 
 Some alerts might reflect valid network changes, such as an authorized device attempting to access a new resource on another device.
 
-If you don't want to see the alert again for the same traffic, instruct Defender for IoT to *Learn* the traffic for its network baseline.
+If you don't want to see the alert again for the same traffic pattern, instruct Defender for IoT to *learn* the traffic for its network baseline.
 
-While you can *Learn* alerts on the Azure portal or on OT network sensors, you can only *Unlearn* alerts on the OT network sensor.
+While you can *learn* alerts on the Azure portal or on OT network sensors, you can only *unlearn* alerts on the OT network sensor.
 
-After *Learning* an alert, the alert is automatically closed and the learn action is added to the alert's **Event Timeline**.
-
-> [!NOTE]
-> Devices related to the learned traffic, including source and destination devices, aren't calculated when the sensor generates reports, such as [Risk assessment](how-to-create-risk-assessment-reports.md) or [Attack vector](how-to-create-attack-vector-reports.md) reports.
+After *learning* an alert, the alert is automatically closed and the learn action is added to the alert's **Event Timeline**. Devices related to the learned traffic, including source and destination devices, aren't calculated when the sensor generates reports, such as [Risk assessment](how-to-create-risk-assessment-reports.md) or [Attack vector](how-to-create-attack-vector-reports.md) reports.
 
 Other examples of traffic you might want to *Learn* include:
 
@@ -67,9 +71,13 @@ Other examples of traffic you might want to *Learn* include:
 
 - New legitimate scanning is carried out and the device should be defined as a scanning device.
 
+> [!TIP]
+> If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event log, [create an alert exclusion rule](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console) on an on-premises management console instead.
+>
+
 ### Muting alert traffic
 
-Learning an alert isn't an available for alerts generated by the *Anomaly*, *Protocol Violation*, or *Operational* engine. To instruct your sensor to ignore such alerts, sign into your sensor and mute the alert instead.
+Learning an alert isn't supported for alerts generated by the *Anomaly*, *Protocol Violation*, or *Operational* engines. To instruct your sensor to ignore such alerts, sign into your OT sensor or on-premises management console and mute the alert instead.
 
 Examples of when you'd mute traffic include:
 
@@ -77,21 +85,16 @@ Examples of when you'd mute traffic include:
 
   - The Protocol Violation engine triggers an alert on a protocol deviation detected between two devices, but the deviation is valid between the devices.
 
-  - The Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure. After investigation, it's determined that the new mode is acceptable.
-
-> [!TIP]
-> If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event log, create an [alert exclusion rule](#accelerating-ot-alert-workflows) instead.
+  - The Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure, but after investigation, it's determined that the new mode is acceptable.
 
 
-## Managing alerts in a hybrid deployment
+## Managing OT alerts in a hybrid deployment
 
 Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
 
-Alert statuses are fully synchronized between the Azure portal and the sensor. This means that when you set an alert status to **Closed** on either the Azure portal or the sensor, the alert status is updated in the other location as well.
+Alert statuses are fully synchronized between the Azure portal and the sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert, the alert is updated in other locations as well
 
-Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
-
-Learning an alert in Azure also updates the alert in the sensor console. For more information, see [Learning alert traffic](#learning-alert-traffic).
+Setting an alert status to **Closed** or **Muted** on a sensor or on-premises management console updates the alert status to **Closed** on the Azure portal.
 
 ## Accelerating OT alert workflows
 
@@ -103,7 +106,7 @@ Learning an alert in Azure also updates the alert in the sensor console. For mor
 
     For more information, see [Create custom alert rules on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-rules-on-an-ot-sensor).
 
-- **Create custom alert comments**. Create a set of custom alert comments that other users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or additional insights or warnings about the event.
+- **Create custom alert comments**. Create a set of custom alert comments that other OT sensor users can add to individual alerts, with details like custom mitigation steps, communications to other team members, or additional insights or warnings about the event.
 
     As team members triage alerts, they can reuse any of these custom comments. Alert comments are shown in a comments area on an alert details page. For example:
 
@@ -111,21 +114,25 @@ Learning an alert in Azure also updates the alert in the sensor console. For mor
 
     For more information, see [Create custom alert comments on an OT sensor](how-to-accelerate-alert-incident-response.md#create-custom-alert-comments-on-an-ot-sensor).
 
-- **Create alert exclusion rules**: If you're working with an on-premises management console, define *alert exclusion rules* to ignore events across multiple sensors that meet specific criteria. For example, you might create an alert exclusion rule to ignore all events that would trigger irrelevant alerts during a specific maintenance window. Alerts ignored by exclusion rules aren't shown on the Azure portal, sensor, or on-premises management console, or in the event logs.
+- **Create alert exclusion rules**: If you're working with an on-premises management console, define *alert exclusion rules* to ignore events across multiple sensors that meet specific criteria. For example, you might create an alert exclusion rule to ignore all events that would trigger irrelevant alerts during a specific maintenance window.
+
+    Alerts ignored by exclusion rules aren't shown on the Azure portal, sensor, or on-premises management console, or in the event logs.
 
     For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 
-- **Forward alert data to partner systems**, including SIEMs, syslog servers, email addresses and more. For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
+- **Forward alert data to partner systems**, including SIEMs, syslog servers, email addresses and more. Forward alert data directly from an OT sensor or the on-premises management console.
 
-## Alert data retention
+    For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
+
+## OT alert data retention
 
 On an OT network sensor:
 
-- New alerts are automatically closed if no identical traffic detected 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor.
+- New alerts are automatically closed if no identical traffic detected is 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor.
 
 - If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
 
-Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long the alert is displayed in the sensor console.
+Updating an alert’s status, learning the alert, or muting the alert doesn’t impact how long the alert is displayed.
 
 <!--missing more info. is this replicated to the portal? cm? sentinel?-->
 

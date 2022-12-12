@@ -33,7 +33,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
     |--|--|
     | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
     | **Name** | The alert title |
-    | **Engine** | The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform.  |
+    | **Engine** | The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. |
     | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
     | **Status** |The alert status: *New*, *Active*, *Closed* |
     | **Source Device** | The source device IP address, MAC, or device name. |
@@ -42,10 +42,12 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
         In the **Edit Columns** pane on the right, select **Add Column** and any of the following extra columns:
 
-        | **Destination Device** | Defines the destination device IP address |
-        | **First detection** | Defines the first time the alert activity was detected.   |
-        | **ID** | Indicates the alert ID. |
-        | **Last activity** | Defines the last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication   |
+        | Name | Description |
+        |--|--|
+        | **Destination Device** | The destination device IP address. |
+        | **First detection** | The first time the alert activity was detected.   |
+        | **ID** | The alert ID. |
+        | **Last activity** | The last time the alert was changed, including manual updates for severity or status, or automated changes for device updates or device/alert de-duplication   |
 
 ### Filter alerts displayed
 
