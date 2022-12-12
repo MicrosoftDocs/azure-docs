@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 12/12/2022
 ms.author: tamram
 ms.subservice: common
 ms.custom: ignite-2022
@@ -32,7 +32,7 @@ The Azure Storage platform includes the following data services:
 
 - [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
-- [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) (preview): Azure Elastic SAN is a cloud-native service that offers a scalable, cost-effective, high-performance, and comprehensive storage solution for a range of compute options.
+- [Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) (preview): A fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN in Azure.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
 - [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
@@ -55,9 +55,9 @@ The following table compares Files, Blobs, Disks, Queues, Tables, and Azure NetA
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
-| **Azure Files** |Offers fully managed cloud file shares that you can access from anywhere via the industry standard Server Message Block (SMB) protocol.<br><br>You can mount Azure file shares from cloud or on-premises deployments of Windows, Linux, and macOS. | You want to "lift and shift" an application to the cloud that already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to replace or supplement on-premises file servers or NAS devices.<br><br> You want to store development and debugging tools that need to be accessed from many virtual machines. |
+| **Azure Files** |Offers fully managed cloud file shares that you can access from anywhere via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview), [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System), and [Azure Files REST API](/rest/api/storageservices/file-service-rest-api).<br><br>You can mount Azure file shares from cloud or on-premises deployments of Windows, Linux, and macOS. | You want to "lift and shift" an application to the cloud that already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to replace or supplement on-premises file servers or NAS devices.<br><br> You want to store development and debugging tools that need to be accessed from many virtual machines. |
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
-| **Azure Elastic SAN** | Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability. Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. |
+| **Azure Elastic SAN** (preview) | Azure Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability. | You want large scale storage that is interoperable with multiple types of compute resources (such as SQL, MariaDB, Azure virtual machines, and Azure Kubernetes Services) through the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol.|
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue Storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Azure Tables** | Allows you to store structured NoSQL data in the cloud, providing a key/attribute store with a schemaless design. | You want to store flexible datasets like user data for web applications, address books, device information, or other types of metadata your service requires. <br/><br/>For guidance around when to use Table Storage versus Azure Cosmos DB for Table, see [Developing with Azure Cosmos DB for Table and Azure Table Storage](../../cosmos-db/table-support.md). |
@@ -83,7 +83,7 @@ For more information about Blob Storage, see [Introduction to Blob Storage](../b
 
 ## Azure Files
 
-[Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the standard Server Message Block (SMB) protocol. That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
+[Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview), [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System), and [Azure Files REST API](/rest/api/storageservices/file-service-rest-api). That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
 
 One thing that distinguishes Azure Files from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time.
 
@@ -103,7 +103,7 @@ Some SMB features are not applicable to the cloud. For more information, see [Fe
 
 Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service.
+Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Elastic SAN volumes can be accessed by a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol.
 
 For more information about Azure Elastic SAN, see [What is Azure Elastic SAN? (preview)](../elastic-san/elastic-san-introduction.md).
 
