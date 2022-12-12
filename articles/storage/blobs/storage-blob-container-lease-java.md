@@ -65,7 +65,7 @@ The following example breaks the lease on a blob:
 
 The following diagram shows the five states of a lease, and the commands or events that cause lease state changes.
 
-:::image type="content" source="./media/blob-dev-guide/storage-dev-guide-container-lease.png" alt-text="A diagram showing container lease states and state change triggers."lightbox="./media/blob-dev-guide/storage-dev-guide-container-lease.png::: 
+:::image type="content" source="./media/blob-dev-guide/storage-dev-guide-container-lease.png" alt-text="A diagram showing container lease states and state change triggers." lightbox="./media/blob-dev-guide/storage-dev-guide-container-lease.png"::: 
 
 A lease can be in one of five states. The table below shows these five states, gives a brief description of each, and lists the lease actions allowed in a given state. These lease actions cause state transitions, as shown in the diagram above.
   
