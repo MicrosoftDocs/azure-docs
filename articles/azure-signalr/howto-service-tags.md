@@ -12,11 +12,11 @@ ms.author: lianwei
 
 # Use service tags for Azure SignalR Service
 
-You can use [Service Tags](../virtual-network/service-tags-overview.md) with Azure SignalR Service when configuring [Network Security Group](../virtual-network/network-security-groups-overview.md#network-security-groups). It allows you to define inbound/outbound network security rules for Azure SignalR Service endpoints without the need to hardcode IP addresses.
+You can use [Service Tags](../virtual-network/service-tags-overview.md) with Azure SignalR Service when configuring [Network Security Group](../virtual-network/network-security-groups-overview.md#network-security-groups). Service tags allow you to define inbound/outbound network security rules for Azure resources that connect to the SignalR Service endpoints without the need to hardcode IP addresses.  
 
-Azure SignalR Service manages service tags which means that you can't create your own service tag or modify an existing one. Microsoft manages address prefixes that match the service tag and automatically updates the service tag as addresses change.
+The SignalR Service manages service tags, which means that you can't create your own service tag or modify an existing one. Microsoft manages address prefixes that match the service tag and automatically updates the service tag as addresses change.
 
-This article show you how to configure service tags for Azure SignalR Service.
+This article shows you how to create a network security group with inbound/outbound service tags for Azure SignalR Service.  Once you've created the network security group, you can apply it to the resource, such as Azure Functions, connecting to SignalR Service.
 
 > [!Note]
 > Starting 15 August 2021, Azure SignalR Service supports bidirectional service tags for both inbound and outbound traffic.
@@ -51,12 +51,12 @@ You can allow outbound traffic to Azure SignalR Service by adding a new outbound
 
     ![Create an outbound security rule](media/howto-service-tags/portal-add-outbound-security-rule.png)
 
-1. Adjust other fields sd needed.
-1. Click **Add**.
+1. Adjust other fields as needed.
+1. Select **Add**.
 
 ### Configure inbound traffic
 
-If you have upstreams, you can also enable inbound traffic from Azure SignalR Service by adding a new inbound network security rule:
+If you're using upstream, you can also enable inbound traffic from Azure SignalR Service by adding a new inbound network security rule:
 
 1. Go to the network security group.
 1. Select  **Inbound security rules**.
