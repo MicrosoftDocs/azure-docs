@@ -53,7 +53,7 @@ The appliance has the following services:
 - **Web apps discovery and assessment agent**: sends the web apps configuration data to Azure.
 
 > [!Note]
-> The last 3 services are only available in the appliance used for discovery and assessment of servers running in your VMware environment.
+> The last 3 services are available in the appliance used for discovery and assessment of servers running in your VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc.
 
 ## Appliance - VMware
 
