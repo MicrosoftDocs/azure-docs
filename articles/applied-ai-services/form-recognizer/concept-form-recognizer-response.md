@@ -9,20 +9,22 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/01/2022
 ms.author: vikurpad
+ms.custom: references_regions
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 # Form Recognizer analyze document response
 
-Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API, submitting a document returns a operation location header, that contains the URL to poll for completion. When a analysis request completes successfully, the response contains the the elements described in the [model data extraction](concept-model-overview#model-data-extraction).
+Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API, submitting a document returns an operation location header, that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview#model-data-extraction).
 
 Content elements are the basic text elements extracted from the document.  Layout elements groups content elements into structural units.  Style elements describe the font and language of content elements.  Semantic elements assign meaning to the specified content elements.
 
-All content elements are grouped by pages, specified by its page number (1-indexed).  They are also sorted by reading order that arranges semantically contiguous elements together, even if they cross line or column boundaries.  When the reading order among paragraphs and other layout elements is ambiguous, the service generally returns the content in a left-to-right, top-to-bottom order.
+All content elements are grouped by pages, specified by its page number (1-indexed).  They're also sorted by reading order that arranges semantically contiguous elements together, even if they cross line or column boundaries.  When the reading order among paragraphs and other layout elements is ambiguous, the service generally returns the content in a left-to-right, top-to-bottom order.
 
 > [!NOTE]
 > Current Form Recognizer does not support reading order across page boundaries.  Selection marks are not interleaved within the surrounding words.
 
-The top-level content property contains a concatenation of all content elements in reading order.  All elements specify their position in the reader order via spans into this content string.  Note that the content of some elements may not be contiguous.
+The top-level content property contains a concatenation of all content elements in reading order.  All elements specify their position in the reader order via spans into this content string.  The content of some elements may not be contiguous.
 
 ## Analyze response
 
@@ -75,10 +77,14 @@ A selection mark is a content element that represents a visual glyph indicating 
 
 A line is an ordered sequence of consecutive content elements separated by a visual space, or ones that are immediately adjacent for languages without space delimiters between words.  Content elements in the same horizontal plane (ex. row) but separated by more than a single visual space will generally be split into multiple lines.  While this sometimes splits semantically contiguous content into separate lines, it enables the representation of textual content split into multiple columns or cells.  Lines in vertical writing will be detected in the vertical direction.
 
+:::image type="content" source="media/lines.png" alt-text="Lines":::
+
 #### Paragraph
 
 A paragraph is an ordered sequence of lines that form a logical unit.  Typically, the lines share common alignment and spacing between lines.  Paragraphs are often delimited by indentation, additional spacing, or bullets/numbering.  Content can only be assigned to a single paragraph.
 Select paragraphs may also be associated a with functional role in the document.  Currently supported roles include page header, page footer, page number, title, section heading, and footnote.
+
+:::image type="content" source="media/paragraph.png" alt-text="Paragraph":::
 
 #### Page
 
@@ -96,10 +102,14 @@ Based on its position and styling, a cell may be classified as general content, 
 
 Layout tables differs from document fields extracted from tabular data.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  To extract structured data from documents with diverse visual layout (ex. itemized details of a receipt) generally requires significant postprocessing to map the row/column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information are exposed as document fields.  Such trained models can also handle tabular data without headers as well as structured data in non-tabular forms for example the work experience section of a resume.
 
+:::image type="content" source="media/table.png" alt-text="Layout table":::
+
 #### Form field (key value pair)
 
 A form field consists of a field label (key) and value.  The field label is generally a descriptive text string describing the meaning of the field.  It often appears to the left of the value, though it can also appear above or below the value as well.  The field value contains the content value of a specific field instance.  The value may consist of words, selection marks, and other content elements.  It may also be empty for unfilled form fields.  A special type of form field has a selection mark value with the field label to its right.
-Document field is a similar but distinct concept from general form fields.  The field label (key) in a general form field must appear in the document.  Thus, it cannot generally capture information like the merchant name in a receipt. Document fields are labeled and do not extract a key, document fields only map an extracted value to a labeled key. See [document fields]() for additioonal details.
+Document field is a similar but distinct concept from general form fields.  The field label (key) in a general form field must appear in the document.  Thus, it cannot generally capture information like the merchant name in a receipt. Document fields are labeled and do not extract a key, document fields only map an extracted value to a labeled key. See [document fields]() for additional details.
+
+:::image type="content" source="media/key-value-pair.png" alt-text="Key value pair":::
 
 ### Style elements
 
@@ -107,9 +117,25 @@ Document field is a similar but distinct concept from general form fields.  The 
 
 A style element describes the font style to apply to text content.  The content is specified via spans into the global content property.  Currently, the only detected font style is whether the text is handwritten.  As other styles are added, text may be described by multiple non-conflicting style objects.  For compactness, all text sharing the particular font style (with the same confidence) are described via a single style object.
 
+:::image type="content" source="media/style.png" alt-text="Style handwritten text":::
+```json
+{
+    "confidence": 1,
+    "spans": [
+        {
+            "offset": 2402,
+            "length": 7
+        }
+    ],
+    "isHandwritten": true
+}
+```
+
 #### Language
 
 A language element describes the detected language for content specified via spans into the global content property.  The detected language is specified via a [BCP-47 language tag](https://en.wikipedia.org/wiki/IETF_language_tag) to indicate the primary language and optional script and region information.  For example, English and traditional Chinese are recognized as "en" and "zh-Hant", respectively.  Regional spelling differences for UK English may lead the text to be detected as "en-GB".  Language elements do not cover text without a dominant language (ex. numbers).
+
+
 
 ### Semantic elements
 
