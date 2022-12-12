@@ -218,8 +218,8 @@ In the Azure portal, the connection string will have the database's password rem
 
 You need to add your database's connection string as an application setting. To do this through the Azure portal, first go to your Azure Functions App view. Then go under "Configuration", select "New application setting", and there you can assign "SQLDB_Connection" to map to a publicly accessible connection string. Below are some guiding images.
 
-![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-envvar-1.png)
-![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-envvar-2.png)
+![On the DB blade, go to Configuration, then click new application setting.](./media/quickstart-mssql/mssql-azure-environment-variable-1.png)
+![Enter your connection string setting name, and its value.](./media/quickstart-mssql/mssql-azure-environment-variable-2.png)
 
 ### Deploy
 
