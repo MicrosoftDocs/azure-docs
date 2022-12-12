@@ -10,9 +10,9 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to use my app to call a web API, in this case Microsoft Graph. I need to know how to modify my 
 ---
 
-# Tutorial: Call an API and display the results 
+# Tutorial: Call an API and display the results
 
-An application can be configured to call a protected API and display the results. In this tutorial, the Microsoft Graph API is being called, but the code can be configured to call any API that has been registered in an Azure Active Directory tenant.
+At this point, the application can be configured to call an API. For the purposes of this tutorial, the Microsoft Graph API will be called to display the profile information of the logged-in user. 
 
 In this tutorial, you learn how to:
 
@@ -146,7 +146,7 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 
 ## See also
 
-Contgratulations for reaching the end of the tutorial set. You may be interested to register an API with the Microsoft identity platform
+Completion of this tutorial set can be the first part of the potential developer journey. The following can guide the experience even further by using resources available on the Microsoft identity platform. <!-- Not perfect, needs changing -->
 
 > [!div class="nextstepaction"]
 > [Tutorial: Register a web API with the Microsoft identity platform](web-app-tutorial-01-register-application.md)

@@ -40,7 +40,7 @@ Identity related **NuGet packages** must be installed in the project for authent
 ### [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, select **Terminal** then **New Terminal.**
-1. Ensure that you are in the correct directory (*NewApp1*), then enter the following into the terminal to install the relevant NuGet packages;
+1. Ensure that the correct directory is selected (*NewApp1*), then enter the following into the terminal to install the relevant NuGet packages;
 
 ```powershell
 dotnet add package Microsoft.Identity.Web --version 2.0.5-preview
@@ -121,7 +121,7 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 
 ## Display the sign-in and sign-out experience
 
-1. Open *_LoginPartial.cshtml* and add the following code for adding sign-in and sign-out to the page:
+1. Open *_LoginPartial.cshtml* and add the following code for adding the sign-in and sign-out experience:
 
     ```csharp
     @using System.Security.Principal

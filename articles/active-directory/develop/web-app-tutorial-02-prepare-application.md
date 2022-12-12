@@ -49,8 +49,8 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
 1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
-1. Create a new folder using either the terminal you have just opened or the **New Folder...** icon at the top of the left panel. Give it a similar name to the one you registered on the Azure portal, for example, *MyWebApp*.
-1. Using the terminal, run the following commands to change into your new folder and set up your project;
+1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *MyWebApp*.
+1. Using the terminal, run the following commands to change into the folder directory and create the project;
 1. Run the following command in the terminal:
 
 ```powershell
@@ -107,7 +107,7 @@ The use of certificates is suggested for securing the application. When using ce
 
 ### Upload certificate to the portal
 
-To make the certificate available to the application, it must be uploaded into your Azure AD tenant.
+To make the certificate available to the application, it must be uploaded into the Azure AD tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.

@@ -12,9 +12,9 @@ ms.date: 10/18/2022
 
 # Tutorial: Register an application
 
-Before your application can be authenticated with the Microsoft identity platform, it must be registered with an Azure Active Directory (Azure AD) tenant. This establishes the unidirectional trust relationship, where the application trusts the Microsoft identity platform but not the other way around. This tutorial shows you how to register a web API using the Azure portal and how to add a scope to allow communication with the Microsoft identity platform.
+This tutorial shows how to register a web app using the Azure portal so that it can be configured with the Microsoft identity platform.
 
-In this tutorial, you learn how to:
+In this tutorial:
 
 > [!div class="checklist"]
 > * Register a web application in an Azure AD tenant
@@ -33,11 +33,11 @@ In this tutorial, you learn how to:
 
 ### Enter a registration name and select the account type
 
-Provide a name for the application, specify the type of accounts that the application supports and then register the application.
+Provide a name for the application, specify the type of supported accounts and register the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select **Azure Active Directory**.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Under **Manage**, select **App registrations > New registration**.
 1. Enter a **Name** for the application, such as *NewWebApp1*.
 1. Accept the selection of **Accounts in this organizational directory only (Contoso only - Single tenant)** for the **Supported account type**.
