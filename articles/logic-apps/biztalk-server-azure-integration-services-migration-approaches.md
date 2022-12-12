@@ -11,7 +11,6 @@ ms.date: 12/15/2022
 
 # Migration approaches for moving from BizTalk Server to Azure Integration Services
 
-
 ## Strategy options
 
 ### Lift and shift
@@ -218,59 +217,65 @@ Consider the following testing recommendations for your migration project:
 
 ### Go live
 
-After your team finishes testing, you now think about the necessary tasks to put your new platform into production:
+After your team finishes testing, think about the necessary tasks to put your new integration platform into production:
 
-- Create a communication plan.
+1. Create a communication plan.
 
-  Although you might have a small team implementing the technical aspects and details for an integration platform modernization project, you likely have many stakeholders that you need to keep informed about the migration project. If you don't have a clear communication strategy, you create anxiety for others involved. Also, consider the external stakeholders that you need to include in your communication plan. For example, you might want to include other trading partners or customers who might be affected by upcoming events. Don't forget about these stakeholders too.
+   Although you might have a small team implementing the technical aspects and details for an integration platform modernization project, you likely have many stakeholders that you need to keep informed about the migration project. If you don't have a clear communication strategy, you create anxiety for others involved. Also, consider the external stakeholders that you need to include in your communication plan. For example, you might want to include other trading partners or customers who might be affected by upcoming events. Don't forget about these stakeholders too.
 
-  So, communicate early and often by providing clarity in the areas that affect your stakeholders, for example, what you expect from them, when they're needed, how long they're needed, and so on. By providing a concise and clear plan, you create confidence for stakeholders and keep up positive energy around your project. Remove any doubts by making sure your team is ready to execute. Otherwise, you risk ruining morale due to perceptions, speculation, and rumors that your project might fail.
+   So, communicate early and often by providing clarity in the areas that affect your stakeholders, for example, what you expect from them, when they're needed, how long they're needed, and so on. By providing a concise and clear plan, you create confidence for stakeholders and keep up positive energy around your project. Remove any doubts by making sure your team is ready to execute. Otherwise, you risk ruining morale due to perceptions, speculation, and rumors that your project might fail.
 
-- Include a "cut-over" plan in your communication plan.
+1. Make a "cut-over" plan.
 
-  A cut-over plan covers the details about the tasks and activities necessary to switch from the current platform to the new platform, including the steps that your team plan to execute. Include the following considerations in your cut-over plan:
+   A cut-over plan covers the details about the tasks and activities necessary to switch from the current platform to the new platform, including the steps that your team plan to execute. Include the following considerations in your cut-over plan:
 
-  - Prerequisite steps
+   - Prerequisite steps
 
-    Identify the actions that you can or must perform in advance, so that you don't leave everything for cut-over day. Generally, a cut-over to a new integration platform usually means that you have a greenfield deployment, so you can stage many components and configurations early in the cycle. The more that you can complete before your original platform's maintenance window, the more angst you can remove, and improve the overall outcome of your cut-over event.
+     Identify the actions that you can or must perform in advance, so that you don't leave everything for cut-over day. Generally, a cut-over to a new integration platform usually means that you have a greenfield deployment, so you can stage many components and configurations early in the cycle. The more that you can complete before your original platform's maintenance window, the more angst you can remove, and improve the overall outcome of your cut-over event.
 
-  - Dress rehearsal
+   - Dress rehearsal
   
-    Stakeholders generally want some predictability around the upcoming events. So, how do you provide predictability around something you've never done before? By running a dress rehearsal that deploys your integration platform to a pre-production environment, you can validate your cut-over plan and the anticipated timing for each step in the process.
+     Stakeholders generally want some predictability around the upcoming events. So, how do you provide predictability around something you've never done before? By running a dress rehearsal that deploys your integration platform to a pre-production environment, you can validate your cut-over plan and the anticipated timing for each step in the process.
 
-    Otherwise, underestimating the time that a step can take can lead to a ripple effect in delays. Cumulatively, these delays can cost a significant amount of time and disrupt the business. When you run a dress rehearsal, you can base your schedule on actual data. Your team might also find issues that would've caused problems during go-live in production. When your team catches and documents problems early, they're better prepared and risk fewer surprises during the real cut-over event.
+     Otherwise, underestimating the time that a step can take can lead to a ripple effect in delays. Cumulatively, these delays can cost a significant amount of time and disrupt the business. When you run a dress rehearsal, you can base your schedule on actual data. Your team might also find issues that would've caused problems during go-live in production. When your team catches and documents problems early, they're better prepared and risk fewer surprises during the real cut-over event.
 
-  - People
+   - People
 
-    Make sure clear accountability exists around which person owns each particular step in the plan. As a wise mitigation strategy, identify and prepare back-up people in case the primary person is unavailable to perform the task, due to unexpected circumstances.
+     Make sure clear accountability exists around which person owns each particular step in the plan. As a wise mitigation strategy, identify and prepare back-up people in case the primary person is unavailable to perform the task, due to unexpected circumstances.
 
-  - Schedule estimates
-  
-    After you run one rehearsal, your team should have a better understanding how long each task might take to complete. You can use these estimations to forecast a schedule so that people know when you need them and approximately how much time they have to finish their task.
+   - Schedule estimates
 
-  - Disable interfaces in the old platform.
+     After you run one rehearsal, your team should have a better understanding how long each task might take to complete. You can use these estimations to forecast a schedule so that people know when you need them and approximately how much time they have to finish their task.
+
+  - Disabling interfaces in the old platform
 
     Provided that you understand all the existing dependencies, you can start disabling interfaces in your old integration platform before you enable interfaces in the new platform. Some complex architectures might require that you disable sequential interfaces in a specific order to avoid surprises. Depending on the interface's nature, you also might not be able to disable all interfaces in your old integration platform. For example, if you have a line of business system that pushes messages to your integration platform, make sure to account for these situations in your cut-over plan.
 
-  - Enable new interfaces in the new platform.
-  
-    Similar to how you might have sequential interfaces that require you to disable in a specific order, you might have the same situation when you enable new interfaces. Make sure that you understand all the dependencies and that you already determined the required order to enable such interfaces.
+  - Enabling interfaces in the new platform
+
+    Similar to how you might have sequential interfaces that require you to disable in a specific order, you might have new sequential interfaces to enable with the same requirement. Before your start enabling interfaces, make sure that you understand all the dependencies and that you identified the required order to enable new sequential interfaces.
 
     > [!NOTE]
     >
-    > Take care so that you execute steps to enable new sequential interfaces in a 
-    > methodical and systematic way to avoid missteps that risk your project's success. 
-    > This guide discusses validation testing in a later section.
+    > Take care that you execute steps to enable interfaces in a methodical and 
+    > systematic way to avoid missteps that risk your project's success. This guide 
+    > later discusses validation testing for your new interfaces.
 
-  - Have a roll-back plan.
-  
-    At this point, you hopefully have taken a very structured approach to implementing your new integration platform. However, surprises do happen from time to time. But the goal here is to have a plan in case you need to roll back to your previous integration platform. 
+1. Determine a rollback plan.
 
-As part of this plan, you may want to take into consideration the types of events that may trigger a roll-back. You also want to have alignment on who needs to be involved in making that decision. We will further discuss this in the upcoming Go/No Go Decision. 
+   Hopefully, you now have a structured and detailed approach to implement your new integration platform.However, surprises can happen, so determine the necessary steps to roll back to your previous integration platform. That way, you have a plan ready to go, just in case.
 
-Validation Testing: Once you have enabled your interfaces, you want to ensure that your interfaces are working as expected before “opening the floodgates”. Ideally you will be able to perform a validation test that doesn’t impact your core business data. For example, you may be able to read data from a production line of business system but cannot write data as that would create a compliance issue. Otherwise, you will need to wait for a business transaction to flow your interfaces to validate that everything is working as expected. This makes this activity quite important and something that you should account for in your cut-over plan.  
+   When you're thinking through these steps, consider the events that might trigger a rollback. Also, align your plan with the people you need involved to make the rollback decision. This guide discusses more later in the section about making the "Go or No-go" decision.
 
-Go/No Go Decision: At this point in the project, a decision needs to be made whether the project is ready to move into production. This decision needs to include relevant stakeholders including leadership, project management, operations and business representation. 
+1. Run validation testing.
+
+   After you enable your interfaces, you need to check that the interfaces work as expected before you "open the gates".
+
+   Ideally you will be able to perform a validation test that doesn’t impact your core business data. For example, you may be able to read data from a production line of business system but cannot write data as that would create a compliance issue. Otherwise, you will need to wait for a business transaction to flow your interfaces to validate that everything is working as expected. This makes this activity quite important and something that you should account for in your cut-over plan.  
+
+- Make the "Go or No-Go decision".
+
+  At this point in the project, a decision needs to be made whether the project is ready to move into production. This decision needs to include relevant stakeholders including leadership, project management, operations and business representation. 
 
 Celebrate: You have just completed a project that will have a positive impact on your business, it is time to recognize the team for all their hard work and take time to celebrate this amazing milestone!!! Nothing will destroy morale than not being recognized for hard work. Whether the recognition is monetary or not, please plan on recognizing the team. 
 

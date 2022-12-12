@@ -29,5 +29,10 @@ Azure Integration Services offers many capabilities across this collection of in
 | Azure Event Grid | You need an event subscription architecture to stay updated on state changes in one or more applications and systems because your integration solutions depend heavily on events to communicate such changes and make any related data changes. | - Provides a highly scalable, serverless event broker for integrating applications using events. Event Grid delivers events to subscriber destinations such as applications, Azure services, or any endpoint where Event Grid has network access. Event sources can include applications, SaaS services, and Azure services. <br><br>- Increases efficiency by avoiding constant polling to determine state changes. As more underlying services emit events, subscription architecture increases in popularity. |
 | Azure API Management | You want to abstract and protect your underlying service implementation in Azure Logic Apps from end users and consumers. | - Provides a hybrid, multi-cloud management platform for APIs across all environments. <br><br>- Offers the capability to reuse central services in a secure way, giving your organization more governance and control over who can call enterprise services and how to call them. You can subsequently call these APIs from Azure Logic Apps after your organization catalogues them in Azure API Management. |
 
-
 ## Next steps
+
+You've learned more about which offerings in Azure Integration Services best suit specific scenarios and needs. If you're considering moving from BizTalk Server to Azure Integration Services, learn more about migration approaches, planning considerations, and best practices to help with your migration project.
+
+> [!div class="nextstepaction"]
+>
+> [Migration approaches for BizTalk Server to Azure Integration Services](biztalk-server-azure-integration-services-migration-approaches.md)
