@@ -1,6 +1,6 @@
 ---
 title: Block workload identity federation using Azure Policy
-description:  
+description: Learn how to use a built-in Azure Policy to block workload identity federation on user-assigned managed identities. Govern the use of federated identity credentials on managed identities so that only approved federation partners can access Azure Active Directory protected resources from external workloads.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -17,9 +17,9 @@ ms.reviewer: cbrooks, udayh, vakarand
 #Customer intent: As an application developer or administrator, I want to block the creation of a federated credential on a managed identity so I can allow only trusted partners to use workload identity federation.
 ---
 
-# Configure an app to trust an external identity provider
+# Block workload identity federation on managed identities using a policy
 
-This article describes how to block the creation of federated identity credentials on managed identities by using Azure Policy. By blocking the creation of federated identity credentials, you can allow only trusted federation partners to use [workload identity federation](workload-identity-federation.md) to access Azure AD protected resources. [Azure Policy](/azure/governance/policy/overview) helps enforce certain business rules on your Azure resources and assess compliance of those resources.
+This article describes how to block the creation of federated identity credentials on user-assigned managed identities by using Azure Policy. By blocking the creation of federated identity credentials, you can allow only trusted federation partners to use [workload identity federation](workload-identity-federation.md) to access Azure AD protected resources. [Azure Policy](/azure/governance/policy/overview) helps enforce certain business rules on your Azure resources and assess compliance of those resources.
 
 The Not allowed resource types built-in policy can be used to block the creation of federated identity credentials on user-assigned managed identities.
 
