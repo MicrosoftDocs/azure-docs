@@ -150,5 +150,5 @@ See the following articles:
 
 - As an admin, [add educators as lab creators to the lab plan](./add-lab-creator.md) in the Azure portal.
 - As an educator, [create and manage labs in Canvas](./how-to-manage-labs-within-canvas.md).
-- As an eductor, [manage user lists in Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas).
+- As an educator, [manage user lists in Canvas](./how-to-manage-labs-within-canvas.md#manage-lab-user-lists-in-canvas).
 - As a student, [access a lab VM within Canvas](./how-to-access-vm-for-students-within-canvas.md).
