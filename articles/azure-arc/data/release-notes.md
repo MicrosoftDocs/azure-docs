@@ -17,6 +17,19 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## December 13, 2022
+
+### Image tag
+
+`v1.14.0_2022-12-13`
+
+For complete release version information, see [Version log](version-log.md#december-13-2022).
+
+New for this release:
+
+- Arc-enabled PostgreSQL server
+  - Switch to Ubuntu based images
+
 ## November 8, 2022
 
 ### Image tag
