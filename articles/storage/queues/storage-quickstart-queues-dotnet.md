@@ -122,7 +122,7 @@ Use the following .NET classes to interact with these resources:
 These example code snippets show you how to perform the following actions with the Azure Queue Storage client library for .NET:
 
 - [Authenticate and create the client](#add-the-azure-identity-client-library)
-- [Create a queue](#create-a-queue-using-the-queue-client)
+- [Create a queue](#create-a-queue-using-the-queueclient)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
