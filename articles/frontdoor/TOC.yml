@@ -299,7 +299,7 @@
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
       - name: Monitor and Reports
         items:
-        - name: Configure diagnostic
+        - name: Configure diagnostic logs
           href: standard-premium/how-to-logs.md
         - name: Set up monitoring and alerts
           href: standard-premium/how-to-monitor-metrics.md
