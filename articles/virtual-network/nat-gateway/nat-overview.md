@@ -10,6 +10,7 @@ ms.subservice: nat
 ms.topic: conceptual
 ms.date: 12/06/2022
 ms.author: allensu
+ms.custom: FY23 content-maintenance
 ---
 
 # What is Virtual Network NAT?
@@ -84,6 +85,8 @@ Virtual appliance UDR / ExpressRoute >> NAT gateway >> Instance-level public IP 
   * Public IP addresses and prefixes derived from custom IP prefixes (BYOIP), to learn more, see [Custom IP address prefix (BYOIP)](../ip-services/custom-ip-address-prefix.md).
 
 * NAT gateway can’t be associated to an IPv6 public IP address or IPv6 public IP prefix. It can be associated to a dual stack subnet, but will only be able to direct outbound traffic with an IPv4 address.
+
+* NAT gateway can be used to provide outbound connectivity in a hub and spoke model when associated with Azure Firewall. NAT gateway can be associated to an Azure Firewall subnet in a hub virtual network and provide outbound connectivity from spoke virtual networks peered to the hub. To learn more, see [Azure Firewall integration with NAT gateway](/azure/firewall/integrate-with-nat-gateway).
 
 ### Availability zones
 

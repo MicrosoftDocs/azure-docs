@@ -103,8 +103,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data collected**	|		|		|		|		|
 |		|	Event Logs	|	X	|	X	|	X	|
 |		|	Performance	|	X	|	X	|	X	|
-|		|	File based logs	|	X (Public preview)	|	X	|	X	|
-|		|	IIS logs	|	X (Public preview)	|	X	|	X	|
+|		|	File based logs	|	X 	|	X	|	X	|
+|		|	IIS logs	|	X 	|	X	|	X	|
 |		|	ETW events	|		|		|	X	|
 |		|	.NET app logs	|		|		|	X	|
 |		|	Crash dumps	|		|		|	X	|
