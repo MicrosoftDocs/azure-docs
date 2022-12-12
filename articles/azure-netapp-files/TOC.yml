@@ -305,6 +305,8 @@
         href: cross-region-replication-manage-disaster-recovery.md
       - name: Delete volume replications or volumes
         href: cross-region-replication-delete.md
+      - name: Test disaster recovery
+        href: test-disaster-recovery.md
     - name: Manage availability zones
       items:
       - name: Manage availability zone volume placement

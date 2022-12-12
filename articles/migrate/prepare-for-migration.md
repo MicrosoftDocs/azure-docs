@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Prepare on-premises machines for migration to Azure
 
-This article describes how to prepare on-premises machines before you migrate them to Azure using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool.
+This article describes how to prepare on-premises machines before you migrate them to Azure using the [Azure Migrate:Server Migration](migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 In this article, you:
 > [!div class="checklist"]

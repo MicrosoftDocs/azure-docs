@@ -47,7 +47,15 @@ The steps you'll take are:
 
 ## Run your notebook
 
-On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+
+2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
+
+Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
 
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
@@ -69,6 +77,7 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 1. Copy the value for workspace, resource group and subscription ID into the code.  
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/find-credentials.png" alt-text="Screenshot: find the credentials for your code in the upper right of the toolbar.":::
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=ml_client)]
 
@@ -99,7 +108,7 @@ First, create a directory to store the file in.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=dependencies_dir)]
 
-Now, create the file in the dependencies directory.
+Now, create the file in the dependencies directory. The cell below uses IPython magic to write the file into the directory you just created.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)]
 
@@ -132,6 +141,8 @@ This script handles the preprocessing of the data, splitting it into test and tr
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
 
+The cell below uses IPython magic to write the training script into the directory you just created.
+
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_main)]
 
 As you can see in this script, once the model is trained, the model file is saved and registered to the workspace. Now you can use the registered model in inferencing endpoints.
@@ -152,7 +163,6 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 ## Submit the job 
 
 It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
-
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=create_job)]
 
@@ -244,5 +254,5 @@ Use these steps to delete your Azure Machine Learning workspace and all compute 
 ## Next steps
 
 + Convert this tutorial into a production ready [pipeline with reusable components](tutorial-pipeline-python-sdk.md).
-+ Learn about all of the [deployment options](how-to-deploy-managed-online-endpoints.md) for Azure Machine Learning.
++ Learn about all of the [deployment options](how-to-deploy-online-endpoints.md) for Azure Machine Learning.
 + Learn how to [authenticate to the deployed model](how-to-authenticate-online-endpoint.md).

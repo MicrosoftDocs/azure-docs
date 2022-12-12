@@ -40,10 +40,12 @@ items:
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
-    - name: Enable monitoring
-      href: vm/tutorial-monitor-vm-enable.md
-    - name: Alert on machine down
-      href: vm/tutorial-monitor-vm-alert.md
+    - name: Enable recommended alerts
+      href: vm/tutorial-monitor-vm-alert-recommended.md
+    - name: Create availability alert
+      href: vm/tutorial-monitor-vm-alert-availability.md
+    - name: Enable VM insights
+      href: vm/tutorial-monitor-vm-enable-insights.md
     - name: Collect guest logs and metrics
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
@@ -207,8 +209,11 @@ items:
       - name: Collect events and performance
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Collect text and IIS Logs
-        displayName: data collection rule,Azure Monitor agent
+      - name: Collect IIS logs
+        displayName: data collection rule,Azure Monitor Agent,IIS logs
+        href: agents/data-collection-iis.md
+      - name: Collect text logs
+        displayName: data collection rule,Azure Monitor Agent,text logs,file-based logs
         href: agents/data-collection-text-log.md
       - name: Collect SNMP traps
         displayName: data collection rule,Azure Monitor agent
@@ -409,9 +414,12 @@ items:
         - name: Azure Active Directory
           displayName: Prometheus,remote-write
           href: essentials/prometheus-remote-write-active-directory.md
-      - name: Configure Grafana
+      - name: Configure Grafana with managed system identity
         displayName: Prometheus
         href: essentials/prometheus-grafana.md
+      - name: Configure Grafana with Azure Active Directory
+        displayName: Prometheus
+        href: essentials/prometheus-self-managed-grafana-azure-active-directory.md
       - name: Troubleshoot collection
         displayName: Prometheus
         href: essentials/prometheus-metrics-troubleshoot.md
@@ -470,7 +478,8 @@ items:
             href: logs/manage-logs-tables.md      
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
-          - name: Set log data plan
+          - name: Set Basic or Analytics log data plan
+            displayName: Basic logs
             href: logs/basic-logs-configure.md
         - name: Archive and restore
           items:
@@ -635,17 +644,6 @@ items:
           - name: .NET Console
             displayName: console, .NET, dotnet console, dotnet, c#, csharp, NET
             href: app/console.md
-      - name: Java
-        items:
-          - name: Web apps
-            displayName: java
-            href: app/java-2x-get-started.md
-          - name: Log traces
-            href: app/java-2x-trace-logs.md
-          - name: Dependencies
-            href: app/java-2x-agent.md
-          - name: Filter telemetry
-            href: app/java-2x-filter-telemetry.md
       - name: Node.js
         href: app/nodejs.md
       - name: Python
@@ -1089,6 +1087,17 @@ items:
       href: vm/vminsights-optout.md
     - name: Troubleshoot
       href: vm/vminsights-troubleshoot.md
+  - name: Network insights
+    items:
+    - name: Overview
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-overview.md
+    - name: Topology
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-topology.md
+    - name: Troubleshooting
+      displayname: Network Insights, Network
+      href: ../network-watcher/network-insights-troubleshooting.md    
   - name: Activity log insights
     href: essentials/activity-log-insights.md
   - name: Log Analytics workspace insights
@@ -1281,28 +1290,26 @@ items:
           href: logs/api/overview.md
         - name: Using the API
           items:
-          - name: Set up authentication and authorization
-            href: logs/api/authentication-authorization.md
-          - name: Access the API
+          - name: API access, authentication and authorization
             href: logs/api/access-api.md
+          - name: Register an app for API access
+            href: logs/api/register-app-for-token.md 
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
             href: logs/api/response-format.md
-          - name: API options
-            items:
-            - name: Batch queries
-              href: logs/api/batch-queries.md
-            - name: Cross-resource queries
-              href: logs/api/cross-workspace-queries.md
-            - name: Azure resource queries
-              href: logs/api/azure-resource-queries.md
-            - name: Response caching
-              href: logs/api/cache.md
-            - name: Server timeouts
-              href: logs/api/timeouts.md
-            - name: Prefer headers
-              href: logs/api/prefer-options.md
+          - name: Batch queries
+            href: logs/api/batch-queries.md
+          - name: Cross-resource queries
+            href: logs/api/cross-workspace-queries.md
+          - name: Azure resource queries
+            href: logs/api/azure-resource-queries.md
+          - name: Response caching
+            href: logs/api/cache.md
+          - name: Server timeouts
+            href: logs/api/timeouts.md
+          - name: Prefer headers
+            href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
   - name: Change Analysis
@@ -1394,6 +1401,8 @@ items:
         href: alerts/alerts-non-common-schema-definitions.md
       - name: Customize alert notifications using Logic apps
         href: alerts/alerts-logic-apps.md
+      - name: Test notification troubleshooting guide
+        href: alerts/test-action-group-errors.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
@@ -1669,17 +1678,14 @@ items:
             href: logs/oms-portal-transition.md
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
+    - name: Application Insights Java 2.x
+      href: ./app/deprecated-java-2x.md    
     - name: Classic autoscale & metrics API
       href: ./essentials/classic-api-retirement-metrics-autoscale.md
     - name: NULL values in exported metrics
       href: essentials/metrics-supported-export-diagnostic-settings.md
     - name: Disk metrics deprecation
       href: essentials/portal-disk-metrics-deprecation.md
-    - name: Unix metrics
-      href: app/java-2x-collectd.md
-    - name: Micrometer Metrics
-      displayName: java
-      href: app/java-2x-micrometer.md
     - name: Change to blob storage format
       displayName: Diagnostic settings
       href: essentials/resource-logs-blob-format.md

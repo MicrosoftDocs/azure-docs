@@ -43,6 +43,8 @@
     items:
     - name: Prerequisites
       href: prerequisites.md
+    - name: Geographical availability and data residency
+      href: geographical-availability-data-residency.md
     - name: Costs and billing
       items:
       - name: Plan costs
@@ -50,7 +52,7 @@
       - name: Monitor costs
         href: billing-monitor-costs.md
       - name: Reduce costs
-        href: billing-reduce-costs.md
+        href: billing-reduce-costs.md    
     - name: Best practices
       items:
       - name: Overview
@@ -64,7 +66,7 @@
       - name: Basic Logs
         href: basic-logs-use-cases.md
       - name: Health monitoring 
-        href: health-audit.md
+        href: health-audit.md    
     - name: Architecture
       items:
       - name: Roles and permissions
@@ -72,7 +74,7 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
       - name: Support for data types in different clouds
         href: data-type-cloud-support.md
   - name: Find solutions and content
@@ -141,6 +143,8 @@
       href: notebooks.md
   - name: Investigate incidents
     items:
+    - name: Use tasks to manage incident workflow
+      href: incident-tasks.md
     - name: Investigate large datasets
       href: investigate-large-datasets.md
     - name: Investigate entities with entity pages
@@ -378,6 +382,8 @@
       href: livestream.md
   - name: Investigate incidents
     items:
+    - name: Use tasks to handle incident workflow
+      href: work-with-tasks.md
     - name: Investigate incidents
       href: investigate-cases.md
     - name: Relate alerts to incidents
@@ -386,6 +392,8 @@
       href: create-incident-manually.md
     - name: Delete incidents
       href: delete-incident.md
+    - name: Remediate threats while investigating
+      href: respond-threats-during-investigation.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -408,6 +416,10 @@
       href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Create incident tasks using automation rules
+      href: create-tasks-automation-rule.md
+    - name: Create and perform advanced incident tasks using playbooks
+      href: create-tasks-playbook.md
   - name: Manage Microsoft Sentinel
     items:
     - name: Microsoft Sentinel for MSSPs
