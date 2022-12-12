@@ -43,7 +43,7 @@ See also: [Log Analytics query optimization tips](../logs/query-optimization.md)
 
 See also: [Workbooks best practices and hints for logs queries](workbooks-create-workbook.md#best-practices-for-querying-logs)
 
-Tutorial: Making resource centric log queries in workbooks
+Tutorial: [Making resource centric log queries in workbooks](workbooks-create-workbook.md#tutorial---resource-centric-logs-queries-in-workbooks)
 
 ## Metrics
 
