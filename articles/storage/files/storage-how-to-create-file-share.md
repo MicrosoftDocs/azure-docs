@@ -1,11 +1,11 @@
 ---
 title: Create an SMB Azure file share
 titleSuffix: Azure Files
-description: How to create an SMB Azure file share by using the Azure portal, PowerShell, or Azure CLI.
+description: How to create and delete an SMB Azure file share by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/20/2022
+ms.date: 10/24/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
@@ -20,7 +20,7 @@ To create an Azure file share, you need to answer three questions about how you 
 - **What are your redundancy requirements for your Azure file share?**  
     Standard file shares offer locally-redundant (LRS), zone redundant (ZRS), geo-redundant (GRS), or geo-zone-redundant (GZRS) storage, however the large file share feature is only supported on locally redundant and zone redundant file shares. Premium file shares do not support any form of geo-redundancy.
 
-    Premium file shares are available with locally redundancy and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure Storage redundancy](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Premium file shares are available with locally redundancy and zone redundancy in a subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. For information about regions that support ZRS, see [Azure Storage redundancy](../common/storage-redundancy.md?toc=/azure/storage/files/toc.json).
 
 - **What size file share do you need?**  
     In local and zone redundant storage accounts, Azure file shares can span up to 100 TiB. However, in geo- and geo-zone redundant storage accounts, Azure file shares can span only up to 5 TiB.
@@ -349,7 +349,7 @@ az storage share-rm update \
 ---
 
 ## Delete a file share
-To delete an Azure file share, you can use the Azure portal, Azure PowerShell, or Azure CLI. Shares can be recovered within the [soft delete](storage-files-prevent-file-share-deletion.md) retention period.
+To delete an Azure file share, you can use the Azure portal, Azure PowerShell, or Azure CLI. SMB Azure file shares can be recovered within the [soft delete](storage-files-prevent-file-share-deletion.md) retention period.
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account that contains the file share you want to delete.
@@ -362,7 +362,7 @@ To delete an Azure file share, you can use the Azure portal, Azure PowerShell, o
 :::image type="content" source="media/storage-how-to-create-file-share/delete-file-share.png" alt-text="Screen shot of the Azure portal procedure for deleting a file share." border="true" lightbox="media/storage-how-to-create-file-share/delete-file-share.png":::
 
 # [PowerShell](#tab/azure-powershell)
-1. Log in to your Azure account and specify your tenant ID.
+1. Log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID.
 
    ```azurepowershell
    Login-AzAccount -TenantId <YourTenantID>

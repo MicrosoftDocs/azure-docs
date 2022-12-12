@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/25/2022
+ms.date: 10/25/2022
 ms.custom: contperf-fy21q4
 ---
 
@@ -91,51 +91,6 @@ For more information about securing logic apps and connections, review [Secure a
 ### Firewall access for connections
 
 If you use a firewall that limits traffic, and your logic app workflows need to communicate through that firewall, you have to set up your firewall to allow access for both the [inbound](../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Azure Logic Apps platform or runtime in the Azure region where your logic app workflows exist. If your workflows also use managed connectors, such as the Office 365 Outlook connector or SQL connector, or use custom connectors, your firewall also needs to allow access for *all* the [managed connector outbound IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in your logic app's Azure region. For more information, review [Firewall configuration](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
-
-## Recurrence behavior
-
-Recurring built-in triggers, such as the [Recurrence trigger](connectors-native-recurrence.md), run natively on the Azure Logic Apps runtime and differ from recurring connection-based triggers, such as the Office 365 Outlook connector trigger where you need to create a connection first.
-
-For both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
-
-Some managed connectors have both recurrence-based and webhook-based triggers, so if you use a recurrence-based trigger, review the [Recurrence behavior overview](apis-list.md#recurrence-behavior).
-
-### Recurrence for built-in triggers
-
-Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
-
-For more information, review the following documentation:
-
-* [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
-* [Create, schedule, and run recurring tasks and workflows with the Recurrence trigger](connectors-native-recurrence.md)
-* [Troubleshooting recurrence issues](#recurrence-issues)
-
-### Recurrence for connection-based triggers
-
-For recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
-
-* Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
-* Any failures or retries that the trigger incurs.
-* Latency during storage calls.
-* Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
-* Other factors that can affect when the next run time happens.
-
-For more information, review the following documentation:
-
-* [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
-* [Troubleshooting recurrence issues](#recurrence-issues)
-
-<a name="recurrence-issues"></a>
-
-### Troubleshooting recurrence issues
-
-To make sure that your workflow runs at your specified start time and doesn't miss a recurrence, especially when the frequency is in days or longer, try the following solutions:
-
-* When DST takes effect, manually adjust the recurrence so that your workflow continues to run at the expected time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information and examples, review [Recurrence for daylight saving time and standard time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#daylight-saving-standard-time).
-
-* If you're using a **Recurrence** trigger, specify a time zone, a start date, and start time. In addition, configure specific times to run subsequent recurrences in the properties **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies. However, some time windows might still cause problems when the time shifts.
-
-* Consider using a [**Sliding Window** trigger](connectors-native-sliding-window.md) instead of a **Recurrence** trigger to avoid missed recurrences.
 
 ## Custom connectors and APIs
 

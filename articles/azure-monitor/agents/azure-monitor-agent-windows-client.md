@@ -50,7 +50,7 @@ Here is a comparison between client installer and VM extension for Azure Monitor
 5. The device must have access to the following HTTPS endpoints:
 	-	global.handler.control.monitor.azure.com
 	-	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
-	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)
+	-	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)
     (If using private links on the agent, you must also add the [data collection endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))
 6. Existing data collection rule(s) you wish to associate with the devices. If it doesn't exist already, [follow the guidance here to create data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association). **Do not associate the rule to any resources yet**.
 

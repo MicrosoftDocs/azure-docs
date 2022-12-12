@@ -1,6 +1,6 @@
 ---
-title: Workflow Templates and categories - Azure Active Directory
-description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows
+title: Workflow Templates and categories
+description: Conceptual article discussing workflow templates and categories with Lifecycle Workflows.
 author: owinfreyATL
 ms.author: owinfrey
 manager: amycolannino
@@ -166,7 +166,7 @@ The default specific parameters for the **Post-Offboarding of an employee** temp
 
 ## Next steps
 
-- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta)
+- [workflowTemplate resource type](/graph/api/resources/identitygovernance-workflowtemplate?view=graph-rest-beta&preserve-view=true)
 - [Lifecycle Workflow tasks and definitions](lifecycle-workflow-tasks.md)
 - [Create a Lifecycle workflow](create-lifecycle-workflow.md)
 

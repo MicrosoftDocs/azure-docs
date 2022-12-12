@@ -150,7 +150,7 @@ Make sure the following settings are configured correctly for remote access:
 
 > [!NOTE]
 > If you receive an error message when running
-> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <string> -Value <object>`,
+> `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name <string> -Value <object>`,
 > you can safely ignore it. It means the domain isn't setting that configuration through a Group
 > Policy Object.
 

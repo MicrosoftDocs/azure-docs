@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 10/11/2022
+ms.date: 11/18/2022
 ms.topic: conceptual 
 ---
 
@@ -54,12 +54,14 @@ The following versions of the Windows and Linux operating system are officially 
 Windows operating systems:
 
 * NET Framework 4.6 or later is required. [Download the .NET Framework](/dotnet/framework/install/guide-for-developers).
-* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2012 and Windows Server 2008 R2, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
+* Windows PowerShell 4.0 or later is required. No action is required for Windows Server 2012 R2 and above. For Windows Server 2008 R2 SP1, [Download Windows Management Framework 5.1.](https://www.microsoft.com/download/details.aspx?id=54616).
 
 Linux operating systems:
 
 * systemd
 * wget (to download the installation script)
+* openssl
+* gnupg
 
 ## Required permissions
 
@@ -67,7 +69,7 @@ The following Azure built-in roles are required for different aspects of managin
 
 * To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group in which the machines will be managed.
 * To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
-* To select a resource group from the drop-down list when using the **Generate script** method, you must have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
+* To select a resource group from the drop-down list when using the **Generate script** method, as well as the permissions needed to onboard machines, listed above, you must additionally have the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role which includes **Reader** access).
 
 ## Azure subscription and service limits
 

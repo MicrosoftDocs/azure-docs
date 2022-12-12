@@ -1,5 +1,5 @@
 ---
-title: Deploy SAP Change Requests (CRs) and configure authorization | Microsoft Docs
+title: Deploy SAP Change Requests (CRs) and configure authorization
 titleSuffix: Microsoft Sentinel
 description: This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
 author: MSFTandrelom
@@ -7,9 +7,35 @@ ms.author: andrelom
 ms.topic: how-to
 ms.date: 04/07/2022
 ---
-# Deploy SAP Change Requests (CRs) and configure authorization
+# Deploy SAP Change Requests and configure authorization
 
-This article shows you how to deploy the SAP Change Requests (CRs) necessary to prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
+This article shows you how to deploy SAP Change Requests (CRs), which prepare the environment for the installation of the SAP agent, so that it can properly connect to your SAP systems.
+
+> [!IMPORTANT]
+> - This article presents a [**step-by-step guide**](#deploy-crs) to deploying the relevant CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
+> - Experienced SAP administrators that are familiar with the CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+
+## Required and optional CRs
+
+This article discusses the installation of the following CRs:
+
+|CR |Required/optional |Description |
+|---------|---------|---------|
+|NPLK900271 |Required |This CR creates and configures a role. Alternatively, you can can load the authorizations directly from a file. [Review how to create and configure a role](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).  |
+|NPLK900201 or NPLK900202 |Optional |[Retrieves additional information from SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#retrieve-additional-information-from-sap-optional). You select one of these CRs according to your SAP version. |
+
+## Prerequisites
+
+1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process. For the following example, the following details are assumed:
+
+    - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
+    - **SID:** `A4H`
+    - **System number:** `00`
+    - **Client number:** `001`
+    - **IP address:** `192.168.136.4`
+    - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
+1. Review the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) to determine which CRs to install.
+1. If you installed the NPLK900202 [optional CR](#required-and-optional-crs) used to retrieve additional information, make sure you've installed the [relevant SAP note](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#deploy-sap-note-optional).
 
 ## Deployment milestones
 
@@ -31,56 +57,41 @@ Track your SAP solution deployment journey through this series of articles:
    - [Configure auditing](configure-audit.md)
    - [Configure data connector to use SNC](configure-snc.md)
 
+To deploy the CRs, follow the steps outlined below. The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 
-> [!IMPORTANT]
-> - This article presents a [**step-by-step guide**](#deploy-change-requests) to deploying the required CRs. It's recommended for SOC engineers or implementers who may not necessarily be SAP experts.
-> - Experienced SAP administrators that are familiar with CR deployment process may prefer to get the appropriate CRs directly from the [**SAP environment validation steps**](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of the guide and deploy them. Note that the *NPLK900271* CR deploys a sample role, and the administrator may prefer to manually define the role according to the information in the [**Required ABAP authorizations**](#required-abap-authorizations) section below.
+## Deploy CRs
 
 > [!NOTE]
 > 
 > It is *strongly recommended* that the deployment of SAP CRs be carried out by an experienced SAP system administrator.
->
-> The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
-> 
-> Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning the deployment process.
->
-> For the following example, the following details are assumed:
-> - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
-> - **SID:** `A4H`
-> - **System number:** `00`
-> - **Client number:** `001`
-> - **IP address:** `192.168.136.4`
-> - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials. 
-
-The deployment of the Microsoft Sentinel Solution for SAP requires the installation of several CRs. More details about the required CRs can be found in the [SAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) section of this guide.
-
-To deploy the CRs, follow the steps outlined below:
-
-## Deploy change requests
 
 ### Set up the files
 
 1. Sign in to the SAP system using SSH.
 
-1. Transfer the CR files to the SAP system.  
-    Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:  
-    - Download NPLK900202
+1. Transfer the CR files to the SAP system. Learn more about [the CRs in this step](#required-and-optional-crs). 
+
+    Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:
+
+    - Download NPLK900271 (required)
+        ```bash
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
+        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
+        ```
+
+        Alternatively, you can [load these authorizations directly from a file](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#create-and-configure-a-role-required).
+  
+    - Download NPLK900202 (optional)
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
         ```
 
-    - Download NPLK900201
+    - Download NPLK900201 (optional)
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
-        ```
-
-    - Download NPLK900271
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
-        ```
+        ```    
 
     Note that each CR consists of two files, one beginning with K and one with R.
 
@@ -132,11 +143,11 @@ To deploy the CRs, follow the steps outlined below:
 
 1. In the **Add Transport Request** confirmation dialog, select **Yes**.
 
-1. Repeat the procedure in the preceding 5 steps to add the remaining Change Requests to be deployed.
+1. If you plan to deploy more CRs, repeat the procedure in the preceding 5 steps for the remaining CRs.
 
 1. In the **Import Queue** window, select the relevant Transport Request once, and then select **F9** or **Select/Deselect Request** icon.
 
-1. To add the remaining Transport Requests to the deployment, repeat step 9.
+1. If you have remaining Transport Requests to add to the deployment, repeat step 9.
 
 1. Select the Import Requests icon:
 
@@ -158,7 +169,9 @@ To deploy the CRs, follow the steps outlined below:
 
     :::image type="content" source="media/preparing-sap/import-history.png" alt-text="Screenshot of import history.":::
 
-1. The *NPLK900202* change request is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
+1. If you deployed the *NPLK900202* CR, it is expected to display a **Warning**. Select the entry to verify that the warnings displayed are of type  "Table \<tablename\> was activated."
+    
+    The CRs and versions in the screenshots below may change according to your installed CR version. 
 
     :::image type="content" source="media/preparing-sap/import-status.png" alt-text="Screenshot of import status display." lightbox="media/preparing-sap/import-status-lightbox.png":::
 
@@ -166,7 +179,7 @@ To deploy the CRs, follow the steps outlined below:
 
 ## Configure Sentinel role
 
-After the *NPLK900271* change request is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
+After the *NPLK900271* CR is deployed, a **/MSFTSEN/SENTINEL_CONNECTOR** role is created in SAP. If the role is created manually, it may bear a different name.
 
 In the examples shown here, we will use the role name **/MSFTSEN/SENTINEL_CONNECTOR**.
 
@@ -227,8 +240,8 @@ The following table lists the ABAP authorizations required to ensure that SAP lo
 The required authorizations are listed here by log type. Only the authorizations listed for the types of logs you plan to ingest into Microsoft Sentinel are required.
 
 > [!TIP]
-> To create a role with all the required authorizations, deploy the SAP change request *NPLK900271* on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
-> Alternatively, you can create a role that has minimal permissions by deploying change request *NPLK900268*, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This change request or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
+> To create a role with all the required authorizations, deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [MSFTSEN_SENTINEL_CONNECTOR_ROLE_V0.0.27.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR creates the **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the necessary permissions for the data connector to operate.
+> Alternatively, you can create a role that has minimal permissions by deploying the *NPLK900268* CR, or loading the role authorizations from the [MSFTSEN_SENTINEL_AGENT_BASIC_ROLE_V0.0.1.SAP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Sample%20Authorizations%20Role%20File) file. This CR or authorizations file creates the **/MSFTSEN/SENTINEL_AGENT_BASIC** role. This role has the minimal required permissions for the data connector to operate. Note that if you choose to deploy this role, you might need to update it frequently.
 
 | Authorization Object | Field | Value |
 | -------------------- | ----- | ----- |

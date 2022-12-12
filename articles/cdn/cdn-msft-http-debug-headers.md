@@ -30,4 +30,4 @@ X-Cache: PRIVATE_NOSTORE | This header is returned when the request cannot be ca
 X-Cache: CONFIG_NOCACHE | This header is returned when the request is configured not to cache in the CDN profile.
 X-Cache: N/A | This header is returned when the request that was denied by Signed URL and Rules Set.
 
-For additional information on HTTP headers supported in Azure CDN, see [Front Door to backend](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend).
+For additional information on HTTP headers supported in Azure CDN, see [Front Door to backend](../frontdoor/front-door-http-headers-protocol.md#from-the-front-door-to-the-backend).

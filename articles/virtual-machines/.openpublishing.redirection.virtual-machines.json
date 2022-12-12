@@ -1399,7 +1399,7 @@
         {
             "source_path_from_root": "/articles/virtual-machines/linux/expand-disks-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/expand-disks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/linux/extensions-troubleshoot.md",
@@ -3485,7 +3485,12 @@
             "source_path_from_root": "/articles/virtual-machines/windows/create-portal-availability-zone.md",
             "redirect_url": "/azure/virtual-machines/create-portal-availability-zone",
             "redirect_document_id": false
-          }                                                                                                                                                               
+        }, 
+        {
+            "source_path_from_root": "/articles/virtual-machines/linux/resize-os-disk-gpt-partition.md",
+            "redirect_url": "/azure/virtual-machines/linux/expand-disks",
+            "redirect_document_id": true
+        }                                                                                                                                                               
     ]
 }
 
