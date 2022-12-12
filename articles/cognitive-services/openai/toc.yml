@@ -10,6 +10,8 @@ items:
       href: quotas-limits.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   href: quickstart.md
 - name: Concepts
