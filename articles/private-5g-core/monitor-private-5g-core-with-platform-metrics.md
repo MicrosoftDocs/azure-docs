@@ -13,15 +13,15 @@ ms.custom: template-concept
 
 *Platform metrics* are measurements over time collected from Azure resources and stored by [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). You can use the Azure Monitor Metrics Explorer to analyze metrics in the Azure portal, or query the Azure Monitor REST API for metrics to analyze with third-party monitoring tools.
 
-Azure Private 5G Core platform metrics are collected at the site level. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
+Azure Private 5G Core platform metrics are collected per site and allow you to monitor key statistics relating to your deployment. Once you create a **Mobile Network Site** resource, Azure Monitor automatically starts gathering metrics about the packet core instance. For more information on creating a mobile network site, see [Collect the required information for a site](collect-required-information-for-a-site.md).
 
 Platform metrics are available for monitoring and retrieval for up to 92 days. If you want to store your data for longer, you can retrieve them using the Azure Monitor REST API and save them to a storage account that allows longer data retention; see [Azure Storage](/azure/storage/) for some examples of storage accounts you can use.
 
-If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). If you want to retrieve a subset of the available metrics for longer storage periods or for analysis using your tool of choice, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api).
+If you want to use the Azure portal to analyze your packet core metrics, see [Visualize metrics using the Azure portal](#visualize-metrics-using-the-azure-portal). If you want to retrieve metrics for analysis using your tool of choice or for longer storage periods, see [Retrieve metrics using the Azure Monitor REST API](#retrieve-metrics-using-the-azure-monitor-rest-api). Note that not all metrics displayed in the Azure portal are available via the Azure Monitor REST API.
 
 ## Visualize metrics using the Azure portal
 
-You can use the Azure portal to monitor your deployment's health and performance at the site level.
+You can use the Azure portal to monitor your deployment's health and performance on the **Mobile Network Site** resource's **Overview** page.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network.
@@ -47,7 +47,7 @@ In addition to the monitoring functionalities offered by the Azure portal, you c
 As an example, you can export the platform metrics to data storage and processing services such as [Azure Monitor Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), [Azure Storage](/azure/storage/), or [Azure Event Hubs](/azure/event-hubs/). You can also leverage [Azure Managed Grafana](/azure/managed-grafana/) to create a monitoring experience in the cloud mirroring the capabilities of the local [packet core dashboards](packet-core-dashboards.md).
 
 > [!NOTE]
-> Exporting mobile network metrics to another application for third-party application integration or longer data retention period may incur extra costs. See the relevant documentation for each tool you want to use to check the pricing information.
+> Exporting metrics to another application for analysis or storage may incur extra costs. Check the pricing information for the applications you want to use.
 
 Not all metrics displayed in the Azure portal are available via the Azure Monitor REST API. For more information on which mobile network metrics are available, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
