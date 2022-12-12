@@ -20,7 +20,7 @@ This article provides an overview of the architecture and processes used when yo
 
 The Migration and modernization tool provides agentless replication for on-premises Hyper-V VMs, using a migration workflow that's optimized for Hyper-V. You install a software agent only on Hyper-V hosts or cluster nodes. Nothing needs to be installed on Hyper-V VMs.
 
-## Server Migration and Azure Site Recovery
+## Migration and modernization and Azure Site Recovery
 
 Migration and modernization is a tool for migrating on-premises workloads, and cloud-based VMs, to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for data replication, but serve different purposes. 
 
@@ -33,11 +33,11 @@ Migration and modernization is a tool for migrating on-premises workloads, and c
 
 **Component** | **Deployment** | 
 --- | --- 
-**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with Azure Migration Server Migration.<br/> The provider orchestrates replication for Hyper-V VMs.
+**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with the Migration and modernization tool.<br/> The provider orchestrates replication for Hyper-V VMs.
 **Recovery Services agent** | The Microsoft Azure Recovery Service agent handles data replication. It works with the provider to replicate data from Hyper-V VMs to Azure.<br/> The replicated data is uploaded to a storage account in your Azure subscription. The Migration and modernization tool the processes the replicated data, and applies it to replica disks in the subscription. The replica disks are used to create the Azure VMs when you migrate.
 
-- Components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
-- The provider and appliance use outbound HTTPS port 443 connections to communicate with Azure Migrate Server Migration.
+- Components are installed by a single setup file, downloaded from the Migration and modernization tool in the portal.
+- The provider and appliance use outbound HTTPS port 443 connections to communicate with the Migration and modernization tool.
 - Communications from the provider and agent are secure and encrypted.
 
 
@@ -84,4 +84,4 @@ If you have spare bandwidth for replication, and want to increase uploads, you c
 
 ## Next steps
 
-Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) using Azure Migrate Server Migration.
+Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) using the Migration and modernization tool.

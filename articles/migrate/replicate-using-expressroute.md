@@ -1,6 +1,6 @@
 ---
 title: Replicate data over ExpressRoute for Azure Migrate projects with public endpoint connectivity
-description: Use Azure ExpressRoute for replication with Azure Migrate Server Migration.
+description: Use Azure ExpressRoute for replication with the Migration and modernization tool.
 author: DeSeelam
 ms.author: deseelam
 ms.manager: bsiva

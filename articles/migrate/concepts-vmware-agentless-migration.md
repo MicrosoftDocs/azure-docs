@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 
-This article describes the replication concepts when migrating VMware VMs using Azure Migrate: Server Migration's agentless migration method.
+This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
 
 ## Replication process
 

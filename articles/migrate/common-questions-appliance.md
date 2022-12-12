@@ -15,7 +15,7 @@ This article answers common questions about the Azure Migrate appliance. If you 
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
-- Questions about [server migration](common-questions-server-migration.md)
+- Questions about [Migration and modernization](common-questions-server-migration.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
 ## What is the Azure Migrate appliance?

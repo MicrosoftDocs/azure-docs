@@ -161,7 +161,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
          Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
 1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
 
-    Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure.
+    The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
@@ -173,7 +173,7 @@ At this point, you should revalidate that the scale-out appliance is able to con
 
 ## Replicate
 
-1. After the scale-out appliance is registered, on the Azure Migrate: Server Migration tile, click **Replicate**.
+1. After the scale-out appliance is registered, on the Migration and modernization tile, select **Replicate**.
 
 2.	Follow the steps on the screen to start replicating more virtual machines. 
 
