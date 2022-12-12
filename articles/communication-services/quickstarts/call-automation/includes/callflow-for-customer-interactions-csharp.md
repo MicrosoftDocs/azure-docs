@@ -45,9 +45,22 @@ dotnet add <path-to-project> package Azure.Messaging.EventGrid
 
 In this quick-start, you'll use the new [Visual Studio Dev Tunnels](/connectors/custom-connectors/port-tunneling) feature to obtain a public domain name so that your local application is reachable by the Call Automation platform on the Internet. The public name is needed to receive the Event Grid `IncomingCall` event and Call Automation events using webhooks.
 
-If you haven't already configured your workstation, be sure to follow the steps in [this guide](/connectors/custom-connectors/port-tunneling). Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+Open the application you created in the previous step in Visual Studio 2022. In the Solution Explorer, open the Properties – launchSettings.json and add the following lines in the https profile after the line  “"ASPNETCORE_ENVIRONMENT": "Development".
 
-Set up your Event Grid subscription to receive the `IncomingCall` event by reading [this guide](../../../concepts/call-automation/incoming-call-notification.md).
+```JSON
+"devTunnelEnabled": true,
+"devTunnelAccess":"Public"
+```
+
+Please consult [this guide](https://learn.microsoft.com/en-us/connectors/custom-connectors/port-tunneling) for more information. 
+Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
+
+## Prepare an audio file to play by Call Automation SDK
+
+The Call Automation SDK can only play files in  WAV format, 16KHz, and Mono. The default Windows call recording will not produce the file in the required format. Azure Speech Service can create the file in the required format. You can export produced file in the Azure Blob storage for use in the workflow.
+Please follow the steps in the [Speech synthesis with the Audio Content Creation tool documentation.](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-audio-content-creation).
+
+When you are creating the file, please select “16kHz” in the Sample Rate filed (default is 32kHz). 
 
 ## Update Program.cs
 
@@ -147,7 +160,7 @@ app.MapPost("/api/calls/{contextId}", async (
 
 app.Run();
 ```
-Replace the placeholders with the actual values in lines 12-16. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
+Replace the placeholders with the actual values in lines 12 and 14-16. In your production code, we recommend using [Secret Manager](/aspnet/core/security/app-secrets) for storing sensitive information.
  
 ## Run the app
 
