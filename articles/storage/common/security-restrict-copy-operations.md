@@ -29,7 +29,7 @@ The **AllowedCopyScope** property of a storage account defines the environments 
 - **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob operations of the REST API](/rest/api/storageservices/copy-blob). Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
+The setting applies to [Copy Blob operations](/rest/api/storageservices/copy-blob). Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 
