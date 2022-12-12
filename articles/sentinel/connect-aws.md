@@ -158,7 +158,7 @@ The manual setup consists of the following steps:
 
    :::image type="content" source="media/connect-aws/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
 
-1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next: Permissions**.
+1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that you copied from the AWS connector page in the Microsoft Sentinel portal and pasted aside. Then select **Next**.
 
    :::image type="content" source="media/connect-aws/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
 
@@ -272,7 +272,7 @@ You must have write permission on the Microsoft Sentinel workspace.
 
    :::image type="content" source="media/connect-aws/aws-enter-account.png" alt-text="Screenshot of A W S role configuration screen.":::
 
-1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that can be found in the AWS connector page in Microsoft Sentinel. This identifies *your specific Microsoft Sentinel account* to AWS. Then select **Next: Permissions**.
+1. Select the **Require External ID** check box, and then enter the **External ID (Workspace ID)** that can be found in the AWS connector page in Microsoft Sentinel. This identifies *your specific Microsoft Sentinel account* to AWS. Then select **Next**.
 
    :::image type="content" source="media/connect-aws/aws-enter-external-id.png" alt-text="Screenshot of continuation of A W S role configuration screen.":::
 
