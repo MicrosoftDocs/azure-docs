@@ -89,10 +89,10 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
 
    1. Collect the values in the following table.
 
-   |Value  |Field name in Azure portal  |
-   |---------|---------|
-   |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
-   |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
+       |Value  |Field name in Azure portal  |
+       |---------|---------|
+       |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
+       |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
 
 ## Next steps
 
