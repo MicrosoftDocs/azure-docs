@@ -116,7 +116,7 @@ When API Management receives an API request from a client with a subscription ke
 
     If the key is associated with one of these subscriptions, access is allowed and policies are applied depending on the configuration of the policy definition at that scope.
 
-1. Otherwise, access is denied.
+1. Otherwise, access is denied (401 Access denied error).
 
 ### API request without a subscription key
 
@@ -124,7 +124,7 @@ When API Management receives an API request from a client without a subscription
 
 1. Check first for the existence of a product that includes the API but doesn't require a subscription (an *open* product). If the open product exists, handle the request in the context of the APIs, policies, and access rules configured for the product. 
 1. If an open product including the API isn't found, check whether the API requires a subscription. If a subscription isn't required, handle the request in the context of that API and operation.
-1. If no configured product or API is found, then access is denied.
+1. If no configured product or API is found, then access is denied (401 Access denied error).
 
 ### Summary table
 
