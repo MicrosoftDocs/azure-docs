@@ -10,8 +10,8 @@ ms.topic: conceptual
 ms.author: jammart
 ms.reviewer: ozgun
 ms.subservice: common
+ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
-ms.devlang: azurecli
 ---
 
 # Create and manage encryption scopes

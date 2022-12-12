@@ -1,15 +1,16 @@
 ---
 title: Use .NET to manage ACLs in Azure Data Lake Storage Gen2
 description: Use .NET to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
+author: pauljewellmsft
+
 ms.service: storage
 ms.date: 02/17/2021
-author: pauljewellmsft
 ms.author: pauljewell
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.custom: devx-track-csharp
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ---
 
 # Use .NET to manage ACLs in Azure Data Lake Storage Gen2

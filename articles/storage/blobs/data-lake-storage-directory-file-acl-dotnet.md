@@ -2,6 +2,7 @@
 title: Use .NET to manage data in Azure Data Lake Storage Gen2
 description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that has hierarchical namespace enabled.
 author: pauljewellmsft
+
 ms.author: pauljewell
 ms.service: storage
 ms.date: 02/17/2021
