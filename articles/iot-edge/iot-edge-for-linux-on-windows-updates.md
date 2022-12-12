@@ -144,7 +144,7 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         ```
     1. If you download the MSI on **Step 2**, use the downloaded files to apply the migration
         ```powershell
-        Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122-Standalone-X64.msi" 
+        Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122_X64.msi" 
         ```
 1. Confirm the EFLOW migration
     1. If you're using the auto-download migration option run the following cmdlet
@@ -153,13 +153,13 @@ To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
         ```
     1. If you download the MSI on **Step 2**, use the downloaded files to apply the migration
         ```powershell
-        Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122-Update-X64.msi" 
+        Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_Update_1.4.2.12122_X64.msi" 
         ```
 
 If for any reason the migration fails, the EFLOW VM will be restored to it's original 1.1LTS version. 
 If you want to cancel the migration, you can use the following cmdlets `Start-EflowMigration` and then `Restore-EflowPriorToMigration` 
 
-For more information, check [EFLOW LTS migration](https://aka.ms/AzEFLOW-LTS-Migration). 
+For more information, check `Start-EflowMigration`, `Confirm-EflowMigration` and `Restore-EflowPriorToMigration` cmdlet documentation by using the `Get-Help <cmdlet> -full` command. 
 
 ## Next steps
 
