@@ -59,7 +59,7 @@ This section describes how to configure a bearer token.
 
 ### Config file
 
-You need specify the `TenantId` only if you want to accept access tokens from a single tenant (line-of-business app). Otherwise, it can be left as `common`. The different values can be:
+You need to specify the `TenantId` only if you want to accept access tokens from a single tenant (line-of-business app). Otherwise, it can be left as `common`. The different values can be:
   - A GUID (Tenant ID = Directory ID)
   - `common` can be any organization and personal accounts
   - `organizations` can be any organization
@@ -119,7 +119,7 @@ dotnet new webapi --auth SingleOrg
 
 **Visual Studio** - To create a web API project in Visual Studio, select **File** > **New** > **Project** > **ASP.NET Core Web API**.
 
-Both the .NET CLI and Visual Studio project templates create a *Program.cs* file that looks similar this code snippet. Notice `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
+Both the .NET CLI and Visual Studio project templates create a *Program.cs* file that looks similar to this code snippet. Notice `Microsoft.Identity.Web` using directive and the lines containing authentication and authorization.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication;
