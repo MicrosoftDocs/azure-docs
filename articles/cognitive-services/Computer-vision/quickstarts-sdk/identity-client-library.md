@@ -17,7 +17,7 @@ keywords: face search by image, facial recognition search, facial recognition, f
 ---
 
 # Quickstart: Use the Face service
-[!INCLUDE [data notice](../includes/identity-data-notice.md)]
+[!INCLUDE [GDPR-related guidance](../includes/identity-data-notice.md)]
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
 ::: zone pivot="programming-language-csharp"
