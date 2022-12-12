@@ -50,8 +50,8 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 | Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
-| name           | The name of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The id of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| name           | The name of the API for which to apply the call quota limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| id           | The ID of the API for which to apply the call quota.                                                | Either `name` or `id` must be specified.      | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes |  N/A     |
@@ -61,7 +61,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
 | name           | The name of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The id of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| id           | The ID of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes |  N/A     |
