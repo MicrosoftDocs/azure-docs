@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -32,5 +32,10 @@ The following API Management policies are used to transform API requests or resp
 -   [Rewrite URL](rewrite-uri-policy.md) - Converts a request URL from its public form to the form expected by the web service.
 
 -   [Transform XML using an XSLT](xsl-transform-policy.md) - Applies an XSL transformation to XML in the request or response body.
+-   [Set query string parameter](#SetQueryStringParameter) - Adds, replaces value of, or deletes request query string parameter.
+
+-   [Rewrite URL](#RewriteURL) - Converts a request URL from its public form to the form expected by the web service.
+
+-   [Transform XML using an XSLT](#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

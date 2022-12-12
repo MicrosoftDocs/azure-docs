@@ -40,10 +40,12 @@ items:
     href: alerts/tutorial-log-alert.md
   - name: Virtual machines
     items:
-    - name: Enable monitoring
-      href: vm/tutorial-monitor-vm-enable.md
-    - name: Alert on machine down
-      href: vm/tutorial-monitor-vm-alert.md
+    - name: Enable recommended alerts
+      href: vm/tutorial-monitor-vm-alert-recommended.md
+    - name: Create availability alert
+      href: vm/tutorial-monitor-vm-alert-availability.md
+    - name: Enable VM insights
+      href: vm/tutorial-monitor-vm-enable-insights.md
     - name: Collect guest logs and metrics
       href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
