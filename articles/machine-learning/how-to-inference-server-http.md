@@ -266,14 +266,20 @@ In this section, we'll provide an overview of how the inference server works and
 
 ### Server version
 
-The server package `azureml-inference-server-http` is published to PyPI. You can find our changelog and all previous versions on our [PyPI page](https://pypi.org/project/azureml-inference-server-http/).
+The server package `azureml-inference-server-http` is published to PyPI. You can find our changelog and all previous versions on our [PyPI page](https://pypi.org/project/azureml-inference-server-http/). Update to the latest version if you're using an earlier version.
 - 0.4.x: This is the version that is bundled in training images ≤ `20220601` and in `azureml-defaults>=1.34,<=1.43`. `0.4.13` is the last stable version. If you use the server before version `0.4.11`, you may see Flask dependency issues like cannot import name `Markup` from `jinja2` and you're strongly recommended to upgrade to `0.4.13` or `0.7.x`, if possible.
 - 0.6.x: This is the version that is preinstalled in inferencing images ≤ 20220516. The latest stable version is `0.6.1`.
-- 0.7.x: This is the first version that supports Flask 2. You can find the latest stable version from our PyPI page .
-- 0.8.x: 
-Most of the development work happens in `0.7.x` and above. Update to `0.8.x` if they are on an earlier version.
+- 0.7.x: This is the first version that supports Flask 2. You can find the latest stable version from our PyPI page.
+- 0.8.x:  <To be updated>
 
+### Package dependencies
 
+The most relavant packages for the server `azureml-inference-server-http` are following: 
+- flask
+- opencensus-ext-azure
+- inference-schema
+  
+If you specified `azureml-defaults` in your Python environment, the `azureml-inference-server-http` package is depended on and will be installed automatically.
 
 ## Frequently asked questions
 
