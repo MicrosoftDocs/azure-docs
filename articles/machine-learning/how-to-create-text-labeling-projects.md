@@ -191,7 +191,7 @@ If your project uses consensus labeling, you'll also want to review those images
 1. On the left, select  **Review labels**.
 1. On the top right, select **All filters**.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to review consensus label problems.":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png" alt-text="Screenshot: select filters to review consensus label problems." lightbox="media/how-to-create-text-labeling-projects/text-labeling-select-filter.png":::
 
 1. Under **Labeled datapoints**, select **Consensus labels in need of review**.  This shows only those images where a consensus was not achieved among the labelers.
 
@@ -199,7 +199,7 @@ If your project uses consensus labeling, you'll also want to review those images
 
 1. For each item in need of review, select the **Consensus label** dropdown to view the conflicting labels.
 
-    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels.":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels." lightbox="media/how-to-create-text-labeling-projects/text-labeling-consensus-dropdown.png":::
 
 1. While you can select an individual to see just their label(s), you can only update or reject the labels from the top choice, **Consensus label (preview)**.
 
