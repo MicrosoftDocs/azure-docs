@@ -10,13 +10,18 @@ ms.topic: troubleshooting
 ms.date: 12/05/2022
 ---
 
-# Approaches for troubleshooting lab VMs in Azure Lab Services
+# Troubleshoot accessing lab VMs in Azure Lab Services
 
 In this article, you learn about the different approaches for troubleshooting lab VMs. Understand how each approach affects your lab environment and user data on the lab VM. There can be different reasons why you're unable to connect to a lab VM in Azure Lab Services, or why you're stuck to complete a course. For example, the underlying VM is experiencing issues, your organization's firewall settings have changed, or a software change in the lab VM operating system.
 
-## Lab VM troubleshooting workflow
+## Symptoms
 
-Use the following process for troubleshooting issues with a lab VM in Azure Lab Services:
+To use and access a lab VM, you connect to it by using Remote Desktop (RDP) or Secure Shell (SSH). You may experience difficulties to access your lab VM:
+
+- You're unable to connect to the lab VM from your computer by using RDP or SSH. There might be a problem with the underlying VM, or a network or firewall configuration might prevent you from connecting.
+- After connecting to the lab VM, the VM is not working correctly. 
+
+## Troubleshooting steps
 
 1. If you're not able to connect to the lab VM with Remote Desktop (RDP) or Secure Shell (SSH):
 
@@ -71,6 +76,10 @@ When you reset a lab VM, all user data on the VM is lost. To avoid losing this d
 As students use a lab VM to advance through a course, they might get stuck at specific steps. For example, they're unable to install and configure a software component on the lab VM. To unblock students, you can create multiple labs, based off different template VMs, for each of the key stages in the course.
 
 Learn how to [set up a new lab](./tutorial-setup-lab.md#create-a-lab) and how to [create and manage templates](./how-to-create-manage-template.md).
+
+## Contact us for help
+
+If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot), or ask [Azure community support](/answers/topics/azure-labservices.html).
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.date: 12/06/2022
 
 On rare occasions, you may have problems connecting to a VM in one of your labs. In this article, you learn how to redeploy or reset a lab VM in Azure Lab Services. You can use these troubleshooting steps to resolve connectivity issues for your assigned labs, without support from an educator or admin.
 
-Learn more about [strategies for troubleshooting lab VMs](./concept-approaches-troubleshoot-lab-vm.md).
+Learn more about [strategies for troubleshooting lab VMs](./troubleshoot-access-lab-vm.md).
 
 ## Reset VMs
 
@@ -25,7 +25,7 @@ You can reset a lab VM that is assigned to you. If you have the Lab Assistant, L
 You can also reset a lab VM by using the [REST api](/rest/api/labservices/virtual-machines/reimage), [PowerShell](/powershell/module/az.labservices/update-azlabservicesvmreimage), or the [.NET SDK](/dotnet/api/azure.resourcemanager.labservices.labvirtualmachineresource.reimage).
 
 > [!WARNING]
-> After you reset a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. Learn how you can [store the user data outside the lab VM](./concept-approaches-troubleshoot-lab-vm.md#store-user-data-outside-the-lab-vm).
+> After you reset a lab VM, all the data that you saved on the OS disk (usually the C: drive on Windows), and the temporary disk (usually the D: drive on Windows), is lost. Learn how you can [store the user data outside the lab VM](./troubleshoot-access-lab-vm.md#store-user-data-outside-the-lab-vm).
 
 To reset a lab VM in the Azure Lab Services website that's assigned to you:
 

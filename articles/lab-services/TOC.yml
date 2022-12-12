@@ -56,8 +56,6 @@
     href: classroom-labs-concepts.md    
   - name: Labs architecture fundamentals
     href: classroom-labs-fundamentals.md
-  - name: Strategies for troubleshooting lab VMs
-    href: concept-approaches-troubleshoot-lab-vm.md
   - name: Capacity limits
     href: capacity-limits.md  
   - name: Cost management for labs
@@ -291,6 +289,10 @@
       href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
+- name: Troubleshoot & debug
+  items:
+  - name: Troubleshoot lab VM Access
+    href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
   - name: .NET
