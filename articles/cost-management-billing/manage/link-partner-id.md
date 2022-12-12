@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 11/17/2022
+ms.date: 12/05/2022
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
@@ -117,6 +117,21 @@ C:\ az managementpartner delete --partner-id 12345
 Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscussion) to receive updates or send feedback.
 
 ## Frequently asked questions
+
+**What PAL identity permissions are needed to show revenue?**
+
+PAL can be as granular as a resource instance. For example, a single virtual machine. However, PAL is set on a user account. The scope of the Azure Consumed Revenue (ACR) measurement is whatever administrative permissions that a user account has within the environment. An administrative scope can be subscription, resource group, or resource instance using standard Azure RBAC roles.
+
+For example, if you're partner, your customer might hire you to do a project. Your customer can give you an administrative account to deploy, configure, and support an application. Your customer can scope your access to a resource group. If you use PAL and associate your MPN ID with the administrative account, Microsoft measures the consumed revenue from the services within the resource group.
+
+If the Azure AD identity that was used for PAL is deleted or disabled, the ACR attribution stops for the partner on the associated resources.
+
+Various partner programs have differing rules for the RBAC roles. Contact your Partner Development Manager for rules about the specific Azure RBAC roles that are needed at the time of PAL in order for ACR attribution to be realized.
+
+For more information, see: 
+
+- [Azure Partner Admin Link](https://www.microsoftpartnercommunity.com/atvwr79957/attachments/atvwr79957/Webinars/53/1/Azure%20Partner%20Admin%20Link%20FAQ.pdf)
+- [Get recognized with Partner Admin Link](https://www.microsoftpartnercommunity.com/t5/Microsoft-Partner-Network/Get-recognized-with-Partner-Admin-Link/td-p/8389/page/2)
 
 **Who can link the partner ID?**
 

@@ -66,6 +66,8 @@ items:
   items: 
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/openai/context/context
+    - name: Encryption of data at rest
+      href: encrypt-data-at-rest.md
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use

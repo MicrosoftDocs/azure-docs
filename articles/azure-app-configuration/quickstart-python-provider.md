@@ -1,5 +1,5 @@
 ---
-title: Quickstart for using Azure App Configuration with Python apps | Microsoft Learn
+title: Quickstart for using Azure App Configuration with Python apps (preview) | Microsoft Learn
 description: In this quickstart, create a Python app with the Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: maud-lv
@@ -7,15 +7,19 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-other, engagement-fy23
-ms.date: 11/17/2022
+ms.date: 11/30/2022
 ms.author: malev
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a Python app with Azure App Configuration
+# Quickstart: Create a Python app with Azure App Configuration (preview)
 
-In this quickstart, you will use the Python provider for Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
+> [!IMPORTANT]
+> The Python provider for Azure App Configuration is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Python App Configuration provider is a library running on top of the Azure SDK for Python, helping Python developers easily consume the App Configuration service. It enables configuration settings to be used like a dictionary.
+In this quickstart, you will use the Python provider for Azure App Configuration (preview) to centralize storage and management of application settings using the [Azure App Configuration Python provider client library](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration-provider).
+
+The Python App Configuration provider is a library in preview running on top of the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration), helping Python developers easily consume the App Configuration service. It enables configuration settings to be used like a dictionary.
 
 ## Prerequisites
 
