@@ -1,6 +1,6 @@
 ---
-title: Set a table's log data plan in Azure Monitor Logs
-description: Learn how to configure the table log data plan to optimize log ingestion and retention costs in Azure Monitor Logs.
+title: Set a table's log data plan to Basic Logs or Analytics Logs
+description: Learn how to use Basic Logs and Analytics Logs to reduce costs and take advantage of advanced features and analytics capabilities in Azure Monitor Logs.
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: adi.biran
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/09/2022
 ---
 
-# Set a table's log data plan in Azure Monitor Logs
+# Set a table's log data plan to Basic or Analytics
 
 Azure Monitor Logs offers two log data plans that let you reduce log ingestion and retention costs and take advantage of Azure Monitor's advanced features and analytics capabilities based on your needs: 
 
@@ -27,7 +27,7 @@ The following table summarizes the two plans.
 | Category | Analytics | Basic |
 |:---|:---|:---|
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
-| Log queries | No extra cost. Full query capabilities. | Extra cost.<br>[Subset of query capabilities](basic-logs-query.md#limitations). |
+| Log queries | No extra cost. Full query capabilities. | Extra cost.<br/>[Subset of query capabilities](basic-logs-query.md#limitations). |
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at eight days. |
 | Alerts | Supported. | Not supported. |
 
@@ -60,10 +60,6 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
 | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
 | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources, e.g. dev boxes and environments stop, start, deletes. |
-| [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
-| [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
-| [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
-| [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
 
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.

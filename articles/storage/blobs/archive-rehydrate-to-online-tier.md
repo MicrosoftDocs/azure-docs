@@ -6,12 +6,13 @@ services: storage
 author: normesta
 
 ms.service: storage
+ms.subservice: blobs
 ms.topic: how-to
 ms.date: 09/29/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
-ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Rehydrate an archived blob to an online tier

@@ -8,7 +8,7 @@ author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 12/01/2022
 ---
 
 # Example: Create a Form Recognizer custom skill
