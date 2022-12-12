@@ -212,7 +212,7 @@ If your project uses consensus labeling, you'll also want to review those images
 
     :::image type="content" source="media/how-to-create-labeling-projects/select-need-review.png" alt-text="Screenshot: Select labels in need of review.":::
 
-1. For each inage in need of review, select the **Consensus label** dropdown to view the conflicting labels. 
+1. For each image in need of review, select the **Consensus label** dropdown to view the conflicting labels. 
 
     :::image type="content" source="media/how-to-create-labeling-projects/consensus-dropdown.png" alt-text="Screenshot: Select Consensus label dropdown to review conflicting labels.":::
 
