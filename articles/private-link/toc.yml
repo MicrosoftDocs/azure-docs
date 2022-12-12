@@ -33,6 +33,8 @@
   expanded: true
 - name: Tutorials
   items: 
+  - name: Deploy a private endpoint with a private resolver
+    href: tutorial-dns-on-premises-private-resolver.md
   - name: Connect to a storage account
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to an Azure Cosmos DB account

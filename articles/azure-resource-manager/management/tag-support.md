@@ -3027,6 +3027,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | managedInstances / databases | Yes | No |
 > | managedInstances / databases / advancedThreatProtectionSettings | No | No |
 > | managedInstances / databases / backupLongTermRetentionPolicies | No | No |
+> | managedInstances / databases / LongTermRetentionBackups | No | No |
 > | managedInstances / databases / vulnerabilityAssessments | No | No |
 > | managedInstances / dnsAliases | No | No |
 > | managedInstances / metricDefinitions | No | No |
@@ -3054,6 +3055,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | servers / databases / auditRecords | No | No |
 > | servers / databases / automaticTuning | No | No |
 > | servers / databases / backupLongTermRetentionPolicies | No | No |
+> | servers / databases / LongTermRetentionBackups | No | No |
 > | servers / databases / backupShortTermRetentionPolicies | No | No |
 > | servers / databases / databaseState | No | No |
 > | servers / databases / dataMaskingPolicies | No | No |
