@@ -22,7 +22,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
 
-### Running container images should have vulnerability findings resolved recommendation will soon be released for General Availability (GA)
+### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
 **Estimated date for change: January 2023**
 
