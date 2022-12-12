@@ -1201,7 +1201,7 @@ items:
       - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
         href: connector-troubleshoot-dynamics-dataverse.md
         displayName: troubleshooting
-      - name: File System
+      - name: File system
         href: connector-troubleshoot-file-system.md
         displayName: troubleshooting        
       - name: FTP, SFTP, and HTTP
@@ -1212,6 +1212,9 @@ items:
         displayName: troubleshooting
       - name: Hive
         href: connector-troubleshoot-hive.md  
+        displayName: troubleshooting
+      - name: MongoDB
+        href: connector-troubleshoot-mongodb.md  
         displayName: troubleshooting
       - name: Oracle
         href: connector-troubleshoot-oracle.md

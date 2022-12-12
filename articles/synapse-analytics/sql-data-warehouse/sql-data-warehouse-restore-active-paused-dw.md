@@ -6,9 +6,9 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/11/2022
-ms.author: stevehow
-ms.reviewer: joannapea
+ms.date: 12/07/2022
+ms.author: ajagadish
+ms.reviewer: joannapea, wiassaf
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ In this article, you learn how to restore an existing dedicated SQL pool (former
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verify your DTU capacity.** Each pool is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, myserver.database.windows.net) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verify your DTU capacity.** Each pool is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, `myserver.database.windows.net`) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## Before you begin
 
@@ -85,12 +85,12 @@ $RestoredDatabase.status
 ## Restore an existing dedicated SQL pool (formerly SQL DW) through the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the dedicated  that you want to restore from.
-3. At the top of the Overview blade, select **Restore**.
+2. Navigate to the dedicated SQL pool that you want to restore from.
+3. At the top of the **Overview** page, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the dedicated SQL pool (formerly SQL DW) doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a server in a different resource group and region or create a new one. After providing all the parameters, click **Review + Restore**.
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the dedicated SQL pool (formerly SQL DW) doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a server in a different resource group and region or create a new one. After providing all the parameters, select **Review + Restore**.
 
     ![Automatic Restore Points](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
@@ -148,6 +148,66 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTim
 
 # Verify the status of restored database
 $RestoredDatabase.status
+```
+
+## Restore an existing dedicated SQL pool (formerly SQL DW) to a different tenant through PowerShell
+
+This is similar guidance to cross subscription restore. However the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating tenant while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination tenant. 
+
+Note that the user performing the restore must have proper permissions in both the source and target tenants. At the destination tenant, the user must have a '(Guest)' account with either the 'Owner' or 'Contributor' access permissions to which the dedicated SQL pool (formerly SQL DW) will be restored to.
+
+The following PowerShell script for cross-tenant restore works in the same way as a cross-subscription restore when the user is given '(Guest)' access to the destination tenant. 
+
+> [!NOTE]
+> If you intend to restore your dedicated SQL pool (formerly SQL DW) to a Synapse workspace, use the additional PowerShell steps provided in [Restore an existing dedicated SQL pool](../backuprestore/restore-sql-pool.md). For more information on the differences between dedicated SQL pools, see [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
+
+1.    Open a PowerShell terminal.
+1.    Update Az.Sql Module to 3.8.0 (or greater) using `Update-Module`.
+1.    Connect to your Azure account using `Connect-AzAccount`. 
+1.    List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the source dedicated SQL pool to be restored.
+1.    List the restore points for the dedicated SQL pool using `Get-AzSqlDatabaseRestorePoint`.
+1.    Pick the desired restore point, setting the variable `$PointInTime`.
+1.    In the destination tenant, make sure your user has guest access with either 'Owner' or 'Contributor' permissions.
+1.    Select the destination subscription along with the corresponding Tenant ID to which the dedicated SQL pool should be restored.
+1.    Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
+1.    Verify that the restored dedicated SQL pool (formerly SQL DW) is online in the new tenant.
+
+```powershell
+$SourceSubscriptionName="<YourSubscriptionName>"
+$SourceTenantID="<YourTenantID>" # like '00000000-0000-0000-0000-000000000000' 
+$SourceResourceGroupName="<YourResourceGroupName>"
+$SourceServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$SourceDatabaseName="<YourDatabaseName>"
+$TargetSubscriptionName="<YourTargetSubscriptionName>"
+$TargetTenantID="YourTargetTenantID>" # like '00000000-0000-0000-0000-000000000000' 
+$TargetResourceGroupName="<YourTargetResourceGroupName>"
+$TargetServerName="<YourTargetServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
+$TargetDatabaseName="<YourDatabaseName>"
+
+# Update Az.Sql module to the latest version (3.8.0 or above)
+# Update-Module -Name Az.Sql
+
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -Subscription $SourceSubscriptionName -Tenant $SourceTenantID
+
+# Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
+$PointInTime="<RestorePointCreationDate>"
+# Or list all restore points
+Get-AzSqlDatabaseRestorePoint -ResourceGroupName $SourceResourceGroupName -ServerName $SourceServerName -DatabaseName $SourceDatabaseName
+
+# Get the specific database to restore
+$Database = Get-AzSqlDatabase -ResourceGroupName $SourceResourceGroupName -ServerName $SourceServerName -DatabaseName $SourceDatabaseName
+
+# Switch context to the destination, providing both the subscription and tenant
+Set-AzContext -Subscription $TargetSubscriptionName -Tenant $TargetTenantID
+
+# Restore database from a desired restore point of the source database to the target server in the desired subscription
+$RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $TargetResourceGroupName -ServerName $TargetServerName -TargetDatabaseName $TargetDatabaseName –ResourceId $Database.ResourceID
+
+# Verify the status of restored database
+$RestoredDatabase.status
+
 ```
 
 ## Next Steps

@@ -1,6 +1,6 @@
 ---
 title: 'How to: search the Data Catalog'
-description: This article gives an overview of how to search the Microsoft Purview data catalog.
+description: This article gives an overview of how to search the Microsoft Purview Data Catalog.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
@@ -11,9 +11,9 @@ ms.date: 04/11/2022
 
 # Search the Microsoft Purview Data Catalog
 
-After data is scanned and ingested into the Microsoft Purview data map, data consumers need to easily find the data needed for their analytics or governance workloads. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether you can trust the data and take a dependency on it.
+After data is scanned and ingested into the Microsoft Purview Data Map, data consumers need to easily find the data needed for their analytics or governance workloads. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether you can trust the data and take a dependency on it.
 
-The goal of search in Microsoft Purview is to speed up the process of quickly finding the data that matters. This article outlines how to search the Microsoft Purview data catalog to quickly find the data you're looking for.
+The goal of search in Microsoft Purview is to speed up the process of quickly finding the data that matters. This article outlines how to search the Microsoft Purview Data Catalog to quickly find the data you're looking for.
 
 ## Searching the catalog
 
@@ -21,11 +21,11 @@ The search bar can be quickly accessed from the top bar of the Microsoft Purview
 
 :::image type="content" source="./media/how-to-search-catalog/purview-search-bar.png" alt-text="Screenshot showing the location of the Microsoft Purview search bar" border="true":::
 
-Once you click on the search bar, you'll be presented with your search history and the items recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
+Once you select the search bar, you'll be presented with your search history and the items recently accessed in the data catalog. This allows you to quickly pick up from previous data exploration that was already done.
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help narrow down your search such as name, data type, classifications, and glossary terms. As you enter in search keywords, Microsoft Purview dynamically suggests results and searches that may fit your needs. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help narrow down your search such as name, data type, classifications, and glossary terms. As you enter in search keywords, Microsoft Purview dynamically suggests results and searches that may fit your needs. To complete your search, select "View search results" or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
@@ -40,7 +40,7 @@ If the top results don’t include the assets you're looking for, you can use th
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
-For certain annotations, you can click on the ellipses to choose between an AND condition or an OR condition. 
+For certain annotations, you can select the ellipses to choose between an AND condition or an OR condition. 
 
 :::image type="content" source="./media/how-to-search-catalog/search-and-or-choice.png" alt-text="Screenshot showing how to choose between and AND or OR condition" border="true":::
 
@@ -50,16 +50,17 @@ From the search results page, you can select an asset to view details such as sc
 
 ## Searching Microsoft Purview in connected services
 
-Once you register your Microsoft Purview instance to an Azure Data Factory or an Azure Synapse Analytics workspace, you can search the Microsoft Purview data catalog directly from those services. To learn more, see [Discover data in ADF using Microsoft Purview](../data-factory/how-to-discover-explore-purview-data.md) and [Discover data in Synapse using Microsoft Purview](../synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md).
+Once you register your Microsoft Purview instance to an Azure Data Factory or an Azure Synapse Analytics workspace, you can search the Microsoft Purview Data Catalog directly from those services. To learn more, see [Discover data in ADF using Microsoft Purview](../data-factory/how-to-discover-explore-purview-data.md) and [Discover data in Synapse using Microsoft Purview](../synapse-analytics/catalog-and-governance/how-to-discover-connect-analyze-azure-purview.md).
 
 :::image type="content" source="./media/how-to-search-catalog/search-azure-data-factory.png" alt-text="Screenshot showing how to use Microsoft Purview search in Azure Data Factory" border="true":::
+
 ## Bulk edit search results
 
 If you're looking to make changes to multiple assets returned by search, Microsoft Purview lets you modify glossary terms, classifications, and contacts in bulk. To learn more, see the [bulk edit assets](how-to-bulk-edit-assets.md) guide.
 
 ## Browse the data catalog
 
-While searching is great if you know what you're looking for, there are times where data consumers wish to explore the data available to them. The Microsoft Purview data catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog. For more information, see [browse the data catalog](how-to-browse-catalog.md).
+While searching is great if you know what you're looking for, there are times where data consumers wish to explore the data available to them. The Microsoft Purview Data Catalog offers a browse experience that enables users to explore what data is available to them either by collection or through traversing the hierarchy of each data source in the catalog. For more information, see [browse the data catalog](how-to-browse-catalog.md).
 
 ## Search query syntax
 
@@ -74,7 +75,7 @@ The following table contains the operators that can be used to compose a search 
 | OR | Specifies that an asset must have at least one of the two keywords. Must be in all caps. A white space is also an OR operator.  | The query `hive OR database` returns assets that contain 'hive' or 'database' or both. |
 | AND | Specifies that an asset must have both keywords. Must be in all caps | The query `hive AND database` returns assets that contain both 'hive' and 'database'. |
 | NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause. Must be in all caps  | The query `hive NOT database` returns assets that contain 'hive', but not 'database'. |
-| () | Groups a set of keywords and operators together. When combining multiple operators, parentheses specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
+| () | Groups a set of keywords and operators together. If you combine multiple operators, parentheses specify the order of operations. | The query `hive AND (database OR warehouse)` returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query `"hive database"` returns assets that contain the phrase "hive database" in their properties |
 | field:keyword | Searches the keyword in a specific attribute of an asset. Field search is case insensitive and is limited to the following fields at this time: <ul><li>name</li><li>description</li><li>entityType</li><li>assetType</li><li>classification</li><li>term</li><li>contact</li></ul> | The query `description: German` returns all assets that contain the word "German" in the description.<br><br>The query `term:Customer` will return all assets with glossary terms that include "Customer" and all glossary terms that match to "Customer". |
 
@@ -87,5 +88,6 @@ The following table contains the operators that can be used to compose a search 
 
 ## Next steps
 
-- [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
+- [How to create and manage glossary terms](how-to-create-manage-glossary-term.md)
+- [How to import and export glossary terms](how-to-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)

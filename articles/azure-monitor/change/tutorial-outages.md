@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 08/04/2022
+ms.date: 12/08/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,7 +24,7 @@ In this tutorial, you will:
 
 ## Pre-requisites
 
-- Install [.NET 5.0 or above](https://dotnet.microsoft.com/download). 
+- Install [.NET 7.0 or above](https://dotnet.microsoft.com/download). 
 - Install [the Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Set up the test application

@@ -1,8 +1,8 @@
 ---
 title: Capture Event Hubs data to ADLSG2 in parquet format
 description: Use no code editor to capture Event Hubs data in parquet format 
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/25/2022
