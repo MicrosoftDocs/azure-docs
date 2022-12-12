@@ -358,34 +358,35 @@ You can select a schedule name to show the schedule detail page. The schedule de
 
 # [studio UI](#tab/ui)
 
-Update a new version pipeline to existing schedule:
+#### Update a new version pipeline to existing schedule
 
-    Once you set up a schedule to do retraining or batch inference on production regularly, you may still work on fine tuning or optimizing the model.
+Once you set up a schedule to do retraining or batch inference on production regularly, you may still work on fine tuning or optimizing the model.
 
-    When you have a new version pipeline job with optimized performance, you can update the new version pipeline to an existing schedule.
-    
-    1. In the new version pipeline job detail page, select **Schedule** -> **Update to existing schedule**.
-    
-         :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the of jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
+When you have a new version pipeline job with optimized performance, you can update the new version pipeline to an existing schedule.
 
-    2. Select an existing schedule from the table. 
+1. In the new version pipeline job detail page, select **Schedule** -> **Update to existing schedule**.
 
-        :::image type="content" source="./media/how-to-schedule-pipeline-job/update-select-schedule.png" alt-text="Screenshot of update select schedule showing the select schedule tab." lightbox= "./media/how-to-schedule-pipeline-job/update-select-schedule.png":::
+        :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the of jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
 
-    > [!IMPORTANT]
-    > Make sure you select the correct schedule you want to update. Once you finish update, the schedule will trigger different jobs.
-    
-    3. You can also modify the job inputs/outputs, and run time settings for the future jobs triggered by the schedule.
-    
-    4. Select **Review + Update** to finish the update process. There will be notification when update is completed.
-    
-    5. After update is completed, in the schedule detail page, you can view the new job definition.
+2. Select an existing schedule from the table. 
 
-Update in schedule detail page:
+    :::image type="content" source="./media/how-to-schedule-pipeline-job/update-select-schedule.png" alt-text="Screenshot of update select schedule showing the select schedule tab." lightbox= "./media/how-to-schedule-pipeline-job/update-select-schedule.png":::
 
-    In schedule detail page, you can select **Update settings** to update the basic settings and advanced settings (including job input/output and runtime settings) of the schedule.
+> [!IMPORTANT]
+> Make sure you select the correct schedule you want to update. Once you finish update, the schedule will trigger different jobs.
 
-    :::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-update-settings.png" alt-text="Screenshot of update settings showing the basic settings tab. ." lightbox= "./media/how-to-schedule-pipeline-job/schedule-update-settings.png":::
+3. You can also modify the job inputs/outputs, and run time settings for the future jobs triggered by the schedule.
+
+4. Select **Review + Update** to finish the update process. There will be notification when update is completed.
+
+5. After update is completed, in the schedule detail page, you can view the new job definition.
+
+#### Update in schedule detail page
+
+In schedule detail page, you can select **Update settings** to update the basic settings and advanced settings (including job input/output and runtime settings) of the schedule.
+
+:::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-update-settings.png" alt-text="Screenshot of update settings showing the basic settings tab. ." lightbox= "./media/how-to-schedule-pipeline-job/schedule-update-settings.png":::
+
 --- 
 
 ### Disable a schedule
@@ -469,7 +470,7 @@ You can delete a schedule from the schedule detail page or all schedules tab.
 
 Since schedules are usually used for production, to reduce impact of operations, workspace admins may want to restrict access to creating and managing schedules within a workspace.
 
-Currently there are three action rules related to schedules and you can configure in Azure portal. You can learn more details about [how to manage access to an Azure Machine Learning workspace.](https://learn.microsoft.com/azure/machine-learning/how-to-assign-roles?tabs=labeler#create-custom-role)
+Currently there are three action rules related to schedules and you can configure in Azure portal. You can learn more details about [how to manage access to an Azure Machine Learning workspace.](create-custom-role.md)
 
 | Action | Description                                                                | Rule                                                          |
 |--------|----------------------------------------------------------------------------|---------------------------------------------------------------|
