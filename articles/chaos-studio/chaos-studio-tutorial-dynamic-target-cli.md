@@ -12,23 +12,15 @@ ms.devlang: azurecli
 
 # Create a chaos experiment that uses dynamic targeting to select hosts
 
-You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this guide, we'll show you how to dynamically target a VMSS based on availability to shut down. Running this experiment can help you test failover to a VMSS instance in a different region in the case of an outage.
+You can use dynamic targeting in a chaos experiment to choose a set of targets to run an experiment against. In this guide, we'll show you how to dynamically target a VMSS to shut down based on availability zone. Running this experiment can help you test failover to a VMSS instance in a different region in the case of an outage.
 
-These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. At this time, only VMSS shutdown supports dynamic targeting. 
+These same steps can be used to set up and run an experiment for any fault that supports dynamic targeting. Currently, only VMSS shutdown supports dynamic targeting.
 
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-
->[!important]
->Need to fill out
->- An Azure VMSS instance
->- 
-
-<!--
-- An Azure Cosmos DB account. If you do not have an Azure Cosmos DB account, you can [follow these steps to create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
-- At least one read and one write region setup for your Azure Cosmos DB account.
--->
+- An Azure VMSS instance
+ 
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
@@ -44,31 +36,19 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 Chaos Studio cannot inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. VMSS only has one target type (Microsoft-VirtualMachineScaleSet) and one capability (shutdown), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
 
-1. Create a target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding and `$TARGET_TYPE` with the [target type you are onboarding](chaos-studio-fault-providers.md):
+1. Create a [target for your VMSS](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding:
 
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/$TARGET_TYPE?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    ```azurecli-interactive  
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-    For example, if onboarding a VMSS as a Microsoft-VirtualMachineScaleSet target:
+2. Create the capabilities on the VMSS target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding, specifying The `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
-2. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding, `$TARGET_TYPE` with the [target type you are onboarding](chaos-studio-fault-providers.md) and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
-    
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/$TARGET_TYPE/capabilities/$CAPABILITY?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
-    ```
-
-    For example, if enabling the Virtual Machine shut down capability:
-
-    ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
-    ```
-
-You have now successfully onboarded your Azure Cosmos DB account to Chaos Studio.
+You have now successfully onboarded your Virtual Machine Scale Set to Chaos Studio.
 
 ## Create an experiment
 
@@ -149,15 +129,12 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 Give the experiment access to your resource(s) using the command below, replacing `$EXPERIMENT_PRINCIPAL_ID` with the principalId from the previous step and `$RESOURCE_ID` with the resource ID of the target resource. Change the role to the appropriate [built-in role for that resource type](chaos-studio-fault-providers.md). Run this command for each resource targeted in your experiment. 
 
 ```azurecli-interactive
-az role assignment create --role "Cosmos DB Operator" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
+az role assignment create --role "Virtual Machine Contributor" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope $RESOURCE_ID
 ```
 
 ## Run your experiment
 
-You are now ready to run your experiment. To see the impact, we **describe something that shows impact**.
-
->[!note}
->>The section above needs filling out
+You're now ready to run your experiment. To see the impact, check the portal to view the states of your VMSS instances and then check your services to ensure they're running as expected even when some VMSS instances are shut down.
 
 1. Start the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
