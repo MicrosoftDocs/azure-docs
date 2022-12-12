@@ -128,7 +128,7 @@ conceptualContent:
           links:
             - url: /azure/architecture/example-scenario/infrastructure/video-rendering/
               itemType: overview
-              text: 3d Video Rendering
+              text: 3D Video Rendering
             - url: /azure/architecture/example-scenario/apps/hpc-saas
               itemType: overview
               text: Computer-aided Engineering
