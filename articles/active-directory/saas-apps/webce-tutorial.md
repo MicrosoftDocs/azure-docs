@@ -63,14 +63,13 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     | **Identifier** |
     |---------------|
-    | `https://www.webce.com/<RootPortalFolder>` |
     | `https://www.webce.com` |
 
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://www.webce.com/<RootPortalFolder>/login/saml20`
 
     c. In the **Sign on URL** textbox, type a URL using the following pattern:
-    `https://www.webce.com/<RootPortalFolder>/login/saml20`
+    `https://www.webce.com/<RootPortalFolder>/login`
 
     > [!Note]
     > These values are not the real. Update these values with the actual Identifer, Reply URL and Sign on URL. Contact [WebCE Client support team](mailto:CustomerService@WebCE.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
