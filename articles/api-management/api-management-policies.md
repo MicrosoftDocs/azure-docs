@@ -18,7 +18,7 @@ More information about policies:
 + [Policy expressions](api-management-policy-expressions.md)
 
 > [!IMPORTANT]
->  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when using other policies.
+>  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
 
 
 ## Access restriction policies

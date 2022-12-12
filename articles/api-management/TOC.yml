@@ -490,14 +490,14 @@
               href: set-variable-policy.md
             - name: trace
               href: trace-policy.md
-            - name: validate-client-certificate
-              href: validate-client-certificate-policy.md
-            - name: validate-graphql-request
-              hewd: validate-graphql-request-policy.md
             - name: validate-azure-ad-token
               href: validate-azure-ad-token-policy.md
+            - name: validate-client-certificate
+              href: validate-client-certificate-policy.md
             - name: validate-content
               href: validate-content-policy.md
+            - name: validate-graphql-request
+              hewd: validate-graphql-request-policy.md
             - name: validate-headers
               href: validate-headers-policy.md
             - name: validate-jwt
