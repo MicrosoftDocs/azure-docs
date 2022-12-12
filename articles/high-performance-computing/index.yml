@@ -135,6 +135,9 @@ conceptualContent:
             - url: /azure/architecture/example-scenario/infrastructure/image-modeling/
               itemType: overview
               text: Digital image-based modeling on Azure
+            - url: /azure/cloud-adoption-framework/scenarios/azure-hpc/
+              itemType: overview
+              text: Cloud Adoption Framework
 
 # Super Computing Announcement included
 
