@@ -17,7 +17,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Use Microsoft Entra access reviews to manage users excluded from Conditional Access policies
+# Use access reviews to manage users excluded from Conditional Access policies
 
 In an ideal world, all users follow the access policies to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article goes over some examples of situations where exclusions may be necessary. You, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) access reviews.
 
@@ -142,7 +142,7 @@ that is excluded from the policy. Here is a recommended access review where memb
     ![Create an access review pane for example 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 >[!IMPORTANT] 
->If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta   endpoint that allows you to create and manage them programmatically. To get started, see the [Microsoft Entra access reviews API reference](/graph/api/resources/accessreviewsv2-overview) and [Example of retrieving Microsoft Entra access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>If you have many exclusion groups and therefore need to create multiple access reviews, we now have an API in the Microsoft Graph beta   endpoint that allows you to create and manage them programmatically. To get started, see the [access reviews API reference](/graph/api/resources/accessreviewsv2-overview) and [Example of retrieving access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## Access review results and audit logs
 
@@ -160,7 +160,7 @@ Now that you have everything in place, group, Conditional Access policy, and acc
 
     ![Access reviews audit logs listing actions](./media/conditional-access-exclusion/access-reviews-audit-logs.png)
 
-As an IT administrator, you know that managing exclusion groups to your policies is sometimes inevitable. However, maintaining these groups, reviewing them on a regular basis by the business owner or the users themselves, and auditing these changes can be made easier with Microsoft Entra access reviews.
+As an IT administrator, you know that managing exclusion groups to your policies is sometimes inevitable. However, maintaining these groups, reviewing them on a regular basis by the business owner or the users themselves, and auditing these changes can be made easier with access reviews.
 
 ## Next steps
 

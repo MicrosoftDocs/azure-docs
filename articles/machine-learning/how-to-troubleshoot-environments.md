@@ -26,16 +26,16 @@ Environments are managed and versioned assets within your Machine Learning works
 
 Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
 
-Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace provisioned. ```
+Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
 
 Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
 These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes, BYOC (bring your own container) – a Docker image user brings to AzureML and Docker build context based environment where AzureML materializes the image from the user provided content.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), the user brings a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the user-provided content.
 
-You use system-managed environments when you want conda to manage the Python environment for you.
+System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
 Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
 
@@ -47,13 +47,13 @@ You can create and manage environments from clients like AzureML Python SDK, Azu
 They won't be listed but may be retrieved by version or label.
 
 AzureML builds environment definitions into Docker images.
-It also caches the environments in Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
+It also caches the environments in the Azure Container Registry associated with your AzureML Workspace so they can be reused in subsequent training jobs and service endpoint deployments.
 Multiple environments with the same definition may result the same image, so the cached image will be reused.
 Running a training script remotely requires the creation of a Docker image.
 
 ## Reproducibility and vulnerabilities
 
-Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by the scanning tools.
+Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by scanning tools.
 Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
 It's your responsibility to evaluate the threat and address vulnerabilities in environments.
 Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
@@ -64,67 +64,200 @@ Not all the vulnerabilities are exploitable, so you need to use your judgment wh
 
 ### *Environment name issues*
 ### Curated prefix not allowed
-Terminology:  
+<!--issueDescription-->
+This issue can happen when the name of your custom environment uses terms reserved only for curated environments. *Curated* environments are environments that Microsoft maintains. *Custom* environments are environments that you create and maintain.
+ 
+**Potential causes:**
+* Your environment name starts with *Microsoft* or *AzureML*
+ 
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+ 
+**Troubleshooting steps**
 
-"Curated": environments Microsoft creates and maintains.  
-
-"Custom": environments you create and maintain.
-
-- The name of your custom environment uses terms reserved only for curated environments
-- Don't start your environment name with *Microsoft* or *AzureML*--these prefixes are reserved for curated environments
-- To customize a curated environment, you must clone and rename the environment
-- For more information about proper curated environment usage, see [create and manage reusable environments](https://aka.ms/azureml/environment/create-and-manage-reusable-environments)
+ Update your environment name to exclude the reserved prefix you're currently using
+ 
+**Resources**
+* [Create and manage reusable environments](https://aka.ms/azureml/environment/create-and-manage-reusable-environments)
 
 ### Environment name is too long
-- Environment names can be up to 255 characters in length
-- Consider renaming and shortening your environment name
+<!--issueDescription-->
+ 
+**Potential causes:**
+* Your environment name is longer than 255 characters
+ 
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+ 
+**Troubleshooting steps**
+
+ Update your environment name to be 255 characters or less
 
 ### *Docker issues*
-To create a new environment, you must use one of the following approaches:
-1. Base image
-    - Provide base image name, repository from which to pull it, credentials if needed
+
+*Applies to: Azure CLI & Python SDK v1 (Deprecated)*
+
+To create a new environment, you must use one of the following approaches (see [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)):
+- Base image
+    - Provide base image name, repository from which to pull it, and credentials if needed
     - Provide a conda specification
-2. Base Dockerfile (V1 only, Deprecated)
+- Base Dockerfile 
     - Provide a Dockerfile
     - Provide a conda specification
-3. Docker build context
+- Docker build context
     - Provide the location of the build context (URL)
     - The build context must contain at least a Dockerfile, but may contain other files as well
 
+*Applies to: Azure CLI & Python SDK v2*
+
+To create a new environment, you must use one of the following approaches:
+- Docker image
+    - Provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry
+    - [Sample here](https://aka.ms/azureml/environment/create-env-docker-image-v2)
+- Docker build context
+    - Specify the directory that will serve as the build context
+    - The directory should contain a Dockerfile and any other files needed to build the image
+    - [Sample here](https://aka.ms/azureml/environment/create-env-build-context-v2)
+- Conda specification 
+    - You must specify a base Docker image for the environment; the conda environment will be built on top of the Docker image provided
+    - Provide the relative path to the conda file
+    - [Sample here](https://aka.ms/azureml/environment/create-env-conda-spec-v2)
 
 ### Missing Docker definition
-- An environment has a `DockerSection` that must be populated with either a base image, base Dockerfile, or build context
-- This section configures settings related to the final Docker image built to the specifications of the environment and whether to use Docker containers to build the environment
-- See [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)
+*Applies to: Azure CLI & Python SDK v1 (Deprecated)*
+<!--issueDescription-->
+This issue can happen when your environment definition is missing a `DockerSection.` This section configures settings related to the final Docker image built from your environment specification.
+ 
+**Potential causes:**
+* The `DockerSection` of your environment definition isn't defined (null)
+ 
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+ 
+**Troubleshooting steps**
+
+ Add a `DockerSection` to your environment definition, specifying either a base image, base dockerfile, or docker build context.
+
+```
+from azureml.core import Environment
+myenv = Environment(name="myenv")
+# Specify docker steps as a string.
+dockerfile = r'''
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+RUN echo "Hello from custom container!"
+'''
+
+myenv.docker.base_dockerfile = dockerfile
+```
+ 
+**Resources**
+* [DockerSection](https://aka.ms/azureml/environment/environment-docker-section)
 
 ### Missing Docker build context location
 - If you're specifying a Docker build context as part of your environment build, you must provide the path of the build context directory
 - See [BuildContext](https://aka.ms/azureml/environment/build-context-class)
 
 ### Too many Docker options
-Only one of the following options can be specified:
+<!--issueDescription-->
+ 
+**Potential causes:**
 
-*V1*
+*Applies to: Azure CLI & Python SDK v1*
+
+You have more than one of these Docker options specified in your environment definition
 - `base_image`
 - `base_dockerfile`
 - `build_context`
 - See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
 
-*V2*
+*Applies to: Azure CLI & Python SDK v2*
+
+You have more than one of these Docker options specified in your environment definition
 - `image`
 - `build`
 - See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
+ 
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+ 
+**Troubleshooting steps**
+
+Choose which Docker option you'd like to use to build your environment. Then set all other specified options to None.
+
+*Applies to: Azure CLI & Python SDK v1*
+
+```
+from azureml.core import Environment
+myenv = Environment(name="myEnv")
+dockerfile = r'''
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+RUN echo "Hello from custom container!"
+'''
+myenv.docker.base_dockerfile = dockerfile
+myenv.docker.base_image = "pytorch/pytorch:latest"
+
+# Having both base dockerfile and base image set will cause failure. Delete the one you won't use.
+myenv.docker.base_image = None
+```
 
 ### Missing Docker option
-*V1*
-- You must specify one of: base image, base Dockerfile, or build context
+<!--issueDescription-->
+ 
+**Potential causes:**
 
-*V2:*
-- You must specify one of: image or build context
+*Applies to: Azure CLI & Python SDK v1*
+
+You didn't specify one of the following options in your environment definition
+- `base_image`
+- `base_dockerfile`
+- `build_context`
+- See [DockerSection](https://aka.ms/azureml/environment/docker-section-class)
+
+*Applies to: Azure CLI & Python SDK v2*
+
+You didn't specify one of the following options in your environment definition
+- `image`
+- `build`
+- See [azure.ai.ml.entities.Environment](https://aka.ms/azureml/environment/environment-class-v2)
+ 
+**Affected areas (symptoms):**
+* Failure in registering your environment
+<!--/issueDescription-->
+ 
+**Troubleshooting steps**
+
+Choose which Docker option you'd like to use to build your environment, then populate that option in your environment definition.
+
+*Applies to: Azure CLI & Python SDK v1*
+
+```
+from azureml.core import Environment
+myenv = Environment(name="myEnv")
+myenv.docker.base_image = "pytorch/pytorch:latest"
+```
+
+*Applies to: Azure CLI & Python SDK v2*
+
+```
+env_docker_image = Environment(
+    image="pytorch/pytorch:latest",
+    name="docker-image-example",
+    description="Environment created from a Docker image.",
+)
+ml_client.environments.create_or_update(env_docker_image)
+```
+
+**Resources**
+* [Create and manage reusable environments v2](https://aka.ms/azureml/environment/create-and-manage-reusable-environments)
+* [Environment class v1](https://aka.ms/azureml/environment/environment-class-v1)
 
 ### Container registry credentials missing either username or password
 - To access the base image in the container registry specified, you must provide both a username and password. One is missing.
-- Note that providing credentials in this way is deprecated. For the current method of providing credentials, see the *secrets in base image registry* section.
+- Providing credentials in this way is deprecated. For the current method of providing credentials, see the *secrets in base image registry* section.
 
 ### Multiple credentials for base image registry
 - When specifying credentials for a base image registry, you must specify only one set of credentials. 
@@ -140,10 +273,9 @@ to use, and set the other credentials you won't use to `null`
 ### Secrets in base image registry
 - If you specify a base image in your `DockerSection`, you must specify the registry address from which the image will be pulled,
 and credentials to authenticate to the registry, if needed.
-- Historically, credentials have been specified in the environment definition. However, this isn't secure and should be 
+- Historically, credentials have been specified in the environment definition. However, this method isn't secure and should be 
 avoided.
-- Users should set credentials using workspace connections. For instructions on how to 
-do this, see [set_connection](https://aka.ms/azureml/environment/set-connection-v1) 
+- Users should set credentials using workspace connections. For instructions, see [set_connection](https://aka.ms/azureml/environment/set-connection-v1) 
 
 ### Deprecated Docker attribute
 - The following `DockerSection` attributes are deprecated:
@@ -157,13 +289,13 @@ do this, see [set_connection](https://aka.ms/azureml/environment/set-connection-
 - See [DockerSection deprecated variables](https://aka.ms/azureml/environment/docker-section-class)
 
 ### Dockerfile length over limit
-- The specified Dockerfile can't exceed the maximum Dockerfile size of 100KB
+- The specified Dockerfile can't exceed the maximum Dockerfile size of 100 KB
 - Consider shortening your Dockerfile to get it under this limit
 
 ### *Docker build context issues*
 ### Missing Dockerfile path
 - In the Docker build context, a Dockerfile path must be specified
-- This is the path to the Dockerfile relative to the root of Docker build context directory
+- The path should be relative to the root of the Docker build context directory
 - See [Build Context class](https://aka.ms/azureml/environment/build-context-class)
 
 ### Not allowed to specify attribute with Docker build context
@@ -248,7 +380,7 @@ It's best to use newer, non-deprecated versions.
 *V1*
 
 - A Python version must be specified in the environment definition 
-- A Python version can be added by adding Python as a conda package, specifying the version (this is specific to SDK V1):
+- A Python version can be added by adding Python as a conda package and specifying the version:
 
 ```python
 from azureml.core.environment import CondaDependencies
@@ -269,7 +401,7 @@ conda_dep.add_conda_package("python==3.8")
 
 ### Python version not recommended
 - The Python version used in the environment definition is deprecated, and its use should be avoided
-- Consider using a newer version of Python as the specified version will eventually unsupported
+- Consider using a newer version of Python as the specified version will eventually be unsupported
 - See [Python versions](https://aka.ms/azureml/environment/python-versions) and [Python end-of-life dates](https://aka.ms/azureml/environment/python-end-of-life)
 
 ### Failed to validate Python version
@@ -297,8 +429,7 @@ The environment is built once and is reused as long as the conda dependencies re
 ### Missing conda channels
 - If no conda channels are specified, conda will use defaults that might change
 - For reproducibility of your environment, specify channels from which to pull dependencies
-- See [how to manage conda channels](https://aka.ms/azureml/environment/managing-conda-channels)
-for more information
+- For more information, see [how to manage conda channels](https://aka.ms/azureml/environment/managing-conda-channels)
 
 ### Base conda environment not recommended
 - Partial environment updates can lead to dependency conflicts and/or unexpected runtime errors,
@@ -312,7 +443,7 @@ environment definition
 ### Unpinned dependencies
 - For reproducibility, specify dependency versions for the packages in your conda specification
 - If versions aren't specified, there's a chance that the conda or pip package resolver will choose a different
-version of a package on subsequent builds of an environment. This can lead to unexpected errors and incorrect behavior
+version of a package on subsequent builds of an environment. This behavior can lead to unexpected errors
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 
 ### *Pip issues*
@@ -324,8 +455,8 @@ version of a package on subsequent builds of an environment. This can lead to un
 - For reproducibility, specify the pip resolver version in your conda dependencies
 - If the pip version isn't specified, there's a chance different versions of pip will be used on subsequent
 image builds on the environment
-    - This could cause the build to fail if the different pip versions resolve your packages differently
-    - To avoid this and to achieve reproducibility of your environment, specify the pip version
+    - This behavior could cause the build to fail if the different pip versions resolve your packages differently
+    - To avoid this issue and to achieve reproducibility of your environment, specify the pip version
 - See [conda package pinning](https://aka.ms/azureml/environment/how-to-pin-conda-packages)
 - See [how to set pip as a dependency](https://aka.ms/azureml/environment/add-conda-package-v1)
 
@@ -343,7 +474,7 @@ experience using Azure Machine Learning CLI 2.0
 
 ### ACR unreachable
 <!--issueDescription-->
-This can happen by failing to access a workspace's associated Azure Container Registry (ACR) resource.
+This issue can happen by failing to access a workspace's associated Azure Container Registry (ACR) resource.
 
 **Potential causes:**
 * Workspace's ACR is behind a virtual network (VNet) (private endpoint or service endpoint), and no compute cluster is used to build images.
@@ -387,30 +518,81 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 
 ### *Docker pull issues*
 ### Failed to pull Docker image
-- Possible issues:
-    - The path name to the container registry might not be resolving correctly
-        - For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
-        - See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
-    - If a container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability),
-     configure the container registry by using the service endpoint (public access) from the portal and retry
-    - After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet)
-     so the workspace can communicate with the container registry instance
-    - The image you're trying to reference doesn't exist in the container registry you specified 
-        - Check that the correct tag is used and that `user_managed_dependencies` is set to `True`. 
-        Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section)
-        to `True` disables conda and uses the user's installed packages.
-    - You haven't provided credentials for a private registry you're trying to pull the image from, or the provided credentials are incorrect 
-        - Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
+<!--issueDescription-->
+This issue can happen when a Docker image pull fails during an image build.
+
+**Potential causes:**
+* The path name to the container registry is incorrect
+* A container registry behind a virtual network is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* The image you're trying to reference doesn't exist in the container registry you specified 
+* You haven't provided credentials for a private registry you're trying to pull the image from, or the provided credentials are incorrect
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+If you suspect that the path name to your container registry is incorrect
+* For a registry `my-registry.io` and image `test/image` with tag `3.2`, a valid image path would be `my-registry.io/test/image:3.2`
+* See [registry path documentation](https://aka.ms/azureml/environment/docker-registries)
+
+If your container registry is behind a virtual network and is using a private endpoint in an [unsupported region](https://aka.ms/azureml/environment/private-link-availability)
+* Configure the container registry by using the service endpoint (public access) from the portal and retry
+* After you put the container registry behind a virtual network, run the [Azure Resource Manager template](https://aka.ms/azureml/environment/secure-resources-using-vnet) so the workspace can communicate with the container registry instance
+
+If the image you're trying to reference doesn't exist in the container registry you specified
+* Check that the correct tag is used and that `user_managed_dependencies` is set to `True`. Setting [user_managed_dependencies](https://aka.ms/azureml/environment/environment-python-section) to `True` disables conda and uses the user's installed packages
+
+If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
+* Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
+
 
 ### *Conda issues during build*
 ### Bad spec
-- Failed to create or update the conda environment due to an invalid package specification
-    - See [package match specifications](https://aka.ms/azureml/environment/conda-package-match-specifications)
-    - See [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
+<!--issueDescription-->
+This issue can happen when a package listed in your conda specification is invalid or when a conda command is executed incorrectly.
+
+**Potential causes:**
+* The syntax you used in your conda specification is incorrect
+* You're executing a conda command incorrectly
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Conda spec errors can happen when the conda create command is used incorrectly
+* Read the [documentation](https://aka.ms/azureml/environment/conda-create) and ensure that you're using valid options and syntax
+* There's known confusion regarding `conda env create` versus `conda create`. You can read more about conda's response and other users' known solutions [here](https://aka.ms/azureml/environment/conda-env-create-known-issue)
+
+To ensure a successful build, ensure that you're using proper syntax and valid package specification in your conda yaml
+* See [package match specifications](https://aka.ms/azureml/environment/conda-package-match-specifications) and [how to create a conda file manually](https://aka.ms/azureml/environment/how-to-create-conda-file)
 
 ### Communications error
-- Failed to communicate with a conda channel or package repository
-- Retrying the image build may work if the issue is transient
+<!--issueDescription-->
+This issue can happen when there's a failure in communicating with the entity from which you wish to download packages listed in your conda specification.
+
+**Potential causes:**
+* Failed to communicate with a conda channel or a package repository
+* These failures may be due to transient network failures 
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+
+Ensure that the conda channels/repositories you're using in your conda specification are correct
+* Check that they exist and are spelled correctly
+
+If the conda channels/repositories are correct
+* Try to rebuild the image--there's a chance that the failure is transient, and a rebuild might fix the issue
+* Check to make sure that the packages listed in your conda specification exist in the channels/repositories you specified
 
 ### Compile error
 - Failed to build a package required for the conda environment
@@ -421,30 +603,111 @@ az ml workspace update --name myworkspace --resource-group myresourcegroup --ima
 - Identify the missing command from the image build log, determine how to add it to your image, and then update the environment definition.
 
 ### Conda timeout
-- Failed to create or update the conda environment because it took too long
-- Consider removing unnecessary packages and pinning specific versions
-- See [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
+<!--issueDescription-->
+This issue can happen when conda package resolution takes too long to complete.
+
+**Potential causes:**
+* There's a large number of packages listed in your conda specification and unnecessary packages are included
+* You haven't pinned your dependencies (you included tensorflow instead of tensorflow=2.8)
+* You've listed packages for which there's no solution (you included package X=1.3 and Y=2.8, but X's version is incompatible with Y's version)
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Remove any packages from your conda specification that are unnecessary
+* Pin your packages--environment resolution will be faster
+* If you're still having issues, review this article for an in-depth look at [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
 
 ### Out of memory
-- Failed to create or update the conda environment due to insufficient memory
-- Consider removing unnecessary packages and pinning specific versions
-- See [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
+<!--issueDescription-->
+This issue can happen when conda package resolution fails due to available memory being exhausted.
+
+**Potential causes:**
+* There's a large number of packages listed in your conda specification and unnecessary packages are included
+* You haven't pinned your dependencies (you included tensorflow instead of tensorflow=2.8)
+* You've listed packages for which there's no solution (you included package X=1.3 and Y=2.8, but X's version is incompatible with Y's version)
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Remove any packages from your conda specification that are unnecessary
+* Pin your packages--environment resolution will be faster
+* If you're still having issues, review this article for an in-depth look at [understanding and improving conda's performance](https://aka.ms/azureml/environment/improve-conda-performance)
 
 ### Package not found
-- One or more packages specified in your conda specification couldn't be found
-- Ensure that all packages you've specified exist, and can be found using the channels you've specified in your conda specification
-- If you don't specify conda channels, conda will use defaults that are subject to change
-    - For reproducibility, specify channels from which to pull dependencies
-- See [managing channels](https://aka.ms/azureml/environment/managing-conda-channels)
+<!--issueDescription-->
+This issue can happen when one or more conda packages listed in your specification can't be found in a channel/repository.
+
+**Potential causes:**
+* The package's name or version was listed incorrectly in your conda specification 
+* The package exists in a conda channel that you didn't list in your conda specification
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the package is spelled correctly and that the specified version exists
+* Ensure that the package exists on the channel you're targeting
+* Ensure that the channel/repository is listed in your conda specification so the package can be pulled correctly during package resolution
+
+Specify channels in your conda specification:
+
+```
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.8
+  - tensorflow=2.8
+Name: my_environment
+```
+
+**Resources**
+* [Managing channels](https://aka.ms/azureml/environment/managing-conda-channels)
 
 ### Missing Python module
-- Check the Python modules specified in your environment definition and correct any misspellings or incorrect pinned versions.
+<!--issueDescription-->
+This issue can happen when a Python module listed in your conda specification doesn't exist or isn't valid.
+
+**Potential causes:**
+* The module was spelled incorrectly
+* The module isn't recognized
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* Ensure that the module is spelled correctly and exists
+* Check to make sure that the module is compatible with the Python version you've specified in your conda specification
+* If you haven't listed a specific Python version in your conda specification, make sure to list a specific version that's compatible with your module otherwise a default may be used that isn't compatible
+
+Pin a Python version that's compatible with the pip module you're using:
+```
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.8
+  - pip:
+    - dataclasses
+Name: my_environment
+```
 
 ### No matching distribution
 - Failed to find Python package matching a specified distribution
 - Search for the distribution you're looking for and ensure it exists: [pypi](https://aka.ms/azureml/environment/pypi)
 
-### Cannot build mpi4py
+### Can't build mpi4py
 - Failed to build wheel for mpi4py
 - Review and update your build environment or use a different installation method
 - See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
@@ -479,6 +742,6 @@ without using quotes. Consider adding quotes around the package specification
 - Failed to install Python packages
 - Review the image build log for more information on this error
 
-### Cannot uninstall package
+### Can't uninstall package
 - Pip failed to uninstall a Python package that was installed via the OS's package manager
 - Consider creating a separate environment using conda instead

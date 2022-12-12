@@ -59,7 +59,11 @@ By default, all tables in your Log Analytics workspace are Analytics tables, and
 | [AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) | Azure Media Services information about requests to streaming endpoints. |
 | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) | Azure Container Apps logs, generated within a Container Apps environment. |
 | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Used in [Container insights](../containers/container-insights-overview.md) and includes verbose text-based log records. |
-| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources; for example, dev boxes and environment stop, start, delete. |
+| [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs) | Data plane audit related to Dev Center resources, for example, dev boxes and environments stop, start, deletes. |
+| [StorageBlobLogs](/azure/azure-monitor/reference/tables/StorageBlobLogs) | Azure Storage blob service logs. |
+| [StorageFileLogs](/azure/azure-monitor/reference/tables/StorageFileLogs) | Azure Storage file service logs. |
+| [StorageQueueLogs](/azure/azure-monitor/reference/tables/StorageQueueLogs) | Azure Storage queue service logs. |
+| [StorageTableLogs](/azure/azure-monitor/reference/tables/StorageTableLogs) | Azure Storage table service logs. |
 
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) don't support Basic Logs.
