@@ -11,7 +11,7 @@ ms.date: 12/15/2022
 
 # Why move from BizTalk Server to Azure Integration Services?
 
-This guide provides an overview about the reasons and benefits, product comparisons, capabilities, and other information to help you start migrating from on-premises BizTalk Server to cloud-based Azure Integration Services. Following this guide, you'll find more guides that cover how to choose the services that best fit your scenario and approaches to migration, including planning considerations and best practices to help you ensure a successful migration project.
+This guide provides an overview about the reasons and benefits, product comparisons, capabilities, and other information to help you start migrating from on-premises BizTalk Server to cloud-based Azure Integration Services. Following this guide, you'll find more guides that cover how to choose the services that best fit your scenario along with migration strategies, planning considerations, and best practices to help you deliver successful results.
 
 ## Reasons and benefits
 
@@ -940,7 +940,7 @@ To stay updated about the latest investments, subscribe to the [Integrations on 
 
 ## Next steps
 
-You've learned more about how Azure Integration Services compares to BizTalk Server. Next, learn how to choose the best capabilities for your scenarios. Or, skip ahead to review suggested migration approaches.
+You've learned more about how Azure Integration Services compares to BizTalk Server. Next, learn how to choose the best Azure capabilities for your scenarios. Or, skip ahead to review suggested approaches and resources, planning considerations, and best practices for your migration.
 
 > [!div class="nextstepaction"]
 > [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-choose-capabilities.md)

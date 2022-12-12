@@ -11,6 +11,16 @@ ms.date: 12/15/2022
 
 # Migration approaches for moving from BizTalk Server to Azure Integration Services
 
+This guide covers migration strategies and resources along with planning considerations and best practices to help you help you deliver successful results.
+
+> [!NOTE]
+>
+> For a migration overview and guide to choosing services in Azure for your migration, review the following documentation:
+>
+> - [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview.md)
+> - [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-choose-capabilities.md)
+
+
 ## Strategy options
 
 ### Lift and shift

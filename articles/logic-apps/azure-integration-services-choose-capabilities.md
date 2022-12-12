@@ -17,8 +17,8 @@ Azure Integration Services offers many capabilities across this collection of in
 > [!NOTE]
 >
 > If you're a BizTalk Server customer looking to move your workloads to Azure Integration Services, 
-> you can learn more and compare the capabilities between these two offerings. See 
-> [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview).
+> you get a migration overview  and compare the capabilities between these two offerings by reviewing 
+> [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview.md).
 
 | Service | When to choose | Why |
 |---------|----------------|-----|
