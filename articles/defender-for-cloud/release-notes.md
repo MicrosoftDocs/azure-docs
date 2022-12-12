@@ -18,7 +18,22 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 ## December 2022
 
+Updates in December include:
 
+- [Announcing express configuration for vulnerability assessment in Defender for SQL](#announcing-express-configuration-for-vulnerability-assessment-in-defender-for-sql)
+
+### Announcing express configuration for vulnerability assessment in Defender for SQL
+
+The express configuration for vulnerability assessment in Microsoft Defender for SQL provides security teams with a streamlined configuration experience on Azure SQL Databases and Dedicated SQL Pools outside of Synapse Workspaces.
+
+With the express configuration experience for vulnerability assessments, security teams can:
+
+- Complete the vulnerability assessment configuration in the security configuration of the SQL resource, without any additional settings or dependencies on customer-managed storage accounts.
+- Immediately add scan results to baselines so that the status of the finding changes from **Unhealthy** to **Healthy** without rescanning a database.
+- Add multiple rules to baselines at once and use the latest scan results.
+- Enable vulnerability assessment for all Azure SQL Servers when you turn on Microsoft Defender for databases at the subscription-level.
+
+Learn more about [Defender for SQL vulnerability assessment](sql-azure-vulnerability-assessment-overview.md).
 
 ## November 2022
 
