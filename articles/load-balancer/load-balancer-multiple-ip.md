@@ -71,7 +71,7 @@ In this section, you'll create a virtual network for the load balancer and virtu
 
 10. Select the **Security** tab.
 
-11. Under **BastionHost**, select **Enable**. Enter the follwing information:
+11. Under **BastionHost**, select **Enable**. Enter the following information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -112,7 +112,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 7. Select **OK**.
 
-8. Select the **Subnet** tab select **Next: Subnet**.
+8. Select the **Subnet** tab or **Next: Subnet**.
 
 9. In **Virtual network** in the **Subnet** tab, select **myVNet**.
 
@@ -360,7 +360,7 @@ You'll connect to **myVM1** and **myVM2** with Azure Bastion and configure the s
     ```
 13. Close the Bastion connection to **myVM1**.
 
-14. Repeat steps 1 through 13 for **myVM2**. Use the PowerShell code below for **myVM2** for the IIS install.
+14. Repeat steps 1 through 13 for **myVM2**. Use the following PowerShell code for **myVM2** for the IIS install.
 
     ```powershell
     ## Install IIS and the management tools. ##
