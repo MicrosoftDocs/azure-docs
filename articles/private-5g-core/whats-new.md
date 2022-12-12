@@ -32,13 +32,13 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 **Date available:** December 12, 2022
 
-The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From December 12, 2022-11-01 will become the default API version for Azure Private 5G Core deployments.
+The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From December 12, 2022-11-01 is the default API version for Azure Private 5G Core deployments.
 
-If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, your deployment will be automatically upgraded to the 2022-11-01 API on December 12.
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, you do not need to do anything. Your portal will use the new API and any differences between the APIs are handled automatically.
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used an API version older than the 2022-04-01-preview to create any of your resources, you'll need to take action to prevent them from becoming unmanageable. Before December 12, delete these resources and redeploy them using the 2022-04-01-preview API.
+If you used an API version older than 2022-04-01-preview to create any of your resources, you need to take action to prevent them from becoming unmanageable. As soon as possible, delete these resources and redeploy them using the new 2022-11-01 API, either using the Azure portal or by upgrading your ARM templates as described in [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api). Note that these instructions may not be comprehensive for older templates.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 
