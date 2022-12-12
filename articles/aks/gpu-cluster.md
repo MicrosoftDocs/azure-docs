@@ -13,13 +13,13 @@ ms.date: 08/06/2021
 Graphical processing units (GPUs) are often used for compute-intensive workloads such as graphics and visualization workloads. AKS supports the creation of GPU-enabled node pools to run these compute-intensive workloads in Kubernetes. For more information on available GPU-enabled VMs, see [GPU optimized VM sizes in Azure][gpu-skus]. For AKS node pools, we recommend a minimum size of *Standard_NC6*. Note that the NVv4 series (based on AMD GPUs) are not yet supported with AKS.
 
 > [!NOTE]
-> GPU-enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
+> GPU-enabled VMs contain specialized hardware subject to higher pricing and region availability. For more information, see the [pricing][azure-pricing] tool and [region availability][azure-availability].
 
 Currently, using GPU-enabled node pools is only available for Linux node pools.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
+This article helps you provision nodes with schedulable GPUs on new and existing AKS clusters. This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -406,6 +406,8 @@ To run Apache Spark jobs, see [Run Apache Spark jobs on AKS][aks-spark].
 
 For more information about running machine learning (ML) workloads on Kubernetes, see [Kubeflow Labs][kubeflow-labs].
 
+For more information on features of the Kubernetes scheduler, see [Best practices for advanced scheduler features in AKS][advanced-scheduler-aks].
+
 For information on using Azure Kubernetes Service with Azure Machine Learning, see the following articles:
 
 * [Configure a Kubernetes cluster for ML model training or deployment][azureml-aks].
@@ -438,3 +440,4 @@ For information on using Azure Kubernetes Service with Azure Machine Learning, s
 [azureml-deploy]: ../machine-learning/how-to-deploy-managed-online-endpoints.md
 [azureml-triton]: ../machine-learning/how-to-deploy-with-triton.md
 [aks-container-insights]: monitor-aks.md#container-insights
+[advanced-scheduler-aks]: /aks/operator-best-practices-advanced-scheduler.md
