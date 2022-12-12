@@ -68,13 +68,13 @@ The following are two approaches to consider when implementing an identity platf
 
 * The second approach has a global boundary for the applications and uses an Azure AD B2C tenant to orchestrate interaction between regional tenants.
 
-## 1.1.1 Regional tenant orchestration
+## Regional tenant orchestration
 
 In this model, applications are either hosted per region, or have a per region configuration to connect to the regional tenants. Applications directly send the user to a region-specific tenant. Cross tenant communication is used to perform cross tenant authentications, or profile updates across tenants.
 
 ![Regional tenant orchestration](media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-regional-tenant-orchestration.png)
 
-## 1.1.2 Funnel tenant orchestration
+## Funnel tenant orchestration
 
 In this model, an Azure AD B2C tenant funnels users to regional Azure AD B2C tenants. The funnel tenant functions as a redirect orchestrator to other Azure AD B2C tenants. This is handled by a globally distributed component of the service, therefore that performance isn't a factor. This redirection is performed using OpenId identity provider federations.
 
