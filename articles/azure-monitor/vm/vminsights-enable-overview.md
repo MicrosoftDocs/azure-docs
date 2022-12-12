@@ -104,20 +104,20 @@ The DCR is defined by the options in the following table.
 ## Migrate from Log Analytics agent to Azure Monitor Agent
 
 - You can install both Azure Monitor Agent and Log Analytics agent on the same machine during migration. If a machine has both agents installed, you'll see a warning in the Azure portal that you might be collecting duplicate data.
+  
+    :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot that shows both agents installed.":::
 
     > [!WARNING]
     > Collecting duplicate data from a single machine with both Azure Monitor Agent and Log Analytics agent can result in:
     >
     > - Extra ingestion costs from sending duplicate data to the Log Analytics workspace.
     > - Inaccuracy in the Map feature of VM insights because the feature doesn't check for duplicate data.
-    
-    :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot that shows both agents installed.":::
 
 - Installing and uninstalling Dependency Agent during migration:
 
-    - Associating a data collection rule that does not use the Map feature does not uninstall Dependency Agent from machines to which you associate the data collection rule. When you migrating a machine on which Dependency Agent is installed, if you do not need the Map feature, you must uninstall Dependency Agent.  
-    
+    - Associating a data collection rule that does not use the Map feature does not uninstall Dependency Agent from machines to which you associate the data collection rule. When you migrate a machine on which Dependency Agent is installed, if you do not need the Map feature, you must uninstall Dependency Agent.  
     - When you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent is not installed, the Map view doesn't show up. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend using the VM insights onboarding UI.  
+    - If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent is not installed, Azure Monitor installs the Dependency Agent machine on the device and the agent runs in degraded mode.
     
 - You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
