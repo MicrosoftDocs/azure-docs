@@ -190,9 +190,9 @@ Consider the following testing recommendations for your migration project:
 
 - Automate your tests.
 
-  Azure Logic Apps (Standard) includes the capability to perform automated testing. The following list describes solutions and resources that are freely available on GitHub:
+  Azure Logic Apps (Standard) includes the capability to perform automated testing. The following list includes more information and resources that are freely available on GitHub:
 
-  - [Automated testing with Azure Logic Apps (Standard)](http://Automated%20Testing%20with%20Logic%20Apps%20Standard%20-%20Microsoft%20Tech%20Community) from the Azure Logic Apps engineering team
+  - [Automated testing with Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/automated-testing-with-logic-apps-standard/ba-p/2960623) from the Azure Logic Apps team
   
     With Azure Logic Apps (Standard), automated testing is no longer difficult to perform, due to the underlying architecture, which is based on the Azure Functions runtime and can run anywhere that Azure Functions can run. You can write tests for workflows that run locally or in a CI/CD pipeline. For more information, see the sample project for the [Azure Logic Apps Test Framework](https://github.com/Azure/logicapps/tree/master/LogicAppsSampleTestFramework).
 
@@ -206,7 +206,7 @@ Consider the following testing recommendations for your migration project:
     
   - [Integration Playbook: Logic Apps Standard Testing](https://www.mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
 
-    This framework builds on the Microsoft-provided test framework and supports additional scenarios:
+    The [Integration Playbook testing framework](https://github.com/michaelstephensonuk/IntegrationPlaybook-LogicApp-Standard-Testing) builds on the Microsoft-provided test framework and supports additional scenarios:
 
     - Connect to a workflow in a Standard logic app.
     - Get the callback URL so that you can trigger the workflow from a test.
