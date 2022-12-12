@@ -2,7 +2,7 @@
 title: Migrate VMware virtual machines to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool
 description: Learn how to migrate VMware VMs to Azure with server-side encryption(SSE) and customer-managed keys(CMK) using the Migration and modernization tool 
 author: piyushdhore 
-ms.author: piyusdhore-microsoft
+ms.author: piyusdhore
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 12/12/2022 
