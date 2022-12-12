@@ -23,13 +23,11 @@ This article shows you how to limit the source accounts of copy operations to ac
 
 ## About the AllowedCopyScope setting
 
-The **AllowedCopyScope** property of a storage account defines the environments from which data can be copied to the destination account. The property is not set by default and does not return a value until you explicitly set it. The property has three possible settings:
+The **AllowedCopyScope** property of a storage account defines the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
 
 - ***(not defined)*** (default): Allow copying from any storage account to the destination account.
 - **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
-
-The **AllowedCopyScope** property is displayed in the Azure portal as setting **Permitted scope for copy operations**.
 
 The setting applies to [Copy Blob operations of the REST API](/rest/api/storageservices/copy-blob). Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
 
