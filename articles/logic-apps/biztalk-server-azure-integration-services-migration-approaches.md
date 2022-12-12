@@ -145,7 +145,7 @@ The following list covers only some areas to consider:
 | Analytics | To demonstrate your solution's overall health and hygiene to your stakeholders, consider the different lenses that your stakeholders use to look through, for example: <br><br>- Executives might be more interested in overall health, transaction counts or volume, and the business value that those transactions generate, but not overall technical nuances. <br>- A frontline manager might be more interested in overall health but could also become interested in technical details, such as performance characteristics, to make sure that SLAs are met. <br>- Support analysts are likely interested in overall service health, exceptions, and performance bottlenecks. <br><br>While you put together your analytics strategy, consider your stakeholders and the type of data that interests them. This thought process helps you make sure that you track useful and helpful information and make that data accessible for reporting purposes. If you find coverage gaps, you might have to revisit your logging-related work items, and add appropriate tasks to address these gaps. |
 | Cadence | When you ship your integration projects and learn from those experiences, make sure to capture the lessons that inevitably emerge. Plan remediation sprints or cycles early in your journey so you can correct course early, before the cost becomes too great. That way, you can avoid introducing too much technical debt into your new platform. |
 
-### Deployment
+### Deployment planning
 
 When you anticipate and prepare a deployment plan, you increase your opportunities for a successful deployment. With BizTalk Server, after you created all the infrastructure and environments, you shifted focus to solution deployment.
 
@@ -157,13 +157,13 @@ With Azure, this experience differs with some activities to consider first, such
 
 You can then subsequently focus on solution deployment between different environments.
 
-### Testing 
+### Test planning
 
 To make sure that your stakeholders are satisfied with the solution that you're providing, testing is important to consider for any migration project. A new solution should provide more value compared to the previous solution, without any regressions that might impact the business.
 
 Consider the following testing recommendations for your migration project:
 
-- Establish a baseline by answering the following questions:
+- Establish your baseline by answering the following questions:
 
   1. Do you have existing tests?
   1. Do the tests run without errors?
@@ -173,50 +173,112 @@ Consider the following testing recommendations for your migration project:
 
   Naturally, you don't want to spend many resources establishing tests against a platform that's retiring, but you need to answer the question, "How do I know everything works successfully?" If you're in this situation, start establishing your baseline based on priorities and create a plan to mitigate areas where you have gaps.
 
-- Establish a test strategy for the new platform.
+- Set up your test strategy for the new platform.
 
   Assuming that you're comfortable with your baseline, you can now think about how you to test on your new platform. If you had trouble establishing your baseline, take the opportunity to set up a strong foundation for your new platform.
 
   When you think about testing for your new platform, keep automation top of mind. Although having a platform allows you to quickly build interfaces, relying on manual tests erodes those productivity gains.
 
-- Automation Testing: Azure Logic Apps (Standard) provides the ability to perform Automation testing. We will discuss to solutions that are freely available on GitHub. 
+- Automate your tests.
 
-Automated Testing with Logic Apps Standard (Logic Apps Engineering Team): Automated testing used to be difficult with Logic Apps, but that’s no longer the case with the addition of Logic Apps Standard. As it is based on the Azure Functions runtime, it can run anywhere, and we can write tests for workflows that can be executed locally or in a CI/CD pipeline. A sample project demonstrating how this can be done is located here: https://github.com/Azure/logicapps/tree/master/LogicAppsSampleTestFramework 
+  Azure Logic Apps (Standard) includes the capability to perform automated testing. The following list describes solutions and resources that are freely available on GitHub:
 
-The capabilities provided in this framework include: 
+  - [Automated testing with Azure Logic Apps (Standard)](http://Automated%20Testing%20with%20Logic%20Apps%20Standard%20-%20Microsoft%20Tech%20Community) from the Azure Logic Apps engineering team
+  
+    With Azure Logic Apps (Standard), automated testing is no longer difficult to perform, due to the underlying architecture, which is based on the Azure Functions runtime and can run anywhere that Azure Functions can run. You can write tests for workflows that run locally or in a CI/CD pipeline. For more information, see the sample project for the [Azure Logic Apps Test Framework](https://github.com/Azure/logicapps/tree/master/LogicAppsSampleTestFramework).
 
-Write automated tests for end-to-end Logic Apps functionality.  
+    This test framework includes the following capabilities:
 
-Fine-grained validation at the run and action levels.  
+    - Write automated tests for end-to-end functionality in Azure Logic Apps.
+    - Perform fine-grained validation at the workflow run and action levels.
+    - Check tests into a Git repo and run either locally or within CI/CD pipelines.
+    - Mock testing capabilities for HTTP actions and Azure connectors.
+    - Configure tests to use different setting values from production.
+    
+  - [Integration Playbook: Logic Apps Standard Testing](https://www.mikestephenson.me/2021/12/11/logic-app-standard-integration-testing/) from Michael Stephenson, Microsoft MVP
 
-Tests can be checked into a git repo and run either locally or as part of CI/CD pipelines.  
+    This framework builds on the Microsoft-provided test framework and supports additional scenarios:
 
-Mocking capabilities for HTTP actions and Azure connectors.  
+    - Connect to a workflow in a Standard logic app.
+    - Get the callback URL so that you can trigger the workflow from a test.
+    - Check the results from the workflow run.
+    - Check the operation inputs and outputs from the workflow's run history.
+    - Plug into automated testing frameworks that logic app developers might use.
+    - Plug into SpecFlow to support behavior-driven-development (BDD) for logic apps.
 
-Configurability that allows tests to use different setting values from production.   
+  Regardless which approaches or resources you use, you're well on your way to having repeatable, consistent automated integration tests. 
 
-Integration Playbook: Logic Apps Standard Testing (Michael Stephenson – Microsoft MVP)  
+- Set up mock response testing using static results.
 
-This framework builds on top of the one provided by Microsoft and includes support for additional scenarios. Using this framework, you will be able to: 
+  Regardless whether you set up automated tests, you can use the [static results capability](/azure/logic-apps/test-logic-apps-mock-data-static-results) in Azure Logic Apps to temporarily set mock responses at the action level. This functionality lets you emulate the behavior from a specific system that you want to call. You can then perform some initial testing in isolation and reduce the amount of data that you'd create in line of business systems.
 
-Connect to a workflow in logic app standard 
+- Run side by side tests.
 
-Get the call back url to trigger the workflow from a test 
+  Ideally, you have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Integration Services. You can now run tests side-by-side in a way so that you can verify your interfaces using the same data sets, which improves overall test accuracy.
 
-Check the results of the workflow that ran 
+### Go live
 
-Check the actions from the workflow run history 
+After your team finishes testing, you now think about the necessary tasks to put your new platform into production:
 
-Make it easy to plug into automated testing frameworks that logic app developers might use 
+- Create a communication plan.
 
-Make it easy to plug into specflow for BDD for logic apps 
+  Although you might have a small team implementing the technical aspects and details for an integration platform modernization project, you likely have many stakeholders that you need to keep informed about the migration project. If you don't have a clear communication strategy, you create anxiety for others involved. Also, consider the external stakeholders that you need to include in your communication plan. For example, you might want to include other trading partners or customers who might be affected by upcoming events. Don't forget about these stakeholders too.
 
-Regardless of which approach you take, you will be well on your way to having repeatable, consistent automated integration tests. 
+  So, communicate early and often by providing clarity in the areas that affect your stakeholders, for example, what you expect from them, when they're needed, how long they're needed, and so on. By providing a concise and clear plan, you create confidence for stakeholders and keep up positive energy around your project. Remove any doubts by making sure your team is ready to execute. Otherwise, you risk ruining morale due to perceptions, speculation, and rumors that your project might fail.
 
-Static Results: Regardless of whether you choose to use automated tests or not, a feature that you can take advantage of is Static Results. Using Static Results, you can temporarily set mock responses at the action level. This will allow you to emulate the behavior of a specific system that you would ordinarily call. This allows developers to do some initial testing in isolation and also reduces the amount of data created in line of business systems.  
+- Include a "cut-over" plan in your communication plan.
 
-Side by Side Testing: In an ideal situation, you will have your baseline set of integration tests for your BizTalk environment and have established automated tests for Azure Integration Services. You will now be able to execute tests in a side-by-side manner that will allow you to verify your interfaces using the same data sets and improving overall test accuracy  
+  A cut-over plan covers the details about the tasks and activities necessary to switch from the current platform to the new platform, including the steps that your team plan to execute. Include the following considerations in your cut-over plan:
 
+  - Prerequisite steps
+
+    Identify the actions that you can or must perform in advance, so that you don't leave everything for cut-over day. Generally, a cut-over to a new integration platform usually means that you have a greenfield deployment, so you can stage many components and configurations early in the cycle. The more that you can complete before your original platform's maintenance window, the more angst you can remove, and improve the overall outcome of your cut-over event.
+
+  - Dress rehearsal
+  
+    Stakeholders generally want some predictability around the upcoming events. So, how do you provide predictability around something you've never done before? By running a dress rehearsal that deploys your integration platform to a pre-production environment, you can validate your cut-over plan and the anticipated timing for each step in the process.
+
+    Otherwise, underestimating the time that a step can take can lead to a ripple effect in delays. Cumulatively, these delays can cost a significant amount of time and disrupt the business. When you run a dress rehearsal, you can base your schedule on actual data. Your team might also find issues that would've caused problems during go-live in production. When your team catches and documents problems early, they're better prepared and risk fewer surprises during the real cut-over event.
+
+  - People
+
+    Make sure clear accountability exists around which person owns each particular step in the plan. As a wise mitigation strategy, identify and prepare back-up people in case the primary person is unavailable to perform the task, due to unexpected circumstances.
+
+  - Schedule estimates
+  
+    After you run one rehearsal, your team should have a better understanding how long each task might take to complete. You can use these estimations to forecast a schedule so that people know when you need them and approximately how much time they have to finish their task.
+
+  - Disable interfaces in the old platform.
+
+    Provided that you understand all the existing dependencies, you can start disabling interfaces in your old integration platform before you enable interfaces in the new platform. Some complex architectures might require that you disable sequential interfaces in a specific order to avoid surprises. Depending on the interface's nature, you also might not be able to disable all interfaces in your old integration platform. For example, if you have a line of business system that pushes messages to your integration platform, make sure to account for these situations in your cut-over plan.
+
+  - Enable new interfaces in the new platform.
+  
+    Similar to how you might have sequential interfaces that require you to disable in a specific order, you might have the same situation when you enable new interfaces. Make sure that you understand all the dependencies and that you already determined the required order to enable such interfaces.
+
+    > [!NOTE]
+    >
+    > Take care so that you execute steps to enable new sequential interfaces in a 
+    > methodical and systematic way to avoid missteps that risk your project's success. 
+    > This guide discusses validation testing in a later section.
+
+  - Have a roll-back plan.
+  
+    At this point, you hopefully have taken a very structured approach to implementing your new integration platform. However, surprises do happen from time to time. But the goal here is to have a plan in case you need to roll back to your previous integration platform. 
+
+As part of this plan, you may want to take into consideration the types of events that may trigger a roll-back. You also want to have alignment on who needs to be involved in making that decision. We will further discuss this in the upcoming Go/No Go Decision. 
+
+Validation Testing: Once you have enabled your interfaces, you want to ensure that your interfaces are working as expected before “opening the floodgates”. Ideally you will be able to perform a validation test that doesn’t impact your core business data. For example, you may be able to read data from a production line of business system but cannot write data as that would create a compliance issue. Otherwise, you will need to wait for a business transaction to flow your interfaces to validate that everything is working as expected. This makes this activity quite important and something that you should account for in your cut-over plan.  
+
+Go/No Go Decision: At this point in the project, a decision needs to be made whether the project is ready to move into production. This decision needs to include relevant stakeholders including leadership, project management, operations and business representation. 
+
+Celebrate: You have just completed a project that will have a positive impact on your business, it is time to recognize the team for all their hard work and take time to celebrate this amazing milestone!!! Nothing will destroy morale than not being recognized for hard work. Whether the recognition is monetary or not, please plan on recognizing the team. 
+
+Retrospective: Like any engineering activity, it is important to learn from your experiences. Capture what went well, what didn’t, what would you do differently. Host this dialog in a non-threatening environment with a goal focused on learning and not pointing fingers. Share these learnings with your leadership and other interested stakeholders. This exercise builds trust within the team and is a sign of engineering maturity. 
+
+Production Support 
+
+The work involved in migrating interfaces from an old platform to a new platform, usually consumes most of the resources in a project. However, it is important to factor in the on-going support of the interfaces and the new platform that has just been implemented. This means planning for production support and ensuring the right level of knowledge transfer has occurred between the project team and the operations team. In addition, ensuring you have an up-to-date contact list that includes both technical and business contacts to ensure that the right people can be reached when necessary. The last thing you want to do is have a support person trying to figure out all of these things when there is an actual incident underway. It is much better to have your support processes and documentation in order prior to going live to ensure smooth and timely support responses. 
 
 ## Best practices for migration
 

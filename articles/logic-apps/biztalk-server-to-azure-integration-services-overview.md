@@ -924,7 +924,7 @@ The following table and diagram roughly show how resources, artifacts, features,
 | Monitoring | - BizTalk Administration Console <br>- BizTalk Health Monitor | Azure Monitor (Application Insights, Log Analytics) |
 | Operations | - BizTalk Server Administration Console <br>- Azure DevOps Pipelines <br>- MSI, PowerShell <br>- BizTalk Deployment Framework | - Azure portal <br>- Azure Monitor <br>- Azure Resource Manager templates <br>- Azure DevOps pipelines <br>- PowerShell, CLI, Bicep |
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/enterprise-integration-platform.png" alt-text="Screenshot showing hidden inputs and outputs in workflow run history after enabling secure inputs and outputs.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/enterprise-integration-platform.png" alt-text="Screenshot showing matchup between components from BizTalker Server and Azure Integration Services for the Enterprise Integration Platform.":::
 
 ### Road map
 
