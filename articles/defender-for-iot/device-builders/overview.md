@@ -15,7 +15,7 @@ For IoT implementers, security is a near-universal concern. IoT devices have uni
 Microsoft Defender for IoT provides lightweight security agents so that you can build security directly into your new IoT/OT initiatives. The micro agent provides endpoint visibility into security posture management and threat detection, and integrates with other Microsoft tools for unified security management.
 
 - **Security posture management**: Monitor the security posture of your IoT devices. Defender for IoT provides security posture recommendations based on the CIS benchmark, along with device-specific recommendations. Get visibility into operating system security, including OS configuration, firewall settings, and permissions.
-- **Endpoint threat detection**: Detect threats like botnets, brute force attempts, crypto miners, hardware connections, and suspicious network activity using Microsoft TI database.
+- **Endpoint threat detection**: Detect threats like botnets, brute force attempts, crypto miners, hardware connections, and suspicious network activity using the Microsoft TI database.
 - **Device vulnerabilities management**: Monitor a full list of all your devices vulnerabilities based on a real-time dynamic SBoM and your operating system.
 - **Microsoft Sentinel integration**: Use Microsoft Sentinel to investigate and manage your devices security, create custom dashboards and automatic response playbooks.
 - **Raw events investigation**: Investigate all the raw events sent from your devices in your Log Analytics workspace.
@@ -29,8 +29,9 @@ The Defender for IoT micro agent provides deep security protection, and visibili
 - The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Azure RTOS.
 - The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
-:::image type="content" source="media/overview/micro-agent-architecture.png" alt-text="The micro agent architecture.":::
+:::image type="content" source="media/overview/micro-agent-architecture1.png" alt-text="The micro agent architecture." lightbox="media/overview/micro-agent-architecture1.png":::
 
 ## Next steps
 
 [Review the agent portfolio](concept-agent-portfolio-overview-os-support.md)
+
