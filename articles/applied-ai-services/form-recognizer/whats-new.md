@@ -39,15 +39,19 @@ December 2022
 
   * **Custom model labeling**:
 
-    * **Batch OCR**. You can opt to run batch OCR in the setup wizard for custom model on all documents in your blob storage.
+    * **Run layout on all documents**. You can opt to run layout on all documents in the setup wizard when creating a custom project. This speeds up labeling as you no longer have to select each document in the dataset.
 
-    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
+    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement i useful when labeling large documents where the value you want to label isn't always on the same page.
 
-    * **Navigation**.  You can select labels to target labeled words within a document.
+    * **Navigation**.  You can select labels to target labeled words within a document. On a multi-page document, clicking on a field will navigate to the page with the value labeled.
 
-    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
+    * **Auto table labeling**. With tables that layout recognizes, use the auto-label option to label the table with just a few clicks. Auto-label currently only supports single page tables.
 
     * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
+
+* Building custom neural models is now supported in the US Gov Virginia region.
+
+* Preview API versions ```2022-01-30-preview``` and ```2021-09-30-preview``` will be retired January 31 2023. Update to the ```2022-08-31``` API version to avoid any service disruptions.
 
 ---
 
