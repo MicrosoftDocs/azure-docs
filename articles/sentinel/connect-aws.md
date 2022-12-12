@@ -47,7 +47,7 @@ We have made available, in our GitHub repository, a script that **automates the 
 
 ## Architecture overview
 
-This graphic and the following text shows how the parts of this connector solution interact.
+This graphic and the following text show how the parts of this connector solution interact.
 
 :::image type="content" source="media/connect-aws/s3-connector-architecture.png" alt-text="Screenshot of A W S S 3 connector architecture.":::
 
