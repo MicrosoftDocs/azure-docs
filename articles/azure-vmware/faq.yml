@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date:  09/29/2021
+  ms.date:  12/08/2022
   
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -47,7 +47,7 @@ sections:
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
       - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: VMware HCX Enterprise is availble on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
+        answer: VMware HCX Enterprise is available on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
@@ -131,7 +131,7 @@ sections:
 
       - question: Do private clouds use VMware NSX Data Center? If so, which version is supported?
         answer: |
-          Yes, NSX-T Data Center is the only supported version of NSX Data Center.   
+          Yes, NSX-T Data Center is the only supported version of VMware network virtualization software.   
           
           NSX-T [!INCLUDE [nsxt-version](includes/nsxt-version.md)] is used for the software-defined networking in Azure VMware Solution private clouds.
 
@@ -155,7 +155,7 @@ sections:
         answer: The Sentinel Management tab provides you access to download the Sentinel software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with a Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments, the Sentinel tab is only visible in the Connector, not cloud manager.
 
       - question: If we migrate a VM created with thick provisioning on the on-premises side to Azure VMware Solution, will the VM remain thick?
-        answer: You can specify the type of format you want when you migrate a VM to Azure VMware Solution. However, vSAN is primarily the datastore you will use in Azure VMware Solution, so it depends on the storage policy that's selected. The datastore default storage policy is the *vSAN default storage policy*, which is thick provisioned; however, the other storage policy options are thin. You can use Run commands to change the default datastore storage policy.
+        answer: You can specify the type of format you want when you migrate a VM to Azure VMware Solution. However, vSAN is primarily the datastore you will use in Azure VMware Solution, so it depends on the storage policy that's selected. The datastore default storage policy is the RAID-1 FTT-1, which is thin provisioned. You can use Run commands to change the default datastore storage policy.
 
 
 
@@ -165,10 +165,10 @@ sections:
     questions:
 
       - question: What are the CPU specifications in each type of host?
-        answer: The servers have dual 18 core 2.3 GHz Intel CPUs.
+        answer: The AV36 SKU servers have dual 18 core 2.3 GHz Intel CPUs, AV36P SKU servers have dual 18 core 2.6 GHz Intel CPUs and AV52 SKU servers have dual 26 core 2.7 GHz Intel CPUs.
 
       - question: How much memory is in each host?
-        answer: The servers have 576 GB of RAM.
+        answer: The AV36 SKU servers have 576 GB of RAM, AV36P SKU servers have 768 GB of RAM and AV52 SKU servers have 1,536 GB of RAM.
 
       - question: Does Azure VMware Solution support running ESXi as a nested virtualization solution?
         answer: No. VMware does not officially support nested virtualization. 
@@ -238,7 +238,7 @@ sections:
           
           > [!NOTE]
           > A T0 gateway is created and configured as part of a private cloud deployment.
-          > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
+          > Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
 
       - question: Do I need to restrict access from the internet to VMs on logical networks in a private cloud?
         answer: No. Network traffic inbound from the internet directly to private clouds isn't allowed by default.  However, you're able to expose Azure VMware Solution VMs to the internet through the [Public IP](./enable-public-ip-nsx-edge.md) option in your Azure portal for your Azure VMware Solution private cloud.
@@ -295,7 +295,7 @@ sections:
         answer: Microsoft provides alerts when capacity consumption exceeds 75%. Alternatively, you can also monitor capacity consumption metrics that are integrated into Azure Monitor.
 
       - question: How many 1.6-TB NVMe drives make up the disk groups to provide the 15.4 TB of raw SSD storage per host? 
-        answer: The [AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes 2 1.6 TB NVMe Cache and 8 1.9TB raw storage capacity. These are then split into two disk groups. 
+        answer: The [AV36 SKU](https://azure.microsoft.com/pricing/details/azure-vmware/) includes two 1.6 TB NVMe Cache and eight 1.9TB raw storage capacity. These are then split into two disk groups. Check the AV36P and AV52 SKUs for their [hardware specifications](introduction.md).
 
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups are not RAID configured. Instead, they are just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
@@ -341,10 +341,10 @@ sections:
           
       - question: What privileges and permissions will I have on the NSX-T Manager?
         answer: |
-          You'll have full administrator privileges on NSX-T Data Center and can manage vSphere role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts](concepts-identity.md).
+          You'll have CloudAdmin role privileges. For more information, see [Access and identity Concepts](concepts-identity.md).
           
           > [!NOTE]
-          > A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud.
+          > A T0 gateway is created and configured as part of a private cloud deployment. Any modification to that logical router or the NSX-T Data Center edge node VMs could affect connectivity to your private cloud and should be avoided.
 
       - question: How can I change my credentials?
         answer: For information on resetting your credentials, see [Rotate the cloudadmin credentials for Azure VMware Solution](rotate-cloudadmin-credentials.md).
