@@ -37,13 +37,13 @@ keywords:
 
 * **SOC-2 compliance**​
 
-* **Logging and diagnostics** through Azure Resource Health, Cost Analysis and Diagnostic/metrics​
+* **Logging and diagnostics** through Azure Resource Health, Cost Analysis, and Metrics & Diagnostic settings​.
 
-* **Studio improvements.** Numerous usability improvements to the Studio workflow including AAD role support to control who in the team has access to create fine-tuned models and deploy
+* **Studio improvements.** Numerous usability improvements to the Studio workflow including AAD role support to control who in the team has access to create fine-tuned models and deploy.
 
 ### Changes (breaking)
 
-**Fine-tuning** create API request change to match OpenAI’s schema.
+**Fine-tuning** create API request has been updated to match OpenAI’s schema.
 
 **Preview API versions:**
 
@@ -77,7 +77,7 @@ keywords:
 
 ​**Customer actions**​
 
-* Contact Azure Support if you would like these turned on for your subscription​.
+* [Contact Azure Support](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) if you would like these turned on for your subscription​.
 * Apply for filtering modifications {link}, if you would like to have them remain off. (This option will be for low-risk use cases only.)​
 
 ## Next steps
