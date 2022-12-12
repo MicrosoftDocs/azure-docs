@@ -25,9 +25,9 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 ## Schema overview
 
 The main fields of an audit event are:
-- The object, typically a configuration atom or policy rule that the event focuses on, represnted by the field [Object](#object).
-- The application context of the object, represented by the the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
-- THe operation performed on the object,represented by the field [EventType](#eventtype).
+- The object, typically a configuration atom or policy rule that the event focuses on, represented by the field [Object](#object).
+- The application context of the object, represented by the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
+- The operation performed on the object,represented by the field [EventType](#eventtype).
 - The old and new values for the object, if applicable, represented by [OldValue](#oldvalue) and [NewValue](#newvalue) respectively.
 
 Audit events also reference the following entities which are involved in the configuration operation:
@@ -107,7 +107,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="targeturl"></a>**TargetUrl** |Optional |URL |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Optional     | String     |   The file name of the process that initiated the audit event. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | **TargetProcessId**| Optional    | String | The process ID (PID) of the process that initiated the audit event.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **TargetProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit evnet. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
+| **TargetProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit event. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 
 ### Target system fields
