@@ -101,10 +101,10 @@
         href: how-to-view-alerts.md
       - name: Manage alert workflows from a sensor console
         href: how-to-accelerate-alert-incident-response.md
-      - name: Forward alert data from a sensor console
-        href: how-to-forward-alert-information-to-partners.md
     - name: On-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
+    - name: Forward on-premises alert data
+      href: how-to-forward-alert-information-to-partners.md
   - name: Visualize and monitor data
     items:
     - name: Visualize data with workbooks
