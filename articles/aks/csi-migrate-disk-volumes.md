@@ -17,7 +17,7 @@ To make this process as simple as possible, and to ensure no data loss, this art
 ## Before you begin
 
 * The Azure CLI version 2.37.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. In the case of an Azure Active Directory (Azure AD) RBAC enabled cluster, you are a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
+* Kubectl and cluster administrators have access to create, get, list, delete access to a PVC or PV, volume snapshot, or volume snapshot content. For an Azure Active Directory (Azure AD) RBAC enabled cluster, you're a member of the [Azure Kubernetes Service RBAC Cluster Admin][aks-rbac-cluster-admin-role] role.
 
 ## Migration options for disk volumes
 
@@ -34,9 +34,9 @@ Using this option, you create a PV by statically assigning `claimRef` to a new P
 
 The benefits of this approach are:
 
-* It is simple and can be automated.
+* It's simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
-* Low risk as you are only performing a logical deletion of Kubernetes PV/PVC, the actual physical data is not deleted.
+* Low risk as you're only performing a logical deletion of Kubernetes PV/PVC, the actual physical data isn't deleted.
 * No extra costs as the result of not having to create more objects such as disk, snapshots, etc.
 
 The following are important considerations to evaluate:
