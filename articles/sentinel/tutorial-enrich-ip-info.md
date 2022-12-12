@@ -108,15 +108,15 @@ As the playbook is deployed, you'll see a quick series of notifications of its p
 
     :::image type="content" source="media/tutorial-enrich-ip-info/7a-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
 
-    1. If you don't already have an existing connection to Virus Total, you should see an orange warning triangle on an action labeled **Connections** instead of the **Get an IP report (Preview)** action. Select it to open it and set the connection parameters (as you were shown above).
+    1. If you already have an existing connection to Virus Total, skip this step. If you don't, you should see an orange warning triangle on an action labeled **Connections** instead of the **Get an IP report (Preview)** action. Select it to open it and enter the connection parameters from your Virus Total account, then select **Create**.
 
         :::image type="content" source="media/tutorial-enrich-ip-info/8-virus-total-connection.png" alt-text="Screenshot shows how to enter API key and other connection details for Virus Total.":::
 
-    1. Now you'll see the **Get an IP report (Preview)** action properly.
+    1. Now you'll see the **Get an IP report (Preview)** action properly. (If you already had a Virus Total account, you'll already be at this stage.)
 
         :::image type="content" source="media/tutorial-enrich-ip-info/9-get-ip-report-action.png" alt-text="Screenshot shows the action to submit an IP address to Virus Total to receive a report about it.":::
 
-1. The next action is a **Condition** that determines the rest of the playbook's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates harmless; a score lower than 0 indicates malicious.
+1. The next action is a **Condition** that determines the rest of the playbook's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates the address is harmless; a score lower than 0 indicates it's malicious.
 
     :::image type="content" source="media/tutorial-enrich-ip-info/10-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
 
@@ -124,13 +124,36 @@ As the playbook is deployed, you'll see a quick series of notifications of its p
 
     :::image type="content" source="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/condition-true-false-actions.png":::
 
+1. Inside both the **True** and **False** frames is an identical action: send data to a Log Analytics table. 
+
+    - The **JSON Request Body** field contains the dynamic content item representing the data in the Virus Total report. 
+    - The **Custom Log Name** field contains the name of the Log Analytics table into which the data will be placed. 
+    - Finally, the **Time-generated-field** field indicates the value to be placed in the timestamp field in the destination table. It's populated by a function that returns the current time (the time of the execution of this action) in UTC format.
+
+1. Following the send data action in both the **True** and **False** frames is another near-identical action: add a comment to the open incident.
+
+    - The **Incident ARM id** field contains the ID of the open incident.
+    - The **Incident comment message** field contains a rich-text message of your choosing, that can incorporate dynamic content elements from any available object. It's pre-populated in this template by a message indicating the IP address being checked is most likely harmless (in the **True** frame) or malicious (in the **False** frame).
+
+1. If you made any changes in the design, including adding or changing connection credentials, select **Save** at the top of the **Logic app designer** window.
+
 ## 3 - Create an automation rule
 
 Now, to actually run this playbook, you'll need to create an automation rule that will run when incidents are created and invoke the playbook.
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+1. From the **Automation** page, select **+ Create** from the top banner. From the drop-down menu, select **Automation rule**.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/12-add-automation-rule.png" alt-text="Screenshot of creating an automation rule from the Automation page.":::
+
+1. In the **Create new automation rule** panel, give a name to the rule.
+
+    Under **Conditions**, select **+ Add** and **Condition (And)**.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/13-create-automation-rule-name.png" alt-text="Screenshot of creating an automation rule, naming it, and adding a condition.":::
+
+1. Select **IP Address** from the property drop-down on the left. Select **Contains** from the operator drop-down.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/14-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
 
 ## 4 - Invoke the playbook from your automation rule
 TODO: Add introduction sentence(s)
