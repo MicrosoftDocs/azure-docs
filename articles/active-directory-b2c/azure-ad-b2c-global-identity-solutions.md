@@ -24,7 +24,7 @@ Azure AD B2C is a globally distributed service made up of several components:
 
 * Directory
 
-* [Application registrations](tutorial-register-applications?tabs=app-reg-ga.md)
+* [Application registrations](tutorial-register-applications.md?tabs=app-reg-ga)
 
 * [User flows and custom policies](user-flow-overview.md)
 
