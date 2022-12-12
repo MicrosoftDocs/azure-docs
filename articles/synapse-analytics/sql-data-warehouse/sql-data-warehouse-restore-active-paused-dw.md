@@ -99,7 +99,7 @@ This is similar guidance to restoring an existing dedicated SQL pool, however th
 
 1. Open PowerShell.
 
-1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to valiate the version is below.
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to validate the version is below.
 
    ```powershell
    foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
@@ -166,7 +166,7 @@ The following PowerShell script for cross-tenant restore works in the same way a
 > If you intend to restore your dedicated SQL pool (formerly SQL DW) to a Synapse workspace, use the additional PowerShell steps provided in [Restore an existing dedicated SQL pool](../backuprestore/restore-sql-pool.md). For more information on the differences between dedicated SQL pools, see [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
 
 1. Open a PowerShell terminal.
-1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A sample PowerShell command to valiate the version is below.
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A sample PowerShell command to validate the version is below.
 
    ```powershell
       foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
