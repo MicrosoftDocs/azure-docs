@@ -66,6 +66,14 @@
     - name: Authentication library
       href: ../active-directory/develop/msal-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
       displayName: MSAL, client library, Microsoft Authentication Library
+  - name: Azure AD B2C global identitiy framework
+    items:
+      - name: Azure AD B2C global identity solutions
+        href: azure-ad-b2c-global-identity-solutions.md
+      - name: Azure AD B2C global identity proof of concept 
+        href: azure-ad-b2c-global-identity-proof-of-concept.md
+      - name: Azure AD B2C global idenity design considerations
+        href: azure-ad-b2c-global-identity-design-considerations.md
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
