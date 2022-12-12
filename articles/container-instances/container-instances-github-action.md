@@ -173,7 +173,7 @@ az role assignment create \
 
 # [OpenID Connect](#tab/openid)
 
-You need to given your application permission to access the Azure Container Registry. 
+You need to given your application permission to access the Azure Container Registry and to create an Azure Container Instance. 
 
 1. In Azure portal, go to [App registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps). 
 1. Search for your OpenID Connect app registration and copy the **Application (client) ID**. 
@@ -291,7 +291,6 @@ jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-        # checkout the repo
         - name: 'Checkout GitHub Action'
           uses: actions/checkout@main
           
