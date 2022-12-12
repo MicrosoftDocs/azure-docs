@@ -1,11 +1,11 @@
 ---
-title: Work with alerts on the on-premises management console
-description: Use the on-premises management console to get an enterprise view of recent threats in your network and better understand how sensor users are handling them.
-ms.date: 11/09/2021
+title: View and manage OT alerts on the on-premises management console - Microsoft Defender for IoT
+description: Learn how to view and manage OT alerts collected from all connected OT network sensors on a Microsoft Defender for IoT on-premises management console.
+ms.date: 12/12/2022
 ms.topic: how-to
 ---
 
-# View and manage alerts on the the on-premises management console
+# View and manage alerts on the on-premises management console
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that need your attention.
 
@@ -17,19 +17,17 @@ This article describes how to view Defender for IoT alerts on an on-premises man
 
 - **To view alerts the on-premises management console**, sign in as an **Admin**, **Security Analyst**, or **Viewer** user.
 
-- **To manage alerts on the on-premises management console**, sign in as an **Admin** or **Security Analyst** user.
-
-    On the on-premises management console, you can *acknowledge* or *mute* an alert, depending on the alert type. Both *acknowledging* and *muting* an alert hides it once for the detected event.
+- **To manage alerts on the on-premises management console**, sign in as an **Admin** or **Security Analyst** user. Management activities include acknowledging or muting an alert, depending on the alert type. Both *acknowledging* and *muting* an alert hides it once for the detected event.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View alerts on the on-premises management console
 
-1. On the on-premises management console, select the **Alerts** page.
+1. Sign into the on-premises management console and select **Alerts** on the left.
 
-1. Alerts are shown in a simple table, showing the sensor that triggered the alert and alert details in two columns.
+    Alerts are shown in a simple table, showing the sensor that triggered the alert and alert details in two columns.
 
-1. Select an alert row to view full details. For example:
+1. Select an alert row to expand its full details. For example:
 
     :::image type="content" source="media/alerts/alerts-cm-expand.png" alt-text="Screenshot of the Alerts page on the on-premises management console with one alert expanded for details.":::
 
@@ -69,7 +67,7 @@ You may want to export a selection of alerts to a CSV file for offline sharing a
 
 1. Select **Export**.
 
-The CSV file is generated and you're prompted to save it locally.
+The CSV file is generated, and you're prompted to save it locally.
 
 
 
