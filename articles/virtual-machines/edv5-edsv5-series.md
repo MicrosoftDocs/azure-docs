@@ -41,7 +41,7 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 | Standard_E48d_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 8 | 24000  |
 | Standard_E64d_v5               | 64  | 512 | 2400 | 32 | 300000/4000 | 8 | 30000  |
 | Standard_E96d_v5               | 96  | 672 | 3600 | 32 | 450000/4000 | 8 | 35000  |
-| Standard_E104id_v5<sup>3</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 8 | 100000 |
+| Standard_E104id_v5<sup>2</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 8 | 100000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edv5 virtual machines.<br>
@@ -52,7 +52,7 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 Edsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM and fast, local SSD storage up to 3800 GiB. Edsv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
-Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/). Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
@@ -74,8 +74,8 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 | Standard_E32ds_v5               | 32  | 256 | 1200 | 32 | 150000/2000 | 51200/865    | 80000/2000 | 8 | 16000  |
 | Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
 | Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375000/4000 | 80000/1735   | 80000/3000 | 8 | 30000  |
-| Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
-| Standard_E104ids_v5<sup>4,6</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
+| Standard_E96ds_v5               | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
+| Standard_E104ids_v5<sup>3,4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 120000/4000 | 8 | 100000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
 
@@ -85,14 +85,9 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 
 <sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
 
-<sup>4</sup> Edsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
-
-<sup>5</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104ids_v5** results in higher IOPs and MBps than standard premium disks:
+<sup>4</sup> Attaching Ultra Disk or Premium v2 SSDs to **Standard_E104ids_v5** results in higher IOPs and MBps than standard premium disks:
 - Max uncached Ultra Disk and Premium v2 SSD throughput (IOPS/ MBps): 120000/4000 
 - Max burst uncached Ultra Disk and Premium v2 SSD disk throughput (IOPS/ MBps): 120000/4000
-
-
-
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
