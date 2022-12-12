@@ -34,7 +34,7 @@ To install the `azureml-inference-server-http package`, run the following comman
 python -m pip install azureml-inference-server-http
 ```
 
-## Use the server
+## Try the inference server locally
 
 1. Create a directory to hold your files:
 
@@ -280,6 +280,9 @@ The most relavant packages for the server `azureml-inference-server-http` are fo
 - inference-schema
   
 If you specified `azureml-defaults` in your Python environment, the `azureml-inference-server-http` package is depended on and will be installed automatically.
+
+> [!TIP]
+> If you're using Python SDK v1 and don't explicitly specify `azureml-defaults` in your Python environment, the SDK may add the package for you. However, it will lock it to the version the SDK is on. For example, if the SDK version is `1.38.0`, it will add `azureml-defaults==1.38.0` to the environment's pip requirements.
 
 ## Frequently asked questions
 
