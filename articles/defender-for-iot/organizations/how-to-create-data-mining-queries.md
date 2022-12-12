@@ -11,7 +11,7 @@ Run data mining queries to view details about the network devices detected by yo
 
 Defender for IoT OT network sensors provide a series of out-of-the-box reports for you to use. Both out-of-the-box and custom data mining reports always show information that’s correct for the day you’re viewing the report, rather than the day the report or query was created.
 
-Data mining query data continuously is saved until a device is deleted, and is automatically backed on a daily basis to ensure system continuity.
+Data mining query data is continuously saved until a device is deleted, and is automatically backed on a daily basis to ensure system continuity.
 
 ## Prerequisites
 
