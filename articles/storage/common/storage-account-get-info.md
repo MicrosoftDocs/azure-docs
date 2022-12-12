@@ -185,7 +185,7 @@ To display the creation time of the account access keys for a storage account in
 1. On the **Resource JSON** page, select the most recent **API version**.
 1. In the JSON under *properties* you will see the *keyCreationTime* for *key1* and *key2*.
 
-    :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot of the JSON View of a storage account showing one account access key with null values and another with a date and time stamp" lightbox="media/storage-account-get-info/key-creation-time-portal.png":::
+    :::image type="content" source="media/storage-account-get-info/key-creation-time-portal.png" alt-text="Screenshot of the JSON View of a storage account showing one account access key with null values and another with a date and time stamp." lightbox="media/storage-account-get-info/key-creation-time-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
