@@ -6,7 +6,7 @@ ms.author: deseelam
 ms.manager: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
@@ -17,7 +17,7 @@ This article describes how to use Azure Migrate to migrate servers over a privat
 ::: zone pivot="agentlessvmware"
 
 
-This article shows how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate: Server Migration tool](migrate-services-overview.md#migration-and-modernization-tool), with agentless migration.
+This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md#migration-and-modernization-tool), with agentless migration.
 
 ## Set up the Azure Migrate appliance
 
@@ -27,7 +27,7 @@ Azure Migrate: Server Migration runs a lightweight VMware VM appliance to enable
 
 After setting up the appliance and completing discovery, you can begin replicating VMware VMs to Azure.
 
-The following diagram illustrates the agentless replication workflow with private endpoints by using the Azure Migrate: Server Migration tool.
+The following diagram illustrates the agentless replication workflow with private endpoints by using the Migration and modernization tool.
 
 ![Diagram that shows agentless replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/agentless-replication-architecture.png)
 
@@ -154,7 +154,7 @@ This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutoria
 
 ## Set up the replication provider for migration 
 
-The following diagram illustrates the agentless migration workflow with private endpoints by using the Azure Migrate: Server Migration tool. 
+The following diagram illustrates the agentless migration workflow with private endpoints by using the Migration and modernization tool. 
 
  ![Diagram that shows replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
 
@@ -343,7 +343,7 @@ This article shows a proof-of-concept deployment path for agent-based replicatio
 
 ## Set up a replication appliance for migration
 
-The following diagram illustrates the agent-based replication workflow with private endpoints by using the Azure Migrate: Server Migration tool.
+The following diagram illustrates the agent-based replication workflow with private endpoints by using the Migration and modernization tool.
 
 ![Diagram that shows replication architecture.](./media/how-to-use-azure-migrate-with-private-endpoints/replication-architecture.png)
 

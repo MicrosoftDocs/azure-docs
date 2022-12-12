@@ -5,13 +5,13 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
 # Prepare for VMware agentless migration
 
-This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Azure Migrate: Server Migration tool.
+This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Migration and modernization tool.
 
 Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.
 Azure Migrate automatically handles these configuration changes for the operating system versions mentioned below for both Linux and Windows. This process is called *Hydration*.

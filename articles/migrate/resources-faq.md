@@ -5,7 +5,8 @@ author: v-ksreedevan
 ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/16/2022
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Azure Migrate: Common questions
@@ -28,14 +29,14 @@ Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, a
 [Azure Migrate](migrate-services-overview.md) provides a centralized hub for assessment and migration to Azure.
 
 - Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
-- The Azure Migrate: Server Migration tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration.
+- The Migration and modernization tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration.
 - There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. It gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
 - Azure Migrate supports all migration scenarios supported by Site Recovery. Also, for VMware VMs, Azure Migrate provides an agentless migration option.
-- We're prioritizing new migration features for the Azure Migrate: Server Migration tool only. These features aren't targeted for Site Recovery.
+- We're prioritizing new migration features for the Migration and modernization tool only. These features aren't targeted for Site Recovery.
 
 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) should be used for disaster recovery only.
 
-The Azure Migrate: Server Migration tool uses some back-end Site Recovery functionality for lift-and-shift migration of some on-premises machines.
+The Migration and modernization tool uses some back-end Site Recovery functionality for lift-and-shift migration of some on-premises machines.
 
 ## I have a project with the previous classic experience of Azure Migrate. How do I start using the new version?
 

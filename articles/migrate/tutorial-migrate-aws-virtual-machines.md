@@ -5,13 +5,13 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 08/18/2022
+ms.date: 12/12/2022
 ms.custom: MVC, engagement-fy23
 ---
 
 # Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
 
-This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Azure Migrate: Server Migration tools.
+This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Migration and modernization tools.
 
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
@@ -22,7 +22,7 @@ In this tutorial, you will learn how to:
 > * Verify prerequisites for migration.
 > * Prepare Azure resources with Azure Migrate: Server Migration. Set up permissions for your Azure account and resources to work with Azure Migrate.
 > * Prepare AWS EC2 instances for migration.
-> * Add the Azure Migrate: Server Migration tool in the Azure Migrate hub.
+> * Add the Migration and modernization tool in the Azure Migrate hub.
 > * Set up the replication appliance and deploy the configuration server.
 > * Install the Mobility service on AWS VMs you want to migrate.
 > * Enable replication for VMs.
@@ -71,7 +71,7 @@ Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-
 
 ### Prepare Azure resources for migration
 
-Prepare Azure for migration with Azure Migrate: Server Migration tool.
+Prepare Azure for migration with the Migration and modernization tool.
 
 **Task** | **Details**
 --- | ---
@@ -347,7 +347,7 @@ After you've verified that the test migration works as expected, you can migrate
     > [!NOTE]
     >  Automatic shutdown is not supported while migrating AWS virtual machines.
  
-4. A migration job starts for the VM. You can view the job status by clicking the notification bell icon on the top right of the portal page or by going to the jobs page of the Server Migration tool (Click Overview on the tool tile > Select Jobs from the left menu).
+4. A migration job starts for the VM. You can view the job status by clicking the notification bell icon on the top right of the portal page or by going to the jobs page of the Migration and modernization tool (Click Overview on the tool tile > Select Jobs from the left menu).
 5. After the job finishes, you can view and manage the VM from the Virtual Machines page.
 
 ### Complete the migration

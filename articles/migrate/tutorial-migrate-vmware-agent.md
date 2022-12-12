@@ -5,20 +5,20 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 10/04/2022
-ms.custom: MVC
+ms.date: 12/12/2022
+ms.custom: MVC, engagement-fy23
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#migration-and-modernization-tool) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare Azure to work with Azure Migrate.
 > * Prepare for agent-based migration. Set up a VMware vCenter Server account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
-> * Add the Azure Migrate: Server Migration tool
+> * Add the Migration and modernization tool
 > * Set up the replication appliance.
 > * Replicate VMs.
 > * Run a test migration to make sure everything's working as expected.

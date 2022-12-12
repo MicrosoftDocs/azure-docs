@@ -5,13 +5,13 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 08/18/2022
+ms.date: 12/12/2022
 ms.custom: MVC, engagement-fy23
 ---
 
 # Migrate machines as physical servers to Azure
 
-This article shows you how to migrate machines as physical servers to Azure, using the Azure Migrate: Server Migration tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
+This article shows you how to migrate machines as physical servers to Azure, using the Migration and modernization tool. Migrating machines by treating them as physical servers is useful in a number of scenarios:
 
 - Migrate on-premises physical servers.
 - Migrate VMs virtualized by platforms such as Xen, KVM.
@@ -23,9 +23,9 @@ This article shows you how to migrate machines as physical servers to Azure, usi
 This tutorial is the third in a series that demonstrates how to assess and migrate physical servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare to use Azure with Azure Migrate: Server Migration.
+> * Prepare to use Azure with Migration and modernization.
 > * Check requirements for machines you want to migrate, and prepare a machine for the Azure Migrate replication appliance that's used to discover and migrate machines to Azure.
-> * Add the Azure Migrate: Server Migration tool in the Azure Migrate hub.
+> * Add the Migration and modernization tool in the Azure Migrate hub.
 > * Set up the replication appliance.
 > * Install the Mobility service on machines you want to migrate.
 > * Enable replication.

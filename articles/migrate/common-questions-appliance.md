@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.custom: ignite-2022, engagement-fy23
-ms.date: 11/22/2022
+ms.date: 12/12/2022
 ---
 
 # Azure Migrate appliance: Common questions
@@ -20,7 +20,7 @@ This article answers common questions about the Azure Migrate appliance. If you 
 
 ## What is the Azure Migrate appliance?
 
-The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Azure Migrate: Server Migration tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
+The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Migration and modernization tool also uses the appliance for agentless migration of on-premises servers running in VMware environment.
 
 Here's more information about the Azure Migrate appliance:
 
@@ -148,7 +148,7 @@ Only the appliance and the appliance agents are updated by these automatic updat
 
 ## Can I check agent health?
 
-Yes. In the portal, go the **Agent health** page for the Azure Migrate: Discovery and assessment or Azure Migrate: Server Migration tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
+Yes. In the portal, go the **Agent health** page of the Azure Migrate: Discovery and assessment tool or the Migration and modernization tool. There, you can check the connection status between Azure and the discovery and assessment agents on the appliance.
 
 ## Can I add multiple server credentials on appliance?
 

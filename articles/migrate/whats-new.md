@@ -119,7 +119,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 
 ## Update (January 2021)
 
-- Azure Migrate: Server Migration tool now lets you migrate VMware virtual machines, physical servers, and virtual machines from other clouds to Azure virtual machines with disks encrypted with server-side encryption with customer-managed keys (CMK).
+- Migration and modernization tool now lets you migrate VMware virtual machines, physical servers, and virtual machines from other clouds to Azure virtual machines with disks encrypted with server-side encryption with customer-managed keys (CMK).
 
 ## Update (December 2020)
 
@@ -129,7 +129,7 @@ For more information, see [ASP.NET app containerization and migration to Azure K
 ## Update (September 2020)
 
 - Migration of servers to Availability Zones is now supported.
-- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool won't perform the conversion from Gen 2 VM to Gen 1 VM during migration.
+- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Migration and modernization tool won't perform the conversion from Gen 2 VM to Gen 1 VM during migration.
 - A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
@@ -196,7 +196,7 @@ The current version of Azure Migrate (released in July 2019) provides many new f
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
 - **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, and with independent software vendor (ISV) tools. [Learn more](migrate-services-overview.md#isv-integration) about ISV integration.
 - **Azure Migrate assessment**: Using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess for migration using other Azure services, and ISV tools.
-- **Azure Migrate migration**: Using the Azure Migrate Server Migration tool, you can migrate on-premises VMware VMs and Hyper-V VMs to Azure, as well as physical servers, other virtualized servers, and private/public cloud VMs. In addition, you can migrate to Azure using ISV tools.
+- **Azure Migrate migration**: Using the Migration and modernization tool, you can migrate on-premises VMware VMs and Hyper-V VMs to Azure, as well as physical servers, other virtualized servers, and private/public cloud VMs. In addition, you can migrate to Azure using ISV tools.
 - **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.
     - This appliance is used by Azure Migrate Server Assessment, and Azure Migrate Server Migration for agentless migration.
     - The appliance continuously discovers server metadata and performance data, for the purposes of assessment and migration.  
