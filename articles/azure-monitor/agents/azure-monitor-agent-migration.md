@@ -57,7 +57,7 @@ Review the [prerequisites](./azure-monitor-agent-manage.md#prerequisites) for us
 
 To ensure safe deployment during migration, begin testing with few resources running Azure Monitor Agent in your nonproduction environment. After you validate the data collected on these test resources, roll out to production by following the same steps.
 
-To start collecting some of the existing data types, see [Create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association). Alternatively, you can use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert existing legacy agent configuration into data collection rules.
+To start collecting some of the existing data types, see [Create new data collection rules](./data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). Alternatively, you can use the [DCR Config Generator](./azure-monitor-agent-migration-tools.md#installing-and-using-dcr-config-generator) to convert existing legacy agent configuration into data collection rules.
 
 After you *validate* that data is flowing as expected with Azure Monitor Agent, check the `Category` column in the [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat) table for the value *Azure Monitor Agent* for AMA collected data. Ensure it matches data flowing through the existing Log Analytics agent.
 
