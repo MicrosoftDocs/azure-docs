@@ -10,9 +10,7 @@ author: mgoedtel
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 
-The implementation of the Container Storage Interface (CSI) driver was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use CSI.
-
-Automating this migration process isn't feasible because your application deployment code needs to be updated to repoint to either a new Persistent Volume Claim (PVC) or Persistent Volume. This process requires following a sequence of steps, which might be time consuming depending on the number of dynamic PVs presented. If retention policies are not set, meaning the *ReclaimPolicy* is set to **Delete** on your PVs, there is potential risk for data loss without warning based on the default behavior of Kubernetes.
+The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use CSI.
 
 To make this process as simple as possible, and to ensure no data loss, this article recommends different approaches and includes scripts to help ensure a smooth migration from in-tree to CSI drivers.
 
@@ -34,30 +32,9 @@ Using this option, you create a PV by statically assigning `claimRef` to a new P
 
 :::image type="content" source="media/csi-migrate-disk-volumes/csi-migration-static-pv-workflow.png" alt-text="Static volume workflow diagram.":::
 
-The following are the high-level steps that need to be performed to successfully migrate a static volume:
-
-1. Check the reclaim policy of PersistentVolume.
-
-2. To avoid deletion of disk, the `ReclaimPolicy` is updated from **Delete** to **Retain**.
-
-3. Gets all the PVs using the in-tree storage class.
-
-4. Creates a new PersistentVolume with name `Existing PV-csi` for all PV in namespaces for the storage class in step 3.
-
-    * Configure new PVC name as `Existing PVC-csi`.
-
-5. Creates a new PVC with PV name specified in step 4.
-
-    * `volumeName: Existing PV-csi`
-    * `storageClassName: storageClassName`
-
-6. Updates the application (deployment/StatefulSet) to refer to new PVC.
-
-7. Verifies the application and deletes the PVC and PV based on the in-tree storage class.
-
 The benefits of this approach are:
 
-* It is simple and can easily be automated.
+* It is simple and can be automated.
 * No need to clean up original configuration using in-tree storage class.
 * Low risk as you are only performing a logical deletion of Kubernetes PV/PVC, the actual physical data is not deleted.
 * No additional costs as the result of not having to create any additional objects such as disk, snapshots, etc.
@@ -179,15 +156,15 @@ The following are important considerations to evaluate:
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - Blah
    * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
-   * `startTimeStamp` - Provide a start time in the format <YYYY-MM-DDTHH:MM:SSZ>.
-   * `endTimeStamp` - Provide an end time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+   * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
+   * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
    The script **CreatePV.sh**, does the following:
 
-   * Creates a new PersistentVolume for all PersistentVolumes in the namespace for a StorageClass.
-   * Creates new PersistentVolumeClaims using the new PersistentVolumes
-   * Configure new PVC name, for example `existing-pvc-csi`.
-   * Creates a new PVC with the PV name you specify.
+    * Creates a new PersistentVolume with name `existing-pv-csi` for all PersistentVolumes in namespaces for storage class `storageClassName`.
+    * Configure new PVC name as `existing-pvc-csi`.
+    * Updates the application (deployment/StatefulSet) to refer to new PVC.
+    * Creates a new PVC with the PV name you specify.
 
     ```bash
     ./CreatePV.sh <namespace> <sourceIntreeStorageClass> <targetCSIStorageClass> <startTimestamp> <endTimestamp>
@@ -201,37 +178,17 @@ Using this option, you dynamically create a Persistent Volume from a Persistent 
 
 :::image type="content" source="media/csi-migrate-disk-volumes/csi-migration-dynamic-pv-workflow.png" alt-text="Dynamic volume workflow diagram.":::
 
-The following are the high-level steps that need to be performed to successfully migrate a dynamic volume:
-
-1. Check the PVs reclaim policy.
-
-1. To avoid deletion of disk, the reclaim policy specified in the `reclaimPolicy` field of the StorageClass is updated from **Delete** to **Retain**.
-
-1. Create VolumeSnapshotClass.
-
-1. Create a disk snapshot using Azure CLI commands.
-
-1. Create VolumeSnapshotContent with resourceID of snapshot created in step 1.
-
-1. Create VolumeSnapshot, referring to VolumeSnapshotContent created in step 3.
-
-1. Create new PVC using VolumeSnapshot.
-
-1. Update the application to use new PVC.
-
-1. Manually delete the older resources including In-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the In-tree PVC/PC and snapshot objects will generate additional cost.  
-
 The benefits of this approach are:
 
 * It's less risky because all new objects are created while retaining additional copies with snapshots.
 
-* No need to construct PV separately and add volume name in PVC manifest.
+* No need to construct PVs separately and add volume name in PVC manifest.
 
 The following are important considerations to evaluate:
 
 * While this approach is less risky, it does create multiple objects that will increase your storage costs.
 
-* There is application downtime during creation of the new volume(s).
+* During creation of the new volume(s), your application is unavailable.
 
 * Deletion steps should be performed with caution. Temporary [resource locks][azure-resource-locks] can be applied to your resource group until migration is completed and your application is successfully verified.
 
@@ -365,8 +322,8 @@ Before proceeding, verify the following:
    * `sourceStorageClass` - The in-tree storage driver-based StorageClass
    * `targetCSIStorageClass` - Blah
    * `volumeSnapshotClass` - Name of the volume snapshot class. For example, `custom-disk-snapshot-sc`.
-   * `startTimeStamp` - Provide a start time in the format <YYYY-MM-DDTHH:MM:SSZ>.
-   * `endTimeStamp` - Provide an end time in the format <YYYY-MM-DDTHH:MM:SSZ>.
+   * `startTimeStamp` - Provide a start time in the format **yyyy-mm-ddthh:mm:ssz**.
+   * `endTimeStamp` - Provide an end time in the format **yyyy-mm-ddthh:mm:ssz**.
 
     The script **MigrateToCSI.sh**, does the following:
 
@@ -382,7 +339,10 @@ Before proceeding, verify the following:
 
 4. Update your application to use the new PVC.
 
+5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate additional cost.
+
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-cluster
 [azure-resource-locks]: /azure/azure-resource-manager/management/lock-resources
+[csi-driver-overview]: csi-storage-drivers.md
