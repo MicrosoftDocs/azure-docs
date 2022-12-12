@@ -62,7 +62,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
-* Azure Log Analytics is partially supported and Application Insights isn't supported when using network isolation with a deployment. All metrics and `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are not supported as of now. As a workaround, you can use [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations?view=azure-python#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or Deployment log tab from Studio instead. For more details, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).
+* When you use network isolation with a deployment, Azure Log Analytics is partially supported while Application Insights isn't supported. All metrics and `AMLOnlineEndpointTrafficLog` table are supported via Azure Log Analytics. `AMLOnlineEndpointConsoleLog` and `AMLOnlineEndpointEventLog` tables are currently not supported. As a workaround, you can use [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) CLI command, [OnlineDeploymentOperations.get_logs()](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations?view=azure-python#azure-ai-ml-operations-onlinedeploymentoperations-get-logs) Python SDK, or the Deployment log tab in the Azure Machine Learning studio instead. For more information, see [Monitoring online endpoints](how-to-monitor-online-endpoints.md).
 
 * You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
 
@@ -96,7 +96,7 @@ endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',
 ```
 
 ---
-When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md), and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
