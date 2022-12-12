@@ -71,7 +71,7 @@ The following list describes some common exit codes:
 
     Retry to fix the issue.
 
- If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy static files in Azure Spring Apps Enterprise tier](how-to-enterprise-deploy-static-file.md).
+ If your application is a static file or dynamic front-end application served by a web server, see the [Common build and deployment errors](how-to-enterprise-deploy-static-file.md#common-build-and-deployment-errors) section of [Deploy web static files](how-to-enterprise-deploy-static-file.md).
 
 ## Next steps
 
