@@ -92,13 +92,11 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 ### Home regions
 * East US 2
 * West US
-* West Europe
 * Southeast Asia
 * Central US
 * North Europe
 * East Asia
 * US Gov Virginia
-* UK West
 * UK South
 
 > [!NOTE]

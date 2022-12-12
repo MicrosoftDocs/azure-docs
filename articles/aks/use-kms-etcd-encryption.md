@@ -35,7 +35,7 @@ The following limitations apply when you integrate KMS etcd encryption with AKS:
 * Using more than 2000 secrets in a cluster.
 * Bring your own (BYO) Azure Key Vault from another tenant.
 * Change associated Azure Key Vault model (public, private) if KMS is enabled. For [changing associated key vault mode][changing-associated-key-vault-mode], you need to disable and enable KMS again.
-* Stop/start cluster which is enabled KMS with private key vault.
+* If a cluster is enabled KMS with private key vault and not using `VNet integration` tunnel, then stop/start cluster is not allowed.
 
 KMS supports [public key vault][Enable-KMS-with-public-key-vault] and [private key vault][Enable-KMS-with-private-key-vault].
 

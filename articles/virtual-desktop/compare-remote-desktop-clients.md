@@ -39,14 +39,19 @@ The following tables compare support for device and other redirections across th
 
 ### Input redirection
 
+The following table shows which input methods are available for each Remote Desktop client:
+
 | Input | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
 | Keyboard | X | X | X | X | X | X |
 | Mouse | X | X | X | X | X | X |
 | Touch | X | X | X | X |  | X |
+| Multi-touch | X | X | X | X |  |  |
 | Pen | X |  | X (as touch) | X (as touch) |  |  |
 
 ### Port redirection
+
+The following table shows which ports can be redirected for each Remote Desktop client:
 
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|
@@ -56,6 +61,8 @@ The following tables compare support for device and other redirections across th
 When you enable USB port redirection, all USB devices attached to USB ports are automatically recognized in the remote session. For devices to work as expected, you must make sure to install their required drivers on both the local device and session host. You will need to make sure the drivers are certified to run in remote scenarios. If you need more information about using your USB device in remote scenarios, talk to the device manufacturer.
 
 ### Other redirection (devices, etc.)
+
+The following table shows which other devices can be redirected with each Remote Desktop client:
 
 | Redirection | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
 |--|--|--|--|--|--|--|

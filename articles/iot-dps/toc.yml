@@ -11,24 +11,31 @@ items:
   - name: Set up DPS
     items:
     - name: Azure portal
+      displayName: Set up DPS
       href: quick-setup-auto-provision.md
     - name: Azure CLI
+      displayName: Set up DPS
       href: quick-setup-auto-provision-cli.md
     - name: Bicep
-      displayName: Resource Manager,ARM,template
+      displayName: Resource Manager, ARM, template, Set up DPS
       href: quick-setup-auto-provision-bicep.md
     - name: Terraform
-      displayName: Resource Manager, ARM, template 
+      displayName: Resource Manager, ARM, template, Set up DPS
       href: quick-setup-auto-provision-terraform.md
     - name: ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager, Set up DPS
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a simulated symmetric key device
-    href: quick-create-simulated-device-symm-key.md
-  - name: Provision a simulated X.509 certificate device
-    href: quick-create-simulated-device-x509.md
-  - name: Simulated TPM device attestation sample
-    href: quick-create-simulated-device-tpm.md
+  - name: Provision a simulated device
+    items:
+    - name: Symmetric key sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-symm-key.md
+    - name: X.509 certificate sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-x509.md
+    - name: TPM device sample
+      displayName: Provision a simulated device
+      href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
   - name: Provision sets of devices with enrollment groups

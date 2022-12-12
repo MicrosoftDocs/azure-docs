@@ -550,7 +550,7 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2 (preview)?
+        - name: What is BlobFuse2?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
@@ -618,6 +618,8 @@ items:
               href: storage-blob-append.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download.md
         - name: JavaScript
           items:
           - name: Get started
