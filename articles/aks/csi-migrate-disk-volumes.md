@@ -10,9 +10,9 @@ author: mgoedtel
 
 # Migrate from in-tree storage class to CSI drivers on Azure Kubernetes Service (AKS)
 
-The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use CSI.
+The implementation of the [Container Storage Interface (CSI) driver][csi-driver-overview] was introduced in Azure Kubernetes Service (AKS) starting with version 1.21. By adopting and using CSI as the standard, existing stateful workloads using in-tree Persistent Volumes (PVs) should be migrated or upgraded to use the CSI driver.
 
-To make this process as simple as possible, and to ensure no data loss, this article recommends different approaches and includes scripts to help ensure a smooth migration from in-tree to CSI drivers.
+To make this process as simple as possible, and to ensure no data loss, this article recommends different approaches and includes scripts to help ensure a smooth migration from in-tree to Azure Disks and Files CSI drivers.
 
 ## Before you begin
 
@@ -341,8 +341,13 @@ Before proceeding, verify the following:
 
 5. Manually delete the older resources including in-tree PVC/PV, VolumeSnapshot, and VolumeSnapshotContent. Otherwise, maintaining the in-tree PVC/PC and snapshot objects will generate additional cost.
 
+## Next steps
+
+For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][aks-storage-backups-best-practices].
+
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-rbac-cluster-admin-role]: manage-azure-rbac.md#create-role-assignments-for-users-to-access-cluster
 [azure-resource-locks]: /azure/azure-resource-manager/management/lock-resources
 [csi-driver-overview]: csi-storage-drivers.md
+[aks-storage-backups-best-practices]: operator-best-practices-storage.md
