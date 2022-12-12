@@ -26,7 +26,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 **Estimated date for change: January 2023**
 
-Running container images recommendation described in [View vulnerabilities for images running on your AKS clusters](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#view-vulnerabilities-for-images-running-on-your-aks-clusters) is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy, and isn't included in the calculations of your secure score.
+The [Running container images should have vulnerability findings resolved](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
 
 This recommendation will soon be released for General Availability (GA) and so *will* be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score.
 
