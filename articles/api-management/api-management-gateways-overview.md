@@ -27,6 +27,11 @@ The API Management *gateway* (also called *data plane* or *runtime*) is the serv
 
 [!INCLUDE [api-management-gateway-role](../../includes/api-management-gateway-role.md)]
 
+
+> [!NOTE]
+> All requests to the API Management gateway, including those rejected by policy configurations, count toward configured rate limits, quotas, and billing limits if applied in the service tier. 
+
+
 ## Managed and self-hosted
 
 API Management offers both managed and self-hosted gateways:
