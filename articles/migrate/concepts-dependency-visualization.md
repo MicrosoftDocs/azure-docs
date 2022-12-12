@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
-ms.date: 08/04/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
@@ -39,7 +39,6 @@ Agentless dependency analysis works by capturing TCP connection data from server
 After discovery of dependency data begins, polling begins:
 
 - The Azure Migrate appliance polls TCP connection data from servers every five minutes to gather data.
-- Data is collected from guest servers via vCenter Server, using vSphere APIs.
 - Polling gathers this data:
 
     - Name of processes that have active connections.
