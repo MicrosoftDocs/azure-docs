@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/30/2022
 
 ms.subservice: blobs
-ms.custom: template-how-to, devx-track-js, devguide-js
+ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js
 ---
 
 
@@ -110,7 +110,7 @@ Each type of resource is represented by one or more associated JavaScript client
 
 The [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object is the top object in the SDK. This client allows you to manipulate the service, containers and blobs. 
 
-## [Azure AD](#tab/azure-ad)
+## [Passwordless](#tab/azure-ad)
 
 Once your Azure storage account identity roles and your local environment are set up, create a JavaScript file which includes the [``@azure/identity``](https://www.npmjs.com/package/@azure/identity) package. Create a credential, such as the [DefaultAzureCredential](/javascript/api/overview/azure/identity-readme#defaultazurecredential), to implement passwordless connections to Blob Storage. Use that credential to authenticate with a [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) object.
 
@@ -168,7 +168,7 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 ### Create ContainerClient directly
 
-#### [Azure AD](#tab/azure-ad)
+#### [Passwordless](#tab/azure-ad)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-default-azure-credential.js" highlight="27-30":::
 
@@ -205,7 +205,7 @@ List of Blob clients:
 
 ### Create BlobClient directly
 
-#### [Azure AD](#tab/azure-ad)
+#### [Passwordless](#tab/azure-ad)
 
 :::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-blob-client-with-default-azure-credential.js" highlight="28-31":::
 

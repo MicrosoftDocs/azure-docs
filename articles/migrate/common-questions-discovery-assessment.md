@@ -5,9 +5,8 @@ author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 11/24/2022
 ms.custom: engagement-fy23
-
 ---
 
 # Discovery, assessment, and dependency analysis - Common questions
@@ -83,11 +82,27 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 By design, in Hyper-V if maximum memory provisioned is less than what is required by the VM, Assessment will show memory utilization to be more than 100%.
 
+## I see a banner on my assessment that the assessment now also considers processor parameters. What will be the impact of recalculating the assessment?
+
+The assessment now considers processor parameters such as number of operational cores, sockets, etc. and calculating its optimal performance over a period in a simulated environment. This is done to benchmark all processor-based available processor information. Recalculate your assessments to see the updated recommendations.
+
+The processor benchmark numbers are now considered along with the resource utilization to ensure, we match the processor performance of your on-premises VMware environment and recommend the target Azure SKU sizes accordingly. This is a way to further improve the assessment recommendations to match your performance needs more closely.
+
+Due to this, the target Azure VM cost can differ from your earlier assessments of the same target. Also, the number of cores allocated in the target Azure SKU could also vary if the processor performance of target is a match for your on-premises VMware environment.
+
+## For scenarios where customers choose "as on premises", is there any impact due to processor benchmarking?
+
+No, there will be no impact as we don't consider it for as on premises scenario.
+
+## I see an increase in my monthly costs after I recalculate my assessments? Is this the most optimized cost for me?
+
+If you've selected all available options for your “VM Series” in your assessment settings, you will get the most optimized cost recommendation for your VMs. However, if you choose only some of the available options for the VM series, the recommendation might skip the most optimized option for you while assigning you an Azure VM SKU while matching your processor performance numbers.
+
 ## Why can't I see all Azure VM families in the Azure VM assessment properties?
 
 There could be two reasons:
 - You've chosen an Azure region where a particular series isn't supported. Azure VM families shown in Azure VM assessment properties are dependent on the availability of the VM series in the chosen Azure location, storage type and Reserved Instance. 
-- The VM series isn't support in the assessment and isn't in the consideration logic of the assessment. We currently don't support B-series burstable, accelerated and high performance SKU series. We are trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
+- The VM series isn't support in the assessment and isn't in the consideration logic of the assessment. We currently don't support B-series burstable, accelerated and high performance SKU series. We're trying to keep the VM series updated, and the ones mentioned are on our roadmap. 
 
 ## The number of Azure VM or AVS assessments on the Discovery and assessment tool are incorrect
 
@@ -185,7 +200,7 @@ You can create a single **Azure SQL** assessment consisting of desired SQL serve
 
 ## The storage cost in my Azure SQL assessment is zero
 
-For Azure SQL Managed Instance, there is no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+For Azure SQL Managed Instance, there's no storage cost added for the first 32 GB/instance/month storage and additional storage cost is added for storage in 32 GB increments. [Learn More](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ## I can't see some groups when I am creating an Azure VMware Solution (AVS) assessment
 

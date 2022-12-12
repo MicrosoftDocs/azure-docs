@@ -67,6 +67,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Business case
+            url: ./how-to-build-a-business-case.md
           - text: Add assessment tools
             url: ./how-to-assess.md
           - text: Discover application inventory

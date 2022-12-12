@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 10/26/2022
+ms.date: 12/05/2022
 ms.author: radeltch
 
 ---
@@ -541,12 +541,17 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Install the component, which you'll need for the cluster resources.
+   > [!NOTE]
+   > On SLES 15 SP04 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
+   > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
+   > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
+
+2. **[A]** Install the component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in socat
    </code></pre>
 
-1. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
+3. **[A]** Install the azure-lb component, which you'll need for the cluster resources.
 
    <pre><code>sudo zypper in resource-agents
    </code></pre>
@@ -556,7 +561,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > - **SLES 12 SP4/SP5**: The version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
    > - **SLES 15/15 SP1**: The version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
 
-1. **[A]** Configure the operating system.
+4. **[A]** Configure the operating system.
 
    a. Pacemaker occasionally creates many processes, which can exhaust the allowed number. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum number of allowed processes by setting the following parameter:
 
@@ -589,7 +594,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    vm.swappiness = 10
    </code></pre>
 
-1. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
+5. **[A]** Configure *cloud-netconfig-azure* for the high availability cluster.
 
    >[!NOTE]
    > Check the installed version of the *cloud-netconfig-azure* package by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or later, it's no longer necessary to suppress the management of network interfaces by the cloud network plug-in. If the version is earlier than 1.3, we recommend that you update the *cloud-netconfig-azure* package to the latest available version.  
@@ -604,7 +609,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
-1. **[1]** Enable SSH access.
+6. **[1]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
@@ -616,7 +621,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[2]** Enable SSH access.
+7. **[2]** Enable SSH access.
 
    <pre><code>sudo ssh-keygen
    
@@ -631,13 +636,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo cat /root/.ssh/id_rsa.pub
    </code></pre>
 
-1. **[1]** Enable SSH access.
+8. **[1]** Enable SSH access.
 
    <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install the *fence-agents* package if you're using a fencing device, based on the Azure fence agent.  
+9. **[A]** Install the *fence-agents* package if you're using a fencing device, based on the Azure fence agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
@@ -651,7 +656,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.  
    > Earlier versions will not work correctly with a managed identity configuration.  
    
-1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
+10. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
     <pre><code># You might need to activate the public cloud extension first
@@ -665,7 +670,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
     sudo zypper install python3-azure-identity
-    </code></pre> 
+    </code></pre>
 
     >[!IMPORTANT]
     >Depending on your version and image type, you might need to activate the public cloud extension for your OS release before you can install the Azure Python SDK.
@@ -674,7 +679,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-1. **[A]** Set up the hostname resolution.
+11. **[A]** Set up the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -696,11 +701,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     <b>10.0.0.7 prod-cl1-1</b>
     </code></pre>
 
-1. **[1]** Install the cluster.
+12. **[1]** Install the cluster.
     
     - If you're using SBD devices for fencing (for either the iSCSI target server or Azure shared disk):
 
-      <pre><code>sudo ha-cluster-init -u
+      <pre><code>sudo crm cluster init
       # ! NTP is not configured to start at system boot.
       # Do you want to continue anyway (y/n)? <b>y</b>
       # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
@@ -712,33 +717,32 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     
     - If you're *not* using SBD devices for fencing:
     
-      <pre><code>sudo ha-cluster-init -u
+      <pre><code>sudo crm cluster init
       # ! NTP is not configured to start at system boot.
       # Do you want to continue anyway (y/n)? <b>y</b>
       # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
       # Address for ring0 [10.0.0.6] <b>Select Enter</b>
       # Port for ring0 [5405] <b>Select Enter</b>
       # Do you wish to use SBD (y/n)? <b>n</b>
-      #WARNING: Not configuring SBD - STONITH will be disabled.
-
+      # WARNING: Not configuring SBD - STONITH will be disabled.
       # Do you wish to configure an administration IP (y/n)? <b>n</b>
       </code></pre>
 
-1. **[2]** Add the node to the cluster.
+13. **[2]** Add the node to the cluster.
     
-    <pre><code>sudo ha-cluster-join
+    <pre><code>sudo crm cluster join
     # ! NTP is not configured to start at system boot.
     # Do you want to continue anyway (y/n)? <b>y</b>
     # IP address or hostname of existing node (for example, 192.168.1.1) []<b>10.0.0.6</b>
     # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
     </code></pre>
 
-1. **[A]** Change the hacluster password to the same password.
+14. **[A]** Change the hacluster password to the same password.
 
     <pre><code>sudo passwd hacluster
     </code></pre>
 
-1. **[A]** Adjust the corosync settings.  
+15. **[A]** Adjust the corosync settings.  
 
     <pre><code>sudo vi /etc/corosync/corosync.conf
     </code></pre>

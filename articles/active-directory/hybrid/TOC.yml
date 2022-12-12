@@ -141,6 +141,8 @@
       href: how-to-connect-post-installation.md
     - name: Uninstall Azure AD Connect
       href: how-to-connect-uninstall.md
+    - name: Using a deprecated version
+      href: deprecated-azure-ad-connect.md
   - name: Plan and design
     items:
     - name: Design concepts

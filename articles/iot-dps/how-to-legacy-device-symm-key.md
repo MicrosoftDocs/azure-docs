@@ -21,7 +21,7 @@ If you can easily install a [hardware security module (HSM)](concepts-service.md
 
 This tutorial also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
-This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geolatency](how-to-provision-multitenant.md).
+This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
 >[!NOTE]
 > If you've previously completed [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md) and still have your Azure resources and development environment set up, you can proceed to [Create a symmetric key enrollment group](#create-a-symmetric-key-enrollment-group) in this tutorial.
@@ -211,7 +211,7 @@ In this section, you'll prepare a development environment that's used to build t
 
      :::image type="content" source="./media/how-to-legacy-device-symm-key/add-symmetric-key-enrollment-group.png" alt-text="Screenshot that shows adding a symmetric key enrollment group to DPS.":::
 
-1. Select **Save**. When you save the enrollment, IoT Hub generates the **Primary Key** and **Secondary Key** and adds them to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab.
+1. Select **Save**. When you save the enrollment, IoT Hub generates a **Primary Key** and **Secondary Key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears as **mylegacydevices** under the *Group Name* column in the *Enrollment Groups* tab.
 
 1. Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
 
@@ -846,12 +846,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ## Next steps
 
-* To learn more about Reprovisioning, see
+In this tutorial, you provisioned multiple devices to your IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
-    > [!div class="nextstepaction"]
-    > [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md)
-
-* To learn more about Deprovisioning, see
-
-    > [!div class="nextstepaction"]
-    > [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md)
+> [!div class="nextstepaction"]
+> [Use custom allocation policies](tutorial-custom-allocation-policies.md)

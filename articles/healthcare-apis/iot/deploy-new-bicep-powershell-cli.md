@@ -5,30 +5,31 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/29/2022
+ms.date: 12/05/2022
 ms.author: jasteppe
 ---
 
 # Quickstart: Deploy the MedTech service using a Bicep file and Azure PowerShell or the Azure CLI
+
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+
+Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
 
 In this quickstart, you'll learn how to:
 
 > [!div class="checklist"]
 > - Use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
+> [!TIP]
+> To learn more about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
-Bicep provides concise syntax, reliable type safety, and support for code reuse. Bicep offers a first-class authoring experience for your infrastructure-as-code solutions in Azure.
-
-For more information about Bicep, see [What is Bicep?](/azure/azure-resource-manager/bicep/overview?tabs=bicep)
-
-## Deployment prerequisites
+## Prerequisites
 
 To begin your deployment and complete the quickstart, you must have the following prerequisites:
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -39,9 +40,11 @@ When you have these prerequisites, you're ready to deploy the Bicep file.
 
 ## Review the Bicep file
 
-The Bicep file used for this deployment is available from the [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) site using the *main.bicep* file located on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
+The Bicep file used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *main.bicep* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
-Locally save the Bicep file as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
+## Save the Bicep file locally
+
+Save the Bicep file locally as *main.bicep*. You'll need to have the working directory of your Azure PowerShell or the Azure CLI console pointing to the location where this file is saved.
 
 ## Deploy the MedTech service with the Bicep file and Azure PowerShell
 
@@ -156,6 +159,11 @@ When deployment is completed, the following resources and access roles are creat
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  
+> [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
@@ -190,7 +198,9 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
+In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

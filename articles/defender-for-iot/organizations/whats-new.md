@@ -15,6 +15,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## December 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+
+### New purchase experience for OT plans
+
+The **Pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+
+For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
+
 ## November 2022
 
 |Service area  |Updates  |

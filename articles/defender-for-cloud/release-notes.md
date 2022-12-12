@@ -24,6 +24,7 @@ Updates in November include:
 - [Validate Defender for Containers protections with sample alerts](#validate-defender-for-containers-protections-with-sample-alerts)
 - [Governance rules at scale (Preview)](#governance-rules-at-scale-preview)
 - [The ability to create custom assessments in AWS and GCP (Preview) has been deprecated](#the-ability-to-create-custom-assessments-in-aws-and-gcp-preview-has-been-deprecated)
+- [The recommendation to configure dead-letter queues for Lambda functions has been deprecated](#the-recommendation-to-configure-dead-letter-queues-for-lambda-functions-has-been-deprecated)
 
 ### Protect containers across your GCP organization with Defender for Containers
 
@@ -53,6 +54,14 @@ Learn more about the [new governance rules at-scale experience](governance-rules
 ### The ability to create custom assessments in AWS and GCP (Preview) has been deprecated
 
 The ability to create custom assessments for [AWS accounts](how-to-manage-aws-assessments-standards.md) and [GCP projects](how-to-manage-gcp-assessments-standards.md), which was a Preview feature, has been deprecated. 
+
+### The recommendation to configure dead-letter queues for Lambda functions has been deprecated
+
+The recommendation [`Lambda functions should have a dead-letter queue configured`](https://portal.azure.com/#view/Microsoft_Azure_Security/AwsRecommendationDetailsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65/showSecurityCenterCommandBar~/false) has been deprecated.
+
+| Recommendation | Description | Severity |
+|--|--|--|
+| Lambda functions should have a dead-letter queue configured | This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function isn't configured with a dead-letter queue. As an alternative to an on-failure destination, you can configure your function with a dead-letter queue to save discarded events for further processing. A dead-letter queue acts the same as an on-failure destination. It's used when an event fails all processing attempts or expires without being processed. A dead-letter queue allows you to look back at errors or failed requests to your Lambda function to debug or identify unusual behavior. From a security perspective, it's important to understand why your function failed and to ensure that your function doesn't drop data or compromise data security as a result. For example, if your function can't communicate to an underlying resource, that could be a symptom of a denial of service (DoS) attack elsewhere in the network. | Medium |
 
 ## October 2022
 

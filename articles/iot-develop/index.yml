@@ -39,6 +39,8 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
+        - text: Connect a Microchip ATSAME54-XPro to Azure IoT Hub
+          url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
         - text: Connect a Microchip ATSAME54-XPro to Azure IoT
           url: quickstart-devkit-microchip-atsame54-xpro.md
         - text: Connect an STMicroelectronics L475E-IOT01A to Azure IoT Hub
