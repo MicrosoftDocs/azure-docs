@@ -3,14 +3,14 @@ title: "Atlassian Jira Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector Atlassian Jira Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Atlassian Jira Audit connector for Microsoft Sentinel
 
-The Atlassian Jira data connector provides the capability to ingest [Atlassian Jira audit logs](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/) into Microsoft sentinel.
+The Atlassian Jira data connector provides the capability to ingest [Atlassian Jira audit logs](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/) into Microsoft Sentinel.
 
 ## Connector attributes
 

@@ -3,14 +3,14 @@ title: "Nginx connector for Microsoft Sentinel"
 description: "Learn how to install the connector Nginx to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Nginx connector for Microsoft Sentinel
 
-NGINX HTTP Server data connector provides the capability to ingest [NGINX HTTP Server](https://nginx.org/en/) events into Microsoft Sentinel. Refer to [NGINX Logs documentation](https://nginx.org/en/docs/http/ngx_http_log_module.html) for more information.
+The NGINX HTTP Server data connector provides the capability to ingest [NGINX](https://nginx.org/en/) HTTP Server events into Microsoft Sentinel. Refer to [NGINX Logs documentation](https://nginx.org/en/docs/http/ngx_http_log_module.html) for more information.
 
 ## Connector attributes
 

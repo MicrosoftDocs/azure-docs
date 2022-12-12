@@ -1,14 +1,14 @@
 ---
-title: "Awake Security (Arista Networks) - Azure Sentinel connector for Microsoft Sentinel"
-description: "Learn how to install the connector Awake Security (Arista Networks) - Azure Sentinel to connect your data source to Microsoft Sentinel."
+title: "Arista NDR connector for Microsoft Sentinel"
+description: "Learn how to install the connector Arista NDR to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Awake Security (Arista Networks) - Azure Sentinel connector for Microsoft Sentinel
+# Arista NDR connector for Microsoft Sentinel
 
 The Awake Security CEF connector allows users to send detection model matches from the Awake Security Platform to Microsoft Sentinel. Remediate threats quickly with the power of network detection and response and speed up investigations with deep visibility especially into unmanaged entities including users, devices and applications on your network. The connector also enables the creation of network security-focused custom alerts, incidents, workbooks and notebooks that align with your existing security operations workflows. 
 

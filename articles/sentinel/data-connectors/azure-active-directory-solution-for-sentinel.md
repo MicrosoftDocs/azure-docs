@@ -3,14 +3,14 @@ title: "Azure Active Directory solution for Sentinel connector for Microsoft Sen
 description: "Learn how to install the connector Azure Active Directory solution for Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Azure Active Directory solution for Sentinel connector for Microsoft Sentinel
 
-Gain insights into Azure Active Directory by connecting Audit and Sign-in logs to Microsoft Sentinel to gather insights around Azure Active Directory scenarios. You can learn about app usage, conditional access policies, legacy auth relate details using our Sign-in logs. You can get information on your Self Service Password Reset (SSPR) usage, Azure Active Directory Management activities like user, group, role, app management using our Audit logs table.
+Gain insights into Azure Active Directory by connecting Audit and Sign-in logs to Microsoft Sentinel to gather insights around Azure Active Directory scenarios. You can learn about app usage, conditional access policies, legacy auth relate details using our Sign-in logs. You can get information on your Self Service Password Reset (SSPR) usage, Azure Active Directory Management activities like user, group, role, app management using our Audit logs table. For more information, see the [Microsoft Sentinel documentation >](https://go.microsoft.com/fwlink/?linkid=2219715&wt.mc_id=sentinel_dataconnectordocs_content_cnl_csasci).
 
 ## Connector attributes
 

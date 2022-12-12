@@ -3,14 +3,14 @@ title: "Digital Shadows SearchLight for Sentinel connector for Microsoft Sentine
 description: "Learn how to install the connector Digital Shadows SearchLight for Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Digital Shadows SearchLight for Sentinel connector for Microsoft Sentinel
 
-The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows SearchLight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
+The Digital Shadows data connector provides ingestion of the incidents and alerts from Digital Shadows Searchlight into the Microsoft Sentinel using the REST API. The connector will provide the incidents and alerts information such that it helps to examine, diagnose and analyse the potential security risks and threats.
 
 ## Connector attributes
 
@@ -44,27 +44,27 @@ To integrate with Digital Shadows SearchLight for Sentinel make sure you have:
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to a 'Digital Shadows SearchLight' to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector uses Azure Functions to connect to a 'Digital Shadows Searchlight' to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
 
 
-**STEP 1 - Configuration steps for the 'Digital Shadows SearchLight' API**
+**STEP 1 - Configuration steps for the 'Digital Shadows Searchlight' API**
 
-The provider should provide or link to detailed steps to configure the 'Digital Shadows SearchLight' API endpoint so that the Azure Function can authenticate to it successfully, get its authorization key or token, and pull the appliance's logs into Microsoft Sentinel.
+The provider should provide or link to detailed steps to configure the 'Digital Shadows Searchlight' API endpoint so that the Azure Function can authenticate to it successfully, get its authorization key or token, and pull the appliance's logs into Microsoft Sentinel.
 
 
 **STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
 
->**IMPORTANT:** Before deploying the 'Digital Shadows SearchLight' connector, have the Workspace ID  and Workspace Primary Key (can be copied from the following), as well as the 'Digital Shadows SearchLight' API authorization key(s) or Token, readily available.
+>**IMPORTANT:** Before deploying the 'Digital Shadows Searchlight' connector, have the Workspace ID  and Workspace Primary Key (can be copied from the following), as well as the 'Digital Shadows Searchlight' API authorization key(s) or Token, readily available.
 
 
 
 
 **Option 1 - Azure Resource Manager (ARM) Template**
 
-Use this method for automated deployment of the 'Digital Shadows SearchLight' connector.
+Use this method for automated deployment of the 'Digital Shadows Searchlight' connector.
 
 1. Click the **Deploy to Azure** button below. 
 
@@ -78,7 +78,7 @@ Use this method for automated deployment of the 'Digital Shadows SearchLight' co
 
 **Option 2 - Manual Deployment of Azure Functions**
 
- Use the following step-by-step instructions to deploy the 'Digital Shadows SearchLight' connector manually with Azure Functions.
+ Use the following step-by-step instructions to deploy the 'Digital Shadows Searchlight' connector manually with Azure Functions.
 
 1. Create a Function App
 

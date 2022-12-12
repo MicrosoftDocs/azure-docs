@@ -3,7 +3,7 @@ title: "Common Event Format solution for Sentinel connector for Microsoft Sentin
 description: "Learn how to install the connector Common Event Format solution for Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

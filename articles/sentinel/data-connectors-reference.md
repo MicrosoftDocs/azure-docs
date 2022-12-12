@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.author: cwatson
 ---
 
@@ -39,6 +39,10 @@ Data connectors are available as part of the following offerings:
 
 - [Abnormal Security Events](data-connectors/abnormal-security-events.md)
 
+## Akamai
+
+- [Akamai Security](data-connectors/akamai-security.md)
+
 ## AliCloud
 
 - [Alibaba Cloud (Preview)](data-connectors/alibaba-cloud-preview.md)
@@ -65,7 +69,7 @@ Data connectors are available as part of the following offerings:
 
 ## Arista Networks
 
-- [Awake Security (Arista Networks) - Azure Sentinel](data-connectors/awake-security-arista-networks-azure-sentinel.md)
+- [Arista NDR for Microsoft Sentinel](data-connectors/arista-ndr-for-microsoft-sentinel.md)
 
 ## Armorblox
 
@@ -77,11 +81,16 @@ Data connectors are available as part of the following offerings:
 
 ## Atlassian
 
+- [Atlassian Confluence Audit](data-connectors/atlassian-confluence-audit.md)
 - [Atlassian Jira Audit](data-connectors/atlassian-jira-audit.md)
 
 ## Auth0
 
 - [Auth0](data-connectors/auth0.md)
+
+## Better Mobile Security Inc.
+
+- [BETTER Mobile Threat Defense (MTD)](data-connectors/better-mobile-threat-defense-mtd.md)
 
 ## Bitglass
 
@@ -109,6 +118,7 @@ Data connectors are available as part of the following offerings:
 - [Cisco SEG Solution](data-connectors/cisco-seg-solution.md)
 - [Cisco Secure Endpoint Solution](data-connectors/cisco-secure-endpoint-solution.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
+- [Cisco Umbrella](data-connectors/cisco-umbrella.md)
 - [Cisco WSA](data-connectors/cisco-wsa.md)
 
 ## Cisco Systems, Inc.
@@ -119,10 +129,15 @@ Data connectors are available as part of the following offerings:
 
 - [Citrix ADC](data-connectors/citrix-adc.md)
 - [Citrix Analytics Application for Microsoft Sentinel](data-connectors/citrix-analytics-application-for-microsoft-sentinel.md)
+- [Citrix WAF Solution for Sentinel](data-connectors/citrix-waf-solution-for-sentinel.md)
 
 ## Cloudflare
 
 - [Cloudflare Solution](data-connectors/cloudflare-solution.md)
+
+## Cognni
+
+- [Cognni for Microsoft Sentinel](data-connectors/cognni-for-microsoft-sentinel.md)
 
 ## Contrast Security
 
@@ -143,6 +158,10 @@ Data connectors are available as part of the following offerings:
 ## CyberArk
 
 - [CyberArk EPM/Sentinel Integration](data-connectors/cyberark-epm-sentinel-integration.md)
+
+## CyberPion
+
+- [Cyberpion Security Logs](data-connectors/cyberpion-security-logs.md)
 
 ## Darktrace
 
@@ -189,6 +208,7 @@ Data connectors are available as part of the following offerings:
 ## Forescout
 
 - [Forescout eyeExtend for Microsoft Sentinel](data-connectors/forescout-eyeextend-for-microsoft-sentinel.md)
+- [Forescout eyeExtend for Microsoft Sentinel](data-connectors/forescout-eyeextend-for-microsoft-sentinel.md)
 
 ## GitLab
 
@@ -212,6 +232,10 @@ Data connectors are available as part of the following offerings:
 ## Illusive Networks
 
 - [Illusive Attack Surface Analysis and Incident Logs for Microsoft Sentinel](data-connectors/illusive-attack-surface-analysis-and-incident-logs-for-microsoft-sentinel.md)
+
+## Imperva
+
+- [Imperva WAF Cloud Solution](data-connectors/imperva-waf-cloud-solution.md)
 
 ## Infoblox Inc.
 
@@ -240,7 +264,7 @@ Data connectors are available as part of the following offerings:
 
 ## Lookout, Inc.
 
-- [Lookout Mobile Threat Defense for Azure Sentinel](data-connectors/lookout-mobile-threat-defense-for-azure-sentinel.md)
+- [Clayton Barnard](data-connectors/clayton-barnard.md)
 
 ## MarkLogic
 
@@ -248,12 +272,11 @@ Data connectors are available as part of the following offerings:
 
 ## McAfee
 
+- [McAfee ePolicy Orchestrator Solution](data-connectors/mcafee-epolicy-orchestrator-solution.md)
 - [McAfee Network Security Platform Solution](data-connectors/mcafee-network-security-platform-solution.md)
 
 ## Microsoft
 
-- [Akamai Security](data-connectors/akamai-security.md)
-- [Atlassian Confluence Audit](data-connectors/atlassian-confluence-audit.md)
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
 - [Azure Active Directory solution for Sentinel](data-connectors/azure-active-directory-solution-for-sentinel.md)
 - [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
@@ -262,28 +285,25 @@ Data connectors are available as part of the following offerings:
 - [Azure Event Hubs solution for Sentinel (Preview)](data-connectors/azure-event-hubs-solution-for-sentinel-preview.md)
 - [Azure Information Protection solution for Sentinel](data-connectors/azure-information-protection-solution-for-sentinel.md)
 - [Azure Key Vault solution for Sentinel](data-connectors/azure-key-vault-solution-for-sentinel.md)
+- [Azure Kubernetes Service (AKS) Solution for Sentinel](data-connectors/azure-kubernetes-service-aks-solution-for-sentinel.md)
 - [Azure Logic Apps solution for Sentinel](data-connectors/azure-logic-apps-solution-for-sentinel.md)
 - [Azure Service Bus solution for Sentinel (Preview)](data-connectors/azure-service-bus-solution-for-sentinel-preview.md)
 - [Azure Storage solution for Sentinel](data-connectors/azure-storage-solution-for-sentinel.md)
 - [Azure Stream Analytics solution for Sentinel (Preview)](data-connectors/azure-stream-analytics-solution-for-sentinel-preview.md)
-- [Cisco Umbrella](data-connectors/cisco-umbrella.md)
 - [Common Event Format solution for Sentinel](data-connectors/common-event-format-solution-for-sentinel.md)
 - [Windows Server DNS solution for Sentinel](data-connectors/windows-server-dns-solution-for-sentinel.md)
-- [Imperva WAF Cloud Solution](data-connectors/imperva-waf-cloud-solution.md)
-- [McAfee ePolicy Orchestrator Solution](data-connectors/mcafee-epolicy-orchestrator-solution.md)
 - [Microsoft 365 Defender solution for Sentinel](data-connectors/microsoft-365-defender-solution-for-sentinel.md)
 - [Microsoft Defender for Cloud solution for Sentinel](data-connectors/microsoft-defender-for-cloud-solution-for-sentinel.md)
 - [Microsoft Defender for Cloud Apps solution for Sentinel](data-connectors/microsoft-defender-for-cloud-apps-solution-for-sentinel.md)
 - [Microsoft Defender for Endpoint](data-connectors/microsoft-defender-for-endpoint.md)
+- [Microsoft Defender for Identity solution for Sentinel](data-connectors/microsoft-defender-for-identity-solution-for-sentinel.md)
 - [Microsoft Defender for Office 365 solution for Sentinel](data-connectors/microsoft-defender-for-office-365-solution-for-sentinel.md)
 - [Microsoft PowerBI solution for Sentinel](data-connectors/microsoft-powerbi-solution-for-sentinel.md)
 - [Microsoft Project solution for Sentinel](data-connectors/microsoft-project-solution-for-sentinel.md)
 - [Azure Network Security Groups solution for Sentinel](data-connectors/azure-network-security-groups-solution-for-sentinel.md)
-- [Nginx](data-connectors/nginx.md)
-- [Oracle Cloud Infrastructure](data-connectors/oracle-cloud-infrastructure.md)
 - [Windows Security Events](data-connectors/windows-security-events.md)
 - [SentinelOne](data-connectors/sentinelone.md)
-- [VMware ESXi](data-connectors/vmware-esxi.md)
+- [Threat Intelligence](data-connectors/threat-intelligence.md)
 - [Windows Firewall](data-connectors/windows-firewall.md)
 - [Windows Forwarded Events](data-connectors/windows-forwarded-events.md)
 
@@ -310,9 +330,17 @@ Data connectors are available as part of the following offerings:
 
 - [Mulesoft](data-connectors/mulesoft.md)
 
+## Netskope
+
+- [Netskope Cloud Exchange for Azure Sentinel](data-connectors/netskope-cloud-exchange-for-azure-sentinel.md)
+
 ## Netwrix
 
 - [Netwrix Auditor (Preview)](data-connectors/netwrix-auditor-preview.md)
+
+## Nginx
+
+- [Nginx](data-connectors/nginx.md)
 
 ## Nozomi Networks
 
@@ -338,6 +366,7 @@ Data connectors are available as part of the following offerings:
 
 ## Oracle
 
+- [Oracle Cloud Infrastructure](data-connectors/oracle-cloud-infrastructure.md)
 - [Oracle Database Audit Solution](data-connectors/oracle-database-audit-solution.md)
 - [Oracle WebLogic Server](data-connectors/oracle-weblogic-server.md)
 
@@ -360,6 +389,7 @@ Data connectors are available as part of the following offerings:
 
 ## Proofpoint
 
+- [Proofpoint On demand (POD) Email Security](data-connectors/proofpoint-on-demand-pod-email-security.md)
 - [Proofpoint TAP Solution](data-connectors/proofpoint-tap-solution.md)
 
 ## Pulse Secure
@@ -439,8 +469,13 @@ Data connectors are available as part of the following offerings:
 
 - [TheHive Solution](data-connectors/thehive-solution.md)
 
+## Theom, Inc.
+
+- [Theom for Microsoft Sentinel](data-connectors/theom-for-microsoft-sentinel.md)
+
 ## Trend Micro
 
+- [Trend Micro Deep Security for Microsoft Sentinel](data-connectors/trend-micro-deep-security-for-microsoft-sentinel.md)
 - [Trend Micro TippingPoint for Microsoft Sentinel](data-connectors/trend-micro-tippingpoint-for-microsoft-sentinel.md)
 - [Trend Micro Vision One for Microsoft Sentinel](data-connectors/trend-micro-vision-one-for-microsoft-sentinel.md)
 
@@ -467,11 +502,9 @@ Data connectors are available as part of the following offerings:
 
 ## VMware
 
-- [VMware vCenter](data-connectors/vmware-vcenter.md)
-
-## VMWare
-
 - [VMware Carbon Black Cloud](data-connectors/vmware-carbon-black-cloud.md)
+- [VMware ESXi](data-connectors/vmware-esxi.md)
+- [VMware vCenter](data-connectors/vmware-vcenter.md)
 
 ## WatchGuard Technologies
 
@@ -484,6 +517,14 @@ Data connectors are available as part of the following offerings:
 ## ZERO NETWORKS LTD
 
 - [Zero Networks Segment for Microsoft Sentinel](data-connectors/zero-networks-segment-for-microsoft-sentinel.md)
+
+## Zimperium, Inc.
+
+- [Zimperium MTD for Sentinel](data-connectors/zimperium-mtd-for-sentinel.md)
+
+## Zoom
+
+- [Zoom Reports](data-connectors/zoom-reports.md)
 
 ## Zscaler
 

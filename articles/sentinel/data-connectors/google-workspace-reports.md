@@ -3,7 +3,7 @@ title: "Google Workspace Reports connector for Microsoft Sentinel"
 description: "Learn how to install the connector Google Workspace Reports to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -130,7 +130,7 @@ To integrate with Google Workspace Reports make sure you have:
 	 2. Select Web Application from the Application Type drop down.
 	 3. Provide a suitable name to the Web App and add http://localhost:8081/ as one of the Authorized redirect URIs.
 	 4. Once you click Create, download the JSON from the pop-up that appears. Rename this file to "**credentials.json**".
- 5. To fetch Google Pickel String, run the [python script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/GoogleWorkspaceReports/get_google_pickle_string.py) from the same folder where credentials.json is saved.
+ 5. To fetch Google Pickel String, run the [python script](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/GoogleWorkspaceReports/Data%20Connectors/get_google_pickle_string.py) from the same folder where credentials.json is saved.
 	 1. When popped up for sign-in, use the domain admin account credentials to login.
 >**Note:** This script is supported only on Windows operating system.
  6. From the output of the previous step, copy Google Pickle String (contained within single quotation marks) and keep it handy. It will be needed on Function App deployment step.

@@ -3,7 +3,7 @@ title: "Microsoft Defender for Cloud Apps solution for Sentinel connector for Mi
 description: "Learn how to install the connector Microsoft Defender for Cloud Apps solution for Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

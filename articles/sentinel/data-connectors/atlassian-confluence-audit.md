@@ -3,7 +3,7 @@ title: "Atlassian Confluence Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector Atlassian Confluence Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
@@ -75,7 +75,7 @@ Use this method for automated deployment of the Confluence Audit data connector 
 
 1. Click the **Deploy to Azure** button below. 
 
-	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-confluenceauditapi-azuredeploy)
+	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnevermoe%2FAzure-Sentinel%2Fmaster%2FDataConnectors%2FAtlassianConfluenceAudit%2Fazuredeploy_Connector_ConfluenceAuditAPI_AzureFunction.json)
 2. Select the preferred **Subscription**, **Resource Group** and **Location**. 
 > **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
 3. Enter the **ConfluenceAccessToken**, **ConfluenceUsername**, **ConfluenceHomeSiteName** (short site name part, as example HOMESITENAME from https://HOMESITENAME.atlassian.net) and deploy. 

@@ -3,7 +3,7 @@ title: "CrowdStrike Falcon Endpoint Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector CrowdStrike Falcon Endpoint Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

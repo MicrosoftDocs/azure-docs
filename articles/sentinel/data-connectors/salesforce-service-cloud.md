@@ -3,14 +3,14 @@ title: "Salesforce Service Cloud connector for Microsoft Sentinel"
 description: "Learn how to install the connector Salesforce Service Cloud to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 11/28/2022
+ms.date: 12/12/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # Salesforce Service Cloud connector for Microsoft Sentinel
 
-The Salesforce Service Cloud data connector provides the capability to ingest information about your Salesforce operational events into Azure Sentinel through the REST API. The connector provides ability to review events in your org on an accelerated basis, get [event log files](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/event_log_file_hourly_overview.htm) in hourly increments for recent activity.
+The Salesforce Service Cloud data connector provides the capability to ingest information about your Salesforce operational events into Microsoft Sentinel through the REST API. The connector provides ability to review events in your org on an accelerated basis, get [event log files](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/event_log_file_hourly_overview.htm) in hourly increments for recent activity.
 
 ## Connector attributes
 
@@ -46,7 +46,7 @@ To integrate with Salesforce Service Cloud make sure you have:
 
 
 > [!NOTE]
-   >  This connector uses Azure Functions to connect to the Salesforce Lightning Platform REST API to pull its logs into Azure Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+   >  This connector uses Azure Functions to connect to the Salesforce Lightning Platform REST API to pull its logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
 
 
 >**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
@@ -107,7 +107,7 @@ If you're already signed in, go to the next step.
 
 	e. **Select a runtime:** Choose Python 3.8.
 
-	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Azure Sentinel is located.
+	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 
 6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
 7. Go to Azure Portal for the Function App configuration.
