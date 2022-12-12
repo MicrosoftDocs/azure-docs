@@ -18,6 +18,8 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use [Application Accelerator for VMware Tanzu®](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) with Azure Spring Apps Enterprise tier to bootstrap developing your applications in a discoverable and repeatable way.
 
+Application Accelerator for VMware Tanzu helps you bootstrap developing your applications and deploying them in a discoverable and repeatable way. You can use Application Accelerator to create new projects based on published accelerator projects. For more information, see [Application Accelerator for VMware Tanzu](https://docs.vmware.com/en/VMware-Tanzu-Application-Platform/1.3/tap/GUID-application-accelerator-about-application-accelerator.html) in the VMware documentation.
+
 ## Prerequisites
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -134,7 +136,7 @@ az spring application-accelerator show \
 
 ## Configure Dev Tools to access Application Accelerator
 
-To access Application Accelerator, you must configure VMware Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
+To access Application Accelerator, you must configure Tanzu Dev Tools. For more information, see [Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
 
 ## Use Application Accelerator to bootstrap your new projects
 

@@ -17,10 +17,10 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Manage guest access with Microsoft Entra access reviews
+# Manage guest access with access reviews
 
 
-With Microsoft Entra, you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../external-identities/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../external-identities/add-users-administrator.md) or by [other users](../external-identities/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
+With access reviews, you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../external-identities/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../external-identities/add-users-administrator.md) or by [other users](../external-identities/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
 
 You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and recertify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 

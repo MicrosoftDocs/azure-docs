@@ -302,6 +302,12 @@ As described in the [Azure TLS 1.2 migration announcement](https://azure.microso
     ````
 1. Restart the application.
 
+### "Data is temporarily inaccessible" status message
+
+When navigating to Live Metrics you may see a banner with the status message: "Data is temporarily inaccessible. The updates on our status are posted here https://aka.ms/aistatus" 
+
+Verify if there are any firewalls or browser extensions that are blocking access to Live Metrics. For instance, some popular ad-blocker extensions block connections to \*.monitor.azure.com. In order to experience the full capabilities of Live Metrics, either disable the ad-blocker extension or add an exclusion rule to your ad-blocker, firewall, etc. for the domain livediagnostics.monitor.azure.com. 
+
 ## Next steps
 
 * [Monitor usage with Application Insights](./usage-overview.md)
