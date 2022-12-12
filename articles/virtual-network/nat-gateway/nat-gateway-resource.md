@@ -142,23 +142,15 @@ NAT gateway uses SNAT to translate the private IP address and port of a virtual 
 
 ### Example SNAT flows for NAT gateway
 
-The following example flows explain the basic concept of SNAT and how it works with NAT gateway. 
+NAT gateway provides a many to one configuration in which multiple virtual machine instances within a NAT gatway configured subnet can use the same public IP address to connect outbound.
 
-In the following table, the VM makes connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
-
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are translated into NAT gateway's public IP address and a SNAT port:
+In the following table, two different virtual machines (10.0.0.1 and 10.2.0.1) makes connections to https://microsoft.com destination IP 23.53.254.142. When NAT gateway is configured with public IP address 65.52.1.1, each virtual machine's source IPs are translated into NAT gateway's public IP address and a SNAT port:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
+| 1 | 10.0.0.1: 4283 | **65.52.1.1: 1234** | 23.53.254.142: 80 |
+| 2 | 10.0.0.1: 4284 | **65.52.1.1: 1235** | 23.53.254.142: 80 |
+| 3 | 10.2.0.1: 5768 | **65.52.1.1: 1236** | 23.53.254.142: 80 |
 
 "IP masquerading" or "port masquerading" is the act of replacing the private IP and port with the public IP and port before connecting to the internet. Multiple private resources can be masqueraded behind the same public IP of NAT gateway.
 
@@ -182,15 +174,11 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown in the following table with this extra flow.
 
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
-
-A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
-
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.142: 80 |
+
+A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
 Don't take a dependency on the specific way source ports are assigned in the above example. The preceding is an illustration of the fundamental concept only.
 
