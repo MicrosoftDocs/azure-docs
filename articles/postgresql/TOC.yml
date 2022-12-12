@@ -579,7 +579,7 @@
     - name: Encryption with CMK
       items:
       - name: Azure CLI
-        href: flexible-server/how-to-create-server-cmk-cli.md
+        href: flexible-server/how-to-create-server-customer-managed-key-cli.md
     - name: Database deployment
       items:
       - name: GitHub Actions
