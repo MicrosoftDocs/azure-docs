@@ -52,15 +52,15 @@ Open the application you created in the previous step in Visual Studio 2022. In 
 "devTunnelAccess":"Public"
 ```
 
-Please consult [this guide](https://learn.microsoft.com/en-us/connectors/custom-connectors/port-tunneling) for more information. 
+Please consult [this guide](https://learn.microsoft.com/connectors/custom-connectors/port-tunneling) for more information. 
 Once configured, your workstation will acquire a public domain name automatically allowing us to use the environment variable `["VS_TUNNEL_URL"]` as shown below.
 
 ## Prepare an audio file to play by Call Automation SDK
 
 The Call Automation SDK can only play files in  WAV format, 16KHz, and Mono. The default Windows call recording will not produce the file in the required format. Azure Speech Service can create the file in the required format. You can export produced file in the Azure Blob storage for use in the workflow.
-Please follow the steps in the [Speech synthesis with the Audio Content Creation tool documentation.](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-audio-content-creation).
+Please follow the steps in the [Speech synthesis with the Audio Content Creation tool documentation.](https://learn.microsoft.com/azure/cognitive-services/speech-service/how-to-audio-content-creation).
 
-When you are creating the file, please select “16kHz” in the Sample Rate filed (default is 32kHz). 
+When you are creating the file, please select “16kHz” in the Sample Rate field (default is 32kHz). 
 
 ## Update Program.cs
 
