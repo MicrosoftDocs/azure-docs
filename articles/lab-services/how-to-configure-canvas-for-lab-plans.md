@@ -28,7 +28,7 @@ For information about creating and managing labs in Canvas, see [Create and mana
 
 ## Enable the Azure Lab Services app in Canvas
 
-You can use Canvas for accessing Azure Lab Services by enabling the Azure Lab Services Canvas app. The Azure Lab Services app will be an inherited app in Canvas. To use the app, enable the corresponding developer key:
+You can use Canvas for accessing Azure Lab Services by enabling the Azure Lab Services Canvas app. The Azure Lab Services app is an inherited app in Canvas. To use the app, enable the corresponding developer key:
 
 1. In Canvas, select the **Admin** page.
 1. Select **Developer Keys** in the left navigation.
@@ -39,7 +39,7 @@ You can use Canvas for accessing Azure Lab Services by enabling the Azure Lab Se
 
 ## Add Azure Lab Services app to an account (optional)
 
-After enabling the Azure Lab Services app in Canvas, you may choose to enable the Azure Lab Services app for the entire account. Enabling the app at the account level lets educators quickly enable or disable navigation to Azure Lab Services on a per-course basis.
+After enabling the Azure Lab Services app in Canvas, you might enable the Azure Lab Services app for the entire account. Enabling the app at the account level lets educators quickly enable or disable navigation to Azure Lab Services on a per-course basis.
 
 If you want to add the app to a specific course, skip to [Add the Azure Lab Services app to a course](#add-the-azure-lab-services-app-to-a-course).
 
@@ -65,7 +65,7 @@ To add the app at the account level:
 
 1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?*, select **Install**.
 
-The Azure Lab Services app will now be available for all courses in that account. The app won't show in course navigation by default. Move to the next step to [enable the app in course navigation](#enable-azure-lab-services-in-course-navigation).
+The Azure Lab Services app is now available for all courses in that account. The app doesn't show up in the course navigation by default. Move to the next step to [enable the app in course navigation](#enable-azure-lab-services-in-course-navigation).
 
 ## Add Azure Lab Services to a course
 
@@ -77,7 +77,7 @@ If you previously added the app at the account level, you only need to enable th
 
 To add the app at the course level:
 
-1. In Canvas, go to the course that will use Azure Lab Services.
+1. In Canvas, go to the course that uses Azure Lab Services.
 1. Choose **Settings**, and then select the **Apps** tab.
 1. Select **View App Configurations** button at the top right of the page.
 
@@ -93,7 +93,7 @@ To add the app at the course level:
 
 1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?*, select **Install**.
 
-    The Azure Lab Services app will take a few moments to show in the course navigation list.
+    The Azure Lab Services app takes a few moments to show in the course navigation list.
 
 You can now move to [Link a lab plan to a course](#link-lab-plans-to-canvas) to finalize the configuration of Canvas.
 
@@ -101,7 +101,7 @@ You can now move to [Link a lab plan to a course](#link-lab-plans-to-canvas) to 
 
 If you added the app at the account level, you should enable the app in the course navigation to use Azure Lab Services in course:
 
-1. In Canvas, go to the course that will use Azure Lab Services.
+1. In Canvas, go to the course that uses Azure Lab Services.
 1. Choose **Settings**, then select the **Navigation** tab.
 1. Find the **Azure Lab Services** entry, select the three vertical dots, then select **Enable**.
 
@@ -113,7 +113,7 @@ You can now move to [Link a lab plan to a course](#link-lab-plans-to-canvas) to 
 
 ## Link lab plans to Canvas
 
-After enabling the Azure Lab Services app in Canvas, you can link lab plans to Canvas. Only linked lab plans will be available for Canvas educators to use when creating labs.
+After enabling the Azure Lab Services app in Canvas, you can link lab plans to Canvas. Only linked lab plans are available for Canvas educators to use when creating labs.
 
 To link lab plans to Canvas, your account must be a Canvas administrator. The Canvas administrator must have the following permissions on the lab plan.
 
@@ -137,7 +137,7 @@ Perform the following steps to link lab plans to Canvas:
 
 ## Next steps
 
-You've now successfully configured Canvas to access Azure Lab Services. You can now continue to create and manage labs for your courses in Canvas.
+You've successfully configured Canvas to access Azure Lab Services. You can now continue to create and manage labs for your courses in Canvas.
 
 See the following articles:
 
