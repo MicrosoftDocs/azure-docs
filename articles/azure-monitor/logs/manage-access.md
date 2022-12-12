@@ -282,7 +282,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
 1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
     
-    1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
+    1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
     
     1. Right-click the **Reader** role and select **Clone**.
     
