@@ -5,7 +5,7 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 03/20/2022
+ms.date: 12/13/2022
 ms.author: duau
 ---
 
@@ -18,7 +18,6 @@ Azure Front Door provides different logging to help you track, monitor, and debu
 * Health Probe logs provides the logs for every failed probe to your origin. 
 * Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs.
 
-
 Access Logs, health probe logs and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes. 
 
 You have three options for storing your logs: 
@@ -27,7 +26,7 @@ You have three options for storing your logs:
 * **Event hubs:** Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores. For example: Splunk/DataDog/Sumo. 
 * **Azure Log Analytics:** Azure Log Analytics in Azure Monitor is best used for general real-time monitoring and analysis of Azure Front Door performance.
 
-## Configure Logs
+## Configure logs
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -54,7 +53,7 @@ You have three options for storing your logs:
 
 1. Click on **Save**.
 
-## Access Log
+## Access log
 
 Azure Front Door currently provides individual API requests with each entry having the following schema and logged in JSON format as shown below. 
 
@@ -78,26 +77,26 @@ Azure Front Door currently provides individual API requests with each entry havi
 | Endpoint | The domain name of AFD endpoint, for example, contoso.z01.azurefd.net |
 | HttpStatusCode | The HTTP status code returned from Azure Front Door. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | Pop | The edge pop, which responded to the user request.  |
-| Cache Status | Provides the status code of how the request gets handled by the CDN service when it comes to caching. Possible values are HIT: The HTTP request was served from AFD edge POP cache. <br> **MISS**: The HTTP request was served from origin. <br/> **PARTIAL_HIT**: Some of the bytes from a request got served from AFD edge POP cache while some of the bytes got served from origin for object chunking scenarios. <br> **CACHE_NOCONFIG**: Forwarding requests without caching settings, including bypass scenario. <br/> **PRIVATE_NOSTORE**: No cache configured in caching settings by customers. <br> **REMOTE_HIT**: The request was served by parent node cache. <br/> **N/A**:** Request that was denied by Signed URL and Rules Set. |
+| Cache Status | Provides the status code of how the request gets handled by the CDN service when it comes to caching. Possible values are HIT: The HTTP request was served from AFD edge POP cache. <br> **MISS**: The HTTP request was served from origin. <br/> **PARTIAL_HIT**: Some of the bytes from a request got served from AFD edge POP cache while some of the bytes got served from origin for object chunking scenarios. <br> **CACHE_NOCONFIG**: Forwarding requests without caching settings, including bypass scenario. <br/> **PRIVATE_NOSTORE**: No cache configured in caching settings by customers. <br> **REMOTE_HIT**: The request was served by parent node cache. <br/> **N/A**: Request that was denied by Signed URL and Rules Set. |
 | MatchedRulesSetName | The names of the rules that were processed. |
 | RouteName | The name of the route that the request matched. |
 | ClientPort | The IP port of the client that made the request. |
 | Referrer | The URL of the site that originated the request. |
 | TimetoFirstByte | The length of time in milliseconds from AFD receives the request to the time the first byte gets sent to client, as measured on Azure Front Door. This property doesn't measure the client data. |
-| ErrorInfo | This field provides detailed info of the error token for each response. <br> **NoError**: Indicates no error was found. <br> **CertificateError**: Generic SSL certificate error. <br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. <br> **ClientDisconnected**: Request failure because of client network connection. <br> **ClientGeoBlocked**: The client was blocked due geographical location of the IP. <br> **UnspecifiedClientError**: Generic client error. <br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. <br> **DNSFailure**: DNS Failure. <br> **DNSTimeout**: The DNS query to resolve the backend timed out. <br> **DNSNameNotResolved**: The server name or address couldn't be resolved. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionError**: Generic origin connection error. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **OriginError**: Generic origin error. <br> **OriginInvalidRequest**: An invalid request was sent to the origin. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **OriginInvalidResponse**:** Origin returned an invalid or unrecognized response. <br> **OriginTimeout**: The timeout period for origin request expired. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **RestrictedIP**: The request was blocked because of restricted IP. <br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. <br> **SSLInvalidRootCA**: The RootCA was invalid. <br> **SSLInvalidCipher**: Cipher was invalid for which the HTTPS connection was established. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
+| ErrorInfo | This field provides detailed info of the error token for each response. <br> **NoError**: Indicates no error was found. <br> **CertificateError**: Generic SSL certificate error. <br> **CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. <br> **ClientDisconnected**: Request failure because of client network connection. <br> **ClientGeoBlocked**: The client was blocked due geographical location of the IP. <br> **UnspecifiedClientError**: Generic client error. <br> **InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. <br> **DNSFailure**: DNS Failure. <br> **DNSTimeout**: The DNS query to resolve the backend timed out. <br> **DNSNameNotResolved**: The server name or address couldn't be resolved. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionError**: Generic origin connection error. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **OriginError**: Generic origin error. <br> **OriginInvalidRequest**: An invalid request was sent to the origin. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **OriginInvalidResponse**: Origin returned an invalid or unrecognized response. <br> **OriginTimeout**: The timeout period for origin request expired. <br> **ResponseHeaderTooBig**: The origin returned a too large of a response header. <br> **RestrictedIP**: The request was blocked because of restricted IP. <br> **SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. <br> **SSLInvalidRootCA**: The RootCA was invalid. <br> **SSLInvalidCipher**: Cipher was invalid for which the HTTPS connection was established. <br> **OriginConnectionAborted**: The connection with the origin was disconnected abnormally. <br> **OriginConnectionRefused**: The connection with the origin wasn't established. <br> **UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. |
 | OriginURL | The full URL of the origin where requests are being sent. Composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If there's a URL rewrite rule in Rule Set, path refers to rewritten path. <br> **Cache on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
 | OriginIP | The origin IP that served the request. <br> **Cache hit on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
 | OriginName| The full DNS name (hostname in origin URL) to the origin. <br> **Cache hit on edge POP** If it's a cache hit on edge POP, the origin is N/A. <br> **Large request** If the requested content is large with multiple chunked requests going back to the origin, this field will correspond to the first request to the origin. For more information, see Object Chunking for more details. |
 
-## Health Probe Log
+## Health probe log
 
 Health probe logs provide logging for every failed probe to help you diagnose your origin. The logs will provide you information that you can use to bring the origin back to service. Some scenarios this log can be useful for are:
 
 * You noticed Azure Front Door traffic was sent to some of the origins. For example, only three out of four origins receiving traffic. You want to know if the origins are receiving probes and if not the reason for the failure.  
 
-* You noticed the origin health % is lower than expected and want to know which origin failed and the reason of the failure.
+* You noticed the origin health percentage is lower than expected and want to know which origin failed and the reason of the failure.
 
-### Health Probe Log Properties
+### Health probe log properties
 
 Each health probe log has the following schema.
 
@@ -116,13 +115,18 @@ Each health probe log has the following schema.
 | ConnectionLatency| Duration Time spent on setting up the TCP connection to send the HTTP Probe request to origin. | 
 | DNSResolution Latency | Duration Time spent on DNS resolution if the origin is configured to be an FDQN instead of IP. N/A if the origin is configured to IP. |
 
-### Health Probe Log Sample in JSON
+### Health probe log sample in JSON
 
-`{ "records": [ { "time": "2021-02-02T07:15:37.3640748Z",
+```json
+{
+  "records": [
+    {
+      "time": "2021-02-02T07:15:37.3640748Z",
       "resourceId": "/SUBSCRIPTIONS/27CAFCA8-B9A4-4264-B399-45D0C9CCA1AB/RESOURCEGROUPS/AFDXPRIVATEPREVIEW/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDXPRIVATEPREVIEW-JESSIE",
       "category": "FrontDoorHealthProbeLog",
       "operationName": "Microsoft.Cdn/Profiles/FrontDoorHealthProbeLog/Write",
-      "properties": { "healthProbeId": "9642AEA07BA64675A0A7AD214ACF746E",
+      "properties": {
+        "healthProbeId": "9642AEA07BA64675A0A7AD214ACF746E",
         "POP": "MAA",
         "httpVerb": "HEAD",
         "result": "OriginError",
@@ -132,17 +136,23 @@ Each health probe log has the following schema.
         "originIP": "52.239.224.228:80",
         "totalLatencyMilliseconds": "141",
         "connectionLatencyMilliseconds": "68",
-        "DNSLatencyMicroseconds": "1814" } } ]
-} `
+        "DNSLatencyMicroseconds": "1814"
+      }
+    }
+  ]
+}
+```
 
-## Activity Logs
+## Web application firewall log
 
-Activity logs provide information about the operations done on Azure Front Door Standard/Premium. The logs include details about what, who and when a write operation was done on Azure Front Door. 
+For more information on the Front Door web application firewall (WAF) logs, see [Azure Web Application Firewall monitoring and logging](../../web-application-firewall/afds/waf-front-door-monitor.md).
+
+## Activity logs
+
+Activity logs provide information about the operations done to manage your Azure Front Door Standard/Premium. The logs include details about each write operation that was performed on an Azure Front Door resource, including when the operation occurred, who performed it, and what the operation was. Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor.
 
 > [!NOTE]
-> Activity logs don't include GET operations. They also don't include operations that you perform by using either the Azure portal or the original Management API. 
-
-Access activity logs in your Front Door or all the logs of your Azure resources in Azure Monitor.
+> Activity logs don't include read operations. They also don't include operations that you perform by using either the Azure portal or the original Management API. 
 
 To view activity logs:
 
