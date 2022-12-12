@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access for workload identities 
 
-Conditional Access policies have histroically applied only to users when they access apps and services like SharePoint online or the Azure portal. We are now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability  Conditional Access for workload identities. 
+Conditional Access policies have historically applied only to users when they access apps and services like SharePoint online or the Azure portal. We are now extending support for Conditional Access policies to be applied to service principals owned by the organization. We call this capability  Conditional Access for workload identities. 
 
 A [workload identity](../develop/workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 

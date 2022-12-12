@@ -48,13 +48,18 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `AzureWebJobsStorage` | None | Sets the connection string for an Azure storage account. |
+| `ServiceProviders.Sftp.FileUploadBufferTimeForTrigger` | `00:00:20` <br>(20 seconds) | Sets the buffer time to ignore files that have a last modified timestamp that's greater than the current time. This setting is useful when large file writes take a long time and avoids fetching data for a partially written file. |
+| `ServiceProviders.Sftp.OperationTimeout` | `00:02:00` <br>(2 min) | Sets the time to wait before timing out on any operation. |
+| `ServiceProviders.Sftp.ServerAliveInterval` | `00:30:00` <br>(30 min) | Send a "keep alive" message to keep the SSH connection active if no data exchange with the server happens during the specified period. For more information, see the [ServerAliveInterval setting](https://man.openbsd.org/ssh_config.5#ServerAliveInterval). |
+| `ServiceProviders.Sftp.SftpConnectionPoolSize` | `2` connections | Sets the number of connections that each processor can cache. The total connections that you can cache is *ProcessorCount* multiplied by the setting value. |
+| `ServiceProviders.MaximumAllowedTriggerStateSizeInKB` | `10` KB, which is ~1,000 files | Sets the trigger state entity size in kilobytes, which is proportional to the number of files in the monitored folder and is used to detect files. If the number of files exceeds 1,000, increase this value. |
 | `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating a managed (Azure-hosted) connection. |
 | `Workflows.CustomHostName` | None | Sets the host name to use for workflow and input-output URLs, for example, "logic.contoso.com". For information to configure a custom DNS name, see [Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md) and [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md). |
 | `Workflows.<workflowName>.FlowState` | None | Sets the state for <*workflowName*>. |
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
-| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` <br>(90 days) | Sets the amount of time in days to keep workflow run history after a run starts. |
+| `Workflows.RuntimeConfiguration.RetentionInDays` | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 
 <a name="manage-app-settings"></a>
@@ -331,6 +336,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 |---------|---------------|-------------|
 | `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
+
+<a name="built-in-sftp"></a>
+
+### Built-in SFTP operations
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.ServiceProviders.Sftp.MaxFileSizeInBytes` | `2147483648` bytes | Sets the maximum file size in bytes for the **Get file content (V2)** action. |
+| `Runtime.ServiceProviders.Sftp.MaximumFileSizeToReadInBytes`| `209715200` bytes | Sets the maximum file size in bytes for the **Get file content** action. Make sure this value doesn't exceed the referenceable memory size because this action reads file content in memory. |
 
 <a name="managed-api-connector"></a>
 

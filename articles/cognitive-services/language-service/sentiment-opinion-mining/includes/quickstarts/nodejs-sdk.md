@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 10/21/2022
+ms.date: 12/06/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---
@@ -67,7 +67,7 @@ npm install @azure/ai-text-analytics@5.1.0
 
 ## Code example
 
-Open the file and copy the below code.
+Open the file and copy the below code. Then run the code.
 
 ```javascript
 "use strict";

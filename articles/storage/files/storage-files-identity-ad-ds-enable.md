@@ -251,4 +251,4 @@ AzureStorageID:<yourStorageSIDHere>
 
 ## Next steps
 
-You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions](storage-files-identity-ad-ds-assign-permissions.md).

@@ -121,6 +121,11 @@ items:
       href: custom-security-attributes-troubleshoot.md
   - name: Frontline worker management
     href: frontline-worker-management.md
+  - name: Legacy and deprecated features
+    expanded: false
+    items:
+    - name: Add company branding (legacy)
+      href: customize-branding.md
 - name: Identity architecture and deployment
   expanded: false
   items:

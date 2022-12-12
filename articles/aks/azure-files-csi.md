@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kub
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 12/06/2022
 author: palma21
 
 ---
@@ -360,8 +360,6 @@ provisioner: file.csi.azure.com
 allowVolumeExpansion: true
 parameters:
   protocol: nfs
-mountOptions:
-  - nconnect=8
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:

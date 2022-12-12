@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
 
 ---
-# Common scenarios in Microsoft Entra entitlement management
+# Common scenarios in entitlement management
 
 There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, catalog owners, access package managers, approvers, and requestors.
 

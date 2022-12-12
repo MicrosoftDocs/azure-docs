@@ -198,7 +198,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     To get the newly created data asset, use:
     
     ```python
-    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
+    heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
     ```
 
     # [REST](#tab/rest)
