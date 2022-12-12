@@ -9,7 +9,7 @@ ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/6/2022
+ms.date: 12/12/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -43,7 +43,7 @@ Datawiza integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-   ![Image show the architecture of an Azure AD B2C integration with Datawiza for secure access to hybrid applications](./media/partner-datawiza/datawiza-architecture-diagram.png)
+   ![Diagram of the architecture of an Azure AD B2C integration with Datawiza for secure access to hybrid applications.](./media/partner-datawiza/datawiza-architecture-diagram.png)
 
 1. The user requests access to an on-premises application. DAB proxies the request to the application.
 2. DAB checks user authentication state. With no session token, or an invalid token, the user goes to Azure AD B2C for authentication.
@@ -70,7 +70,7 @@ Go to docs.datawiza.com to:
 1. In DCMC, create an application and generate a key pair of `PROVISIONING_KEY` and `PROVISIONING_SECRET` for this application. See, [Datawiza Cloud Management Console](https://docs.datawiza.com/step-by-step/step2.html).
 2. Configure IdP with Azure AD B2C. See, [Part I: Azure AD B2C Configuration](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration).
 
-    ![Values to configure IdP](./media/partner-datawiza/configure-idp.png)
+    ![Screenshot of IdP configuration values.](./media/partner-datawiza/configure-idp.png)
 
 ## Run DAB with a header-based application
 
@@ -114,7 +114,7 @@ A sample docker image `docker-compose.yml file` is provided. Sign in to the cont
 
 DAB gets user attributes from IdP and passes them to the application with header or cookie. After you configure user attributes, the green check sign appears for user attributes.
 
-   ![Image shows passed user attributes](./media/partner-datawiza/pass-user-attributes.png)
+   ![Screenshot of passed user attributes.](./media/partner-datawiza/pass-user-attributes.png)
  
 Learn more: [Pass User Attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. 
 
