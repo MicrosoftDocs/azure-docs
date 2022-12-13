@@ -46,7 +46,7 @@ The following diagram describes a basic hub and spoke topology connected to an A
 :::image type="content" source="media/concepts-network-design/vmware-solution-default.png" alt-text="Diagram of Azure VMware Solution with Route Server and default route." lightbox="media/concepts-network-design/vmware-solution-default.png":::
 
 > [!IMPORTANT]
-> The default route advertised by the NVA will be propagated to the on-premises network as well, so it needs to be filtered out in the customer routing environment.
+> The default route advertised by the NVA will be propagated to the on-premises network. Because of that, UDRs will need to be added to ensure traffic from Azure VMware Solution is transiting through the NVA.
 
 Communication between Azure VMware Solution and the on-premises network usually occurs over ExpressRoute Global Reach, as described in [Peer on-premises environments to Azure VMware Solution](../azure-vmware/tutorial-expressroute-global-reach-private-cloud.md).
 
@@ -98,7 +98,7 @@ The following diagram demonstrates how a single 0.0.0.0/0 is advertised to Azure
 > [!IMPORTANT]
 > An encapsulation protocol such as VXLAN or IPsec is required between the NVAs. Encapsulation is needed because the NVA NICs would learn the routes from Azure Route Server with the NVA as next hop and create a routing loop.
 
-There's an alternative to using an overlay. Apply secondary NICs in the NVA that won't learn the routes from Azure Route Server and configure UDRs so that Azure can route traffic to the remote environment over those NICs. You can find more details in [Enterprise-scale network topology and connectivity for Azure VMware Solution](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity).
+There's an alternative to using an overlay. Apply secondary NICs in the NVA that won't learn the routes from Azure Route Server and configure UDRs so that Azure can route traffic to the remote environment over those NICs. You can find more details in [Enterprise-scale network topology and connectivity for Azure VMware Solution](https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity#scenario-2-a-third-party-nva-in-hub-azure-virtual-network-inspects-all-network-traffic).
 
 **This topology requires a complex initial set-up. Once the set-up is complete, the topology works as expected with minimal management overhead. See the following list of specific set-up complexities.**
 
