@@ -29,6 +29,9 @@ When you remove a market, customers from that market who are using active deploy
 
 Select **Save** to continue.
 
+> [!NOTE]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. [Learn more](/azure/marketplace/marketplace-geo-availability-currencies).
+
 ## Pricing
 
 For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license.
