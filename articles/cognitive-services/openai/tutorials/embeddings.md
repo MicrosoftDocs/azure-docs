@@ -111,11 +111,11 @@ echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/envi
 
 ---
 
-After setting the environment variables you may need to close and reopen jupyter notebooks or whatever IDE you are using in order for the environment variables to be accessible.
+After setting the environment variables you may need to close and reopen Jupyter notebooks or whatever IDE you are using in order for the environment variables to be accessible.
 
 Run the following code in your preferred Python IDE:
 
-If you wish to view the jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb)
+If you wish to view the Jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb).
 
 ## Import libraries and list models
 
@@ -276,7 +276,7 @@ df_bills
 
 **Output:**
 
-:::image type="content" source="../media/tutorials/tokens-dataframe.png" alt-text="Screenshot of the DataFrame with a new column called `n_tokens`." lightbox="../media/tutorials/tokens-dataframe.png":::
+:::image type="content" source="../media/tutorials/tokens-dataframe.png" alt-text="Screenshot of the DataFrame with a new column called n_tokens." lightbox="../media/tutorials/tokens-dataframe.png":::
 
 To understand the n_tokens column a little more as well how the text is tokenized, it can be helpful to run the following code:
 
