@@ -88,7 +88,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 - Ensure that the VM has internet access for downloading tools by having one standard public IP address
 
 > [!TIP]
-> The Public IP Address here is only for internet connectivity (see [Default outbound access in Azure](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/default-outbound-access) for more ways to achieve this) not Contact data.
+> The Public IP Address here is only for internet connectivity not Contact Data. For more information, see [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 3. Create a tmpfs on the virtual machine. This virtual machine is where the data will be written to in order to avoid slow writes to disk:
 ```console
