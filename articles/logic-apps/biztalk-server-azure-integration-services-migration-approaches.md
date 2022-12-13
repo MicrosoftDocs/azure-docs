@@ -396,7 +396,7 @@ When you implement this pattern, you can also specify when to run the **Scope** 
 - **Is skipped**
 - **Has timed out**
 
-### Shared services
+### Consolidate shared services
 
 When you build integration solutions, consider creating and using shared services for common tasks. You can have your team build and expose a collection of shared services that your project team and others can use. Everyone gains increased productivity, uniformity, and the capability to enforce governance on your organization's solutions. The following sections describe some areas where you might consider introducing shared services:
 
@@ -408,15 +408,15 @@ When you build integration solutions, consider creating and using shared service
 | Custom connectors | Create custom connectors for internal systems that don't have prebuilt connectors in Azure Logic Apps to simplify for your project team and others. |
 | Common datasets or data feeds | Expose common datasets and feeds as APIs or connectors for project teams to use, and avoid reinventing the wheel. Every organization has common data sets that they need to integrate systems in an enterprise environment. |
 
-### Learn from failures 
+### Review, reflect, and learn
 
 From time to time, assess and evaluate your existing logic apps, especially when they fail. Not only analyze the business process to find what and where you can improve, but also analyze your workflow's run history to learn from failures, mistakes, and errors that happened. Azure Logic Apps provides such rich run history, you have a high probability to discover new things about your app as you review your workflow's run history. Like all code development, some edge or corner cases can emerge. As you make discoveries, update your interfaces to account for these situations and improve your solutions' overall reliability.
 
-One reality for project teams is that developers try to generically capture errors to at least gain some protection from problems. As your team discovers and better understands where things might go wrong, you can get more prescriptive on how to protect against issues.
+One reality for project teams is that developers try to generically capture errors to at least gain some protection from problems. As your team discovers and better understands where things might go wrong, you can get more prescriptive on how to protect against problems.
+
+Similar to how organizations regularly perform "red team" exercises, such as penetration testing or phishing attempts, security isn't a "set-and-forget" activity. As new authentication schemes and approaches become available, periodically revisit your interfaces, review your security measures, and incorporate relevant and appropriate new developments that provide the most secure approaches.
 
 DevOps is another area that you want to periodically evaluate. As Microsoft or the community introduces new templates or approaches, evaluate these updates to determine whether you can gain more benefits.
-
-Similar to how organizations perform regular penetration testing or phishing exercises, security is never a set-and-forget activity. As new authentication schemes and approaches become available, review your security measures and incorporate new developments that make sense for your solutions and scenarios.
 
 ## Next steps
 
