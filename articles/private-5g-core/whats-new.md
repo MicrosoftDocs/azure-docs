@@ -34,11 +34,11 @@ This page is updated regularly with the latest developments in Azure Private 5G 
 
 The 2022-11-01 ARM API release introduces the ability to configure several upcoming Azure Private 5G Core features. From December 12, 2022-11-01 is the default API version for Azure Private 5G Core deployments.
 
-If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, you do not need to do anything. Your portal will use the new API and any differences between the APIs are handled automatically.
+If you use the Azure portal to manage your deployment and all your resources were created using the 2022-04-01-preview API, you don't need to do anything. Your portal will use the new API and any differences between the APIs are handled automatically.
 
 If you use ARM templates and want to keep using your existing templates, follow [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api) to upgrade your 2022-04-01-preview API templates to the 2022-11-01 API.
 
-If you used an API version older than 2022-04-01-preview to create any of your resources, you need to take action to prevent them from becoming unmanageable. As soon as possible, delete these resources and redeploy them using the new 2022-11-01 API, either using the Azure portal or by upgrading your ARM templates as described in [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api). Note that these instructions may not be comprehensive for older templates.
+If you used an API version older than 2022-04-01-preview to create any of your resources, you need to take action to prevent them from becoming unmanageable. As soon as possible, delete these resources and redeploy them using the new 2022-11-01 API. You can redeploy the resources using the Azure portal or by upgrading your ARM templates as described in [Upgrade your ARM templates to the 2022-11-01 API](#upgrade-your-arm-templates-to-the-2022-11-01-api). These instructions may not be comprehensive for older templates.
 
 #### Upgrade your ARM templates to the 2022-11-01 API
 
@@ -47,7 +47,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum governing how users of local diagnostics APIs will be authenticated. Set this to **Password**.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs will be authenticated. Set this to **Password**.
    4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
@@ -64,7 +64,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
 1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This ensures that the resources are created in the required order.
 
-See below for a comparison between templates using the 2022-04-01-preview and the 2022-11-01 APIs.
+The following is a comparison of templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
 # [2022-04-01-preview API](#tab/2022-04-01-preview)
 
@@ -172,11 +172,11 @@ This feature has the following limitations:
 
 - Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled.
 
-- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning overlapping IP address spaces across the Data Networks are not possible). 
+- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks). 
 
 - Metrics are not yet reported on a per-Data Network basis.
 
-To add additional data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
+To add data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
 
 ### Easier site deletion
 
@@ -192,7 +192,7 @@ Previously, you had to delete all the ARM resources associated with a site befor
 
 **Date available:** December 5, 2022
 
-You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. Note that this only applies when using the Azure portal.
+You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. This only applies when using the Azure portal.
 
 
 ## October 2022
@@ -230,7 +230,7 @@ For more information, see [Customer-managed key encryption at rest](security.md#
 ### Fixes and enhancements
 
 - October 5, 2022: Time to provision SIMs greatly reduced
-- October 11, 2022: Fixed bug which prevented the creation/update of ADN objects
+- October 11, 2022: Fixed bug that prevented the creation/update of ADN objects
 
 ## Next steps
 
