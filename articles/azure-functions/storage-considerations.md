@@ -37,6 +37,8 @@ Every function app requires a storage account to operate. When that account is d
 
 For best performance, your function app should use a storage account in the same region, which reduces latency. The Azure portal enforces this best practice. If for some reason you need to use a storage account in a region different than your function app, you must create your function app outside of the portal. 
 
+The storage account must be accessible to the function app. If you need to use a secured storage account, consider [restricting your storage account to a virtual network](./functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).s
+
 ### Storage account connection setting
 
 The storage account connection is maintained in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). 
