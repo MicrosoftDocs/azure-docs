@@ -1,6 +1,6 @@
 ---
 title: Deploying policies for governing access to applications integrated with Azure AD| Microsoft Docs
-description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
+description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can use entitlement management and other identity governance features to enforce the policies for access.
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -43,7 +43,7 @@ Conditional access is only possible for applications that rely upon Azure AD for
 
 In this section, you'll configure Azure AD entitlement management so users can request access to your application's roles or to groups used by the application.  In order to perform these tasks, you'll need to be in the *Global Administrator*, *Identity Governance Administrator* role, or be [delegated as a catalog creator](entitlement-management-delegate-catalog.md) and the owner of the application.
 
-1. **Access packages for governed applications should be in a designated catalog.** If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Azure AD entitlement management.
+1. **Access packages for governed applications should be in a designated catalog.** If you don't already have a catalog for your application governance scenario, [create a catalog](../governance/entitlement-management-catalog-create.md) in Microsoft Entra entitlement management.
 1. **Populate the catalog with necessary resources.** Add the application, as well as any Azure AD groups that the application relies upon, [as resources in that catalog](../governance/entitlement-management-catalog-create.md).
 1. **Create an access package for each role or group which users can request.** For each of the applications, and for each of their application roles or groups, [create an access package](../governance/entitlement-management-access-package-create.md) that includes that role or group as its resource. At this stage of configuring  that access package, configure the access package assignment policy for direct assignment, so that only administrators can create assignments.  In that policy, set the access review requirements for existing users, if any, so that they don't keep access indefinitely.
 1. **Configure access packages to enforce separation of duties requirements.** If you have [separation of duties](entitlement-management-access-package-incompatible.md) requirements, then configure the incompatible access packages or existing groups for your access package.  If your scenario requires the ability to override a separation of duties check, then you can also [set up additional access packages for those override scenarios](entitlement-management-access-package-incompatible.md#configuring-multiple-access-packages-for-override-scenarios).

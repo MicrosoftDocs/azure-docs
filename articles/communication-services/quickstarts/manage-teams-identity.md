@@ -181,11 +181,12 @@ In this quickstart, you learned how to:
 
 
 > [!div class="nextstepaction"]
+> [Build trusted authentication service for Teams users](../samples/trusted-auth-sample.md)
 > [Make a call as a Teams users to a Teams user](../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md)
-> [Check use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 
 Learn about the following concepts:
 
+- [Use cases for communication as a Teams user](../concepts/interop/custom-teams-endpoint-use-cases.md)
 - [Azure Communication Services support Teams identities](../concepts/teams-endpoint.md)
 - [Teams interoperability](../concepts/teams-interop.md)
 - [Single-tenant and multi-tenant authentication for Teams users](../concepts/interop/custom-teams-endpoint-authentication-overview.md)

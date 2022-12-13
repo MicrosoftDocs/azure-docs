@@ -21,6 +21,31 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## November 30, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version: `22.11.25`
+
+Main changes:
+
+- `Azure ML SDK V2` samples included
+- `Ray` to version `2.0.0`
+- Added `clock`, `recipes` `R` packages
+- `azureml-core` to version `1.47.0`
+- `azure-ai-ml` to version `1.1.1`
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: `22.11.27`
+
+Main changes:
+
+- `Azure ML SDK V2` samples included
+- `RScirpt` environment path alignment
+- `Ray` version `2.0.0` package added to `azureml_py38` and `azureml_py38_PT_TF` environments.
+- `azureml-core` to version `1.47.0`
+- `azure-ai-ml` to version `1.1.1`
+
 ## September 20, 2022
 **Announcement:**
 Ubuntu 18 DSVM will **not be** available on the marketplace starting Oct 1, 2022. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
@@ -37,7 +62,7 @@ Instead of:
 | --------- | ------------|
 | ubuntu-1804  | 1804 for Gen1 or 1804-gen2 for Gen2 VM sizes  |
 
-**Note**: There is no impact to existing customers who are still on Ubuntu-18 DSVM as of our October 2022 update. Howeverm the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
+**Note**: There is no impact to existing customers who are still on Ubuntu-18 DSVM as of our October 2022 update. However, the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
 
 ## September 19, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
