@@ -17,6 +17,29 @@ ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## December 13, 2022
+
+### Image tag
+
+`v1.14.0_2022-12-13`
+
+For complete release version information, see [Version log](version-log.md#december-13-2022).
+
+New for this release:
+
+- Arc data controller.
+    Added defaults on HA supervisor pod to support resource quotas.
+
+- Arc-enabled PostgreSQL server
+  - Switch to Ubuntu based images.
+ 
+- Arc-enabled SQL Server
+  - Database as a resource compatibility for SQL Server 2014 and SQL Server 2016. See [View databases](/sql/sql-server/azure-arc/view-databases).
+
+- Bug fixes and optimizations in the following areas:
+  - Arc enabling SQL Server onboarding.
+  - Fixed confusing error messages when DBMail is configured.
+
 ## November 8, 2022
 
 ### Image tag

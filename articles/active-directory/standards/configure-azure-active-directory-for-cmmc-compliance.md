@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 12/13/2022
 ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -54,6 +54,6 @@ Learn more:
 
 * [Configure CMMC Level 2 Access Control (AC) controls](configure-cmmc-level-2-access-control.md)
 
-* [Configure CMMC Level 2 Identification and Authentication (IR) controls](configure-cmmc-level-2-identification-and-authentication.md)
+* [Configure CMMC Level 2 Identification and Authentication (IA) controls](configure-cmmc-level-2-identification-and-authentication.md)
 
 * [Configure CMMC Level 2 additional controls](configure-cmmc-level-2-additional-controls.md)
