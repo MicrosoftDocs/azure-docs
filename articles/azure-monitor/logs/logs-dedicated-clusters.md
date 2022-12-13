@@ -492,6 +492,10 @@ Content-type: application/json
 
 ### Update billingType in cluster
 
+The *billingType* property determines the billing attribution for the cluster and its data:
+- *Cluster* (default) -- billing is attributed to the Cluster resource
+- *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
+
 #### [CLI](#tab/cli)
 
 N/A
@@ -503,10 +507,6 @@ Select-AzSubscription "cluster-subscription-id"
 
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
 ```
-
-The *billingType* property determines the billing attribution for the cluster and its data:
-- *Cluster* (default) -- billing is attributed to the Cluster resource
-- *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
 
 #### [REST API](#tab/restapi)
 
