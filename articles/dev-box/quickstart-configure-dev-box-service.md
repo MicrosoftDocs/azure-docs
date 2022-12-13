@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Dev Box Preview service
 titleSuffix: Microsoft Dev Box Preview
-description: 'This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for your users. You'll create a dev center, add a network connection, and then create a dev box definition, and a project.'
+description: 'This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for your users. You will create a dev center, add a network connection, and then create a dev box definition, and a project.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
