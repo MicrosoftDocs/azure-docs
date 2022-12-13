@@ -21,6 +21,26 @@ The server can also be used when creating validation gates in a continuous integ
 
 This article targets both you want to use the inference server to debug locally and to use the inference server with online endpoints.
 
+## Online endpoint local debugging
+
+Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally.
+
+- Azure Machine Learning inference HTTP server
+- [Local endpoint](how-to-debug-managed-online-endpoints-visual-studio-code.md)
+
+This guide focuses on Azure Machine Learning inference HTTP server.
+
+The following table provides an overview of scenarios to help you choose what works best for you.
+
+| Scenario                                                                | Inference HTTP Server | Local endpoint |
+| ----------------------------------------------------------------------- | --------------------- | -------------- |
+| Update local Python environment, **without** Docker image rebuild       | Yes                   | No             |
+| Update scoring script                                                   | Yes                   | Yes            |
+| Update deployment configurations (deployment, environment, code, model) | No                    | Yes            |
+| VS Code Debugger integration                                            | Yes                   | Yes            |
+
+By running the inference HTTP server locally, you can focus on debugging your scoring script without being affected by the deployment container configurations.
+
 ## Prerequisites
 
 - Requires: Python >=3.7
