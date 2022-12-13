@@ -1,7 +1,7 @@
 ---
 title: Configure the Microsoft Dev Box Preview service
 titleSuffix: Microsoft Dev Box Preview
-description: 'This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for your users. You will create a dev center, add a network connection, and then create a dev box definition, and a project.'
+description: 'This quickstart shows you how to configure the Microsoft Dev Box Preview service to provide dev boxes for your users. You'll create a dev center, add a network connection, and then create a dev box definition, and a project.'
 services: dev-box
 ms.service: dev-box
 ms.topic: quickstart
@@ -36,7 +36,8 @@ To complete this quick start, make sure that you have:
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
 - User licenses. Each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Endpoint Manager, and Azure Active Directory P1. 
     - These licenses are available independently and included in Microsoft 365 F3, Microsoft 365 E3, Microsoft 365 E5, Microsoft 365 A3, Microsoft 365 A5, Microsoft 365 Business Premium, and Microsoft 365 Education Student Use Benefit subscriptions.
-- Enable your [Azure Hybrid Benefit](https://azure.microsoft.com//pricing/hybrid-benefit/#why-azure-hybrid-benefit).  
+- If you have on-premises core licenses for Windows Server with active Software Assurance, you may qualify for [Azure Hybrid Benefit](/windows-server/get-started/azure-hybrid-benefit).
+    - Enable Hybrid Benefit when you [Create a dev box pool](quickstart-configure-dev-box-project.md#create-a-dev-box-pool).
 
 ## Create a dev center
 
@@ -122,7 +123,7 @@ If your organization routes egress traffic through a firewall, you need to open 
    |**AD DNS domain name**| The DNS name of the Active Directory domain that you want to use for connecting and provisioning Cloud PCs. For example, corp.contoso.com. |
    |**Organizational unit**| An organizational unit (OU) is a container within an Active Directory domain, which can hold users, groups, and computers. |
    |**AD username UPN**| The username, in user principal name (UPN) format, that you want to use for connecting the Cloud PCs to your Active Directory domain. For example, svcDomainJoin@corp.contoso.com. This service account must have permission to join computers to the domain and, if set, the target OU. |
-   |**AD domain password**| The password for the user specified above. |
+   |**AD domain password**| The password for the user. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
 
@@ -168,7 +169,7 @@ The following steps show you how to create and configure a dev box definition. Y
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
    |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
-   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
+   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes won't be modified when an image version is updated.|
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 
