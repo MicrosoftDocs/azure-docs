@@ -198,17 +198,17 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     # [bash](#tab/bash)
 
     ```azurecli
-    wORKSPACE_NAME="$GROUP_NAME-workspace" # Name of the Log Analytics workspace
+    WORKSPACE_NAME="$GROUP_NAME-workspace" # Name of the Log Analytics workspace
     
     az monitor log-analytics workspace create \
         --resource-group $GROUP_NAME \
-        --workspace-name $wORKSPACE_NAME
+        --workspace-name $WORKSPACE_NAME
     ```
 
     # [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    $wORKSPACE_NAME="$GROUP_NAME-workspace"
+    $WORKSPACE_NAME="$GROUP_NAME-workspace"
 
     az monitor log-analytics workspace create `
         --resource-group $GROUP_NAME `
