@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/29/2022
+ms.date: 12/29/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: references_regions
@@ -29,7 +29,7 @@ Azure AD B2C service is available worldwide via the Azure public cloud. You can 
 
 ## Data residency
 
-Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region or Australia.
+Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region, Japan or Australia.
 
 Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 
@@ -72,7 +72,7 @@ At the moment, the following countries have the local data residence option:
 |If you're in  | What to do  |
 |-------------|---------|
 | Australia | If you've existing Azure AD B2C tenant that you created since **April 2021**, your data is resident in Australia. You need to opt-in to start using Go-Local add-on. <br> If you're creating a new Azure AD B2C tenant, you can enable Go-Local add-on when you create it.|
-| Japan | You can enable Go-Local add-on when you create a newAzure AD B2C tenant. |
+| Japan | You can enable Go-Local add-on when you create a new Azure AD B2C tenant. |
 
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-go-local-add-on-preview-label.md)] 
