@@ -6,7 +6,7 @@ ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 10/25/2022
+ms.date: 12/13/2022
 ms.custom: devx-track-azurecli, subject-armqs, mode-ui
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -412,7 +412,7 @@ When you are done and if you want to, you can delete the resource group. The act
     A window opens and displays a warning about the resources that will be deleted with the resource group.
 
     >[!IMPORTANT]
-    >You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md). If you delete the resource group without disabling backups, backups will continue to impact your billing. You will need to [manually delete the backups](backup-delete.md).
+    >Before you delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md) or you can [manually delete the backups](backup-delete.md). If you delete the resource group without disabling backups, backups will continue to impact your billing.  
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 

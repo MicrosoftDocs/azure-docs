@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 12/13/2022
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -36,6 +36,8 @@ A snapshot policy handles creating snapshots on the volume. It is used by the ba
 Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There is no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
 
 Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
+
+[!INCLUDE [consideration regarding deleting backups after deleting resource or subscription](includes/disable-delete-backup.md)]
 
 ## Configure and apply a snapshot policy  
 
