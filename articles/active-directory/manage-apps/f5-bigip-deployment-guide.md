@@ -209,11 +209,11 @@ To resolve your published SHA services to your BIG-IP-VM public IP(s), configure
 7. From the drop-down menu, select your **DNS zone**. If there's no DNS zone, then it can be managed outside Azure, or create one for the domain suffix to verify in Azure AD.
 8. To create the first DNS alias record:
 
-* **Subscription**: Same subscription as the BIG-IP-VM
-* **DNS zone**: DNS zone authoritative for the verified domain suffix your published websites use, for example, www.contoso.com
-* **Name**: The hostname you specify resolves to the public IP associated with the selected secondary IP. Define DNS-to IP-mappings. For example, intranet.contoso.com to 13.77.148.215
-* **TTL**: 1
-* **TTL units**: Hours
+    * **Subscription**: Same subscription as the BIG-IP-VM
+    * **DNS zone**: DNS zone authoritative for the verified domain suffix your published websites use, for example, www.contoso.com
+    * **Name**: The hostname you specify resolves to the public IP associated with the selected secondary IP. Define DNS-to IP-mappings. For example, intranet.contoso.com to 13.77.148.215
+    * **TTL**: 1
+    * **TTL units**: Hours
 
 8. Select **Create**.
 9. Leave the **DNS name label (optional)**.
@@ -298,7 +298,7 @@ Before it can be configured for publishing services and SHA, activate and provis
 >[!NOTE]
 >If the list does not appear, in the main tab, go to **System** > **Resource Provisioning**. Check the provisioning column for Access Policy (APM)
 
-   ![Screenshot of access provisioning.](/media/f5ve-deployment-plan/access-provisioning.png)
+ ![Screenshot of access provisioning.](./media/f5ve-deployment-plan/access-provisioning.png)
 
 12. Select **Submit**.
 13. Accept the warning.
