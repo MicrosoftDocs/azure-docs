@@ -211,7 +211,7 @@ Worker Timeout (seconds): 300
 Server Port: 31311
 Application Insights Enabled: false
 Application Insights Key: None
-Inferencing HTTP server version: azmlinfsrv/0.7.7
+Inferencing HTTP server version: azmlinfsrv/0.8.0
 CORS for the specified origins: None
 
 
