@@ -84,6 +84,7 @@ To use Azure Arc-enabled servers, the following [Azure resource providers](../..
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
 * **Microsoft.HybridConnectivity**
+* **Microsoft.AzureArcData** (if you plan to Arc-enable SQL Servers)
 
 If these resource providers are not already registered, you can register them using the following commands:
 
