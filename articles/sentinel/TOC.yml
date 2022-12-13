@@ -21,10 +21,8 @@
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Use automation to triage incidents
-    href: tutorial-triage-incidents.md
-  - name: Use automation to create an incident workflow for your SOC analysts
-    href: tutorial-create-incident-workflows.md
+  - name: Use automation to enrich incident information
+    href: tutorial-enrich-ip-info.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
