@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Add the API configuration
 
-Open the *appsettings.json* file and add a reference to `"DownstreamAPI"` to configure the API. The `.json` file should take the following format:
+Open the *appsettings.json* file and add a reference to `"DownstreamAPI"` to configure the API. The *.json* file should take the following format:
 
 ```csharp
 {
