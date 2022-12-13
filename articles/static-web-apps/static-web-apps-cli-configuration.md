@@ -45,13 +45,13 @@ Use `swa init` to kickstart the workflow to create a configuration file for a ne
 
 By default, the process creates these settings in a *swa-cli.config.json* in the current working directory of your project. This directory is the default file name and location used by `swa` when searching for project configuration values.
 
-```bash
+```azstatic-cli
 swa --config <PATH>
 ```
 
 If the file contains only one named configuration, then it is used by default. If multiple configurations are defined, you need to specify the one to use as an option.
 
-```bash
+```azstatic-cli
 swa --config-name
 ```
 
@@ -63,7 +63,7 @@ The Static Webs CLI provides a `--print-config` option so you can determine reso
 
 Here is an example of what that output looks like when run on a new project with default settings.
 
-```bash
+```azstatic-cli
 swa --print-config
 
 Options:
