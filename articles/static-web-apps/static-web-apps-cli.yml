@@ -88,13 +88,13 @@ directCommands:
 
     By default, the CLI starts and serves any static content from the current working directory `./`:
 
-      ```bash
+      ```azstatic-cli
       swa start
       ```
 
     If the artifact folder of your static app is under a different folder (for example, `./my-dist`), then run the CLI and provide that folder:
 
-      ```bash
+      ```azstatic-cli
       swa start ./my-dist
       ```
 
@@ -108,7 +108,7 @@ directCommands:
     
     1. In a separate terminal, run `swa start` with the URI provided by the dev server, in the following format:
 
-      ```bash
+      ```azstatic-cli
       swa start http://<APP_DEV_SERVER_HOST>:<APP_DEV_SERVER_PORT>
       ```
 
@@ -127,7 +127,7 @@ directCommands:
 
     Instead of starting a dev server separately, you can provide the startup command to the CLI.
 
-      ```bash
+      ```azstatic-cli
       # npm start script (React)
       swa start http://localhost:3000 --run "npm start"
 
@@ -151,7 +151,7 @@ directCommands:
 
     Run the CLI and provide the folder that contains the API backend (a valid Azure Functions App project):
 
-      ```bash
+      ```azstatic-cli
       # static content plus an API
       swa start ./my-dist --api-location ./api
 
@@ -169,7 +169,7 @@ directCommands:
 
     2. In a separate terminal, run the SWA CLI with the `--api-location` flag and the URI of the local API server, in the following format:
 
-      ```bash
+      ```azstatic-cli
       swa start ./my-dist --api-location http://localhost:7071
       ```
   syntax: >-
@@ -270,13 +270,13 @@ directCommands:
 
     - If you are using the [Azure CLI](https://aka.ms/azcli), you can get the deployment token of your project using the following command:
 
-      ```bash
+      ```azstatic-cli
       az staticwebapp secrets list --name <APPLICATION_NAME> --query "properties.apiKey"
       ```
 
     - If you are using the Azure Static Web Apps CLI, you can use the following command:
 
-      ```bash
+      ```azstatic-cli
       swa deploy --print-token
       ```
 
@@ -292,7 +292,7 @@ directCommands:
     <br><br>
     **Option 1:** From build folder you would like to deploy, run the deploy command:
 
-      ```bash
+      ```azstatic-cli
       cd build/
       swa deploy
       ```
@@ -305,7 +305,7 @@ directCommands:
 
     2. Deploy your app:
 
-      ```bash
+      ```azstatic-cli
       swa deploy ./my-dist
       ```
 
@@ -329,7 +329,7 @@ directCommands:
 
     1. Deploy your app:
 
-      ```bash
+      ```azstatic-cli
       swa deploy ./my-dist --api-location ./api
       ```
 
@@ -339,13 +339,13 @@ directCommands:
 
     1. Build your Blazor app in **Release** mode:
 
-      ```bash
+      ```azstatic-cli
       dotnet publish -c Release -o bin/publish
       ```
 
     2. From the root of your project, run the `deploy` command:
 
-      ```bash
+      ```azstatic-cli
       swa deploy ./bin/publish/wwwroot --api-location ./Api
       ```
 
@@ -379,13 +379,13 @@ directCommands:
 
     2. Deploy your app:
 
-      ```bash
+      ```azstatic-cli
       swa deploy
       ```
 
     If you have multiple configuration entries, you can provide the entry ID to specify which one to use:
 
-      ```bash
+      ```azstatic-cli
       swa deploy my-otherapp
       ```
 
