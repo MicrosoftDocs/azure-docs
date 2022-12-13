@@ -42,7 +42,7 @@ Operation
 ```
 
 ## Azure subscription is in a suspended state 
-You Azure subscription could be in a suspended state for one of the following reasons:
+Your Azure subscription could be in a suspended state for one of the following reasons:
 
 - Free trial ended
 - Azure pass expired
