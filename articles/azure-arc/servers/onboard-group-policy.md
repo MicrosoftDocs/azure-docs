@@ -4,6 +4,7 @@ description: In this article, you learn how to connect machines to Azure using A
 ms.date: 10/20/2022
 ms.topic: conceptual
 ms.custom: template-how-to
+author: johnmarco
 ---
 
 # Connect machines at scale using Group Policy
