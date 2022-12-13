@@ -63,15 +63,15 @@ Managed attributes can be programmatically created and applied using the busines
 
 ## Searching by managed attributes
 
-Once you have created managed attributes you can refine your [data catalog searches](how-to-search-catalog.md) using these attributes.
+Once you have created managed attributes, you can refine your [data catalog searches](how-to-search-catalog.md) using these attributes.
 
 1. In a data catalog search, to refine by a managed attribute, first select **Add filter** at the top of the search.
 
     :::image type="content" source="media/how-to-managed-attributes/add-filter.png" alt-text="Screenshot showing the add filter button highlighted on a search in the Data Catalog.":::
 
-1. Select the drop down, scroll to your list of managed attributes, and select one.
+1. Select the drop-down, scroll to your list of managed attributes, and select one.
 
-    :::image type="content" source="media/how-to-managed-attributes/select-managed-attribute.png" alt-text="Screenshot showing the filter dropdown with the list of added managed attributes highlighted.":::
+    :::image type="content" source="media/how-to-managed-attributes/select-managed-attributes.png" alt-text="Screenshot showing the filter dropdown with the list of added managed attributes highlighted.":::
 
 1. Select your operator, which will be different based on the kinds of values allowed by the attribute. In this example, we've selected Cost Center, which is a text value, so we can compare Cost Center with the text we'll enter.
 
