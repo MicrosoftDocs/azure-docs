@@ -59,12 +59,11 @@ For more information about the governance capabilities of Microsoft Purview, for
 1. On **Configuration** tab you can choose to configure Event Hubs namespaces to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka.
     - [Steps to configure Event Hubs namespaces](manage-kafka-dotnet.md#configure-event-hubs)
     - [Send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
-    - [Publish and consume events for Microsoft Purview with Atlas Kafka](concept-best-practices-automation.md#streaming-apache-atlas)
 
     :::image type="content" source="media/create-catalog-portal/configure-kafka-event-hubs.png" alt-text="Screenshot showing the Event Hubs configuration page in the Create Microsoft Purview account window.":::
 
     >[!NOTE]
-    > These options can be configured after you have created your account in **Kafka configuration** under settings on your Microsoft Purview account page in the Azure Portal.
+    > [These options can be configured after you have created your account](configure-event-hubs-for-kafka.md) in **Kafka configuration** under settings on your Microsoft Purview account page in the Azure Portal.
     >
     > :::image type="content" source="media/create-catalog-portal/select-kafka-configuration.png" alt-text="Screenshot showing Kafka configuration option on the Microsoft Purview account page in the Azure Portal.":::
 

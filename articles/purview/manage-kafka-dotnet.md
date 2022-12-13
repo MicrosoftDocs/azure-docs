@@ -7,7 +7,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.devlang: csharp
-ms.date: 12/09/2022
+ms.date: 12/13/2022
 ms.custom: mode-other
 ---
 
@@ -24,84 +24,14 @@ To follow this quickstart, you need certain prerequisites in place:
 - **A Microsoft Azure subscription**. To use Azure services, including Event Hubs, you need an Azure subscription.  If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2022**. The Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# versions, but the new syntax won't be available. To make use of the full syntax, it's recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using a Visual Studio version prior to Visual Studio 2019, it doesn't have the tools needed to build C# 8.0 projects. Visual Studio 2022, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 - An active [Microsoft Purview account](create-catalog-portal.md).
-- An [Azure Event Hubs](../event-hubs/event-hubs-create.md) namespace with an Event Hubs.
-
-## Configure Event Hubs
-
-To send or receive Atlas Kafka topics messages, you'll need to configure at least one Event Hubs namespace.
-
->[!NOTE]
-> If your Microsoft Purview account was created before December 15th, 2022 you may have a managed Event Hubs resource already associated with your account.
-> You can check in **Managed Resources** under settings on your Microsoft Purview account page in the [Azure portal](https://portal.azure.com).
-> :::image type="content" source="media/manage-eventhub-kafka-dotnet/enable-disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
->
-> - If you do not see this resource, or it is **disabled**, follow the steps below to configure your Event Hubs.
->
-> - If it is **enabled**, you can continue to use this managed Event Hubs namespace if you prefer. (There is associated cost. See see [the pricing page](https://azure.microsoft.com/pricing/details/purview/).) If you want to manage your own Event Hubs account, **disable** this feature and follow the steps below.
-> **If you disable the managed Event Hubs resource you won't be able to re-enable a managed Event Hub resource. You will only be able to configure your own Event Hubs**.
-
-### Event Hubs permissions
-
-To authenticate with your Event Hubs, you can either use:
-
-- Microsoft Purview managed identity
-- [User assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) - only available when configuring namespaces after account creation.
-
-One of these identities will need **at least contributor permissions on your Event Hubs** to be able to configure them to use with Microsoft Purview.
-
-### Configure Event Hubs to publish messages to Microsoft Purview
-
-1. Navigate to **Kafka configuration** under settings on your Microsoft Purview account page in the [Azure portal](https://portal.azure.com).
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/select-kafka-configuration.png" alt-text="Screenshot showing the Kafka configuration option in the Microsoft Purview menu in the Azure portal.":::
-
-1. Select **Add configuration** and **Hook configuration**.
-    >[!NOTE]
-    > You can add as many hook configurations as you need.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/add-hook-configuration.png" alt-text="Screenshot showing the Kafka configuration page with add configuration and hook configuration highlighted.":::
-
-1. Give a name to your hook configuration, select your subscription, an existing Event Hubs namespace, an existing Event Hubs to send the notifications to, the consumer group you want to use, and the kind of authentication you would like to use.
-
-    >[!TIP]
-    > You can use the same Event Hubs namespace more than once, but each configuration will need its own Event Hubs.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/configure-hook-event-hub.png" alt-text="Screenshot showing the hook configuration page, with all values filled in.":::
-
-1. Select **Save**. It will take a couple minutes for your configuration to complete.
-
-1. Once configuration is complete, you can begin the steps to [publish messages to Microsoft Purview](#publish-messages-to-microsoft-purview).
-
-### Configure Event Hubs to receive messages from Microsoft Purview
-
-1. Navigate to **Kafka configuration** under settings on your Microsoft Purview account page in the [Azure portal](https://portal.azure.com).
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/select-kafka-configuration.png" alt-text="Screenshot showing the Kafka configuration option in the Microsoft Purview menu in the Azure portal.":::
-
-1. If there's a configuration already listed as type **Notification**, Event Hubs is already configured, and you can begin the steps to [receive Microsoft Purview messages](#receive-microsoft-purview-messages).
-    >[!NOTE]
-    > Only one *Notification* Event Hubs can be configured at a time.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/type-notification.png" alt-text="Screenshot showing the Kafka configuration option with a notification type configuration ready.":::
-
-1. If there isn't a **Notification** configuration already listed, select **Add configuration** and **Notification configuration**.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/add-notification-configuration.png" alt-text="Screenshot showing the Kafka configuration page with add configuration and notification configuration highlighted.":::
-
-1. Give a name to your notification configuration, select your subscription, an existing Event Hubs namespace, an existing Event Hubs to send the notifications to, the partitions you want to use, and the kind of authentication you would like to use.
-
-    >[!TIP]
-    > You can use the same Event Hubs namespace more than once, but each configuration will need its own Event Hubs.
-
-    :::image type="content" source="media/manage-eventhub-kafka-dotnet/configure-notification-event-hub.png" alt-text="Screenshot showing the notification hub configuration page, with all values filled in.":::
-
-1. Select **Save**. It will take a couple minutes for your configuration to complete.
-
-1. Once configuration is complete, you can begin the steps to [receive Microsoft Purview messages](#receive-microsoft-purview-messages).
+- [An Event Hubs configured with your Microsoft Purview account to sent and receive messages](configure-event-hubs-for-kafka.md):
+  - Your account may already be configured. You can check your Microsoft Purview account in the [Azure portal](https://portal.azure.com) under **Settings**, **Kafka configuration**. If it is not already configured, [follow this guide](configure-event-hubs-for-kafka.md).
 
 ## Publish messages to Microsoft Purview
 
 Let's create a .NET Core console application that sends events to Microsoft Purview via Event Hubs Kafka topic, **ATLAS_HOOK**.
+
+To publish messages to Microsoft Purview, you'll need either a [managed Event Hubs](configure-event-hubs-for-kafka.md#configure-event-hubs), or [at least one Event Hubs with a hook configuration.](configure-event-hubs-for-kafka.md#configure-event-hubs-to-publish-messages-to-microsoft-purview).
 
 ## Create a Visual Studio project
 
@@ -306,6 +236,8 @@ Next create a C# .NET console application in Visual Studio:
 ## Receive Microsoft Purview messages
 
 Next learn how to write a .NET Core console application that receives messages from event hubs using an event processor. The event processor manages persistent checkpoints and parallel receptions from event hubs. This simplifies the process of receiving events. You need to use the ATLAS_ENTITIES event hub to receive messages from Microsoft Purview.
+
+To receive messages from Microsoft Purview, you'll need either a [managed Event Hubs](configure-event-hubs-for-kafka.md#configure-event-hubs), or [an Event Hubs notification configuration.](configure-event-hubs-for-kafka.md#configure-event-hubs-to-receive-messages-from-microsoft-purview).
 
 > [!WARNING]
 > Event Hubs SDK uses the most recent version of Storage API available. That version may not necessarily be available on your Stack Hub platform. If you run this code on Azure Stack Hub, you will experience runtime errors unless you target the specific version you are using. If you're using Azure Blob Storage as a checkpoint store, review the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and in your code, target that version.
