@@ -105,14 +105,14 @@ To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you
 
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 
-Learn about the [different available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *backup* both secret and key.
+Learn about the [different available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *back up* both secret and key.
 
 For Azure RBAC enabled key vaults, you can create custom role with the following set of permissions. Learn [how to create custom role](/azure/active-directory/roles/custom-create).
 
 | Action | Description |
 | --- | --- |
-| Microsoft.KeyVault/vaults/keys/backup/action | Creates the backup file of a key. The file can be used to restire the key.  |
-| Microsoft.KeyVault/vaults/secrets/backup/action | Createthe backup file of a secret.  |
+| Microsoft.KeyVault/vaults/keys/backup/action | Creates the backup file of a key.  |
+| Microsoft.KeyVault/vaults/secrets/backup/action | Creates the backup file of a secret.  |
 | Microsoft.KeyVault/vaults/secrets/getSecret/action | Gets the value of a secret.  |
 | Microsoft.KeyVault/vaults/keys/read | List keys in the specified vault or read properties and public materials.  |
 
