@@ -72,7 +72,7 @@ Each data mining report on an OT sensor has the following options for managing y
 | :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: **Manage report** | Update the values of an existing custom data mining report. |
 | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit mode** | Select to remove specific results from the saved report. |
 
-For example:
+For example, select **Manage report** to update the data your report includes using the same fields as when you'd originally [created the report](#create-an-ot-sensor-custom-data-mining-report):
 
 :::image type="content" source="media/how-to-generate-reports/manage-report-pane.png" alt-text="Screenshot of the manage report pane." lightbox="media/how-to-generate-reports/manage-report-pane.png":::
 

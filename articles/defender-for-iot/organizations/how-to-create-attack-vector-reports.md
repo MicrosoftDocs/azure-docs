@@ -58,7 +58,7 @@ The Device map provides a graphical representation of vulnerable devices detecte
 
     :::image type="content" source="media/how-to-generate-reports/sample-device-map.png" alt-text="Screen shot of Device map." lightbox="media/how-to-generate-reports/sample-device-map.png":::
 
-For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md)
+For more information, see [Investigate sensor detections in the Device map](how-to-work-with-the-sensor-device-map.md).
 
 ## Next steps
 
