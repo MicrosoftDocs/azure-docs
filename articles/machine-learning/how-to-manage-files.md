@@ -29,7 +29,7 @@ To create a new file in your default folder (`Users > yourname`):
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
 1. Select the **+** image.
-1. Select the  **Create new file** image.
+1. Select  **Create new file**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
 
@@ -37,10 +37,11 @@ To create a new file in your default folder (`Users > yourname`):
 1. Select a file type.
 1. Select **Create**.
 
-Notebooks and most text file types display in the preview section.  Most other file types don't have a preview.
+Notebooks and most text file types display in the preview section.  Most other file types don't have a preview.  If you don't see the correct preview for a notebook, make sure it has `.ipynb` as its extension.
 
 To create a new file in a different folder:
-1. Select the "..." at the end of the folder
+
+1. Select the "..." at the end of the folder.
 1. Select **Create new file**.
 
 > [!IMPORTANT]
