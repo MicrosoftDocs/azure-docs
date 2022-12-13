@@ -14,9 +14,9 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are true; you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses ECMP to send traffic towards your environment over both ExR circuits. That action causes issues with stateful firewall inspection.
 
-## Prerequisites
+### Prerequisites
 
-Verify that all listed connections are true:
+For AS-Path Prepend, you'll need to verify that all of the following listed connections are true:
 
 > [!div class="checklist"]
 > * Both or all circuits are connected to Azure VMware Solution with global reach.
