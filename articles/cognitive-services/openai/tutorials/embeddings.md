@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
-ms.date: 12/01/2022
+ms.date: 12/14/2022
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -137,7 +137,7 @@ RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 openai.api_type = "azure"
 openai.api_key = API_KEY
 openai.api_base = RESOURCE_ENDPOINT
-openai.api_version = "2022-06-01-preview"
+openai.api_version = "2022-12-01"
 
 url = openai.api_base + "/openai/deployments?api-version=2022-06-01-preview"
 
