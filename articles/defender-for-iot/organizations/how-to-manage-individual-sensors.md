@@ -41,7 +41,9 @@ Find more information about the issue by hovering over the :::image type="icon" 
 
 :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
 
-Take action by selecting the **Troubleshoot** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**.
+Take action by selecting the **Learn more** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**. For example:
+
+:::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
 ## Manage sensor activation files
 
@@ -53,7 +55,7 @@ A unique activation file is uploaded to each sensor that you deploy. For more in
 
 Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
 
-You can continue to work with Defender for IoT features even if the activation file has expired. 
+You can continue to work with Defender for IoT features even if the activation file has expired.
 
 ### About activation files for cloud-connected sensors
 
@@ -63,9 +65,9 @@ Sensors that are cloud connected aren't limited by time periods for their activa
 
 You might need to upload a new activation file for an onboarded sensor when:
 
-- An activation file expires on a locally connected sensor. 
+- An activation file expires on a locally connected sensor.
 
-- You want to work in a different sensor management mode. 
+- You want to work in a different sensor management mode.
 
 - For sensors connected via an IoT Hub ([legacy](architecture-connections.md)), you want to assign a new Defender for IoT hub to a cloud-connected sensor.
 
@@ -109,7 +111,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
 Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen, for example,  if a certificate expired.
 
@@ -150,7 +152,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen."::: 
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
 
 4. Sign in to the sensor console.
 
@@ -169,6 +171,7 @@ Continue with additional configurations, such as adding users, configuring forwa
 ## Change the name of a sensor
 
 You can change the name of your sensor console. The new name will appear in:
+
 - The sensor console web browser
 - Various console windows
 - Troubleshooting logs
@@ -245,6 +248,7 @@ System backup is performed automatically at 3:00 AM daily. The data is saved on 
 You can automatically transfer this file to the internal network.
 
 > [!NOTE]
+>
 > - The backup and restore procedure can be performed between the same versions only.
 > - In some architectures, the backup is disabled. You can enable it in the `/var/cyberx/properties/backup.properties` file.
 
@@ -284,7 +288,7 @@ Sensor backup files are automatically named through the following format: `<sens
 
 4. Edit and create credentials to share for the SMB server:
 
-    `sudo nano /etc/samba/user` 
+    `sudo nano /etc/samba/user`
 
 5. Add:
 
@@ -340,7 +344,6 @@ To send notifications:
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
-
 ## Upload and play PCAP files
 
 When troubleshooting, you may want to examine data recorded by a specific PCAP file. To do so, you can upload a PCAP file to your sensor console and replay the data recorded.
@@ -386,7 +389,7 @@ To access system properties:
 
 ## Download a diagnostics log for support
 
-This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket. 
+This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket.
 
 This feature is supported for the following sensor versions:
 
