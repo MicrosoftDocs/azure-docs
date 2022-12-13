@@ -63,7 +63,7 @@ Go to your resource in the Azure portal. The **Endpoint and Keys** can be found 
     openai.api_key = "REPLACE_WITH_YOUR_API_KEY_HERE"
     openai.api_base =  "REPLACE_WITH_YOUR_ENDPOINT_HERE" # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
-    openai.api_version = '2022-06-01-preview' # this may change in the future
+    openai.api_version = '2022-12-01' # this may change in the future
 
     deployment_id='REPLACE_WITH_YOUR_DEPLOYMENT_NAME' #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
