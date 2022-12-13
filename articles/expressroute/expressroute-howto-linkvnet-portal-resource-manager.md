@@ -99,11 +99,11 @@ The circuit owner has the power to modify and revoke authorizations at any time.
   > [!NOTE]
   > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
   > The definition of the circuit owner is any role with the following access:
-  >- Microsoft.Network/expressRouteCircuits/authorizations/write
-  >- Microsoft.Network/expressRouteCircuits/authorizations/read
-  >- Microsoft.Network/expressRouteCircuits/authorizations/delete
+  > - Microsoft.Network/expressRouteCircuits/authorizations/write
+  > - Microsoft.Network/expressRouteCircuits/authorizations/read
+  > - Microsoft.Network/expressRouteCircuits/authorizations/delete
   >
-  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles).
+  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](../role-based-access-control/built-in-roles.md).
 
 ### Circuit owner operations
 
