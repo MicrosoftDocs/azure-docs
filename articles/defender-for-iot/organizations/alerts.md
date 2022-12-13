@@ -34,7 +34,7 @@ The Azure portal and OT network sensors also provide the following extra investi
 |Location  |Extra options  |
 |---------|---------|
 |**Alerts on the Azure portal**     | - View related MITRE ATT&CK tactics and techniques <br>- Use out-of-the-box workbooks for visibility into high priority alerts <br>- View alerts from Microsoft Sentinel and run deeper investigations with [Microsoft Sentinel playbooks and workbooks](concept-sentinel-integration.md).        |
-|**OT network sensors and איק on-premises management console**     | - View the alert's source and destination in the **Device map**, and view related events on the **Event timeline**.  <br>- Accelerate alert workflows with custom alert rules and comments.  <br>- Forward sensor alerts to directly to partner vendors, including SIEM systems, MSSP systems, and more.      |
+|**OT network sensors and איק on-premises management console**     | - On an OT sensor console, view the alert's source and destination in the **Device map**, and view related events on the **Event timeline**.  <br>- Accelerate alert workflows with custom alert rules and comments.  <br>- Forward sensor alerts to directly to partner vendors, including SIEM systems, MSSP systems, and more.      |
 
 For more information, see:
 
@@ -90,10 +90,13 @@ Examples of when you'd mute traffic include:
 
 Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
 
-Alert statuses are fully synchronized between the Azure portal and the sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert, the alert is updated in other locations as well
+Alert statuses are fully synchronized between the Azure portal and the sensor, and between the sensor and the on-premises management console. This means that regardless of where you manage the alert in Defender for IoT, the alert is updated in other locations as well.
 
 Setting an alert status to **Closed** or **Muted** on a sensor or on-premises management console updates the alert status to **Closed** on the Azure portal.
 
+> [!TIP]
+> If you're working with Microsoft Sentinel, we recommend that you configure the integration to also  [synchronize alert status](concept-sentinel-integration.md#defender-for-iot-alerts-in-microsoft-sentinel) with Microsoft Sentinel.
+>
 ## Accelerating OT alert workflows
 
 **Admin** users on an OT network sensor can use the following options to help their SOC and OT management teams triage and remediate alerts faster:
@@ -123,7 +126,7 @@ Setting an alert status to **Closed** or **Muted** on a sensor or on-premises ma
     For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
 ## OT alert data retention
-
+<!--update with Shereen's PR-->
 On an OT network sensor:
 
 - New alerts are automatically closed if no identical traffic detected is 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor.
@@ -138,7 +141,7 @@ Updating an alert’s status, learning the alert, or muting the alert doesn’t 
 
 Review alert types and messages to help you understand and plan remediation actions and playbook integrations. For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
 
-- Investigate OT alerts
+- Investigate OT alerts <!--add link when ready-->
 - [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
 - [View and manage alerts on your OT sensor](how-to-view-alerts.md)
 - [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
