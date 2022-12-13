@@ -90,7 +90,6 @@ The circuit owner has the power to modify and revoke authorizations at any time.
   >- Microsoft.Network/expressRouteCircuits/authorizations/delete
   > 
   > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](https://learn.microsoft.com/azure/role-based-access-control/built-in-roles).
-  > 
 
 ### Circuit owner operations
 
