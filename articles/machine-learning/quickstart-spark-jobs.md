@@ -54,11 +54,11 @@ In this quickstart guide, you'll learn how to submit a Spark job using Azure Mac
 
 ## Add role assignments in Azure storage accounts
 
-Before we submit an Apache Spark job, we must ensure that input, and output data paths are accessible. Assign **Contributor** and **Storage Blob Data Contributor** roles to the user identity of the logged-in user to enable read and write access. 
+Before we submit an Apache Spark job, we must ensure that input, and output, data paths are accessible. Assign **Contributor** and **Storage Blob Data Contributor** roles to the user identity of the logged-in user to enable read and write access.
 
 To assign appropriate roles to the user identity:
 
-1. Navigate to the Azure Data Lake Storage (ADLS) Gen 2 storage account page in the Microsoft Azure portal
+1. Navigate to the Azure Data Lake Storage (ADLS) Gen 2 storage account page in the Microsoft Azure portal.
 1. Select **Access Control (IAM)** from the left panel.
 1. Select **Add role assignment**.
 
@@ -124,7 +124,7 @@ The above script takes two arguments `--titanic_data` and `--wrangled_data`, whi
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and input/output data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`: 
+This example YAML specification shows a standalone Spark job. It uses an Azure Machine Learning Managed (Automatic) Spark compute, user identity passthrough, and input/output data URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`:
 
 ```yaml
 $schema: http://azureml/sdk-2-0/SparkJob.json
@@ -166,9 +166,9 @@ resources:
 ```
 
 In the above YAML specification file:
-- `code` property defines relative path of the folder containing parameterized `titanic.py` file. 
+- `code` property defines relative path of the folder containing parameterized `titanic.py` file.
 - `resource` property defines `instance_type` and Apache Spark `runtime_version` used by Managed (Automatic) Spark compute.
- 
+
 The YAML file shown can be used in the `az ml job create` command, with the `--file` parameter, to create a standalone Spark job as shown:
 
 ```azurecli
@@ -229,7 +229,7 @@ ml_client.jobs.stream(returned_spark_job.name)
 ```
 
 In the above code sample:
-- `code` parameter defines relative path of the folder containing parameterized `titanic.py` file. 
+- `code` parameter defines relative path of the folder containing parameterized `titanic.py` file.
 - `resource` parameter defines `instance_type` and Apache Spark `runtime_version` used by Managed (Automatic) Spark compute.
 
 ---
