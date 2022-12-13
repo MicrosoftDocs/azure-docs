@@ -4,6 +4,7 @@ description: Learn how to deploy and configure VM insights and find out about th
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
+ms.reviewer: xpathak
 ms.date: 06/24/2022
 ms.custom: references_regions
 
@@ -11,7 +12,7 @@ ms.custom: references_regions
 
 # Enable VM insights overview
 
-This article provides an overview of the options available to enable VM insights to monitor the health and performance of:
+This article provides an overview of how to enable VM insights to monitor the health and performance of:
 
 - Azure virtual machines.
 - Azure virtual machine scale sets.
