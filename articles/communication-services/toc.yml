@@ -306,6 +306,8 @@ items:
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+          - name: Logs & metrics
+            href: concepts/interop/guest/monitor-logs-metrics.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
