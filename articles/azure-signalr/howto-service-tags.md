@@ -56,7 +56,7 @@ You can allow outbound traffic to Azure SignalR Service by adding a new outbound
 
 ### Configure inbound traffic
 
-If you're using upstream, you can also enable inbound traffic from Azure SignalR Service by adding a new inbound network security rule:
+If you're using upstream endpoints, you can also enable inbound traffic from Azure SignalR Service by adding a new inbound network security rule:
 
 1. Go to the network security group.
 1. Select  **Inbound security rules**.
