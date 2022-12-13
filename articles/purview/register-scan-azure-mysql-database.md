@@ -1,12 +1,12 @@
 ---
 title: 'Connect to and manage Azure Database for MySQL'
 description: This guide describes how to connect to Azure Database for MySQL in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Database for MySQL source.
-author: linda33wj
-ms.author: jingwang
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/12/2022
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 

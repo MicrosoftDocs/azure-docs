@@ -1,12 +1,12 @@
 ---
 title: 'Connect to and manage an Azure Database for PostgreSQL'
 description: This guide describes how to connect to an Azure Database for PostgreSQL single server in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure Database for PostgreSQL source.
-author: linda33wj
-ms.author: jingwang
+author: heniot
+ms.author: shjia
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/12/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
