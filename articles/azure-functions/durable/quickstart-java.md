@@ -342,7 +342,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 2. In the Terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   ![Screenshot of Azure local output.](media/quickstart-java/mvn-functions-run-2.png)
+   ![Screenshot of Azure local output.](media/quickstart-java/maven-functions-run.png)
 
 3. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. You should get a response similar to the following:
 
