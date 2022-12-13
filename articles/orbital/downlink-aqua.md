@@ -33,7 +33,7 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 > These steps must be followed as is or you won't be able to find the resources. Please use the specific link above to sign in directly to the Azure Orbital Preview page.
 
 ## Create & authorize a spacecraft for AQUA
-
+### Create a new spacecraft resource for AQUA
 1. In the Azure portal search box, enter **Spacecraft*. Select **Spacecraft** in the search results.
 2. In the **Spacecraft** page, select Create.
 3. Learn an up-to-date Two-Line Element (TLE) for AQUA by checking celestrak at https://celestrak.com/NORAD/elements/active.txt
@@ -65,16 +65,37 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 7. Select the **Review + create** tab, or select the **Review + create** button.
 8. Select **Create**
 
-9. Access the [Azure Orbital Spacecraft Authorization Form](https://forms.office.com/r/QbUef0Cmjr)
-10. Provide the following information:
+### Request authorization of the new AQUA spacecraft resource
+1. Navigate to the newly created spacecraft resource's overview page.
+2. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
+   > [!NOTE]
+   > A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
-   - Spacecraft name: **AQUA**
-   - Region where spacecraft resource was created: **West US 2**
-   - Company name and email
-   - Azure Subscription ID
+3. In the **New support request** page, enter or select this information in the Basics tab:
 
-11. Submit the form
-12. Await a 'Spacecraft resource authorized' email from Azure Orbital
+| **Field** | **Value** |
+| --- | --- |
+| Summary | Request Authorization for [**AQUA**] |
+| Issue type |	Select **Technical** |
+| Subscription |	Select the subscription in which the spacecraft resource was created |
+| Service |	Select **My services** |
+| Service type |	Search for and select **Azure Orbital** |
+| Problem type |	Select **Spacecraft Management and Setup** |
+| Problem subtype |	Select **Spacecraft Registration** |
+
+4. Select the Details tab at the top of the page
+5. In the Details tab, enter this information in the Problem details section:
+
+| **Field** | **Value** |
+| --- | --- |
+| When did the problem start? |	Select the current date & time |
+| Description |	List AQUA's center frequency (**8160**) and the desired ground stations |
+| File upload |	Upload any pertinent licensing material, if applicable |
+
+6. Complete the **Advanced diagnostic information** and **Support method** sections of the **Details** tab.
+7. Select the **Review + create** tab, or select the **Review + create** button.
+8. Select **Create**.
+
    > [!NOTE]
    > You can confirm that your spacecraft resource for AQUA is authorized by checking that the **Authorization status** shows **Allowed** in the spacecraft's overiew page.
 

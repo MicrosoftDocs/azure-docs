@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/storage/queues/storage-quickstart-queues-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/iot-solution.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-center-community.md",
             "redirect_url": "/azure/backup/backup-center-overview",
             "redirect_document_id": false
@@ -5964,6 +5979,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
             "redirect_url": "/azure/reliability/cross-region-replication-azure",
             "redirect_document_id": true
@@ -7026,6 +7046,11 @@
         {
             "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
             "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
         },
         {
@@ -16304,6 +16329,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
+            "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
@@ -25579,36 +25609,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks",
             "redirect_document_id": false
@@ -29498,6 +29498,21 @@
             "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
             "redirect_url": "/azure/aks/intro-kubernetes",
             "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy-service-principal-encryption.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
+          "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
+          "redirect_document_id": false
         }
     ]
 }

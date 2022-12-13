@@ -97,6 +97,8 @@
       href: path-selection-multiple-links.md
   - name: Point-to-site
     items:
+    - name: P2S concepts
+      href: point-to-site-concepts.md
     - name: P2S IPsec policies
       href: point-to-site-ipsec.md
     - name: P2S client address pools

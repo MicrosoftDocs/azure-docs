@@ -400,7 +400,7 @@ Filters can be reused in two ways:
     later time may be different from the one observed when the link was
     created.
 
--   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map blade. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
+-   The dashboard pin :::image type="content" source="media/app-map/image-10.png" alt-text="A screenshot displaying the dashboard pin button."::: is located next to the title bar of the Application Map pane. This button pins the map to a dashboard, along with the filters applied to it. This action can be useful for filters that are frequently interesting. As an example, the user can pin a map with "Error connector" filter applied to it, and the dashboard view will only show nodes that have errors in their HTTP calls.
 
 #### Filter usage scenarios
 
@@ -503,7 +503,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 1. Make sure you're using an officially supported SDK. Unsupported or community SDKs might not support correlation.
 
-    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./platforms.md).
+    For a list of supported SDKs, see [Application Insights: Languages, platforms, and integrations](./app-insights-overview.md#supported-languages).
 
 1. Upgrade all components to the latest SDK version.
 

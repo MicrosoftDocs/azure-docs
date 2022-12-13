@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of Azure Digital Twins Explorer (preview)
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/24/2022
+ms.date: 12/2/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -141,7 +141,7 @@ There are two possible error scenarios that each give their own error message:
 
 Both of these error messages are shown in the screenshot below:
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model." lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors-large.png":::
 
 #### View a twin's relationships
 
@@ -230,7 +230,7 @@ You can create a new digital twin from its model definition in the **Models** pa
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Create a Twin is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-create-a-twin-large.png":::
 
 To add property values to your twin, see [Edit twin and relationship properties](#edit-twin-and-relationship-properties).
 
@@ -296,7 +296,7 @@ You can use the **Model Graph** panel to view a graphical representation of the 
 
 To see the full definition of a model, find that model in the **Models** pane and select the menu dots next to the model name. Then, select **View Model**. Doing so will display a **Model Information** modal showing the raw DTDL definition of the model.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted.":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-view.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to View Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-view-large.png":::
 
 You can also view a model's full definition by selecting it in the **Model Graph**, and using the **Toggle model details** button to expand the **Model Detail** panel. This panel will also display the full DTDL code for the model.
 
@@ -333,7 +333,7 @@ You can upload custom images to represent different models in the Model Graph an
 
 To upload an image for a single model, find that model in the **Models** panel and select the menu dots next to the model name. Then, select **Upload Model Image**. In the file selector box that appears, navigate on your machine to the image file you want to upload for that model. Choose **Open** to upload it.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted.":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Upload Model Image is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-upload-one-image-large.png":::
 
 You can also upload model images in bulk.
 
@@ -365,7 +365,7 @@ For information about the viewing experience for models, see [Explore models and
 
 ### Upload models
 
-You can upload models from your machine by selecting them individually, or by uploading an entire folder of models at once.
+You can upload models from your machine by selecting model files individually, or by uploading an entire folder of model files at once. If you're uploading one JSON file that contains the code for many models, be sure to review the [bulk model upload limitations](#limitations-of-bulk-model-upload).
 
 To upload one or more models that are individually selected, select the **Upload a model** icon showing an upwards arrow.
 
@@ -380,7 +380,18 @@ To upload a folder of models, including everything that's inside it, select the 
 In the file selector box that appears, navigate on your machine to a folder containing JSON model files. Select **Open** to upload that top-level folder and all of its contents.
 
 >[!IMPORTANT]
->If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them both in the same import and Azure Digital Twins will infer the order to upload them in.
+>If a model references another model in its definition, like when you're defining relationships or components, the model being referenced needs to be present in the instance in order to upload the model that uses it. If you're uploading models one-by-one, that means that you should upload the model being referenced **before** uploading any models that use it. If you're uploading models in bulk, you can select them all in the same import and Azure Digital Twins will infer the order to upload them in. However, if you're uploading more than 50 models in the same file, see the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
+#### Limitations of bulk model upload
+
+The limitations in this section apply to models that are contained within a single JSON file, therefore being uploaded at the same time.
+
+While there's no limit to how many models you can include with a single JSON file, there are special considerations for files containing more than 50 models. If you're uploading more than 50 models within the same model file, follow these tips:
+* If there are any models that inherit from other models that are defined in the same file, place them near the end of the list.
+* If there are any models that reference other models defined in the same file as components, place them near the end of the list.
+* Verify that wherever a model references another model that's defined in the same file (either through inheritance or as a component), the model that contains the reference comes later in the list than the referenced model definition.
+
+This will help make sure that model dependencies are resolved correctly during the upload process.
 
 ### Delete models
 
@@ -388,7 +399,7 @@ You can use the Models panel to delete individual models, or all of the models i
 
 To delete a single model, find that model in the list and select the menu dots next to the model name. Then, select **Delete Model**.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted.":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one.png" alt-text="Screenshot of Azure Digital Twins Explorer Models panel. The menu dots for a single model are highlighted, and the menu option to Delete Model is also highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/models-panel-delete-one-large.png":::
 
 To delete all of the models in your instance at once, choose the **Delete All Models** icon at the top of the Models panel.
 
@@ -410,22 +421,27 @@ From the **Twin Graph** panel, you have the options to [import](#import-graph) a
 
 You can use the import feature to add twins, relationships, and models to your instance. This feature can be useful for creating many twins, relationships, and/or models at once.
 
+>[!NOTE]
+> If your graph import file includes models, they'll be subject to the [bulk model upload limitations](#limitations-of-bulk-model-upload).
+
 #### Create import file
 
 The first step in importing a graph is creating a file representing the twins and relationships you want to add.
 
 The import file can be in either of these two formats:
-* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 * The *JSON-based format* generated on [graph export](#export-graph-and-models). This format can contain twins, relationships, and/or models.
+* The *custom Excel-based format* described in the rest of this section. This format allows you to upload twins and relationships.
 
-To create a custom graph in Excel, use the following format.
+##### Create import file in Excel
+
+To create a custom graph in Excel that can upload twins and relationships to Azure Digital Twins Explorer, use the following format.
 
 Each row represents an element to create: either a twin, a relationship, or a combination of twin and corresponding relationship.
 Use the following columns to structure the twin or relationship data. The column names can be customized, but they should remain in this order.
 
 | ModelID | ID | Relationship (source) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
-| (Optional)<br>The DTMI model ID for a twin that should be created.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
+| (Optional)<br>The DTMI ID of the model to use for the new twin. This model definition should already exist in the instance.<br><br>You can leave this column blank for a row if you want that row to create only a relationship (no twins). | (Required)<br>The unique ID for a twin.<br><br>If a new twin is being created in this row, this value will be the ID of the new twin.<br>If there's relationship information in the row, this ID will be used as the target of the relationship. | (Optional)<br>The ID of a twin that should be the source twin for a new relationship.<br><br>You can leave this column blank for a row if you want that row to create only a twin (no relationships). | (Optional)<br>The name for the new relationship to create. The relationship direction will be from the twin in column C to the twin in column B. | (Optional)<br>A JSON string containing property settings for the twin to be created. The properties must match the ones defined in the model from column A. |
 
 Here's an example .xlsx file creating a small graph of two floors and two rooms.
 

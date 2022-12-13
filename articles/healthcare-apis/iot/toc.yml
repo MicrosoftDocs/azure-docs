@@ -20,17 +20,19 @@ items:
       expanded: true
       items:
       - name: Choose a deployment method
-        href: deploy-iot-connector-in-azure.md
-      - name: Azure Resource Manager (ARM) template
-        href: deploy-02-new-button.md
-      - name: Azure PowerShell and CLI
-        href: deploy-08-new-ps-cli.md
-      - name: Manual deployment - Prerequisites
-        href: deploy-03-new-manual.md
-      - name: Manual deployment - Configure
-        href: deploy-05-new-config.md
-      - name: Manual deployment - Deploy
-        href: deploy-06-new-deploy.md   
+        href: deploy-new-choose.md
+      - name: Azure Resource Manager template
+        href: deploy-new-button.md
+      - name: Azure PowerShell or Azure CLI
+        href: deploy-new-powershell-cli.md
+      - name: Azure Bicep
+        href: deploy-new-bicep-powershell-cli.md
+      - name: Azure portal - Prerequisites
+        href: deploy-new-manual.md
+      - name: Azure portal - Configure
+        href: deploy-new-config.md
+      - name: Azure portal - Deploy
+        href: deploy-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
@@ -74,7 +76,7 @@ items:
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
-    - name: Device and destination mappings
+    - name: Device and FHIR destination mappings
       href: iot-troubleshoot-mappings.md
 - name: Concepts
   expanded: false

@@ -5,7 +5,7 @@ services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 10/13/2022
+ms.date: 12/13/2022
 ms.author: rambala
 ---
 # Configure Virtual WAN for Azure NetApp Files

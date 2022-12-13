@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.subservice: mongodb
 ms.devlang: python
 ms.topic: how-to
-ms.date: 11/16/2022
+ms.date: 11/18/2022
 ms.custom: devx-track-js, ignite-2022
 ---
 
@@ -132,7 +132,9 @@ client.close()
 
 ## Use MongoDB client classes with Azure Cosmos DB for API for MongoDB
 
-Let's look at the hierarchy of resources in the API for MongoDB and the object model that's used to create and access these resources. The API for MongoDB creates resources in the following order:
+[!INCLUDE [Conceptual object model](<./includes/conceptual-object-model.md>)]
+
+Each type of resource is represented by one or more associated Python classes. Here's a list of the most common classes:
 
 * [MongoClient](https://pymongo.readthedocs.io/en/stable/api/pymongo/mongo_client.html) - The first step when working with PyMongo is to create a MongoClient to connect to Azure Cosmos DB's API for MongoDB. The client object is used to configure and execute requests against the service.
 
