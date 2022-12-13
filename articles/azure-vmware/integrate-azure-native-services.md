@@ -39,8 +39,6 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 
 :::image type="content" source="media/concepts/integrated-azure-monitoring-architecture.png" alt-text="Diagram showing the integrated Azure monitoring architecture."lightbox="media/concepts/integrated-azure-monitoring-architecture.png" border="false":::
 
-Defender for Cloud forwards the environment vulnerability to Microsoft Sentinel to create an incident and map with other threats. You can also create the scheduled rules query to detect unwanted activity and convert it to the incidents.
-
 >[!NOTE]
 > If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-enable-overview) for guidance.
 
