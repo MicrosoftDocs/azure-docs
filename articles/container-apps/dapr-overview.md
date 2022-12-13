@@ -223,7 +223,7 @@ metadata:
     value: "AZUREPUBLICCLOUD"
   - name: azureTenantId
     value: "[your_tenant_id]"
-  - name: azureClientId # Only required if using user-assigned managed identity
+  - name: azureClientId 
     value: "[your_client_id]"
   - name: azureClientSecret
     secretRef: azClientSecret
