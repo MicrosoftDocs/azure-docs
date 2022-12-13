@@ -7,6 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.date: 08/12/2022
 ms.devlang: azurecli
+ms.custom: engagement-fy23
 --- 
 
 # Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
@@ -18,7 +19,8 @@ Get started by creating an Azure Managed Grafana workspace using the Azure CLI. 
 
 ## Prerequisite
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- The user must be a resource group Contributor or subscription Owner
 
 ## Sign in to Azure
 
