@@ -9,7 +9,57 @@ items:
     href: overview.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml
+  - name: Deployment automation framework
+    items:
+    - name: SAP on Azure deployment automation framework documentation
+      href: automation/index.yml
+    - name: About SAP on Azure Deployment Automation Framework
+      href: automation/deployment-framework.md
+    - name: Frequently asked questions
+      href: automation/faq.yml
+  - name: Azure Monitor for SAP solutions
+    items:
+    - name: Azure Monitor for SAP solutions documentation
+      href: monitor/index.yml
+    - name: What is Azure Monitor for SAP solutions?
+      href: monitor/about-azure-monitor-sap-solutions.md
+    - name: Frequently asked questions (FAQ)
+      href: monitor/faq.yml
+  - name: SAP on Azure VM workloads
+    href: ../virtual-machines/workloads/sap/index.yml
 
+- name: Concepts
+  items:
+  - name: Deployment automation framework
+    items: 
+    - name: Supported platforms and features
+      href: automation/supportability.md
+    - name: Naming conventions
+      href: automation/naming.md
+    - name: Using a custom naming convention
+      href: automation/naming-module.md
+    - name: Configuration
+      items:
+      - name: Configure Azure DevOps
+        href: automation/configure-devops.md
+      - name: Configure the control plane
+        href: automation/configure-control-plane.md
+      - name: Configure Configuration Web App
+        href: automation/configure-webapp.md
+      - name: Configure the workload zone
+        href: automation/configure-workload-zone.md
+      - name: Configure the SAP system
+        href: automation/configure-system.md
+      - name: Configure SAP parameters
+        href: automation/configure-sap-parameters.md
+      - name: Configure custom disk sizing
+        href: automation/configure-extra-disks.md
+      - name: Configure external tools
+        href: automation/tools-configuration.md
+  - name: Azure Monitor for SAP solutions
+    items:
+    - name: Providers in Azure Monitor for SAP solutions
+      href: monitor/providers.md
 
 - name: How-to guides
   items:
@@ -41,55 +91,7 @@ items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
 
-- name: Reference
-  items:
-  - name: REST API
-    href: /rest/api/workloads/
-  - name: Azure CLI guide
-    href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
-
-# SDAF content
-
-- name: Deployment automation framework
-  items:
-
-  - name: Overview
-    items:
-    - name: About SAP on Azure Deployment Automation Framework
-      href: automation/deployment-framework.md
-    - name: Frequently asked questions
-      href: automation/faq.yml
-
-  - name: Concepts
-    items:
-    - name: Supported platforms and features
-      href: automation/supportability.md
-    - name: Naming
-      items:
-      - name: Naming conventions
-        href: automation/naming.md
-      - name: Using a custom naming convention
-        href: automation/naming-module.md
-    - name: Configuration
-      items:
-      - name: Configure Azure DevOps
-        href: automation/configure-devops.md
-      - name: Configure the control plane
-        href: automation/configure-control-plane.md
-      - name: Configure Configuration Web App
-        href: automation/configure-webapp.md
-      - name: Configure the workload zone
-        href: automation/configure-workload-zone.md
-      - name: Configure the SAP system
-        href: automation/configure-system.md
-      - name: Configure SAP parameters
-        href: automation/configure-sap-parameters.md
-      - name: Configure custom disk sizing
-        href: automation/configure-extra-disks.md
-      - name: Configure external tools
-        href: automation/tools-configuration.md
-
-  - name: How-to guides
+  - name: Deployment automation framework
     items:
     - name: Get started with automation framework
       href: automation/get-started.md
@@ -124,10 +126,46 @@ items:
       - name: Create automation template files
         href: automation/bom-templates-db.md
 
-  - name: Reference
+  - name: Azure Monitor for SAP solutions
     items:
-      - name: Bash
-        items:
+    - name: Set up network for Azure Monitor for SAP solutions
+      href: monitor/set-up-network.md
+    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
+      href: monitor/get-alerts-portal.md
+    - name: Provider configuration
+      items:
+      - name: Configure NetWeaver provider
+        href: monitor/provider-netweaver.md
+      - name: Configure SAP HANA provider
+        href: monitor/provider-hana.md
+      - name: Configure Microsoft SQL Server provider
+        href: monitor/provider-sql-server.md
+      - name: Configure High-availability cluster (Pacemaker) provider
+        href: monitor/provider-ha-pacemaker-cluster.md
+      - name: Configure OS (Linux) provider
+        href: monitor/provider-linux.md
+      - name: Configure IBM Db2 provider
+        href: monitor/provider-ibm-db2.md
+
+- name: Quickstarts
+  items:
+  - name: Azure Monitor for SAP solutions
+    items:
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
+      href: monitor/quickstart-portal.md
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
+      href: monitor/quickstart-powershell.md
+
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/workloads/
+  - name: Azure CLI guide
+    href: https://github.com/Azure/Azure-Center-for-SAP-solutions-preview/blob/main/CLI_Documents/ACSS_CLI_Guide.md  
+  - name: Deployment automation framework
+    items:
+    - name: Bash
+      items:
         - name: Bash scripts for automation framework
           href: automation/reference-bash.md
         - name: Deploying the control plane using shell scripts
@@ -150,8 +188,8 @@ items:
           href: automation/bash/advanced-state-management.md
         - name: Update the SAP Library SAS token
           href: automation/bash/update-sas-token.md
-      - name: PowerShell
-        items:
+    - name: PowerShell
+      items:
         - name: PowerShell cmdlets for automation framework
           href: automation/reference-powershell.md
         - name: Deploying the control plane using PowerShell
@@ -173,58 +211,7 @@ items:
         - name: Update the Terraform state file using PowerShell
           href: automation/module/update-tfstate.md
 
-# AMS content
-
-- name: Azure Monitor for SAP solutions
-  items:
-
-  - name: Overview
-    expanded: true
-    items:
-    - name: What is Azure Monitor for SAP solutions?
-      href: monitor/about-azure-monitor-sap-solutions.md
-    - name: Frequently asked questions (FAQ)
-      href: monitor/faq.yml
-
-  - name: Concepts
-    items:
-    - name: Providers in Azure Monitor for SAP solutions
-      href: monitor/providers.md
-
-  - name: Quickstarts
-    items:
-    - name: Get started with Azure Monitor for SAP solutions - Azure portal
-      href: monitor/quickstart-portal.md
-    - name: Get started with Azure Monitor for SAP solutions - PowerShell
-      href: monitor/quickstart-powershell.md
-
-  - name: How-to guides
-    items:
-    - name: Set up network for Azure Monitor for SAP solutions
-      href: monitor/set-up-network.md
-    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
-      href: monitor/get-alerts-portal.md
-    - name: Provider configuration
-      items:
-      - name: Configure NetWeaver provider
-        href: monitor/provider-netweaver.md
-      - name: Configure SAP HANA provider
-        href: monitor/provider-hana.md
-      - name: Configure Microsoft SQL Server provider
-        href: monitor/provider-sql-server.md
-      - name: Configure High-availability cluster (Pacemaker) provider
-        href: monitor/provider-ha-pacemaker-cluster.md
-      - name: Configure OS (Linux) provider
-        href: monitor/provider-linux.md
-      - name: Configure IBM Db2 provider
-        href: monitor/provider-ibm-db2.md
-
-  - name: Reference
+  - name: Azure Monitor for SAP solutions
     items:
     - name: Data reference for Azure Monitor for SAP solutions
       href: monitor/data-reference.md
-
-# SAP VM workloads content
-
-- name: SAP on Azure VM workloads
-  href: ../virtual-machines/workloads/sap/index.yml
