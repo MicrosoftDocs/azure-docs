@@ -40,7 +40,7 @@ Use the following patterns to add new values:
 
 ## Logs not being sent to Logz.io
 
-Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md), will send logs to Logz.io.
+1. Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md), will send logs to Logz.io.
 
 To verify whether a resource is sending logs to Logz.io:
 
@@ -48,8 +48,6 @@ To verify whether a resource is sending logs to Logz.io:
 1. Verify that there's a Logz.io diagnostic setting.
 
 :::image type="content" source="./media/troubleshoot/diagnostics.png" alt-text="Screenshot of the Azure monitoring diagnostic settings for Logz.io.":::
-
-2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
 
 3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
