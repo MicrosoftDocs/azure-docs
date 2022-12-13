@@ -127,6 +127,7 @@ In this section, we'll run the server locally with [sample files](https://github
     ```
 
 1. Create and activate a virtual environment with [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+    In this example, the `azureml-inference-server-http` package is automatically installed because it is included as a dependent library of the `azureml-defaults` package in `conda.yml` below.
 
     ```bash
     # Create the environment from the YAML file
@@ -135,12 +136,12 @@ In this section, we'll run the server locally with [sample files](https://github
     conda activate model-env
     ```
 
-1. Review your scoring script.
+2. Review your scoring script.
 
     __onlinescoring/score.py__  
     :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
-1. Run the inference server with specifying scoring script and model file.
+3. Run the inference server with specifying scoring script and model file.
    The specified model directory (`model_dir` parameter) will be defined as `AZUREML_MODEL_DIR` variable and retrived in the scoring script. 
    In this case, we specify the current directory (`./`) since the subdirectory is specified in the scoring script as `model/sklearn_regression_model.pkl`.
 
@@ -150,7 +151,7 @@ In this section, we'll run the server locally with [sample files](https://github
 
     The example [startup log](#startup-logs) will be shown if the server launched and the scoring script invoked successfully. Otherwise, there will be error messages in the log.
 
-1. Test the scoring script with a sample data.
+4. Test the scoring script with a sample data.
     Open another teminal and move to the same working directory to run the command.
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
