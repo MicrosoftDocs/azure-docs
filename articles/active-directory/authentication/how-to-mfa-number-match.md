@@ -313,9 +313,23 @@ Here are differences in sign-in scenarios that Microsoft Authenticator users wil
 
 - Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone.
 
+### How can users enter a OTP with the NPS extension?
+
+The VPN and NPS server must be using PAP protocol for OTP prompts to appear. If they are using a protocol that does not support OTP, such as MSCHAPv2, they will continue to see the **Approve/Deny** notifications.
+
+### Will users get a prompt similar to a number matching prompt, but will need to enter an OTP?
+
+They will see a prompt to supply a verification code. They must select their account in Microsoft Authenticator and enter the random generated code that appears there.
+
 ### Can I opt out of number matching?
 
 Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+
+### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
+
+If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for Push or Any on the **Enable and Target** tab, they will start to receive number matching approval on Feb 27th, 2023.
+
+Regardless of their default method, any user who is prompted to sign-in with Authenticator will see number match after Feb 27th, 2023. If the user is prompted for another method, they won't see any change. 
 
 ### Will users who don't use number matching be able to perform MFA?
 
