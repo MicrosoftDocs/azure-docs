@@ -5,7 +5,7 @@ ms.date: 12/13/2022
 ms.topic: how-to
 ---
 
-## Install OT monitoring software on an on-premises management console
+# Install OT monitoring software on an on-premises management console
 
 This section provides generic procedures for installing OT monitoring software on an on-premises management console.
 

@@ -27,7 +27,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-install-software.md#download-software-files-from-the-azure-portal).
+- The OT sensor software [downloaded from Defender for IoT in the Azure portal](../how-to-prepare-for-ot-software-installation.md#download-software-files-from-the-azure-portal).
 
 Make sure the hypervisor is running.
 
@@ -81,7 +81,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md).
 
 
 

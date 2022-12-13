@@ -5,7 +5,7 @@ ms.date: 12/13/2022
 ms.topic: how-to
 ---
 
-## Post-installation validation
+# Post-installation validation
 
 After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 

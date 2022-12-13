@@ -17,7 +17,7 @@ By default, each OT network sensor is installed with the privileged *cyberx*, *s
 
 When setting up a sensor for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software on OT sensors](how-to-install-software.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new OT sensor users
 

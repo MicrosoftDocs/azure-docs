@@ -5,7 +5,7 @@ ms.date: 12/13/2022
 ms.topic: how-to
 ---
 
-## Install OT monitoring software on OT sensors
+# Install OT monitoring software on OT sensors
 
 This section provides generic procedures for installing OT monitoring software on sensors.
 

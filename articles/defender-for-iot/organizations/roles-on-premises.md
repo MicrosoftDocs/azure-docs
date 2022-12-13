@@ -16,7 +16,7 @@ This article provides:
 
 ## Default privileged on-premises users
 
-By default, each sensor and on-premises management console is [installed](how-to-install-software.md#install-ot-monitoring-software) with the *cyberx* and *support* privileged users. OT sensors are also installed with the *cyberx_host* privileged user.
+By default, each sensor and on-premises management console is [installed ](how-to-install-ot-software-on-premises-management-console.md) with the *cyberx* and *support* privileged users. OT sensors are also installed with the *cyberx_host* privileged user.
 
 Privileged users have access to advanced tools for troubleshooting and setup, such as the CLI. When first setting up your sensor or on-premises management console, first sign in with one of the privileged users. Then create an initial user with an **Admin** role, and then use that admin user to create other users with other roles.
 
