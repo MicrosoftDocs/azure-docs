@@ -60,7 +60,7 @@ Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and sp
 kubectl apply -f public-svc.yaml
 ```
 
-The Azure Load Balancer will be configured with a new public IP that will front this new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service that you deploy will get a new dedicated frontend IP to be uniquely accessed.
+The Azure Load Balancer will be configured with a new public IP that will front the new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service that you deploy will get a new dedicated frontend IP to be uniquely accessed.
 
 Confirm your service is created and the load balancer is configured using the following command.
 
@@ -74,6 +74,33 @@ default       public-svc    LoadBalancer   10.0.39.110    52.156.88.187   80:320
 ```
 
 When you view the service details, the public IP address created for this service on the load balancer is shown in the *EXTERNAL-IP* column. It may take a few minutes for the IP address to change from *\<pending\>* to an actual public IP address.
+
+For more detailed information about your service using the following command.
+
+```azurecli-interactive
+kubectl describe service public-svc
+```
+
+The following example output is a condensed version of the output after you run `kubectl describe service`. *LoadBalancer Ingress* shows the external IP address exposed by your service. *IP* shows the internal addresses.
+
+```console
+Name:                        public-svc
+Namespace:                   default
+Labels:                      <none>
+Annotations:                 <none>
+Selector:                    app=public-app
+...
+IP:                          10.0.39.110
+...
+LoadBalancer Ingress:        52.156.88.187
+...
+TargetPort:                  80/TCP
+NodePort:                    32068/TCP
+...
+Session Affinity:            None
+External Traffic Policy:     Cluster
+...
+```
 
 ## Configure the public standard load balancer
 
