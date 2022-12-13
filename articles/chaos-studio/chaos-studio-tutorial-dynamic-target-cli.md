@@ -36,16 +36,16 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 Chaos Studio can't inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Virtual Machine Scale Sets only has one target type (Microsoft-VirtualMachineScaleSet) and one capability (shutdown), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
 
-1. Create a [target for your Virtual Machine Scale Sets](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding:
+1. Create a [target for your Virtual Machine Scale Sets](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the Virtual M<achine Scale Set you're onboarding:
 
     ```azurecli-interactive  
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
     ```
 
 2. Create the capabilities on the Virtual Machine Scale Sets target by replacing `$RESOURCE_ID` with the resource ID of the resource you're onboarding, specifying The `VirtualMachineScaleSet` target and the `Shutdown-2.0` capability.
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet/capabilities/Shutdown-2.0?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
     ```
 
 You've now successfully onboarded your Virtual Machine Scale Set to Chaos Studio.
@@ -117,7 +117,7 @@ With your Virtual Machine Scale Sets now onboarded, you can create your experime
 2. Create the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment. Make sure you've saved and uploaded your experiment JSON and update `experiment.json` with your JSON filename.
 
     ```azurecli-interactive
-    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2021-09-15-preview --body @experiment.json
+    az rest --method put --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME?api-version=2022-10-01-preview --body @experiment.json
     ```
 
     Each experiment creates a corresponding system-assigned managed identity. Note of the `principalId` for this identity in the response for the next step.
@@ -139,7 +139,7 @@ You're now ready to run your experiment. To see the impact, check the portal to 
 1. Start the experiment using the Azure CLI, replacing `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, and `$EXPERIMENT_NAME` with the properties for your experiment.
 
     ```azurecli-interactive
-    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2021-09-15-preview
+    az rest --method post --uri https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Chaos/experiments/$EXPERIMENT_NAME/start?api-version=2022-10-01-preview
     ```
 
 2. The response includes a status URL that you can use to query experiment status as the experiment runs.
