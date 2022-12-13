@@ -120,7 +120,7 @@ Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2
 
 IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
 
-Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. This migration will handle the EFLOW VM migration from 1.1LTS version to 1.4LTS version, including the following:
+Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-Update-1_1_2212_12122) update. This migration will handle the EFLOW VM migration from 1.1LTS version to 1.4LTS version, including the following:
 - IoT Edge runtime
 - IoT Edge configurations
 - Containers
@@ -129,7 +129,7 @@ Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1
 
 To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
 
-1. Get the latest Azure EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
+1. Get the latest Azure EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-Update-1_1_2212_12122) update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
 1. For auto-download migration (needs Internet connection), skip this step. If the EFLOW VM has limited/no internet access, download the necessary files before starting the migration.
     - [1.4.2.12122 Standalone MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_SA)
     - [1.4.2.12122 Update MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_Update)
