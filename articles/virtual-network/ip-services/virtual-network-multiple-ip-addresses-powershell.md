@@ -37,7 +37,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- PowerShell environment in [Azure Cloud Shell](https://shell.azure.com/powershell) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../articles/cloud-shell/quickstart-powershell.md). 
+- PowerShell environment in [Azure Cloud Shell](https://shell.azure.com/powershell) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart - PowerShell](../cloud-shell/quickstart-powershell.md). 
 
 	- If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-InstalledModule -Name Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). Ensure your Az.Network module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
 
