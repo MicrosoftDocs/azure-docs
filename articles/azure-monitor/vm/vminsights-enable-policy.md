@@ -61,9 +61,9 @@ To assign a VM insights policy initiative to a subscription or management group 
 
 1. Select **Review + Create** to review the details before selecting **Create** to create the assignment. Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. See [Remediate compliance results](#remediate-compliance-results) below.
 
-### Review compliance
+### Review compliance for a VM insights policy initiative 
 
-After you create a policy assignment, you can review and manage coverage for the **Enable VM insights** initiative across your management groups and subscriptions. 
+After you create a policy assignment, you can review and manage compliance for the **Enable VM insights** initiative across your management groups and subscriptions. 
 
 To see how many virtual machines exist in each of the management groups or subscriptions and their compliance status:
 
