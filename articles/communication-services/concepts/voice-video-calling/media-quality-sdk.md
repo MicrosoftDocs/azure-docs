@@ -42,22 +42,22 @@ Where
 - `aggregationInterval` is the interval in seconds that the statistics will be aggregated. 
 - `dataPointsPerAggregation` defines how many data points are there for each aggregation event.
 
-After adding an event listener to media stats collector, you'll receive `mediaStatsEmitted` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
+After adding an event listener to media stats collector, you'll receive `mediaStatsEmitted` or `summaryReported` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
 
 Example:
 - If you set `aggregationInterval` = 1
 - `dataPointsPerAggregation` = 60
 
-The media stats summaryReported event will be raised every 60 seconds and will contain 60 unique units for each stat recorded.
+The media stats `mediaStatsEmitted` or `summaryReported` event will be raised every 60 seconds and will contain 60 unique units for each stat recorded.
 
 - If you set `aggregatinInterval` = 60
 - `dataPointsPerAggregation` = 1
 
-The media stats summaryReported event will be raised every 60 seconds and will contain 1 unique unit for each stat recorded.
+The media stats `mediaStatsEmitted` or `summaryReported` event will be raised every 60 seconds and will contain 1 unique unit for each stat recorded.
 
 ### SDK Version `>= 1.8.0`
 
-As a developer you can invoke the `createCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
+As a developer you can invoke the `createCollector` method with optional `mediaStatsSubscriptionOptions`.
 
 ```js
 const mediaStatsCollector = mediaStatsFeature.createCollector(mediaStatsSubscriptionOptions);
@@ -167,9 +167,9 @@ Currently stats fields are the same as *Video Send metrics*
 Currently stats fields are the same as *Video Receive metrics*
 
 ### Using Media Quality Statistics on SDK Version `< 1.8.0` or older
-If you are using an ACS SDK version of 1.8.0 or older, please see below for documentation on how to use this functionality. 
+If you are using an ACS SDK version older than 1.8.0, please see below for documentation on how to use this functionality.
 
-As a developer you can invoke the `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
+As a developer you can invoke the `startCollector` method with optional `mediaStatsSubscriptionOptions`.
 
 ```js
 const mediaStatsCollector = mediaStatsFeature.startCollector(mediaStatsSubscriptionOptions);

@@ -138,7 +138,7 @@ To require attributes for access requests:
 1. If you chose **Built-in**, select an attribute from the dropdown list. If you chose **Directory schema extension**, enter the attribute name in the text box.
 
     > [!NOTE]
-    > The User.mobilePhone attribute can be updated only for non-administrator users. Learn more at [this website](/graph/permissions-reference#remarks-5).
+    > The User.mobilePhone attribute is a sensitive property that can be updated only by some administrators. Learn more at [Who can update sensitive user attributes?](/graph/api/resources/users#who-can-update-sensitive-attributes).
 
 1.	Select the answer format you want requestors to use for their answer. Answer formats include **short text**, **multiple choice**, and **long text**.
 

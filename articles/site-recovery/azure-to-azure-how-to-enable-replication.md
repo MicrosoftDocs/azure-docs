@@ -4,7 +4,7 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: v-pgaddala
 manager: rochakm
 ms.topic: how-to
-ms.date: 10/04/2022
+ms.date: 12/07/2022
 ---
 
 
