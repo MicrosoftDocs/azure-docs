@@ -28,6 +28,7 @@ The following table illustrates the default and maximum limits of the number of 
 > | Managed image | 50,000 |
 
 <sup>1</sup>An individual disk can have 500 incremental snapshots.
+
 <sup>2</sup>This is the default max but higher capacities are supported by request. To request an increase in capacity, request a quota increase or contact Azure Support.
 
 **For standard storage accounts:**
