@@ -17,8 +17,8 @@ The [Azure Load Balancer][az-lb] operates at layer 4 of the Open Systems Interco
 
 A **public** load balancer integrated with AKS serves two purposes:
 
-1. To provide outbound connections to the cluster nodes inside the AKS virtual network. To do this, it translates the private IP address to a public IP address part of its *Outbound Pool*.
-2. To provide access to applications via Kubernetes services of type `LoadBalancer`. It enables you to easily scale your applications and create highly available services.
+1. To provide outbound connections to the cluster nodes inside the AKS virtual network by translating the private IP address to a public IP address part of its *Outbound Pool*.
+2. To provide access to applications via Kubernetes services of type `LoadBalancer`, enabling you to easily scale your applications and create highly available services.
 
 An **internal (or private)** load balancer is used when *only* private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario.
 
@@ -37,9 +37,9 @@ This article assumes you have an AKS cluster with the *Standard* SKU Azure Load 
 
 ## Use the public standard load balancer
 
-After creating an AKS cluster with outbound type `LoadBalancer` (default), your cluster is ready to use the load balancer to expose services.
+After you create an AKS cluster with outbound type `LoadBalancer` (default), your cluster is ready to use the load balancer to expose services.
 
-To do this, create a service manifest named `public-svc.yaml`, which creates a public service of type `LoadBalancer`.
+Create a service manifest named `public-svc.yaml`, which creates a public service of type `LoadBalancer`.
 
 ```yaml
 apiVersion: v1
@@ -95,9 +95,9 @@ Outbound rules follow the same syntax as load balancing and inbound NAT rules:
 
 ***frontend IPs + parameters + backend pool***
 
-An outbound rule configures outbound NAT for all virtual machines identified by the backend pool to be translated to the frontend. Parameters provide additional control over the outbound NAT algorithm.
+An outbound rule configures outbound NAT for all virtual machines identified by the backend pool to be translated to the frontend. Parameters provide more control over the outbound NAT algorithm.
 
-While you can use an outbound rule with a single public IP address, outbound rules are great for scaling outbound NAT because they ease the configuration burden. You can use multiple IP addresses to plan for large-scale scenarios and outbound rules to mitigate SNAT exhaustion prone patterns. Each additional IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
+While you can use an outbound rule with a single public IP address, outbound rules are great for scaling outbound NAT because they ease the configuration burden. You can use multiple IP addresses to plan for large-scale scenarios and outbound rules to mitigate SNAT exhaustion prone patterns. Each IP address provided by a frontend provides 64k ephemeral ports for the load balancer to use as SNAT ports.
 
 When using a *Standard* SKU load balancer with managed outbound public IPs (which are created by default), you can scale the number of managed outbound public IPs using the **`load-balancer-managed-ip-count`** parameter.
 
@@ -118,11 +118,11 @@ At cluster creation time, you can also use the **`load-balancer-managed-ip-count
 
 When you use a *Standard* SKU load balancer, the AKS cluster automatically creates a public IP in the AKS-managed infrastructure resource group and assigns it to the load balancer outbound pool by default.
 
-A public IP created by AKS is an AKS-managed resource. This means the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
+A public IP created by AKS is an AKS-managed resource, meaning the lifecycle of that public IP is intended to be managed by AKS and requires no user action directly on the public IP resource. Alternatively, you can assign your own custom public IP or public IP prefix at cluster creation time. Your custom IPs can also be updated on an existing cluster's load balancer properties.
 
 Requirements for using your own public IP or prefix include:
 
-* Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS can't be reused as a bring your own custom IP as it can cause management conflicts.
+* Custom public IP addresses must be created and owned by the user. Managed public IP addresses created by AKS can't be reused as a "bring your own custom IP" as it can cause management conflicts.
 * You must ensure the AKS cluster identity (Service Principal or Managed Identity) has permissions to access the outbound IP, as per the [required public IP permissions list](kubernetes-service-principal.md#networking).
 * Make sure you meet the [pre-requisites and constraints](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) necessary to configure outbound IPs or outbound IP prefixes.
 
@@ -209,7 +209,7 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 
 To configure a specific value for *AllocatedOutboundPorts* and outbound IP address when creating or updating a cluster, use `load-balancer-outbound-ports` and either `load-balancer-managed-outbound-ip-count`, `load-balancer-outbound-ips`, or `load-balancer-outbound-ip-prefixes`. Before setting a specific value or increasing an existing value for either outbound ports or outbound IP addresses, you must calculate the appropriate number of outbound ports and IP addresses. Use the following equation for this calculation rounded to the nearest integer: `64,000 ports per IP / <outbound ports per node> * <number of outbound IPs> = <maximum number of nodes in the cluster>`.
 
-When calculating the number of outbound ports and IPs and setting the values, remember the following:
+When calculating the number of outbound ports and IPs and setting the values, keep the following information in mind:
 
 * The number of outbound ports per node is fixed based on the value you set.
 * The value for outbound ports must be a multiple of 8.
@@ -220,13 +220,13 @@ The following examples show how the number of outbound ports and IP addresses ar
 
 * If the default values are used and the cluster has 48 nodes, each node will have 1024 ports available.
 * If the default values are used and the cluster scales from 48 to 52 nodes, each node will be updated from 1024 ports available to 512 ports available.
-* If outbound ports is set to 1,000 and outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
-* If outbound ports is set to 1,000 and outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
-* If outbound ports is set to 4,000 and outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
-* If outbound ports is set to 4,000 and outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
+* If the number of outbound ports is set to 1,000 and the outbound IP count is set to 2, then the cluster can support a maximum of 128 nodes: `64,000 ports per IP / 1,000 ports per node * 2 IPs = 128 nodes`.
+* If the number of outbound ports is set to 1,000 and the outbound IP count is set to 7, then the cluster can support a maximum of 448 nodes: `64,000 ports per IP / 1,000 ports per node * 7 IPs = 448 nodes`.
+* If the number of outbound ports is set to 4,000 and the outbound IP count is set to 2, then the cluster can support a maximum of 32 nodes: `64,000 ports per IP / 4,000 ports per node * 2 IPs = 32 nodes`.
+* If the number of outbound ports is set to 4,000 and the outbound IP count is set to 7, then the cluster can support a maximum of 112 nodes: `64,000 ports per IP / 4,000 ports per node * 7 IPs = 112 nodes`.
 
 > [!IMPORTANT]
-> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It's critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example, if you calculated you needed 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
+> After calculating the number outbound ports and IPs, verify you have additional outbound port capacity to handle node surge during upgrades. It's critical to allocate sufficient excess ports for additional nodes needed for upgrade and other operations. AKS defaults to one buffer node for upgrade operations. If using [maxSurge values][maxsurge], multiply the outbound ports per node by your maxSurge value to determine the number of ports required. For example, if you calculate that you need 4000 ports per node with 7 IP address on a cluster with a maximum of 100 nodes and a max surge of 2:
 >
 > * 2 surge nodes * 4000 ports per node = 8000 ports needed for node surge during upgrades.
 > * 100 nodes * 4000 ports per node = 400,000 ports required for your cluster.
@@ -257,7 +257,7 @@ az aks update \
     --load-balancer-idle-timeout 4
 ```
 
-If you expect to have numerous short-lived connections and no long-lived connections that might have long times of idle, like leveraging `kubectl proxy` or `kubectl port-forward`, consider using a low timeout value such as *4 minutes*. When using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow. It's not necessary for both sides to start TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
+If you expect to have numerous short-lived connections and no long-lived connections that might have long times of idle, like using `kubectl proxy` or `kubectl port-forward`, consider using a low timeout value such as *4 minutes*. When using TCP keepalives, it's sufficient to enable them on one side of the connection. For example, it's sufficient to enable them on the server side only to reset the idle timer of the flow. It's not necessary for both sides to start TCP keepalives. Similar concepts exist for application layer, including database client-server configurations. Check the server side for what options exist for application-specific keepalives.
 
 > [!IMPORTANT]
 >
@@ -268,7 +268,7 @@ If you expect to have numerous short-lived connections and no long-lived connect
 When setting *IdleTimeoutInMinutes* to a different value than the default of 30 minutes, consider how long your workloads will need an outbound connection. Also consider that the default timeout value for a *Standard* SKU load balancer used outside of AKS is 4 minutes. An *IdleTimeoutInMinutes* value that more accurately reflects your specific AKS workload can help decrease SNAT exhaustion caused by tying up connections no longer being used.
 
 > [!WARNING]
-> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section below][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
+> Altering the values for *AllocatedOutboundPorts* and *IdleTimeoutInMinutes* may significantly change the behavior of the outbound rule for your load balancer and shouldn't be done lightly. Check the [SNAT Troubleshooting section][troubleshoot-snat] and review the [Load Balancer outbound rules][azure-lb-outbound-rules-overview] and [outbound connections in Azure][azure-lb-outbound-connections] before updating these values to fully understand the impact of your changes.
 
 ## Restrict inbound traffic to specific IP ranges
 
@@ -312,24 +312,24 @@ spec:
     app: azure-vote-front
 ```
 
-## Additional customizations via Kubernetes Annotations
+## Customizations via Kubernetes Annotations
 
 The following annotations are supported for Kubernetes services with type `LoadBalancer`, and they only apply to **INBOUND** flows.
 
 | Annotation | Value | Description
-| ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------ 
-| `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. It’s defaulting to public if not set.
-| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. It’s defaulting to the subnet configured in cloud config file if not set.
-| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it is set to empty string, the DNS entry in the Public IP will not be used.
-| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service, trading specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups. 
+| ----------------------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------
+| `service.beta.kubernetes.io/azure-load-balancer-internal`         | `true` or `false`                     | Specify whether the load balancer should be internal. If not set, it defaults to public.
+| `service.beta.kubernetes.io/azure-load-balancer-internal-subnet`  | Name of the subnet                    | Specify which subnet the internal load balancer should be bound to. If not set, it defaults to the subnet configured in cloud config file.
+| `service.beta.kubernetes.io/azure-dns-label-name`                 | Name of the DNS label on Public IPs   | Specify the DNS label name for the **public** service. If it's set to an empty string, the DNS entry in the Public IP won't be used.
+| `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` or `false`                     | Specify that the service should be exposed using an Azure security rule that may be shared with another service. Trade specificity of rules for an increase in the number of services that can be exposed. This annotation relies on the Azure [Augmented Security Rules](../virtual-network/network-security-groups-overview.md#augmented-security-rules) feature of Network Security groups.
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Name of the resource group            | Specify the resource group of load balancer public IPs that aren't in the same resource group as the cluster infrastructure (node resource group).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by comma.
-| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time, in minutes, for TCP connection idle timeouts to occur on the load balancer. Default and minimum value is 4. Maximum value is 30. Must be an integer.
-|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disable `enableTcpReset` for SLB. Deprecated in Kubernetes 1.18 and removed in 1.20.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | List of allowed service tags          | Specify a list of allowed [service tags][service-tags] separated by commas.
+| `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | TCP idle timeouts in minutes          | Specify the time in minutes for TCP connection idle timeouts to occur on the load balancer. The default and minimum value is 4. The maximum value is 30. The value must be an integer.
+|`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disable `enableTcpReset` for SLB. It was deprecated in Kubernetes 1.18 and removed in 1.20.
 
 ## Troubleshooting SNAT
 
-If you know that you're starting many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or are advised by support that you're exhausting SNAT ports (preallocated ephemeral ports used by PAT), you have several general mitigation options. Review these options and decide what's best for your scenario. It's possible that one or more can help manage your scenario. For detailed information, review the [outbound connections troubleshooting guide](../load-balancer/troubleshoot-outbound-connection.md).
+If you know that you're starting many outbound TCP or UDP connections to the same destination IP address and port, and you observe failing outbound connections or support notifies you that you're exhausting SNAT ports (preallocated ephemeral ports used by PAT), you have several general mitigation options. Review these options and decide what's best for your scenario. It's possible that one or more can help manage your scenario. For detailed information, review the [outbound connections troubleshooting guide](../load-balancer/troubleshoot-outbound-connection.md).
 
 The root cause of SNAT exhaustion is frequently an anti-pattern for how outbound connectivity is established, managed, or configurable timers changed from their default values. Review this section carefully.
 
@@ -339,15 +339,15 @@ The root cause of SNAT exhaustion is frequently an anti-pattern for how outbound
 2. Investigate how your application creates outbound connectivity (for example, code review or packet capture).
 3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) and [logs](../load-balancer/monitor-load-balancer.md) in Azure Monitor to substantiate your findings. For example, use the "Failed" category for SNAT connections metric.
 4. Evaluate if appropriate [patterns](#design-patterns) are followed.
-5. Evaluate if SNAT port exhaustion should be mitigated with [additional outbound IP addresses + additional allocated outbound ports](#configure-the-allocated-outbound-ports).
+5. Evaluate if SNAT port exhaustion should be mitigated with [more outbound IP addresses + more allocated outbound ports](#configure-the-allocated-outbound-ports).
 
 ### Design patterns
 
 Take advantage of connection reuse and connection pooling whenever possible. These patterns help you avoid resource exhaustion problems and result in predictable behavior. Primitives for these patterns can be found in many development libraries and frameworks.
 
-* Atomic requests (one request per connection) are generally not a good design choice. Such anti-patterns limit scale, reduce performance, and decrease reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance will improve because of reduced handshakes, overhead, and cryptographic operation cost when using TLS.
+* Atomic requests (one request per connection) generally aren't a good design choice. Such anti-patterns limit scale, reduce performance, and decrease reliability. Instead, reuse HTTP/S connections to reduce the numbers of connections and associated SNAT ports. The application scale will increase and performance will improve because of reduced handshakes, overhead, and cryptographic operation cost when using TLS.
 * If you're using out of cluster/custom DNS, or custom upstream servers on coreDNS, keep in mind that DNS can introduce many individual flows at volume when the client isn't caching the DNS resolvers result. Make sure to customize coreDNS first instead of using custom DNS servers and to define a good caching value.
-* UDP flows (for example, DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example, 4 minutes).
+* UDP flows (for example, DNS lookups) allocate SNAT ports during the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. Use short idle timeout (for example, 4 minutes).
 * Use connection pools to shape your connection volume.
 * Never silently abandon a TCP flow and rely on TCP timers to clean up flow. If you don't let TCP explicitly close the connection, state remains allocated at intermediate systems and endpoints and makes SNAT ports unavailable for other connections. This pattern can trigger application failures and SNAT exhaustion.
 * Don't change OS-level TCP close related timer values without expert knowledge of impact. While the TCP stack will recover, your application performance can be negatively affected when the endpoints of a connection have mismatched expectations. Wishing to change timers is usually a sign of an underlying design problem. Review following recommendations.
