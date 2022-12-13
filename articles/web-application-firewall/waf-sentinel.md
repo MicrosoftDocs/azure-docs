@@ -82,7 +82,7 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
    
 ## Automatically detect and respond to threats
 
-Using Sentinel ingested WAF logs, you can use Sentinel analytics rules to automatically detect security attacks, create security incident, and automatically respond to security incident using playbooks. Learn more [Use playbooks with automation rules in Microsoft Sentinel](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fsentinel%2Ftutorial-respond-threats-playbook%3Ftabs%3DLAC&data=05%7C01%7Cshabazshaik%40microsoft.com%7C251028569b4a4c5fe73a08dadb18b674%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638063196525040224%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=h6ehWiqTK2O4Trlwrd1mwtFPT0uu973wwb3ARbLK5W4%3D&reserved=0).
+Using Sentinel ingested WAF logs, you can use Sentinel analytics rules to automatically detect security attacks, create security incident, and automatically respond to security incident using playbooks. Learn more [Use playbooks with automation rules in Microsoft Sentinel](https://learn.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook?tabs=LAC).
 
 Azure WAF also comes in with built-in Sentinel detection rules templates for SQLi, XSS, and Log4J attacks. These templates can be found under the Analytics tab in the 'Rule Templates' section of Sentinel. You can use these templates or define your own templates based on the WAF logs. 
 
