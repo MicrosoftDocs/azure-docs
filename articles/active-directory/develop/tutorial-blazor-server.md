@@ -27,9 +27,9 @@ In this tutorial:
 
 ## Prerequisites
 
-- [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+- [.NET Core 7.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 - An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- The Azure account must have permission to manage applications in Azure Active Directory (Azure AD). Any of the following Azure AD roles include the required permissions:
+- The Azure account must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
   - [Application administrator](../roles/permissions-reference.md#application-administrator)
   - [Application developer](../roles/permissions-reference.md#application-developer)
   - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
@@ -60,7 +60,7 @@ dotnet new install Microsoft.Identity.Web.ProjectTemplates
 Then, run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}"
+dotnet new blazorserver --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" --domain "{DOMAIN}" -f net7.0
 ```
 
 | Placeholder   | Azure portal name       | Example                                |
@@ -81,7 +81,7 @@ Now, navigate to your new Blazor app in your editor and add the client secret to
 You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Core 3.1 SDK.
 
 ```dotnetcli
-dotnet run --framework netcoreapp3.1
+dotnet run
 ```
 
 In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running.
@@ -106,7 +106,7 @@ In the *appsettings.json* file, update your code so it fetches the appropriate t
 "Scopes": "user.read mail.read"
 ```
 
-Next, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
+Next, in the `Pages` folder, update the code in the *FetchData.razor* file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
 
 ```csharp
 @page "/fetchdata"
