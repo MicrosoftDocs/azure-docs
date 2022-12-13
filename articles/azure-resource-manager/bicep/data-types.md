@@ -75,7 +75,7 @@ You get the following error when the index is out of bounds:
 The language expression property array index 'x' is out of bounds
 ```
 
-To avoid this exception, you can use the [Or logical operator](./operators-logical.md#or) as shown in the following example:
+To avoid this exception, you can use the [Or logical operator](./operators-logical.md#or-) as shown in the following example:
 
 ```bicep
 param emptyArray array = []
@@ -181,7 +181,7 @@ You will get the following error when accessing an nonexisting property of an ob
 The language expression property 'foo' doesn't exist
 ```
 
-To avoid the exception, you can use the [And logical operator](./operators-logical.md#and) as shown in the following example:
+To avoid the exception, you can use the [And logical operator](./operators-logical.md#and-) as shown in the following example:
 
 ```bicep
 param objectToTest object = {
