@@ -112,7 +112,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 
 | Property | Description |
 |----------|-------------|
-| TenantId| |
+| TenantId| Unique identifier representing your organization's instance of Azure Active Directory.|
 | SourceSystem | Source system for the record. The value is `OpsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | MG | Unique identifier for the management group or Log Analytics workspace. |
