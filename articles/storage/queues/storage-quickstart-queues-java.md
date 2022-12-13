@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Azure Queue Storage client library v12 - Java'
-description: Learn how to use the Azure Queue Storage client library v12 for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
-author: normesta
-ms.author: normesta
-ms.date: 12/01/2020
+title: 'Quickstart: Azure Queue Storage client library for Java'
+description: Learn how to use the Azure Queue Storage client library for Java to create a queue and add messages to it. Then learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 12/13/2022
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-api, passwordless-java
 ---
 
-# Quickstart: Azure Queue Storage client library v12 for Java
+# Quickstart: Azure Queue Storage client library for Java
 
-Get started with the Azure Queue Storage client library v12 for Java. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
+Get started with the Azure Queue Storage client library for Java. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
-Use the Azure Queue Storage client library v12 for Java to:
+Use the Azure Queue Storage client library for Java to:
 
 - Create a queue
 - Add messages to a queue
@@ -40,13 +40,13 @@ Additional resources:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Queue Storage client library v12 for Java.
+This section walks you through preparing a project to work with the Azure Queue Storage client library for Java.
 
 ### Create the project
 
-Create a Java application named `queues-quickstart-v12`.
+Create a Java application named `queues-quickstart`.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name `queues-quickstart-v12`. Type the following `mvn` command to create a "hello world" Java project.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name `queues-quickstart`. Type the following `mvn` command to create a "hello world" Java project.
 
     # [PowerShell](#tab/powershell)
 
@@ -54,7 +54,7 @@ Create a Java application named `queues-quickstart-v12`.
     mvn archetype:generate `
         --define interactiveMode=n `
         --define groupId=com.queues.quickstart `
-        --define artifactId=queues-quickstart-v12 `
+        --define artifactId=queues-quickstart `
         --define archetypeArtifactId=maven-archetype-quickstart `
         --define archetypeVersion=1.4
     ```
@@ -65,7 +65,7 @@ Create a Java application named `queues-quickstart-v12`.
     mvn archetype:generate \
         --define interactiveMode=n \
         --define groupId=com.queues.quickstart \
-        --define artifactId=queues-quickstart-v12 \
+        --define artifactId=queues-quickstart \
         --define archetypeArtifactId=maven-archetype-quickstart \
         --define archetypeVersion=1.4
     ```
@@ -92,15 +92,15 @@ Create a Java application named `queues-quickstart-v12`.
     [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
     [INFO] ----------------------------------------------------------------------------
     [INFO] Parameter: groupId, Value: com.queues.quickstart
-    [INFO] Parameter: artifactId, Value: queues-quickstart-v12
+    [INFO] Parameter: artifactId, Value: queues-quickstart
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
     [INFO] Parameter: package, Value: com.queues.quickstart
     [INFO] Parameter: packageInPathFormat, Value: com/queues/quickstart
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
     [INFO] Parameter: package, Value: com.queues.quickstart
     [INFO] Parameter: groupId, Value: com.queues.quickstart
-    [INFO] Parameter: artifactId, Value: queues-quickstart-v12
-    [INFO] Project created from Archetype in dir: C:\quickstarts\queues\queues-quickstart-v12
+    [INFO] Parameter: artifactId, Value: queues-quickstart
+    [INFO] Project created from Archetype in dir: C:\quickstarts\queues\queues-quickstart
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
@@ -109,21 +109,42 @@ Create a Java application named `queues-quickstart-v12`.
     [INFO] ------------------------------------------------------------------------
     ```
 
-1. Switch to the newly created `queues-quickstart-v12` directory.
+1. Switch to the newly created *queues-quickstart* directory.
 
    ```console
-   cd queues-quickstart-v12
+   cd queues-quickstart
    ```
 
-### Install the package
+### Install the packages
 
-Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies.
+Open the `pom.xml` file in your text editor. 
+
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the `{bom_version_to_target}` placeholder with the version number. Using **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM README](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/boms/azure-sdk-bom/README.md).
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+Then add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services.
 
 ```xml
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-queue</artifactId>
-  <version>12.0.1</version>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-queue</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
 </dependency>
 ```
 
@@ -142,8 +163,9 @@ Here's the code:
 package com.queues.quickstart;
 
 /**
- * Azure Queue Storage client library v12 quickstart
+ * Azure Queue Storage client library quickstart
  */
+import com.azure.identity.*;
 import com.azure.storage.queue.*;
 import com.azure.storage.queue.models.*;
 import java.io.*;
@@ -151,13 +173,30 @@ import java.time.*;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException
+    public static void main(String[] args) throws IOException
     {
+        // Quickstart code goes here
     }
 }
 ```
 
+## Authenticate to Azure
+
+[!INCLUDE [passwordless-overview](../../../includes/passwordless/passwordless-overview.md)]
+
+### [Passwordless (Recommended)](#tab/passwordless)
+
+`DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. To learn more about `DefaultAzureCredential`, see the [DefaultAzureCredential overview](/java/api/overview/azure/identity-readme#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+For example, your app can authenticate using your Visual Studio sign-in credentials when developing locally, and then use a [managed identity](../../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+
+[!INCLUDE [storage-queues-create-assign-roles](../../../includes/passwordless/storage-queues/storage-queues-assign-roles.md)]
+
+### [Connection String](#tab/connection-string)
+
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
+
+---
 
 ## Object model
 
@@ -176,28 +215,91 @@ Use the following Java classes to interact with these resources:
 - [`QueueClientBuilder`](/java/api/com.azure.storage.queue.queueclientbuilder): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
 - [`QueueServiceClient`](/java/api/com.azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
 - [`QueueClient`](/java/api/com.azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-- [`QueueMessageItem`](/java/api/com.azure.storage.queue.models.queuemessageitem): The `QueueMessageItem` class represents the individual objects returned when calling [`ReceiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) on a queue.
+- [`QueueMessageItem`](/java/api/com.azure.storage.queue.models.queuemessageitem): The `QueueMessageItem` class represents the individual objects returned when calling - [`ReceiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) on a queue.
 
 ## Code examples
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Java:
 
-- [Get the connection string](#get-the-connection-string)
-- [Create a queue](#create-a-queue)
+- [Authorize access and instantiate a QueueClient](#authorize-access-and-instantiate-a-queue-client)
+- [Create a queue using a QueueClient object](#create-a-queue-using-a-queueclient-object)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
 - [Receive and delete messages from a queue](#receive-and-delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 
+## [Passwordless (Recommended)](#tab/passwordless)
+
+### Authorize access and instantiate a QueueClient
+
+[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+
+You can authorize a `QueueClient` to access queue data using `DefaultAzureCredential` by adding the **azure-identity** dependency in `pom.xml`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+
+    ```xml
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+    </dependency>
+    ```
+
+At the top of the `App.java` file, add an import directive for `com.azure.identity`.
+
+    ```java
+    import com.azure.identity.*;
+    ```
+
+Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
+
+> [!IMPORTANT]
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+
+Then, create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization.
+
+Add this code inside the `main` method, and make sure to replace the `"<storage-account-name>` placeholder value:
+
+```java
+// Create a unique name for the queue
+System.out.println("Azure Queue Storage client library - Java quickstart sample\n");
+
+String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
+
+TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+
+// Instantiate a QueueClient which will be
+// used to create and manipulate the queue
+QueueClient queueClient = new BlobServiceClientBuilder()
+                .endpoint("https://<storage-account-name>.queue.core.windows.net/")
+                .queueName(queueName)
+                .credential(credential)
+                .buildClient();
+```
+
+### Create a queue using a QueueClient object
+
+Then, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
+
+Add this code to the end of the `main` method:
+
+```java
+
+System.out.println("Creating queue: " + queueName);
+
+// Create the queue
+queueClient.create();
+```
+
+## [Connection String](#tab/connection-string)
+
 ### Get the connection string
 
-The following code retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `main` method:
 
 ```java
-System.out.println("Azure Queue Storage client library v12 - Java quickstart sample\n");
+System.out.println("Azure Queue Storage client library - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -208,14 +310,14 @@ System.out.println("Azure Queue Storage client library v12 - Java quickstart sam
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue
+### Create a queue using the QueueClient
 
-Decide on a name for the new queue. The following code appends a GUID value to the queue name to ensure that it's unique.
+Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
-> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
+> Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [`Create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
+Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
 
 Add this code to the end of the `main` method:
 
@@ -235,6 +337,11 @@ QueueClient queueClient = new QueueClientBuilder()
 // Create the queue
 queueClient.create();
 ```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
+
+---
 
 ### Add messages to a queue
 
@@ -349,7 +456,7 @@ mvn exec:java -Dexec.mainClass="com.queues.quickstart.App" -Dexec.cleanupDaemonT
 The output of the app is similar to the following example:
 
 ```output
-Azure Queue Storage client library v12 - Java quickstart sample
+Azure Queue Storage client library - Java quickstart sample
 
 Adding messages to the queue...
 
@@ -385,4 +492,4 @@ For tutorials, samples, quick starts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for Java cloud developers](/azure/developer/java/)
 
-- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library v12 for Java - samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
+- For more Azure Queue Storage sample apps, see [Azure Queue Storage client library for Java - samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).
