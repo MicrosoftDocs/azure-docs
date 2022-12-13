@@ -39,7 +39,7 @@ The following sections provide information about customer data that doesn't meet
 
 Some services have work in progress to be EU Data Residency and EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU as part of their service operations:
 
-* **Reason for customer data egress** - To provide reliable and scalable service, Microsoft performs regular analytics that involve transfers of data outside the region.
+* **Reason for customer data egress** - To provide reliable and scalable service, Microsoft performs regular analytics that involve transfers of data outside the EU location.
 * **Types of customer data being egressed** - User and device account data, usage data, and service configuration (application, policy, and group).  
 * **Customer data location at rest** - US
 * **Customer data processing** - US
@@ -65,7 +65,7 @@ Some services have work in progress to be EU Data Boundary compliant, but this w
 
 Some services have email specific data that will become compliant in the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
 
-* **Reason for customer data egress** - To provide email notifications, some data is processed outside of the region.  
+* **Reason for customer data egress** - To provide email notifications, some data is processed outside of the EU location.  
 * **Types of customer data being egressed** - User account data (email address).  
 * **Customer data location at rest** - In EU Data Boundary.
 * **Customer data processing**- Some processing may occur globally.
