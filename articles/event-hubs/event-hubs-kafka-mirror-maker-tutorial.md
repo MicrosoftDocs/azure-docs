@@ -5,11 +5,10 @@ ms.topic: how-to
 ms.date: 01/04/2021
 ---
 
-# Use Apache Kafka MirrorMaker with Event Hubs
+# Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker
 
-This tutorial shows how to mirror a Kafka broker into an Azure Event Hub using Kafka MirrorMaker. If you are hosting Apache Kafka on 
-Kubernetes using the CNCF Strimzi operator, you can refer to the tutorial in [this blog post](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) 
-to learn how to set up Kafka with Strimzi and Mirror Maker 2. 
+
+This tutorial shows how to mirror a Kafka broker into an Azure Event Hub using Kafka Mirror Maker 1. 
 
    ![Kafka MirrorMaker with Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
