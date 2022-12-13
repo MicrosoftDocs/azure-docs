@@ -206,7 +206,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     The configuration wizard starts automatically. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
-5. Restart the sensor machine and sign in with the **support** user*. Run the `network list` command to verify that the parameters were changed.
+5. Restart the sensor machine and sign in with the **support** user*. Run the **network list** command to verify that the parameters were changed.
 
 6. Try to ping and connect from the GUI again.
 
