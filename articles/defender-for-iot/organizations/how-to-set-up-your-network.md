@@ -210,7 +210,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
 6. Try to ping and connect from the GUI again.
 
-(*) For more information, see [Default privileged on-premises users](roles-on-premises#default-privileged-on-premises-users).
+(*) For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ### Appliance isn't responding
 
