@@ -47,8 +47,9 @@ First, register the web API in your Azure AD tenant and add a scope by following
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
-[!INCLUDE [active-directory-develop-path-length-tip](../../../../../includes/active-directory-develop-path-length-tip.md)]
+The code sample currently targets ASP.NET core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-net-60). 
 
+This quickstart will be deprecated in the near future and will be updated to use .NET 6.0. 
 
 ## Step 3: Configure the ASP.NET Core project
 
@@ -72,7 +73,26 @@ In this step, the sample code will be configured to work with the app registrati
 
 For this quickstart, don't change any other values in the *appsettings.json* file.
 
-### Step 4: Run the sample
+### Step 4: Update the sample code to ASP.NET Core 6.0
+
+To updated this code sample to target ASP.NET Core 6.0, follow these steps:
+
+1. Open webapi.csproj
+1. Remove the following line:
+
+    ```xml
+   <TargetFramework>netcoreapp6.0</TargetFramework>
+   ```
+
+1. Add the following line in it's place:
+
+   ```xml
+   <TargetFramework>netcoreapp6.0</TargetFramework>
+   ```
+
+This step will ensures that the sample is targeting .NET 6.0.
+
+### Step 5: Run the sample
 
 1. Open a terminal and change directory to the project folder.
 
