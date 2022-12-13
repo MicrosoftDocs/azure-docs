@@ -164,13 +164,13 @@ First, upload the parameterized Python code `titanic.py` to the Azure Blob stora
         4. Select **Save**.
         5. Input `titanic.py` as the name of **Entry file** for the standalone job.
         6. To add an input, select **+ Add input** under **Inputs** and
-            1. Enter **Input name** as `titanic_data`. This is the name by which the input should be referred to later in the **Arguments**. 
+            1. Enter **Input name** as `titanic_data`. The input should refer to this name later in the **Arguments**.
             2. Select **Input type** as **Data**.
             3. Select **Data type** as **File**.
             4. Select **Data source** as **URI**.
             5. Enter an Azure Data Lake Storage (ADLS) Gen 2 data URI for `titanic.csv` file in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`.
         7.  To add an input, select **+ Add output** under **Outputs** and
-            1. Enter **Output name** as `wrangled_data`. This is the name by which the output should be referred to later in the **Arguments**.
+            1. Enter **Output name** as `wrangled_data`. The output should refer to this name later in the **Arguments**.
             2. Select **Output type** as **Folder**.
             3. For **Output URI destination**, enter an Azure Data Lake Storage (ADLS) Gen 2 folder URI in format `abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/<PATH_TO_DATA>`.
         8.  Enter **Arguments**  as `--titanic_data ${{inputs.titanic_data}} --wrangled_data ${{outputs.wrangled_data}}`.
