@@ -94,6 +94,10 @@ items:
       href: enable-log-analytics-for-private-5g-core.md
     - name: Create an overview Log Analytics dashboard - ARM template
       href: create-overview-dashboard.md
+  - name: Packet capture
+    items:
+    - name: Perform packet capture for a packet core instance
+      href: perform-packet-capture
   - name: Distributed tracing
     items:
     - name: Export, upload and share traces
