@@ -88,7 +88,7 @@ For example, you've deleted backups for one of the instances in the vault that h
 
 ## Soft delete with multi-user authorization
 
-You can use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
 
 >[!Note]
 >MUA for soft delete is currently supported for Recovery Services vaults only.

@@ -34,6 +34,10 @@ It's important to remember that once soft delete is disabled, the feature is dis
 >[!Tip]
 >To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
 
+>[!Note]
+>- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+>- MUA for soft delete is currently supported for Recovery Services vaults only.
+
 ### Disabling soft delete using Azure portal
 
 To disable soft delete, follow these steps:
@@ -142,13 +146,6 @@ If items were deleted before soft-delete was disabled, then they'll be in a soft
 1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Then delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-
-## Soft delete with multi-user authorization
-
-You can use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
-
->[!Note]
->MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Frequently asked questions
 
