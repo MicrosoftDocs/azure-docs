@@ -42,7 +42,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Consider setting the connection timeout to 30 seconds to allow the connection to survive short periods of unavailability.
+> Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability and provide enough time for paused instances to resume.
 
 ## Recommendations
 
