@@ -29,7 +29,7 @@ The Defender for IoT micro agent provides deep security protection, and visibili
 - The micro agent has flexible deployment options. The micro agent includes source code, so you can incorporate it into firmware, or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. The micro agent is available for standard IoT operating systems, such as Linux and Azure RTOS.
 - The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
-:::image type="content" source="media/overview/micro-agent-architecture.png" alt-text="The micro agent architecture." lightbox="media/overview/micro-agent-architecture1.png":::
+:::image type="content" source="media/overview/micro-agent-architecture.png" alt-text="The micro agent architecture." lightbox="media/overview/micro-agent-architecture.png":::
 
 ## Next steps
 
