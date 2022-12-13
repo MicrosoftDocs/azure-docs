@@ -54,7 +54,12 @@ For example, a device that attempted to connect to a malicious IP, together with
 
 **To find related alerts in Defender for IoT**:
 
-1. On the **Alerts** page, select an alert to view details on the right, including device links in the **Entities** area. Select an entity link to open the related device details page, for both a source and destination device.
+1. On the **Alerts** page, select an alert to view details on the right.
+
+1. Locate the device links in the **Entities** area, either in alert details pane on the right or in the alert details page. Select an entity link to open the related device details page, for both a source and destination device.
+
+I would just add:
+including device links in the Entities area in the Alert full details page. 
 
 1. On the device details page, select the **Alerts** tab to view all alerts for that device.
 
