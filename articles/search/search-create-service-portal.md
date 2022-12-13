@@ -51,7 +51,7 @@ Paid (or billable) search becomes effective when you choose a billable tier (Bas
 
 ## Choose a subscription
 
-If you have more than one subscription, choose one for your search service. If you are implementing [double encryption](search-security-overview.md#double-encryption) or other features that depend on managed service identities, choose the same subscription as the one used for Azure Key Vault or other services for which managed identities are used.
+If you have more than one subscription, choose one for your search service. If you are implementing [customer-managed encryption](search-security-manage-encryption-keys.md) or if you use other features that depend on managed service identities for [external data access](search-indexer-securing-resources.md), choose the same subscription as the one used for Azure Key Vault or other services for which managed identities are used.
 
 ## Set a resource group
 

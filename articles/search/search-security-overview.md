@@ -34,11 +34,11 @@ Inbound requests that target a search service endpoint can be characterized as:
 + Invoke indexer or skillset execution
 + Load or query an index
 
-The [REST APIs](/rest/api/searchservice/) represent the full range of inbound requests that are handled by a search service.
+You can review the [REST APIs](/rest/api/searchservice/) to understand the full range of inbound requests that are handled by a search service.
 
 At a minimum, all inbound requests must be authenticated:
 
-+ Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted source.
++ Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
 + Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
 
 Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
@@ -121,7 +121,7 @@ If you're using Azure AD authentication, [use role assignments instead of API ke
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. Queries are read-only operations. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
 However, if you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
@@ -155,7 +155,7 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 ## Data residency
 
-Azure Cognitive Search won't store data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+When you set up a search service, you choose a location or region that determines where data is stored and processed.Azure Cognitive Search won't store data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
 
 The only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
 
@@ -184,6 +184,12 @@ For data handled internally by the search service, the following table describes
 #### Service-managed keys
 
 Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
+
+Service-managed encryption applies to:
+
++ Data at rest
++ Data in temporary storage (written to temporary disks)
++ Data that's also CMK-encrypted (for double encryption)
 
 #### Customer-managed keys (CMK)
 
