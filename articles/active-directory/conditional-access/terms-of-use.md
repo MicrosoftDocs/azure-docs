@@ -385,7 +385,7 @@ A: On the Terms of use blade, select the number under **Accepted**. You can also
 **Q: How long is information stored?**<br />
 A: The user counts in the terms of use report and who accepted/declined are stored for the life of the terms of use. The Azure AD audit logs are stored for 30 days.
 
-**Q: Why do I see a different number of consents in the terms of use details overview vs the exported CSV report?**<br />
+**Q: Why do I see a different number of consents in the terms of use details overview versus the exported CSV report?**<br />
 A: The terms of use details overview reflects aggregated acceptances of the current version of the policy (updated once every day).  If expiration is enabled or a TOU agreement is updated (with re-acceptance required), the count on the details overview is reset since the acceptances are expired, thereby showing the count of the current version. All acceptance history is still captured in the CSV report.
 
 **Q: If hyperlinks are in the terms of use policy PDF document, will end users be able to click them?**<br />
