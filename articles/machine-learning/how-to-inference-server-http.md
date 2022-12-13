@@ -160,7 +160,6 @@ In this section, we'll run the server locally with [sample files](https://github
 
     The socoring result will be returnd if there is no problem in your scoring script. If you find something wrong, you can try to update the scoring script and launch the server again to test the updated script.
 
-
 ## Server Routes
 
 The server is listening on port 5001 (as default) at these routes.
@@ -332,24 +331,24 @@ In this section, we'll provide an overview of how the inference server works and
 The basic steps for troubleshooting are:
 1. Gather version information for your Python environment.
 1. Make sure the azureml-inference-server-http python package version matches the AzureML Inferencing HTTP server version.
-1. If you specify Flask (and or its dependencies) in your envirionment, remove them. This includes `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way in when the server supports new versions of Flask, you'll automatically get them.
+1. If you specify Flask (and or its dependencies) in your environment, remove them. The dependencies includes `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way in when the server supports new versions of Flask, you'll automatically get them.
 
 ### Server version
 
 The server package `azureml-inference-server-http` is published to PyPI. You can find our changelog and all previous versions on our [PyPI page](https://pypi.org/project/azureml-inference-server-http/). Update to the latest version if you're using an earlier version.
-- 0.4.x: This is the version that is bundled in training images ≤ `20220601` and in `azureml-defaults>=1.34,<=1.43`. `0.4.13` is the last stable version. If you use the server before version `0.4.11`, you may see Flask dependency issues like cannot import name `Markup` from `jinja2`. You're strongly recommended to upgrade to `0.4.13` or `0.8.x` (the latest version), if possible.
-- 0.6.x: This is the version that is preinstalled in inferencing images ≤ 20220516. The latest stable version is `0.6.1`.
-- 0.7.x: This is the first version that supports Flask 2. You can find the latest stable version from our PyPI page.
+- 0.4.x: The version that is bundled in training images ≤ `20220601` and in `azureml-defaults>=1.34,<=1.43`. `0.4.13` is the last stable version. If you use the server before version `0.4.11`, you may see Flask dependency issues like can't import name `Markup` from `jinja2`. You're recommended to upgrade to `0.4.13` or `0.8.x` (the latest version), if possible.
+- 0.6.x: The version that is preinstalled in inferencing images ≤ 20220516. The latest stable version is `0.6.1`.
+- 0.7.x: The first version that supports Flask 2. You can find the latest stable version from our PyPI page.
 - 0.8.x: The log format has changed and Python 3.6 support has dropped.
 
 ### Package dependencies
 
-The most relavant packages for the server `azureml-inference-server-http` are following: 
+The most relevant packages for the server `azureml-inference-server-http` are following packages: 
 - flask
 - opencensus-ext-azure
 - inference-schema
   
-If you specified `azureml-defaults` in your Python environment, the `azureml-inference-server-http` package is depended on and will be installed automatically.
+If you specified `azureml-defaults` in your Python environment, the `azureml-inference-server-http` package is depended on, and will be installed automatically.
 
 > [!TIP]
 > If you're using Python SDK v1 and don't explicitly specify `azureml-defaults` in your Python environment, the SDK may add the package for you. However, it will lock it to the version the SDK is on. For example, if the SDK version is `1.38.0`, it will add `azureml-defaults==1.38.0` to the environment's pip requirements.
