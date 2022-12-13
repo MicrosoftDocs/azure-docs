@@ -13,7 +13,7 @@ metadata:
   ms.author: pafarley
   manager: nitinme
   ms.custom: custom-portals-hub, event-tier1-build-2022
-  ms.date: 01/05/2022
+  ms.date: 12/13/2022
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -106,7 +106,7 @@ conceptualContent:
       links:
         - url: ./openai/overview.md
           itemType: overview
-          text:  Azure OpenAI (Preview)
+          text:  Azure OpenAI
         - url: ./openai/concepts/models.md
           itemType: concept
           text: Azure OpenAI Models
