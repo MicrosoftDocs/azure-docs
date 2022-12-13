@@ -37,7 +37,7 @@ If your lease expires, you can renew it. To renew an existing lease, use the fol
 
 - [renewLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
-The following example renews a lease for a blob:
+The following example renews a lease for a container:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_RenewLeaseContainer":::
 
@@ -47,7 +47,7 @@ You can either wait for a lease to expire or explicitly release it. When you rel
 
 - [releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
-The following example releases the lease on a blob:
+The following example releases the lease on a container:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_ReleaseLeaseContainer":::
 
@@ -57,7 +57,7 @@ When you break a lease, the lease ends, and other clients can't acquire a lease 
 
 - [breakLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
-The following example breaks the lease on a blob:
+The following example breaks the lease on a container:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java" id="Snippet_BreakLeaseContainer":::
 
@@ -83,7 +83,7 @@ If a lease expires rather than being explicitly released, a client may need to w
 
 ## See also
 
-- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobLease.java)
+- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerLease.java)
 - [Lease Container](/rest/api/storageservices/lease-container)
 - [Lease Blob](/rest/api/storageservices/lease-blob)
 - [Managing Concurrency in Blob storage](concurrency-manage.md)

@@ -45,7 +45,7 @@ The following example renews a lease for a blob:
 
 ## Release a lease
 
-You can either wait for a lease to expire or explicitly release it. When you release a lease, other clients can immediately acquire a lease for the container as soon as the operation is complete. You can release a lease by using the following method:
+You can either wait for a lease to expire or explicitly release it. When you release a lease, other clients can immediately acquire a lease for the blob as soon as the operation is complete. You can release a lease by using the following method:
 
 - [releaseLease](/java/api/com.azure.storage.blob.specialized.blobleaseclient)
 
@@ -67,7 +67,7 @@ The following example breaks the lease on a blob:
 
 The following diagram shows the five states of a lease, and the commands or events that cause lease state changes.
 
-:::image type="content" source="./media/blob-dev-guide/storage-dev-guide-blob-lease.png" alt-text="A diagram showing container lease states and state change triggers." lightbox="./media/blob-dev-guide/storage-dev-guide-blob-lease.png"::: 
+:::image type="content" source="./media/blob-dev-guide/storage-dev-guide-blob-lease.png" alt-text="A diagram showing blob lease states and state change triggers." lightbox="./media/blob-dev-guide/storage-dev-guide-blob-lease.png"::: 
 
 The following table lists the five lease states, gives a brief description of each, and lists the lease actions allowed in a given state. These lease actions cause state transitions, as shown in the diagram.
   
