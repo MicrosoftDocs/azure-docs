@@ -41,7 +41,7 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |Power| Dual, Hot-Plug, Redundant Power Supply (1+1), 600W|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell R350 - Bill of Materials
+## Dell PowerEdge R350 - Bill of Materials
 
 |Quantity|PN|Description|
 |----|---|----|
@@ -170,9 +170,9 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
-### Install Defender for IoT software on the Dell R350
+### Install Defender for IoT software on the Dell PowerEdge R350
 
-This procedure describes how to install Defender for IoT software on the Dell R350.
+This procedure describes how to install Defender for IoT software on the Dell PowerEdge R350.
 
 The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
