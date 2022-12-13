@@ -17,9 +17,16 @@ Elastic integration with Azure can only be set up by users who have *Owner* or *
 
 ## Logs not being emitted to Elastic
 
-Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic, navigate to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the resource. Verify that there's a diagnostic setting option available.
+1. Only resources listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md) emit logs to Elastic. To verify whether the resource is emitting logs to Elastic, navigate to [Azure diagnostic setting](../../azure-monitor/essentials/diagnostic-settings.md) for the resource. Verify that there's a diagnostic setting option available.
 
 :::image type="content" source="media/troubleshoot/check-diagnostic-setting.png" alt-text="Verify diagnostic setting":::
+
+2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
+
+3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+
+4. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+
 
 ## Purchase errors
 
