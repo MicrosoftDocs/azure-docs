@@ -86,7 +86,7 @@ setx AZURE_OPENAI_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx AZURE_OPENAI_API_KEY_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
 ```
 
 # [PowerShell](#tab/powershell)
@@ -96,7 +96,7 @@ setx AZURE_OPENAI_API_KEY_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 ```powershell
-[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_API_KEY_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+[System.Environment]::SetEnvironmentVariable('AZURE_OPENAI_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
 ```
 
 # [Bash](#tab/bash)
@@ -106,12 +106,14 @@ echo export AZURE_OPENAI_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/envi
 ```
 
 ```Bash
-echo export AZURE_OPENAI_API_KEY_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+echo export AZURE_OPENAI_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
 ```
 
 ---
 
-1. Run the following code in your preferred Python IDE:
+After setting the environment variables you may need to close and reopen jupyter notebooks or whatever IDE you are using in order for the environment variables to be accessible.
+
+Run the following code in your preferred Python IDE:
 
 ## Import libraries and list models
 
@@ -128,7 +130,7 @@ from openai.embeddings_utils import get_embedding, cosine_similarity
 from transformers import GPT2TokenizerFast
 
 API_KEY = os.getenv("AZURE_OPENAI_API_KEY") 
-RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_API_KEY_ENDPOINT") 
+RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT") 
 
 openai.api_type = "azure"
 openai.api_key = API_KEY
@@ -327,7 +329,7 @@ len(understand_tokenization)
 1480
 ```
 
-Now that we understand more about how tokenization works we can move on to embedding. Before searching, we'll embed the text documents and save the corresponding embedding. We embed each chunk using a *doc* model, in this case `text-search-curie-doc-001`. These embeddings can be stored locally or in an Azure DB. As a result, each tech document has its corresponding embedding vector in the new curie search column on the right side of the DataFrame.
+Now that we understand more about how tokenization works we can move on to embedding. Before searching, we'll embed the text documents and save the corresponding embedding. We embed each chunk using a **doc model**, in this case `text-search-curie-doc-001`. These embeddings can be stored locally or in an Azure DB. As a result, each tech document has its corresponding embedding vector in the new curie search column on the right side of the DataFrame.
 
 ```python
 df_bills['curie_search'] = df_bills["text"].apply(lambda x : get_embedding(x, engine = 'text-search-curie-doc-001'))
@@ -341,9 +343,9 @@ df_bills
 
 :::image type="content" source="../media/tutorials/embed-text-documents.png" alt-text="Screenshot of the formatted results from df_bills command." lightbox="../media/tutorials/embed-text-documents.png":::
 
-At the time of search (live compute), we'll embed the search query using the corresponding *query* model (`text-search-query-001`). Next find the closest embedding in the database, ranked by [cosine similarity](../concepts/understand-embeddings.md). 
+At the time of search (live compute), we'll embed the search query using the corresponding **query model** (`text-search-query-001`). Next find the closest embedding in the database, ranked by [cosine similarity](../concepts/understand-embeddings.md). 
 
-In our example, the user provides the query "can I get information on cable company tax revenue". The query is passed through a function that embeds the query with the corresponding *query model* and finds the embedding closest to it from the previously embedded documents in the previous step.
+In our example, the user provides the query "can I get information on cable company tax revenue". The query is passed through a function that embeds the query with the corresponding **query model** and finds the embedding closest to it from the previously embedded documents in the previous step.
 
 ```python
 # search through the reviews for a specific product
@@ -370,7 +372,7 @@ res = search_docs(df_bills, "can i get information on cable company tax revenue"
 
 :::image type="content" source="../media/tutorials/query-result.png" alt-text="Screenshot of the formatted results of res once the search query has been run." lightbox="../media/tutorials/query-result.png":::
 
-Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993", as shown in Figure 4. This document has a cosine similarity score of 0.36 between the query and the document. :
+Finally, we'll show the top result from document search based on user query against the entire knowledge base. This returns the top result of the "Taxpayer's Right to View Act of 1993", as shown in Figure 4. This document has a cosine similarity score of 0.36 between the query and the document:
 
 ```python
 res["summary"][9]
