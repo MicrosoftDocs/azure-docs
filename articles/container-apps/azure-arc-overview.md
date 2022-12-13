@@ -50,28 +50,24 @@ Optionally, you can choose to have the extension install [KEDA](https://keda.sh/
 
 The following table describes the role of each revision created for you:
 
-| Pod                                   | Description                                                                                                                       | Number of Instances | CPU | Memory |
-|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------------|-----|--------|
-| `<extensionName>-k8se-activator`      | Used as part of the scaling pipeline                                                                                              | 2 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-billing`        | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100MB |
-| `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-envoy`          | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536MB |
-| `<extensionName>-k8se-envoy-controller` | Operator which generates Envoy configuration | 2 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-http-scaler`    | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda CosmosDB Scaler | 1 | 10m | 128MB |
-| `<extensionName>-k8se-keda-metrics-apiserver` | Keda Metrics Server | 1 | 1 Core | 1000MB |
-| `<extensionName>-k8se-keda-operator` | Manages component updated and service endpoints for Dapr | 1 | 100 millicpu | 500MB |
-| `<extensionName>-k8se-local-envoy` | A front-end proxy layer for all data-plane tcp requests. It routes the inbound traffic to the correct apps.  | 3 | 1 Core | 1536MB |
-| `<extensionName>-k8se-log-processor`  | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500MB |                                                  |
-| `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500MB |
-| dapr-operator | Manages component updates and service endpoints for Dapr | 1 | 100 millicpu | 500MB |
-| dapr-placement-server | Used for Actors only - creates mapping tables that map actor instances to pods | 1 | 100 millicpu | 500MB |
-| dapr-sentry | Manages mTLS between services and acts as a CA | 2 | 800 millicpu | 200MB |
-
-## Container Apps Connected environment
-
-TODO
+| Pod | Description | Number of Instances | CPU | Memory |
+|---|---|---|---|---|
+| `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB |
+| `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB |
+| `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-event-processor` | An alternative routing destination to help with apps that have scaled to zero while the system gets the first instance available. | 2 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-http-scaler` | Monitors inbound request volume in order to provide scaling information to [KEDA](https://keda.sh). | 1 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-keda-cosmosdb-scaler` | Keda Cosmos DB Scaler | 1 | 10 m | 128 MB |
+| `<extensionName>-k8se-keda-metrics-apiserver` | Keda Metrics Server | 1 | 1 Core | 1000 MB |
+| `<extensionName>-k8se-keda-operator` | Manages component updated and service endpoints for Dapr | 1 | 100 millicpu | 500 MB |
+| `<extensionName>-k8se-local-envoy` | A front-end proxy layer for all data-plane tcp requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1536 MB |
+| `<extensionName>-k8se-log-processor` | Gathers logs from apps and other components and sends them to Log Analytics. | 2 | 200 millicpu | 500 MB |  |
+| `<extensionName>-k8se-mdm` | Metrics and Logs Agent | 2 | 500 millicpu | 500 MB |
+| dapr-operator | Manages component updates and service endpoints for Dapr | 1 | 100 millicpu | 500 MB |
+| dapr-placement-server | Used for Actors only - creates mapping tables that map actor instances to pods | 1 | 100 millicpu | 500 MB |
+| dapr-sentry | Manages mTLS between services and acts as a CA | 2 | 800 millicpu | 200 MB |
 
 ## FAQ for Azure Container Apps on Azure Arc (Preview)
 
