@@ -143,7 +143,7 @@ In this section, we'll run the server locally with [sample files](https://github
     :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
 
 3. Run the inference server with specifying scoring script and model file.
-   The specified model directory (`model_dir` parameter) will be defined as `AZUREML_MODEL_DIR` variable and retrived in the scoring script. 
+   The specified model directory (`model_dir` parameter) will be defined as `AZUREML_MODEL_DIR` variable and retrieved in the scoring script. 
    In this case, we specify the current directory (`./`) since the subdirectory is specified in the scoring script as `model/sklearn_regression_model.pkl`.
 
     ```bash
@@ -153,14 +153,14 @@ In this section, we'll run the server locally with [sample files](https://github
     The example [startup log](#startup-logs) will be shown if the server launched and the scoring script invoked successfully. Otherwise, there will be error messages in the log.
 
 4. Test the scoring script with a sample data.
-    Open another teminal and move to the same working directory to run the command.
+    Open another terminal and move to the same working directory to run the command.
     Use the `curl` command to send an example request to the server and receive a scoring result.
 
     ```bash
     curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
     ```
 
-    The socoring result will be returnd if there is no problem in your scoring script. If you find something wrong, you can try to update the scoring script and launch the server again to test the updated script.
+    The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script and launch the server again to test the updated script.
 
 ## Server Routes
 
@@ -333,7 +333,7 @@ In this section, we'll provide an overview of how the inference server works and
 The basic steps for troubleshooting are:
 1. Gather version information for your Python environment.
 1. Make sure the azureml-inference-server-http python package version matches the AzureML Inferencing HTTP server version.
-1. If you specify Flask (and or its dependencies) in your environment, remove them. The dependencies includes `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way in when the server supports new versions of Flask, you'll automatically get them.
+1. If you specify Flask (and or its dependencies) in your environment, remove them. The dependencies include `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way in when the server supports new versions of Flask, you'll automatically get them.
 
 ### Server version
 
@@ -389,7 +389,7 @@ You have **Flask 2** installed in your python environment but are running a vers
     2022-08-22T17:05:02,190557998+00:00 | gunicorn/run | 
     ```
 
-   The build date of the image appears after "Materialization Build", which in the above example is `20220708`, or July 8, 2022. This image is compatible with Flask 2. If you don't see a banner like this in your container log, your image is out-of-date, and should be updated. If you're using a CUDA image, and are unable to find a newer image, check if your image is deprecated in [AzureML-Containers](https://github.com/Azure/AzureML-Containers). If it is, you should be able to find replacements.
+   The build date of the image appears after "Materialization Build", which in the above example is `20220708`, or July 8, 2022. This image is compatible with Flask 2. If you don't see a banner like this in your container log, your image is out-of-date, and should be updated. If you're using a CUDA image, and are unable to find a newer image, check if your image is deprecated in [AzureML-Containers](https://github.com/Azure/AzureML-Containers). If it's, you should be able to find replacements.
 
    If you're using the server with an online endpoint, you can also find the logs under "Deployment logs" in the [online endpoint page in Azure Machine Learning studio](https://ml.azure.com/endpoints). If you deploy with SDK v1 and don't explicitly specify an image in your deployment configuration, it will default to using a version of `openmpi4.1.0-ubuntu20.04` that matches your local SDK toolset, which may not be the latest version of the image. For example, SDK 1.43 will default to using `openmpi4.1.0-ubuntu20.04:20220616`, which is incompatible. Make sure you use the latest SDK for your deployment.
 
