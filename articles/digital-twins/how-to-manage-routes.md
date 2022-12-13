@@ -81,10 +81,10 @@ To create a new endpoint, go to your instance's page in the [Azure portal](https
 1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
-    1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) for your Azure Digital Twins instance. 
+    1. For Event Hubs and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or select the option for a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources).
 
-    :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal.":::
-
+    :::image type="content" source="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hubs in the Azure portal." lightbox="media/how-to-manage-routes/create-endpoint-event-hub-authentication.png":::
+    
 1. Finish creating your endpoint by selecting **Save**.
 
 >[!IMPORTANT]
@@ -125,7 +125,7 @@ After successfully running these commands, the Event Grid topic, event hub, or S
 
 #### Create an endpoint with identity-based authentication
 
-You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
+You can use optional command parameters to create an endpoint that has identity-based authentication, to use the endpoint with a [system-assigned or user-assigned managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
 For instructions on how to do this, see [Create an endpoint with identity-based authentication](how-to-route-with-managed-identity.md?tabs=cli#create-an-endpoint-with-identity-based-authentication).
 

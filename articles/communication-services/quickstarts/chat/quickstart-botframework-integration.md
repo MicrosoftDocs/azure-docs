@@ -14,9 +14,7 @@ ms.custom: mode-other
 
 # Add a bot to your chat app
 
-> [!IMPORTANT]
-> This functionality is in public preview.
->
+[!INCLUDE Public Preview Notice]
 
 In this quickstart, you will learn how to build conversational AI experiences in a chat application using Azure Communication Services Chat messaging channel that is available under Azure Bot Services. This article will describe how to create a bot using BotFramework SDK and how to integrate this bot into any chat application that is built using Communication Services Chat SDK.
 
@@ -32,8 +30,6 @@ You will learn how to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - Latest version of .NET Core. For this tutorial, we have used [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install the version that corresponds with your visual studio instance, 32 vs 64 bit)
-
-
 
 ## Step 1 - Create and deploy an Azure bot
 
