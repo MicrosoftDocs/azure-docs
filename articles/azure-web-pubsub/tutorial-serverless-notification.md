@@ -438,8 +438,6 @@ In this tutorial, you learn how to:
     </html>
     ```
 
-    # [JavaScript](#tab/javascript)
-
     # [C#](#tab/csharp)
     Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
@@ -449,8 +447,6 @@ In this tutorial, you learn how to:
         </None>
     </ItemGroup>
     ```
-
-    # [Python](#tab/python)
 
 7. Configure and run the Azure Function app
 
