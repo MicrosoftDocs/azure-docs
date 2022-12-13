@@ -245,24 +245,24 @@ The `/read` permission is usually granted from a role that includes _\*/read or_
 
 In addition to using the built-in roles for a Log Analytics workspace, you can create custom roles to assign more granular permissions. Here are some common examples.
 
-Grant a user access to log data from their resources:
+**Example 1: Grant a user access to log data from their resources.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users `*/read` or `Microsoft.Insights/logs/*/read` permissions to their resources. If they're already assigned the [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#reader) role on the workspace, it's sufficient.
 
-Grant a user access to log data from their resources and configure their resources to send logs to the workspace:
+**Example 2: Grant a user access to log data from their resources and configure their resources to send logs to the workspace.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users the following permissions on the workspace: `Microsoft.OperationalInsights/workspaces/read` and `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. With these permissions, users can't perform any workspace-level queries. They can only enumerate the workspace and use it as a destination for diagnostic settings or agent configuration.
 - Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read` and `Microsoft.Insights/diagnosticSettings/write`. If they're already assigned the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, assigned the Reader role, or granted `*/read` permissions on this resource, it's sufficient.
 
-Grant a user access to log data from their resources without being able to read security events and send data:
+**Example 3: Grant a user access to log data from their resources without being able to read security events and send data.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 - Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherits the read action from another role that's assigned to this resource or to the subscription or resource group, they could read all log types. This scenario is also true if they inherit `*/read` that exists, for example, with the Reader or Contributor role.
 
-Grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace:
+**Example 4: Grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace.**
 
 - Configure the workspace access control mode to *use workspace or resource permissions*.
 - Grant users the following permissions on the workspace:
@@ -282,7 +282,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
 1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
     
-    1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
+    1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
     
     1. Right-click the **Reader** role and select **Clone**.
     

@@ -5,8 +5,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/08/2021
-#pmcontact: shants
+ms.date: 11/14/2022
 ---
 
 # Handling planned maintenance notifications using the portal
@@ -19,9 +18,9 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the left navigation, click **Virtual Machines**.
+2. Search for or select **Virtual Machines**.
 
-3. In the Virtual Machines pane, select **Maintenance -> Virtual machine maintenance** button to open the list with maintenance columns.
+3. In the Virtual Machines pane, select the **More** menu and then select **Maintenance -> Virtual machine maintenance** to open the list with maintenance columns.
 
    **Maintenance status**: Shows the maintenance status for the VM. The following are the potential values:
 	  
@@ -49,14 +48,13 @@ Make sure you set the **Event type** as **Planned maintenance**, and **Services*
 ## Start Maintenance on your VM from the portal
 
 While looking at the VM details, you will be able to see more maintenance-related details.  
-At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible. 
-
+At the top of the VM details view, a new notification ribbon will be added if your VM is included in a planned maintenance wave. In addition, a new option is added to start maintenance when possible.
 
 Click on the maintenance notification to see the maintenance page with more details on the planned maintenance. From there, you will be able to **start maintenance** on your VM.
 
 Once you start maintenance, your virtual machine will be maintained and the maintenance status will be updated to reflect the result within few minutes.
 
-If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 
+If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure.
 
 
 ## Next steps

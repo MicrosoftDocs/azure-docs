@@ -113,7 +113,7 @@ Continue specifying your Logic App by clicking "Next: Monitoring".
 - Application Insights
 - Region
 
-Enable Azure Monitor application insights to automatically monitor your application. If you enable insights, you must create a new insight and specify the region.
+Enable Azure Monitor Application Insights to automatically monitor your application. If you enable insights, you must create a new insight and specify the region.
 
 ### Tags - Tab 4
 

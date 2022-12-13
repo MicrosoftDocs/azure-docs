@@ -147,7 +147,7 @@ The following roles can read Azure AD reports:
 
 * Security Reader
 
-* Report Reader
+* Reports Reader
 
 Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.md).
 

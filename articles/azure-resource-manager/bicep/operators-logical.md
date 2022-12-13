@@ -4,7 +4,7 @@ description: Describes Bicep logical operators that evaluate conditions.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 12/09/2022
 ---
 
 # Bicep logical operators
@@ -152,11 +152,11 @@ The output statements return the non-null values. The output type must match the
 
 ```bicep
 param myObject object = {
-  'isnull1': null
-  'isnull2': null
-  'string': 'demoString'
-  'emptystr': ''
-  'integer': 10
+  isnull1: null
+  isnull2: null
+  string: 'demoString'
+  emptystr: ''
+  integer: 10
   }
 
 output nonNullStr string = myObject.isnull1 ?? myObject.string ?? myObject.isnull2

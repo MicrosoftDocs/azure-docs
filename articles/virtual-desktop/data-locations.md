@@ -48,6 +48,7 @@ Storing Customer data and service-generated data is currently supported in the f
 - Canada (CA)
 - Japan (JP)
 - Australia (AU)
+- India (IN)
 
 In addition, service-generated data is aggregated from all locations where the service infrastructure is, and sent to the US geography. The data sent to the US includes scrubbed data, but not customer data.
 

@@ -171,7 +171,7 @@ If you want multiple root CA certificates, be sure to manage them in separate fo
 
 ---
 
-This certificate is required before you can create more certificates for your IoT Edge devices and leaf devices as described in the next sections.
+This certificate is required before you can create more certificates for your IoT Edge devices and downstream devices as described in the next sections.
 
 ## Create identity certificate for the IoT Edge device
 

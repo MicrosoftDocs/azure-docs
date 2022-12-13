@@ -33,6 +33,8 @@ items:
         href: quickstarts/chat/react-native.md
       - name: Send Chat messages in Azure Logic Apps
         href: quickstarts/chat/logic-app.md
+      - name: Add a bot to your chat app
+        href: quickstarts/chat/quickstart-botframework-integration.md
   - name: Email
     items:
       - name: Create an Email Communication Services resource
@@ -45,6 +47,8 @@ items:
         href: quickstarts/email/connect-email-communication-resource.md
       - name: Send an Email
         href: quickstarts/email/send-email.md
+      - name: Handle Email events
+        href: quickstarts/email/handle-email-events.md
       - name: Send an Email in Azure Logic Apps
         href: quickstarts/email/logic-app.md            
   - name: Telephony and phone numbers
@@ -219,6 +223,8 @@ items:
         href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Media quality statistics
         href: concepts/voice-video-calling/media-quality-sdk.md
+      - name: Pre-Call diagnostics
+        href: concepts/voice-video-calling/pre-call-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Call networking internals
@@ -229,6 +235,8 @@ items:
         href: concepts/known-issues.md
       - name: Media access
         href: concepts/voice-video-calling/media-access.md
+      - name: Simulcast
+        href: concepts/voice-video-calling/simulcast.md
   - name: Call Automation
     items:
       - name: Overview
@@ -298,6 +306,8 @@ items:
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+          - name: Logs & metrics
+            href: concepts/interop/guest/monitor-logs-metrics.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
@@ -330,6 +340,10 @@ items:
             href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
+  - name: Developer Tools
+    items:
+      - name: Network Diagnostic Tool 
+        herf: concepts/developer-tools/network-diagnostic.md
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government
@@ -412,6 +426,8 @@ items:
     href: samples/web-calling-sample.md
   - name: UI Library cross platform samples
     href: samples/ui-library-cross-platform.md
+  - name: Call Automation appointment reminder sample
+    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview
@@ -431,9 +447,9 @@ items:
   - name: Call Automation libraries
     items:
     - name: Call Automation (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
-      href: https://azure.github.io/azure-sdk-for-java/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
   - name: Chat libraries
     items:
     - name: Chat (JavaScript)
@@ -484,8 +500,8 @@ items:
       href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon
     - name: Common (Android/Java)
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
-    - name: Common (Python)
-      href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+    - name: Common (iOS)
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationCommon/index.html
   - name: UI Library
     items:
     - name: UI Library (JavaScript)
