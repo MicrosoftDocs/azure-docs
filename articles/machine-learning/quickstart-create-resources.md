@@ -130,5 +130,5 @@ You now have an Azure Machine Learning workspace that contains:
 Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
+> [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
 >

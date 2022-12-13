@@ -18,6 +18,8 @@ items:
       href: ./concepts/models.md
     - name: Content filtering
       href: ./concepts/content-filter.md
+    - name: Embeddings
+      href: ./concepts/understand-embeddings.md
 - name: How-to 
   items:
     - name: Create a resource
@@ -38,6 +40,10 @@ items:
       href: ./how-to/integrate-synapseml.md
     - name: Business continuity & disaster recovery (BCDR)
       href: ./how-to/business-continuity-disaster-recovery.md
+- name: Tutorials
+  items:
+    - name: Embeddings
+      href: ./tutorials/embeddings.md
 - name: Responsible AI
   items:
     - name : Transparency note

@@ -190,6 +190,8 @@
     items:
     - name: Configure inbound NAT rules for Virtual Machine Scale Sets
       href: configure-inbound-NAT-rules-vm-scale-set.md
+    - name: Add multiple Virtual Machine Scale Set instances behind one Azure Load Balancer
+      href: load-balancer-multiple-virtual-machine-scale-set.md
     - name: Use with an existing Azure Load Balancer - Portal
       href: configure-vm-scale-set-portal.md
     - name: Use with an existing Azure Load Balancer - PowerShell

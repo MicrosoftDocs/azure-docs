@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 12/09/2022
 ms.author: allensu
+ms.custom: FY23 content-maintenance
 ---
 
 # Default outbound access in Azure
