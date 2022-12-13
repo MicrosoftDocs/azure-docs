@@ -17,7 +17,7 @@ In this article, you'll learn the steps to move a Log Analytics workspace to ano
 > [!IMPORTANT]
 > You can't move a workspace to a different region by using this procedure. Follow the steps in the article [Move a Log Analytics workspace to another region](./move-workspace-region.md) to move a workspace across regions.
 
-## Verify the Active Directory tenant
+## Verify the Azure Active Directory tenant
 The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
 
 ```powershell
@@ -36,7 +36,7 @@ Consider these points before you move a Log Analytics workspace:
   - Start/Stop VMs during off-hours
   - Microsoft Defender for Cloud
 - Workspace keys (both primary and secondary) are regenerated with a workspace move operation. If you keep a copy of your workspace keys in Azure Key Vault, update them with the new keys generated after the workspace is moved.
-- Connected [Log Analytics agents](../agents/log-analytics-agent.md) remain connected and keep sending data to the workspace after the move. [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) via data collection rules will be disconnected during the move and should be reconfigured after the move.
+- Connected [Log Analytics agents](../agents/log-analytics-agent.md) remain connected and keep sending data to the workspace after the move. [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) will be disconnected via data collection rules during the move and should be reconfigured after the move.
 
 >[!IMPORTANT]
 > **Microsoft Sentinel customers**
@@ -44,11 +44,9 @@ Consider these points before you move a Log Analytics workspace:
 > - If you've already moved the workspace, disable all active rules under **Analytics** and reenable them after five minutes. This solution should be effective in most cases, although it's unsupported and undertaken at your own risk.
 > - It could take Azure Resource Manager a few hours to complete. Solutions might be unresponsive during the operation.
 >
-> **Re-create alerts**
-> - All alerts must be re-created because the permissions are based on the workspace resource ID, which changes during a workspace move or resource name change. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the legacy Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be exported in templates and deployed after the move. You can [check if the scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
+> **Re-create alerts:** All alerts must be re-created because the permissions are based on the workspace resource ID, which changes during a workspace move or resource name change. Alerts in workspaces created after June 1, 2019, or in workspaces that were [upgraded from the legacy Log Analytics Alert API to the scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be exported in templates and deployed after the move. You can [check if the scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in the target workspace.
 >
-> **Update resource paths**
-> - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
+> **Update resource paths:** After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
 >
 >   Examples:
 >   - [Azure Monitor alert rules](../alerts/alerts-resource-move.md)

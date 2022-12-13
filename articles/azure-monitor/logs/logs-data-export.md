@@ -585,7 +585,7 @@ DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegrou
 
 # [Template](#tab/json)
 
-The template option isn't applicable.
+The template option doesn't apply.
 
 ---
 
@@ -623,7 +623,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 # [Template](#tab/json)
 
-The template option isn't applicable.
+The template option doesn't apply.
 
 ---
 
