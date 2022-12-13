@@ -3,7 +3,7 @@ title: Overview of enhanced soft delete for Azure Backup (preview)
 description: This article gives an overview of enhanced soft delete for Azure Backup.
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 11/24/2022
+ms.date: 12/13/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -17,18 +17,6 @@ ms.author: v-amallick
 - Backup data is maliciously deleted by ransomware or bad actors.
 
 *Basic soft delete* is available for Recovery Services vaults for a while; *enhanced soft delete* now provides additional data protection capabilities.
-
-In this article, you'll learn about:
-
->[!div class="checklist"]
->- What's soft delete?
->- What's enhanced soft delete?
->- Supported regions
->- Supported scenarios
->- States of soft delete setting
->- Soft delete retention
->- Soft deleted items reregistration
->- Pricing
 
 ## What's soft delete?
 
@@ -97,6 +85,13 @@ For example, you've deleted backups for one of the instances in the vault that h
 - Standard rates (similar rates apply when the instance is in *stop protection with retain data* state) are applicable for the first *46* days (*60* days of soft delete retention configured minus *14* days of default soft delete retention).
 
 - No charges for the last *6* days of soft delete retention.
+
+## Soft delete with multi-user authorization
+
+You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+
+>[!Note]
+>MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Next steps
 
