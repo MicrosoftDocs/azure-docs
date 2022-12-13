@@ -58,7 +58,7 @@ After you migrate to the new root certificate, it will take about 45 minutes for
 
 1. Select the **TLS certificate** tab and select **Migrate to DigiCert Global G2**.
 
-   :::image type="content" source="./media/migrate-tls-certificate/migrate-to-digicert-global-g2.png" alt-text="In the TLS certificate tab, select 'Migrate to DigiCert Global G2.'":::
+   :::image type="content" source="./media/migrate-tls-certificate/migrate-to-digicert-global-g2.png" alt-text="Screenshot of the TLS certificate tab, select 'Migrate to DigiCert Global G2.'":::
 
 1. A series of checkboxes asks you to verify that you've prepared your devices for the migration. Check each box, confirming that your IoT solution is ready for the migration. Then, select **Update**.
 
@@ -169,7 +169,7 @@ If you're experiencing general connectivity issues with IoT Hub, check out these
 
 If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect event, as demonstrated in the following screenshot:
 
-:::image type="content" source="./media/migrate-tls-certificate/monitor-device-disconnect-connect.png" alt-text="Use Azure Monitor logs to see DeviceDisconnect and DeviceConnect events.":::
+:::image type="content" source="./media/migrate-tls-certificate/monitor-device-disconnect-connect.png" alt-text="Screenshot of Azure Monitor logs showing DeviceDisconnect and DeviceConnect events.":::
 
 If your device disconnects but doesn't reconnect after the migration, try the following steps:
 
