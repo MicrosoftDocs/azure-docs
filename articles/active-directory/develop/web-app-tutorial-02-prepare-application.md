@@ -109,9 +109,7 @@ The use of certificates is suggested for securing the application. When using ce
 
 To make the certificate available to the application, it must be uploaded into the Azure AD tenant.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Search for and select **Azure Active Directory**.
-1. Under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
+1. Starting from the **Overview** page of the app created earlier, under **Manage**, select **Certificates & secrets** and select the **Certificates (0)** tab.
 1. Select **Upload certificate**.
 
 :::image type="content" source="./media/web-app-tutorial-02-prepare-application/upload-certificate-inline.png" alt-text="Screenshot of uploading a certificate into an Azure Active Directory tenant." lightbox="./media/web-app-tutorial-02-prepare-application/upload-certificate-expanded.png":::

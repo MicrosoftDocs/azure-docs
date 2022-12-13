@@ -10,7 +10,7 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to know how to register my application with the Microsoft identity platform so that the security token service can issue access tokens to client applications that request them.
 ---
 
-# Tutorial: Register an application
+# Tutorial: Register an application with the Microsoft identity platform
 
 This tutorial shows how to register a web app using the Azure portal so that it can be configured with the Microsoft identity platform.
 

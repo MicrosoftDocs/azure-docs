@@ -32,13 +32,35 @@ In this tutorial, you learn how to:
 
 ## Add the API configuration
 
-Open the *appsettings.json* file and add the following code to configure the API:
+Open the *appsettings.json* file and add a reference to `"DownstreamAPI"` to configure the API. The `.json` file should take the following format:
 
 ```csharp
-"DownstreamApi": {
-  "BaseUrl": "https://graph.microsoft.com/v1.0/me",
-  "Scopes": "user.read"
-    },
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "TenantId": "Enter the tenant ID here",
+    "ClientId": "Enter the client ID here",
+    "ClientCertificates": [
+      {
+        "SourceType": "StoreWithThumbprint",
+        "CertificateStorePath": "CurrentUser/My",
+        "CertificateThumbprint": "Enter the certificate thumbprint here"
+      }    
+    ],
+    "CallbackPath": "/signin-oidc"
+  },
+  "DownstreamApi": {
+    "BaseUrl": "https://graph.microsoft.com/v1.0/me",
+    "Scopes": "user.read"
+      },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
 ```
 
 This previous configuration definition defines an endpoint for accessing Microsoft Graph. To define the configuration for an application owned by the organization, the value of the `Scopes` attribute is slightly different. The application URI is combined with the specified scope.
@@ -67,6 +89,7 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 1. Under **Pages**, open the *Index.cshtml.cs* file and add the following to the top of the file;
 
     ```csharp
+    using System.Text.Json;
     using Microsoft.Identity.Web;
     ```
 
