@@ -3,7 +3,7 @@ author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 12/12/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -60,7 +60,7 @@ pip install azure-ai-language-conversations==1.1.0b2
 
 ## Code example
 
-Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. 
+Create a new Python file and copy the below code. Remember to replace the `key` variable with the key for your resource, and replace the `endpoint` variable with the endpoint for your resource. Then run the code.  
 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
