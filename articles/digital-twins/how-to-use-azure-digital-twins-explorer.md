@@ -486,7 +486,7 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 
 ## Link to your environment and specific query
 
-You can share a link to your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
+You can share a link to your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to generate a link to your Azure Digital Twins Explorer environment, which can optionally include a specific query to run when the link is opened. This section also describes what permissions the recipient needs to have in order to interact with your twin data.
 
 ### Recipient access requirements
 
@@ -494,7 +494,7 @@ For the recipient to open the link and view the instance in Azure Digital Twins 
 
 For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-### Send environment with specific query
+### Generate link to environment with specific query
 
 To generate a link to your Azure Digital Twins Explorer environment that includes a specific query, enter the query you want to capture in the **Query Explorer**, then select the **Share** button to copy the full link.
 
@@ -504,7 +504,7 @@ For the example and query in the screenshot above, the **Share** button produces
 
 You can share this URL to allow someone to access your instance and this query. When they open Azure Digital Twins Explorer with the link, the results of the query will automatically populate in the **Twin Graph** panel.
 
-### Send environment without specific query
+### Generate link to environment without specific query
 
 To share a link to your Azure Digital Twins Explorer environment with no specific query attached, start by using the **Share** button to copy the link to your instance.
 
