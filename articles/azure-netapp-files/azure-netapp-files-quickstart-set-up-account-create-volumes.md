@@ -395,8 +395,9 @@ When you are done and if you want to, you can delete the resource group. The act
 > [!IMPORTANT]
 > All resources within the resource groups will be permanently deleted and cannot be undone.
 
+
 >[!IMPORTANT]
->If you intend to delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md). If you delete the resource group without disabling backups, backups will continue to impact your billing. 
+>Before you delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md) or you can [manually delete the backups](backup-delete.md). If you delete the resource group without disabling backups, backups will continue to impact your billing.  
 
 1. In the Azure portal's search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
@@ -410,9 +411,6 @@ When you are done and if you want to, you can delete the resource group. The act
     ![Screenshot that highlights the Delete resource group button.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png)
 
     A window opens and displays a warning about the resources that will be deleted with the resource group.
-
-    >[!IMPORTANT]
-    >Before you delete a resource group, you must first delete the backups. Deleting a resource group will not delete the backups. You can preemptively delete backups on volumes by [disabling the backup policy](backup-disable.md) or you can [manually delete the backups](backup-delete.md). If you delete the resource group without disabling backups, backups will continue to impact your billing.  
 
 4. Enter the name of the resource group (myRG1) to confirm that you want to permanently delete the resource group and all resources in it, and then click **Delete**.
 
