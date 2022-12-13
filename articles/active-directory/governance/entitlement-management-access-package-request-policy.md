@@ -1,6 +1,6 @@
 ---
-title: Change request settings for an access package in Microsoft Entra entitlement management - Azure Active Directory
-description: Learn how to change request settings for an access package in Microsoft Entra entitlement management.
+title: Change request settings for an access package in entitlement management - Microsoft Entra
+description: Learn how to change request settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change request settings for an access package in Microsoft Entra entitlement management
+# Change request settings for an access package in entitlement management
 
 As an access package manager, you can change the users who can request an access package at any time by editing a policy for access package assignment requests, or adding a new policy to the access package. This article describes how to change the request settings for an existing access package assignment policy.
 
@@ -102,7 +102,7 @@ Follow these steps if you want to allow users in your directory to be able to re
 
 1. Click **Select** to add the users and groups.
 
-1. If you want to require approval, use the steps in [Change approval settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
+1. If you want to require approval, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
 
 1. Go to the [Enable requests](#enable-requests) section.
  
@@ -144,7 +144,7 @@ Follow these steps if you want to allow users not in your directory to request t
     > [!NOTE]
     > All users from the selected connected organizations can request this access package. For a connected organization that has an Azure AD directory, users from all verified domains associated with the Azure AD directory can request, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
-1. If you want to require approval, use the steps in [Change approval settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
+1. If you want to require approval, use the steps in [Change approval settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md) to configure approval settings.
  
 1. Go to the [Enable requests](#enable-requests) section.
 
@@ -202,7 +202,7 @@ To change the request and approval settings for an access package, you need to o
 
 1. Click **Next**.
 
-1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in Microsoft Entra entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
+1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information settings for an access package in entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval)
  to configure requestor information.
 
 1. Configure lifecycle settings.

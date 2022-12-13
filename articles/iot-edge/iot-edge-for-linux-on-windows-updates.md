@@ -31,7 +31,7 @@ EFLOW updates are sequential and you'll require to update to every version in or
 To find the latest version of Azure IoT Edge for Linux on Windows, see [EFLOW releases](https://aka.ms/AzEFLOW-Releases).
 
 <!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
+:::moniker range="iotedge-2020-11"
 
 >[!IMPORTANT]
 >This is a Public Preview version of [Azure IoT Edge for Linux on Windows continuous release (EFLOW CR)](./version-history.md), not intended for production use. A clean install may be required for production use once the final General Availability (GA) release is available.
@@ -116,10 +116,51 @@ Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2
 <!-- end 1.1 -->
 :::moniker-end
 
-## Migrations between EFLOW LTS and EFLOW CR trains
+## Migration between EFLOW 1.1LTS and EFLOW 1.4LTS
 
-IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, check [EFLOW LTS migration](https://aka.ms/AzEFLOW-LTS-Migration). 
+IoT Edge for Linux on Windows doesn't support migrations between the different release trains. If you want to move from the 1.1LTS or 1.4LTS version to the Continuous Release (CR) version or viceversa, you'll have to uninstall the current version and install the new desired version. 
 
+Migration between EFLOW 1.1LTS to EFLOW 1.4LTS was introduced as part of EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. This migration will handle the EFLOW VM migration from 1.1LTS version to 1.4LTS version, including the following:
+- IoT Edge runtime
+- IoT Edge configurations
+- Containers
+- Networking and VM configuration
+- Stored files
+
+To migrate between EFLOW 1.1LTS to EFLOW 1.4LTS, use the following steps.
+
+1. Get the latest Azure EFLOW 1.1LTS [(1.1.2112.12122)](https://aka.ms/AzEFLOWMSI-1_1_2212_12122) update. If you're using Windows Update, *Check Updates* to get the latest EFLOW update.
+1. For auto-download migration (needs Internet connection), skip this step. If the EFLOW VM has limited/no internet access, download the necessary files before starting the migration.
+    - [1.4.2.12122 Standalone MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_SA)
+    - [1.4.2.12122 Update MSI](https://aka.ms/AzEFLOW-Update-1_1-to-1_4_Update)
+1. Open an elevated PowerShell session
+1. Start the EFLOW migration
+
+    >[!NOTE]
+    >You can migrate with one single cmdlet by using the `-autoConfirm` flag with the ` Start-EflowMigration` cmdlet. If specified `Confirm-EflowMigration` doesnt needs to be called to proceed with 1.4 migration.
+
+    1. If you're using the auto-download migration option run the following cmdlet
+        ```powershell
+        Start-EflowMigration
+        ```
+    1. If you download the MSI on **Step 2**, use the downloaded files to apply the migration
+        ```powershell
+        Start-EflowMigration -standaloneMsiPath "<path-to-folder>\AzureIoTEdge_LTS_1.4.2.12122_X64.msi" 
+        ```
+1. Confirm the EFLOW migration
+    1. If you're using the auto-download migration option run the following cmdlet
+        ```powershell
+        Confirm-EflowMigration
+        ```
+    1. If you download the MSI on **Step 2**, use the downloaded files to apply the migration
+        ```powershell
+        Confirm-EflowMigration -updateMsiPath "<path-to-folder>\AzureIoTEdge_LTS_Update_1.4.2.12122_X64.msi" 
+        ```
+
+If for any reason the migration fails, the EFLOW VM will be restored to it's original 1.1LTS version. 
+If you want to cancel the migration, you can use the following cmdlets `Start-EflowMigration` and then `Restore-EflowPriorToMigration` 
+
+For more information, check `Start-EflowMigration`, `Confirm-EflowMigration` and `Restore-EflowPriorToMigration` cmdlet documentation by using the `Get-Help <cmdlet> -full` command. 
 
 ## Next steps
 

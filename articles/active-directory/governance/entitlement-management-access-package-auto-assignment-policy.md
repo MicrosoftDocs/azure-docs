@@ -1,6 +1,6 @@
 ---
-title: Configure an automatic assignment policy for an access package in Microsoft Entra entitlement management - Azure Active Directory
-description: Learn how to configure automatic assignments based on rules for an access package in Microsoft Entra entitlement management.
+title: Configure an automatic assignment policy for an access package in entitlement management - Microsoft Entra
+description: Learn how to configure automatic assignments based on rules for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package to include a policy for users to get and lose access package assignments automatically, without them or an administrator needing to request access.
 
 ---
-# Configure an automatic assignment policy for an access package in Microsoft Entra entitlement management (Preview)
+# Configure an automatic assignment policy for an access package in entitlement management (Preview)
 
 You can use rules to determine access package assignment based on user properties in Azure Active Directory (Azure AD), part of Microsoft Entra.  In Entitlement Management, an access package can have multiple policies, and each policy establishes how users get an assignment to the access package, and for how long.  As an administrator, you can establish a policy for automatic assignments by supplying a membership rule, that Entitlement Management will follow to create and remove assignments automatically.  Similar to a [dynamic group](../enterprise-users/groups-create-rule.md), when an automatic assignment policy is created, user attributes are evaluated for matches with the policy's membership rule. When an attribute changes for a user, these automatic assignment policy rules in the access packages are processed for membership changes. Assignments to users are then added or removed depending on whether they meet the rule criteria.
 

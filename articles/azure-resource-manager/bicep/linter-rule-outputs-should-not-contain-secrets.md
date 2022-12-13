@@ -2,7 +2,7 @@
 title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 12/09/2022
 ---
 
 # Linter rule - outputs should not contain secrets
