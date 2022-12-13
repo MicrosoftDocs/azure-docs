@@ -94,6 +94,8 @@ To create a network connection, you must have:
     - **Azure AD join:**To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan)
 - If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
 
+Follow these steps to create a network connection:
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, type *Network connections* and then select **Network connections** from the list.
