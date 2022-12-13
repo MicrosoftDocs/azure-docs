@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 10/20/2022
+ms.date: 12/13/2022
 author: mgoedtel
 
 ---
