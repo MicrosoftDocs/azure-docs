@@ -716,56 +716,41 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 
 ```json
 {
- "location": "westus2",
- "identity": {
-   "type": "SystemAssigned"
-   },
- "properties": {
-   "selectors": [
+  "type": "List",
+  "id": "myResources",
+  "targets": [
     {
-     "type": "List",
-     "id": "Selector1",
-     "targets": [
-      {
-       "id": "<subscriptionID>",
-       "type": "ChaosTarget"
-      }
-       ],
-      "filter": {
-         "type": "Simple",
-         "parameters": {
-           "zones": [
-                  "1"
-                ]
-         }
-      }
+      "id": "<targetResourceId>",
+      "type": "ChaosTarget"
     }
-   ],
-   "steps": [
-       {
-         "name": "Step1",
-         "branches": [
-          {
-          "name": "Branch1",
-          "actions": [
-              {
-         "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0",
-         "type": "continuous",
-         "selectorId": "Selector1",
-         "duration": "PT2M",
-         "parameters": [
-        {
-        "key": "abruptShutdown",
-        "value": "false"
-         }
-        ]
-       }
+  ],
+  "filter": {
+    "type": "Simple",
+    "parameters": {
+      "zones": [
+        "1"
       ]
-     }
-    ]
-   }
+    }
+  }
+}
+
+
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "name": "urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0",
+      "type": "continuous",
+      "selectorId": "myResources",
+      "duration": "PT10M",
+      "parameters": [
+        {
+          "key": "abruptShutdown",
+          "value": "false"
+        }
+      ]
+    }
   ]
- }
 }
 ```
 
