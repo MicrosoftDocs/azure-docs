@@ -8,6 +8,7 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
+ms.reviewer: sgilley
 ms.date: 08/26/2022
 adobe-target: true
 ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other, ignite-2022

@@ -132,7 +132,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data collected**	|		|		|		|		|		|
 |		|	Syslog	|	X	|	X	|	X	|		|
 |		|	Performance	|	X	|	X	|	X	|	X	|
-|		|	File based logs	|	X (Public preview)	|		|		|		|
+|		|	File based logs	|	X	|		|		|		|
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|		|	X (Public preview)	|
