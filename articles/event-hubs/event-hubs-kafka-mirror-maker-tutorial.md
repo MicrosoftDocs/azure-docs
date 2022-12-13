@@ -8,7 +8,7 @@ ms.date: 01/04/2021
 # Replicate data from a Kafka cluster to Event Hubs using Apache Kafka Mirror Maker 1
 
 
-This tutorial shows how to mirror a Kafka broker into an Azure Event Hub using Kafka Mirror Maker 1. 
+This tutorial shows how to mirror a Kafka broker into an Azure Event Hubs using Kafka Mirror Maker 1. 
 
    ![Kafka MirrorMaker with Event Hubs](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
