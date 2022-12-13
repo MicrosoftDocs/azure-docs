@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 12/12/2022
 ms.author: jpalma
 author: palma21
 
@@ -17,29 +17,29 @@ The [Azure Load Balancer][az-lb] operates at layer 4 of the Open Systems Interco
 
 A **public** load balancer integrated with AKS serves two purposes:
 
-1. To provide outbound connections to the cluster nodes inside the AKS virtual network. To do this, it translates the private IP address to a public IP address that is part of its *Outbound Pool*.
-2. To provide access to applications via Kubernetes services of type `LoadBalancer`. With it, you can easily scale your applications and create highly available services.
+1. To provide outbound connections to the cluster nodes inside the AKS virtual network. To do this, it translates the private IP address to a public IP address part of its *Outbound Pool*.
+2. To provide access to applications via Kubernetes services of type `LoadBalancer`. It enables you to easily scale your applications and create highly available services.
 
-An **internal (or private)** load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario.
+An **internal (or private)** load balancer is used when *only* private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can also be accessed from an on-premises network in a hybrid scenario.
 
-This document covers integration with public load balancer. For internal load balancer integration, see the [AKS internal load balancer documentation](internal-lb.md).
+This article covers integration with a public load balancer on AKS. For internal load balancer integration, see [Use an internal load balancer in AKS](internal-lb.md).
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS.
+Azure Load Balancer is available in two SKUs: *Basic* and *Standard*. The *Standard* SKU is used by default when you create an AKS cluster. The *Standard* SKU gives you access to added functionality, such as a larger backend pool, [multiple node pools](use-multiple-node-pools.md), [Availability Zones](availability-zones.md), and is [secure by default][azure-lb]. It's the recommended load balancer SKU for AKS.
 
-For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
+For more information on the *Basic* and *Standard* SKUs, see [Azure Load Balancer SKU comparison][azure-lb-comparison].
 
-This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, create one [using the Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
+This article assumes you have an AKS cluster with the *Standard* SKU Azure Load Balancer. If you need an AKS cluster, you can create one [using Azure CLI][aks-quickstart-cli], [Azure PowerShell][aks-quickstart-powershell], or [the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
-> If you prefer not to leverage the Azure Load Balancer to provide outbound connection and instead have your own gateway, firewall, or proxy for that purpose, you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The outbound type defines the egress method for a cluster and defaults to type `loadBalancer`.
+> If you'd prefer to use your own gateway, firewall, or proxy to provide outbound connection, you can skip the creation of the load balancer outbound pool and respective frontend IP by using [**outbound type as UserDefinedRouting (UDR)**](egress-outboundtype.md). The outbound type defines the egress method for a cluster and defaults to type `LoadBalancer`.
 
 ## Use the public standard load balancer
 
-After creating an AKS cluster with outbound type `LoadBalancer` (default), the cluster is ready to use the load balancer to expose services.
+After creating an AKS cluster with outbound type `LoadBalancer` (default), your cluster is ready to use the load balancer to expose services.
 
-To do this, you can create a public service of type `LoadBalancer`. Start by creating a service manifest named `public-svc.yaml`.
+To do this, create a service manifest named `public-svc.yaml`, which creates a public service of type `LoadBalancer`.
 
 ```yaml
 apiVersion: v1
@@ -54,15 +54,15 @@ spec:
     app: public-app
 ```
 
-Deploy the public service manifest by using [kubectl apply][kubectl-apply] and specify the name of your YAML manifest.
+Deploy the public service manifest using [`kubectl apply`][kubectl-apply] and specify the name of your YAML manifest.
 
 ```azurecli-interactive
 kubectl apply -f public-svc.yaml
 ```
 
-The Azure Load Balancer will be configured with a new public IP that will front this new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service deployed will get a new dedicated frontend IP to be uniquely accessed.
+The Azure Load Balancer will be configured with a new public IP that will front this new service. Since the Azure Load Balancer can have multiple frontend IPs, each new service that you deploy will get a new dedicated frontend IP to be uniquely accessed.
 
-You can use the following command to confirm your service is created and the load balancer is configured.
+Confirm your service is created and the load balancer is configured using the following command.
 
 ```azurecli-interactive
 kubectl get service public-svc
@@ -77,21 +77,21 @@ When you view the service details, the public IP address created for this servic
 
 ## Configure the public standard load balancer
 
-When using the standard public load balancer, there's a set of options you can customize at creation time or by updating the cluster. These options allow you to customize the load balancer to meet your workloads needs and should be reviewed accordingly. With the standard load balancer, you can:
+You can customize different settings for your standard public load balancer at cluster creation time or by updating the cluster. These customization options allow you to create a load balancer that meets your workload needs. With the standard load balancer, you can:
 
-* Set or scale the number of managed outbound IPs
-* Bring your own custom [outbound IPs or outbound IP prefix](#provide-your-own-outbound-public-ips-or-prefixes)
-* Customize the number of allocated outbound ports to each node of the cluster
-* Configure the timeout setting for idle connections
+* Set or scale the number of managed outbound IPs.
+* Bring your own custom [outbound IPs or outbound IP prefix](#provide-your-own-outbound-public-ips-or-prefixes).
+* Customize the number of allocated outbound ports to each node on the cluster.
+* Configure the timeout setting for idle connections.
 
 > [!IMPORTANT]
 > Only one outbound IP option (managed IPs, bring your own IP, or IP prefix) can be used at a given time.
 
 ### Scale the number of managed outbound public IPs
 
-Azure Load Balancer provides outbound connectivity from a virtual network in addition to inbound. Outbound rules make it simple to configure network address translation for the public standard load balancer.
+Azure Load Balancer provides outbound and inbound connectivity from a virtual network. Outbound rules make it simple to configure network address translation for the public standard load balancer.
 
-Like all load balancer rules, outbound rules follow the same syntax as load balancing and inbound NAT rules:
+Outbound rules follow the same syntax as load balancing and inbound NAT rules:
 
 ***frontend IPs + parameters + backend pool***
 
