@@ -31,7 +31,7 @@ To create a new file in your default folder (`Users > yourname`):
 1. Select the **+** tool.
 1. Select  **Create new file**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file" lightbox="media/how-to-run-jupyter-notebooks/create-new-file.png":::
 
 1. Name the file.
 1. Select a file type.
