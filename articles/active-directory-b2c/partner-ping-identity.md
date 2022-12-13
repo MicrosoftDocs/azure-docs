@@ -42,7 +42,7 @@ Proxies support the modern authentication protocols and use the redirect-based (
 
 ### Azure AD B2C as an identity provider
 
-In Azure AD B2C, you define policies that drive user experiences and behaviors, also called user journeys. Each such policy exposes a protocol endpoint that can perform the authentication as an IdP. On the application side, there is no special handling required for certain policies. An application makes a standard authentication request to the protocol-specific authentication endpoint exposed by a policy.  
+In Azure AD B2C, you define policies that drive user experiences and behaviors, also called user journeys. Each such policy exposes a protocol endpoint that can perform the authentication as an IdP. On the application side, there's no special handling required for certain policies. An application makes a standard authentication request to the protocol-specific authentication endpoint exposed by a policy.  
 You can configure Azure AD B2C to share the same issuer across policies or unique issuer for each policy. Each application can point to policies by making a protocol-native authentication request, which drives user behaviors such as sign-in, sign-up, and profile edits. The diagram shows OIDC and SAML application workflows.
 
   ![O I D C and S A M L implementation](./media/partner-ping/azure-ad-identity-provider.png)
@@ -57,7 +57,7 @@ Configure PingAccess with OIDC, OAuth2, or SAML for authentication with an upstr
 
    ![PingAccess with O I D C implementation](./media/partner-ping/authorization-flow.png)
 
-In a typical Azure AD B2C deployment with policies exposing IdPs, there is a challenge. Because, PingAccess is configured with one upstream IdP.  
+In a typical Azure AD B2C deployment with policies exposing IdPs, there's a challenge. PingAccess is configured with one, upstream IdP.  
 
 ### PingFederate federation proxy
 
@@ -99,7 +99,7 @@ In the advanced policies, configuration includes the IssuanceClaimPattern metada
 
 ## Configure PingAccess and PingFederate
 
-Use the instrcutions in the following sections to configure PingAccess and PingFederate. See the following diagram of the overall integration user flow.
+Use the instructions in the following sections to configure PingAccess and PingFederate. See the following diagram of the overall integration user flow.
 
    ![PingAccess and PingFederate integration](./media/partner-ping/pingaccess.png)
 
@@ -116,7 +116,7 @@ Use the following instructions to create a PingAccess application for the target
 #### Create a virtual host
 
 >[!IMPORTANT]
->Create a virtual host for every application. For more guidance, see [What can I configure with PingAccess?]([https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html](https://docs.pingidentity.com/bundle/pingaccess-71/page/kkj1564006722708.html).
+>Create a virtual host for every application. For more information, see [What can I configure with PingAccess?]([https://docs.pingidentity.com/bundle/pingaccess-43/page/reference/pa_c_KeyConsiderations.html](https://docs.pingidentity.com/bundle/pingaccess-71/page/kkj1564006722708.html).
 
 To create a virtual host:
 
