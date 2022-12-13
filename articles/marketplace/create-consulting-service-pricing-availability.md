@@ -46,7 +46,8 @@ To validate the conversion or to set custom prices in an individual market, you 
 1. Open the exportedPrice.xlsx file in Microsoft Excel.
 1. In the spreadsheet, you can adjust prices and currencies for each market. See [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md) for the list of supported currencies. When you're done, save the file.
 1. In Partner Center, under **Pricing**, select the **Import pricing data** link. Importing the file will overwrite previous pricing information.
-
+> [!Note]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. [Learn more.](https://learn.microsoft.com/en-us/azure/marketplace/marketplace-geo-availability-currencies)
 > [!IMPORTANT]
 > The prices you define in Partner Center are static and don't follow variations in the exchange rates. To change the price in one or more markets after publication, update and resubmit your offer in Partner Center.
 
@@ -55,3 +56,4 @@ Select **Save draft** before continuing.
 ## Next steps
 
 * [Review and publish](review-publish-offer.md)
+
