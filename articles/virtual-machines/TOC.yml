@@ -138,7 +138,7 @@
       href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
-  - name: SAP on Azure
+  - name: SAP on Azure VM workloads
     href: ./workloads/sap/get-started.md
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
