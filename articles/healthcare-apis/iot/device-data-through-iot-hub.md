@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/05/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -99,6 +99,17 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 

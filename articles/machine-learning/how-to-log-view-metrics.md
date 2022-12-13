@@ -267,13 +267,9 @@ You can browse completed job records, including logged metrics, in the [Azure Ma
 
 Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar. Click on the job of interest to enter the details view, and then select the **Metrics** tab.
 
-Select the logged metrics to render charts on the right side.
+Select the logged metrics to render charts on the right side. You can customize the charts by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
 
-:::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
-
-For a customizable view of your job metrics (preview), use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
-
-:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
+:::image type="content" source="media/how-to-log-view-metrics/metrics.png" alt-text="Screenshot of the metrics view.":::
 
 ### View and download diagnostic logs
 
