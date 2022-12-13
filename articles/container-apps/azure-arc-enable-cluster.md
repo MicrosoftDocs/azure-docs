@@ -108,15 +108,15 @@ $LOCATION="eastus"
 ```
 
 ---
- 
+
 ## Create a connected cluster
 
-The steps below will help you get started understanding of the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+The following steps help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
-1. Create a cluster in Azure Kubernetes Service. 
+1. Create a cluster in Azure Kubernetes Service.
 
     # [bash](#tab/bash)
-    
+
     ```azurecli
     az group create --group $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create \
@@ -125,7 +125,7 @@ The steps below will help you get started understanding of the service, but for 
        --enable-aad \
        --generate-ssh-keys
     ```
-    
+
     # [PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
@@ -150,37 +150,37 @@ The steps below will help you get started understanding of the service, but for 
 1. Create a resource group to contain your Azure Arc resources. 
 
     # [bash](#tab/bash)
-    
+
     ```azurecli
         az group create --group $GROUP_NAME --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     az group create --group $GROUP_NAME --location $LOCATION
     ```
-    
+
     ---
 
 1. Connect the cluster you created to Azure Arc.
 
     # [bash](#tab/bash)
-    
+
     ```azurecli
     CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
     
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
-    
+
     # [PowerShell](#tab/azure-powershell)
-    
+
     ```azurepowershell
     $CLUSTER_NAME="${GROUP_NAME}-cluster" # Name of the connected cluster resource
     
     az connectedk8s connect --resource-group $GROUP_NAME --name $CLUSTER_NAME
     ```
-    
+
     ---
 
 1. Validate the connection with the following command. It should show the `provisioningState` property as `Succeeded`. If not, run the command again after a minute.
