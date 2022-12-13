@@ -1,6 +1,6 @@
 ---
-title: Integrate your applications for identity governance and establishing a baseline of reviewed access - Azure AD 
-description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
+title: Integrate your applications for identity governance and establishing a baseline of reviewed access
+description: Microsoft Entra Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.  You can integrate your existing business critical third party on-premises and cloud-based applications with Azure AD for identity governance scenarios.
 services: active-directory
 documentationcenter: ''
 author: amsliu
@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 
 Once you've [established the policies](identity-governance-applications-define.md) for who should have access to an application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then [deploy the policies](identity-governance-applications-deploy.md) for governing access to them.
 
-Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Microsoft Entra identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, you can use Azure AD with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
-In order for Azure AD identity governance to be used for an application, the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
+In order for Microsoft Entra identity governance to be used for an application, the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
 * The application relies upon Azure AD for federated SSO, and Azure AD controls authentication token issuance. If Azure AD is the only identity provider for the application, then only users who are assigned to one of the application's roles in Azure AD are able to sign into the application. Those users that lose their application role assignment can no longer get a new token to sign in to the application.
 * The application relies upon user or group lists that are provided to the application by Azure AD. This fulfillment could be done through a provisioning protocol such as SCIM, by the application querying Azure AD via Microsoft Graph, or the application using AD Kerberos to obtain a user's group memberships.

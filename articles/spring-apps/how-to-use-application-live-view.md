@@ -134,7 +134,7 @@ az spring application-live-view show \
 
 ## Configure Dev Tools to access Application Live View
 
-To access Application Live View, you need to configure Tanzu Application Platform GUI tools. For more information, see [Use Tanzu Application Platform GUI tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
+To access Application Live View, you need to configure Tanzu Dev Tools. For more information, see [Configure Tanzu Dev Tools in Azure Spring Apps Enterprise tier](./how-to-use-dev-tool-portal.md).
 
 ## Use Application Live View to monitor your apps
 

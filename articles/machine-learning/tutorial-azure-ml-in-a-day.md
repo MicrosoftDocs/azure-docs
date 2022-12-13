@@ -53,6 +53,10 @@ The steps you'll take are:
 
 :::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
 
+Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
+
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/set-kernel.png" alt-text="Screenshot: Set the kernel.":::
+
 > [!Important]
 > The rest of this tutorial contains cells of the tutorial notebook.  Copy/paste them into your new notebook, or switch to the notebook now if you cloned it.
 >
@@ -73,6 +77,7 @@ In the next cell, enter your Subscription ID, Resource Group name and Workspace 
 1. Copy the value for workspace, resource group and subscription ID into the code.  
 1. You'll need to copy one value, close the area and paste, then come back for the next one.
 
+:::image type="content" source="media/tutorial-azure-ml-in-a-day/find-credentials.png" alt-text="Screenshot: find the credentials for your code in the upper right of the toolbar.":::
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=ml_client)]
 
@@ -93,7 +98,7 @@ For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2
 
 ## Create a job environment
 
-To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your python environment on your local machine.
+To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
 
 AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
 
@@ -103,7 +108,7 @@ First, create a directory to store the file in.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=dependencies_dir)]
 
-Now, create the file in the dependencies directory.
+Now, create the file in the dependencies directory. The cell below uses IPython magic to write the file into the directory you just created.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_model)]
 
@@ -126,7 +131,7 @@ After running the training job, you'll deploy the model, then use it to produce 
 
 ## Create training script
 
-Let's start by creating the training script - the *main.py* python file.
+Let's start by creating the training script - the *main.py* Python file.
 
 First create a source folder for the script:
 
@@ -135,6 +140,8 @@ First create a source folder for the script:
 This script handles the preprocessing of the data, splitting it into test and train data. It then consumes this data to train a tree based model and return the output model. 
 
 [MLFlow](https://mlflow.org/docs/latest/tracking.html) will be used to log the parameters and metrics during our pipeline run.
+
+The cell below uses IPython magic to write the training script into the directory you just created.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=write_main)]
 
@@ -156,7 +163,6 @@ Here, you'll create input variables to specify the input data, split ratio, lear
 ## Submit the job 
 
 It's now time to submit the job to run in AzureML. This time you'll use `create_or_update`  on `ml_client.jobs`.
-
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=create_job)]
 

@@ -42,4 +42,4 @@ ms.date: 11/24/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender External Attack Surface Management (Defender EASM)](episode-twenty-two.md)

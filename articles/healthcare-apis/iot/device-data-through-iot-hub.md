@@ -1,12 +1,12 @@
 ---
 title: Receive device messages through Azure IoT Hub - Azure Health Data Services
-description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service in Azure Health Data Services. The tutorial uses an Azure Resource Manager template in the Azure portal and Visual Studio Code with the Azure IoT Hub extension.
+description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service in Azure Health Data Services. The tutorial uses an Azure Resource Manager template (ARM template) in the Azure portal and Visual Studio Code with the Azure IoT Hub extension.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/02/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -38,7 +38,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 - An active Azure subscription account. If you don't have an Azure subscription, see the [subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 - The Microsoft.HealthcareApis, Microsoft.EventHub, and Microsoft.Devices resource providers registered with your Azure subscription. To learn more, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -48,17 +48,15 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template - Optional
+## Review the ARM template
 
-The ARM template that you use to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
+The ARM template used to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
 ## Use the Deploy to Azure button
 
 To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors-with-iothub%2Fazuredeploy.json)
-
-The button calls an ARM template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors-with-iothub/) to get information from your Azure subscription environment and begin deploying the MedTech service and Azure IoT Hub by using the Azure portal.
 
 ## Configure the deployment
 
@@ -80,32 +78,38 @@ The button calls an ARM template from [Azure Quickstart Templates](https://azure
   
       To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
-
    - **Device Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
 
    - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
- 
-   > [!IMPORTANT]
-   > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
-   >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
+   
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
 
-1. To validate your configuration, select **Review + create**.
+2. To validate your configuration, select **Review + create**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
 
-1. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
+3. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-validation-completed.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
 
-1. After a successful validation, to begin the deployment, select **Create**.
+4. After a successful validation, to begin the deployment, select **Create**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
 
-1. In a few minutes, the Azure portal displays the message that your deployment is completed.
+5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 
@@ -130,9 +134,13 @@ When deployment is completed, the following resources and access roles are creat
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  
+- Conforming and valid MedTech service [device](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md).
 
-> [!TIP]
-> Get detailed instructions to [manually deploy the MedTech service by using the Azure portal](deploy-03-new-manual.md).
+> [!IMPORTANT]
+> In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+>
+> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Create a device and send a test message
 
@@ -146,26 +154,26 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 1. Open Visual Studio Code with Azure IoT Tools installed.
 
-1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Select IoT Hub**.
+2. In Explorer, in **Azure IoT Hub**, select **…** and choose **Select IoT Hub**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-iot-hub.png" alt-text="Screenshot of Visual Studio Code with the Azure IoT Hub extension with the deployed IoT hub selected." lightbox="media\iot-hub-to-iot-connector\iot-select-iot-hub.png":::
 
-1. Select the Azure subscription where your IoT hub was provisioned.
+3. Select the Azure subscription where your IoT hub was provisioned.
   
-1. Select your IoT hub. The name of your IoT hub is the *basename* you provided when you provisioned the resources prefixed with **ih-**. An example hub name is *ih-azuredocsdemo*.
+4. Select your IoT hub. The name of your IoT hub is the *basename* you provided when you provisioned the resources prefixed with **ih-**. An example hub name is *ih-azuredocsdemo*.
 
-1. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
+5. In Explorer, in **Azure IoT Hub**, select **…** and choose **Create Device**. An example device name is *iot-001*.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-create-device.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension with Create device selected." lightbox="media\iot-hub-to-iot-connector\iot-create-device.png":::
 
-1. To send a test message from the device to your IoT hub, right-click the device and select **Send D2C Message to IoT Hub**.
+6. To send a test message from the device to your IoT hub, right-click the device and select **Send D2C Message to IoT Hub**.
 
    > [!NOTE]
    > In this device-to-cloud (D2C) example, *cloud* is the IoT hub in Azure IoT Hub that receives the device message. Azure IoT Hub supports two-way communications. To set up a cloud-to-device (C2D) scenario, select **Send C2D Message to Device Cloud**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png" alt-text="Screenshot that shows Visual Studio Code with the Azure IoT Hub extension and the Send D2C Message to IoT Hub option selected." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message.png":::
 
-1. In **Send D2C Messages**, select or enter the following values:
+7. In **Send D2C Messages**, select or enter the following values:
 
    - **Device(s) to send messages from**: The name of the device you created.
 
@@ -193,7 +201,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
      }
      ```
 
-1. To begin the process of sending a test message to your IoT hub, select **Send**.
+8. To begin the process of sending a test message to your IoT hub, select **Send**.
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png" alt-text="Screenshot that shows Visual Studio code with the Azure IoT Hub extension with the device message options selected." lightbox="media\iot-hub-to-iot-connector\iot-select-device-to-cloud-message-options.png":::
 
@@ -204,7 +212,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
 
 ## Review metrics from the test message
 
-Now that you've successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
+Now that you've successfully sent a test message to your IoT hub, review your MedTech service metrics. You review metrics to verify that your MedTech service received, grouped, transformed, and persisted the test message to your FHIR service. To learn more, see [How to display the MedTech service monitoring tab metrics](how-to-use-monitoring-tab.md).
 
 For your MedTech service metrics, you can see that your MedTech service completed the following steps for the test message:
 
@@ -225,16 +233,17 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, and sent a test message to your MedTech service.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn how to configure device mappings:
-
-> [!div class="nextstepaction"]
-> [How to configure device mappings](how-to-use-device-mappings.md)
-
-To learn how to configure FHIR destination mappings:
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
+
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service manually using Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
