@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 * The following Python libraries: openai, num2words, matplotlib, plotly, scipy, scikit-learn, transformers.
 * An Azure OpenAI Service resource with **text-search-curie-doc-001** and **text-search-curie-query-001** models deployed. These models are currently only available in [certain regions](/azure/cognitive-services/openai/concepts/models#model-summary-table-and-region-availability).  If you don't have a resource the process is documented in our [resource deployment guide](../how-to/create-resource.md).
 
-> ![NOTE]
+> [!NOTE]
 > If you have never worked with the Hugging Face transformers library it has its own specific [prerequisites](https://huggingface.co/docs/transformers/installation) that are required before you can successfully run `pip install transformers`.
 
 ## Set up
@@ -58,7 +58,7 @@ BillSum is a dataset of United States Congressional and California state bills. 
 
 This tutorial uses the `bill_sum_data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv).
 
-You can also download the sample data by running the following on your local machine:
+You can also download the sample data by running the following command on your local machine:
 
 ```cmd
 curl "https://raw.githubusercontent.com/Azure-Samples/Azure-OpenAI-Docs-Samples/main/Samples/Tutorials/Embeddings/data/bill_sum_data.csv" --output bill_sum_data.csv
@@ -222,7 +222,7 @@ df_bills
 
 **Output:**
 
-:::image type="content" source="../media/tutorials/initial-dataframe.png" alt-text="Screenshot of the smaller DataFrame table results with only text, summary and title columns displayed." lightbox="../media/tutorials/initial-dataframe.png":::
+:::image type="content" source="../media/tutorials/cleanup-dataframe.png" alt-text="Screenshot of the smaller DataFrame table results with only text, summary and title columns displayed." lightbox="../media/tutorials/cleanup-dataframe.png":::
 
 Next we'll perform some light data cleaning by removing redundant whitespace and cleaning up the punctuation to prepare the data for tokenization.
 
