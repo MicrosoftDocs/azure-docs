@@ -21,7 +21,7 @@ Data in Log Analytics is available for the retention period defined in your work
 
 After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your storage account or event hubs as it arrives.
 
-[![Data export overview](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow diagram.")](media/logs-data-export/data-export-overview.png#lightbox)
+[![Data export overview](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
 
 Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
