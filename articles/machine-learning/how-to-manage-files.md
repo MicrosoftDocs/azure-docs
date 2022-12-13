@@ -37,7 +37,10 @@ To create a new file in your default folder (`Users > yourname`):
 1. Select a file type.
 1. Select **Create**.
 
-Notebooks and most text file types display in the preview section.  Most other file types don't have a preview.  If you don't see the correct preview for a notebook, make sure it has `.ipynb` as its extension.
+Notebooks and most text file types display in the preview section.  Most other file types don't have a preview.  
+
+> [!TIP]
+> If you don't see the correct preview for a notebook, make sure it has `.ipynb` as its extension.  Hover over the filename in the list to select **...** if you need to rename the file.  
 
 To create a new file in a different folder:
 
