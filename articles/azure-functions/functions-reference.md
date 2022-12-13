@@ -121,7 +121,7 @@ Identity-based connections are supported by the following components:
 | Azure Tables (when using Azure Storage)  | All | [Azure Tables extension version 1.0.0 or later](./functions-bindings-storage-table.md#table-api-extension),<br/>[Extension bundle 3.3.0 or later][tablesv1] |
 | Azure Event Hubs triggers and bindings     | All             | [Azure Event Hubs extension version 5.0.0 or later][eventhubv5],<br/>[Extension bundle 3.3.0 or later][eventhubv5]   |
 | Azure Service Bus triggers and bindings       | All             | [Azure Service Bus extension version 5.0.0 or later][servicebusv5],<br/>[Extension bundle 3.3.0 or later][servicebusv5] |
-| Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Preview extension bundle 4.0.0 or later][cosmosv4]|
+| Azure Cosmos DB triggers and bindings         | All | [Azure Cosmos DB extension version 4.0.0 or later][cosmosv4],<br/> [Extension bundle 4.0.2 or later][cosmosv4]|
 | Durable Functions storage provider (Azure Storage) - Preview | All | [Durable Functions extension version 2.7.0 or later][durable-identity],<br/>[Extension bundle 3.3.0 or later][durable-identity] | 
 | Host-required storage ("AzureWebJobsStorage") - Preview | All             | [Connecting to host storage with an identity](#connecting-to-host-storage-with-an-identity-preview)                        |
 
