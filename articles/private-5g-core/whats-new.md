@@ -47,7 +47,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum governing how users of local diagnostics APIs will be authenticated. Set this field to **AAD** to use Microsoft Azure Active Directory (Azure AD) or **Password** to use passwords.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This is an enum governing how users of local diagnostics APIs will be authenticated. Set this to **Password**.
    4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
