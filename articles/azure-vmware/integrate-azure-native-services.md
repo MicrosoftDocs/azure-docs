@@ -3,7 +3,7 @@ title: Monitor and protect VMs with Azure native services
 description: Learn how to integrate and deploy Microsoft Azure native tools to monitor and manage your Azure VMware Solution workloads.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/26/2022
+ms.date: 12/13/2022
 ms.custom: engagement-fy23
 ---
 
@@ -12,8 +12,8 @@ ms.custom: engagement-fy23
 Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). In this article, you'll integrate Azure native services in your Azure VMware Solution private cloud. You'll also learn how to use the tools to manage your VMs throughout their lifecycle.
 
 The Azure native services that you can integrate with Azure VMware Solution include:
-- Azure Arc extends Azure management Azure VMware Solution. Once your Azure VMware Solution private cloud is onboarded to Arc, you'll be ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) virtual machines (VMs) in an Arc-enabled Azure VMware Solution private cloud. Users can also enable guest management and install Azure extensions once the private cloud is Arc-enabled. 
-- Azure Monitor collects, analyzes, and acts on data from your cloud and on-premises environments. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. You can send logs from your AVS private cloud to your Log Analytics workspace, allowing you to take advantage of the Log Analytics feature set, including:
+- Azure Arc extends Azure management Azure VMware Solution. After your Azure VMware Solution private cloud is deployed to Arc, you'll be ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) virtual machines (VMs) in an Arc-enabled Azure VMware Solution private cloud. Users can also enable guest management and install Azure extensions after the private cloud is Arc-enabled. 
+- Azure Monitor collects, analyzes, and acts on data from your cloud and on-premises environments. Your Log Analytics workspace in Azure Monitor enables log collection and performance counter collection using the Log Analytics agent or extensions. You can send logs from your Azure VMware Solution private cloud to your Log Analytics workspace, allowing you to take advantage of the Log Analytics feature set, including:
     - system patches, security misconfigurations, and endpoint protection. You can also define security policies in Microsoft Defender for Cloud.
 - Log Analytics workspace stores log data. Each workspace has its own data repository and configuration to store data. You can monitor Azure VMware Solution VMs through the Log Analytics agent. Machines connected to the Log Analytics Workspace use the Log Analytics agent to collect data about changes to installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis. 
 
@@ -41,10 +41,8 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 
 Defender for Cloud forwards the environment vulnerability to Microsoft Sentinel to create an incident and map with other threats. You can also create the scheduled rules query to detect unwanted activity and convert it to the incidents.
 
-## Before you start
-If you're new to Azure or not familiar with any of the services previously mentioned, review the following articles:
-
-- [Enable Azure Monitor for VMs overview](../azure/azure-monitor/vm/vminsights-enable-overview)
+>[!NOTE]
+> If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-enable-overview) for guidance.
 
 ## Enable guest management and install extension
 The guest management must be enabled on the VMware vSphere virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.
