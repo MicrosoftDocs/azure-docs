@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 
@@ -37,6 +37,29 @@ This article describes requirements and considerations about [using the volume c
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can't revert a source or destination volume of cross-zone replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
+
+## Supported regions
+
+The preview of cross-zone replication is available in the following regions: 
+
+* Australia East
+* Brazil South 
+* Canada Central 
+* Central India
+* Central US 
+* East Asia
+* East US 
+* France Central 
+* Germany West Central 
+* Japan East
+* North Europe
+* Norway East 
+* Southeast Asia
+* South Central US 
+* UK South
+* West Europe
+* West US 2 
+* West US 3 
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
