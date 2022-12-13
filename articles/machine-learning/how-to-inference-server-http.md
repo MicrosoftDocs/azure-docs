@@ -340,7 +340,7 @@ The basic steps for troubleshooting are:
 The server package `azureml-inference-server-http` is published to PyPI. You can find our changelog and all previous versions on our [PyPI page](https://pypi.org/project/azureml-inference-server-http/). Update to the latest version if you're using an earlier version.
 - 0.4.x: The version that is bundled in training images ≤ `20220601` and in `azureml-defaults>=1.34,<=1.43`. `0.4.13` is the last stable version. If you use the server before version `0.4.11`, you may see Flask dependency issues like can't import name `Markup` from `jinja2`. You're recommended to upgrade to `0.4.13` or `0.8.x` (the latest version), if possible.
 - 0.6.x: The version that is preinstalled in inferencing images ≤ 20220516. The latest stable version is `0.6.1`.
-- 0.7.x: The first version that supports Flask 2. You can find the latest stable version from our PyPI page.
+- 0.7.x: The first version that supports Flask 2. The latest stable version is `0.7.7`.
 - 0.8.x: The log format has changed and Python 3.6 support has dropped.
 
 ### Package dependencies
