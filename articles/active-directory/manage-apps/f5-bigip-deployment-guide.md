@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/6/2022
+ms.date: 12/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -74,7 +74,7 @@ To deploy BIG-IP VE from the [Azure Marketplace](https://azuremarketplace.micros
 9. Select **F5 BIG-IP Virtual Edition (BYOL)** > **Select a software plan** > **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)**.
 10. Select **Create**.
 
-    ![The image shows steps to select a software plan](./media/f5ve-deployment-plan/software-plan.png)
+    ![Screenshot of software plan selections.](./media/f5ve-deployment-plan/software-plan.png)
 
 11. For **Basics**:
 
@@ -141,14 +141,14 @@ Exposing the management interfaces to the internet increases BIG-IP attack surfa
 
 The following diagram shows a NIC deployment of a BIG-IP VE in Azure, configured with a primary IP for general operations and management. There's a separate virtual server IP for publishing services. An NSG rule allows remote traffic destined for `intranet.contoso.com` to route to the public IP for the published service, before being forwarded to the BIG-IP virtual server.
 
-   ![The image shows the single nic deployment](./media/f5ve-deployment-plan/single-nic-deployment.png)
+   ![Diagram of the single NIC deployment.](./media/f5ve-deployment-plan/single-nic-deployment.png)
 
 By default, private and public IPs issued to Azure VMs are dynamic, so can change when a VM restarts. Avoid connectivity issues by changing the BIG-IP management IP to static. Do the same action on secondary IPs for publishing services.
 
 1. From your BIG-IP VM menu, go to **Settings** > **Networking**.
 2. In the networking view, select the link to the right of **Network Interface**.
 
-    ![The image shows the network config](./media/f5ve-deployment-plan/network-config.png)
+    ![Screenshot of networking configurations.](./media/f5ve-deployment-plan/network-config.png)
 
 >[!NOTE]
 >VM names are generated randomly during deployment.
@@ -187,7 +187,7 @@ The example illustrates the one-to-one relationship between a VM public and priv
 >[!NOTE]
 >You need the secondary IP mappings for publishing BIG-IP services.
 
-   ![Image shows secondary IPs](./media/f5ve-deployment-plan/secondary-ips.png)
+   ![Screenshot of IP configurations.](./media/f5ve-deployment-plan/secondary-ips.png)
 
 To implement SHA using the BIG-IP Access Guided Configuration, repeat steps to create more private and public IP pairs for services you publish via the BIG-IP APM. Use the same approach for publishing services using BIG-IP Advanced Configuration. However, avoid public IP overhead by using a [Server Name Indicator (SNI)](https://support.f5.com/csp/#/article/K13452) configuration: a BIG-IP virtual server accepts client traffic it receives, and sends it to its destination.
 
@@ -201,7 +201,7 @@ To resolve your published SHA services to your BIG-IP-VM public IP(s), configure
 4. In the BIG-IP-VMs networking view, from the drop-down IP configuration list, select the first secondary IP.
 5. Select the **NIC Public IP** link.
 
-    ![The NIC public IP](./media/f5ve-deployment-plan/networking.png)
+    ![Scrrenshot of NIC public IP.](./media/f5ve-deployment-plan/networking.png)
 
 4. In the left-hand pane, below the **Settings** section, select **Configuration**. 
 5. The public IP and DNS properties menu appears.
@@ -298,7 +298,7 @@ Before it can be configured for publishing services and SHA, activate and provis
 >[!NOTE]
 >If the list does not appear, in the main tab, go to **System** > **Resource Provisioning**. Check the provisioning column for Access Policy (APM)
 
-![The image shows access provisioning](./media/f5ve-deployment-plan/access-provisioning.png)
+   ![Screenshot of access provisioning.](/media/f5ve-deployment-plan/access-provisioning.png)
 
 12. Select **Submit**.
 13. Accept the warning.
@@ -321,7 +321,7 @@ It's important to secure management traffic to and from BIG-IP web config. To he
 6. From the left-navigation bar, go to **System** > **Platform**.
 7. Under General Properties, enter a qualified **Host Name** and environment **Time Zone**.
 
-    ![The image shows general properties](./media/f5ve-deployment-plan/general-properties.png)
+    ![Screenshot of general properties.](./media/f5ve-deployment-plan/general-properties.png)
 
 9. Select **Update**.
 10. From the left-navigation bar, go to **System** > **Configuration** > **Device** > **NTP**.
@@ -356,7 +356,7 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 10. In the **New Client SSL Profile** page, enter a unique, friendly **Name**.
 11. Ensure the Parent profile is set to **clientssl**.
 
-    ![The image shows update big-ip](./media/f5ve-deployment-plan/client-ssl.png)
+    ![Screenshot of name and parent profile selections.](./media/f5ve-deployment-plan/client-ssl.png)
 
 8. In the **Certificate Key Chain** row, select the far-right check box.
 9. Select **Add**.
@@ -364,7 +364,7 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 11. Select **Add**.
 12. Select **Finished**.
 
-    ![The image shows update big-ip contoso wildcard](./media/f5ve-deployment-plan/contoso-wildcard.png)
+    ![Screenshot of certificate, key, and chain selections.](./media/f5ve-deployment-plan/contoso-wildcard.png)
 
 13.	Repeat steps to create an **SSL server certificate profile**. 
 14.	From the top ribbon, select **SSL** > **Server** > **Create**.
@@ -374,7 +374,7 @@ For BIG-IP to be pre-configured and ready for SHA scenarios, provision Client an
 18.	From the **Certificate** and **Key** drop-down lists, select your imported certificate.
 19.	Select **Finished**.
 
-    ![The image shows update big-ip server all profile](./media/f5ve-deployment-plan/server-ssl-profile.png)
+    ![Screenshot of general properties and configuration selections.](./media/f5ve-deployment-plan/server-ssl-profile.png)
 
 >[!NOTE]
 >If you’re unable to procure an SSL certificate, use the integrated self-signed BIG-IP server and client SSL certificates. A certificate error appears in the browser.
@@ -404,7 +404,7 @@ See the following list for update-related guidance. Update instructions follow.
 1. In the BIG-IP web config, on the main tab, go to **Access** > **Guided Configuration**.
 2. On the **Guided Configuration** page, select **Upgrade Guided Configuration**.
 
-    ![The image shows how to update big-ip](./media/f5ve-deployment-plan/update-big-ip.png)
+    ![Screenshot of guided configuration page.](./media/f5ve-deployment-plan/update-big-ip.png)
 
 3. On the **Upgrade Guided Configuration** dialog, select **Choose File**. 
 4. Select **Upload and Install**.
