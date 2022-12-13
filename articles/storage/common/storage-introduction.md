@@ -97,13 +97,13 @@ File shares can be used for many common scenarios:
 
 For more information about Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
-Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+Some SMB features aren't applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ## Azure Elastic SAN (preview)
 
 Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN (preview) is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Some other benefits of Elastic SAN include a simplified deployment and management interface. Since you can manage storage for multiple compute resources from a single interface, as well as cost optimization.
+Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Some other benefits of Elastic SAN include a simplified deployment and management interface. Since you can manage storage for multiple compute resources from a single interface, and cost optimization.
 
 For more information about Azure Elastic SAN, see [What is Azure Elastic SAN? (preview)](../elastic-san/elastic-san-introduction.md).
 
@@ -117,13 +117,13 @@ For more information about Azure Queues, see [Introduction to Queues](../queues/
 
 ## Table Storage
 
-Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there is a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](../../cosmos-db/table-introduction.md).
+Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there's a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](../../cosmos-db/table-introduction.md).
 
 For more information about Table Storage, see [Overview of Azure Table Storage](../tables/table-storage-overview.md).
 
 ## Disk Storage
 
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure-managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure-managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
 
 For more information about managed disks, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md).
 
@@ -131,7 +131,7 @@ For more information about managed disks, see [Introduction to Azure managed dis
 
 [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection.
 
-For more information about Azure NetApp Files, refer to [Introduction to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
+For more information about Azure NetApp Files, see [Introduction to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
 
 For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files and Azure NetApp Files comparison](../files/storage-files-netapp-comparison.md).
 
@@ -147,7 +147,7 @@ Every request to Azure Storage must be authorized. Azure Storage supports the fo
 - **Azure AD authorization over SMB for Azure Files.** Azure Files supports identity-based authorization over SMB (Server Message Block) through either Azure Active Directory Domain Services (Azure AD DS) or on-premises Active Directory Domain Services (preview). Your domain-joined Windows VMs can access Azure file shares using Azure AD credentials. For more information, see [Overview of Azure Files identity-based authentication support for SMB access](../files/storage-files-active-directory-overview.md) and [Planning for an Azure Files deployment](../files/storage-files-planning.md#identity).
 - **Authorization with Shared Key.** The Azure Storage Blob, Files, Queue, and Table services support authorization with Shared Key. A client using Shared Key authorization passes a header with every request that is signed using the storage account access key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 - **Authorization using shared access signatures (SAS).** A shared access signature (SAS) is a string containing a security token that can be appended to the URI for a storage resource. The security token encapsulates constraints such as permissions and the interval of access. For more information, see [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
-- **Active Directory Domain Services with Azure NetApp Files.** Azure NetApp Files features such as SMB volumes, dual-protocol volumes, and NFSv4.1 Kerberos volumes are designed to be used with AD DS. For more information, refer to [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md) or learn how to [Configure ADDS LDAP over TLS for Azure NetApp Files](../../azure-netapp-files/configure-ldap-over-tls.md).
+- **Active Directory Domain Services with Azure NetApp Files.** Azure NetApp Files features such as SMB volumes, dual-protocol volumes, and NFSv4.1 Kerberos volumes are designed to be used with AD DS. For more information, see [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](../../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md) or learn how to [Configure ADDS LDAP over TLS for Azure NetApp Files](../../azure-netapp-files/configure-ldap-over-tls.md).
 
 ## Encryption
 
@@ -163,7 +163,7 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. See 
 
 The Azure Storage client libraries provide methods for encrypting data from the client library before sending it across the wire and decrypting the response. Data encrypted via client-side encryption is also encrypted at rest by Azure Storage. For more information about client-side encryption, see [Client-side encryption with .NET for Azure Storage](storage-client-side-encryption.md).
 
-Azure NetApp Files data traffic is inherently secure by design, as it does not provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight is not encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted).
+Azure NetApp Files data traffic is inherently secure by design, as it doesn't provide a public endpoint and data traffic stays within customer-owned VNet. Data-in-flight isn't encrypted by default. However, data traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. NFSv4.1 and SMB3 data-in-flight encryption can optionally be enabled. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted).
 
 ## Redundancy
 
