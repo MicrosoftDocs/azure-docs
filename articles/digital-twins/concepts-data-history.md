@@ -28,7 +28,7 @@ For more of an introduction to data history, including a quick demo, watch the f
 ## Resources and data flow
 
 Data history requires the following resources:
-* Azure Digital Twins instance, with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
+* Azure Digital Twins instance, with a [system-managed identity](concepts-security.md#managed-identity-for-accessing-other-resources) enabled
 * [Event Hubs](../event-hubs/event-hubs-about.md) namespace containing an event hub
 * [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster containing a database 
 
