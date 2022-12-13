@@ -119,14 +119,14 @@ Initialize your Active Directory forest and domain for basic read permissions.
 
 #### UserDomain
 ```
-Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+ Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN <String>]
+ [-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-SkipAdminSdHolders]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf] [-Confirm
+[<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -163,7 +163,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,
 
 #### EXAMPLE 3
 ```
-Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncBasicReadPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -233,8 +233,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders 
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
@@ -292,14 +292,14 @@ Initialize your Active Directory forest and domain for Exchange Hybrid feature.
 
 #### UserDomain
 ```
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN <String>]
+[-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-SkipAdminSdHolders]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf] [-Confirm]
+[<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -331,7 +331,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=Azu
 
 #### EXAMPLE 3
 ```
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -401,8 +401,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
@@ -460,15 +460,14 @@ Initialize your Active Directory forest and domain for Exchange Mail Public Fold
 
 #### UserDomain
 ```
-Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String>
- -ADConnectorAccountDomain <String> [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN
+ <String>] [-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>]
- [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -493,7 +492,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnec
 
 #### EXAMPLE 3
 ```
-Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -563,8 +562,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
@@ -622,14 +621,14 @@ Initialize your Active Directory forest and domain for mS-DS-ConsistencyGuid fea
 
 #### UserDomain
 ```
-Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN <String>]
+ [-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>]
- [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf]
+[-Confirm] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -654,7 +653,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,O
 
 #### EXAMPLE 3
 ```
-Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -724,8 +723,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
@@ -904,14 +903,14 @@ Initialize your Active Directory forest and domain for password write-back from 
 
 #### UserDomain
 ```
-Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN <String>]
+[-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>]
- [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf]
+[-Confirm] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -940,7 +939,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=
 
 #### EXAMPLE 3
 ```
-Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -1010,8 +1009,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
@@ -1198,14 +1197,14 @@ Initialize your Active Directory forest and domain for Group writeback from Azur
 
 #### UserDomain
 ```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String>
- [-ADobjectDN <String>] [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-ADobjectDN <String>]
+[-IncludeAdminSDHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 #### DistinguishedName
 ```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>]
- [-SkipAdminSdHolders] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [-IncludeAdminSDHolders] [-WhatIf]
+[-Confirm] [<CommonParameters>]
 ```
 
 ### DESCRIPTION
@@ -1231,7 +1230,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector
 
 #### EXAMPLE 3
 ```
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -SkipAdminSdHolders
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN 'CN=ADConnector,OU=AzureAD,DC=Contoso,DC=com' -IncludeAdminSDHolders
 ```
 
 #### EXAMPLE 4
@@ -1301,8 +1300,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### -SkipAdminSdHolders
-Optional parameter to indicate if AdminSDHolder container should not be updated with these permissions
+#### -IncludeAdminSDHolders
+Optional parameter to indicate if AdminSDHolder container should be updated with these permissions
 
 ```yaml
 Type: SwitchParameter
