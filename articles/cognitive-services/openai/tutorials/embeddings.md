@@ -115,6 +115,8 @@ After setting the environment variables you may need to close and reopen jupyter
 
 Run the following code in your preferred Python IDE:
 
+If you wish to view the jupyter notebook that corresponds to this tutorial you can download the tutorial from our [samples repo](https://github.com/Azure-Samples/Azure-OpenAI-Docs-Samples/blob/main/Samples/Tutorials/Embeddings/embedding_billsum.ipynb)
+
 ## Import libraries and list models
 
 ```python
