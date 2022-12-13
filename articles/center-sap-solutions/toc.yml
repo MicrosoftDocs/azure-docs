@@ -4,6 +4,7 @@ items:
 
 
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Center for SAP solutions?
     href: overview.md
