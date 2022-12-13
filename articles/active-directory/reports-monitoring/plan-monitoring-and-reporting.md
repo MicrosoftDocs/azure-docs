@@ -60,7 +60,7 @@ Learn more about:
   * An Azure Event Hubs namespace to integrate with SIEM solutions
   * An Azure Log Analytics workspace to send logs to Azure Monitor logs
 
-## Azure reporting and monitoring deployment project
+## Stakeholders, communications, and documentation
 
 Use the following sections to define the users who consume and monitor reports, and your Azure AD monitoring architecture.
 
@@ -70,7 +70,7 @@ Successful projects align expectations, outcomes, and responsibilities. See, [Az
 
 ### Communications plan
 
-Tell your users how and when the experience will change. Provide contact information for support.
+Tell your users when, and how, their experience will change. Provide contact information for support.
 
 ### Document current infrastructure and policies
 
@@ -100,87 +100,74 @@ Business use cases:
 
 ### Monitoring solution architecture
 
-With Azure AD monitoring, you can route Azure AD activity logs and retain them for long-term reporting and analysis to gain insights into your environment, and integrate it with SIEM tools.
+With Azure AD monitoring, you can route Azure AD activity logs and retain them for long-term reporting and analysis to gain environment insights, and integrate it with SIEM tools. Use the following decision flow chart to help select an architecture.
 
-Decision flow chart![An image showing what is described in subsequent sections](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+![Decision matrix for business-need architecture.](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
 
 #### Archive logs in a storage account
 
-By routing logs to an Azure storage account, you can keep them for longer than the default retention period outlined in our [retention policies](./reference-reports-data-retention.md). Use this method if you need to archive your logs, but don't need to integrate them with an SIEM system, and don't need ongoing queries and analysis. You can still do on-demand searches.
+You can keep logs longer than the default retention period by routing them to an Azure storage account.
 
-Learn how to [route data to your storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md).
+> [!IMPORTANT]
+> Use this archival method if there is no need to integrate logs with a SIEM system, or no need for ongoing queries and analysis. You can use on-demand searches.
+
+Learn more:
+
+* [How long does Azure AD store reporting data?](./reference-reports-data-retention.md)
+* [Tutorial: Archive Azure AD logs to an Azure storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md)
 
 #### Send logs to Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) consolidate monitoring data from different sources. It also provides a query language and analytics engine that gives you insights into the operation of your applications and use of resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor, and alert on collected data. Use this method when you don't have an existing SIEM solution that you want to send your data to directly but do want queries and analysis. Once your data is in Azure Monitor logs, you can then send it to event hub, and from there to a SIEM if you want to.
+[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) consolidate monitoring data from different sources. Use the query language and analytics engine for insights on application operation and resource usage. Retrieve, monitor, and alert on collected data by sending Azure AD activity logs to Azure Monitor logs. 
 
-Learn how to [send data to Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
+> [!IMPORTANT]
+> Use this logging method if there is no SIEM solution for receiving data. You can conduct queries and analysis. After data is in Azure Monitor logs, you can send it to your event hub, and then to a SIEM.
 
-You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign-in and audit events.
+Learn more:
 
-Learn how to [install and use log analytics views for Azure AD activity logs](./howto-install-use-log-analytics-views.md).
+* [Integrate Azure AD logs with Azure Monitor logs](./howto-integrate-activity-logs-with-log-analytics.md).
+* [Analyze Azure AD activity logs with Azure Monitor logs](/MicrosoftDocs/azure-docs/blob/main/articles/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics.md).
 
-#### Stream logs to your Azure event hub
+#### Route logs to your Azure event hub
 
-Routing logs to an Azure event hub enables integration with third-party SIEM tools. This integration allows you to combine Azure AD activity log data with other data managed by your SIEM, to provide richer insights into your environment. 
+Routing logs to an Azure event hub enables integration with SIEM tools. For more insights, combine Azure AD activity log data with other data managed by your SIEM. 
 
-Learn how to [stream logs to an event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
+Learn more: [Tutorial: Stream Azure Active Directory logs to an Azure event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## Plan Operations and Security for Azure AD reporting and monitoring
+## Roles
 
-Stakeholders need to access Azure AD logs to gain operational insights. Likely users include security team members, internal or external auditors, and the identity and access management operations team.
+Stakeholders need access to Azure AD logs. These users likely are the security teams, auditors (internal or external), identity and access management operations teams, etc.
 
-Azure AD roles enable you to delegate the ability to configure and view Azure AD Reports based on your role. Identify who in your organization needs permission to read Azure AD reports and what role would be appropriate for them. 
-
-The following roles can read Azure AD reports:
+Use Azure AD roles to delegate configuration and permit who views or reads Azure AD Reports. The following roles read Azure AD reports:
 
 * Global Admin
-
 * Security Admin
-
 * Security Reader
-
 * Reports Reader
 
-Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.md).
+Learn more: [Azure AD built-in roles](../roles/permissions-reference.md)
 
-*Always apply the concept of least privileges to reduce the risk of an account compromise*. Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to further secure your organization.
+> [!NOTE]
+>To increase account security, apply the concept of least privileges. 
+>Learn more: [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md).
 
+## Deployment options
 
-## Deploy Azure AD reporting and monitoring
-
-Depending on the decisions you have made earlier using the design guidance above, this section will guide you to the documentation on the different deployment options.
-
-### Consume and archive Azure AD logs
-
-[Find activity reports in the Azure portal](./howto-find-activity-reports.md)
-
-[Archive Azure AD logs to an Azure Storage account](./quickstart-azure-monitor-route-logs-to-storage-account.md)
+Use the following guidance to review deployment options.
 
 ### Implement monitoring and analytics
 
-[Send logs to Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md)
+* [What are Azure Active Directory reports?](./overview-reports.md)
 
-[Install and use the log analytics views for Azure Active Directory](./howto-install-use-log-analytics-views.md)
+* [Interpret the Azure AD sign-in logs schema in Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 
-[Analyze Azure AD activity logs with Azure Monitor logs](./howto-analyze-activity-logs-log-analytics.md)
+* [How to: Integrate Azure Active Directory logs with Splunk using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 
-* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
+* [Integrate Azure Active Directory logs with SumoLogic using Azure Monitor](./howto-integrate-activity-logs-with-sumologic.md)
 
-* [Interpret sign in logs schema in Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
-
- * [Stream Azure AD logs to an Azure event hub](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
-
-* [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
-
-* [Integrate Azure AD logs with SumoLogic by using Azure Monitor](./howto-integrate-activity-logs-with-sumologic.md)
-
- 
-
- 
 
 ## Next steps
 
-Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 
+[What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md) 
 
-Consider implementing [Azure role-based access control](../../role-based-access-control/overview.md)
+[What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
