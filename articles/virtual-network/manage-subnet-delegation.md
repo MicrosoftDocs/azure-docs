@@ -3,17 +3,12 @@ title: Add or remove a subnet delegation in an Azure virtual network
 titlesuffix: Azure Virtual Network
 description: Learn how to add or remove a delegated subnet for a service in Azure.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/06/2019
+ms.date: 12/14/2022
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azurecli
----
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
 
 # Add or remove a subnet delegation
 
