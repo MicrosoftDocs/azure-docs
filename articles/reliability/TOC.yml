@@ -32,6 +32,8 @@
         href: migrate-search-service.md
       - name: Azure Container instances
         href: migrate-container-instances.md
+      - name: Azure Database for MySQL
+        href: migrate-db-mysql.md
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
       - name: Azure Log Analytics workspaces
