@@ -28,7 +28,7 @@ To create a new file in your default folder (`Users > yourname`):
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 1. On the left side, select **Notebooks**.
-1. Select the **+** image.
+1. Select the **+** tool.
 1. Select  **Create new file**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file":::
