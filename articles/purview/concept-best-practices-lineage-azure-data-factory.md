@@ -1,8 +1,8 @@
 ---
 title: Microsoft Purview Data Lineage best practices
 description: This article provides best practices for data Lineage various data sources in Microsoft Purview.
-author: amberz
-ms.author: amberz
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
