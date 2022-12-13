@@ -139,7 +139,7 @@ openai.api_key = API_KEY
 openai.api_base = RESOURCE_ENDPOINT
 openai.api_version = "2022-12-01"
 
-url = openai.api_base + "/openai/deployments?api-version=2022-06-01-preview"
+url = openai.api_base + "/openai/deployments?api-version=2022-12-01"
 
 r = requests.get(url, headers={"api-key": API_KEY})
 
