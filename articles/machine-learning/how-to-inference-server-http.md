@@ -69,7 +69,7 @@ python -m pip install azureml-inference-server-http
 1. To avoid package conflicts, create a virtual environment and activate it:
 
     ```bash
-    virtualenv myenv
+    python -m venv myenv
     source myenv/bin/activate
     ```
 
@@ -114,6 +114,7 @@ python -m pip install azureml-inference-server-http
     {"message": "Hello, World!"}
     ```
 
+After testing, you can press `Ctrl+C` to terminate the server. Also, run `deactivate` to deactivate the Python virtual environment.
 Now you can modify the scoring script and test your changes by running the server again.
 
 ### End-to-end example
