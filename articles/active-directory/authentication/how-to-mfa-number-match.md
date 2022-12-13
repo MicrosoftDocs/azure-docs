@@ -286,6 +286,13 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 Number match will be enabled for all users of Microsoft Authenticator after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
+### Will the changes on Feb 27th, 2023, override number matching settings that are configured for a group?
+
+The **Enable and Target** tab of the Microsoft Authenticator authentication method policy will remain unchanged. Admins can continue to Target specific users and groups or All Users for Push or Any notifications. This change will only impact members of users and groups that are Targeted on the **Enable and Target** tab for Push and/or Any.
+
+When Microsoft begins protecting all organizations by enabling number matching on Feb 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
+
+
 ### How should users be prepared for default number matching?
 
 Here are differences in sign-in scenarios that Microsoft Authenticator users will see after number matching is enabled by default:
@@ -309,6 +316,10 @@ Here are differences in sign-in scenarios that Microsoft Authenticator users wil
 ### Can I opt out of number matching?
 
 Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+
+### Will users who don't use number matching be able to perform MFA?
+
+It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on Feb 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
