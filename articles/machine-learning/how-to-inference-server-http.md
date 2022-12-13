@@ -148,7 +148,7 @@ In this section, we'll run the server locally with [sample files](https://github
     azmlinfsrv --entry_script ./onlinescoring/score.py --model_dir ./
     ```
 
-    The example [startup log](#Startup-logs) will be shown if the server launched and the scoring script invoked successfully. Otherwise, there will be error messages in the log.
+    The example [startup log](#startup-logs) will be shown if the server launched and the scoring script invoked successfully. Otherwise, there will be error messages in the log.
 
 1. Test the scoring script with a sample data.
     Open another teminal and move to the same working directory to run the command.
