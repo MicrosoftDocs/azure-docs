@@ -5,7 +5,7 @@ ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 08/12/2022
+ms.date: 12/13/2022
 ms.devlang: azurecli
 ms.custom: engagement-fy23
 --- 
@@ -14,13 +14,13 @@ ms.custom: engagement-fy23
 
 Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
 
-> [!NOTE]
-> The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
-
 ## Prerequisite
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- The user must be a resource group Contributor or subscription Owner
+- Minimum permission required to create a new instance: resource group Contributor.
+- Minimum permission required to access an instance: Grafana Viewer permission on the Azure Managed Grafana instance.
+  > [!NOTE]
+  > Permission to access Azure Managed Grafana instances can only be granted by subscription Owners or User Access Administrators. If you don't have this permission, ask someone with the right access to assist you.
 
 ## Sign in to Azure
 
@@ -30,7 +30,9 @@ Open your CLI and run the `az login` command:
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command will prompt your web browser to launch and load an Azure sign-in page.
+
+The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run the `az grafana` command.
 
 ## Create a resource group
 
