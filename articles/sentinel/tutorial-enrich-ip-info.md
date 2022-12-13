@@ -41,15 +41,6 @@ To complete this tutorial, make sure you have:
 
 1. On the **Microsoft Sentinel | Overview** page, select **Automation** from the navigation menu, under **Configuration**.
 
-<!-- 7. Task H2s ------------------------------------------------------------------------------
-
-Required: Each major step in completing a task should be represented as an H2 in the article.
-These steps should be numbered.
-The procedure should be introduced with a brief sentence or two.
-Multiple procedures should be organized in H2 level sections.
-Procedure steps use ordered lists.
--->
-
 ## 1 - Create a playbook from a template
 
 Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that you can customize and use to automate a large number of basic SecOps objectives and scenarios. Let's find one to enrich the IP address information in our incidents.
@@ -122,7 +113,7 @@ As the playbook is deployed, you'll see a quick series of notifications of its p
 
     Whether the condition is true or false, we want to send the data in the report to a table in Log Analytics so it can be queried and analyzed, and add a comment to the incident.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/condition-true-false-actions.png":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png":::
 
 1. Inside both the **True** and **False** frames is an identical action: send data to a Log Analytics table. 
 
@@ -169,68 +160,39 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
     :::image type="content" source="media/tutorial-enrich-ip-info/16-add-run-playbook-action.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 1.":::
 
-    In the **Search playbooks** field, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. When you see your playbook in the list, select it.
+    You'll see a list of all the playbooks in your subscription. The grayed-out ones are those you don't have access to. In the **Search playbooks** text box, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. When you see your playbook in the list, select it.
 
     :::image type="content" source="media/tutorial-enrich-ip-info/17-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
 
     :::image type="content" source="media/tutorial-enrich-ip-info/18-playbook-selected.png" alt-text="Screenshot showing your selected playbook.":::
 
+1. Leave the remaining settings as they are, and select **Apply**.
 
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
-
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
-
-Here is an example of a code block for Java:
-
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
-
-or a code block for Azure CLI:
-
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
-
-or a code block for Azure PowerShell:
-
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -IpAddressType Public
-```
--->
-
-<!-- 8. Clean up resources ------------------------------------------------------------------------
-
-Required: To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
-
--->
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-the playbook and automation rule you created with the following steps:
+If you're not going to continue to use this automation scenario, delete the playbook and automation rule you created with the following steps:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+1. In the **Automation** page, select the **Active playbooks** tab.
 
-TODO: Add steps for cleaning up the resources created in this tutorial.
+1. Enter the name (or part of the name) of the playbook you created in the **Search** bar.  
+    (If it doesn't show up, make sure any filters are set to **Select all**.)
 
-<!-- 9. Next steps ------------------------------------------------------------------------
+1. Mark the check box next to your playbook in the list, and select **Delete** from the top banner.  
+    (If you don't want to delete it, you can select **Disable** instead.)
 
-Required: Provide at least one next step and no more than three. Include some context so the 
-customer can determine why they would click the link.
-Add a context sentence for the following links.
--->
+1. Select the **Automation rules** tab.
+
+1. Enter the name (or part of the name) of the automation rule you created in the **Search** bar.  
+    (If it doesn't show up, make sure any filters are set to **Select all**.)
+
+1. Mark the check box next to your automation rule in the list, and select **Delete** from the top banner.  
+    (If you don't want to delete it, you can select **Disable** instead.)
 
 ## Next steps
-TODO: Add your next step link(s)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
--->
+Now that you've learned how to automate a basic incident enrichment scenario, learn more about automation and other scenarios you can use it in.
+
+- See more examples of [using playbooks together with automation rules](tutorial-respond-threats-playbook.md).
+- Take a deeper dive into [adding actions to playbooks](playbook-triggers-actions.md).
+- Explore some [basic automation scenarios](automate-incident-handling-with-automation-rules.md) that don't require playbooks.
