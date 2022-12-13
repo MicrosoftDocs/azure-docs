@@ -277,6 +277,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * Jupyter
 * JupyterLab
 * RStudio
+* Posit Workbench (formerly RStudio Workbench)
 * Integrated notebooks
 
 ## Schedule automatic start and stop
@@ -537,14 +538,14 @@ arm_access_token = get_access_token_msi("https://management.azure.com")
 > [!NOTE]
 > To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
 
-## Add custom applications such as RStudio (preview)
+## Add custom applications such as RStudio or Posit Workbench (preview)
 
 > [!IMPORTANT]
 > Items marked (preview) below are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can set up other applications, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
+You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
 1.	Select **Next: Advanced Settings**
@@ -552,27 +553,27 @@ You can set up other applications, such as RStudio, when creating a compute inst
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
 
-### Setup RStudio Workbench
+### Setup Posit Workbench (formerly RStudio Workbench)
 
-RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on your compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
+Posit is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers.
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **RStudio Workbench (bring your own license)** in the **Application** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
-1. Select **Create** to add RStudio Workbench application to your compute instance.
+1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
+1. Select **Create** to add Posit Workbench application to your compute instance.
  
-:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
 [!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
 
 > [!NOTE]
-> * Support for accessing your workspace file store from RStudio is not yet available.
-> * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
-> * Shiny applications are not currently supported on RStudio Workbench.
+> * Support for accessing your workspace file store from Posit Workbench is not yet available.
+> * When accessing multiple instances of Posit Workbench, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
+> * Shiny applications are not currently supported on Posit Workbench.
  
 
-### Setup RStudio open source
+### Setup RStudio (open source)
 
-To use RStudio open source, set up a custom application as follows:
+To use RStudio, set up a custom application as follows:
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Custom Application** on the **Application** dropdown 
@@ -620,7 +621,7 @@ Access the custom applications that you set up in studio:
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
-Once you launch **RStudio**, you may not see any of your files, even after specifying the correct **Bind mounts** above.  If this happens:
+Once you launch **RStudio** or **Posit Workbench**, you may not see any of your files, even after specifying the correct **Bind mounts** above.  If this happens:
 
 1. Select the **...** at the far right of the Files pane
 1. For the **Path to folder**, type `/home/azureuser/cloudfiles/code`

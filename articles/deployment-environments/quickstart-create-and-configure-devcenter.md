@@ -73,7 +73,7 @@ After you create a dev center, attach an [identity](concept-environments-key-con
 - System-assigned managed identity
 - User-assigned managed identity
 
-For more information, see [Configure a managed identity](how-to-configure-managed-identity.md).
+You can use a system-assigned managed identity or a user-assigned managed identity. You don't have to use both. For more information, see [Configure a managed identity](how-to-configure-managed-identity.md).
 
 ### Attach a system-assigned managed identity
 

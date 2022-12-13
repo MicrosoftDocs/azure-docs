@@ -425,7 +425,7 @@ Starting from 3.4.3, you can capture `FileName`, `ClassName`, `MethodName`, and 
 
 > [!WARNING]
 >
-> Capturing these additional log attributes can add a performance overhead.
+> Capturing code attributes might add a performance overhead.
 
 ### Logging level as a custom dimension
 
