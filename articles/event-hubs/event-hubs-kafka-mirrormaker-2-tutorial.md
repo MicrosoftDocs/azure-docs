@@ -9,7 +9,7 @@ ms.date: 12/04/2022
 
 This tutorial shows how to replicate data from an existing Kafka cluster to Azure Event Hubs using Mirror Maker 2. 
 
-   ![Image showing the flow of events from Kafka MirrorMaker to Event Hubs.](./media/event-hubs-kafka-mirror-maker-tutorial/mirror-maker-2-kafka-to-event-hubs.png)
+   ![Image showing the flow of events from Kafka MirrorMaker to Event Hubs.](./media/event-hubs-kafka-mirror-maker-tutorial/mirrormaker-2-kafka-to-event-hubs.png)
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker-2)
