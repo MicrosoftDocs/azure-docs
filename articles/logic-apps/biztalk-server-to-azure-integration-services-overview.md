@@ -207,7 +207,7 @@ Integration platforms offer ways to solve problems in a consistent and unified m
 
   APIs enable digital experiences, make data and services reusable and universally accessible, simplify application integration, and underpin new digital products. ​With the proliferation and increasing dependency on APIs, organizations need to manage them as first-class assets throughout their lifecycle.​
 
-  You can reuse APIs, especially those managed with Azure API Management, within Azure Integration Services. After you add APIs to Azure API Management, you can use the API Management connector with Consumption logic app workflows to easily access APIs in a managed and governed manner. Azure Logic Apps also supports creating and using custom APIs so that your organization can promote reuse across the enterprise and avoid unnecessary redundant connectors that developers might otherwise create. Custom APIs also democratize who can use these APIs, rather than have developer figure out the mechanics to use a a particular API.
+  You can reuse APIs, especially those managed with Azure API Management, within Azure Integration Services. After you add APIs to Azure API Management, you can use the API Management connector with Consumption logic app workflows to easily access APIs in a managed and governed manner. Azure Logic Apps also supports creating and using custom APIs so that your organization can promote reuse across the enterprise and avoid unnecessary redundant connectors that developers might otherwise create. Custom APIs also democratize who can use these APIs, rather than have developer figure out the mechanics to use a particular API.
 
 - Custom connectors
 
@@ -500,7 +500,7 @@ You can extend BizTalk in many ways by using custom .NET Fx code, for example:
 
 #### Azure Integration Services
 
-Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The Functions platform supports various programming languages and runtimes, which offer lots of flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
+Azure Functions provides the capability for you to write code that you can run from the Azure Functions connector in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview). The Functions platform supports various programming languages and runtimes, which offer much flexibility. These functions are generally designed to have short execution times, and a rich set of developer tools exists to support local development and debugging.
 
 In Azure Logic Apps, the **Inline Code** connector provides the action named **Execute JavaScript Code**. You can use this action to write small code snippets in JavaScript. These code snippets are also expected to have short execution times and support dynamic content inputs and outputs. After the code runs, the output is available for downstream actions in the workflow. Although no direct debugging support currently exists for this action, you can view the inputs and outputs in the workflow instance's run history.
 

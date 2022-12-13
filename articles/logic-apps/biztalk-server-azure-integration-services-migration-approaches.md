@@ -11,7 +11,7 @@ ms.date: 12/15/2022
 
 # Migration approaches for moving from BizTalk Server to Azure Integration Services
 
-This guide covers migration strategies and resources along with planning considerations and best practices to help you help you deliver successful results.
+This guide covers migration strategies and resources along with planning considerations and best practices to help you deliver successful migration solutions.
 
 > [!NOTE]
 >
@@ -83,7 +83,7 @@ Readiness represents a critical part in your planning process. When you understa
 
 | Area | Description |
 |------|-------------|
-| Inventory | Capture data about all your interfaces and applications so you can learn the number of interfaces and applications that you need to migrate. During this cataloguing process, collect the following information to provide context: <br><br>- Adapters in use <br>- BizTalk Server features in use, such as Business Activity Monitoring, Business Rules Engine, EDI, and so on <br>- Custom code, such as expressions, maps, and pipeline components <br>- Message throughput <br>- Message sizes <br>- Dependencies |
+| Inventory | Capture data about all your interfaces and applications so you can learn the number of interfaces and applications that you need to migrate. During this cataloging process, collect the following information to provide context: <br><br>- Adapters in use <br>- BizTalk Server features in use, such as Business Activity Monitoring, Business Rules Engine, EDI, and so on <br>- Custom code, such as expressions, maps, and pipeline components <br>- Message throughput <br>- Message sizes <br>- Dependencies |
 | Complexity | To help you learn the levels of complexity in your interfaces, examine the types of business rules in those interfaces and the technical requirements that need customization to meet their needs or performance requirements. |
 | Value | Assess the value of your interfaces so you can determine the priority for which interfaces to reimplement. While starting with low risk interfaces might make sense, after you're comfortable working with Azure Integration Services, make sure to first focus on the highest value work. |
 | Costs | Establish the project's scope and estimate costs because a migration project requires capital to start execution. Secure the project's budget, whether achieved through capital or operational budget planning, and manage the project's scope along the way. |
@@ -223,7 +223,7 @@ Consider the following testing recommendations for your migration project:
 
 - Run side by side tests.
 
-  Ideally, you have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Integration Services. You can now run tests side-by-side in a way so that you can verify your interfaces using the same data sets, which improves overall test accuracy.
+  Ideally, you already have baseline integration tests for your BizTalk Server environment and established automated tests for Azure Integration Services. You can then run tests side-by-side in a way that helps you check your interfaces by using the same data sets and improve overall test accuracy.
 
 ### Go live
 
@@ -241,7 +241,7 @@ After your team finishes testing, think about the necessary tasks to put your ne
 
    - Prerequisite steps
 
-     Identify the actions that you can or must perform in advance, so that you don't leave everything for cut-over day. Generally, a cut-over to a new integration platform usually means that you have a greenfield deployment, so you can stage many components and configurations early in the cycle. The more that you can complete before your original platform's maintenance window, the more angst you can remove, and improve the overall outcome of your cut-over event.
+     Identify the actions that you can or must perform in advance, so that you don't leave everything for cut-over day. Generally, a cut-over to a new integration platform usually means that you have a "green field" deployment, so you can stage many components and configurations early in the cycle. The more that you can complete before your original platform's maintenance window, the more angst you can remove, and improve the overall outcome of your cut-over event.
 
    - Dress rehearsal
   
@@ -276,9 +276,9 @@ After your team finishes testing, think about the necessary tasks to put your ne
 
 1. Determine a rollback plan.
 
-   Hopefully, you now have a structured and detailed approach to implement your new integration platform.However, surprises can happen, so determine the necessary steps to roll back to your previous integration platform. That way, you have a plan ready to go, just in case.
+   Hopefully, you now have a structured and detailed approach to implement your new integration platform. However, surprises can happen, so determine the necessary steps to roll back to your previous integration platform. That way, you have a plan ready to go, just in case.
 
-   When you're thinking through these steps, consider the events that might trigger a rollback. Also, align your plan with the people you need involved to make the rollback decision. This guide discusses more later in the section about making the "Go or No-go" decision.
+   When you're thinking through these steps, consider the events that might trigger a rollback. Also, align your plan with the people who you need to make the rollback decision. This guide provides more information in the section about making the "Go or No-go" decision.
 
 1. Run validation testing.
 
@@ -325,7 +325,7 @@ For guidance around this practice, review the following Microsoft recommendation
 
 ### Naming conventions for Azure Logic Apps resources
 
-Your logic app and workflow design is a key starting point because this area provides flexibility for developers to create unique names.
+The design for your logic app and workflow provides a key starting point because this area provides flexibility for developers to create unique names.
 
 #### Logic app resource names
 
@@ -334,7 +334,7 @@ To differentiate between Consumption and Standard logic app resources, you can u
 - Consumption: **LACon**
 - Standard: **LAStd**
 
-From a organizational perspective, you might designing a naming pattern that includes the business unit, department, application, and optionally, the deployment environment, such as `DEV`, `UAT`, `PROD`, and so on, for example:
+From an organizational perspective, you might design a naming pattern that includes the business unit, department, application, and optionally, the deployment environment, such as `DEV`, `UAT`, `PROD`, and so on, for example:
 
 `LAStd-<*business-unit-name*>-<*department-name* or *application-name*>-<*environment-name*>`
 
@@ -348,7 +348,7 @@ A Consumption logic app resource always maps to only one workflow, so you only n
 
 So, if you had a workflow that implements employee onboarding tasks, such as creating an employee record, you might name the workflow **Process-EmployeeOnboarding**.
 
-Here are a couple more considerations for designing your workflow naming convention:
+Here are more considerations for designing your workflow naming convention:
 
 - Follow the Parent-Child pattern for logic apps where you want to highlight some relationship between one or more workflows.
 - Take into account whether a workflow publishes or consumes a message.
@@ -367,7 +367,7 @@ To make operation names more meaningful and easier to understand, you can add a 
 > reduce friction when authoring expressions. Instead, use a dash or hyphen ('-), which provides 
 > readability and doesn't affect expression authoring.
 
-To avoid later possible rework and problems around downstream dependencies, which are created when you use operation outputs, rename your operations immediately when you add them to your workflow. Usually, downstream actions are automatically updated when you rename an operation. However, custom expressions that you created before a rename aren't automatically updated.
+To avoid later possible rework and problems around downstream dependencies, which are created when you use operation outputs, rename your operations immediately when you add them to your workflow. Usually, downstream actions are automatically updated when you rename an operation. However, Azure Logic Apps doesn't automatically rename custom expressions that you created before you perform the rename.
 
 #### Connection names
 
