@@ -203,11 +203,22 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 
 Typically, private clusters are created with a public IP address and load balancer, providing a means for outbound connectivity to other services. However, you can create a private cluster without a public IP address. This may be required in situations in which security or policy requirements prohibit the use of public IP addresses.
 
+To create a private cluster without a public IP address, register for the feature flag `userDefinedRouting` using the following command structure:
+
+```
+az feature register --namespace Microsoft.RedHatOpenShift --name UserDefinedRouting
+```
+After you've registered the feature flag, [create the private ARO cluster](#create-the-cluster).
+
+<!-->
+
 To create a private cluster without a public IP address, add the following flag to the `azo create` command:
 
 ```
 --outboundType UserDefinedRouting
 ```
+\-->
+
 Enabling this User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
 [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
 
