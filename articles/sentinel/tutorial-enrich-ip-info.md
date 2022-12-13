@@ -29,6 +29,8 @@ To complete this tutorial, make sure you have:
 
 - A Log Analytics workspace with the Microsoft Sentinel solution deployed on it.
 
+- An Azure user with the [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) and [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) roles assigned.
+
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
 ## Sign in to the Azure portal and Microsoft Sentinel
