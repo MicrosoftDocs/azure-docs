@@ -287,4 +287,4 @@ foreach (ApplicationSummary app in applications)
 ## Next steps
 
 - The [Batch REST API](/rest/api/batchservice) also provides support to work with application packages. For example, see the [applicationPackageReferences](/rest/api/batchservice/pool/add#applicationpackagereference) element for how to specify packages to install, and [Applications](/rest/api/batchservice/application) for how to obtain application information.
-- Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET](/dotnet/api/overview/azure/batch/management) library can enable account creation and deletion features for your Batch application or service.
+- Learn how to programmatically [manage Azure Batch accounts and quotas with Batch Management .NET](batch-management-dotnet.md). The [Batch Management .NET](batch-management-dotnet#create-and-delete-batch-accounts) library can enable account creation and deletion features for your Batch application or service.
