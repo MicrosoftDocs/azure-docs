@@ -321,7 +321,7 @@ To remove configured Event Hubs namespaces, you can follow these steps:
 > [!NOTE]
 > If you have an ingestion private endpoint when you disable this Event Hubs namespace, after disabling the ingestion private endpoint may show as disconnected.
 
-For more information about configuring these Event Hubs namespaces, see: [Publish and process Atlas Kafka topics messages via Event Hubs](manage-kafka-dotnet.md)
+For more information about configuring these Event Hubs namespaces, see: [Configure Event Hubs for Atlas Kafka topics](configure-event-hubs-for-kafka.md)
 
 ## Credential management
 

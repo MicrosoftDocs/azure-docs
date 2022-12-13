@@ -57,7 +57,7 @@ For more information about the governance capabilities of Microsoft Purview, for
 1. On  the **Networking** tab you can choose to connect to all networks, or to use private endpoints. For more information and configuration options, see our [private endpoints for Microsoft Purview articles.](catalog-private-link.md)
 
 1. On **Configuration** tab you can choose to configure Event Hubs namespaces to programmatically monitor your Microsoft Purview account using Event Hubs and Atlas Kafka.
-    - [Steps to configure Event Hubs namespaces](manage-kafka-dotnet.md#configure-event-hubs)
+    - [Steps to configure Event Hubs namespaces](configure-event-hubs-for-kafka.md)
     - [Send and receive Atlas Kafka topics messages](manage-kafka-dotnet.md)
 
     :::image type="content" source="media/create-catalog-portal/configure-kafka-event-hubs.png" alt-text="Screenshot showing the Event Hubs configuration page in the Create Microsoft Purview account window.":::

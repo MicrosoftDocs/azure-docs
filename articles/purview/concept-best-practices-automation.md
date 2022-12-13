@@ -63,7 +63,7 @@ When to use?
 
 Each Microsoft Purview account can configure Event Hubs that are accessible via their Atlas Kafka endpoint.
 
-[You can follow these steps to configure the Event Hubs namespaces.](manage-kafka-dotnet.md#prerequisites)
+[You can follow these steps to configure the Event Hubs namespaces.](configure-event-hubs-for-kafka.md)
 
 >[!NOTE]
 >Enabling this Event Hubs namespace does incur a cost for the namespace. For specific details, see [the pricing page](https://azure.microsoft.com/pricing/details/event-hubs/).
