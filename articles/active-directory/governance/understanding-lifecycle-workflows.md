@@ -81,8 +81,8 @@ Under the trigger details section, you can provide the following information.
 
 This section defines **when** the workflow will run.  Currently, there are two supported types of triggers:
   
-- Trigger and scope based - runs the task on all users in scope once the workflow is triggered.
-- On-demand - can be run immediately.  Typically used for real-time employee terminations.
+- Trigger and scope based: Runs the task on all users in scope once the workflow is triggered.
+- On-demand: Can be run immediately. Typically used for real-time employee terminations.
 
 ## Configure scope
 
