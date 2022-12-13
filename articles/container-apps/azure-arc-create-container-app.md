@@ -25,7 +25,7 @@ Before you proceed to create a container app, you first need to set up an [Azure
 
 Launch the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 
-[![Launch Cloud Shell in a new window](media/azure-cloud-shell-button.png)](https://shell.azure.com)
+[![Launch Cloud Shell in a new window.](media/azure-cloud-shell-button.png)](https://shell.azure.com)
 
 Next, add the required Azure CLI extensions.
 
