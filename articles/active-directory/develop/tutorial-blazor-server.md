@@ -84,7 +84,7 @@ You can now build and run the app. When you run this template app, you must spec
 dotnet run
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running.
+In your browser, navigate to `https://localhost:<port number> `, and log in using an Azure AD user account to see the app running.
 
 ## Retrieving data from Microsoft Graph
 
