@@ -81,7 +81,8 @@ When planning a price change, consider the following:
 For a price decrease to a Software as a service offer to take effect on the first of the next month, publish the price change at least four days before the end of the current month.
 
 For a price increase to a Software as a service offer to take effect on the first of a future month, 90 days out, publish the price change at least four days before the end of the current month.
-
+> [!Note]
+> Offers will be billed to customers in the customers’ agreement currency, using the local market price that was published at the time the offer was created. The amount that customers pay, and that ISVs are paid, depends on the Foreign Exchange rates at the time the customer transacts the offer. [Learn more.](https://learn.microsoft.com/en-us/azure/marketplace/marketplace-geo-availability-currencies)
 ## Changing the flat fee of a SaaS or Azure app offer
 
 To update the monthly or yearly price of a SaaS or Azure app offer:
@@ -232,6 +233,15 @@ After the price change is canceled, follow the steps in the appropriate part of 
 ## Next steps
 
 - Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
+
+
+
+
+
+
+
+
+
 
 
 
