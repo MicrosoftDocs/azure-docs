@@ -1,6 +1,6 @@
 ---
-title: Questions about discovery, assessment, and dependency analysis in Azure Migrate
-description: Get answers to common questions about discovery, assessment, and dependency analysis in Azure Migrate.
+title: Questions about discovery and assessment in Azure Migrate
+description: Get answers to common questions about discovery and assessment in Azure Migrate.
 author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
