@@ -263,7 +263,7 @@ Durable Functions needs a storage provider to store runtime state. You can confi
 
 1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
 
-    ![Create function](media/quickstart-js-vscode/functions-create-project.png)
+    ![Screenshot of create new functions project.](media/quickstart-js-vscode/functions-create-project.png)
 
 2. Choose an empty folder location for your project and choose **Select**.
 
@@ -342,7 +342,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 2. In the Terminal panel, copy the URL endpoint of your HTTP-triggered function.
 
-   ![Azure local output](media/quickstart-java/mvn-functions-run2.png)
+   ![Screenshot of Azure local output.](media/quickstart-java/mvn-functions-run-2.png)
 
 3. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. You should get a response similar to the following:
 
