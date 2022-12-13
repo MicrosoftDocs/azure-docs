@@ -22,9 +22,8 @@ For a SaaS offer to use metered billing, it must first:
 - Be configured for the **flat rate** pricing model when charging customers for your service. Dimensions are an optional extension to the flat rate pricing model.
 
 Then the SaaS offer can integrate with the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) to inform Microsoft of billable events.
-
->[!Note]
->Marketplace metering service is available only to the flat rate billing model, and does not apply to the per user billing model.
+> [!Note]
+>Marketplace metering service is available only to the flat rate billing model and does not apply to the per user billing model.
 
 ## How metered billing fits in with pricing
 
