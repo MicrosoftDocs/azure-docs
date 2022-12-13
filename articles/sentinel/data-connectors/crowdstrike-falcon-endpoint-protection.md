@@ -3,130 +3,108 @@ title: "CrowdStrike Falcon Endpoint Protection connector for Microsoft Sentinel"
 description: "Learn how to install the connector CrowdStrike Falcon Endpoint Protection to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/13/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
 # CrowdStrike Falcon Endpoint Protection connector for Microsoft Sentinel
 
-The [Crowdstrike](https://www.crowdstrike.com/) Falcon Data Replicator connector provides the capability to ingest raw event data from the [Falcon Platform](https://www.crowdstrike.com/blog/tech-center/intro-to-falcon-data-replicator/) events into Microsoft Sentinel. The connector provides ability to get events from Falcon Agents which helps to examine potential security risks, analyze your team's use of collaboration, diagnose configuration problems and more.
+The [CrowdStrike Falcon Endpoint Protection](https://www.crowdstrike.com/endpoint-security-products/) connector allows you to easily connect your CrowdStrike Falcon Event Stream with Microsoft Sentinel, to create custom dashboards, alerts, and improve investigation. This gives you more insight into your organization's endpoints and improves your security operation capabilities.
 
 ## Connector attributes
 
 | Connector attribute | Description |
 | --- | --- |
-| **Application settings** | AWS_KEY<br/>AWS_SECRET<br/>AWS_REGION_NAME<br/>QUEUE_URL<br/>WorkspaceID<br/>WorkspaceKey<br/>logAnalyticsUri (optional) |
-| **Azure function app code** | https://aka.ms/sentinel-CrowdstrikeReplicator-functionapp |
-| **Kusto function alias** | CrowdstrikeReplicator |
-| **Kusto function url** | https://aka.ms/sentinel-crowdstrikereplicator-parser |
-| **Log Analytics table(s)** | CrowdstrikeReplicatorLogs_CL<br/> |
-| **Data collection rules support** | Not currently supported |
+| **Kusto function alias** | CrowdStrikeFalconEventStream |
+| **Kusto function url** | https://aka.ms/sentinel-crowdstrikefalconendpointprotection-parser |
+| **Log Analytics table(s)** | CommonSecurityLog (CrowdStrikeFalconEventStream)<br/> |
+| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
 
-**Data Replicator - All Activities**
+**Top 10 Hosts with Detections**
    ```kusto
-CrowdstrikeReplicator
+CrowdStrikeFalconEventStream 
  
-   | sort by TimeGenerated desc
+   | where EventType == "DetectionSummaryEvent" 
+
+   | summarize count() by DstHostName 
+ 
+   | top 10 by count_
    ```
 
+**Top 10 Users with Detections**
+   ```kusto
+CrowdStrikeFalconEventStream 
+ 
+   | where EventType == "DetectionSummaryEvent" 
 
+   | summarize count() by DstUserName 
+ 
+   | top 10 by count_
+   ```
 
-## Prerequisites
-
-To integrate with CrowdStrike Falcon Endpoint Protection make sure you have: 
-
-- **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](https://learn.microsoft.com/azure/azure-functions/).
-- **SQS and AWS S3 account credentials/permissions**: **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** is required.  [See the documentation to learn more about data pulling](https://www.crowdstrike.com/blog/tech-center/intro-to-falcon-data-replicator/). To start, contact CrowdStrike support. At your request they will create a CrowdStrike managed Amazon Web Services (AWS) S3 bucket for short term storage purposes as well as a SQS (simple queue service) account for monitoring changes to the S3 bucket.
 
 
 ## Vendor installation instructions
 
 
-> [!NOTE]
-   >  This connector uses Azure Functions to connect to the S3 bucket to pull logs into Microsoft Sentinel. This might result in additional data ingestion costs. Check the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) for details.
+>This data connector depends on a parser based on a Kusto Function to work as expected. [Follow the steps](https://aka.ms/sentinel-crowdstrikefalconendpointprotection-parser) to use the Kusto function alias, **CrowdStrikeFalconEventStream**
+
+1. Linux Syslog agent configuration
+
+Install and configure the Linux agent to collect your Common Event Format (CEF) Syslog messages and forward them to Microsoft Sentinel.
+
+> Notice that the data from all regions will be stored in the selected workspace
+
+1.1 Select or create a Linux machine
+
+Select or create a Linux machine that Microsoft Sentinel will use as the proxy between your security solution and Microsoft Sentinel this machine can be on your on-prem environment, Azure or other clouds.
+
+1.2 Install the CEF collector on the Linux machine
+
+Install the Microsoft Monitoring Agent on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP.
+
+> 1. Make sure that you have Python on your machine using the following command: python -version.
+
+> 2. You must have elevated permissions (sudo) on your machine.
+
+   Run the following command to install and apply the CEF collector:
+
+   sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py {0} {1}
+
+2. Forward CrowdStrike Falcon Event Stream logs to a Syslog agent
+
+Deploy the CrowdStrike Falcon SIEM Collector to forward Syslog messages in CEF format to your Microsoft Sentinel workspace via the Syslog agent.
+1. [Follow these instructions](https://www.crowdstrike.com/blog/tech-center/integrate-with-your-siem/) to deploy the SIEM Collector and forward syslog
+2. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+
+3. Validate connection
+
+Follow the instructions to validate your connectivity:
+
+Open Log Analytics to check if the logs are received using the CommonSecurityLog schema.
+
+>It may take about 20 minutes until the connection streams data to your workspace.
+
+If the logs are not received, run the following connectivity validation script:
+
+> 1. Make sure that you have Python on your machine using the following command: python -version.
+
+> 2. You must have elevated permissions (sudo) on your machine
+
+   Run the following command to validate your connectivity:
+
+   sudo wget -O cef_troubleshoot.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py  {0}
+
+4. Secure your machine 
+
+Make sure to configure the machine's security according to your organization's security policy
 
 
->**(Optional Step)** Securely store workspace and API authorization key(s) or token(s) in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](https://learn.microsoft.com/azure/app-service/app-service-key-vault-references) to use Azure Key Vault with an Azure Function App.
-
-
-> [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected. [Follow these steps](https://aka.ms/sentinel-crowdstrikereplicator-parser) to create the Kusto functions alias, **CrowdstrikeReplicator**.
-
-
-**STEP 1 - Contact CrowdStrike support to obtain the credentials and Queue URL.**
-
-
-
-**STEP 2 - Choose ONE from the following two deployment options to deploy the connector and the associated Azure Function**
-
->**IMPORTANT:** Before deploying the Crowdstrike Falcon Data Replicator connector, have the Workspace ID and Workspace Primary Key (can be copied from the following).
-
-
-
-Option 1 - Azure Resource Manager (ARM) Template
-
-Use this method for automated deployment of the Crowdstrike Falcon Data Replicator connector using an ARM Tempate.
-
-1. Click the **Deploy to Azure** button below. 
-
-	[![Deploy To Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/sentinel-CrowdstrikeReplicator-azuredeploy)
-2. Select the preferred **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL**. 
-> **NOTE:** Within the same resource group, you can't mix Windows and Linux apps in the same region. Select existing resource group without Windows apps in it or create new resource group.
-3. Enter the **AWS_SECRET**, **AWS_REGION_NAME**, **AWS_KEY**, **QUEUE_URL** and deploy. 
-4. Mark the checkbox labeled **I agree to the terms and conditions stated above**. 
-5. Click **Purchase** to deploy.
-
-Option 2 - Manual Deployment of Azure Functions
-
-Use the following step-by-step instructions to deploy the Crowdstrike Falcon Data Replicator connector manually with Azure Functions (Deployment via Visual Studio Code).
-
-
-**1. Deploy a Function App**
-
-> **NOTE:** You will need to [prepare VS code](https://learn.microsoft.com/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
-
-1. Download the [Azure Function App](https://aka.ms/sentinel-CrowdstrikeReplicator-functionapp) file. Extract archive to your local development computer.
-2. Start VS Code. Choose File in the main menu and select Open Folder.
-3. Select the top level folder from extracted files.
-4. Choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose the **Deploy to function app** button.
-If you aren't already signed in, choose the Azure icon in the Activity bar, then in the **Azure: Functions** area, choose **Sign in to Azure**
-If you're already signed in, go to the next step.
-5. Provide the following information at the prompts:
-
-	a. **Select folder:** Choose a folder from your workspace or browse to one that contains your function app.
-
-	b. **Select Subscription:** Choose the subscription to use.
-
-	c. Select **Create new Function App in Azure** (Don't choose the Advanced option)
-
-	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. CrowdstrikeReplicatorXXXXX).
-
-	e. **Select a runtime:** Choose Python 3.8.
-
-	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
-
-6. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
-7. Go to Azure Portal for the Function App configuration.
-
-
-**2. Configure the Function App**
-
-1. In the Function App, select the Function App Name and select **Configuration**.
-2. In the **Application settings** tab, select ** New application setting**.
-3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
-		AWS_KEY
-		AWS_SECRET
-		AWS_REGION_NAME
-		QUEUE_URL
-		WorkspaceID
-		WorkspaceKey
-		logAnalyticsUri (optional)
-> - Use logAnalyticsUri to override the log analytics API endpoint for dedicated cloud. For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
-4. Once all application settings have been entered, click **Save**.
+[Learn more >](https://aka.ms/SecureCEF)
 
 
 

@@ -1,14 +1,14 @@
 ---
-title: "Gitlab connector for Microsoft Sentinel"
-description: "Learn how to install the connector Gitlab to connect your data source to Microsoft Sentinel."
+title: "GitLab connector for Microsoft Sentinel"
+description: "Learn how to install the connector GitLab to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/13/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Gitlab connector for Microsoft Sentinel
+# GitLab connector for Microsoft Sentinel
 
 The [GitLab](https://about.gitlab.com/solutions/devops-platform/) connector allows you to easily connect your GitLab (GitLab Enterprise Edition - Standalone) logs with Microsoft Sentinel. This gives you more security insight into your organization's DevOps pipelines.
 

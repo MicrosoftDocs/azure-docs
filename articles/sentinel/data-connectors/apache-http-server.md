@@ -1,14 +1,14 @@
 ---
-title: "Apache Http Server connector for Microsoft Sentinel"
-description: "Learn how to install the connector Apache Http Server to connect your data source to Microsoft Sentinel."
+title: "Apache HTTP Server connector for Microsoft Sentinel"
+description: "Learn how to install the connector Apache HTTP Server to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/13/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---
 
-# Apache Http Server connector for Microsoft Sentinel
+# Apache HTTP Server connector for Microsoft Sentinel
 
 The Apache HTTP Server data connector provides the capability to ingest [Apache HTTP Server](http://httpd.apache.org/) events into Microsoft Sentinel. Refer to [Apache Logs documentation](https://httpd.apache.org/docs/2.4/logs.html) for more information.
 
