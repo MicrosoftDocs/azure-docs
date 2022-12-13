@@ -4,34 +4,36 @@ description: Describes how you enable VM insights for multiple Azure virtual mac
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2022
+ms.date: 08/25/2022
 
 ---
 
 # Enable VM insights by using Azure Policy
-This article explains how to enable VM insights for Azure virtual machines or hybrid virtual machine connected with Azure Arc (preview) using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. VM insights provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
+This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, or hybrid virtual machine connected with Azure Arc using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. VM insights provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
 
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
 
 > [!NOTE]
 > To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
-VM insights provides builtin policy definitions to install the Log Analytics agent and Dependency agent on Azure virtual machines. The following built-in initiatives install both agents to enable full monitoring. Assign these initiatives to a management group, subscription, or resource group to automatically install the agents on any Windows or Linux Azure virtual machines in that scope.
+VM insights provides builtin policy definitions to install the Azure Monitor agent and Dependency agent on Azure virtual machines. The following built-in initiatives install both agents to enable full monitoring. Assign these initiatives to a management group, subscription, or resource group to automatically install the agents on any Windows or Linux Azure virtual machines in that scope.
 
 |Name |Description |
 |:---|:---|
-|Enable VM insights | Installs the Log Analytics agent and Dependency agent on Azure VMs and hybrid VMs connected with Azure Arc. |
-|Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
+| Enable Azure Monitor for VMs with Azure Monitoring Agent(AMA) | Installs the Azure Monitor agent and Dependency agent on Azure VMs. |
+| Enable Azure Monitor for VMSS with Azure Monitoring Agent(AMA) | Installs the Azure Monitor agent and Dependency agent on Azure virtual machine scale sets. |
+| Enable Azure Monitor for Hybrid VMs with AMA | Installs the Azure Monitor agent and Dependency agent on hybrid VMs connected with Azure Arc. |
+| Legacy - Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
+| Legacy - Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
 
 
 
 ## Open Policy Coverage feature
-To access **VM insights Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** and then **Enable** under **Enable using policy**.
+To access **VM insights Policy Coverage**, go the **Virtual machines** in the **Azure Monitor** menu in the Azure portal. Select **Other onboarding options** on the **Overview** tab and then **Enable** under **Enable using policy**.
 
-[![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
+:::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot showing other onboarding options page of VM insights with the Enable using policy option.":::
+
 
 ### Create new assignment
 If you don't already have an assignment, create a new one by clicking **Assign Policy**.
