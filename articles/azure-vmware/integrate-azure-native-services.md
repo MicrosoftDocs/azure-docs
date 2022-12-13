@@ -40,7 +40,7 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 :::image type="content" source="media/concepts/integrated-azure-monitoring-architecture.png" alt-text="Diagram showing the integrated Azure monitoring architecture."lightbox="media/concepts/integrated-azure-monitoring-architecture.png" border="false":::
 
 >[!NOTE]
-> If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](https://learn.microsoft.com/azure/azure-monitor/vm/vminsights-enable-overview) for guidance.
+> If you're new to Azure or not familiar with the services previously mentioned, see [Enable Azure Monitor for VMs overview](../azure-monitor/vm/vminsights-enable-overview) for guidance.
 
 ## Enable guest management and install extension
 The guest management must be enabled on the VMware vSphere virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.
@@ -71,3 +71,10 @@ If your VM template already has these changes incorporated, you won't need to do
 1.	When you're done, select **Review + create**.
 
 When the extension installation steps are completed, they trigger deployment and install the selected extension on the VM.
+
+## Next steps
+
+Now that you've covered how to integrate services and monitor VMware Solution VMs, you may want to learn about:
+
+- [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
+- [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)
