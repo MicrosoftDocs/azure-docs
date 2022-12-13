@@ -68,7 +68,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   West US 2
 *	West US 3 
 
-## Considerations  
+## Considerations
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
 
