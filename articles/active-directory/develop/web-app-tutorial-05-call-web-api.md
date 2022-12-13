@@ -165,6 +165,11 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 
 ---
 
+<!-- Add every screenshot  -->
+<!-- Pick an account -->
+<!-- Permissions requested -->
+<!-- Add every step -->
+
 :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ## See also

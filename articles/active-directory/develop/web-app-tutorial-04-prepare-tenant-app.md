@@ -10,6 +10,8 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to add a platform to my web application
 ---
 
+<!-- Combine with Step 2 -->
+
 # Tutorial: Prepare an application for authentication in an Azure Active Directory tenant
 
 In this tutorial, you learn how to:

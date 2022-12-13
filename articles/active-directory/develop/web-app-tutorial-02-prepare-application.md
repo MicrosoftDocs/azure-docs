@@ -10,6 +10,8 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to use an IDE to set up an ASP.NET Core project, set up and upload a self signed certificate to the Azure portal and configure the application for authentication.
 ---
 
+<!-- Minimize uses of Azure AD -->
+
 # Tutorial: Prepare an application for authentication
 
 In this tutorial, you learn how to:
@@ -30,6 +32,8 @@ In this tutorial, you learn how to:
 
 ## Create an ASP.NET Core project
 
+<!-- Add summary -->
+
 ### [Visual Studio](#tab/visual-studio)
 
 This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. Additions are made to show what needs to be added to an application for authentication with Azure Active Directory (Azure AD).
@@ -47,8 +51,10 @@ This tutorial uses the **ASP.NET Core Web App** template in Visual Studio 2022. 
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
+<!-- Add summary -->
+
 1. Open Visual Studio Code, and select the **Open Folder...** option. Navigate to and select the location you wish to create your project.
-1. Open up a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
+1. Open a new terminal by selecting **Terminal** in the top bar, then **New Terminal**.
 1. Create a new folder using either the terminal or the **New Folder...** icon at the top of the left panel. Provide a similar name to the one registered on the Azure portal, for example, *MyWebApp*.
 1. Using the terminal, run the following commands to change into the folder directory and create the project;
 1. Run the following command in the terminal:

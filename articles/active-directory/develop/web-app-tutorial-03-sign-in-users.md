@@ -10,7 +10,9 @@ ms.date: 10/18/2022
 #Customer intent: As an application developer, I want to install the NuGet packages necessary for authentication in my IDE, and implement authentication in my web app.
 ---
 
-# Tutorial: Add sign-in to an application in Azure Active Directory
+# Tutorial: Add sign-in to an application
+
+<!-- Remove AAD replace with IDE -->
 
 In this tutorial, you learn how to:
 
