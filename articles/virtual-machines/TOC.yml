@@ -139,7 +139,7 @@
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
   - name: SAP on Azure VM workloads
-    href: ./workloads/sap/get-started.md
+    href: ./workloads/sap/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
