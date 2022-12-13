@@ -10,7 +10,7 @@ ms.author: ofshezaf
 
 # The Advanced Security Information Model (ASIM) Audit Events normalization schema reference (Public preview)
 
-The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
+The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration activities and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
 
 Every system logs audit events alongside its core activity logs. For example, a Firewall will log events about the network sessions is processes, as well as audit events about configuration changes applied to the Firewall itself.
 
@@ -27,7 +27,7 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 The main fields of an audit event are:
 - The object, typically a configuration atom or policy rule that the event focuses on, represented by the field [Object](#object).
 - The application context of the object, represented by the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
-- The operation performed on the object,represented by the field [EventType](#eventtype).
+- The operation performed on the object, represented by the fields [EventType](#eventtype) and [EventOriginalType](#eventoriginaltype).
 - The old and new values for the object, if applicable, represented by [OldValue](#oldvalue) and [NewValue](#newvalue) respectively.
 
 Audit events also reference the following entities which are involved in the configuration operation:
@@ -55,7 +55,9 @@ The following list mentions fields that have specific guidelines for Audit Event
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete` |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limit the usability of the event and should be avoided if possible.   |
+| <a name="eventsubtype"></a> **EventSubType** | Recommended | String | While [EventType](#eventtype) is an enumerated value that has to one of a limited set of options, **EventSubType** allows more specific labeling of the operation audited. |
+| <a name="eventoriginaltype"></a> **EventOriginalType** | Optional | String | The operation as reported by the reporting system. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `AuditEvent`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`.  |
 
@@ -80,6 +82,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **ObjectType** | Mandatory | Enumerated | The type of [Object](#object). Allowed values are:<br>- `Configuration Atom`<br>- `Policy Rule`<br> - Other |
 | <a name="oldvalue"></a> **OldValue** | Optional | String |  The old value of [Object](#object) prior to the operation, if applicable. |
 | <a name="newvalue"></a>**NewValue** | Optional | String | The new value of [Object](#object) after the operation was performed, if applicable. |
+| <a name="value"></a>**Value** | Alias |  | Alias to [NewValue](#newvalue) |
 | **ValueType** | Optional | Enumerated | The type of the old and new values. Allowed values are<br>- Other. |
 
 ### Actor fields
