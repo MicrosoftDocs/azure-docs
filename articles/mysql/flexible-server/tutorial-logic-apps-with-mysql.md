@@ -1,6 +1,6 @@
 ---
-title: Create an Logic app with Azure Database for MySQL Flexible Server
-description: Create an Logic app with Azure Database for MySQL Flexible Server
+title: Create a Logic app with Azure Database for MySQL Flexible Server
+description: Create a Logic app with Azure Database for MySQL Flexible Server
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
@@ -9,7 +9,7 @@ ms.author: sumuth
 ms.date: 12/15/2022
 ---
 
-# Tutorial: Create an Logic app with Azure Database for MySQL Flexible Server
+# Tutorial: Create a Logic app with Azure Database for MySQL Flexible Server
 
 [!INCLUDE [logic-apps-sku-consumption](../../logic-apps/includes/logic-apps-sku-consumption.md)]
 
@@ -22,7 +22,7 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](../../logic-apps/quickstart-create-server-cli.md) if you don't have one.
 - Get the [inbound](../../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where you create your logic app workflow.
 - Configure networking settings of Azure Database for MySQL flexible server to make sure your logic Apps IP address have access to it. If you're using Azure App Service or Azure Kubernetes service, enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal.
-- Create a database `orderdb` and create a table `orders` using the SQL script below:
+-  Populate the database server with a new database `orderdb` and a table `orders` using the SQL script
 
 ```sql
 CREATE DATABASE `orderdb`;
@@ -118,8 +118,8 @@ CREATE TABLE `orders` (
     
     ![Screenshot showing sample payload is generated , "HTTP request sample payload"](./media/ tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png)
     
-## Add an MySQL database action
-Following a HTTP request trigger, you can add an action which is a subsequent step that runs some operation in the workflow.You can add an action get, insert or update or delete data in the MySQL database. 
+## Add a MySQL database action
+You can add an action as the next step after the HTTP request trigger to run subsequent operations in your workflow. You can add an action get, insert or update or delete data in the MySQL database. 
 
 1. Add a **New Step** in the workflow
 
