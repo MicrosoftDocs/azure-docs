@@ -38,6 +38,15 @@ This document contains information about troubleshooting your solutions that use
 
 - Create fails because Last Name is empty. This happens when the user info in Azure AD is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify this and try again.
 
+## Logs not being emitted
+
+1. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
+
+2. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+
+3. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+
+
 ### Single sign-on errors
 
 - **Single sign-on configuration indicates lack of permissions** - This occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
