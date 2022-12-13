@@ -19,12 +19,12 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 - Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. 
 
-Key highlights:
-   - On-premises vs Azure total cost of ownership.
-   - Year on year cashflow analysis.
-   - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
-   - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
-   - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+   Key highlights:
+    - On-premises vs Azure total cost of ownership.
+    - Year on year cashflow analysis.
+    - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
+    - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
+    - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
 
 ## Update (November 2022)
 
