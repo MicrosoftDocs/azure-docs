@@ -1,6 +1,6 @@
 ---
-title: Questions about discovery and assessment in Azure Migrate
-description: Get answers to common questions about discovery and assessment in Azure Migrate.
+title: Questions about assessments in Azure Migrate
+description: Get answers to common questions about assessments in Azure Migrate.
 author: rashijoshi
 ms.author: rajosh
 ms.manager: abhemraj
@@ -9,9 +9,9 @@ ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 
-# Discovery and assessment - Common questions
+# Assessment - Common questions
 
-This article answers common questions about discovery and assessment in Azure Migrate. If you've other questions, check these resources:
+This article answers common questions about assessments in Azure Migrate. If you've other questions, check these resources:
 
 - [General questions](resources-faq.md) about Azure Migrate
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
