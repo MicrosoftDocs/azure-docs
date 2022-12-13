@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
 title: Azure OpenAI Documentation
-summary: Learn how to use Azure OpenAI powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
+summary: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
 brand: azure
 
 metadata:
   title: Azure OpenAI - Documentation, quickstarts, API reference
   titleSuffix: Azure Cognitive Services
-  description: Learn how to use Azure OpenAI powerful language models including the GPT-3, Codex and Embeddings model series.
+  description: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
   services: cognitive-services
   manager: nitinme
   ms.service: cognitive-services
