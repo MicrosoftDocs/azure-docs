@@ -144,10 +144,6 @@
       href: ./workloads/sap/index.yml
     - name: Azure Center for SAP solutions
       href: ../center-sap-solutions/index.yml
-    - name: Deployment automation framework
-      href: ../center-sap-solutions/automation/index.yml
-    - name: Azure Monitor for SAP solutions
-      href: ../center-sap-solutions/monitor/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming

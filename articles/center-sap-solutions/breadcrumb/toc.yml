@@ -8,10 +8,7 @@
     items:
     - name: Deployment automation framework
       tocHref: /azure/center-sap-solutions/
-      topicHref: /azure/center-sap-solutions/automation/index
+      topicHref: /azure/center-sap-solutions/automation/deployment-framework
     - name: Azure Monitor for SAP solutions
       tocHref: /azure/center-sap-solutions/
-      topicHref: /azure/center-sap-solutions/monitor/index
-    - name: Azure VMs for SAP workloads
-      tocHref: /azure/virtual-machines/workloads/sap/
-      topicHref: /azure/virtual-machines/workloads/sap/index
+      topicHref: /azure/center-sap-solutions/monitor/about-azure-monitor-sap-solutions

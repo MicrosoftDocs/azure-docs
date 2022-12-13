@@ -12,16 +12,12 @@ items:
     href: faq.yml
   - name: Deployment automation framework
     items:
-    - name: SAP on Azure deployment automation framework documentation
-      href: automation/index.yml
     - name: About SAP on Azure Deployment Automation Framework
       href: automation/deployment-framework.md
     - name: Frequently asked questions
       href: automation/faq.yml
   - name: Azure Monitor for SAP solutions
     items:
-    - name: Azure Monitor for SAP solutions documentation
-      href: monitor/index.yml
     - name: What is Azure Monitor for SAP solutions?
       href: monitor/about-azure-monitor-sap-solutions.md
     - name: Frequently asked questions (FAQ)

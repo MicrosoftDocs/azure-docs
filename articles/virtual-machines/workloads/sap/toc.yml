@@ -383,6 +383,8 @@ items:
 
   - name: Resources
     items:
+    - name: Azure Center for SAP solutions
+      href: ../../../center-sap-solutions/index.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Azure CLI
@@ -584,15 +586,3 @@ items:
         href: https://discovery-center.cloud.sap/missiondetail/3656/3699/
       - name: Building Applications on SAP BTP with Microsoft Services | OpenSAP course
         href: https://open.sap.com/courses/btpma1
-
-
-## ACSS links
-
-  - name: Azure Center for SAP solutions
-    items:
-    - name: Azure Center for SAP solutions documentation
-      href: ../../../center-sap-solutions/index.yml
-    - name: SAP on Azure deployment automation framework
-      href: ../../../center-sap-solutions/automation/index.yml
-    - name: Azure Monitor for SAP solutions
-      href: ../../../center-sap-solutions/monitor/index.yml 
