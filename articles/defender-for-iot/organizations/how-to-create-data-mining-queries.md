@@ -69,7 +69,7 @@ Each data mining report on an OT sensor has the following options for managing y
 | :::image type="icon" source="media/how-to-generate-reports/export-icon.png" border="false"::: **Export to CSV** | Export the current report data to a CSV file. |
 | :::image type="icon" source="media/how-to-generate-reports/export-icon.png" border="false"::: **Export to PDF** | Export the current report data to a PDF file. |
 | :::image type="icon" source="media/how-to-generate-reports/snapshot-icon.png" border="false"::: **Snapshots** | Save the current report data as a snapshot you can return to later. |
-| :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: **Manage report** | Update the values of an existing custom data mining report. |
+| :::image type="icon" source="media/how-to-generate-reports/manage-icon.png" border="false"::: **Manage report** | Update the values of an existing custom data mining report. This option is disabled for Recommended reports. |
 | :::image type="icon" source="media/how-to-generate-reports/edit-icon.png" border="false"::: **Edit mode** | Select to remove specific results from the saved report. |
 
 For example, select **Manage report** to update the data your report includes using the same fields as when you'd originally [created the report](#create-an-ot-sensor-custom-data-mining-report):
@@ -78,7 +78,7 @@ For example, select **Manage report** to update the data your report includes us
 
 ## View data mining reports for multiple sensors
 
-Sign into an on-premises management console to view [out-of-the-box data mining reports](#view-an-ot-sensor-predefined-data-mining-report) and custom reports for any connected sensor.
+Sign into an on-premises management console to view [out-of-the-box data mining reports](#view-an-ot-sensor-predefined-data-mining-report) for any connected sensor, and any custom data mining reports that were [sent to the CM](#create-an-ot-sensor-custom-data-mining-report).
 
 **To view a data mining report from an on-premises management console**:
 
