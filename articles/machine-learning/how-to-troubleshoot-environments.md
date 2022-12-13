@@ -33,7 +33,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you've provided.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
