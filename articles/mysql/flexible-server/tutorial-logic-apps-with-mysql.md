@@ -123,6 +123,13 @@ Following a HTTP request trigger, you can add an action which is a subsequent st
     
 5. Add a new connection to the existing Azure database for MySQL database. 
          ![Screenshot add new connection for Azure database for MySQL, "add new connection for Azure database for MySQL"](./media/ tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png)
+   
+## Run your workflow
+Select **Run Trigger** to execute the workflow and test if it actually inserts the row into the table. You can use any MySQL client to check if the row was inserted into the table. 
+    
+## Next Steps
+[Create Schedule based workflows](../../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+[Create approval based workflows](../../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     
 
     
