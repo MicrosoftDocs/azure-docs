@@ -88,7 +88,7 @@ To see how many virtual machines exist in each of the management groups or subsc
 
     When you assign the initiative, the scope you select in the assignment could be the scope listed or a subset of it. For instance, you might have created an assignment for a subscription (initiative scope) and not a management group (coverage scope). In this case, the value of **Assignment Coverage** indicates the VMs in the initiative scope divided by the VMs in coverage scope. In another case, you might have excluded some VMs, resource groups, or a subscription from policy scope. If the value is blank, it indicates that either the policy or initiative doesn't exist or you don't have permission. Information is provided under **Assignment Status**.
 
-### Remediate compliance results
+## Remediate compliance results
 
 If your assignment doesn't show 100% compliance, create remediation tasks to evaluate and enable existing VMs.
 
