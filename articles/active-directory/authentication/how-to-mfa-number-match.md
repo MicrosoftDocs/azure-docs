@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/08/2022
+ms.date: 12/13/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -67,12 +67,12 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Beginning with version 1.2.2131.2, users are asked to enter a One-Time Passcode (OTP) by default when number matching is enabled. 
+Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Until Feb 27, 2023, users are asked to enter a One-Time Passcode (OTP) for push notifications beginning with NPS extension 1.2.2131.2 _only_ if number matching is enabled. After Feb 27, 2023, number matching will be enabled by default and all users with push notifications beginning with NPS extension 1.2.2131.2 will be asked to enter an OTP.
 
 The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in Microsoft Authenticator, other software tokens, and so on. For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 >[!NOTE]
->If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user with number matching disabled will always see the **Approve**/**Deny** experience.
+>If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user will always see the **Approve**/**Deny** experience with push notifications triggered by the NPS extension.
 
 Earlier versions of the NPS extension beginning with 1.0.1.40 also support number matching, but you need to create a registry key that overrides push notifications to ask a user to enter an OTP. If you don't create the registry key, or you run a version prior to 1.0.1.40, users who are enabled for number matching will be prompted to **Approve**/**Deny**.
 
