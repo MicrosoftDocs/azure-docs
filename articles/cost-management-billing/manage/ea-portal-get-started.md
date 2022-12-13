@@ -66,7 +66,7 @@ To view usage summary, download reports, and manage enrollment invoices, see [Az
 
 If you'd like to know about how Azure reservations for VM reserved instances can help you save money with your enterprise enrollment, see [Azure EA VM reserved instances](./ea-portal-vm-reservations.md).
 
-For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
+For information on which REST APIs to use with your Azure enterprise enrollment and an explanation for how to resolve common issues with REST APIs, see [Azure Enterprise REST APIs](./enterprise-rest-apis.md).
 
 [Azure EA agreements and amendments](./ea-portal-agreements.md) describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 

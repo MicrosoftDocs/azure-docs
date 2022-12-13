@@ -103,8 +103,8 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data collected**	|		|		|		|		|
 |		|	Event Logs	|	X	|	X	|	X	|
 |		|	Performance	|	X	|	X	|	X	|
-|		|	File based logs	|	X (Public preview)	|	X	|	X	|
-|		|	IIS logs	|	X (Public preview)	|	X	|	X	|
+|		|	File based logs	|	X 	|	X	|	X	|
+|		|	IIS logs	|	X 	|	X	|	X	|
 |		|	ETW events	|		|		|	X	|
 |		|	.NET app logs	|		|		|	X	|
 |		|	Crash dumps	|		|		|	X	|
@@ -132,7 +132,7 @@ The tables below provide a comparison of Azure Monitor Agent with the legacy the
 |	**Data collected**	|		|		|		|		|		|
 |		|	Syslog	|	X	|	X	|	X	|		|
 |		|	Performance	|	X	|	X	|	X	|	X	|
-|		|	File based logs	|	X (Public preview)	|		|		|		|
+|		|	File based logs	|	X	|		|		|		|
 |	**Data sent to**	|		|		|		|		|		|
 |		|	Azure Monitor Logs	|	X	|	X	|		|		|
 |		|	Azure Monitor Metrics<sup>1</sup>	|	X (Public preview)	|		|		|	X (Public preview)	|
@@ -198,7 +198,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | Oracle Linux 7                                              | X | X | X |
 | Oracle Linux 6                                              |   | X |   |
 | Oracle Linux 6.4+                                           |   | X | X |
-| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> |   |   |
+| Red Hat Enterprise Linux Server 8.6                         | X<sup>3</sup> | X |   |
 | Red Hat Enterprise Linux Server 8                           | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X |   |

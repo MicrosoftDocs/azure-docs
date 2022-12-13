@@ -13,15 +13,13 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET (v12)
+    - name: .NET
       href: storage-quickstart-queues-dotnet.md
-    - name: .NET (v11)
-      href: storage-quickstart-queues-dotnet-legacy.md
-    - name: Java (v12)
+    - name: Java
       href: storage-quickstart-queues-java.md
-    - name: Python (v12)
+    - name: Python
       href: storage-quickstart-queues-python.md
-    - name: JavaScript (v12)
+    - name: JavaScript
       href: storage-quickstart-queues-nodejs.md
 - name: Tutorials
   items:
