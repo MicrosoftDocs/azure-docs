@@ -5,10 +5,3 @@
   - name: Center for SAP solutions
     tocHref: /azure/center-sap-solutions/
     topicHref: /azure/center-sap-solutions/index
-    items:
-    - name: Deployment automation framework
-      tocHref: /azure/center-sap-solutions/
-      topicHref: /azure/center-sap-solutions/automation/deployment-framework
-    - name: Azure Monitor for SAP solutions
-      tocHref: /azure/center-sap-solutions/
-      topicHref: /azure/center-sap-solutions/monitor/about-azure-monitor-sap-solutions
