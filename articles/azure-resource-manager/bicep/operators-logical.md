@@ -65,7 +65,7 @@ param objectToTest object = {
   three: 3
 }
 
-output foo bool = contains(objectToTest, 'four') && objectToTest.four == 4
+output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 ```
 
 ## Or ||
