@@ -76,7 +76,7 @@
   items:
   - name: Planning and operations guide
     displayName: guide, planning, roles, policies, recommendations
-    href: security-center-planning-and-operations-guide.md
+    href: defender-for-cloud-planning-and-operations-guide.md
   - name: Protect your resources
     displayName: manage, access, harden
     href: tutorial-protect-resources.md
@@ -653,8 +653,6 @@
     href: ../defender-for-iot/index.yml
   - name: Azure security documentation
     href: ../security/index.yml
-  - name: Readiness Roadmap
-    href: security-center-readiness-roadmap.md
   - name: Microsoft Defender for Cloud tech community blogs
     href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
