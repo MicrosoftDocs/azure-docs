@@ -39,9 +39,6 @@ highlightedContent:
     - title: Azure OpenAI Models
       itemType: concept
       url: ./concepts/models.md
-    - title: REST API
-      itemType: reference
-      url: reference.md
     - title: Support and help options
       itemType: reference
       url: ../cognitive-services-support-options.md
