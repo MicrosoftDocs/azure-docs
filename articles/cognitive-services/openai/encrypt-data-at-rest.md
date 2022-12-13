@@ -124,7 +124,7 @@ az keyvault key delete  \
 ```
 
 > [!IMPORTANT]
-> Revoking access to an active customer-managed key while CMK is still enabled at the resource level will prevent fine-tuning new models, as well as deploying previously undeployed fine-tuned models. However, previously deployed fine-tuned models will continue to operate and serve traffic unless those deployments are deleted.
+> Revoking access to an active customer-managed key while CMK is still enabled will prevent downloading of training data and results files, fine-tuning new models, and deploying fine-tuned models. However, previously deployed fine-tuned models will continue to operate and serve traffic until those deployments are deleted.
 
 ### Delete training, validation, and training results data
 
