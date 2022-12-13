@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: sonmitt
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 12/13/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -73,24 +73,10 @@ A full list of things to consider can be found in [Limitations](../storage/commo
 
 A conversion can be accomplished in one of two ways:
 
-- [A Customer-initiated conversion (preview)](#customer-initiated-conversion-preview)
+- [A Customer-initiated conversion](#customer-initiated-conversion)
 - [Request a conversion by creating a support request](#request-a-conversion-by-creating-a-support-request)
 
-#### Customer-initiated conversion (preview)
-
-> [!IMPORTANT]
-> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
->
-> - (Europe) West Europe
-> - (Europe) UK South
-> - (North America) Canada Central
-> - (North America) East US
-> - (North America) East US 2
->
-> To opt in to the preview, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
->
-> This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+#### Customer-initiated conversion
 
 Customer-initiated conversion adds a new option for customers to start a conversion. Now, instead of needing to open a support request, customers can request the conversion directly from within the Azure portal. Once initiated, the conversion could still take up to 72 hours to actually begin, but potential delays related to opening and managing a support request are eliminated.
 
@@ -151,8 +137,6 @@ Use a manual migration if:
 - You need the migration to be completed by a certain date.
 
 - You want to migrate your data to a ZRS storage account that's in a different region than the source account.
-
-- You want to add or remove zone-redundancy and you don't want to use the customer-initiated migration feature in preview.
 
 - Your storage account is a premium page blob or block blob account.
 
