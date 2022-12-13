@@ -3,7 +3,7 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 11/15/2022
+ms.date: 12/13/2022
 ms.topic: conceptual
 ---
 
@@ -35,13 +35,13 @@ A record with a type of `Update` is created that represents updates available an
 | UpdateState | The current state of the update. |
 | Product | The products for which the update is applicable. |
 | OSType |Type of operating system. Values are Windows or Linux. |
-| ProductVersion| |
-| Product Arch| |
-| CVENumbers| |
-| BulletinUrl | |
+| ProductVersion| Version of the update. |
+| Product Arch| Applicable machine architecture |
+| CVENumbers| Common Vulnerabilities and Exposures number |
+| BulletinUrl | URL of the Bulletin|
 | BulletinID | Bulletin ID number. |
-| PackageRepository | |
-| PackageSeverity | |
+| PackageRepository | Repository info of the package.|
+| PackageSeverity | Severity of the update. |
 | OSName | Type of operating system. Values are Windows or Linux.|
 | OSVersion | The version of the operating system. |
 | OSFullName | Name of operating system. |
@@ -86,8 +86,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | UpdateId | Unique identifier of the software update. |
 | SucceededOnRetry | Value indicating if the update execution failed on the first attempt and the current operation is a retry attempt. |
 | ErrorResult | Windows Update error code generated if an update fails to install. |
-| ResultCode| |
-| UpdateRunName| | 
+| UpdateRunName| Name of the update schedule.| 
 | InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
 | Computer | Fully-qualified domain name of reporting machine. |
 | Title | The title of the update. |
