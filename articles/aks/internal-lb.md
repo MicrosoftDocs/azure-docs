@@ -94,13 +94,12 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 For more information on configuring your load balancer in a different subnet, see [Specify a different subnet][different-subnet]
 
-## Connect Azure Private Link service to internal load balancer (Preview)
+## Connect Azure Private Link service to internal load balancer
 
 ### Before you begin
 
 You must have the following resource installed:
 
-* The Azure CLI
 * Kubernetes version 1.22.x or above
 
 ### Create a Private Link service connection
