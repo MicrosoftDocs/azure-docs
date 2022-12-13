@@ -2,7 +2,6 @@ items:
 - name: Azure Center for SAP solutions documentation
   href: index.yml
 
-
 - name: Overview
   expanded: true
   items:
@@ -10,25 +9,15 @@ items:
     href: overview.md
   - name: Frequently asked questions (FAQ)
     href: faq.yml
-  - name: Deployment automation framework
-    items:
-    - name: About SAP on Azure Deployment Automation Framework
-      href: automation/deployment-framework.md
-    - name: Frequently asked questions
-      href: automation/faq.yml
-  - name: Azure Monitor for SAP solutions
-    items:
-    - name: What is Azure Monitor for SAP solutions?
-      href: monitor/about-azure-monitor-sap-solutions.md
-    - name: Frequently asked questions (FAQ)
-      href: monitor/faq.yml
-  - name: SAP on Azure VM workloads
-    href: ../virtual-machines/workloads/sap/index.yml
 
 - name: Concepts
   items:
   - name: Deployment automation framework
     items: 
+    - name: About SAP on Azure Deployment Automation Framework
+      href: automation/deployment-framework.md
+    - name: Frequently asked questions
+      href: automation/faq.yml
     - name: Supported platforms and features
       href: automation/supportability.md
     - name: Naming conventions
@@ -55,12 +44,15 @@ items:
         href: automation/tools-configuration.md
   - name: Azure Monitor for SAP solutions
     items:
+    - name: What is Azure Monitor for SAP solutions?
+      href: monitor/about-azure-monitor-sap-solutions.md
+    - name: Frequently asked questions (FAQ)
+      href: monitor/faq.yml
     - name: Providers in Azure Monitor for SAP solutions
       href: monitor/providers.md
 
 - name: How-to guides
   items:
-
   - name: Deployment
     items:
     - name: Prepare network for deployment
@@ -71,7 +63,6 @@ items:
       href: install-software.md
     - name: Register existing SAP system
       href: register-existing-system.md
-
   - name: Management
     items:
     - name: Manage Virtual Instance for SAP solutions
@@ -82,12 +73,10 @@ items:
       href: get-quality-checks-insights.md
     - name: View cost analysis for SAP system
       href: view-cost-analysis.md
-
   - name: Monitoring
     items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
-
   - name: Deployment automation framework
     items:
     - name: Get started with automation framework
@@ -122,7 +111,6 @@ items:
         href: automation/bom-prepare.md
       - name: Create automation template files
         href: automation/bom-templates-db.md
-
   - name: Azure Monitor for SAP solutions
     items:
     - name: Set up network for Azure Monitor for SAP solutions
@@ -143,7 +131,7 @@ items:
         href: monitor/provider-linux.md
       - name: Configure IBM Db2 provider
         href: monitor/provider-ibm-db2.md
-
+  
 - name: Quickstarts
   items:
   - name: Azure Monitor for SAP solutions
@@ -207,7 +195,6 @@ items:
           href: automation/module/set-sapsecrets.md
         - name: Update the Terraform state file using PowerShell
           href: automation/module/update-tfstate.md
-
   - name: Azure Monitor for SAP solutions
     items:
     - name: Data reference for Azure Monitor for SAP solutions
