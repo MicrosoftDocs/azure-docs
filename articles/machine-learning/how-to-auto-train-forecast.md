@@ -284,16 +284,16 @@ The following table summarizes the available settings for `short_series_handling
 
 A time series whose moments (mean and variance) change over time is called a **non-stationary**. For example, time series that exhibit stochastic trends are non-stationary by nature. To visualize this, the below image plots a series that is generally trending upward. Now, compute and compare the mean (average) values for the first and the second half of the series. Are they the same? Here, the mean of the series in the first half of the plot is significantly smaller than in the second half. The fact that the mean of the series depends on the time interval one is looking at, is an example of the time-varying moments. Here, the mean of a series is the first moment.
 
-:::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing  retail sales for a non-stationary time series detection model.":::
+:::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
 
 Next, let's examine the image below, which plots the the original series in first differences `($x_{t} = y_{t} - y_{t-1}$)` where `$x_t$` is the change in retail sales and $y_{t}$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a (first order) stationary times series. The reason we added the `first order` term is because the first moment (mean) is time invariant (does not change with time interval), the same cannot be said about the variance, which is a second moment.
 
 
-:::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series detection model.":::
+:::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::
 
 AutoML Machine learning models can not inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
-The first output of a non-stationary time series model might have data inconsistencies. When Automated ML detects and analyzes a time series dataset, the first output is differenced to mitigate the impact of having data inconsistencies. 
+Automated ML automatically analyzes time series dataset to check whether it is stationary or not. When non-stationary time series are detected, they are automatically first differenced to mitigate the impact of non-stationary time series. 
 
 ## Run the experiment 
 
