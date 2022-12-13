@@ -11,14 +11,14 @@ ms.author: eur
 |--|--|
 |Arabic (Saudi Arabia)|`ar-SA`<sup>1</sup> |
 |Chinese (Mandarin, Simplified)|`zh-CN`|
-|English (Australia)|`en-AU`<sup>1</sup> |
+|English (Australia)|`en-AU`|
 |English (India)|`en-IN`<sup>1</sup> |
 |English (United Kingdom)|`en-GB`|
 |English (United States)|`en-US`|  
 |French (Canada)|`fr-CA`<sup>1</sup> | 
-|French (France)|`fr-FR`<sup>1</sup> |  
+|French (France)|`fr-FR`|  
 |German (Germany)|`de-DE`<sup>1</sup>|
-|Spanish (Spain)|`es-ES`<sup>1</sup> | 
+|Spanish (Spain)|`es-ES` | 
 |Vietnamese (Vietnam)|`vi-VN`<sup>1</sup> |
 
 <sup>1</sup> The language is in public preview for pronunciation assessment.

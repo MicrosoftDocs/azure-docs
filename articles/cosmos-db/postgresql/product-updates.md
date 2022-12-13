@@ -7,19 +7,36 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 12/06/2022
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-## Updates feed
+## Release notes
 
-The Microsoft Azure website lists newly available features per product, plus
-features in preview and development. Check the [Azure Cosmos DB for PostgreSQL
-updates](https://azure.microsoft.com/updates/?category=databases&query=%22Cosmos%20DB%20for%20PostgreSQL%22)
-section for the latest. An RSS feed is also available on that page.
+Azure Cosmos DB for PostgreSQL gets updated regularly.
+
+Updates that don’t directly affect the internals of a cluster are rolled out gradually to [all supported regions](resources-regions.md). Once such an update is rolled out to a region, it's available immediately on all new and existing Azure Cosmos DB for PostgreSQL clusters in that region.
+
+Updates that change cluster internals, such as installing a [new minor PostgreSQL version](https://www.postgresql.org/developer/roadmap/), are delivered to existing clusters as part of the next [scheduled maintenance](concepts-maintenance.md) event. Such updates are available immediately to newly created clusters.
+
+### November 2022
+
+* General availability: [Cross-region cluster read replicas](concepts-read-replicas.md) for improved read scalability and cross-region disaster recovery (DR).
+* General availability: [Latest minor PostgreSQL version updates](reference-versions.md#postgresql-versions) (11.18, 12.13, 13.9, 14.6, and 15.1) are now available in all supported regions.
+
+### October 2022
+
+* General availability: [Azure Cosmos DB for PostgreSQL, formerly known as Hyperscale (Citus), is now generally available](https://devblogs.microsoft.com/cosmosdb/distributed-postgresql-comes-to-azure-cosmos-db/).
+	* See all previous product updates under the Hyperscale (Citus) name [here](https://azure.microsoft.com/updates/?query=Hyperscale%20%28Citus%29).
+* General availability: [PostgreSQL 15](https://www.postgresql.org/docs/release/15.0/) support.
+	* See all supported PostgreSQL versions [here](reference-versions.md#postgresql-versions).
+	* [Upgrade to PostgreSQL 15](howto-upgrade.md)
+* General availability: [Citus 11.1 with new features and PostgreSQL 15 in Citus](https://www.postgresql.org/about/news/announcing-citus-111-open-source-release-2511/).
+* Free trial: Now Azure Cosmos DB for PostgreSQL is a part of the [Azure Cosmos DB 30-day free trial](https://cosmos.azure.com/try/).
+* Preview: Product Quick start in Azure portal with hands-on tutorials and embedded psql shell.
 
 ## Features in preview
 
@@ -31,12 +48,7 @@ might have constrained capabilities.  For more information, see
 [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-Here are the features currently available for preview:
-
-* **[pgAudit](concepts-audit.md)**. Provides detailed
-  session and object audit logging via the standard PostgreSQL
-  logging facility. It produces audit logs required to pass
-  certain government, financial, or ISO certification audits.
+There are no features currently available for preview.
 
 ## Contact us
 

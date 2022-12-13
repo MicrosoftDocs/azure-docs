@@ -364,6 +364,7 @@ items:
           href: how-to-use-logging.md
         - name: Troubleshoot the Speech SDK
           href: troubleshooting.md
+          displayName: help, faq, tsg, error
         - name: Get Speech-to-text Session ID
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
@@ -373,7 +374,7 @@ items:
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Generate a REST API client library
       href: swagger-documentation.md
-      displayName: rest
+      displayName: rest, swagger
     - name: Embedded Speech
       href: embedded-speech.md
     - name: Speech containers
