@@ -1,34 +1,34 @@
 ---
-title: Tutorial - Sign in users and call a protected API from a Blazor WebAssembly app 
+title: Tutorial - Sign in users and call a protected API from a Blazor WebAssembly app
 description: In this tutorial, sign in users and call a protected API using the Microsoft identity platform in a Blazor WebAssembly (WASM) app.
 author: janicericketts
 ms.author: jricketts
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 12/13/2022
 #Customer intent: As a developer, I want to add authentication and authorization to a Blazor WebAssembly app and call Microsoft Graph.
 ---
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD). 
+In this tutorial, you build a Blazor WebAssembly app that signs in users and gets data from Microsoft Graph by using the Microsoft identity platform and registering your app in Azure Active Directory (Azure AD).
 
 In this tutorial:
 
 > [!div class="checklist"]
 >
-> * Create a new Blazor WebAssembly app configured to use Azure Active Directory (Azure AD) for [authentication and authorization](authentication-vs-authorization.md) using the Microsoft identity platform
-> * Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
+> - Create a new Blazor WebAssembly app configured to use Azure AD for [authentication and authorization](authentication-vs-authorization.md)
+> - Retrieve data from a protected web API, in this case [Microsoft Graph](/graph/overview)
 
-This tutorial uses .NET Core 3.1. The .NET docs contain instructions on [how to secure a Blazor WebAssembly app](/aspnet/core/blazor/security/webassembly/graph-api) using ASP.NET Core 5.0. 
+This tutorial uses .NET Core 7.0.
 
-We also have a [tutorial for Blazor Server](tutorial-blazor-server.md). 
+We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 
 ## Prerequisites
 
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* An Azure AD tenant where you can register an app. If you don't have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
+- [.NET Core 7.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/7.0)
+- An Azure AD tenant where you can register an app. If you don't have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
 
 ## Register the app in the Azure portal
 
@@ -46,30 +46,30 @@ Once registered, under **Manage**, select **Authentication** > **Implicit grant 
 To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
-dotnet new -i Microsoft.Identity.Web.ProjectTemplates::1.9.1
+dotnet new install Microsoft.Identity.Web.ProjectTemplates
 ```
 
 Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
-dotnet new blazorwasm2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
+dotnet new blazorwasm --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}" -f net7.0
 ```
 
 | Placeholder   | Azure portal name       | Example                                |
 | ------------- | ----------------------- | -------------------------------------- |
-| `{APP NAME}`  | &mdash;                 | `BlazorWASMSample`                         |
+| `{APP NAME}`  | &mdash;                 | `BlazorWASMSample`                     |
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
 
 ## Test the app
 
-You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Standard 2.1, but the template supports other frameworks as well.
+You can now build and run the app. In your terminal, run the following command:
 
 ```dotnetcli
-dotnet run --framework netstandard2.1
+dotnet run
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running and logging users in with the Microsoft identity platform.
+In your browser, navigate to `https://localhost:<port number>`, and log in using an Azure AD user account to see the app running and logging users in with the Microsoft identity platform.
 
 The components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
@@ -91,15 +91,15 @@ First, add the `Mail.Read` API permission to the app's registration so that Azur
 1. Select **Delegated Permissions**, then search for and select the **Mail.Read** permission.
 1. Select **Add permissions**.
 
-Next, add the following to your project's *.csproj* file in the netstandard2.1 **ItemGroup**. This will allow you to create the custom HttpClient in the next step.
+Next, add the following to your project's _.csproj_ file in the **ItemGroup**. This will allow you to create the custom HttpClient in the next step.
 
 ```xml
-<PackageReference Include="Microsoft.Extensions.Http" Version="3.1.7" />
+<PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
 ```
 
 Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-First, create a new file named *GraphAPIAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
+First, create a new file named _GraphAPIAuthorizationMessageHandler.cs_ with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -118,11 +118,12 @@ public class GraphAPIAuthorizationMessageHandler : AuthorizationMessageHandler
 }
 ```
 
-Then, replace the contents of the `Main` method in *Program.cs* with the following code. This code makes use of the new `GraphAPIAuthorizationMessageHandler` and adds `User.Read` and `Mail.Read` as default scopes the app will request when the user first signs in.
+Then, replace the contents from the line that start with `var` to the end of the file in _Program.cs_ with the following code. This code makes use of the new `GraphAPIAuthorizationMessageHandler` and adds `User.Read` and `Mail.Read` as default scopes the app will request when the user first signs in.
 
 ```csharp
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("app");
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped<GraphAPIAuthorizationMessageHandler>();
 
@@ -140,7 +141,7 @@ builder.Services.AddMsalAuthentication(options =>
 await builder.Build().RunAsync();
 ```
 
-Finally, replace the contents of the *FetchData.razor* page with the following code. This code fetches user email data from the Microsoft Graph API and displays them as a list. In `OnInitializedAsync`, the new `HttpClient` that uses the proper access token is created and used to make the request to the Microsoft Graph API.
+Finally, replace the contents of the _FetchData.razor_ page with the following code. This code fetches user email data from the Microsoft Graph API and displays them as a list. In `OnInitializedAsync`, the new `HttpClient` that uses the proper access token is created and used to make the request to the Microsoft Graph API.
 
 ```c#
 @page "/fetchdata"
@@ -242,5 +243,5 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
+> [!div class="nextstepaction"] 
 > [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
