@@ -39,11 +39,15 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 - Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface
-
-- Dynamic content flyout in ADF Studio preview experience - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
+3 Pipeline designer enhancements added to ADF Studio preview experience 
+- Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
 - Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
 - Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
 
+
+### Continuous integration and continuous deployment
+
+In auto publish config, disable publish button is available to void overwriting the last automated publish deployment [Learn more](source-control.md?tabs=data-factory#editing-repo-settings)
 
 
 ## October 2022
