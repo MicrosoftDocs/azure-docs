@@ -55,7 +55,7 @@ Some services incorrectly stored data out of the EU Data Boundary. The following
 
 ## Services temporarily excluded from the EU Data Boundary
 
-Some services have work in progress to be EU Data Boundary compliant, but this work is delayed beyond January 1, 2023. The services listed will become compliant over the coming months. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
+Some services have work in progress to be EU Data Boundary compliant. This work is delayed beyond January 1, 2023. The following details explain the customer data that these features currently transfer out of the EU Data Boundary as part of their service operations:
 
 * **Reason for customer data egress** - These features haven't completed changes to fully process user or admin transactions, such as sign-in or object and application configuration actions within the EU Data Boundary.
 * **Types of customer data being egressed** - User and device account data, usage data, and service configuration (application, policy, group, and terms of use).
