@@ -59,7 +59,7 @@ You can also project unique objects. In this case, the lastName field does not e
 SELECT DISTINCT f.lastName
 FROM Families f
 ```
-soapy
+
 The results are:
 
 ```json
