@@ -106,7 +106,7 @@ In the _appsettings.json_ file, update your code so it fetches the appropriate t
 "Scopes": "user.read mail.read"
 ```
 
-Next, in the `Pages` folder, update the code in the _FetchData.razor_ file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
+Next, in the _Pages_ folder, update the code in the _FetchData.razor_ file to retrieve email data instead of the default (random) weather details. Replace the code in that file with the following code snippet:
 
 ```csharp
 @page "/fetchdata"
