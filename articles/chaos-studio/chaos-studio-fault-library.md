@@ -712,7 +712,11 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
 
-#### Version 2.0 sample JSON
+#### Version 2.0 sample JSON snippets
+
+The snippets below show how to configure both [dynamic filtering](chaos-studio-tutorial-dynamic-target-cli.md) and the shutdown 2.0 fault.
+
+Configuring a filter for dynamic targeting:
 
 ```json
 {
@@ -733,8 +737,11 @@ This fault has two available versions that you can use, Version 1.0 and Version 
     }
   }
 }
+```
 
+Configuring the shutdown fault:
 
+```json
 {
   "name": "branchOne",
   "actions": [
