@@ -129,7 +129,7 @@ Before you create a capacity reservation, you can check the reservation availabl
     The above request creates a reservation in the East US location for 5 quantities of the D2s_v3 VM size. 
 
 
-### [Portal](#tab/portal1)
+### [Portal](#tab/portal2)
 
 <!-- no images necessary if steps are straightforward --> 
 
@@ -154,7 +154,7 @@ Before you create a capacity reservation, you can check the reservation availabl
 1. Select **Create**
 
 
-### [CLI](#tab/cli1)
+### [CLI](#tab/cli2)
 
 1. Before you can create a Capacity Reservation, create a resource group with `az group create`. The following example creates a resource group *myResourceGroup* in the East US location.
 
@@ -187,7 +187,7 @@ Before you create a capacity reservation, you can check the reservation availabl
     --zone 1
     ```
 
-### [PowerShell](#tab/powershell1)
+### [PowerShell](#tab/powershell2)
 
 1. Before you can create a Capacity Reservation, create a resource group with `New-AzResourceGroup`. The following example creates a resource group *myResourceGroup* in the East US location.
 
@@ -271,7 +271,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
-### [CLI](#tab/cli2)
+### [CLI](#tab/cli3)
 
  ```azurecli-interactive
  az capacity reservation show 
@@ -280,7 +280,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
  -g myResourceGroup
  ```
 
-### [PowerShell](#tab/powershell2)
+### [PowerShell](#tab/powershell3)
 
 Check on your Capacity Reservation:
 
