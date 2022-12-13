@@ -12,8 +12,6 @@ ms.custom: references_regions
 
 An Azure Kubernetes Service (AKS) cluster with API Server VNet Integration configured projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. This enables network communication between the API server and the cluster nodes without any required private link or tunnel. The API server will be available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes will be configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## API server connectivity
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the virtual machines that make up the cluster nodes can communicate with each other through the API server VIP and pod IPs that are projected into the delegated subnet.
@@ -33,25 +31,29 @@ API Server VNet Integration is available in all Public Azure regions except the 
 
 ### Install the aks-preview CLI extension
 
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-# Update the extension to make sure you have the latest version installed
+To install the aks-preview extension, run the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register the `EnableAPIServerVnetIntegrationPreview` preview feature
+### Register the `EnableAPIServerVnetIntegrationPreview` feature flag
 
-To create an AKS cluster with API Server VNet Integration, you must enable the `EnableAPIServerVnetIntegrationPreview` feature flag on your subscription.
-
-Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the `az feature register` command, as shown in the following example:
+Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAPIServerVnetIntegrationPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview')].{Name:name,State:properties.state}"
