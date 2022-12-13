@@ -56,7 +56,7 @@ Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHu
 
 ## File Activity parsers
 
-To use ASIM File Activity parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](hhttps://aka.ms/ASimFileEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+To use ASIM File Activity parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimFileEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
 
 
 - **Windows file activity**
@@ -113,7 +113,7 @@ To use ASIM Process Event parsers, deploy the parsers from the [Microsoft Sentin
 
 ## Registry Event parsers
 
-To use ASIM Registry Event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](hhttps://aka.ms/AsimRegistryEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+To use ASIM Registry Event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimRegistryEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
 
 - **Security Events registry update (Events 4657 and 4663)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon registry monitoring events (Events 12, 13, and 14)**, collected using the Log Analytics Agent or Azure Monitor Agent
