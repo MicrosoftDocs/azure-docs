@@ -5,7 +5,6 @@ author: hhunter-ms
 ms.author: hannahhunter
 ms.service: container-apps
 ms.topic: how-to
-ms.custom: mvc
 ms.date: 12/08/2022
 ---
 
@@ -14,15 +13,15 @@ ms.date: 12/08/2022
 [Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. While you can deploy and manage the Dapr OSS project yourself, deploying your Dapr applications to the Container Apps platform:
 
 - Provides a managed and supported Dapr integration
-- Handles Dapr version upgrades seamlessly
+- Seamlessly updates Dapr versions
 - Exposes a simplified Dapr interaction model to increase developer productivity
 
-To simplify this process even further, you can deploy a Dapr application using the developer-focused [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md). In this guide, we guide you through:
-
+To simplify this process even further, you can deploy a Dapr application using the developer-focused [Azure Developer CLI (`azd`)](/developer/azure-developer-cli/overview.md).
+In this guide, you:
 > [!div class="checklist"]
-> Deploying a Dapr bindings API microservice application locally using the Dapr CLI. 
-> Redeploying the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
-> Unpacking how `azd` works alongside the Dapr application template with just one command.
+> * Deploy a Dapr bindings API microservice application locally using the Dapr CLI. 
+> * Redeploy the same application using `azd up` to Azure Container Apps via the Azure Developer CLI. 
+> * Explore how `azd` works with the Dapr application template with just one command.
 
 The Dapr service you deploy:
 1. Listens to input binding events from a system CRON (a standard UNIX utility used to schedule commands for automatic execution at specific intervals). 
@@ -37,6 +36,7 @@ The Dapr service you deploy:
 
 - Install [Azure Developer CLI](/developer/azure-developer-cli/install-azd.md)
 - [Install](https://docs.dapr.io/getting-started/install-dapr-cli/) and [init](https://docs.dapr.io/getting-started/install-dapr-selfhost/) Dapr
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - Install [Git](https://git-scm.com/downloads)
 
 ## Deploy a Dapr application locally
@@ -88,6 +88,8 @@ Start by running the PostgreSQL container and JavaScript service with [Docker Co
    dapr run --app-id batch-sdk --app-port 5002 --dapr-http-port 3500 --components-path ../components -- node index.js
    ```
 
+   The `dapr run` command kicks off the local deployment of the Dapr binding application. Upon successful deployment, the terminal window will show the output binding data.
+
    **Expected output:**
    
    A batch script runs every 10 seconds using an input CRON binding. The script processes a JSON file and outputs data to a SQL database using the PostgreSQL Dapr binding.
@@ -136,16 +138,16 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
 1. Set the environment variable for Postgres password. Make sure the password is long enough with unique alphabetical and numeral characters.
 
    ```azdeveloper
-   azd env set POSTGRES_PASSWORD <password>
+   azd env set POSTGRES_PASSWORD <PASSWORD>
    ```
 
-1. If you don't already have an `azd` environment already set up, you'll be prompted to supply/select the appropriate values for your environment. The environment name you create will be used for an Azure resource group during deployment.
+1. If you don't already have an `azd` environment already set up, you'll be prompted to supply and select the appropriate values for your environment. The environment name you create is used for an Azure resource group during deployment.
 
    | Parameter | Description |
    | --------- | ----------- |
-   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
-   | `Azure Location`   | The Azure location where your resources will be deployed. |
-   | `Azure Subscription` | The Azure Subscription where your resources will be deployed. |
+   | `Environment Name` | Prefix for the resource group that will be created to hold all Azure resources. For more informaiton, refer to [What is an Environment Name in `azd`?](/developer/azure-developer-cli/faq.yml#what-is-an-environment-name) |
+   | `Azure Location`   | The Azure location where your resources are deployed. |
+   | `Azure Subscription` | The Azure Subscription where your resources are deployed. |
 
 
 1. Provision the Bicep infrastructure and deploy the Dapr application to Azure Container Apps:
@@ -154,7 +156,15 @@ Deploy the Dapr bindings application to Azure Container Apps and Azure Postgres 
    azd up
    ```
 
-   Since `azd up` is kicking off two deployments, this step may take a while to complete. Monitor the deployment progress using the links provided in the output.
+   This process may take some time to complete, as the `azd up` command:
+
+   - Initializes your project (azd init)
+   - Creates and configures all necessary Azure resources (azd provision), including:
+     - Access policies and roles for your account
+     - Service-to-service communication with Managed Identities
+   - Deploys the code (azd deploy)
+   
+   As the `azd up` command completes, the CLI output displays two Azure portal links to monitor the deployment progress.
 
    **Expected output:**
    
@@ -200,13 +210,21 @@ In the Azure portal, verify the batch Postgres container is logging each insert 
 
    :::image type="content" source="media/microservices-dapr-azd/log-streams-portal-view.png" alt-text="Screenshot of the container app's log stream in the Azure portal.":::
 
-## How `azd up` deployed the Dapr application
+## What happened?
 
-While Microsoft provides several templates to get started deploying with `azd`, you can make your own Dapr application `azd`-compatible. Once you've set up your application with `azd`, simply running `azd up` will deploy it completely.
+Upon successful completion of the `azd up` command:
 
-Some preparation was required for [the above Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres) to deploy with just one command. The Dapr bindings application template includes:
+- The Dapr bindings application was initialized.
+- The Azure resources referenced in the [sample project's `./infra` directory](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres/tree/master/infra) have been provisioned to the Azure subscription you specified. You can now view those Azure resources via the Azure portal.
+- The app has been built and deployed to Azure Container Apps. Using the web app URL output from the `azd up` command, you can browse to the fully functional app.
 
-- Application code
+### How to make your Dapr container app `azd`-compatible
+
+While [Microsoft provides several templates to get started deploying with `azd`](/developer/azure-developer-cli/azd-templates.md), you can make your own Dapr application `azd`-compatible. Learn more about [how to `azd`-ify your application](/developer/azure-developer-cli/make-azd-compatible.md). 
+
+To make [the above Dapr application](https://github.com/greenie-msft/bindings-dapr-nodejs-cron-postgres) `azd`-compatible, it required the following components:
+
+- Application code (JavaScript application and Dapr input and output binding components)
 - Infra-as-code (in this case, Bicep) needed to provision Azure resources, including monitoring and CI/CD
 - An `azure.yaml` file that describes your application
 
@@ -214,27 +232,26 @@ The following diagram gives a quick overview of the creation process of an `azd`
 
 :::image type="content" source="media/microservices-dapr-azd/azd-workflow.png" alt-text="Diagram of the Azure Developer CLI template workflow.":::
 
-Let's unpack the key parts of the `azd` template that helped deploy the Dapr application.
+The next section explains the key parts of the `azd` template that help deploy the Dapr application.
 
-### Infra-as-code
+#### Infra-as-code
 
 Locate the Bicep files for the Dapr application in the `./infra` directory:
 
 ```bash
 cd bindings-dapr-nodejs-cron-postgres/infra
-code .
 ```
 
-In the `infra` directory, you'll see the following files and directories:
+The `./infra` directory contains the following files and directories:
 
 - `main.parameters.json`
 - `main.bicep`
 - An `app` resources directory organized by functionality
 - A `core` reference library that contains the Bicep modules used by the `azd` template
 
-#### `main.parameters.json`
+##### `main.parameters.json`
 
-In `main.parameters.json`, we've inserted the environment variables stored in your `.azure` directory within the sample. 
+The `main.parameters.json` file contains environment variables you provided as parameters in the CLI.  
 
 ```json
 {
@@ -254,14 +271,14 @@ In `main.parameters.json`, we've inserted the environment variables stored in yo
 }
 ```
 
-#### `main.bicep`
+##### `main.bicep`
 
-In `main.bicep`, we:
+The `main.bicep` file contains:
 
-- Declare the password, location, and name parameters included in `main.parameters.json`:
-- Declare the Bicep files we want to use, like:
+- The password, location, and name parameters included in `main.parameters.json`:
+- The Bicep files used, like:
   - `app/batch-service.bicep`: the Dapr application listening to the Cron input binding
-  - `app/paas-application.bicep`: Azure resources like Log Analytics, App Insights, etc.
+  - `app/paas-application.bicep`: Azure resources like a Resource Group containing Log Analytics, App Insights, a Container Apps Environment, and the Container App
   - `app/dapr-state-postgres.bicep`: the Dapr application's PostgreSQL output binding
 
 ```bicep
@@ -334,7 +351,8 @@ output POSTGRES_USER string = binding.outputs.POSTGRES_USER
 ```
 
 
-### `azure.yaml`
+
+#### `azure.yaml`
 
 The `azure.yaml` file included in the `azd` template lives in the root of the project directory and ties together all of the services.
 
@@ -357,6 +375,8 @@ If you're not going to continue to use this application, delete the Azure resour
 ```azdeveloper
 azd down
 ```
+
+`azd down` tears down the entire application, including the resource group and all the provisioned Azure resources.
 
 ## Next steps
 
