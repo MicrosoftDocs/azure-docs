@@ -257,19 +257,22 @@ After your team finishes testing, think about the necessary tasks to put your ne
 
      After you run one rehearsal, your team should have a better understanding how long each task might take to complete. You can use these estimations to forecast a schedule so that people know when you need them and approximately how much time they have to finish their task.
 
-  - Disabling interfaces in the old platform
+   - Disabling interfaces in the old platform
 
-    Provided that you understand all the existing dependencies, you can start disabling interfaces in your old integration platform before you enable interfaces in the new platform. Some complex architectures might require that you disable sequential interfaces in a specific order to avoid surprises. Depending on the interface's nature, you also might not be able to disable all interfaces in your old integration platform. For example, if you have a line of business system that pushes messages to your integration platform, make sure to account for these situations in your cut-over plan.
+     Provided that you understand all the existing dependencies, you can start disabling interfaces in your old integration platform before you enable interfaces in the new platform. Some complex architectures might require that you disable sequential interfaces in a specific order to avoid surprises. Depending on the interface's nature, you also might not be able to disable all interfaces in your old integration platform. For example, if you have a line of business system that pushes messages to your integration platform, make sure to account for these situations in your cut-over plan.
 
-  - Enabling interfaces in the new platform
+   - Enabling interfaces in the new platform
 
-    Similar to how you might have sequential interfaces that require you to disable in a specific order, you might have new sequential interfaces to enable with the same requirement. Before your start enabling interfaces, make sure that you understand all the dependencies and that you identified the required order to enable new sequential interfaces.
+     Similar to how you might have sequential interfaces that require you to disable in a specific order, you might have new sequential interfaces to enable with the same requirement. Before your start enabling interfaces, make sure that you understand all the dependencies and that you identified the required order to enable new sequential interfaces.
 
-    > [!NOTE]
-    >
-    > Take care that you execute steps to enable interfaces in a methodical and 
-    > systematic way to avoid missteps that risk your project's success. This guide 
-    > later discusses validation testing for your new interfaces.
+     > [!NOTE]
+     >
+     > Take care that you execute steps to enable interfaces in a methodical and 
+     > systematic way to avoid missteps that risk your project's success.
+
+   - Validation testing
+
+     This activity is extremely important, so include this work in your cut-over plan. After you enable your interfaces, confirm that the interfaces work as expected before you move on to the "Go or No-go" stage. Ideally, you can perform validation tests that don't affect core business data. This guide provides more information about validation testing for your new interfaces in a later section.
 
 1. Determine a rollback plan.
 
@@ -279,21 +282,31 @@ After your team finishes testing, think about the necessary tasks to put your ne
 
 1. Run validation testing.
 
-   After you enable your interfaces, you need to check that the interfaces work as expected before you "open the gates".
+   Your cut-over plan should've included the details for this work. After you enable your interfaces, confirm that the interfaces work as expected before you move on to the "Go or No-go" stage. Ideally, you can perform validation tests that don't affect core business data.  
 
-   Ideally you will be able to perform a validation test that doesn’t impact your core business data. For example, you may be able to read data from a production line of business system but cannot write data as that would create a compliance issue. Otherwise, you will need to wait for a business transaction to flow your interfaces to validate that everything is working as expected. This makes this activity quite important and something that you should account for in your cut-over plan.  
+   Ideally, for example, your validation tests can read data from a production line of business system, but they can't write data, which creates a compliance issue. Otherwise, you'll have to wait for a business transaction to flow through your interfaces and validate everything works as your team expects.
 
-- Make the "Go or No-Go decision".
+1. Plan for operations or production support.
 
-  At this point in the project, a decision needs to be made whether the project is ready to move into production. This decision needs to include relevant stakeholders including leadership, project management, operations and business representation. 
+   Although the work to migrate interfaces between platforms usually consumes most project resources, factor in ongoing support for your interfaces and new platform.
 
-Celebrate: You have just completed a project that will have a positive impact on your business, it is time to recognize the team for all their hard work and take time to celebrate this amazing milestone!!! Nothing will destroy morale than not being recognized for hard work. Whether the recognition is monetary or not, please plan on recognizing the team. 
+   - Make sure to share the appropriate amount and level of knowledge between the project team and the operations team.
 
-Retrospective: Like any engineering activity, it is important to learn from your experiences. Capture what went well, what didn’t, what would you do differently. Host this dialog in a non-threatening environment with a goal focused on learning and not pointing fingers. Share these learnings with your leadership and other interested stakeholders. This exercise builds trust within the team and is a sign of engineering maturity. 
+   - Create and keep a current contact list that has both technical and business contact details so that anyone can reach the appropriate team members when necessary.
 
-Production Support 
+   - For a smoother and timely support response to customers, have your support processes and documentation ready before you go live. You can help reduce stress for customers, your support team, and your project team when you can avoid a support member trying to figure everything out when an actual incident happens.
 
-The work involved in migrating interfaces from an old platform to a new platform, usually consumes most of the resources in a project. However, it is important to factor in the on-going support of the interfaces and the new platform that has just been implemented. This means planning for production support and ensuring the right level of knowledge transfer has occurred between the project team and the operations team. In addition, ensuring you have an up-to-date contact list that includes both technical and business contacts to ensure that the right people can be reached when necessary. The last thing you want to do is have a support person trying to figure out all of these things when there is an actual incident underway. It is much better to have your support processes and documentation in order prior to going live to ensure smooth and timely support responses. 
+1. Choose "Go or No-go" for moving to production.
+
+   For this step, work with the relevant stakeholders to decide whether the project can move into production. For example, stakeholders can include leadership, project management, operations, and business representatives.
+
+1. Celebrate your team's success.
+
+   Congratulations! After you finish a project that positively impacts your organization or business, the time has come to recognize your team for all their hard work and to celebrate an amazing milestone! Make sure to credit your team in an appropriate and meaningful way. No recognition is one sure way to destroy morale.
+
+1. Hold a retrospective.
+
+   Like any engineering activity, your team gains valuable insight and expands their knowledge by learning from experience. Meet with your team to discuss and capture areas that went well, didn't go well, and those that can change for the better. Take care that you host this conversation in a non-threatening and supportive environment, and stay focused on the goal to learn and grow, not blame. Share your lessons with your leadership and other interested stakeholders. This exercise builds trust across your team and represents engineering maturity.
 
 ## Best practices for migration
 
@@ -406,3 +419,9 @@ DevOps is another area that you want to periodically evaluate. As Microsoft or t
 Similar to how organizations perform regular penetration testing or phishing exercises, security is never a set-and-forget activity. As new authentication schemes and approaches become available, review your security measures and incorporate new developments that make sense for your solutions and scenarios.
 
 ## Next steps
+
+You've now learned more about available migration approaches, planning considerations, and best practices for moving BizTalk Server workloads to Azure Integration Services. To provide detailed feedback about this guide, you can use the following form:
+
+> [!div class="nextstepaction"]
+>
+> [Give feedback about migration guidance for BizTalk Server to Azure Integration Services](https://aka.ms/BizTalkMigrationGuidance)

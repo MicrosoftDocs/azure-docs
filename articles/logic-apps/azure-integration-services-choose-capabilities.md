@@ -31,7 +31,7 @@ Azure Integration Services offers many capabilities across this collection of in
 
 ## Next steps
 
-You've learned more about which offerings in Azure Integration Services best suit specific scenarios and needs. If you're considering moving from BizTalk Server to Azure Integration Services, learn more about migration approaches, planning considerations, and best practices to help with your migration project.
+You've now learned more about which offerings in Azure Integration Services best suit specific scenarios and needs. If you're considering moving from BizTalk Server to Azure Integration Services, learn more about migration approaches, planning considerations, and best practices to help with your migration project.
 
 > [!div class="nextstepaction"]
 >
