@@ -53,6 +53,7 @@ The following list is a full enumeration of the outbound requests that can be ma
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + If you're using custom skills, custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
 + If you're using customer-managed keys, the service connects to an external Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
++ If you're using semantic search, the service connects to the [closest region](/explore/global-infrastructure/products-by-region/?products=search) that hosts the machine learning models used for semantic ranking, captions, and answers.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
