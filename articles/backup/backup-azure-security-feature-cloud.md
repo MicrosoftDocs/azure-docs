@@ -2,7 +2,7 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 12/13/2022
 ms.custom: devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
@@ -142,6 +142,13 @@ If items were deleted before soft-delete was disabled, then they'll be in a soft
 1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Then delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
+
+## Soft delete with multi-user authorization
+
+You can use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+
+>[!Note]
+>MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ## Frequently asked questions
 
