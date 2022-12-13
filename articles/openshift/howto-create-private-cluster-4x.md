@@ -203,7 +203,7 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 
 Typically, private clusters are created with a public IP address and load balancer, providing a means for outbound connectivity to other services. However, you can create a private cluster without a public IP address. This may be required in situations in which security or policy requirements prohibit the use of public IP addresses.
 
-To create a private cluster without a public IP address, register for the feature flag `userDefinedRouting` using the following command structure:
+To create a private cluster without a public IP address, register for the feature flag `UserDefinedRouting` using the following command structure:
 
 ```
 az feature register --namespace Microsoft.RedHatOpenShift --name UserDefinedRouting
