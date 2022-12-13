@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 12/14/2022
 ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
@@ -56,6 +56,7 @@ This process requires that your account is subscribed to the availability zone v
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
+
 1. In the **Create a Volume** page, under the Basic tab, select the **Availability Zone** pulldown menu to specify an availability zone where Azure NetApp Files resources are present.
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
@@ -64,7 +65,7 @@ This process requires that your account is subscribed to the availability zone v
 
 1. Follow the steps indicated in the interface to create the volume. The **Review + Create** page shows the selected availability zone you specified.
     
-    :::image type="content" source="../media/azure-netapp-files/zone-replication-review-create.png" alt-text="Confirm you've selected the correct availability zone in the Review and Create page." lightbox="../media/azure-netapp-files/zone-replication-review-create.png":::
+    :::image type="content" source="../media/azure-netapp-files/zone-replication-review-create.png" alt-text="Screenshot showing the need to confirm selection of correct availability zone in the Review and Create page." lightbox="../media/azure-netapp-files/zone-replication-review-create.png":::
 
 1. After you create the volume, the **Volume Overview** page includes availability zone information for the volume.
 

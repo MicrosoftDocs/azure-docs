@@ -59,9 +59,9 @@ These steps assume you have already selected either the _Flat rate_, _Per core_,
 1. To offer a 3-year discount, select the **3-year saving %** check box and then enter the percentage discount you want to offer.
 1. To see the discounted prices, select **Price per core size**. A table with the 1-year and 3-year prices for each core size is shown. These prices are calculated based on the number of hours in the term with the percentage discount subtracted.
 
-    > [!TIP]
-    > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
-
+1. > [!TIP]
+   > For Per core size plans, you can optionally change the price for a particular core size in the **Price/hour** column of the table.
+   
 1. Make sure to select **Save draft** before you leave the page. The changes are applied once you publish the offer.
 
 ## Free trial
@@ -78,6 +78,9 @@ You can design each plan to be visible to everyone or only to a preselected priv
 
 > [!NOTE]
 > A private audience is different from the preview audience that you defined on the **Preview audience** pane. A preview audience can access and view all private and public plans for validation purposes before it's published live to Azure Marketplace. A private audience can only access the specific plans that they are authorized to have access to once the offer is live.
+
+> [!IMPORTANT]
+> Private plans are still visible to everyone in the CLI, but only deployable to customers configured in the private audience.
 
 Private offers aren't supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 

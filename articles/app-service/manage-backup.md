@@ -254,6 +254,8 @@ For samples, see:
 - [Can I use a storage account that has security features enabled?](#can-i-use-a-storage-account-that-has-security-features-enabled)
 - [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription)
 - [How do I restore to an app in the same subscription but in a different region?](#how-do-i-restore-to-an-app-in-the-same-subscription-but-in-a-different-region)
+- [Where are the automatic backups stored?](#where-are-the-automatic-backups-stored)
+- [How do I stop the automatic backup?]((#how-do-i-stop-the-automatic-backup)
 
 #### Are the backups incremental updates or complete backups?
 
@@ -329,6 +331,15 @@ The following security features in Azure storage aren't supported for custom bac
 #### How do I restore to an app in the same subscription but in a different region?
 
 The steps are the same as in [How do I restore to an app in a different subscription](#how-do-i-restore-to-an-app-in-a-different-subscription).
+
+#### Where are the automatic backups stored?
+
+Automatic backups are simple and stored in the same datacenter as the App Service and should not be relied upon as your disaster recovery plan.
+
+#### How do I stop the automatic backup?
+
+You cannot stop automatic backup. The automatic backup is stored on the platform and has no effect on the underlying app instance or it’s storage.
+
 
 <a name="nextsteps"></a>
 

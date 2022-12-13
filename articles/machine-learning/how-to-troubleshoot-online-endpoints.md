@@ -486,6 +486,6 @@ instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance
 
 ## Next steps
 
-- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)

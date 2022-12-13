@@ -9,11 +9,14 @@ ms.topic: article
 
 This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-- CyberX 
-- Support
-- cyberx_host
+- `cyberx`
+- `support`
+- `cyberx_host`
 
-To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
+For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users)..
+
+To start working in the CLI, connect using a terminal, such as PuTTY, using one of the privileged users.
+
 
 ## Create local alert exclusion rules
 

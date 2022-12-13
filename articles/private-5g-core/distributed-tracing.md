@@ -24,7 +24,7 @@ To sign in to the distributed tracing web GUI:
 
 1. Sign in using your credentials. 
 
-    If you're accessing the distributed tracing web GUI for the first time after installing the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
+    If you're accessing the distributed tracing web GUI for the first time after installing or upgrading the packet core instance, you should fill in the fields with the default username and password. Afterwards, follow the prompts to set up a new password that you will use from the next time you sign in.
 
       - **Name**: *admin*
       - **Password**: *packetCoreAdmin*

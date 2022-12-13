@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 12/14/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 

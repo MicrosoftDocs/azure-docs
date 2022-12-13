@@ -12,17 +12,21 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 11/19/2022
+ms.date: 12/14/2022
 ms.author: anfdocs
 ---
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-<!-- date pending -->
-* [Cross-zone replication](create-cross-zone-replication.md) (Preview)
-    With Azure’s push towards the use of availability zones (AZs) the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way. It helps you protect your data from unforeseeable zone failures, all without the need for host-based data replication. Azure NetApp Files cross-zone replication leverages NetApp SnapMirror technology in the same way cross-region replication does; only changed blocks are sent over the network in a compressed, efficient format. This technology minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
+## December 2022
 
+* [Cross-zone replication](create-cross-zone-replication.md) (Preview)
+
+    With Azure’s push towards the use of availability zones (AZs) the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
+
+    Cross-zone replication helps you protect your data from unforeseeable zone failures, all without the need for host-based data replication. Azure NetApp Files cross-zone replication leverages NetApp SnapMirror technology in the same way cross-region replication does; only changed blocks are sent over the network in a compressed, efficient format. This technology minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
+    
 ## November 2022 
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage. 
