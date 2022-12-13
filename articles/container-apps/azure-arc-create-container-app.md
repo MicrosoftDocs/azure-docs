@@ -101,7 +101,7 @@ az containerapp browse --resource-group myResourceGroup \
 > [!NOTE]
 > A Log Analytics configuration is required as you [install the Container Apps extension](azure-arc-enable-cluster.md) to view diagnostic information. If you installed the extension without Log Analytics, skip this step.
 
-Navigate to the [Log Analytics workspace that's configured with your App Service extension](azure-arc-enable-cluster.md), then select **Logs** in the left navigation.
+Navigate to the [Log Analytics workspace that's configured with your Container Apps extension](azure-arc-enable-cluster.md), then select **Logs** in the left navigation.
 
 Run the following sample query to show logs over the past 72 hours.
 
