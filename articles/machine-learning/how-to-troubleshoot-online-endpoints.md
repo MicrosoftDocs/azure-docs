@@ -74,7 +74,7 @@ For more, see [Deploy locally in Deploy and score a machine learning model](how-
 
 ## Conda installation
  
-Generally, issues with mlflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
+Generally, issues with MLflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
 
 To debug conda installation problems, try the following:
 
