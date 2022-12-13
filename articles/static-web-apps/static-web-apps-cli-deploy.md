@@ -27,13 +27,13 @@ The SWA CLI supports deploying using a deployment token. This is usually useful 
 
 - If you are using the [Azure CLI](https://aka.ms/azcli), you can get the deployment token of your project using the following command:
 
-```bash
+```azstatic-cli
 az staticwebapp secrets list --name <APPLICATION_NAME> --query "properties.apiKey"
 ```
 
 - If you are using the Azure Static Web Apps CLI, you can use the following command:
 
-```bash
+```azstatic-cli
 swa deploy --print-token
 ```
 
@@ -50,7 +50,7 @@ If your front-end application requires a build step, run `swa build` or refer to
 
 * **Option 1:** From build folder you would like to deploy, run the deploy command:
 
-    ```bash
+    ```azstatic-cli
     cd build/
     swa deploy
     ```
@@ -64,7 +64,7 @@ If your front-end application requires a build step, run `swa build` or refer to
 
     2. Deploy your app:
 
-    ```bash
+    ```azstatic-cli
     swa deploy ./my-dist
     ```
 
@@ -89,7 +89,7 @@ To deploy both the front-end app and an API to Azure Static Web Apps, use the fo
 
 3. Deploy your app:
 
-```bash
+```azstatic-cli
 swa deploy ./my-dist --api-location ./api
 ```
 
@@ -99,13 +99,13 @@ To deploy a Blazor app with an API to Azure Static Web Apps, use the following s
 
 1. Build your Blazor app in **Release** mode:
 
-```bash
+```azstatic-cli
 dotnet publish -c Release -o bin/publish
 ```
 
 2. From the root of your project, run the deploy command:
 
-```bash
+```azstatic-cli
 swa deploy ./bin/publish/wwwroot --api-location ./Api
 ```
 
@@ -140,13 +140,13 @@ Then you can deploy your application by running the following steps:
 
 2. Deploy your app:
 
-```bash
+```azstatic-cli
 swa deploy
 ```
 
 If you have multiple configuration entries, you can provide the entry ID to specify which one to use:
 
-```bash
+```azstatic-cli
 swa deploy my-otherapp
 ```
 
@@ -177,31 +177,31 @@ Here are the options you can use with `swa deploy`:
 
 Deploy using a deployment token.
 
-```bash
+```azstatic-cli
 swa deploy ./dist/ --api-location ./api/ --deployment-token <TOKEN>
 ```
 
 Deploy using a deployment token from the environment variables.
 
-```bash
+```azstatic-cli
 SWA_CLI_DEPLOYMENT_TOKEN=123 swa deploy ./dist/ --api-location ./api/
 ```
 
 Deploy using `swa-cli.config.json` file
 
-```bash
+```azstatic-cli
 swa deploy
 swa deploy myconfig
 ```
 
 Print the deployment token.
 
-```bash
+```azstatic-cli
 swa deploy --print-token
 ```
 
 Deploy to a specific environment.
 
-```bash
+```azstatic-cli
 swa deploy --env production
 ```
