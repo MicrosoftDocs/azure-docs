@@ -1,12 +1,12 @@
 ---
 title: Receive device messages through Azure IoT Hub - Azure Health Data Services
-description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service in Azure Health Data Services. The tutorial uses an Azure Resource Manager template in the Azure portal and Visual Studio Code with the Azure IoT Hub extension.
+description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service in Azure Health Data Services. The tutorial uses an Azure Resource Manager template (ARM template) in the Azure portal and Visual Studio Code with the Azure IoT Hub extension.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/04/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -78,16 +78,11 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
   
       To learn how to get an Azure AD user object ID, see [Find the user object ID](/partner-center/find-ids-and-domain-names#find-the-user-object-id). The user object ID that's used in this tutorial is only an example. If you use this option, use your own user object ID or the object ID of another person who you want to be able to access the FHIR service.
 
-   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
-
    - **Device Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
 
    - **Destination Mapping**: Don't change the default values for this tutorial. The mappings are set in the template to send a device message to your IoT hub later in the tutorial.
- 
-   > [!IMPORTANT]
-   > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
-   >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
+   
+   :::image type="content" source="media\iot-hub-to-iot-connector\iot-deploy-template-options.png" alt-text="Screenshot that shows deployment options for the MedTech service for Health Data Services in the Azure portal." lightbox="media\iot-hub-to-iot-connector\iot-deploy-template-options.png":::
 
 2. To validate your configuration, select **Review + create**.
 
@@ -106,9 +101,15 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
    > [!IMPORTANT]
-   > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
    >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 
@@ -133,9 +134,13 @@ When deployment is completed, the following resources and access roles are creat
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  
+- Conforming and valid MedTech service [device](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md).
 
-> [!TIP]
-> Get detailed instructions to [manually deploy the MedTech service by using the Azure portal](deploy-new-manual.md).
+> [!IMPORTANT]
+> In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+>
+> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Create a device and send a test message
 
@@ -228,16 +233,17 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, and sent a test message to your MedTech service.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn how to configure device mappings:
-
-> [!div class="nextstepaction"]
-> [How to configure device mappings](how-to-use-device-mappings.md)
-
-To learn how to configure FHIR destination mappings:
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service using an ARM template and Azure PowerShell or the Azure CLI](deploy-new-powershell-cli.md)
+
+> [!div class="nextstepaction"]
+> [Deploy the MedTech service manually using Azure portal](deploy-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -100,7 +100,7 @@ The order of parameters in the function signature doesn't matter. For example, y
 
 ### Output bindings
 
-A function can have zero or one output bindings defined by using output parameters. 
+A function can have zero or multiple output bindings defined by using output parameters. 
 
 The following example modifies the preceding one by adding an output queue binding named `myQueueItemCopy`. The function writes the contents of the message that triggers the function to a new message in a different queue.
 

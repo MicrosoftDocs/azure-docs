@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/04/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -65,11 +65,6 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png":::
 
-   > [!IMPORTANT]
-   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
-   >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
-
 2. To validate your configuration, select **Review + create**.
 
    :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
@@ -85,6 +80,17 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
    :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 
@@ -106,6 +112,11 @@ When deployment is completed, the following resources and access roles are creat
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
 
+> [!IMPORTANT]
+> In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+>
+> To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+
 ## Post-deployment mappings
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
@@ -116,7 +127,9 @@ After you've successfully deployed an instance of the MedTech service, you'll st
 
 ## Next steps
 
-In this quickstart, you learned how deploy the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. To learn more about other methods of deploying the MedTech service, see
+In this quickstart, you learned how to deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
+
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

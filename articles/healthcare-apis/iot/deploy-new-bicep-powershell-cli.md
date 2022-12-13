@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/04/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -94,9 +94,15 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
    > [!IMPORTANT]
-   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
    >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
@@ -146,9 +152,15 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
 
    > [!IMPORTANT]
-   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
    >
-   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-05-new-config.md#destination-properties).
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   > 
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 
@@ -169,6 +181,11 @@ When deployment is completed, the following resources and access roles are creat
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
+  
+> [!IMPORTANT]
+   > In this quickstart, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
+   >
+   > To learn more about the MedTech service resolution types Create and Lookup, see [Destination properties](deploy-new-config.md#destination-properties).
 
 ## Post-deployment mappings
 
@@ -203,7 +220,9 @@ For example: `az group delete --resource-group BicepTestDeployment`
 
 ## Next steps
 
-In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. To learn more about other methods of deploying the MedTech service, see
+In this quickstart, you learned how to use Azure PowerShell or the Azure CLI to deploy an instance of the MedTech service using a Bicep file. 
+
+To learn more about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

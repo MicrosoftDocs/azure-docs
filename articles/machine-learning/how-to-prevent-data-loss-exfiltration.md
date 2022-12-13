@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 08/26/2022
 ---
 
-# Azure Machine Learning data exfiltration prevention (Preview)
+# Azure Machine Learning data exfiltration prevention
 
 <!-- Learn how to use a [Service Endpoint policy](../virtual-network/virtual-network-service-endpoint-policies-overview.md) to prevent data exfiltration from storage accounts in your Azure Virtual Network that are used by Azure Machine Learning. -->
 
@@ -36,15 +36,32 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 * An Azure Machine Learning workspace with a private endpoint that connects to the VNet.
     * The storage account used by the workspace must also connect to the VNet using a private endpoint.
 
-## 1. Opt in to the preview
+## 1. Create the service endpoint policy
 
-> [!IMPORTANT]
-> Before opting in to this preview, you must have created a workspace and a compute instance on the subscription you plan to use. You can delete the compute instance and/or workspace after creating them.
+1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
+1. On the __Policy definitions__ tab, perform the following actions:
+    1. Select __+ Add a resource__, and then provide the following information:
+    
+        <!-- > [!TIP]
+        > * At least one storage account resource must be listed in the policy.
+        > * If you are adding multiple storage accounts, and the _default storage account_ for your workspace is configured with a private endpoint, you do not need to include it in the policy. -->
 
-Use the form at [https://forms.office.com/r/1TraBek7LV](https://forms.office.com/r/1TraBek7LV) to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview.
+        * __Service__: Microsoft.Storage
+        * __Scope__: Select the scope as __Single account__ to limit the network traffic to one storage account.
+        * __Subscription__: The Azure subscription that contains the storage account.
+        * __Resource group__: The resource group that contains the storage account.
+        * __Resource__: The default storage account of your workspace.
+    
+        Select __Add__ to add the resource information.
 
-> [!TIP]
-> It may take one to two weeks to allowlist your subscription.
+        :::image type="content" source="media/how-to-data-exfiltration-prevention/create-service-endpoint-policy.png" alt-text="A screenshot showing how to create a service endpoint policy." lightbox="media/how-to-data-exfiltration-prevention/create-service-endpoint-policy.png":::
+
+    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
+    
+        > [!NOTE]
+        > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
+
+1. Select __Review + Create__, and then select __Create__.
 
 ## 2. Allow inbound and outbound network traffic
 
@@ -91,34 +108,12 @@ For more information, see [How to secure training environments](how-to-secure-tr
 
 1. From the [Azure portal](https://portal.azure.com), select the __Azure Virtual Network__ for your Azure ML workspace.
 1. From the left of the page, select __Subnets__ and then select the subnet that contains your compute cluster/instance resources.
-1. In the form that appears, expand the __Services__ dropdown and then __enable Microsoft.Storage__. Select __Save__ to save these changes.
+1. In the form that appears, expand the __Services__ dropdown and then enable __Microsoft.Storage__. Select __Save__ to save these changes.
+1. Apply the service endpoint policy to your workspace subnet.
 
-## 4. Create the service endpoint policy
+:::image type="content" source="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png" alt-text="A screenshot of the Azure portal showing how to enable storage endpoint for the subnet." lightbox="media/how-to-data-exfiltration-prevention/enable-storage-endpoint-for-subnet.png":::
 
-1. From the [Azure portal](https://portal.azure.com), add a new __Service Endpoint Policy__. On the __Basics__ tab, provide the required information and then select __Next__.
-1. On the __Policy definitions__ tab, perform the following actions:
-    1. Select __+ Add a resource__, and then provide the following information:
-    
-        > [!TIP]
-        > * At least one storage account resource must be listed in the policy.
-        > * If you are adding multiple storage accounts, and the _default storage account_ for your workspace is configured with a private endpoint, you do not need to include it in the policy.
-
-        * __Service__: Microsoft.Storage
-        * __Scope__: Select the scope. For example, select __Single account__ if you want to limit the network traffic to one storage account.
-        * __Subscription__: The Azure subscription that contains the storage account.
-        * __Resource group__: The resource group that contains the storage account.
-        * __Resource__: The storage account.
-    
-        Select __Add__ to add the resource information.
-    1. Select __+ Add an alias__, and then select `/services/Azure/MachineLearning` as the __Server Alias__ value. Select __Add__ to add the alias.
-    
-        > [!NOTE]
-        > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
-
-1. Select __Review + Create__, and then select __Create__.
-
-
-## 5. Curated environments
+## 4. Curated environments
 
 When using Azure ML curated environments, make sure to use the latest environment version. The container registry for the environment must also be `mcr.microsoft.com`. To check the container registry, use the following steps:
 
@@ -126,7 +121,7 @@ When using Azure ML curated environments, make sure to use the latest environmen
 1. Verify that the __Azure container registry__ begins with a value of `mcr.microsoft.com`.
 
     > [!IMPORTANT]
-    > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration preview. Try upgrading to the latest version of the curated environment.
+    > If the container registry is `viennaglobal.azurecr.io` you cannot use the curated environment with the data exfiltration. Try upgrading to the latest version of the curated environment.
 
 1. When using `mcr.microsoft.com`, you must also allow outbound configuration to the following resources. Select the configuration option that you're using:
 

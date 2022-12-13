@@ -32,7 +32,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
     > [!NOTE]
     > You can't update a packet core instance's **Technology type** or **Version** field.
     >
-    > - To change the technology type, you'll need to delete the site and [recreate it](create-a-site.md). <!-- link to new site deletion section -->
+    > - To change the technology type, you'll need to [delete the site](delete-a-site.md) and [recreate it](create-a-site.md).
     > - To change the version, [upgrade the packet core instance](upgrade-packet-core-azure-portal.md).
 
 

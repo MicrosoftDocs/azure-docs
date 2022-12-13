@@ -155,7 +155,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     cluster_name = "cpu-cluster"
     print(ml_client.compute.get(cluster_name))
     
-    # Import components that are defined with python function
+    # Import components that are defined with Python function
     with open("src/components.py") as fin:
         print(fin.read())
     
@@ -173,7 +173,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
     # define a pipeline with component
     @pipeline(default_compute=cluster_name)
     def pipeline_with_python_function_components(input_data, test_data, learning_rate):
-        """E2E dummy train-score-eval pipeline with components defined via python function components"""
+        """E2E dummy train-score-eval pipeline with components defined via Python function components"""
     
         # Call component obj as function: apply given inputs & parameters to create a node in pipeline
         train_with_sample_data = train_model(
