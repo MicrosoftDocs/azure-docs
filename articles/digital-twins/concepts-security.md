@@ -91,11 +91,11 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 Setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Azure AD-protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
-Azure supports two types of managed identities: system-assigned and user-assigned. Currently, Azure Digital Twins supports only *system-assigned identities*. 
+Azure Digital Twins supports both types of managed identities, *system-assigned* and *user-assigned*. 
 
-You can use a system-assigned managed identity for your Azure Digital Instance to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports system-assigned identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
+You can use either of these managed identity types to authenticate to a [custom-defined endpoint](concepts-route-events.md#create-an-endpoint). Azure Digital Twins supports identity-based authentication to endpoints for [Event Hubs](../event-hubs/event-hubs-about.md) and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and to an [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) endpoint for [dead-letter events](concepts-route-events.md#dead-letter-events). [Event Grid](../event-grid/overview.md) endpoints are currently not supported for managed identities.
 
-For instructions on how to enable a system-managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
+For instructions on how to enable a managed identity for Azure Digital Twins and use it to route events, see [Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 ## Private network access with Azure Private Link
 
