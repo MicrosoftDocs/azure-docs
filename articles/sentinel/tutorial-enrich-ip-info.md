@@ -151,17 +151,29 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
     :::image type="content" source="media/tutorial-enrich-ip-info/13-create-automation-rule-name.png" alt-text="Screenshot of creating an automation rule, naming it, and adding a condition.":::
 
-1. Select **IP Address** from the property drop-down on the left. Select **Contains** from the operator drop-down.
+1. We're not going to restrict which analytics rules will be covered by this automation, but we are going to limit the coverage to incidents that contain IP address entities.
+
+    Select **IP Address** from the property drop-down on the left. Select **Contains** from the operator drop-down, and leave the value field blank. This effectively means that the rule will apply to incidents that have an IP address field that contains anything.
 
     :::image type="content" source="media/tutorial-enrich-ip-info/14-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
 
-## 4 - Invoke the playbook from your automation rule
-TODO: Add introduction sentence(s)
-[Include a sentence or two to explain only what is needed to complete the procedure.]
-TODO: Add ordered list of procedure steps
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+1. Under **Actions**, select **Change status** from the drop-down. In the new drop-down that appears just below that, select **Active**.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/15-create-automation-rule-action.png" alt-text="Screenshot showing how to add actions to your automation rule.":::
+
+1. Select **+ Add action**. From the new action drop-down that appears, select **Assign owner** and choose an owner of your choice from the drop-down that appears below.
+
+1. Select **+ Add action** again. Now, from the new action drop-down that appears, select **Run playbook.**
+
+1. Select the new drop-down that appears.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/16-add-run-playbook-action.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 1.":::
+
+    In the **Search playbooks** field, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. When you see your playbook in the list, select it.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/17-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/18-playbook-selected.png" alt-text="Screenshot showing your selected playbook.":::
 
 
 <!---Code requires specific formatting. Here are a few useful examples of
