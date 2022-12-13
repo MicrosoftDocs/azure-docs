@@ -156,14 +156,6 @@ See below for a comparison between templates using the 2022-04-01-preview and th
 
 ---
 
-### Packet core 2211
-
-**Type:** New release
-
-**Date available:** December 5, 2022
-
-The 2211 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2211 release notes](azure-private-5g-core-release-notes-2211.md).
-
 ### Multiple data networks
 
 **Type:** Feature
