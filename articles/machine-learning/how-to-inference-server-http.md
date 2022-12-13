@@ -44,6 +44,7 @@ By running the inference HTTP server locally, you can focus on debugging your sc
 ## Prerequisites
 
 - Requires: Python >=3.7
+- Anaconda
 
 ## Installation
 
@@ -116,8 +117,48 @@ python -m pip install azureml-inference-server-http
 Now you can modify the scoring script and test your changes by running the server again.
 
 ### End-to-end example
-In this section, we'll run the server locally with [sample files](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1) (scoring script, model file, and environment) in our example repository.
+In this section, we'll run the server locally with [sample files](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1) (scoring script, model file, and environment) in our example repository. The sample files are also used in our article for [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 
+1. Clone the sample repository.
+
+    ```bash
+    git clone --depth 1 https://github.com/Azure/azureml-examples
+    cd azureml-examples/cli/endpoints/online/model-1/
+    ```
+
+1. Create and activate a virtual environment with [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+
+    ```bash
+    # Create the environment from the YAML file
+    conda env create --name model-env -f ./environment/conda.yml
+    # Activate the new environment
+    conda activate model-env
+    ```
+
+1. Review your scoring script.
+
+    __onlinescoring/score.py__  
+    :::code language="python" source="~/azureml-examples-main/cli/endpoints/online/model-1/onlinescoring/score.py" :::
+
+1. Run the inference server with specifying scoring script and model file.
+   The specified model directory (`model_dir` parameter) will be defined as `AZUREML_MODEL_DIR` variable and retrived in the scoring script. 
+   In this case, we specify the current directory (`./`) since the subdirectory is specified in the scoring script as `model/sklearn_regression_model.pkl`.
+
+    ```bash
+    azmlinfsrv --entry_script ./onlinescoring/score.py --model_dir ./
+    ```
+
+    The example [startup log](#Startup-logs) will be shown if the server launched and the scoring script invoked successfully. Otherwise, there will be error messages in the log.
+
+1. Test the scoring script with a sample data.
+    Open another teminal and move to the same working directory to run the command.
+    Use the `curl` command to send an example request to the server and receive a scoring result.
+
+    ```bash
+    curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
+    ```
+
+    The socoring result will be returnd if there is no problem in your scoring script. If you find something wrong, you can try to update the scoring script and launch the server again to test the updated script.
 
 
 ## Server Routes
