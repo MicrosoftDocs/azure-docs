@@ -130,6 +130,9 @@ When using a *Standard* SKU load balancer with managed outbound public IPs (whic
 
 Use the following command to update an existing cluster. You can also set this parameter to have multiple managed outbound public IPs.
 
+> [!IMPORTANT]
+> We don't recommend using the Azure portal to make any outbound rule changes. Outbound rule changes made directly on the Load Balancer resource in the Azure portal will be removed whenever the cluster is reconciled, such as when it's stopped, started, upgraded, or scaled. Instead, use the Azure CLI, as shown in the examples. Outbound rule changes made using `az aks` CLI commands are permanent across cluster downtime.
+
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
