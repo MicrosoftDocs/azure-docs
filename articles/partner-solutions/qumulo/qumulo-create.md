@@ -37,9 +37,9 @@ Delegated subnet: The virtual network owner must [delegate a subnet](https://lea
  1. Delegate the newly created subnet as a Qumulo only subnet.
 
 > [!NOTE]
->Subnet address range selected should have at lease 256 IP addresses (251 free + 5 Azure reserved addresses /24). Your Qumulo subnet should be in the same region as that of the Qumulo service.
+>Subnet address range selected should have at least 256 IP addresses (251 free + 5 Azure reserved addresses /24). Your Qumulo subnet should be in the same region as that of the Qumulo service.
 
-![](media/qumulo-create/image1.png)
+  :::image type="content" source="media/qumulo-create/qumulo-vnet-properties.png" alt-text="Screenshot showing virtual network properties in the Azure portal. ":::
 
 ## Find Offer
 
@@ -48,16 +48,17 @@ Delegated subnet: The virtual network owner must [delegate a subnet](https://lea
 1. In the Marketplace, search for *Azure Native Qumulo Scalable File Service.*
 1. Select Subscribe.
 
-  ![](media/qumulo-create/image2.png)
+:::image type="content" source="media/qumulo-create/qumulo-marketplace.png" alt-text="Screenshot showing Azure Native Qumulo Scalable File Service in the Azure Marketplace.":::
 
 ## Create a Qumulo resource in Azure
 
 1. You are presented a form to create an Azure Native Qumulo Scalable File Service resource in the working pane.
-    ![](media/qumulo-create/image3.png)
+
+    :::image type="content" source="media/qumulo-create/qumulo-create.png" alt-text="Screenshot of the Basics tab for creating a Qumulo resource in the working pane.":::
     Screenshot
 
 1. Provide the following values
-
+  
 | **Property** | **Description** |
 |--|--|
 |Subscription | From the drop down select your Azure subscription where you have owner access |
@@ -72,12 +73,14 @@ Delegated subnet: The virtual network owner must [delegate a subnet](https://lea
 
 1. Configure networking
 
-    ![](media/qumulo-create/image4.png)
-    SCREENSHOT
+  :::image type="content" source="media/qumulo-create/qumulo-networking.png" alt-text="Screenshot of the Networking tab for creating a Qumulo resource in the working pane.":::
+  SCREENSHOT
 
 |**Property** |**Description** |
 |--|--|
 | Virtual network |Select the appropriate virtual network from your subscription where the Qumulo file system should be hosted.|
-| Subnet |Select a subnet from a list of pre-created delegated subnet(s) in the vnet. Note: One delegated subnet can be associated with only one Qumulo file system.|
-Only virtual networks in the specified region with subnets delegated to Qumulo.Storage/fileSystems will appear on this page. If an expected virtual network is not listed, verify that it is in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
+| Subnet |Select a subnet from a list of pre-created delegated subnet(s) in the VNet. One delegated subnet can be associated with only one Qumulo file system.|
+
+    Only virtual networks in the specified region with subnets delegated to Qumulo.Storage/fileSystems will appear on this page. If an expected virtual network is not listed, verify that it is in the chosen region and that the virtual network includes a subnet delegated to Qumulo.
+
 1. Click on Review + Create to create the resource.
