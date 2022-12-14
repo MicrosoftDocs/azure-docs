@@ -14,11 +14,9 @@ title: Azure Arc-enabled data services FAQ
 summary: |
   This article lists frequently asked questions and answers for Azure Arc-enabled data services.
 
-This article provides answers to frequently asked questions.
-
 sections:
-  -name: Azure Policy
-   questions:
+  - name: Azure Policy
+    questions:
       - question: Is there a cost to enable Microsoft Defender via Policy?
         answer: No. Azure Arc server is an Azure resource. There is no cost to use Azure Policy with Azure resources. For details, see [Azure Pricing policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
