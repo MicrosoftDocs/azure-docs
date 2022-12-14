@@ -282,7 +282,7 @@ References used in the following commands:
 1. Create your custom endpoint. Use the connection string in this command that you copied in the last step. The `endpoint-type` must be `eventhub`, otherwise all other values should be your own.
 
    ```azurecli
-   az iot hub message-endpoint cosmosdb-collection create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-cosmosdb-endpoint --endpoint-account my-cosmosdb-account --database-name my-cosmosdb-database --collection my-cosmosdb-database-container --connection-string "copied-connection-string"
+   az iot hub message-endpoint cosmosdb-collection create --resource-group my-resource-group --hub-name my-iot-hub --endpoint-name my-cosmosdb-endpoint --endpoint-account my-cosmosdb-account --database-name my-cosmosdb-database --container my-cosmosdb-database-container --connection-string "copied-connection-string"
    ```
 > [!NOTE]
 > If you are using managed identities instead of connection string, you have to use the following command to authenticate your identity to the CosmosDB account.
@@ -418,7 +418,37 @@ In IoT Hub, you can create a route to send messages or capture events. Each rout
         "source": "DeviceConnectionStateEvents"
       }
    ```
+# [Cosmos DB](#tab/cosmosdb)
 
+1. With your existing Cosmos DB endpoint, create a new IoT Hub route, using that endpoint. Use the endpoint name for `endpoint`. Use a unique name for `route-name`.
+
+   The default fallback route in IoT Hub collects messages from `DeviceMessages`, so let's choose another option for our custom route, such as `DeviceConnectionStateEvents`. For more source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters).
+
+   ```azurecli
+   az iot hub route create --endpoint my-cosmosdb-endpoint --hub-name my-iot-hub --route-name my-cosmosdb-route --source deviceconnectionstateevents
+   ```
+
+1. A new route should show in your IoT hub. Run this command to confirm the route is there.
+
+   ```azurecli
+   az iot hub route list -g my-resource-group --hub-name my-iot-hub
+   ```
+   
+   You should see a similar response in your console.
+
+   ```json
+   [
+      {
+        "condition": "true",
+        "endpointNames": [
+          "my-cosmosdb-endpoint"
+        ],
+        "isEnabled": true,
+        "name": "my-cosmosdb-route",
+        "source": "DeviceConnectionStateEvents"
+      }
+   ]
+   ```
 ---
 
 ### Update an IoT Hub route
