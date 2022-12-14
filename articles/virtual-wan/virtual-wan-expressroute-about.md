@@ -4,7 +4,7 @@ description: Learn about using ExpressRoute in Azure Virtual WAN to connect your
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 12/13/2022
 ms.author: cherylmc
 ---
 # About ExpressRoute Connections in Azure Virtual WAN
@@ -18,7 +18,7 @@ The following ExpressRoute circuit SKUs can be connected to the hub gateway: Loc
 
 ### ExpressRoute Performance
 
-ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. 
+ExpressRoute gateways are provisioned in units of 2 Gbps. One scale unit = 2 Gbps with support up to 10 scale units = 20 Gbps. 
 
 [!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
 
@@ -28,16 +28,16 @@ ExpressRoute gateways are provisioned in units of 2 Gbps. 1 scale unit = 2 Gbps 
 Dynamic routing (BGP) is supported. For more information, please see [Dynamic Route Exchange with ExpressRoute](../expressroute/expressroute-routing.md#dynamic-route-exchange). The ASN of the ExpressRoute gateway in the hub and ExpressRoute circuit are fixed and can't be edited at this time.
 
 ### ExpressRoute Connection Concepts 
-| Concept | Description |Notes |
+| Concept| Description| Notes|
 | --| --| --|
-| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route (static route in default route table or 0.0.0.0/0 advertised from on-premises), this setting controls whether or not the 0.0.0.0/0 route is advertised to connecting users. The default route does not originate in the Virtual WAN hub. | This field can be set to enabled or disabled.|
+| Propagate Default Route|If the Virtual WAN hub is configured with a 0.0.0.0/0 default route, this setting controls whether the 0.0.0.0/0 route is advertised to connecting users. The default route doesn't originate in the Virtual WAN hub. The route can be a static route in the default route table or 0.0.0.0/0 advertised from on-premises. | This field can be set to enabled or disabled.|
 | Routing Weight|If the Virtual WAN hub learns the same prefix from multiple connected ExpressRoute circuits, then the ExpressRoute connection with the higher weight will be preferred for traffic destined for this prefix.  | This field can be set to a number between 0 and 32000.|
 
 ### ExpressRoute Circuit Concepts 
-| Concept | Description |Notes |
+| Concept| Description| Notes|
 | --| --| --|
-| Authorization Key| An authorization key is granted by a circuit owner and is valid for only one ExpressRoute connection. | To redeem and connect an ExpressRoute circuit that is not in your subscription, you will need to collect the authorization key from the ExpressRoute circuit owner.|
-| Peer circuit URI| This is the Resource ID of the ExpressRoute circuit (which you can find under the **Properties** setting pane of the ExpressRoute Circuit).  | To redeem and connect an ExpressRoute circuit that is not in your subscription, you will need to collect the Peer Circuit URI from the ExpressRoute circuit owner. |
+| Authorization Key| An authorization key is granted by a circuit owner and is valid for only one ExpressRoute connection. | To redeem and connect an ExpressRoute circuit that isn't in your subscription, you'll need to collect the authorization key from the ExpressRoute circuit owner.|
+| Peer circuit URI| This is the Resource ID of the ExpressRoute circuit (which you can find under the **Properties** setting pane of the ExpressRoute Circuit).  | To redeem and connect an ExpressRoute circuit that isn't in your subscription, you'll need to collect the Peer Circuit URI from the ExpressRoute circuit owner. |
 
 
 ## Next steps
