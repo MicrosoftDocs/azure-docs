@@ -261,7 +261,7 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 
 ## Bulk rehydrate a set of blobs
 
-To rehydrate archived blobs in a container or folder to the Hot tier or Cool tier in place, you need to enumerate blobs and call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) on each blob. The following code example shows how to perform this operation:
+To rehydrate archived blobs in a container or folder to the hot or cool tier, enumerate through the blobs and call the Set Blob Tier operation on each one. The following example shows you how to perform this operation by using PowerShell:
 
 ## [PowerShell](#tab/azure-powershell)
 
