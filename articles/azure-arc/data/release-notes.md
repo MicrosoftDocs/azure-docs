@@ -27,6 +27,9 @@ For complete release version information, see [Version log](version-log.md#decem
 
 New for this release:
 
+- Platform support
+  - Add support for K3s
+
 - Arc data controller.
   - Added defaults on HA supervisor pod to support resource quotas.
   - Update Grafana to version 9.
