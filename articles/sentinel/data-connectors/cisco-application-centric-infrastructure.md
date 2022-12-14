@@ -3,7 +3,7 @@ title: "Cisco Application Centric Infrastructure connector for Microsoft Sentine
 description: "Learn how to install the connector Cisco Application Centric Infrastructure to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

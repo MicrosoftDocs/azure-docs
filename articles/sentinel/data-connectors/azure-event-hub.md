@@ -3,7 +3,7 @@ title: "Azure Event Hub connector for Microsoft Sentinel"
 description: "Learn how to install the connector Azure Event Hub to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ---

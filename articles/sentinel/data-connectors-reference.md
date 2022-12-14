@@ -282,6 +282,7 @@ Data connectors are available as part of the following offerings:
 - [Automated Logic WebCTRL](data-connectors/automated-logic-webctrl.md)
 - [Azure Active Directory](data-connectors/azure-active-directory.md)
 - [Azure Active Directory Identity Protection](data-connectors/azure-active-directory-identity-protection.md)
+- [Azure Activity](data-connectors/azure-activity.md)
 - [Azure Cognitive Search](data-connectors/azure-cognitive-search.md)
 - [Azure DDoS Protection](data-connectors/azure-ddos-protection.md)
 - [Azure Event Hub](data-connectors/azure-event-hub.md)
@@ -303,6 +304,7 @@ Data connectors are available as part of the following offerings:
 - [Microsoft PowerBI](data-connectors/microsoft-powerbi.md)
 - [Microsoft Project](data-connectors/microsoft-project.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
+- [Office 365](data-connectors/office-365.md)
 - [Security Events via Legacy Agent](data-connectors/security-events-via-legacy-agent.md)
 - [SentinelOne (using Azure Function)](data-connectors/sentinelone-using-azure-function.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
@@ -515,6 +517,10 @@ Data connectors are available as part of the following offerings:
 ## WireX Systems
 
 - [WireX Network Forensics Platform](data-connectors/wirex-network-forensics-platform.md)
+
+## WithSecure
+
+- [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
 ## ZERO NETWORKS LTD
 
