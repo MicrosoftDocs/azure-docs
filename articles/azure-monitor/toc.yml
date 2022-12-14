@@ -1534,8 +1534,6 @@ items:
     href: agents/azure-monitor-agent-extension-versions.md
   - name: Application Insights
     items:
-    - name: Dependency auto-collection
-      href: app/auto-collect-dependencies.md
     - name: Telemetry correlation
       href: app/correlation.md
     - name: Azure Functions
