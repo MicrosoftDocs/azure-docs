@@ -207,7 +207,11 @@ items:
     href: concepts-pipeline-execution-triggers.md
     displayName: retry
   - name: Integration runtime
-    href: concepts-integration-runtime.md
+    items:
+    - name: Integration runtime overview
+      href: concepts-integration-runtime.md
+    - name: Choosing the right IR configuration for your scenario
+      href: choosing-the-right-ir-configuration.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
