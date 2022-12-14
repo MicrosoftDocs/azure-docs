@@ -5533,6 +5533,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/auto-collect-dependencies.md",
+            "redirect_url": "/azure/azure-monitor/app/asp-net-dependencies",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/custom-endpoints.md",
             "redirect_url": "/azure/azure-monitor/app/create-new-resource",
             "redirect_document_id": false
