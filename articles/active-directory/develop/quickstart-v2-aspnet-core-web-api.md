@@ -31,7 +31,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > ## Prerequisites
 > 
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> - [Azure Active Directory tenant](../../quickstart-create-new-tenant.md)
+> - [Azure Active Directory tenant](quickstart-create-new-tenant.md)
 > - [.NET Core SDK 6.0+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
 > 
@@ -40,7 +40,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > First, register the web API in your Azure AD tenant and add a scope by following these steps:
 > 
 > 1. Sign in to the [Azure portal](https://portal.azure.com/).
-> 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
+> 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source=".\media\common\portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
@@ -109,18 +109,18 @@ This quickstart will be deprecated in the near future and will be updated to use
 >
 > 1. Open a terminal and change directory to the project folder.
 >
->     ```powershell
-      dotnet run
-      ```
+>   ```powershell
+    dotnet run
+    ```
 
 > 1. Run the following command to build the solution:
 >
->      ```powershell
-       dotnet run
-       ```
+>   ```powershell
+    dotnet run
+    ```
 
 > If the build has been successful, the following output is displayed:
-   
+>   
 >   ```powershell
     Building...
     info: Microsoft.Hosting.Lifetime[0]
@@ -134,7 +134,7 @@ This quickstart will be deprecated in the near future and will be updated to use
 >
 > ## How the sample works
 > 
-> The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](../../scenario-protected-web-api-overview.md).
+> The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 > 
 > ### Startup class
 > 
