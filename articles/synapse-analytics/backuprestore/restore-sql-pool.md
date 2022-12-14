@@ -132,26 +132,29 @@ Steps:
 
 1. Open a PowerShell terminal.
 
-2. Update Az.Sql Module to 3.8.0 (or greater) if needed
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to validate the version is below.
+   ```powershell
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   ```
+   
+1. Connect to your Azure account and list all the subscriptions associated with your account.
 
-3. Connect to your Azure account and list all the subscriptions associated with your account.
+1. Select the subscription that contains the SQL pool to be restored.
 
-4. Select the subscription that contains the SQL pool to be restored.
+1. List the restore points for the dedicated SQL pool.
 
-5. List the restore points for the dedicated SQL pool.
+1. Pick the desired restore point using the **RestorePointCreationDate**.
 
-6. Pick the desired restore point using the **RestorePointCreationDate**.
+1. Select the destination subscription in which the SQL pool should be restored.
 
-7. Select the destination subscription in which the SQL pool should be restored.
+1. Restore the dedicated SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
 
-8. Restore the dedicated SQL pool to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
+1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
-9. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
-
-10. **If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.**
-    1. Create a restore point for the newly created data warehouse.
-    2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
-    3. Perform the restore to the desired Azure Synapse workspace.
+1. If the desired destination is a Synapse Workspace, uncomment the code to perform the additional restore step.
+   1. Create a restore point for the newly created data warehouse.
+   2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
+   3. Perform the restore to the desired Azure Synapse workspace.
 
 ```powershell
 $SourceSubscriptionName="<YourSubscriptionName>"
@@ -217,7 +220,10 @@ The following PowerShell script for cross-tenant restore works in the same way a
 Steps:
 
 1. Open a PowerShell terminal.
-1. Update Az.Sql Module to 3.8.0 (or greater) using `Update-Module`.
+1. Update Az.Sql Module to 3.8.0 (or greater) if on an older version using `Update-Module`. Otherwise it will cause failures. A PowerShell command to validate the version is below.
+   ```powershell
+   foreach ($i in (get-module -ListAvailable | ?{$_.name -eq 'az.sql'}).Version) { $version = [string]$i.Major + "." + [string]$i.Minor; if ($version -gt 3.7) {write-host "Az.Sql version $version installed. Prequisite met."} else {update-module az.sql} }
+   ```
 1. Connect to your Azure account using `Connect-AzAccount`. 
 1. List all the subscriptions associated with your account along with its Tenant ID. Select the subscription that contains the dedicated SQL pool to be restored.
 1. List the restore points for the dedicated SQL pool using `Get-AzSynapseSqlPoolRestorePoint`.
@@ -227,9 +233,9 @@ Steps:
 1. Restore the dedicated SQL pool to the desired restore point using `Restore-AzSqlDatabase`.
 1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 1. If the desired destination is a Synapse workspace, uncomment the code to perform the additional restore step.
-    1. Create a restore point for the newly created data warehouse.
-    1. Retrieve the last restore point created by using the `Select -Last 1` syntax.
-    1. Perform the restore to the desired Azure Synapse workspace.
+   1. Create a restore point for the newly created data warehouse.
+   2. Retrieve the last restore point created by using the `Select -Last 1` syntax.
+   3. Perform the restore to the desired Azure Synapse workspace.
 
 
 ```powershell
