@@ -54,7 +54,7 @@ The steps in this section apply when connecting to a target VM from a Windows lo
 ## <a name="tunnel-command"></a>Upload files - SSH and RDP
 
 The steps in this section apply to native clients other than Windows, as well as Windows native clients that want to connect over SSH to upload files.
-This section helps you upload files from your local computer to your target VM over SSH or RDP using the **az network bastion tunnel** command. This command doesn't support file download from the target VM to your local computer. To learn more about the tunnel command and how to connect, see [Connect to a VM using a native client](connect-native-client-windows.md).
+This section helps you upload files from your local computer to your target VM over SSH or RDP using the **az network bastion tunnel** command. To learn more about the tunnel command and how to connect, see [Connect to a VM using a native client](connect-native-client-windows.md).
 
 > [!NOTE]
 > This command can be used to upload files from your local computer to the target VM. File download is not supported.
