@@ -211,7 +211,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
     
 **Folders**
 - C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
-- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (read and execute)
+- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute)
 
 ## <a name="runas-script"></a>Install Run As account certificate
 
