@@ -125,7 +125,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 
 # [PowerShell](#tab/azure-powershell)
 
-To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the allowedCopyScope parameter are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
+To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the **allowedCopyScope** parameter are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
 
 The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
