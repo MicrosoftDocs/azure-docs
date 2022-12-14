@@ -128,7 +128,7 @@ Lastly, Microsoft Purview Data Policy app applies the metadata in the Data Map, 
 
 ## In-region data residency
 
-Microsoft Purview processes but does not store customer data. By default, customer data stays within the region where Microsoft Purview is deployed. For regions with data residency requirements, customer data is always kept within the same region.
+Microsoft Purview processes data and stores metadata information, but does not store customer data. Customer metadata stays within the region where Microsoft Purview is deployed. For regions with data residency requirements, customer metadata is always kept within the same region.
 
 ## Next steps
 
