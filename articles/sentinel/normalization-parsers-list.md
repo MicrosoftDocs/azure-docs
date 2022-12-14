@@ -18,6 +18,8 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 >
 ## Authentication parsers
 
+To use ASIM authentication parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+
 - **Windows sign-ins**
     - Collected using the Log Analytics Agent or Azure Monitor Agent.
     - Collected using either the Security Events connectors to the SecurityEvent table or using the WEF connector to the WindowsEvent table.
@@ -30,12 +32,11 @@ This document provides a list of Advanced Security Information Model (ASIM) pars
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 - **PostgreSQL** sign-in logs.
- 
-Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication).
+
 
 ## DNS parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific DNS parsers:
+ASIM DNS parsers are available in every workspace. Microsoft Sentinel provides the following out-of-the-box parsers:
 
 | **Source** | **Notes** | **Parser**
 | --- | --------------------------- | ---------- |
@@ -51,11 +52,12 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific DNS p
 | **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
 ||||
 
-Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
+Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
 
 ## File Activity parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific File Activity parsers:
+To use ASIM File Activity parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimFileEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+
 
 - **Windows file activity**
     - Reported by **Windows (event 4663)**:
@@ -69,11 +71,10 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific File 
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 
-Deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimFileEvent).
-
 ## Network Session parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific Network Session parsers:
+ASIM Network Session parsers are available in every workspace. Microsoft Sentinel provides the following out-of-the-box parsers:
+
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
@@ -90,7 +91,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Fortigate FortiOS** | IP connection logs collected using Syslog. | `_Im_NetworkSession_FortinetFortiGateVxx` |
 | **Microsoft 365 Defender for Endpoint** | | `_Im_NetworkSession_Microsoft365DefenderVxx`|
 | **Microsoft Defender for IoT micro agent** | | `_Im_NetworkSession_MD4IoTAgentVxx` |
-| **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` * |
+| **Microsoft Defender for IoT sensor** | | `_Im_NetworkSession_MD4IoTSensorVxx` |
 | **Palo Alto PanOS traffic logs** | Collected using CEF. | `_Im_NetworkSession_PaloAltoCEFVxx` |
 | **Sysmon for Linux**  (event 3) | Collected using the Log Analytics Agent<br> or the Azure Monitor Agent. |`_Im_NetworkSession_LinuxSysmonVxx`  |
 | **Vectra AI** | | `_Im_NetworkSession_VectraIAVxx`  |
@@ -98,13 +99,11 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Netwo
 | **Watchguard FirewareOW** | Collected using Syslog. | `_Im_NetworkSession_WatchGuardFirewareOSVxx` |
 | **Zscaler ZIA firewall logs** | Collected using CEF. | `_Im_NetworkSessionZscalerZIAVxx` |
 
-Note that the parsers marked with (*) are available for deployment from GitHub and are not yet built into workspaces.
-
-Deploy the workspace deployed parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimNetworkSession).
+Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimNetworkSession).
 
 ## Process Event parsers
 
-Microsoft Sentinel provides the following built-in, product-specific Process Event parsers:
+To use ASIM Process Event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimProcessEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
 
 - **Security Events process creation (Event 4688)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Security Events process termination (Event 4689)**, collected using the Log Analytics Agent or Azure Monitor Agent
@@ -112,21 +111,18 @@ Microsoft Sentinel provides the following built-in, product-specific Process Eve
 - **Sysmon process termination (Event 5)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Microsoft 365 Defender for Endpoint process creation**
 
-Deploy Process Event parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimProcessEvent).
-
 ## Registry Event parsers
 
-Microsoft Sentinel provides the following built-in, product-specific Registry Event parsers:
+To use ASIM Registry Event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimRegistryEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
 
-- **Security Events registry update (Event 4657**), collected using the Log Analytics Agent or Azure Monitor Agent
+- **Security Events registry update (Events 4657 and 4663)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Sysmon registry monitoring events (Events 12, 13, and 14)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Microsoft 365 Defender for Endpoint registry events**
 
-Deploy Registry Event parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimRegistryEvent).
-
 ## Web Session parsers
 
-Microsoft Sentinel provides the following out-of-the-box, product-specific Web Session parsers:
+ASIM Web Session parsers are available in every workspace. Microsoft Sentinel provides the following out-of-the-box parsers:
+
 
 | **Source** | **Notes** | **Parser** | 
 | --- | --------------------------- | ------------------------------ | 
@@ -134,8 +130,7 @@ Microsoft Sentinel provides the following out-of-the-box, product-specific Web S
 | **Vectra AI Streams** | | `_Im_WebSession_VectraAIVxx`  |
 | **Zscaler ZIA** | Collected using CEF | `_Im_WebSessionZscalerZIAVxx` |
 
-
-These parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
+Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 
 ## <a name="next-steps"></a>Next steps
 

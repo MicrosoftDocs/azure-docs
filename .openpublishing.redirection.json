@@ -29500,6 +29500,16 @@
             "redirect_document_id": "false"
         },
         {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy-service-principal-encryption.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
           "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
           "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
           "redirect_document_id": false

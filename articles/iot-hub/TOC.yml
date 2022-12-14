@@ -508,6 +508,9 @@
           href: troubleshoot-message-routing.md
         - name: Resolve error codes
           href: troubleshoot-error-codes.md
+    - name: Migrate TLS certificate root
+      href: migrate-tls-certificate.md
+
 - name: Reference
   items:
     - name: Azure CLI
