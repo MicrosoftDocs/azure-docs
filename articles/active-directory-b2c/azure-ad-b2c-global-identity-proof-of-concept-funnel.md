@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C global identity framework proof of concept for funnel-based configuration
 
-The following section describes how to create proof of concept implementations for funnel-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model).
+The following section describes how to create proof of concept implementations for funnel-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/funnel-based-approach).
 
 ## Funnel tenant
 
@@ -25,7 +25,7 @@ The following section describes how to create proof of concept implementations f
 
 1. Configure client_id mapping to region – use [lookup claim transformation](general-transformations.md) to emulate.
 
-   ~~~json
+   ```xml
    <ClaimsTransformation Id="ClientIdToRegion" TransformationMethod="LookupValue">
      <InputClaims>
        <InputClaim ClaimTypeReferenceId="regionFromURL" TransformationClaimType="inputParameterId" />
@@ -40,11 +40,11 @@ The following section describes how to create proof of concept implementations f
        <OutputClaim ClaimTypeReferenceId="sendToRegion" TransformationClaimType="outputClaim" />
      </OutputClaims>
    </ClaimsTransformation>
-   ~~~
+   ```
 
 1. Configure federations to be enabled based on client_id – region mapping
 
-   ~~~json
+   ```xml
    <TechnicalProfile Id="HRDLogic">
      <DisplayName>ParseDomainHint</DisplayName>
      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -64,7 +64,7 @@ The following section describes how to create proof of concept implementations f
      </OutputClaimsTransformations>
      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
    </TechnicalProfile>
-   ~~~
+   ```
 
 ## Regional tenant
 
@@ -76,7 +76,7 @@ The following section describes how to create proof of concept implementations f
 
 1. Configure identifier to region lookup via global lookup table, use [lookup claim transformation](general-transformations.md) to emulate.
 
-   ~~~json
+   ```xml
    <ClaimsTransformation Id="UserIdToRegion" TransformationMethod="LookupValue">
      <InputClaims>
        <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputParameterId" />
@@ -94,12 +94,12 @@ The following section describes how to create proof of concept implementations f
        <OutputClaim ClaimTypeReferenceId="userLookupRegion" TransformationClaimType="outputClaim" />
      </OutputClaims>
    </ClaimsTransformation>
-   ~~~
+   ```
 
 1. Configure API based authentication for traveling user, and MS Graph API call to fetch users profile.
    1. Check credentials and get MS Graph API token from respective tenant. Register **Native** App registration in each regional tenant with permissions to MS Graph API for delegated permission: *user.read*.
 
-      ~~~json
+      ```xml
       <TechnicalProfile Id="REST-login-NonInteractive-APAC">
         <DisplayName>non interactive authetnication to APAC</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -122,11 +122,11 @@ The following section describes how to create proof of concept implementations f
         </OutputClaims>
         <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
-      ~~~
+      ```
 
    1. Read profile via MS Graph API for traveling user
 
-      ~~~json
+      ```xml
       <TechnicalProfile Id="Azure AD-Read-User-MSGraph">
         <DisplayName>revoke my refresh token</DisplayName>
         <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -150,7 +150,7 @@ The following section describes how to create proof of concept implementations f
         </OutputClaims>
         <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
-      ~~~
+      ```
 
 ## Sign up
 
