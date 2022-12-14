@@ -32,11 +32,11 @@ The following table lists the properties of the [RetryOptions](/dotnet/api/azure
 | [Mode](/dotnet/api/azure.core.retryoptions.mode) | [RetryMode](/dotnet/api/azure.core.retrymode) | The approach to use for calculating retry delays. | Exponential |
 | [NetworkTimeout](/dotnet/api/azure.core.retryoptions.networktimeout) | [TimeSpan](/dotnet/api/system.timespan) | The timeout applied to an individual network operation. | 100 seconds |
 
-In this example for blob storage, we'll configure the retry options in the `Retry` property of the [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class. Then, we'll create a client object for the blob service using the retry options.
+In this code example for blob storage, we'll configure the retry options in the `Retry` property of the [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class. Then, we'll create a client object for the blob service using the retry options.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Retry.cs" id="Snippet_RetryOptions":::
 
-In this code example, each service request issued from the `BlobServiceClient` object will use the retry options as defined in the `BlobClientOptions` object. You can configure various retry strategies for service clients based on the needs of your app.
+In this example, each service request issued from the `BlobServiceClient` object will use the retry options as defined in the `BlobClientOptions` object. You can configure various retry strategies for service clients based on the needs of your app.
 
 ## Use geo-redundancy to improve app resiliency
 If your app requires high availability and greater resiliency against failures, you can leverage Azure Storage geo-redundancy options as part of your retry policy. Storage accounts configured for geo-redundant replication are synchronously replicated in the primary region, and asynchronously replicated to a secondary region that is hundreds of miles away.
