@@ -89,5 +89,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)   
 * [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md)      
 * [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md)    
-* [Understand cross-zone replication of Azure NetApp Files](cross-zone-repolication-introduction.md)
+* [Understand cross-zone replication of Azure NetApp Files](cross-zone-replication-introduction.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)

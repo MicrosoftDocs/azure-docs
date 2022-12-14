@@ -62,9 +62,10 @@ The preview of cross-zone replication is available in the following regions:
 * West US 2 
 * West US 3 
 
-In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 ## Next steps
 
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Create cross-zone replication](create-cross-zone-replication.md)
+
