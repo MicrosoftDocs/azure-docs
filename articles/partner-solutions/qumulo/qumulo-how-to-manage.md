@@ -41,7 +41,7 @@ Selecting the **IP addresses** in the Resource menu displays the IP addresses as
 
 See [Qumulo’s documentation hub](https://docs.qumulo.com/cloud-guide/) for help configuring and using your file system.
 
-## Delete the Qumulo FileSystem --
+## Delete the Qumulo FileSystem
 
 To delete a deployment of Azure Native Qumulo File System service.
 
