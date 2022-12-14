@@ -29,7 +29,7 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 - Fixed an issue where the app sometimes entered an infinite loop while disconnecting.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
 - Updates to Teams for Azure Virtual Desktop, including the following:
-  - Fixed an issue that caused the incorrect rendering of an incoming screen share when using a widescreen (16:9) monitor.
+  - Fixed an issue that caused the incorrect rendering of an incoming screen share when using an ultrawide (21:9) monitor.
 
 ## Updates for version 1.2.3667
 
