@@ -45,7 +45,7 @@ Password reset journey:
 * Write the new password to the local tenant or via a cross tenant call
 * Issue a token to the application
 
-The following block diagram shows the proof of concept. The guidance will show how to configure the Azure AD B2C tenants. The External API layer and Geo distributed lookup table isn't included as part of this guide.
+The below diagram shows the block diagram of the proof of concept. The guidance will show how to configure the Azure AD B2C tenants. The External API layer and Geo distributed lookup table isn't included as part of this guide.
 
 ![Regional-based approach block diagram](media/azure-ad-b2c-global-identity-proof-of-concept/region-based-poc-block-diagram.png)
 
