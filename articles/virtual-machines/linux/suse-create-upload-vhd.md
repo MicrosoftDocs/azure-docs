@@ -182,30 +182,15 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 15. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
     ```console
-<<<<<<< HEAD
-    rm -f ~/.bash_history # Remove current user history    
-
-    sudo -i
-    rm -rf /var/lib/waagent/
-    rm -f /var/log/waagent.log
-
+    sudo rm -f /var/log/waagent.log
+    sudo cloud-init clean
+   
     waagent -force -deprovision+user
-    rm -f ~/.bash_history # Remove root user history
-    
+    rm -f ~/.bash_history
+   
     export HISTSIZE=0
-
+   
     logout
-=======
-   # sudo rm -f /var/log/waagent.log
-   # sudo cloud-init clean
-   
-   # waagent -force -deprovision+user
-   # rm -f ~/.bash_history
-   
-   # export HISTSIZE=0
-   
-   # logout
->>>>>>> e859aea0de0cb5de54de81070eae9575f12e0c8c
     ```
     
 16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
