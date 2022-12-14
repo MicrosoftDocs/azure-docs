@@ -81,7 +81,7 @@ To update this code sample to target ASP.NET Core 6.0, follow these steps:
 1. Remove the following line:
 
     ```xml
-   <TargetFramework>netcoreapp6.0</TargetFramework>
+   <TargetFramework>netcoreapp3.1</TargetFramework>
    ```
 
 1. Add the following line in its place:
