@@ -207,8 +207,7 @@ The following diagram shows the overall architecture of this example:
 
 :::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
-To create the resources, use the following Azure CLI commands.
-Create a resource group. Replace <my-resource-group> and 'my-location' with the desierd values.  
+To create the resources, use the following Azure CLI commands. To create a resource group. Replace <my-resource-group> and 'my-location' with the desierd values.  
 
 ```azurecli
 # create resource group
