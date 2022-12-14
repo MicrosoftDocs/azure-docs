@@ -150,6 +150,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+- [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)

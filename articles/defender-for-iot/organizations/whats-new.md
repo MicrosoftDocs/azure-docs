@@ -15,11 +15,29 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | |
+
+
+
 ## December 2022
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+|**OT networks**     | - **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal)<br>- [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+
+## Update sensor software from the Azure portal
+
+For sensor versions 22.2.3 and higher, you can update your sensor software directly from the **Sites and sensors** page on the Azure portal.
+
+Select a connected sensor with an older software version, and then select **Update (Preview)**.
+
+- Updating sensors in bulk is supported for up to 10 sensors.
+- Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
+- If you're running an update process from a version earlier than 22.2.x, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal.
+
+For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
 ### New purchase experience for OT plans
 
