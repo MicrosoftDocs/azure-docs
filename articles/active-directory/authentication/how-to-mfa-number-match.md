@@ -67,7 +67,7 @@ AD FS adapter will require number matching on supported versions of Windows Serv
 
 ### NPS extension
 
-Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Until Feb 27, 2023, users are asked to enter a One-Time Passcode (OTP) for push notifications beginning with NPS extension 1.2.2131.2 _only_ if number matching is enabled. After Feb 27, 2023, number matching will be enabled by default and all users with push notifications beginning with NPS extension 1.2.2131.2 will be asked to enter an OTP.
+Make sure you run the latest version of the [NPS extension](https://www.microsoft.com/download/details.aspx?id=54688). Until February 27, 2023, users are asked to enter a One-Time Passcode (OTP) for push notifications beginning with NPS extension 1.2.2131.2 _only_ if number matching is enabled. After February 27, 2023, number matching will be enabled by default and all users with push notifications beginning with NPS extension 1.2.2131.2 will be asked to enter an OTP.
 
 The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in Microsoft Authenticator, other software tokens, and so on. For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
@@ -85,11 +85,11 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-If you are using Remote Desktop Gateway, the user account must be configured for phone verification or Microsoft Authenticator push notifications. If neither option is configured, the user won't be able to meet the Azure AD MFA challenge and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE. 
+If you're using Remote Desktop Gateway, the user account must be configured for phone verification, or Microsoft Authenticator push notifications. If neither option is configured, the user won't be able to meet the Azure AD MFA challenge, and Remote Desktop Gateway sign-in will fail. In this case, you can set OVERRIDE_NUMBER_MATCHING_WITH_OTP = FALSE. 
 
 ### Apple Watch supported for Microsoft Authenticator
 
-In the upcoming Microsoft Authenticator release in January 2023 for iOS, there will be no companion app for watchOS due to it being incompatible with Authenticator security features. This means you won't be able to install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Microsoft Authenticator on another device.
+In the upcoming Microsoft Authenticator release in January 2023 for iOS, there will be no companion app for watchOS due to it being incompatible with Authenticator security features. You won't be able to install or use Microsoft Authenticator on Apple Watch. We therefore recommend that you [delete Microsoft Authenticator from your Apple Watch](https://support.apple.com/HT212064), and sign in with Microsoft Authenticator on another device.
 
 ## Enable number matching in the portal
 
@@ -286,11 +286,11 @@ GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationM
 
 Number match will be enabled for all users of Microsoft Authenticator after February 27, 2023. Relevant services will begin deploying these changes after February 27, 2023 and users will start to see number match in approval requests. As services deploy, some may see number match while others don't. To ensure consistent behavior for all your users, we highly recommend you use the Azure portal or Graph API to roll out number match for all Microsoft Authenticator users. 
 
-### Will the changes on Feb 27th, 2023, override number matching settings that are configured for a group?
+### Will the changes on February 27th, 2023, override number matching settings that are configured for a group?
 
 The **Enable and Target** tab of the Microsoft Authenticator authentication method policy will remain unchanged. Admins can continue to Target specific users and groups or All Users for Push or Any notifications. This change will only impact members of users and groups that are Targeted on the **Enable and Target** tab for Push and/or Any.
 
-When Microsoft begins protecting all organizations by enabling number matching on Feb 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
+When Microsoft begins protecting all organizations by enabling number matching on February 27th, 2023, administrators will see the **Require number matching for push notifications** setting on the **Configure** tab of the Microsoft Authenticator policy is set to **Enabled** for **All users** and can't be disabled. In addition, the **Exclude** option for this setting will be removed.
 
 
 ### How should users be prepared for default number matching?
@@ -313,27 +313,27 @@ Here are differences in sign-in scenarios that Microsoft Authenticator users wil
 
 - Apple Watch will remain unsupported for number matching. We recommend you uninstall the Microsoft Authenticator Apple Watch app because you have to approve notifications on your phone.
 
-### How can users enter a OTP with the NPS extension?
+### How can users enter an OTP with the NPS extension?
 
-The VPN and NPS server must be using PAP protocol for OTP prompts to appear. If they are using a protocol that does not support OTP, such as MSCHAPv2, they will continue to see the **Approve/Deny** notifications.
+The VPN and NPS server must be using PAP protocol for OTP prompts to appear. If they're using a protocol that doesn't support OTP, such as MSCHAPv2, they'll continue to see the **Approve/Deny** notifications.
 
 ### Will users get a prompt similar to a number matching prompt, but will need to enter an OTP?
 
-They will see a prompt to supply a verification code. They must select their account in Microsoft Authenticator and enter the random generated code that appears there.
+They'll see a prompt to supply a verification code. They must select their account in Microsoft Authenticator and enter the random generated code that appears there.
 
 ### Can I opt out of number matching?
 
-Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by Feb 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
+Yes, currently you can disable number matching. We highly recommend that you enable number matching for all users in your tenant to protect yourself from MFA fatigue attacks. Microsoft will enable number matching for all tenants by February 27, 2023. After protection is enabled by default, users can't opt out of number matching in Microsoft Authenticator push notifications. 
 
 ### Does number matching only apply if Microsoft Authenticator is set as the default authentication method?
 
-If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for Push or Any on the **Enable and Target** tab, they will start to receive number matching approval on Feb 27th, 2023.
+If the user has a different default authentication method, there won't be any change to their default sign-in. If the default method is Microsoft Authenticator and they are members of groups targeted for **Push** or **Any** on the **Enable and Target** tab, they'll start to receive number matching approval on February 27th, 2023.
 
-Regardless of their default method, any user who is prompted to sign-in with Authenticator will see number match after Feb 27th, 2023. If the user is prompted for another method, they won't see any change. 
+Regardless of their default method, any user who is prompted to sign-in with Authenticator will see number match after February 27th, 2023. If the user is prompted for another method, they won't see any change. 
 
 ### Will users who don't use number matching be able to perform MFA?
 
-It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on Feb 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
+It depends on how the **Enable and Target** tab is configured. The scope for number match approvals will change under the **Configure** tab to include everyone, but it only applies for users and groups targeted on the **Enable and Target** tab for Push or Any. However, if Target on the **Enable and Target** tab is set to specific groups for Push or Any, and the user isn't a member of those groups, then they won't receive the number matching approvals once the change is implemented on February 27th, 2023 because they aren't a member of the groups defined on the **Enable and Target** tab for Push and/or Any.
 
 ### What happens if a user runs an older version of Microsoft Authenticator?
 
