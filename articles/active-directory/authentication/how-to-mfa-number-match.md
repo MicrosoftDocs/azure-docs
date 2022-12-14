@@ -72,7 +72,7 @@ Make sure you run the latest version of the [NPS extension](https://www.microsof
 The user must have an OTP authentication method registered to see this behavior. Common OTP authentication methods include the OTP available in Microsoft Authenticator, other software tokens, and so on. For OTP to work, the VPN needs to use PAP protocol. For more information, see [Determine which authentication methods your users can use](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 >[!NOTE]
->If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user will always see the **Approve**/**Deny** experience with push notifications triggered by the NPS extension.
+>If the user doesn't have an OTP method registered, they'll continue to get the **Approve**/**Deny** experience. A user who can't use an OTP will always see the **Approve**/**Deny** experience with push notifications triggered by a legacy NPS extension.
 
 Earlier versions of the NPS extension beginning with 1.0.1.40 also support number matching, but you need to create a registry key that overrides push notifications to ask a user to enter an OTP. If you don't create the registry key, or you run a version prior to 1.0.1.40, users who are enabled for number matching will be prompted to **Approve**/**Deny**.
 
