@@ -42,7 +42,7 @@ The following tables compare support for device and other redirections across th
 The following table shows which input methods are available for each Remote Desktop client:
 
 | Input | Windows Desktop | Microsoft Store client | Android or Chrome OS | iOS or iPadOS | macOS | Web client |
-|---|---|---|---|---|---|---|
+|--|--|--|--|--|--|--|
 | Keyboard | X | X | X | X | X | X |
 | Mouse | X | X | X | X | X | X |
 | Touch | X | X | X | X |  | X |
