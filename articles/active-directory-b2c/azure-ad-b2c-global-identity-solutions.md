@@ -34,7 +34,7 @@ Azure AD B2C is a globally distributed service made up of several components:
 
 When creating an Azure AD B2C solution, you must provide a location to host the service. This location only pertains to the region in which the user profile data will be stored, while the rest of the service that processes your sign-in runs globally.
 
-You typically deploy an Azure AD B2C tenant in the region closest to your user base. This makes it easier to maintain compliance with data residency laws, as the user profile is only replicated in the [selected region](https://learn.microsoft.com/en-us/azure/active-directory-b2c/data-residency). This also provides the best performance during sign-in, as network latencies are optimized to the directory store.
+You typically deploy an Azure AD B2C tenant in the region closest to your user base. This makes it easier to maintain compliance with data residency laws, as the user profile is only replicated in the [selected region](data-residency.md). This also provides the best performance during sign-in, as network latencies are optimized to the directory store.
 
 When your Azure AD B2C directory requires to service users across the globe, the regional structure poses a challenge. You must determine which location to create the Azure AD B2C tenant in. Any users outside the selected region may not be compliant with data residency requirements and may also experience increased latency when verifying their credentials or reading their user profile data.
 
