@@ -7,6 +7,19 @@ ms.author: eur
 ---
 
 
+### 2022-December release
+
+#### New container versions
+
+Add support for latest model versions:
+- Custom speech-to-text 3.9.0
+- Speech-to-text 3.9.0
+- Text-to-speech 2.8.0
+
+Fix ipv4/ipv6 issue
+
+Fix vulnerability issue
+
 ### 2022-November release
 
 #### New container versions

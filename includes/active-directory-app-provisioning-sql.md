@@ -92,7 +92,7 @@ You can also configure [deprovisioning](../articles/active-directory/app-provisi
 
 ## 1. Install the ODBC driver
 
-The Windows Server where you'll be installing the provisioning agent requires an ODBC driver for your target database.  If you're planning to connect to SQL Server or Azure SQL database, then you should download the [ODBC driver for SQL Server (x64)](/sql/connect/odbc/download-odbc-driver-for-sql-server) and install that on the Windows Server.
+The Windows Server where you'll be installing the provisioning agent requires an ODBC driver for your target database.  If you're planning to connect to SQL Server or Azure SQL database, then you should download the [ODBC driver for SQL Server (x64)](/sql/connect/odbc/download-odbc-driver-for-sql-server) and install that on the Windows Server. For other SQL databases, please refer to the guidance by the independent software vendor on how to install the ODBC driver.
 
 ## 2. Create a DSN connection file
 
