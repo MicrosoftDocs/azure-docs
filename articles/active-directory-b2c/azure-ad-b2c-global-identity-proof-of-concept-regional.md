@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C global identity framework proof of concept regional based configuration
 
-The following section describes how to create proof of concept implementations for regional-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model).
+The following section describes how to create proof of concept implementations for regional-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/region-based-approach).
 
 ## Regional-based approach
 
@@ -58,13 +58,13 @@ The below diagram shows the block diagram of the proof of concept. The guidance 
 
 ### Prepare your storage layer
 
-You'll need a storage layer, which can store the users email, objectId and region. This will allow you to track and query where the user signed up. You can use an [Azure Storage table](https://learn.microsoft.com/azure/storage/tables/table-storage-overview) to persist this data.
+You'll need a storage layer, which can store the users email, objectId and region. This will allow you to track and query where the user signed up. You can use an [Azure Storage table](../storage/tables/table-storage-overview.md) to persist this data.
 
 ### Prepare your API layer
 
 There are multiple APIs used as part of the proof of concept to demonstrate the region-based approach.
 
-### Verify if user already exists
+#### Verify if user already exists
 
 An API is used during sign-up to determine whether the user exists in any region already.
 
@@ -85,7 +85,7 @@ Content-Type: application/json
 
 * The response should be HTTP 409 if the user does exist.
 
-### Record the users region mapping
+#### Record the users region mapping
 
 An API is used during sign-up to record which region the user has signed-up in.
 
@@ -107,7 +107,7 @@ Content-Type: application/json
 
 * The response should be HTTP 409 if the user does exist.
 
-### Return which region the user exists in
+#### Return which region the user exists in
 
 An API is used during sign-in to determine in which region the user had signed-up. This indicates whether a cross tenant authentication is required to be performed.
 
@@ -137,7 +137,7 @@ The response should be an HTTP 200 with the users registered region and objectId
 The API should respond with an HTTP 409 if the user doesn't exist, or encounters an error.
 
 
-### Write password across tenants
+#### Write password across tenants
 
 An API is used during the password reset flow to write the users new password in a different region that which they reset their password at.
 
@@ -172,8 +172,8 @@ Modify the `LocalAccountSignUpWithLogonEmail` technical profile in the Azure AD 
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
 ...
   <ValidationTechnicalProfiles>            
-    <ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls">
-    <ValidationTechnicalProfile ReferenceId="REST-doesUserExistInLookupTable">	    
+    <ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls" />
+    <ValidationTechnicalProfile ReferenceId="REST-doesUserExistInLookupTable" />	    
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
     <ValidationTechnicalProfile ReferenceId="REST-writeUserToRegionMapping" />
   </ValidationTechnicalProfiles>
@@ -199,13 +199,16 @@ The **ValidationTechnicalProfiles** will perform the following logic:
       <Metadata>
         <Item Key="ServiceUrl">https://myApi.com/doesUserExistInLookupTable</Item>
         <Item Key="AuthenticationType">Bearer</Item>
-        <Item Key="SendClaimsIn">Form</Item>
+        <Item Key="UseClaimAsBearerToken">ext_Api_bearerToken</Item>
+        <Item Key="SendClaimsIn">Body</Item>
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
+        <InputClaim ClaimTypeReferenceId="ext_Api_bearerToken" />
         <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="email" />
       </InputClaims>
       <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+      </TechnicalProfile>
       ```
 
      * This API should respond with HTTP 409 if the user exists, with appropriate error message to be displayed on screen. Otherwise, respond with an HTTP 200 if the user doesn't exist.
@@ -223,10 +226,12 @@ The **ValidationTechnicalProfiles** will perform the following logic:
       <Metadata>
         <Item Key="ServiceUrl">https://myApi.com/writeUserToRegionMapping</Item>
         <Item Key="AuthenticationType">Bearer</Item>
+        <Item Key="UseClaimAsBearerToken">ext_Api_bearerToken</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <Item Key="AllowInsecureAuthInProduction">false</Item>
       </Metadata>
       <InputClaims>
+        <InputClaim ClaimTypeReferenceId="ext_Api_bearerToken" />
         <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="email" />
         <InputClaim ClaimTypeReferenceId="region" DefaultValue="EMEA" />
         <InputClaim ClaimTypeReferenceId="objectId" />
@@ -239,16 +244,14 @@ The **ValidationTechnicalProfiles** will perform the following logic:
 
 During sign-in, we must determine the users profile location, and authenticate them against the Azure AD B2C tenant where their profile lives.
 
-Modify the `LocalAccountSignUpWithLogonEmail` technical profile in the Azure AD B2C starter pack is as follows:
-
 Modify the `SelfAsserted-LocalAccountSignin-Email` technical profile in the Azure AD B2C starter pack to perform the user-region lookup, and perform cross tenant authentication when the user is from a different region to that of the tenant they've reached. Update the `ValidationTechnicalProfiles` as:
 
 ```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
 ...
   <ValidationTechnicalProfiles>
-    <ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls">
-    <ValidationTechnicalProfile ReferenceId="REST-regionLookup">
+    <ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls" />
+    <ValidationTechnicalProfile ReferenceId="REST-regionLookup" />
     <ValidationTechnicalProfile ReferenceId="login-NonInteractive">
       <Preconditions>
         <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
@@ -311,22 +314,24 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
 
       ```xml
       <TechnicalProfile Id="REST-regionLookup">
-      <DisplayName>User to Region lookup</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="ServiceUrl">https://myApi.com/userToRegionLookup</Item>
-        <Item Key="AuthenticationType">Bearer</Item>
-        <Item Key="SendClaimsIn">Form</Item>
-        <Item Key="AllowInsecureAuthInProduction">false</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="email" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="user_region" PartnerClaimType="region" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId" />
-      </OutputClaims>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        <DisplayName>User to Region lookup</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="ServiceUrl">https://myApi.com/userToRegionLookup</Item>
+          <Item Key="AuthenticationType">Bearer</Item>
+          <Item Key="UseClaimAsBearerToken">ext_Api_bearerToken</Item>
+          <Item Key="SendClaimsIn">Body</Item>
+          <Item Key="AllowInsecureAuthInProduction">false</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="ext_Api_bearerToken" />
+          <InputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="email" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="user_region" PartnerClaimType="region" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="objectId" />
+        </OutputClaims>
+        <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
       </TechnicalProfile>
       ```
   
@@ -343,7 +348,7 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
           <DisplayName>non interactive authentication to APAC</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
-            <Item Key="ServiceUrl">https://login.microsoftonline.com/<yourb2ctenant>.onmicrosoft.com/oauth2/v2.0/token</Item>
+            <Item Key="ServiceUrl">https://login.microsoftonline.com/yourAPACb2ctenant.onmicrosoft.com/oauth2/v2.0/token</Item>
             <Item Key="AuthenticationType">None</Item>
             <Item Key="SendClaimsIn">Form</Item>
             <Item Key="AllowInsecureAuthInProduction">true</Item>
@@ -357,7 +362,7 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
             <InputClaim ClaimTypeReferenceId="nca" PartnerClaimType="nca" DefaultValue="1" />
           </InputClaims>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
+            <OutputClaim ClaimTypeReferenceId="ext_Api_bearerToken" PartnerClaimType="access_token" />
           </OutputClaims>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
@@ -378,12 +383,11 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
           <Metadata>
             <Item Key="ServiceUrl">https://graph.microsoft.com/beta/me</Item>
             <Item Key="AuthenticationType">Bearer</Item>
-            <Item Key="UseClaimAsBearerToken">bearerToken</Item>
+            <Item Key="UseClaimAsBearerToken">graph_bearerToken</Item>
             <Item Key="SendClaimsIn">Body</Item>
-            <Item Key="DebugMode">true</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="bearerToken" />
+            <InputClaim ClaimTypeReferenceId="graph_bearerToken" />
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="id" />
@@ -405,19 +409,21 @@ Modify the `LocalAccountSignUpWithLogonEmail` technical profile in the Azure AD 
 
 ```xml
 <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
-  <OutputClaim ClaimTypeReferenceId="bearerToken" DefaultValue="EMEA"/>
+  <OutputClaims>
+  ...
+  <OutputClaim ClaimTypeReferenceId="ext_Api_bearerToken" DefaultValue="EMEA"/>
   </OutputClaims>
   <ValidationTechnicalProfiles>
-<ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls">
-        <Preconditions>
-          <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-            <Value>user_region</Value>
-            <Value>EMEA</Value>
-            <Action>SkipThisValidationTechnicalProfile</Action>
-          </Precondition>
-        </Preconditions>
-      </ValidationTechnicalProfile>
-    <ValidationTechnicalProfile ReferenceId="REST-regionLookup">
+    <ValidationTechnicalProfile ReferenceId="REST-getTokenforExternalApiCalls">
+      <Preconditions>
+        <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+          <Value>user_region</Value>
+          <Value>EMEA</Value>
+          <Action>SkipThisValidationTechnicalProfile</Action>
+        </Precondition>
+      </Preconditions>
+    </ValidationTechnicalProfile>
+    <ValidationTechnicalProfile ReferenceId="REST-regionLookup" />
     <ValidationTechnicalProfile ReferenceId="AAD-UserReadUsingEmailAddress" />
   </ValidationTechnicalProfiles>
 </TechnicalProfile>
@@ -480,12 +486,12 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
       <Metadata>
         <Item Key="ServiceUrl">https://myApi.com/writePasswordCrossTenant</Item>
         <Item Key="AuthenticationType">Bearer</Item>
-        <Item Key="UseClaimAsBearerToken">bearerToken</Item>
+        <Item Key="UseClaimAsBearerToken">ext_Api_bearerToken</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <Item Key="DebugMode">true</Item>
       </Metadata>
       <InputClaims>
-        <InputClaim ClaimTypeReferenceId="bearerToken" />
+        <InputClaim ClaimTypeReferenceId="ext_Api_bearerToken" />
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="newPassword" />
       </InputClaims>
