@@ -236,7 +236,21 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-        - name: Change tracking and inventory
+    - name: Change tracking and inventory 
+      items:
+        - name: Use Azure Monitoring Agent
+          items:
+            - name: Overview
+              href: change-tracking/overview-monitoring-agent.md
+            - name: Support regions
+              href: change-tracking/region-mappings-monitoring-agent.md
+            - name: Enable change tracking from portal
+              href: change-tracking/enable-vms-monitoring-agent.md
+            - name: Manage change tracking and inventory
+              href: change-tracking/manage-change-tracking-monitoring-agent.md
+            - name: Configure alerts
+              href: change-tracking/configure-alerts.md
+        - name: Use Log Analytics
           items:
             - name: Overview
               href: change-tracking/overview.md
@@ -271,7 +285,7 @@
                 - name: Troubleshoot feature deployment issues
                   href: troubleshoot/onboarding.md
                 - name: Troubleshoot Change Tracking and Inventory issues
-                  href: troubleshoot/change-tracking.md
+                  href: troubleshoot/change-tracking.md      
     - name: Start/Stop VMs during off-hours
       items:
         - name: Overview
