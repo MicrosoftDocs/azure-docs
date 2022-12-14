@@ -65,8 +65,8 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-* Existing AKS private clusters cannot be converted to API Server VNet Integration clusters at this time.
-* [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
+* Existing AKS private clusters cannot be converted to API Server VNet Integration clusters.
+* [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses. The API server cannot be exposed to other virtual networks using private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
 
 ## Create an AKS cluster with API Server VNet Integration using Managed VNet
 
@@ -204,7 +204,7 @@ az aks update -n <cluster-name> \
 
 ## Enable or disable private cluster mode on an existing cluster with API Server VNet Integration
 
-AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname will not change, but public DNS entries will be modified or removed as appropriate.
+AKS clusters configured with API Server VNet Integration can have public network access/private cluster mode enabled or disabled without redeploying the cluster. The API server hostname doesn't change, but public DNS entries are modified or removed if necessary.
 
 ### Enable private cluster mode
 
