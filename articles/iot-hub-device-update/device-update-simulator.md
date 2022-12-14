@@ -3,7 +3,7 @@ title: Device Update for Azure IoT Hub tutorial using the Ubuntu (18.04 x64) sim
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
 author: kgremban
 ms.author: kgremban
-ms.date: 12/2/2022
+ms.date: 12/14/2022
 ms.topic: tutorial
 ms.service: iot-hub-device-update
 ---
@@ -35,7 +35,7 @@ In this tutorial, you'll learn how to:
 
   If your test device is different than your development machine, download the zip file onto both.
 
-  You can use `wget` to download the zip file. Replace `<release_version>` with the latest release, for example `0.8.2`.
+  You can use `wget` to download the zip file. Replace `<release_version>` with the latest release, for example `1.0.0`.
 
   ```bash
   wget https://github.com/Azure/iot-hub-device-update/releases/download/<release_version>/Tutorial_Simulator.zip
@@ -69,14 +69,7 @@ After the Device Update agent is running on an IoT device, you must add the devi
                }
    ```
 
-## Install a Device Update agent to test it as a simulator
-
-1. Follow the instructions to [install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true) on your test device.
-
-   > [!NOTE]
-   > The Device Update agent doesn't depend on IoT Edge. But it does rely on the IoT Identity Service daemon that's installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
-   >
-   > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent won't be registered as an authorized component to establish a connection to IoT Hub.
+## Install and configure Device Update agent to test it as a simulator
 
 1. Install the Device Update agent .deb packages.
 
@@ -84,38 +77,63 @@ After the Device Update agent is running on an IoT device, you must add the devi
    sudo apt-get install deviceupdate-agent
    ```
 
-1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the following command:
+1. Enter your IoT device's [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the [configuration file](device-update-configuration-file.md) by running the following command:
 
    ```bash
    sudo nano /etc/adu/du-config.json
    ```
+  Set up values as shown below in the configuration file: 
+  
+  ```bash
+    {
+      "schemaVersion": "1.1",
+      "aduShellTrustedUsers": [
+        "adu",
+        "do"
+      ],
+      "iotHubProtocol": "mqtt",
+      "manufacturer": "Contoso",
+      "model": "Video",
+      "agents": [
+        {
+          "name": 'aduagent1',
+          "runas": "adu",
+          "connectionSource": {
+            "connectionType": "string", //or “AIS”
+            "connectionData": <Place your Azure IoT device connection string here>
+          },
+        "manufacturer": "Contoso",
+        "model": "Video",
+        }
+      ]
+    }
+  ```
+   > [!NOTE]
+   >You can also use IoT Identity Service to provision the device. To do, that [install the iot indentity service] (https://azure.github.io/iot-identity-service/installation.html) before the agent and set the connectionType to 'AIS' and connectionData as a blank string in the [configuration file](device-update-configuration-file.md) above. 
 
-1. Set up the agent to run as a simulator. Run the following command on the IoT device so that the Device Update agent invokes the simulator handler to process a package update with APT (`microsoft/apt:1`).
+1. Set up the agent to run as a simulator. Run the following command on the IoT device so that the Device Update agent invokes the simulator handler to process a package update with SWUpdate (`microsoft/swupdate:1`).
 
-   ```sh
-   sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
+   ```bash
+     sudo /usr/bin/AducIotAgent --extension-type updateContentHandler --extension-id 'microsoft/swupdate:1' --register-extension /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so
    ```
+   
 
-   To register and invoke the simulator handler, use the following format, filling in the placeholders:
+1. Unzip `Tutorial_Simulator.zip` file that you downloaded in the prerequisites and copy of the file `sample-du-simulator-data.json`, which is from the `Tutorial_Simulator.zip` file that you downloaded in the prerequisites, in the `tmp` folder.
 
-   `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
-
-1. Make a copy of the file `sample-du-simulator-data.json`, which is from the `Tutorial_Simulator.zip` file that you downloaded in the prerequisites, in the `tmp` folder.
-
-   ```sh
+   ```bash
    cp sample-du-simulator-data.json /tmp/du-simulator-data.json
    ```
 
 1. Change permissions for the new file.
 
-   ```sh
+   ```bash
    sudo chown adu:adu /tmp/du-simulator-data.json
    sudo chmod 664 /tmp/du-simulator-data.json
    ```
   
    If /tmp doesn't exist, then:
 
-   ```sh
+   ```bash
     sudo mkdir/tmp
     sudo chown root:root/tmp
     sudo chmod 1777/tmp
@@ -124,22 +142,8 @@ After the Device Update agent is running on an IoT device, you must add the devi
 1. Restart the Device Update agent.
 
    ```bash
-    sudo systemctl restart adu-agent
+    sudo systemctl restart deviceupdate-agent
    ```
-
-Device Update for Azure IoT Hub software is subject to the following license terms:
-
-* [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
-* [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
-
-Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
-
-> [!NOTE]
-> After your testing with the simulator, run the following command to invoke the APT handler and [deploy over-the-air package updates](device-update-ubuntu-agent.md):
->
->```sh
->sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
->```
 
 ## Import the update
 
