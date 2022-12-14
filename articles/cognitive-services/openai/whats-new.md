@@ -23,7 +23,7 @@ keywords:
 
 * **New API version (2022-12-01).** This update includes several requested enhancements including token usage information in the API response, improved error messages for files, alignment with OpenAI on fine-tuning creation data structure, and support for the suffix parameter to allow custom naming of fine-tuned jobs.  ​
 
-* **Higher request per second limits.** 50 for non-Davinci models. 20 for DaVinci models.​
+* **Higher request per second limits.** 50 for non-Davinci models. 20 for Davinci models.​
 
 * **Faster fine-tune deployments.** Deploy an Ada and Curie fine-tuned models in under 10 minutes.​
 
