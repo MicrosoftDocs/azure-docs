@@ -11,7 +11,7 @@ ms.date: 12/15/2022
 
 # Tutorial: Create a Logic app with Azure Database for MySQL Flexible Server
 
-[!INCLUDE [logic-apps-sku-consumption](../../logic-apps/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](../../../includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create an automated workflow using Azure Logic Apps with Azure database for MySQL Flexible Server. 
 
@@ -54,7 +54,7 @@ CREATE TABLE `orders` (
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
-   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **My-First-LA-RG**. |
+   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **My-First-LA-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). <br><br>This example creates a logic app named **My-First-Logic-App**. |
    |||||
 
@@ -62,8 +62,8 @@ CREATE TABLE `orders` (
 
    | Plan type | Description |
    |-----------|-------------|
-   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](logic-apps-pricing.md#standard-pricing). |
-   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](logic-apps-pricing.md#consumption-pricing). |
+   | **Standard** | This logic app type is the default selection and runs in single-tenant Azure Logic Apps and uses the [Standard billing model](../../logic-apps/logic-apps-pricing.md#standard-pricing). |
+   | **Consumption** | This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../logic-apps/logic-apps-pricing.md#consumption-pricing). |
    |||
 
 1. Now continue making the following selections:
@@ -80,7 +80,7 @@ CREATE TABLE `orders` (
    > section is enabled. This preview section offers the choice to enable availability zone redundancy 
    > for your logic app. However, currently supported Azure regions don't include **West US**, 
    > so you can ignore this section for this example. For more information, see 
-   > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
+   > [Protect logic apps from region failures with zone redundancy and availability zones](../../logic-apps/set-up-zone-redundancy-availability-zones.md).
 
    When you're done, your settings look similar to this version:
 
