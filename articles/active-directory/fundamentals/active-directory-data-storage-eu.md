@@ -81,7 +81,7 @@ Administrators can choose to enable or disable certain Azure AD features. If the
 * **Application Proxy** - Allows customers to access their on-premises web applications externally. Customers may choose advanced routing configurations that allow customer data to egress outside of the EU Data Residency and EU Data Boundary, including user account data, usage data, and application configuration data.
 * **Microsoft 365 Multi Geo** - Microsoft 365 Multi-Geo provides customers with the ability to expand their Microsoft 365 presence to multiple geographic regions or countries within a single existing Microsoft 365 tenant. Azure Active Directory will egress customer data to perform backup authentication to the locations configured by the customer. Types of customer data include user and device account data, branding data, and service configuration data (application, policy, and group).
 
-### Other EU Data Boundary Online Services
+### Other EU Data Boundary online services
 
 Services and applications that integrate with Azure AD have access to customer data. Review how each service and application stores and processes customer data, and verify that they meet your company's data handling requirements.
 
