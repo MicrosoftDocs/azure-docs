@@ -15,6 +15,8 @@ ms.custom: devx-track-java, mode-api, passwordless-java
 
 Get started with the Azure Queue Storage client library for Java. Azure Queue Storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
 
+[API reference documentation](/java/api/overview/azure/storage-queue-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Samples](../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json#queue-samples)
+
 Use the Azure Queue Storage client library for Java to:
 
 - Create a queue
@@ -23,13 +25,6 @@ Use the Azure Queue Storage client library for Java to:
 - Update a message in a queue
 - Receive and delete messages from a queue
 - Delete a queue
-
-Additional resources:
-
-- [API reference documentation](/java/api/overview/azure/storage-queue-readme)
-- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
-- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-- [Samples](../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json#queue-samples)
 
 ## Prerequisites
 
@@ -169,7 +164,6 @@ import com.azure.identity.*;
 import com.azure.storage.queue.*;
 import com.azure.storage.queue.models.*;
 import java.io.*;
-import java.time.*;
 
 public class App
 {
@@ -235,7 +229,9 @@ These example code snippets show you how to do the following actions with the Az
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authorize a `QueueClient` to access queue data using `DefaultAzureCredential` by adding the **azure-identity** dependency in `pom.xml`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step.
+You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step. 
+
+Add the **azure-identity** dependency in `pom.xml`:
 
     ```xml
     <dependency>
@@ -244,7 +240,7 @@ You can authorize a `QueueClient` to access queue data using `DefaultAzureCreden
     </dependency>
     ```
 
-At the top of the `App.java` file, add an import directive for `com.azure.identity`.
+In the `App.java` file, add an import directive for `com.azure.identity`:
 
     ```java
     import com.azure.identity.*;
@@ -255,30 +251,29 @@ Decide on a name for the new queue. The following code sample appends a GUID val
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Then, create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization.
+Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization.
 
-Add this code inside the `main` method, and make sure to replace the `"<storage-account-name>` placeholder value:
+Add this code inside the `main` method, and make sure to replace the `<storage-account-name>` placeholder value:
 
 ```java
-// Create a unique name for the queue
 System.out.println("Azure Queue Storage client library - Java quickstart sample\n");
 
+// Create a unique name for the queue
 String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
 
-TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-
-// Instantiate a QueueClient which will be
-// used to create and manipulate the queue
-QueueClient queueClient = new BlobServiceClientBuilder()
-                .endpoint("https://<storage-account-name>.queue.core.windows.net/")
-                .queueName(queueName)
-                .credential(credential)
-                .buildClient();
+// Instantiate a QueueClient
+// We'll use this client object to create and manipulate the queue
+// TODO: replace <storage-account-name> with the actual name
+QueueClient queueClient = new QueueClientBuilder()
+        .endpoint("https://<storage-account-name>.queue.core.windows.net/")
+        .queueName(queueName)
+        .credential(new DefaultAzureCredentialBuilder().build())
+        .buildClient();
 ```
 
 ### Create a queue using a QueueClient object
 
-Then, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
+Using the `QueueClient` object, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
 
 Add this code to the end of the `main` method:
 
@@ -310,7 +305,7 @@ System.out.println("Azure Queue Storage client library - Java quickstart sample\
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue using the QueueClient
+### Create a queue using the QueueClient object
 
 Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
 
