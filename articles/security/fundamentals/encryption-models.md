@@ -145,7 +145,7 @@ The Azure services that support each encryption model:
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |
-| Azure OpenAI.                    | Yes                | Yes                | -                  |
+| Azure OpenAI                     | Yes                | Yes, including Managed HSM | -                  |
 | Personalizer                     | Yes                | Yes                | -                  |
 | QnA Maker                        | Yes                | Yes                | -                  |
 | Speech Services                  | Yes                | Yes                | -                  |
@@ -158,7 +158,7 @@ The Azure services that support each encryption model:
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Azure HDInsight                  | Yes                | All                | -                  |
-| Azure Monitor Application Insights | Yes              | Yes, including Managed HSM | -                  |
+| Azure Monitor Application Insights | Yes              | Yes                | -                  |
 | Azure Monitor Log Analytics      | Yes                | Yes, including Managed HSM | -                  |
 | Azure Data Explorer              | Yes                | Yes                | -                  |
 | Azure Data Factory               | Yes                | Yes, including Managed HSM | -                  |
