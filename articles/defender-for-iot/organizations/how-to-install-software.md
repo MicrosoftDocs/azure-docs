@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Install OT monitoring software on OT sensors
 
-This section provides generic procedures for installing OT monitoring software on sensors.
+This article provides generic procedures for installing OT monitoring software on sensors.
 
 > [!Note]
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.

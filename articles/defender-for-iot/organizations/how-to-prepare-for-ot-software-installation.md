@@ -72,6 +72,4 @@ For more information, see:
 - [Install OT monitoring software on an on-premises management console](how-to-install-ot-software-on-premises-management-console.md)
 - [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
 - [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-- [Which appliances do I need?](ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md)
-- [OT monitoring with virtual appliances](ot-virtual-appliances.md)
+

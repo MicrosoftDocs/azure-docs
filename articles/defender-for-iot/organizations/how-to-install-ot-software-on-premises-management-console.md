@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Install OT monitoring software on an on-premises management console
 
-This section provides generic procedures for installing OT monitoring software on an on-premises management console.
+This article provides generic procedures for installing OT monitoring software on an on-premises management console.
 
 This procedure describes how to install on-premises management console software on a physical or virtual appliance.
 
