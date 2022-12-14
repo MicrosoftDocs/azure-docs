@@ -47,7 +47,7 @@ First, register the web API in your Azure AD tenant and add a scope by following
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 
-The code sample currently targets ASP.NET core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-6.0)
+The code sample currently targets ASP.NET core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
 This quickstart will be deprecated in the near future and will be updated to use .NET 6.0. 
 
 ## Step 3: Configure the ASP.NET Core project
@@ -56,7 +56,7 @@ In this step, the sample code will be configured to work with the app registrati
 
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
-1. Open the solution in the *webapi* folder in your code editor.
+1. Open the solution in the *webapp* folder in your code editor.
 1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
 
    ```json
@@ -74,7 +74,7 @@ For this quickstart, don't change any other values in the *appsettings.json* fil
 
 ### Step 4: Update the sample code to ASP.NET Core 6.0
 
-To updated this code sample to target ASP.NET Core 6.0, follow these steps:
+To update this code sample to target ASP.NET Core 6.0, follow these steps:
 
 1. Open webapi.csproj
 1. Remove the following line:
@@ -83,13 +83,13 @@ To updated this code sample to target ASP.NET Core 6.0, follow these steps:
    <TargetFramework>netcoreapp6.0</TargetFramework>
    ```
 
-1. Add the following line in it's place:
+1. Add the following line in its place:
 
    ```xml
    <TargetFramework>netcoreapp6.0</TargetFramework>
    ```
 
-This step will ensures that the sample is targeting .NET 6.0.
+This step will ensure that the sample is targeting .NET 6.0.
 
 ### Step 5: Run the sample
 
