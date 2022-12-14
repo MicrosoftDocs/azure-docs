@@ -231,16 +231,7 @@ These example code snippets show you how to do the following actions with the Az
 
 You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step. 
 
-Add the **azure-identity** dependency in `pom.xml`:
-
-    ```xml
-    <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-identity</artifactId>
-    </dependency>
-    ```
-
-In the `App.java` file, add an import directive for `com.azure.identity`:
+Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the `App.java` file:
 
     ```java
     import com.azure.identity.*;
