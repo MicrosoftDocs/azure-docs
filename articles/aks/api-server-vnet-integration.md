@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 # Create an Azure Kubernetes Service cluster with API Server VNet Integration (Preview)
 
-An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. This enables network communication between the API server and the cluster nodes without any required private link or tunnel. The API server will be available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes will be configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
+An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. API Server VNet Integartion enables network communication between the API server and the cluster nodes without requiring a private link or tunnel. The API server is available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes are configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -109,7 +109,7 @@ The `--enable-private-cluster` flag is mandatory for a private cluster, and `--e
 
 When using bring-your-own VNet, an API server subnet must be created and delegated to `Microsoft.ContainerService/managedClusters`. This grants the AKS service permissions to inject the API server pods and internal load balancer into that subnet. The subnet may not be used for any other workloads, but may be used for multiple AKS clusters located in the same virtual network. An AKS cluster will require from 2-7 IP addresses depending on cluster scale. The minimum supported API server subnet size is a /28.
 
-Note that the cluster identity needs permissions to both the API server subnet and the node subnet. Lack of permissions at the API server subnet will cause a provisioning failure.
+The cluster identity needs permissions to both the API server subnet and the node subnet. Lack of permissions at the API server subnet can cause a provisioning failure.
 
 > [!WARNING]
 > Running out of IP addresses may prevent API server scaling and cause an API server outage.
@@ -188,12 +188,12 @@ az aks create -n <cluster-name> \
 
 ## Convert an existing AKS cluster to API Server VNet Integration
 
-Existing AKS public clusters can be converted to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements above (in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least /28). This is a one-way migration; clusters cannot have API Server VNet Integration disabled after it has been enabled.
+Existing AKS public clusters can be converted to API Server VNet Integration clusters by supplying an API server subnet that meets the requirements listed earlier (in the same VNet as the cluster nodes, permissions granted for the AKS cluster identity, and size of at least /28). This is a one-way migration; clusters cannot have API Server VNet Integration disabled after it's been enabled.
 
-This upgrade will perform a node-image version upgrade on all node pools - all workloads will be restarted as all nodes will undergo a rolling image upgrade.
+This upgrade performs a node-image version upgrade on all node pools - all workloads are restarted while they undergo a rolling image upgrade.
 
 > [!WARNING]
-> Converting a cluster to API Server VNet Integration will result in a change of the API Server IP address, though the hostname will remain the same. If the IP address of the API server has been configured in any firewalls or network security group rules, those rules may need to be updated.
+> Converting a cluster to API Server VNet Integration results in a change of the API Server IP address, though the hostname remains the same. If the IP address of the API server has been configured in any firewalls or network security group rules, those rules may need to be updated.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> \
