@@ -40,22 +40,6 @@ Access the single machine analysis experience from the **Monitoring** section of
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
 | Workbooks | Open the workbook gallery with the VM insights workbooks for single machines. For a list of the VM insights workbooks designed for individual machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
 
-## VM insights multiple machine experience
-Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. This will include only VMs that are enabled for VM insights. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
-
-:::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
-
-| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view events for all your machines. |
-| Alerts**: View [alerts](../alerts/alerts-overview.md) for all resources, which includes alerts related to virtual machines but that are associated with the workspace. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view alerts for all your machines. |
-| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
-| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
-| Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
-| Virtual Machines | Open [VM insights](../vm/vminsights-overview.md) with the **Get Started** tab open. This action displays all machines in your Azure subscription and identifies which are being monitored. Use this view to onboard individual machines that aren't already being monitored. |
-
-    Select the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource group to include in the view. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).
-
-    Select the **Map** tab to view running processes on machines, dependencies between machines, and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. For details on how to use the Map view for multiple machines, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor). 
- 
 ## Compare Metrics and Logs
 For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper, you'll need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md). Different features of Azure Monitor use different kinds of data. The type of alerting that you use for a particular scenario depends on having that data available in a particular location.
 
@@ -143,6 +127,54 @@ VM insights include the following workbooks. You can use these workbooks or use 
 For instructions on how to create your own custom workbooks, see [Create interactive reports VM insights with workbooks](vminsights-workbooks.md).
 
 :::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="Screenshot that shows virtual machine workbooks." lightbox="media/monitor-virtual-machines/workbook-example.png":::
+
+## VM insights multiple machine experience
+Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. This will include only VMs that are enabled for VM insights. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
+
+:::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
+
+| Option | Description |
+|:---|:---|
+| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view events for all your machines. |
+| Alerts**: View [alerts](../alerts/alerts-overview.md) for all resources, which includes alerts related to virtual machines but that are associated with the workspace. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view alerts for all your machines. |
+| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
+| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
+| Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
+| Virtual Machines | Open [VM insights](../vm/vminsights-overview.md) with the **Get Started** tab open. This action displays all machines in your Azure subscription and identifies which are being monitored. Use this view to onboard individual machines that aren't already being monitored. |
+
+    Select the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource group to include in the view. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).
+
+    Select the **Map** tab to view running processes on machines, dependencies between machines, and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. For details on how to use the Map view for multiple machines, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor). 
+
+
+## Azure Resource Graph
+[Azure Resource Graph](../../governance/resource-graph/overview.md) 
+
+
+- Query the latest snapshot of VM availability across all your Azure subscriptions at once.
+- Accurately assess the impact to fleetwide business SLAs and quickly trigger decisive mitigation actions, in response to disruptions and type of failure signature
+- Set up custom dashboards to supervise the comprehensive health of applications by joining VM availability information with additional resource metadata present in ARG
+- Track relevant changes in VM availability across a rolling 14 days window,  by using the change-tracking mechanism for conducting detailed investigations 
+
+
+
+### Alerts
+
+You might want to see a list of the alerts with the affected computers. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
+
+```kusto
+alertsmanagementresources
+| extend dimension = properties.context.context.condition.allOf
+| mv-expand dimension
+| extend dimension = dimension.dimensions
+| mv-expand dimension
+| extend Computer = dimension.value
+| extend AlertStatus = properties.essentials.alertState
+| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
+| project Alert, AlertStatus, Computer
+```
+
+
 
 ## Next steps
 
