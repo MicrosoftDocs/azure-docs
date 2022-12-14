@@ -48,8 +48,6 @@ Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/bi
 
 *Date published: 10/10/2022*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R78), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE591Lx), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE58R77)
-
 Fixed a bug related to tracing that was blocking reconnections.
 
 ## Updates for version 1.2.3576
