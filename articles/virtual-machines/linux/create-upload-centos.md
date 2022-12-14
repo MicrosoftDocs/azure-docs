@@ -419,8 +419,9 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     ```
 
 
-13. Swap configuration 
-    don't create swap space on the operating system disk.
+13. Swap configuration
+    
+    Don't create swap space on the operating system disk.
 
     Previously, the Azure Linux Agent was used to automatically configure swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However this is now handled by cloud-init, you **must not** use the Linux Agent to format the resource disk create the swap file, modify the following parameters in `/etc/waagent.conf` appropriately:
 
