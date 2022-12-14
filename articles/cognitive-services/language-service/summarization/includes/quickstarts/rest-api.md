@@ -381,3 +381,19 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversat
 ```
 
 ---
+
+
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [How to call document summarization](./how-to/document-summarization.md)
+* [How to call conversation summarization](./how-to/conversation-summarization.md)
