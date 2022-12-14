@@ -43,6 +43,8 @@ To complete this quick start, make sure that you have:
         - Microsoft 365 A5 
         - Microsoft 365 Business Premium 
         - Microsoft 365 Education Student Use Benefit
+- If you have on-premises core licenses for Windows Server with active Software Assurance, you may qualify for [Azure Hybrid Benefit](/windows-server/get-started/azure-hybrid-benefit).
+    - You can enable Hybrid Benefit when you [Create a dev box pool](quickstart-configure-dev-box-project.md#create-a-dev-box-pool).
 
 ## Create a dev center
 
