@@ -135,9 +135,9 @@ spec:
 
 ## Supported AzureML taints and tolerations
 
-[Taint and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concept they work together to ensure that pods are not scheduled onto inappropriate nodes. 
+[Taint and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concepts that work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
-Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific Azureml taints and tolerations, allowing users to add specific azureml taints on the Azureml-dedicated nodes, to prevent non-azureml workloads from being scheduled onto these dedicated nodes.
+Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific AzureML taints and tolerations, allowing users to add specific AzureML taints on the AzureML-dedicated nodes, to prevent non-AzureML workloads from being scheduled onto these dedicated nodes.
 
 We only support placing the amlarc-specific taints on your nodes, which are defined as follows: 
 
@@ -152,7 +152,7 @@ We only support placing the amlarc-specific taints on your nodes, which are defi
 
 > [!TIP]
 > 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
-> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes, more example you can find in [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes. For more examples,see the [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ### Best Pratices
 

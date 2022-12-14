@@ -26,10 +26,10 @@ In short, a `nodeSelector` lets you specify which node a pod should run on.  The
 
 ## Default instance type
 
-By default, a `defaultinstancetype` with following definition is created when you attach Kubernetes cluster to AzureML workspace:
+By default, a `defaultinstancetype` with the following definition is created when you attach a Kubernetes cluster to an AzureML workspace:
 - No `nodeSelector` is applied, meaning the pod can get scheduled on any node.
 - The workload's pods are assigned default resources with 0.1 cpu cores, 500Mi memory and 0 GPU for request.
-- The workload's pods resource usage are not allowed to exceed 2 cpu cores, 8GB memory for limit:
+- Resource use by the workload's pods is limited to 2 cpu cores and 8GB memory:
 
 ```yaml
 resources:
@@ -79,16 +79,16 @@ The following steps will create an instance type with the labeled behavior:
 - Pods will be assigned resource requests of `700m` CPU and `1500Mi` memory.
 - Pods will be assigned resource limits of `1` CPU, `2Gi` memory and `1` NVIDIA GPU.
 
-Custom instance types creation need to meet the following parameters and definition rules, otherwise the instance type creation will fail:
+Creation of custom instance types must meet the following parameters and definition rules, otherwise the instance type creation will fail:
 
 | Parameter | Required | Description |
 | --- | --- | --- |
-| name | required | String values, must be unique in cluster, otherwise will override the exist one.|
-| CPU request | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
-| Memory request | required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.|
-| CPU limit | required | String values, which can neither be 0 nor empty. <br>CPU can be specified in millicores, for example `100m`, or in full numbers, for example `"1"` is equivalent to `1000m`.|
-| Memory limit | required | String values, which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix, for example `1024Mi` for 1024 MiB.|
-| GPU | optional | Integer values, which can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins) |
+| name | required | String values; must be unique in cluster to avoid overwriting the exist one.|
+| CPU request | required | String values which can neither be 0 nor empty. <br>CPU can be specified in millicores; for example, `100m`. Can also be specified as full numbers; for example, `"1"` is equivalent to `1000m`.|
+| Memory request | required | String values which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
+| CPU limit | required | String values which can neither be 0 nor empty. <br>CPU can be specified in millicores; for example, `100m`. Can also be specified as full numbers; for example, `"1"` is equivalent to `1000m`.|
+| Memory limit | required | String values which can neither be 0 nor empty. <br>Memory can be specified as a full number + suffix; for example, `1024Mi` for 1024 MiB.|
+| GPU | optional | Integer values which can only be specified in the `limits` section. <br>For more information, see the Kubernetes [documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins) |
 | nodeSelector | optional | Map of string keys and values. |
 
 
@@ -167,13 +167,13 @@ command_job = command(
 ---
 
 In the above example, replace `<Kubernetes-compute_target_name>` with the name of your Kubernetes compute
-target and `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to submit job.
+target and replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to submit the job.
 
 ### Select instance type to deploy model
 
 #### [Azure CLI](#tab/select-instancetype-to-modeldeployment-with-cli)
 
-To select an instance type for a model deployment using CLI (V2), specify its name for `instance_type` property in deployment YAML.  For example:
+To select an instance type for a model deployment using CLI (V2), specify its name for the `instance_type` property in the deployment YAML.  For example:
 
 ```yaml
 name: blue
@@ -192,7 +192,7 @@ environment:
 
 #### [Python SDK](#tab/select-instancetype-to-modeldeployment-with-sdk)
 
-To select an instance type for a model deployment using SDK (V2), specify its name for `instance_type` property in `KubernetesOnlineDeployment` class.  For example:
+To select an instance type for a model deployment using SDK (V2), specify its name for the `instance_type` property in the `KubernetesOnlineDeployment` class.  For example:
 
 ```python
 from azure.ai.ml import KubernetesOnlineDeployment,Model,Environment,CodeConfiguration
@@ -218,7 +218,7 @@ blue_deployment = KubernetesOnlineDeployment(
 ```
 ---
 
-In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to deploy model.
+In the above example, replace `<instance_type_name>` with the name of the instance type you wish to select. If there's no `instance_type` property specified, the system will use `defaultinstancetype` to deploy the model.
 
 
 ## Next steps
