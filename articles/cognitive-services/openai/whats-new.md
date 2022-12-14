@@ -29,7 +29,7 @@ keywords:
 
 * **Higher training limits:** 40M training tokens for Ada, Babbage, and Curie. 10M for Davinci.​
 
-* **Process for requesting modifications to the abuse & miss-use data logging & human review.** Today, the service logs request/response data for the purposes of abuse and misuse detection to ensure that these powerful models aren't abused. However, many customers have strict data privacy and security requirements that require greater control over their data. To support these use cases, we're releasing a new process for customers to modify the content filtering policies or turn off the abuse logging for low-risk use cases. This process follows the established Limited Access process within Azure Cognitive Services and existing OpenAI customers can apply here: {link}.​
+* **Process for requesting modifications to the abuse & miss-use data logging & human review.** Today, the service logs request/response data for the purposes of abuse and misuse detection to ensure that these powerful models aren't abused. However, many customers have strict data privacy and security requirements that require greater control over their data. To support these use cases, we're releasing a new process for customers to modify the content filtering policies or turn off the abuse logging for low-risk use cases. This process follows the established Limited Access process within Azure Cognitive Services and [existing OpenAI customers can apply here](aka.ms/oai/modifiedaccess).​
 
 * **Customer managed key (CMK) encryption.** CMK provides customers greater control over managing their data in the Azure OpenAI Service by providing their own encryption keys used for storing training data and customized models. Customer-managed keys (CMK), also known as bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. [Learn more from our encryption at rest documentation](azure/cognitive-services/openai/encrypt-data-at-rest).
 
@@ -78,7 +78,7 @@ keywords:
 ​**Customer actions**​
 
 * [Contact Azure Support](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) if you would like these turned on for your subscription​.
-* Apply for filtering modifications {link}, if you would like to have them remain off. (This option will be for low-risk use cases only.)​
+* [Apply for filtering modifications](aka.ms/oai/modifiedaccess), if you would like to have them remain off. (This option will be for low-risk use cases only.)​
 
 ## Next steps
 
