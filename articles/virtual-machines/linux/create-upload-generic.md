@@ -266,7 +266,8 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
          EOF
          ```
 
-10.	Swap configuration. Do not create swap space on the operating system disk.
+10.	Swap configuration
+     Don't create swap space on the operating system disk.
      Previously, the Azure Linux Agent automatically configured swap space by using the local resource disk that is attached to the virtual machine after the virtual machine is provisioned on Azure. However, this is now handled by cloud-init, you must not use the Linux Agent to format the resource disk create the swap file, modify the following parameters in /etc/waagent.conf appropriately:
      ``` 
      ResourceDisk.Format=n
