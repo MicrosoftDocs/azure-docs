@@ -98,11 +98,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     1. Enable **SSO** and choose **SAML** protocol.
 
-    1. In the **Login URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
+    1. In the **Login URL** textbox, paste the **Login URL** value, which you've copied from the Azure portal.
 
-    1. In the **Identifier** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    1. In the **Identifier** textbox, paste the **Azure AD Identifier** value, which you've copied from the Azure portal.
     
-    1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
+    1. In the **Logout URL** textbox, paste the **Logout URL** value, which you've copied from the Azure portal.
 
     1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
