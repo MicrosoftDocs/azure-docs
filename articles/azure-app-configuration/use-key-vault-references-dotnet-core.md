@@ -176,6 +176,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 
     ```html
+    @page
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 

@@ -23,6 +23,12 @@ This post off-boarding scenario will run a scheduled workflow and accomplish the
 2. Remove user from all Teams
 3. Delete user account
 
+## Prerequisites
+
+- Azure AD Premium P2
+
+For more information, see: [License requirements](what-are-lifecycle-workflows.md#license-requirements)
+
 ##  Before you begin
 
 As part of the prerequisites for completing this tutorial, you will need an account that has licenses and Teams memberships that can be deleted during the tutorial. For more comprehensive instructions on how to complete these prerequisite steps, you may refer to  the [Preparing user accounts for Lifecycle workflows tutorial](tutorial-prepare-azure-ad-user-accounts.md).
@@ -50,7 +56,7 @@ Use the following steps to create a scheduled leaver workflow that will configur
  7. Next, you will configure the basic information about the workflow.  This information includes when the workflow will trigger, known as **Days from event**.  So in this case, the workflow will trigger seven days after the employee's leave date.  On the post-offboarding of an employee screen, add the following settings and then select **Next: Configure Scope**. 
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-basics.png" alt-text="Screenshot of leaver template basics information for a workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-basics.png":::
  
- 8. Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**.
+ 8. Next, you will configure the scope. The scope determines which users this workflow will run against.  In this case, it will be on all users in the Marketing department.  On the configure scope screen, under **Rule** add the following and then select **Next: Review tasks**. For a full list of supported user properties, see: [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
    :::image type="content" source="media/tutorial-lifecycle-workflows/leaver-scope.png" alt-text="Screenshot of reviewing scope details for a leaver workflow." lightbox="media/tutorial-lifecycle-workflows/leaver-scope.png":::
 
  9. On the following page, you may inspect the tasks if desired but no additional configuration is needed. Select **Next: Select users** when you are finished.

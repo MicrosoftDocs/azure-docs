@@ -22,6 +22,9 @@ Enabling GMSA with Windows Server nodes on AKS requires:
 * Permissions to configure GMSA on Active Directory Domain Service or on-prem Active Directory.
 * The domain controller must have Active Directory Web Services enabled and must be reachable on port 9389 by the AKS cluster.
 
+> [!NOTE]
+> Microsoft also provides a purpose-built PowerShell module to configure gMSA on AKS. You can find more information on the module and how to use it in the article [gMSA on Azure Kubernetes Service](/virtualization/windowscontainers/manage-containers/gmsa-aks-ps-module).
+
 ## Configure GMSA on Active Directory domain controller
 
 To use GMSA with AKS, you need both GMSA and a standard domain user credential to access the GMSA credential configured on your domain controller. To configure GMSA on your domain controller, see [Getting Started with Group Managed Service Accounts][gmsa-getting-started]. For the standard domain user credential, you can use an existing user or create a new one, as long as it has access to the GMSA credential.
@@ -337,7 +340,10 @@ To verify GMSA is working and configured correctly, open a web browser to the ex
 
 ### No authentication is prompted when loading the page
 
-If the page loads, but you are not prompted to authenticate, use `kubelet logs POD_NAME` to display the logs of your pod and verify you see *IIS with authentication is ready*.
+If the page loads, but you are not prompted to authenticate, use `kubectl logs POD_NAME` to display the logs of your pod and verify you see *IIS with authentication is ready*.
+
+> [!NOTE]
+> Windows containers won't show logs on kubectl by default. To enable Windows containers to show logs, you need to embed the Log Monitor tool on your Windows image. More information is available [here](https://github.com/microsoft/windows-container-tools).
 
 ### Connection timeout when trying to load the page
 

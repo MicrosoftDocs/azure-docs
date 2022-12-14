@@ -4,8 +4,8 @@ description: Learn about Azure SQL assessments in Azure Migrate Discovery and as
 author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
-ms.date: 05/05/2022
-
+ms.date: 08/05/2022
+ms.custom: engagement-fy23
 ---
 
 # Assessment Overview (migrate to Azure SQL)

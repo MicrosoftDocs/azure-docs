@@ -59,7 +59,23 @@ The following example shows you how to create a Container Apps environment in an
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-Next, declare a variable to hold the VNET name.
+Register the `Microsoft.ContainerService` provider.
+
+# [Bash](#tab/bash)
+
+```bash
+az provider register --namespace Microsoft.ContainerService
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
+```
+
+---
+
+Declare a variable to hold the VNET name.
 
 # [Bash](#tab/bash)
 

@@ -81,7 +81,7 @@ using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 
 The client is a [PersonalizerClient](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials containing your key.
 
-To request the best action from Personalizer, create a [RankRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest) containing a list of [RankableActions](/dotnet/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and the context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse.
+To request the best action from Personalizer, create a [RankRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest) containing a list of [RankableActions](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankableaction) that Personalizer will choose from, and the context features. The RankRequest will be passed to the client.Rank method, which returns a RankResponse.
 
 To send a reward score to Personalizer, create a [RewardRequest](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest) with the event ID corresponding to the Rank call that returned the best action, and the reward score. Then, pass it to the [client.Reward](/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward) method.
 
@@ -378,7 +378,7 @@ public class Context
 }
 ```
 
-The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../concept-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance.
+The context features in this quick-start are simplistic, however, in a real production system, designing your [features](../concepts-features.md) and [evaluating their effectiveness](../how-to-feature-evaluation.md) can be non-trivial. You can refer to the aforementioned documentation for guidance.
 
 ## Define a reward score based on user behavior
 
@@ -533,6 +533,61 @@ Run the application with the dotnet `run` command from your application director
 ```console
 dotnet run
 ```
+
+## Generate sample events for analysis (Optional)
+
+You can easily generate 5,000 events from this quickstart demo scenario, which is sufficient to get experience with using Apprentice mode, Online mode, running offline evaluations, and creating feature evaluations. Simply replace the `Main()` method of the above code in the `Run a Rank and Reward cycle` section with:
+
+```csharp
+
+   static void Main(string[] args)
+{
+    int iteration = 1;
+    int runLoop = 0;
+
+    // Get the actions list to choose from personalizer with their features.
+    IList<RankableAction> actions = GetActions();
+
+    // Initialize Personalizer client.
+    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
+
+    do
+    {
+        Console.WriteLine("\nIteration: " + iteration++);
+
+        // <rank>
+        // Get context information.
+        Context context = GetContext();
+
+        // Create current context from user specified data.
+        IList<object> currentContext = new List<object>() {
+            context
+        };
+
+        // Generate an ID to associate with the request.
+        string eventId = Guid.NewGuid().ToString();
+
+        // Rank the actions
+        var request = new RankRequest(actions: actions, contextFeatures: currentContext, eventId: eventId);
+        RankResponse response = client.Rank(request);
+        // </rank>
+
+        Console.WriteLine($"\nPersonalizer service thinks {context.User.Name} would like to have: {response.RewardActionId}.");
+
+        // <reward>
+        float reward = GetRewardScore(context, response.RewardActionId);
+
+        // Send the reward for the action based on user response.
+        client.Reward(response.EventId, new RewardRequest(reward));
+        // </reward>
+
+        runLoop = runLoop + 1;
+
+    } while (runLoop < 1000);
+}
+```
+
+then run the program.
 
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](../media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 

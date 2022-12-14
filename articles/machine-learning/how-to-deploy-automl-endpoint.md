@@ -156,7 +156,7 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     az ml online-deployment create -f automl_deployment.yml
     ```
     
-After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+After you create a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 
 # [Python SDK](#tab/python)
@@ -251,7 +251,7 @@ Next, we'll create the managed online endpoints and deployments.
     model = Model(path="./src/model.pkl")
     env = Environment(
         conda_file="./src/conda_env_v_1_0_0.yml",
-        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
     )
 
     blue_deployment = ManagedOnlineDeployment(
@@ -293,4 +293,4 @@ You can learn to deploy to managed online endpoints with SDK more in [Deploy mac
 ## Next steps
 
 - [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)

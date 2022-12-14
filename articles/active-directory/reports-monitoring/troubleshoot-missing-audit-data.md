@@ -3,19 +3,14 @@
 title: 'Troubleshoot Missing data in activity logs  | Microsoft Docs'
 description: Provides you with a resolution to missing data in Azure Active Directory activity logs.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 11/01/2022
+ms.author: sarahlipsey
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -27,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 ### Symptoms
 
-I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs` blade, but I can’t find them.
+I performed some actions in the Azure portal and expected to see the audit logs for those actions in the `Activity logs > Audit Logs`, but I can’t find them.
 
  ![Screenshot shows Audit Log entries.](./media/troubleshoot-missing-audit-data/01.png)
  
@@ -42,13 +37,13 @@ Actions don’t appear immediately in the activity logs. The table below enumera
 
 ### Resolution
 
-Wait for 15 minutes to two hours and see if the actions appear in the log. If you don’t see the logs even after two hours, please [file a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we will look into it.
+Wait for 15 minutes to two hours and see if the actions appear in the log. If you don’t see the logs even after two hours, [file a support request,](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we'll look into it.
 
 ## I can’t find recent user sign-ins in the Azure Active Directory sign-ins activity log
 
 ### Symptoms
 
-I recently signed into the Azure portal and expected to see the sign-in logs for those actions in the `Activity logs > Sign-ins` blade, but I can’t find them.
+I recently signed into the Azure portal and expected to see the sign-in logs for those actions in the `Activity logs > Sign-ins`, but I can’t find them.
 
  ![Screenshot shows Sign-ins in the Activity log.](./media/troubleshoot-missing-audit-data/02.png)
  
@@ -63,7 +58,7 @@ Actions don’t appear immediately in the activity logs. The table below enumera
 
 ### Resolution
 
-Wait for 15 minutes to two hours and see if the actions appear in the log. If you don’t see the logs even after two hours, please [file a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we will look into it.
+Wait for 15 minutes to two hours and see if the actions appear in the log. If you don’t see the logs even after two hours, [file a support request,](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we'll look into it.
 
 ## I can't view more than 30 days of report data in the Azure portal
 
@@ -80,7 +75,7 @@ Depending on your license, Azure Active Directory Actions stores activity report
 | Report           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ---           | ---                 | ---                 |
 | Directory Audit  |  7 days       | 30 days             | 30 days             |
-| Sign-in Activity | Not available. You can access your own sign-ins for 7 days from the individual user profile blade | 30 days | 30 days             |
+| Sign-in Activity | Not available. You can access your own sign-ins for 7 days from the individual user profile | 30 days | 30 days             |
 
 For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 

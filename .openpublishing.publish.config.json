@@ -153,6 +153,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-azure-product",
+      "url": "https://github.com/Azure/Azure-Functions",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-pytorch",
       "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
       "branch": "master",
@@ -162,6 +168,12 @@
       "path_to_root": "functions-quickstart-templates",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "dev",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-templates-v1",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v1.x",
       "branch_mapping": {}
     },
     {
@@ -209,6 +221,12 @@
     {
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-durable-js",
+      "url": "https://github.com/Azure/azure-functions-durable-js",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -849,9 +867,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmos-dotnet-v3",
-      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
-      "branch": "v3",
+      "path_to_root": "cosmos-db-nosql-dotnet-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cosmos-db-nosql-python-samples",
+      "url": "https://github.com/azure-samples/cosmos-db-nosql-python-samples",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -869,6 +893,12 @@
     {
       "path_to_root": "articles/reusable-content",
       "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-mongodb-python-getting-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-mongodb-python-getting-started",
       "branch": "main",
       "branch_mapping": {}
     }
@@ -908,6 +938,7 @@
     ".openpublishing.redirection.azure-percept.json",
     ".openpublishing.redirection.azure-productivity.json",
     ".openpublishing.redirection.azure-australia.json",
+    ".openpublishing.redirection.iot-hub-device-update.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
@@ -925,6 +956,7 @@
     "articles/iot-accelerators/.openpublishing.redirection.iot-accelerators.json",
     "articles/iot-develop/.openpublishing.redirection.iot-develop.json",
     "articles/iot-edge/.openpublishing.redirection.iot-edge.json",
+    "articles/iot-fundamentals/.openpublishing.redirection.iot-fundamentals.json",
     "articles/mariadb/.openpublishing.redirection.mariadb.json",
     "articles/marketplace/.openpublishing.redirection.marketplace.json",
     "articles/mysql/.openpublishing.redirection.mysql.json",
@@ -951,6 +983,8 @@
     "articles/applied-ai-services/.openpublishing.redirection.applied-ai-old.json",
     "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json",
     ".openpublishing.redirection.baremetal-infrastructure.json",
-    "articles/iot-dps/.openpublishing.redirection.iot-dps.json"
+    "articles/iot-dps/.openpublishing.redirection.iot-dps.json",
+    "articles/cloud-shell/.openpublishing.redirection.cloud-shell.json",
+    ".openpublishing.redirection.azure-vmware.json"
   ]
 }

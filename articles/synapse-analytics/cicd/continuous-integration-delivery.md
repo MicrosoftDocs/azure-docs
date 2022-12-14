@@ -8,6 +8,21 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: liud 
 ms.reviewer: pimorano
+ms.search.keywords:  
+    - CICD
+    - Synapse
+    - source control
+ms.search.form: 
+    - CICD
+    - source control 1
+ms.search.features:  
+    - CICD
+    - source control 2
+searchScope: 
+    - Deployment   
+    - CICD
+    - Azure  
+tags: CICD, source control 1
 ---
 
 # Continuous integration and delivery for an Azure Synapse Analytics workspace

@@ -975,6 +975,16 @@ groups:
     title: JavaScript
   - id: programming-language-csharp
     title: C#
+- id: acs-js-csharp-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: acs-csharp-java
   title: Java and C# pivots
   prompt: Choose a programming language
@@ -1072,6 +1082,14 @@ groups:
     title: Web
   - id: platform-ios
     title: iOS
+- id: acs-web-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android    
 - id: acs-js-csharp-ios-android-python
   title: Programming languages
   prompt: Choose a programming language
@@ -1140,7 +1158,7 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
-- id: acs-plat-android-web
+- id: acs-plat-android-web-ios
   title: Platform
   prompt: Choose a platform
   pivots:
@@ -1148,6 +1166,8 @@ groups:
     title: Android
   - id: platform-web
     title: Web
+  - id: platform-ios
+    title: iOS
 - id: acs-plat-ios-android
   title: Platform
   prompt: Choose a platform
@@ -1496,13 +1516,13 @@ groups:
     title: Workbooks
 # Owner: patricka
 - id: iotedge-dev
-  title: IoT Edge development tool
-  prompt: Choose an Azure IoT Edge development tool
+  title: IoT Edge development option
+  prompt: Choose an Azure IoT Edge development option
   pivots:
   - id: iotedge-dev-cli
-    title: Command line interface
-  - id: iotedge-dev-vscode
-    title: Azure IoT Edge VS Code extension
+    title: IoT Edge Dev Tool CLI
+  - id: iotedge-dev-ext
+    title: IoT Edge VS extension
 # Owner: barclayn
 - id: identity-mi-methods
   title: Managed identities methods
@@ -1824,6 +1844,15 @@ groups:
     title: Azure CLI
   - id: admin-consent-url
     title: Admin consent URL
+## Create service principal with appId
+- id: enterprise-apps-ms-graph-ms-powershell
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph  
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version
