@@ -2,6 +2,7 @@
 title: Contact asset filters
 titleSuffix: Defender EASM contact asset filters 
 description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for contact assets specifically, includiung operators and applicable field values.
+author: danielledennis
 ms.author: dandennis
 ms.service: security
 ms.date: 12/14/2022
