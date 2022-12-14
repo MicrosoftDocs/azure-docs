@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
+title: Tutorial - Synchronize device state from Azure IoT Hub
 description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
 author: kgremban
@@ -7,16 +7,14 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 10/13/2021
+ms.date: 12/14/2022
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # Tutorial: Configure your devices from a back-end service
 
-As well as receiving telemetry from your devices, you may need to configure your devices from your back-end service. When you send a desired configuration to your devices, you may also want to receive status and compliance updates from those devices. For example, you might set a target operational temperature range for a device or collect firmware version information from your devices.
+As part of the device lifecycle, you may need to configure your IoT devices from your back-end service. When you send a desired configuration to your devices, you may also want to receive status and compliance updates from those devices. For example, you might set a target operational temperature range for a device or collect firmware version information from your devices.
 
 To synchronize state information between a device and an IoT hub, you use _device twins_. A [device twin](iot-hub-devguide-device-twins.md) is a JSON document, associated with a specific device, and stored by IoT Hub in the cloud where you can [query](iot-hub-devguide-query-language.md) them. A device twin contains _desired properties_, _reported properties_, and _tags_. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. You use tags to organize your devices. This tutorial shows you how to use desired and reported properties to synchronize state information:
 
