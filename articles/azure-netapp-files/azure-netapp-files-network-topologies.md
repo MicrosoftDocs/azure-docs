@@ -68,7 +68,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   West US 2
 *	West US 3 
 
-## Considerations  
+## Considerations
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
 
@@ -86,7 +86,7 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 
 > [!IMPORTANT]
 > Conversion between Basic and Standard networking features in either direction is not currently supported. 
