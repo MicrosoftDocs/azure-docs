@@ -19,8 +19,8 @@ This quickstart shows how to create an automated workflow using Azure Logic Apps
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free).
 
-- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](../../../logic-apps/quickstart-create-server-cli.md) if you don't have one.
-- Get the [inbound](../../../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../../../logic-apps/logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service in the Azure region where you create your logic app workflow.
+- Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./logic-apps/quickstart-create-server-cli.md) if you don't have one.
+- Get the [inbound](../../logic-apps/logic-apps-limits-and-config.md#inbound) and [outbound](../../logic-apps.md#outbound) IP addresses used by the Logic Apps service in the Azure region where you create your logic app workflow.
 - Configure networking settings of Azure Database for MySQL flexible server to make sure your logic Apps IP address have access to it. If you're using Azure App Service or Azure Kubernetes service, enable **Allow public access from any Azure service within Azure to this server** setting in the Azure portal.
 -  Populate the database server with a new database `orderdb` and a table `orders` using the SQL script
 
@@ -60,15 +60,7 @@ CREATE TABLE `orders` (
 
  - **Region**: The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure.
  - **Enable log analytics**: This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. 
-  
-   > [!NOTE]
-   >
-   > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
-   > section is enabled. This preview section offers the choice to enable availability zone redundancy 
-   > for your logic app. However, currently supported Azure regions don't include **West US**, 
-   > so you can ignore this section for this example. For more information, see 
-   > [Protect logic apps from region failures with zone redundancy and availability zones](../../../logic-apps/set-up-zone-redundancy-availability-zones.md).
-
+    
 7. When you're ready, select **Review + Create**.
 
 8. On the validation page that appears, confirm all the information that you provided, and select **Create**.
