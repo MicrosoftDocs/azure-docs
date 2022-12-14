@@ -1,6 +1,6 @@
 ---
 title: Set up disaster recovery to another region using PowerShell
-description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (preview) to the parent region where Azure Public MEC (preview) is an extension. 
+description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (in preview for ASR functionality) to the parent region where Azure Public MEC (preview) is an extension. 
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
@@ -8,7 +8,7 @@ ms.date: 11/09/2022
 ms.author: v-pgaddala
 ---
 
-# Replicate virtual machines running in an Azure Public MEC (preview) to Azure region
+# Replicate virtual machines running in an Azure Public MEC to Azure region
 
 > [!IMPORTANT]
 > The Azure Site Recovery functionality for Public MEC is in preview state.
