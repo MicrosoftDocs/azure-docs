@@ -486,39 +486,35 @@ This action enables a **Download** link in the Twin Graph box. Select it to down
 
 ## Link to your environment and specific query
 
-You can share your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to send your Azure Digital Twins Explorer environment to someone else and verify they have the permissions to access it.
+You can share a link to your Azure Digital Twins Explorer environment with others to collaborate on work. This section describes how to generate a link to your Azure Digital Twins Explorer environment, which can optionally include a specific query to run when the link is opened. This section also describes what permissions the recipient needs to have in order to interact with your twin data.
 
-To share your environment in general , you can send a link to the recipient that will open an Azure Digital Twins Explorer window connected to your instance. Use the link below and replace the placeholders for your *tenant ID* and the *host name* of your Azure Digital Twins instance. 
+### Recipient access requirements
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>`
+For the recipient to open the link and view the instance in Azure Digital Twins Explorer, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). 
 
->[!NOTE]
-> The value for the host name placeholder is not preceded by the `https://` prefix here.
+For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
 
-Here's an example of a URL with the placeholder values filled in:
+### Generate link to environment with specific query
 
-`https://explorer.digitaltwins.azure.net/?tid=00a000aa-00a0-00aa-0a0aa000aa00&eid=ADT-instance.api.wcus.digitaltwins.azure.net`
+To generate a link to your Azure Digital Twins Explorer environment that includes a specific query, enter the query you want to capture in the **Query Explorer**, then select the **Share** button to copy the full link.
 
-For the recipient to view the instance in the resulting Azure Digital Twins Explorer window, they must log into their Azure account, and have **Azure Digital Twins Data Reader** access to the instance (you can read more about Azure Digital Twins roles in [Security](concepts-security.md)). For the recipient to make changes to the graph and the data, they must have the **Azure Digital Twins Data Owner** role on the instance.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-with-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. The query text and the Send button are highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-with-query.png":::
 
-### Link to a specific query
+For the example and query in the screenshot above, the **Share** button produces this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins%20T%20WHERE%20T.InFlow%20%3E%2070&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. The link contains the tenant ID and host name of the Azure Digital Twins instance, as well as formatted query text.
 
-You may want to share an environment and specify a query to execute upon landing, to highlight a subgraph or custom view for a teammate. To do so, start with the URL for the environment and add the query text to the URL as a querystring parameter:
+You can share this URL to allow someone to access your instance and this query. When they open Azure Digital Twins Explorer with the link, the results of the query will automatically populate in the **Twin Graph** panel.
 
-`https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-host-name>&query=<query-text>`
+### Generate link to environment without specific query
 
-The query text should be URL encoded. 
+To share a link to your Azure Digital Twins Explorer environment with no specific query attached, start by using the **Share** button to copy the link to your instance.
 
->[!TIP]
->You can copy the query text from the **Query Explorer** window and paste it into the URL window in the correct spot at the end of the URL. Submitting this URL should convert the query text to use the proper URL encoding.
->
-> You can also use an independent URL encoder to convert the query text.
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/send-without-query.png" alt-text="Screenshot of Azure Digital Twins Explorer Query Explorer panel. Only the Send button is highlighted." lightbox="media/how-to-use-azure-digital-twins-explorer/send-without-query.png":::
 
-Here's an example of the parameter for a query to `SELECT * FROM digitaltwins`:
+Then, manually remove the query parameter from the result.
 
-`...&query=SELECT%20*%20FROM%20digitaltwins`
+For example, the **Share** button in the screenshot above would produce this link: `https://explorer.digitaltwins.azure.net/?query=SELECT%20*%20FROM%20digitaltwins&tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`. You can remove the `query=SELECT%20*%20FROM%20digitaltwins&` portion to produce the URL `https://explorer.digitaltwins.azure.net/?tid=<tenant-ID>&eid=<Azure-Digital-Twins-instance-host-name>`.
 
-You can then share the completed URL.
+Then, share this URL to allow someone to access your instance. When they open Azure Digital Twins Explorer with the link, they'll be connected to your instance and won't see any pre-populated query results.
 
 ## Accessibility and advanced settings
 
