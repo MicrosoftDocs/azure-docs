@@ -182,7 +182,7 @@ public class App
 
 `DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. To learn more about `DefaultAzureCredential`, see the [DefaultAzureCredential overview](/java/api/overview/azure/identity-readme#defaultazurecredential). `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
 
-For example, your app can authenticate using your Visual Studio sign-in credentials when developing locally, and then use a [managed identity](../../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
+For example, your app can authenticate using your Visual Studio sign-in credentials when developing locally, and then use a [managed identity](../../../articles/active-directory/managed-identities-azure-resources/overview.md) once it has been deployed to Azure. No code changes are required for this transition.
 
 [!INCLUDE [storage-queues-create-assign-roles](../../../includes/passwordless/storage-queues/storage-queues-assign-roles.md)]
 
@@ -215,7 +215,7 @@ Use the following Java classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Java:
 
-- [Authorize access and instantiate a QueueClient](#authorize-access-and-instantiate-a-queue-client)
+- [Authorize access and instantiate a QueueClient](#authorize-access-and-instantiate-a-queueclient)
 - [Create a queue using a QueueClient object](#create-a-queue-using-a-queueclient-object)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
@@ -233,9 +233,9 @@ You can authorize a `QueueClient` instance to access queue data using `DefaultAz
 
 Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the `App.java` file:
 
-    ```java
-    import com.azure.identity.*;
-    ```
+```java
+import com.azure.identity.*;
+```
 
 Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
 
@@ -296,7 +296,7 @@ System.out.println("Azure Queue Storage client library - Java quickstart sample\
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue using the QueueClient object
+### Create a queue
 
 Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
 
