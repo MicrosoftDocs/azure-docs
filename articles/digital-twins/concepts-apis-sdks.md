@@ -31,7 +31,7 @@ The control plane APIs are [ARM](../azure-resource-manager/management/overview.m
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest Swagger folder in the [control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). This folder also includes a folder of examples that show the usage.
 * You can currently access SDKs for control APIs in...
-  - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([reference [auto-generated]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
+  - [.NET (C#)](https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins) ([reference [auto-generated]](/dotnet/api/overview/azure/digitaltwins)) ([source](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins))
   - [Java](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([reference [auto-generated]](/java/api/overview/azure/digital-twins)) ([source](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/digitaltwins))
   - [JavaScript](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([source](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
@@ -53,7 +53,7 @@ To use the data plane APIs:
    - Viewing the [API reference documentation](/rest/api/azure-digitaltwins/).
 * You can use the .NET (C#) SDK. To use the .NET SDK...
    - You can view and add the package from NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - You can view the [SDK reference documentation](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+   - You can view the [SDK reference documentation](/dotnet/api/overview/azure/digitaltwins.core-readme).
    - You can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - You can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the Java SDK. To use the Java SDK...
@@ -79,7 +79,7 @@ The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It's op
 > For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
 To use the SDK, include the NuGet package `Azure.DigitalTwins.Core` with your project. You'll also need the latest version of the `Azure.Identity` package. In Visual Studio, you can add these packages using the NuGet Package Manager (accessed through **Tools > NuGet Package Manager > Manage NuGet Packages for Solution**). You can also use the .NET command-line tool with the commands found in the NuGet package links below to add these packages to your project:
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): The package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): The package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme). 
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity): The library that provides tools to help with authentication against Azure.
 
 For a detailed walk-through of using the APIs in practice, see [Code a client app](tutorial-code.md). 

@@ -232,7 +232,7 @@ Receipt supports all English receipts and the following locales:
 |English (United Kingdom)|`en-gb`|
 |English (India|`en-in`|
 |English (United States)| `en-us`|
-|French | 'fr' |
+|French | `fr` |
 | Spanish | `es` |
 
 ## Business card model

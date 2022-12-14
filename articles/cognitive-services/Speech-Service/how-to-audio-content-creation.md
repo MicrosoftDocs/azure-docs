@@ -131,7 +131,7 @@ You can get your content into the Audio Content Creation tool in either of two w
 
         ```xml
         <speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" version="1.0" xml:lang="en-US">
-            <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
+            <voice name="en-US-JennyNeural">
             Welcome to use Audio Content Creation <break time="10ms" />to customize audio output for your products.
             </voice>
         </speak>
@@ -215,5 +215,5 @@ If you want to allow a user to grant access to other users, you need to assign t
 
 ## Next steps
 
-* [Long Audio API](./long-audio-api.md)
-
+- [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
+- [Batch synthesis](batch-synthesis.md)

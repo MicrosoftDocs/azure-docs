@@ -35,9 +35,14 @@ To complete this quick start, make sure that you have:
 - Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
 - User licenses. Each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Endpoint Manager, and Azure Active Directory P1. 
-    - These licenses are available independently and included in Microsoft 365 F3, Microsoft 365 E3, Microsoft 365 E5, Microsoft 365 A3, Microsoft 365 A5, Microsoft 365 Business Premium, and Microsoft 365 Education Student Use Benefit subscriptions.
-- If you have on-premises core licenses for Windows Server with active Software Assurance, you may qualify for [Azure Hybrid Benefit](/windows-server/get-started/azure-hybrid-benefit).
-    - Enable Hybrid Benefit when you [Create a dev box pool](quickstart-configure-dev-box-project.md#create-a-dev-box-pool).
+    - These licenses are available independently and also included in the following subscriptions:
+        - Microsoft 365 F3 
+        - Microsoft 365 E3 
+        - Microsoft 365 E5 
+        - Microsoft 365 A3 
+        - Microsoft 365 A5 
+        - Microsoft 365 Business Premium 
+        - Microsoft 365 Education Student Use Benefit
 
 ## Create a dev center
 
@@ -81,9 +86,15 @@ The following steps show you how to create and configure a dev center.
 ## Create a network connection
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
-To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
+To create a network connection, you must have:
 
-If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
+- A configured and working Hybrid AD join or Azure AD join.
+    - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan).
+    - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan).
+- If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+
+Follow these steps to create a network connection:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

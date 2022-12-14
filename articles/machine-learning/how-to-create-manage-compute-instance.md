@@ -177,12 +177,14 @@ This setting can be configured during CI creation or for existing CIs via the fo
 
     ```YAML
     # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+    # Note that idle_time_before_shutdown has been deprecated.
     idle_time_before_shutdown_minutes: 30
     ```
 
 * Python SDKv2: only configurable during new CI creation
 
     ```Python
+    # Note that idle_time_before_shutdown has been deprecated.
     ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ```
 
@@ -275,6 +277,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 * Jupyter
 * JupyterLab
 * RStudio
+* Posit Workbench (formerly RStudio Workbench)
 * Integrated notebooks
 
 ## Schedule automatic start and stop
@@ -513,7 +516,10 @@ identity:
     - resource_id: identity_resource_id
 ```
 
-Once the managed identity is created, enable [identity-based data access enabled](how-to-datastore.md) to your storage accounts for that identity. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against data stores.
+Once the managed identity is created, grant the managed identity at least Storage Blob Data Reader role on the storage account of the datastore, see [Accessing storage services](how-to-identity-based-service-authentication.md?tabs=cli#accessing-storage-services). Then, when you work on the compute instance, the managed identity is used automatically to authenticate against datastores.
+
+> [!NOTE]
+> The name of the created system managed identity will be in the format /workspace-name/computes/compute-instance-name in your Azure Active Directory. 
 
 You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
 
@@ -532,14 +538,14 @@ arm_access_token = get_access_token_msi("https://management.azure.com")
 > [!NOTE]
 > To use Azure CLI with the managed identity for authentication, specify the identity client ID as the username when logging in: ```az login --identity --username $DEFAULT_IDENTITY_CLIENT_ID```.
 
-## Add custom applications such as RStudio (preview)
+## Add custom applications such as RStudio or Posit Workbench (preview)
 
 > [!IMPORTANT]
 > Items marked (preview) below are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can set up other applications, such as RStudio, when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
+You can set up other applications, such as RStudio, or Posit Workbench (formerly RStudio Workbench), when creating a compute instance. Follow these steps in studio to set up a custom application on your compute instance
 
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create)
 1.	Select **Next: Advanced Settings**
@@ -547,27 +553,27 @@ You can set up other applications, such as RStudio, when creating a compute inst
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
 
-### Setup RStudio Workbench
+### Setup Posit Workbench (formerly RStudio Workbench)
 
-RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up RStudio Workbench to run on your compute instance, using your own RStudio license, and access the rich feature set that RStudio Workbench offers.
+Posit is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers.
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
-1.	Select **RStudio Workbench (bring your own license)** in the **Application** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
-1. Select **Create** to add RStudio Workbench application to your compute instance.
+1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
+1. Select **Create** to add Posit Workbench application to your compute instance.
  
-:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows Posit Workbench settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
 [!INCLUDE [private link ports](../../includes/machine-learning-private-link-ports.md)]
 
 > [!NOTE]
-> * Support for accessing your workspace file store from RStudio is not yet available.
-> * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
-> * Shiny applications are not currently supported on RStudio Workbench.
+> * Support for accessing your workspace file store from Posit Workbench is not yet available.
+> * When accessing multiple instances of Posit Workbench, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
+> * Shiny applications are not currently supported on Posit Workbench.
  
 
-### Setup RStudio open source
+### Setup RStudio (open source)
 
-To use RStudio open source, set up a custom application as follows:
+To use RStudio, set up a custom application as follows:
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Custom Application** on the **Application** dropdown 
@@ -576,10 +582,7 @@ To use RStudio open source, set up a custom application as follows:
 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Use **Bind mounts** to add access to the files in your default storage account: 
-   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
-   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
-   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+
 1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
@@ -730,38 +733,7 @@ To create a compute instance, you'll need permissions for the following actions:
 
 Once a compute instance is deployed, it does not get automatically updated. Microsoft [releases](azure-machine-learning-ci-image-release-notes.md) new VM images on a monthly basis. To understand options for keeping recent with the latest version, see [vulnerability management](concept-vulnerability-management.md#compute-instance). 
 
-To keep track of whether a compute instance's operating system version is current, you could query an instance's version using the Studio UI, CLI and SDK.
-
-# [Python SDK](#tab/python)
-
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
-
-```python
-from azure.ai.ml.entities import ComputeInstance, AmlCompute
-
-# Display operating system version
-instance = ml_client.compute.get("myci")
-print instance.os_image_metadata
-```
-
-For more information on the classes, methods, and parameters used in this example, see the following reference documents:
-
-* [`AmlCompute` class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute)
-* [`ComputeInstance` class](/python/api/azure-ai-ml/azure.ai.ml.entities.computeinstance)
-
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-```azurecli
-az ml compute show --name "myci"
-```
-
-# [Studio](#tab/azure-studio)
-
-In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. When a more recent instance OS version is, use the creation wizard to create a new instance. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
-
----
+To keep track of whether an instance's operating system version is current, you could query its version using the Studio UI. In your workspace in Azure Machine Learning studio, select Compute, then select compute instance on the top. Select a compute instance's compute name to see its properties including the current operating system. Enable 'audit and observe compute instance os version' under the previews management panel to see these preview properties.
 
 Administrators can use [Azure Policy](./../governance/policy/overview.md) definitions to audit instances that are running on outdated operating system versions across workspaces and subscriptions. The following is a sample policy:
 
@@ -797,4 +769,4 @@ Administrators can use [Azure Policy](./../governance/policy/overview.md) defini
 * [Access the compute instance terminal](how-to-access-terminal.md)
 * [Create and manage files](how-to-manage-files.md)
 * [Update the compute instance to the latest VM image](concept-vulnerability-management.md#compute-instance)
-* [Submit a training job](v1/how-to-set-up-training-targets.md)
+

@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 08/22/2022
+ms.date: 11/16/2022
 ms.topic: include
 ms.author: eur
 ---
@@ -65,7 +65,7 @@ ms.author: eur
 | `es-CU` | Spanish (Cuba) | `es-CU` | Plain text<br/><br/>Pronunciation | `es-CU-BelkysNeural`<sup>4,5,6</sup> (Female)<br/>`es-CU-ManuelNeural`<sup>4,5,6</sup> (Male) | Not supported | 
 | `es-DO` | Spanish (Dominican Republic) | `es-DO` | Plain text<br/><br/>Pronunciation | `es-DO-EmilioNeural`<sup>4,5,6</sup> (Male)<br/>`es-DO-RamonaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-EC` | Spanish (Ecuador) | `es-EC` | Plain text<br/><br/>Pronunciation | `es-EC-AndreaNeural`<sup>4,5,6</sup> (Female)<br/>`es-EC-LuisNeural`<sup>4,5,6</sup> (Male) | Not supported | 
-| `es-ES` | Spanish (Spain) | `es-ES` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list | `es-ES-AbrilNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-AlvaroNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ArnauNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-DarioNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-EliasNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ElviraNeural`<sup>4,5,6</sup> (Female)<br/>`es-ES-EstrellaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-IreneNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LaiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-NilNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-SaulNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TeoNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TrianaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-VeraNeural`<sup>1,4,5,6</sup> (Female) | Custom Neural Voice Pro<br/><br/>Cross-lingual voice (Preview) | 
+| `es-ES` | Spanish (Spain) | `es-ES` | Audio + human-labeled transcript<br/><br/>Plain text<br/><br/>Structured text<br/><br/>Pronunciation<br/><br/>Phrase list | `es-ES-AbrilNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-AlvaroNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ArnauNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-DarioNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-EliasNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-ElviraNeural`<sup>4,5,6</sup> (Female)<br/>`es-ES-EstrellaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-IreneNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LaiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-LiaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-NilNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-SaulNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TeoNeural`<sup>1,4,5,6</sup> (Male)<br/>`es-ES-TrianaNeural`<sup>1,4,5,6</sup> (Female)<br/>`es-ES-VeraNeural`<sup>1,4,5,6</sup> (Female) | Custom Neural Voice Pro<br/><br/>Custom Neural Voice Lite (Preview)<br/><br/>Cross-lingual voice (Preview) | 
 | `es-GQ` | Spanish (Equatorial Guinea) | `es-GQ` | Plain text | `es-GQ-JavierNeural`<sup>4,5,6</sup> (Male)<br/>`es-GQ-TeresaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-GT` | Spanish (Guatemala) | `es-GT` | Plain text<br/><br/>Pronunciation | `es-GT-AndresNeural`<sup>4,5,6</sup> (Male)<br/>`es-GT-MartaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
 | `es-HN` | Spanish (Honduras) | `es-HN` | Plain text<br/><br/>Pronunciation | `es-HN-CarlosNeural`<sup>4,5,6</sup> (Male)<br/>`es-HN-KarlaNeural`<sup>4,5,6</sup> (Female) | Not supported | 
@@ -163,16 +163,16 @@ ms.author: eur
 
 <sup>1</sup> The neural voice is available in public preview. Voices and styles in public preview are only available in three service [regions](../../regions.md): East US, West Europe, and Southeast Asia. 
 
-<sup>2</sup> The neural voice supports speaking styles to express emotions such as cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. For a list of styles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice styles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
+<sup>2</sup> The neural voice supports speaking styles to express emotions such as cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. For a list of styles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice styles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
-<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup.md#adjust-speaking-styles).
+<sup>3</sup> The neural voice supports role play. With roles, the same voice can act as a different age and gender. For a list of roles that are supported per neural voice, see the [Voice styles and roles](../../language-support.md#voice-styles-and-roles) table. To learn how you can configure and adjust neural voice roles, see [Speech Synthesis Markup Language](../../speech-synthesis-markup-voice.md#speaking-styles-and-roles).
 
-<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup.md#viseme-element). 
+<sup>4</sup> Visemes are supported for the locale of the neural voice. However, SVG is only supported for neural voices in the `en-US` locale, and blend shapes is only supported for neural voices in the `en-US` and `zh-CN` locales. For more information, see [Get facial position with viseme](../../how-to-speech-synthesis-viseme.md) and [Viseme element](../../speech-synthesis-markup-structure.md#viseme-element). 
 
-<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup.md#use-phonemes-to-improve-pronunciation).
+<sup>5</sup> Phonemes are supported for the locale of the neural voice. For more information, see [SSML phonetic alphabets](../../speech-ssml-phonetic-sets.md) and [Use phonemes to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#phoneme-element).
 
-<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup.md#use-custom-lexicon-to-improve-pronunciation).
+<sup>6</sup> Custom lexicon is supported for the locale of the neural voice. For more information, see [Use custom lexicon to improve pronunciation](../../speech-synthesis-markup-pronunciation.md#custom-lexicon).
 
-<sup>7</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup.md#adjust-speaking-languages).
+<sup>7</sup> For the multilingual voice the primary default locale is `en-US`. Additional locales are supported [using SSML](../../speech-synthesis-markup-voice.md#adjust-speaking-languages).
 
 <sup>8</sup> The voice is a child's voice.

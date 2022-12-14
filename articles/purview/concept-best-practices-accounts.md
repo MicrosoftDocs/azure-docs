@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 12/12/2022
 ---
 
 # Microsoft Purview accounts architectures and best practices  
@@ -17,7 +17,7 @@ To enable Microsoft Purview governance solutions, like Microsoft Purview Data Ma
 
 Consider deploying minimum number of Microsoft Purview (formerly Azure Purview) accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform. 
 
-Use [Microsoft Purview Data Map collections hierarchy](./concept-best-practices-collections.md) to lay out your organization's data management structure inside a single Microsoft Purview account. In this scenario, one account is deployed in an Azure subscription. Data sources from one or more Azure subscriptions can be registered and scanned inside the Microsoft Purview. You can also register and scan data sources from your on-premises or multi-cloud environments.
+Use [Microsoft Purview Data Map collections hierarchy](./concept-best-practices-collections.md) to lay out your organization's data management structure inside a single Microsoft Purview account. In this scenario, one account is deployed in an Azure subscription. Data sources from one or more Azure subscriptions can be registered and scanned inside the Microsoft Purview. You can also register and scan data sources from your on-premises or multicloud environments.
 
 :::image type="content" source="media/concept-best-practices/accounts-single-account.png" alt-text="Screenshot that shows the single Microsoft Purview account."lightbox="media/concept-best-practices/accounts-single-account.png":::
 
@@ -53,7 +53,7 @@ If your organization has data in multiple geographies and you must keep metadata
 
 Currently, Microsoft Purview doesn't support multi-tenancy. If you have Azure data sources distributed across multiple Azure subscriptions under different Azure Active Directory tenants, it's recommended deploying separate Microsoft Purview accounts under each tenant. 
 
-An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Microsoft Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant.md). 
+An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Microsoft Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant-cross-tenant.md). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Microsoft Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 

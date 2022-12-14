@@ -5,7 +5,6 @@ author: tfosmark
 ms.author: rymend
 ms.topic: quickstart
 ms.service: azure-education
-ms.subservice: education-hub
 ms.date: 10/19/2022
 ms.custom: mode-other
 ---
