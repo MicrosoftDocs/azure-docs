@@ -349,6 +349,8 @@
       href: faqs-eiot.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
+  - name: Data retention
+    href: references-data-retention.md
 - name: Resources
   items:
   - name: OT network pre-deployment checklist

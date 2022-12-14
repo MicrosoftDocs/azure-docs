@@ -43,6 +43,8 @@ The alerts displayed on the Azure portal are alerts that have been detected by c
 
 This section describes how to view alert details in the Azure portal.
 
+To learn about retention periods for alerts, see [Alerts retention periods](reference-data-retention.md#alerts-retention-periods).
+
 **To view Defender for IoT alerts on the Azure portal**:
 
 Go to **Defender for IoT** > **Alerts (Preview)**.
@@ -156,7 +158,7 @@ Alert management across all interfaces functions as follows:
 
 ## Access alert PCAP data (Public preview)
 
-**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user
+**Prerequisite**: Subscription access as a **Security admin**, **Contributor**, or **Owner** user.
 
 To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
 

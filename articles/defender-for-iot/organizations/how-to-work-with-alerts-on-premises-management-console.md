@@ -43,6 +43,7 @@ Viewing and managing alerts in the portal provides significant advantages. For e
 
 The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how sensor users are handling them.
 
+For information about retention periods for alerts, see [Alerts retention periods](reference-data-retention.md#alerts-retention-periods).
 
 ### Work with alert filters
 

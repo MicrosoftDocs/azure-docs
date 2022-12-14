@@ -9,7 +9,9 @@ ms.topic: how-to
 
 Activity that your sensor detects is recorded in the event timeline. Activity includes alerts and alert actions, network events, and user operations such as user sign in or user deletion.
 
-The event timeline provides a chronological view of events. Use the timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident. 
+The event timeline provides a chronological view of events. Use the timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident.
+
+To learn about the retention capacity for event timelines, see [Event timelines retention capacity](reference-data-retention.md#event-timelines-retention-capacity).
 
 ## Before you start
 
@@ -32,17 +34,15 @@ You need to have Administrator or Security Analyst permissions to perform the pr
     - **Date**: Search for events in a specific date range.
 1. Select **Apply* to set the filter.
 1. Select **Export** to export the event timeline to a CSV file.
- 
+
 ## Add an event
 
 In addition to viewing the events that the sensor has detected, you can manually add events to the timeline. This process is useful if an external system event impacts your network, and you want to record it on the timeline.
 
 1. Select **Create Event**.
-1. In the **Create Event** dialog, specify the event type (Info, Notice, or Alert) 
+1. In the **Create Event** dialog, specify the event type (Info, Notice, or Alert)
 1. Set a timestamp for the event, the device it should be connected with, and provide a description.
 1. Select **Save** to add the event to the timeline.
-
-
 
 ## Next steps
 

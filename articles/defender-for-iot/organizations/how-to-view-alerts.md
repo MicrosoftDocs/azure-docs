@@ -36,7 +36,7 @@ After you review the information in an alert, you can carry out various forensic
 
 ## View alerts and alert details
 
-This section describes how to view and filter alerts details on your sensor.
+This section describes how to view and filter alerts details on your sensor. For information about retention periods for alerts, see [Alerts retention periods](reference-data-retention.md#alerts-retention-periods).
 
 **To view alerts in the sensor:**
 
@@ -52,27 +52,19 @@ The following information is available from the Alerts page:
 | **Name** | The alert title |
 | **Engine** | The Defender for IoT detection engine that detected the activity and triggered the alert. If the event was detected by the Device Builder platform, the value will be Micro-agent.  |
 | **Last detection** | The last time the alert activity was detected.   |
-| **Status** | Indicates if the alert is new or closed. | 
-| **Source Device** | The source device IP address | 
-| **Destination Device** | The destination device IP address | 
-| **ID** | The alert ID. | 
+| **Status** | Indicates if the alert is new or closed. |
+| **Source Device** | The source device IP address |
+| **Destination Device** | The destination device IP address |
+| **ID** | The alert ID. |
 
 **To hide or display information:**
 
 1. Select **Edit Columns** from the Alerts page.
 1. Add and remove columns as required from the Edit columns dialog box.
 
-**How long are alerts saved?**
-
-- New alerts are automatically closed if no identical traffic detected 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor console.  
-
-- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
-
- Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long  the alert is displayed in the sensor console.
-
 ### Filter the view
 
-Use filter, grouping and text search tools to view alerts of interest to you. 
+Use filter, grouping and text search tools to view alerts of interest to you.
 
 **To filter by category:**
 
@@ -111,9 +103,9 @@ Gain contextual insight about alert activity by:
 - Viewing source and destination devices in map view with other connected devices. Select **Map View** to see the map.
 
     :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Screenshot of a map view of the source and detected devices from an alert." lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
- 
-- Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed. 
- 
+
+- Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed.
+
     :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Screenshot of an alert timeline for the selected alert from the Alerts page." lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
 
 ### Remediate the alert incident
@@ -133,7 +125,6 @@ Your administrator may have added guidance to help you complete the remediation 
 :::image type="content" source="media/how-to-view-alerts/alert-comments.png" alt-text="Screenshot of alert comments added to the alert details section of the Alert dialog box.":::
 
 After taking remediation steps, you may want to change the alert status to close the alert.
-
 
 ## Create alert reports
 
@@ -162,10 +153,9 @@ Download a full or filtered PCAP file for a specific alert directly from the sen
 1. Select **View full details**.
 1. Select **Download Full PCAP** or **Download Filtered PCAP**.
 
-
 ## View alerts in the Defender for IoT portal
 
-If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal. 
+If your deployment was set up to work with cloud-connected sensors, Alert detections shown on your sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal.
 
 Viewing alerts in the portal provides significant advantages. For example, it lets you:
 

@@ -228,9 +228,9 @@ You can configure the sensor's time and region so that all the users see the sam
 
 ## Set up backup and restore files
 
-System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`.
+System backup is performed automatically at 3:00 AM daily. The data is saved on a different disk in the sensor. The default location is `/var/cyberx/backups`. You can automatically transfer this file to the internal network.
 
-You can automatically transfer this file to the internal network.
+To learn about the retention capacity for backup files, see [Backup retention capacity](reference-data-retention.md#backups-retention-capacity).
 
 > [!NOTE]
 > - The backup and restore procedure can be performed between the same versions only.

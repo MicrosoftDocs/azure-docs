@@ -41,7 +41,6 @@ This procedure describes how to view detected devices in the **Device inventory*
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-
 ### Identify devices that aren't connecting successfully
 
 If you suspect that certain devices aren't actively communicating with Azure, we recommend that you verify whether those devices have communicated with Azure recently at all. For example:
@@ -110,6 +109,7 @@ On the **Device inventory page**, select **Export** :::image type="icon" source=
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
+To learn about retention periods for device inventory, see [Devices retention periods](reference-data-retention.md#devices-retention-periods).
 
 ## Delete a device
 

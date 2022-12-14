@@ -72,6 +72,8 @@ To export device inventory data, on the **Device inventory** page, select **Expo
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
+To learn about the retention periods for device inventory, see [Devices retention periods](reference-data-retention.md#devices-retention-periods).
+
 ## Merge devices
 
 You may need to merge duplicate devices if the sensor has discovered separate network entities that are associated with a single, unique device.
