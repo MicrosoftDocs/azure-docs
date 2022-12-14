@@ -280,4 +280,4 @@ The traffic is routed as follows:
 ## Next steps
 
 * Learn more about [Azure Virtual WAN](virtual-wan-about.md).
-* [Configure Virtual WAN for Azure NetApp Files](../azure-netapp-files/configure-vwan.md)
+* [Configure Virtual WAN for Azure NetApp Files](../azure-netapp-files/configure-virtual-wan.md)
