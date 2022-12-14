@@ -51,11 +51,11 @@ The below diagram shows the block diagram of the proof of concept. The guidance 
 
 1. [Create a tenant](tutorial-create-tenant.md) per region your business requires to support. You will require at least two tenants for this proof of concept.
 
-1. [Deploy custom policies](.tutorial-create-user-flows) into your tenants.
+1. [Deploy custom policies](tutorial-create-user-flows.md) into your tenants.
 
 ### Prepare your storage layer
 
-You will need a storage layer which can store the users email, objectId and region. This will allow you to track and query where the user signed up. You can use an [Azure Storage table](https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview) to persist this data.
+You will need a storage layer which can store the users email, objectId and region. This will allow you to track and query where the user signed up. You can use an [Azure Storage table](https://learn.microsoft.com/azure/storage/tables/table-storage-overview) to persist this data.
 
 ### Prepare your API layer
 
