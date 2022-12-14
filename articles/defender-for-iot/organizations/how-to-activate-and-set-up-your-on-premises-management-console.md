@@ -139,8 +139,8 @@ Ensure that sensors send information to the on-premises management console. Make
 
 Two options are available for connecting Microsoft Defender for IoT sensors to the on-premises management console:
 
-- Connect from the sensor console.
-- Connect by using tunneling.
+- [Connect from the sensor console](#connect-sensors-to-the-on-premises-management-console-from-the-sensor-console)
+- [Connect sensors by using tunneling](#connect-sensors-by-using-tunneling)
 
 After connecting, you must set up a site with these sensors.
 
@@ -193,7 +193,7 @@ You can also customize the port range to a number other than 9000. An example is
 
 **To use a new port**:
 
-1. Sign in to the on-premises management console and run the following command:
+Sign in to the on-premises management console and run the following command:
 
       ```bash
       sudo cyberx-management-tunnel-enable --port 10000
@@ -213,8 +213,8 @@ No configuration is needed on the sensor.
 
 **To access tunneling log files**:
 
-1. Sign in to the on-premises management console and go to */var/log/apache2.log*.
-1. Sign in to the sensor and go to */var/cyberx/logs/tunnel.log*.
+1. **From the on-premises management console**: Sign in and go to */var/log/apache2.log*.
+1. **From the sensor**: Sign in and go to */var/cyberx/logs/tunnel.log*.
 
 ## Set up a site
 
