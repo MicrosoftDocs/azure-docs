@@ -36,7 +36,7 @@ If you prefer to install and use the CLI locally, this tutorial requires Azure C
 
 Chaos Studio can't inject faults against a resource unless that resource has been onboarded to Chaos Studio first. You onboard a resource to Chaos Studio by creating a [target and capabilities](chaos-studio-targets-capabilities.md) on the resource. Virtual Machine Scale Sets only has one target type (Microsoft-VirtualMachineScaleSet) and one capability (shutdown), but other resources may have up to two target types - one for service-direct faults and one for agent-based faults - and many capabilities.
 
-1. Create a [target for your Virtual Machine Scale Sets](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the Virtual M<achine Scale Set you're onboarding:
+1. Create a [target for your Virtual Machine Scale Sets](chaos-studio-fault-providers.md) resource by replacing `$RESOURCE_ID` with the resource ID of the Virtual Machine Scale Set you're onboarding:
 
     ```azurecli-interactive  
     az rest --method put --url "https://management.azure.com/$RESOURCE_ID/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachineScaleSet?api-version=2022-10-01-preview" --body "{\"properties\":{}}"
