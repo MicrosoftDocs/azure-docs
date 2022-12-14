@@ -32,14 +32,10 @@ We also have a [tutorial for Blazor Server](tutorial-blazor-server.md).
 
 ## Register the app in the Azure portal
 
-Every app that uses Azure Active Directory (Azure AD) for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
+Every app that uses Azure AD for authentication must be registered with Azure AD. Follow the instructions in [Register an application](quickstart-register-app.md) with these specifications:
 
 - For **Supported account types**, select **Accounts in this organizational directory only**.
 - Set the **Redirect URI** drop down to **Single-page application (SPA)** and enter `https://localhost:5001/authentication/login-callback`. The default port for an app running on Kestrel is 5001. If the app is available on a different port, specify that port number instead of `5001`.
-
-Once registered, under **Manage**, select **Authentication** > **Implicit grant and hybrid flows**. Select **Access tokens** and **ID tokens**, and then select **Save**.
-
-> Note: if you're using .NET 6 or later then you don't need to use Implicit grant. The latest template uses MSAL Browser 2.0 and supports Auth Code Flow with PKCE
 
 ## Create the app using the .NET Core CLI
 
