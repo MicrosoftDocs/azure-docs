@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.author: jammart
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/14/2022
 ms.reviewer: santoshc 
 ms.custom: template-how-to
 ---
@@ -29,7 +29,7 @@ The **AllowedCopyScope** property of a storage account defines the environments 
 - **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob operations](/rest/api/storageservices/copy-blob). Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
+The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations. Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 
@@ -121,7 +121,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 
 # [PowerShell](#tab/azure-powershell)
 
-To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 3.4.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account.
+To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account.
 
 The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
@@ -143,7 +143,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
 
 To configure the permitted scope for copy operations for a new or existing storage account with the Azure CLI, perform the following steps:
 
-1. Install Azure CLI version 2.20.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+1. Install the latest version of the Azure CLI. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 1. Install the Azure CLI storage preview extension using the command `az extension add -n storage-preview`.
 
     > [!IMPORTANT]
