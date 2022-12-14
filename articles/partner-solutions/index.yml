@@ -66,7 +66,7 @@ productDirectory:
       imageSrc: ./media/index/qumulo.svg
       links:
         - url: ./qumulo/qumulo-overview.md
-          text: Enterprise ready highly scalable, highly performant, and simple to use cloud native file system.
+          text: Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
   # Card 
     # - title: New Relic
     #   imageSrc: ./media/index/new-relic.svg
