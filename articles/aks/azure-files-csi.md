@@ -344,10 +344,11 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Prerequisites
 
-- Your AKS cluster's service principal or managed service identity (MSI) must be added to the Contributor role to the storage account.
 - Your AKS cluster *Control plane* identity (that is, your AKS cluster name) is added to the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role in the resource group hosting the VNet.
+- Your AKS cluster's service principal or managed service identity (MSI) must be added to the Contributor role to the storage account.
 
- Add that you can use a private endpoint instead of allow access to the selected VNet (give customers a second option)
+> [!NOTE]
+> You can use a private endpoint instead of allowing access to the selected VNet.
 
 ### Create NFS file share storage class
 
@@ -407,7 +408,7 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 ```
 
 > [!NOTE]
-> Note that since the NFS file share is in a Premium account, the minimum file share size is 100 GiB. If you create a PVC with a small storage size, you might encounter an error similar to the following: *failed to create file share ... size (5)...*.
+> Note that because the NFS file share is in a Premium account, the minimum file share size is 100 GiB. If you create a PVC with a small storage size, you might encounter an error similar to the following: *failed to create file share ... size (5)...*.
 
 ## Windows containers
 
