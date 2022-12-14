@@ -12,6 +12,7 @@ metadata:
   author: MikeRayMSFT
 title: Azure Arc-enabled data services FAQ
 summary: |
+  This article lists frequently asked questions and answers for Azure Arc-enabled data services.
 
 sections:
   - name: General FAQ
