@@ -37,7 +37,7 @@ To create an account in the commercial marketplace program in Partner Center, ma
 
 ### Create a Partner Center account and enroll in the commercial marketplace
 
-Use this method if you're new to Partner Center and are not enrolled in the Microsoft Partner Network. Complete the steps in this section to create a new Partner Center account and publisher profile.
+Use this method if you're new to Partner Center and are not enrolled in the Microsoft Cloud Partner Program. Complete the steps in this section to create a new Partner Center account and publisher profile.
 
 #### Register on the Partner Center enrollment page
 
@@ -52,7 +52,7 @@ Sign in with a work account so that you can link your company's work email accou
 
 #### Agree to the terms and conditions
 
-As part of the commercial marketplace registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). If you’re new to Microsoft Partner Network, you also need to agree to the terms and conditions in the Microsoft Cloud Partner Program Agreement.
+As part of the commercial marketplace registration process, you need to agree to the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). If you’re new to Microsoft Cloud Partner Program, you also need to agree to the terms and conditions in the Microsoft Cloud Partner Program Agreement.
 
 You've now created a commercial marketplace account in Partner Center. Continue to [Add new publishers to the commercial marketplace](add-publishers.md).
 
@@ -60,7 +60,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 
 Follow the instructions in this section to create a commercial marketplace account if you already have an enrollment in Microsoft Partner Center. There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the scenario that applies to you:
 
-*What if I'm already enrolled in the Microsoft Partner Network?*
+*What if I'm already enrolled in the Microsoft Cloud Partner Program?*
 - [Use an existing Microsoft Cloud Partner Program account](#use-an-existing-microsoft-cloud-partner-program-account) to create your account.
 
 *What if I'm already enrolled in a developer program?*
@@ -79,7 +79,7 @@ You can then assign the appropriate user roles and permissions to your users, so
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507) with your Microsoft Cloud Partner Program account.
 
     >[!NOTE]
-    > You must have an **account admin** or a **global admin** role to sign in to Microsoft Partner Network.
+    > You must have an **account admin** or a **global admin** role to sign in to Microsoft Cloud Partner Program.
 
 1. In the top-right, select **Settings** > **Account settings**. Then in the left menu, select **Programs**.
 

@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/27/2022
+ms.date: 11/15/2022
 ms.custom: references_regions
 ---
 
@@ -16,7 +16,49 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
 
+## Version 1.24 - November 2022
+
+### New features
+
+- `azcmagent logs` improvements:
+  - Only the most recent log file for each component is collected by default. To collect all log files, use the new `--full` flag.
+  - Journal logs for the agent services are now collected on Linux operating systems
+  - Logs from extensions are now collected
+- Agent telemetry is no longer sent to `dc.services.visualstudio.com`. You may be able to remove this URL from any firewall or proxy server rules if no other applications in your environment require it.
+- Failed extension installs can now be retried without removing the old extension as long as the extension settings are different
+- Increased the [resource limits](agent-overview.md#agent-resource-governance) for the Azure Update Management Center extension on Linux to reduce downtime during update operations
+
+### Fixed
+
+- Improved logic for detecting machines running on Azure Stack HCI to reduce false positives
+- Auto-registration of required resource providers only happens when they are unregistered
+- Agent will now detect drift between the proxy settings of the command line tool and background services
+- Fixed a bug with proxy bypass feature that caused the agent to incorrectly use the proxy server for bypassed URLs
+- Improved error handling when extensions don't download successfully, fail validation, or have corrupt state files
+
+## Version 1.23 - October 2022
+
+### New features
+
+- The minimum PowerShell version required on Windows Server has been reduced to PowerShell 4.0
+- The Windows agent installer is now compatible with systems that enforce a Microsoft publisher-based Windows Defender Application Control policy.
+- Added support for Rocky Linux 8 and Debian 11.
+
+### Fixed
+
+- Tag values are correctly preserved when connecting a server and specifying multiple tags (fixes known issue from version 1.22).
+- An issue preventing some users who tried authenticating with an identity from a different tenant than the tenant where the server is (will be) registered has been fixed.
+- The `azcamgent check` command no longer validates CNAME records to reduce warnings that did not impact agent functionality.
+- The agent will now try to obtain an access token for up to 5 minutes when authenticating with an Azure Active Directory service principal.
+- Cloud presence checks now only run once at the time the `himds` service starts on the server to reduce local network traffic. If you live migrate your virtual machine to a different cloud provider, it will not reflect the new cloud provider until the service or computer has rebooted.
+- Improved logging during the installation process.
+- The install script for Windows now saves the MSI to the TEMP directory instead of the current directory.
+
 ## Version 1.22 - September 2022
+
+### Known issues
+
+- When connecting a server and specifying multiple tags, the value of the last tag is used for all tags. You will need to fix the tags after onboarding to use the correct values.
 
 ### New features
 
@@ -69,36 +111,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - Agents configured to use private endpoints will now download extensions over the private endpoint
 - The `--use-private-link` flag on [azcmagent check](manage-agent.md#check) has been renamed to `--enable-pls-check` to more accurately represent its function
-
-## Version 1.19 - June 2022
-
-### Known issues
-
-- Agents configured to use private endpoints will incorrectly try to download extensions from a public endpoint. [Upgrade the agent](manage-agent.md#upgrade-the-agent) to version 1.20 or later to restore correct functionality.
-- Some systems may incorrectly report their cloud provider as Azure Stack HCI.
-
-### New features
-
-- When installed on a Google Compute Engine virtual machine, the agent will now detect and report Google Cloud metadata in the "detected properties" of the Azure Arc-enabled servers resource. [Learn more](agent-overview.md#instance-metadata) about the new metadata.
-
-### Fixed
-
-- An issue that could cause the extension manager to hang during extension installation, update, and removal operations has been resolved.
-- Improved support for TLS 1.3
-
-## Version 1.18 - May 2022
-
-### New features
-
-- The agent can now be configured to operate in [monitoring mode](security-overview.md#agent-modes), which simplifies configuration of the agent for scenarios where you only want to use Arc for monitoring and security scenarios. This mode disables other agent functionality and prevents use of extensions that could make changes to the system (for example, the Custom Script Extension).
-- VMs and hosts running on Azure Stack HCI now report the cloud provider as "HCI" when [Azure benefits are enabled](/azure-stack/hci/manage/azure-benefits#enable-azure-benefits).
-
-### Fixed
-
-- `systemd` is now an official prerequisite on Linux and your package manager will alert you if you try to install the Azure Connected Machine agent on a server without systemd.
-- Guest configuration policies no longer create unnecessary files in the `/tmp` directory on Linux servers
-- Improved reliability when extracting extensions and guest configuration policy packages
-- Improved reliability for guest configuration policies that have child processes
 
 ## Next steps
 

@@ -28,7 +28,7 @@ You'll learn how to change the frontend configuration of an outbound backend poo
 Finally, the article reviews unique aspects of using public IPs and public IP prefixes with a load balancer. 
 
 > [!NOTE]
-> Standard SKU load balancer and public IP are used for the examples in this article. For basic SKU load balancers, the procedures are the same except for the selection of SKU upon creation of the load balancer and public IP resource. Basic load balancers don't support outbound rules or public IP prefixes. 
+> Standard SKU load balancer and public IP are used for the examples in this article. For basic SKU load balancers, the procedures are the same except for the selection of SKU upon creation of the load balancer and public IP resource. Basic load balancers don't support outbound rules or public IP prefixes. These procedures are also valid for a cross-region load balancer. For more information on cross-region load balancer, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 
 ## Prerequisites
 
@@ -103,9 +103,8 @@ To change the IP, you'll associate a new public IP address previously created wi
 
 9. Verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
-    > [!NOTE]
-    > These procedures are valid for a cross-region load balancer. For more information on cross-region load balancer, see **[Cross-region load balancer](../../load-balancer/cross-region-overview.md)**.
-
+> [!NOTE]
+> This technique can be utilized when transitioning from a non-zonal frontend to a zone-redundant frontend in regions that support availability zones.  See [Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md)
 
 ## Add public IP prefix
 

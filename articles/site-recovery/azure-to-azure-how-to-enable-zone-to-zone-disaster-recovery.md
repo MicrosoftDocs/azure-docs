@@ -1,11 +1,11 @@
 ---
 title: Enable Zone to Zone Disaster Recovery for Azure Virtual Machines
 description: This article describes when and how to use Zone to Zone Disaster Recovery for Azure virtual machines.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 12/07/2022
 ms.author: v-pgaddala
 ms.custom: references_regions
 ---
@@ -82,14 +82,16 @@ Log in to the Azure portal.
 
 1. On the Azure portal menu, select Virtual machines, or search for and select Virtual machines on any page. Select the VM you want to replicate. For zone to zone disaster recovery, this VM must already be in an availability zone.
 1. In Operations, select Disaster recovery.
-1. As shown below, in the Basics tab, select ‘Yes’ for ‘Disaster Recovery between Availability Zones?’
+1. Under Basics tab, select **Yes** for **Disaster Recovery between Availability Zones?**
 
-    ![Basic Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings-blade.png)
+    :::image type="Basic Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings.png" alt-text="Screenshot of Basic Settings page.":::
+
 1. If you accept all defaults, click ‘Review + Start replication’ followed by ‘Start replication’.
 1. If you want to make changes to the replication settings, click on ‘Next: Advanced settings’.
 1. Change the settings away from default wherever appropriate. For users of Azure to Azure Disaster Recovery, this page might seem familiar. More details on the options presented on this blade can be found [here](./azure-to-azure-tutorial-enable-replication.md)
+    
+    :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of Advanced Settings page.":::
 
-    ![Advanced Settings page](./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings-blade.png)
 1. Click on ‘Next: Review + Start replication’ and then ‘Start replication’.
 
 ## FAQs

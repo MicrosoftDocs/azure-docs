@@ -2,7 +2,7 @@
 title: Supported categories for Azure Monitor resource logs
 description: Understand the supported services and event schemas for Azure Monitor resource logs.
 ms.topic: reference
-ms.date: 09/07/2022
+ms.date: 10/13/2022
 ms.reviewer: lualderm
 
 ---
@@ -189,11 +189,11 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |BlockchainApplication|Blockchain Application|No|
 
 
-## microsoft.botservice/botservices
+## Microsoft.BotService/botServices
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|BotRequest|Requests from the channels to the bot|No|
+|logSpecification.Name.Empty|logSpecification.DisplayName.empty|Yes|
 
 
 ## Microsoft.Cache/redis
@@ -287,8 +287,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|admissionsenforcer|AKS Guardrails/Admissions Enforcer|Yes|
 |cloud-controller-manager|Kubernetes Cloud Controller Manager|Yes|
 |cluster-autoscaler|Kubernetes Cluster Autoscaler|No|
+|csi-azuredisk-controller|Kubernetes CSI Azuredisk Controller|Yes|
+|csi-azuredisk-controller-v2|Kubernetes CSI Azuredisk V2 Controller|Yes|
+|csi-azurefile-controller|Kubernetes CSI Azurefile Controller|Yes|
+|csi-blob-controller|Kubernetes CSI Blob Controller|Yes|
+|csi-snapshot-controller|Kubernetes CSI Snapshot Controller|Yes|
 |guard|Kubernetes Guard|No|
 |kube-apiserver|Kubernetes API Server|No|
 |kube-audit|Kubernetes Audit|No|
@@ -330,6 +336,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |deltaPipelines|Databricks Delta Pipelines|Yes|
 |featureStore|Databricks Feature Store|Yes|
 |genie|Databricks Genie|Yes|
+|gitCredentials|Databricks Git Credentials|Yes|
 |globalInitScripts|Databricks Global Init Scripts|Yes|
 |iamRole|Databricks IAM Role|Yes|
 |instancePools|Instance Pools|No|
@@ -345,6 +352,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |sqlPermissions|Databricks SQLPermissions|No|
 |ssh|Databricks SSH|No|
 |unityCatalog|Databricks Unity Catalog|Yes|
+|webTerminal|Databricks Web Terminal|Yes|
 |workspace|Databricks Workspace|No|
 
 
@@ -635,8 +643,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|ExPCompute|ExPCompute|Yes|
-|Request|Request|No|
+|ExPCompute|ExPComput
 
 
 ## Microsoft.HealthcareApis/services
@@ -705,6 +712,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuditEvent|Audit Logs|No|
+|AzurePolicyEvaluationDetails|Azure Policy Evaluation Details|Yes|
 
 
 ## Microsoft.Kusto/Clusters
@@ -958,6 +966,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
+|CollectionCrudLogEvent|CollectionCrud|Yes|
 |ScanStatusLogEvent|ScanStatus|No|
 
 

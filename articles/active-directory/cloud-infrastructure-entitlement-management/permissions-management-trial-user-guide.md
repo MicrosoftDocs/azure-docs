@@ -4,7 +4,8 @@ description: How to get started with your Entra Permissions free trial
 services: active-directory
 author: jenniferf-skc
 manager: amycolannino
-ms.service: ciem
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/01/2022

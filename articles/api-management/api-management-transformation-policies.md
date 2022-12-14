@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 12/08/2022
 ms.author: danlep
 ---
 
@@ -50,6 +50,7 @@ This article provides a reference for API Management policies used to transform 
     consider-accept-header="true | false" 
     parse-date="true | false" 
     namespace-separator="separator character"
+    namespace-prefix="namepsace prefix"
     attribute-block-name="name" />
 ```
 
@@ -64,7 +65,7 @@ Consider the following policy:
     </inbound>
     <outbound>
         <base />
-        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" attribute-block-name="#attrs" />
+        <json-to-xml apply="always" consider-accept-header="false" parse-date="false" namespace-separator=":" namespace-prefix="xmlns" attribute-block-name="#attrs" />
     </outbound>
 </policies>
 ```
@@ -118,6 +119,7 @@ The XML response to the client will be:
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 |namespace-separator|The character to use as a namespace separator|No|Underscore|
+|namespace-prefix|The string that identifies property as namespace attribute, usually "xmlns". Properties with names beginning with specified prefix will be added to current element as namespace declarations.|No|N/A|
 |attribute-block-name|When set, properties inside the named object will be added to the element as attributes|No|Not set|
 
 ### Usage
@@ -344,7 +346,7 @@ In this example the policy routes the request to a service fabric backend, using
 >   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
 >   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
- For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
+ For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessageBody` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -392,6 +394,19 @@ Since we are not reserving the original request body, accessing it later in the 
         inBody[0] = 'm'; 
     } 
     return inBody.ToString(); 
+} 
+</set-body>
+
+```
+
+#### Example accessing the body as URL-encoded form data
+The following example uses the `AsFormUrlEncodedContent()` expression to access the request body as URL-encoded form data (content type `application/x-www-form-urlencoded`), and then converts it to JSON. Since we are not reserving the original request body, accessing it later in the pipeline will result in an exception.
+
+```xml
+<set-body> 
+@{ 
+    var inBody = context.Request.Body.AsFormUrlEncodedContent();
+    return JsonConvert.SerializeObject(inBody); 
 } 
 </set-body>
 

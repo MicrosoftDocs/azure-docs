@@ -50,7 +50,7 @@ landingContent:
           - text: Create an Azure Data Factory with an ARM template
             url: ./quickstart-create-data-factory-resource-manager-template.md
           - text: Use the Copy Data tool
-            url: ./quickstart-create-data-factory-copy-data-tool.md
+            url: ./quickstart-hello-world-copy-data-tool.md
       - linkListType: how-to-guide
         links:
           - text: Expressions and functions in Azure Data Factory
@@ -108,7 +108,9 @@ landingContent:
           - text: What are mapping data flows?
             url: ./concepts-data-flow-overview.md
           - text: Data transformation expressions in mapping data flow
-            url: ./data-transformation-functions.md          
+            url: ./data-transformation-functions.md 
+          - text: Change Data Capture (CDC)
+            url: ./concepts-change-data-capture.md
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview

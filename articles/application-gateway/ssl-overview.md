@@ -29,7 +29,7 @@ To configure TLS termination, a TLS/SSL certificate must be added to the listene
 
 
 > [!NOTE] 
-> Application gateway does not provide any capability to create a new certificate or send a certificate request to a certification authority.
+> Application gateway doesn't provide any capability to create a new certificate or send a certificate request to a certification authority.
 
 For the TLS connection to work, you need to ensure that the TLS/SSL certificate meets the following conditions:
 
@@ -42,7 +42,7 @@ Application gateway supports the following types of certificates:
 
 - CA (Certificate Authority) certificate: A CA certificate is a digital certificate issued by a certificate authority (CA)
 - EV (Extended Validation) certificate: An EV certificate is a certificate that conforms to industry standard certificate guidelines. This will turn the browser locator bar green and publish the company name as well.
-- Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate will not cover that.
+- Wildcard Certificate: This certificate supports any number of subdomains based on *.site.com, where your subdomain would replace the *. It doesn’t, however, support site.com, so in case the users are accessing your website without typing the leading "www", the wildcard certificate won't cover that.
 - Self-Signed certificates: Client browsers don't trust these certificates and will warn the user that the virtual service’s certificate isn't part of a trust chain. Self-signed certificates are good for testing or environments where administrators control the clients and can safely bypass the browser’s security alerts. Production workloads should never use self-signed certificates.
 
 For more information, see [configure TLS termination with application gateway](./create-ssl-portal.md).
@@ -62,7 +62,7 @@ The [TLS policy](./application-gateway-ssl-policy-overview.md) applies only to t
 
 Application Gateway only communicates with those backend servers that have either allow-listed their certificate with the Application Gateway or whose certificates are signed by well-known CA authorities and the certificate's CN matches the host name in the HTTP backend settings. These include the trusted Azure services such as Azure App Service/Web Apps and Azure API Management.
 
-If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+If the certificates of the members in the backend pool aren't signed by well-known CA authorities, then each instance in the backend pool with end to end TLS enabled must be configured with a certificate to allow secure communication. Adding the certificate ensures that the application gateway only communicates with known backend instances. This further secures the end-to-end communication.
 
 > [!NOTE] 
 >
@@ -133,7 +133,7 @@ The following tables outline the differences in SNI between the v1 and v2 SKU in
 | If the backend pool address is an IP address (v1) or if custom probe hostname is configured as IP address (v2) | SNI (server_name) won’t be set. <br> **Note:** In this case, the backend server should be able to return a default/fallback certificate and this should be allow-listed in HTTP settings under authentication certificate. If there’s no default/fallback certificate configured in the backend server and SNI is expected, the server might reset the connection and will lead to probe failures | In the order of precedence mentioned previously, if they have IP address as hostname, then SNI won't be set as per [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Note:** SNI also won't be set in v2 probes if no custom probe is configured and no hostname is set on HTTP settings or backend pool |
 
 > [!NOTE] 
-> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, will not be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
+> If a custom probe isn't configured, then Application Gateway sends a default probe in this format - \<protocol\>://127.0.0.1:\<port\>/. For example, for a default HTTPS probe, it will be sent as https://127.0.0.1:443/. Note that, the 127.0.0.1 mentioned here is only used as HTTP host header and as per RFC 6066, won't be used as SNI header. For more information on health probe errors, check the [backend health troubleshooting guide](application-gateway-backend-health-troubleshooting.md).
 
 #### For live traffic
 

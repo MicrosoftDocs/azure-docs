@@ -1,12 +1,12 @@
 ---
 title: Overview of Azure IoT device SDK options
 description: Learn which Azure IoT device SDK to use based on your development role and tasks.
-author: philmea
-ms.author: philmea
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
-ms.date: 02/11/2021
-ms.custom: contperf-fy22q2
+ms.date: 10/07/2022
+ms.custom: engagement-fy23
 ---
 
 # Overview of Azure IoT Device SDKs

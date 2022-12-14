@@ -1,11 +1,11 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: how-to
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ms.date: 09/21/2022
 ---
 
@@ -182,7 +182,7 @@ Setting | Details
 --- | ---
 Syntax | `cd /usr/local/ASR/Vx/bin`</br> `UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Mandatory parameter. `<CSIP>` specifies the configuration server's IP address. Use any valid IP address.
-`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](/azure/site-recovery/vmware-azure-manage-configuration-server#generate-configuration-server-passphrase).
+`-P` |  Mandatory. Full file path of the file in which the passphrase is saved. [Learn more](./vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).
 
 ## Azure Virtual Machine agent
 
@@ -280,26 +280,26 @@ As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 versi
 
 Locate the installer files for the server’s operating system using the following steps:  
 - On the appliance, go to the folder *E:\Software\Agents*.
-- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Azure Site Recovery\Agent*.
+- Copy the installer corresponding to the source machine’s operating system and place it on your source machine in a local folder, such as *C:\Program Files (x86)\Microsoft Azure Site Recovery*.
 
 **Use the following steps to install the mobility service:**
 
 1. Open command prompt and navigate to the folder where the installer file has been placed.
 
    ```cmd
-    cd C:\Azure Site Recovery\Agent*
+    cd C:\Program Files (x86)\Microsoft Azure Site Recovery*
    ```
 
 2. Run the below command to extract the installer file:
 
    ```cmd
-   .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
+   .\Microsoft-ASR_UA*Windows*release.exe /q /x:"C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
 
 3. Run the following command to proceed with the installation. This will launch the installer UI:
 
    ```cmd
-   .\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
+   .\UnifiedAgentInstaller.exe /Platform vmware /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
 
    >[!NOTE]
@@ -335,17 +335,17 @@ Locate the installer files for the server’s operating system using the followi
 1. Open command prompt and navigate to the folder where the installer file has been placed.
 
    ```cmd
-   cd C:\Azure Site Recovery\Agent
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery
    ```
 2. Run the following command to extract the installer file:
    ```cmd
-       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Azure Site Recovery\Agent
+       .\Microsoft-ASR_UA*Windows*release.exe /q /x:C:\Program Files (x86)\Microsoft Azure Site Recovery
     ```
 3. To proceed with the installation, run the following command:
 
    ```cmd
 
-    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Azure Site Recovery\Agent"
+    .\UnifiedAgentInstaller.exe /Platform vmware /Silent /Role MS /CSType CSPrime /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery"
    ```
     Once the installation is complete, copy the string that is generated alongside the parameter *Agent Config Input*. This string is required to [generate the Mobility Service configuration file](#generate-mobility-service-configuration-file).
 
@@ -354,7 +354,7 @@ Locate the installer files for the server’s operating system using the followi
 4. After successfully installing, register the source machine with the above appliance using the following command:
 
    ```cmd
-   "C:\Azure Site Recovery\Agent\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
+   "C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe" /SourceConfigFilePath "config.json" /CSType CSPrime
    ```
 
 #### Installation settings

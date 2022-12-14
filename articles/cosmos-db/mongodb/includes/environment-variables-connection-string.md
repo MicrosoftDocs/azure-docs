@@ -1,12 +1,13 @@
 ---
 author: diberry
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongo
+ms.subservice: mongodb
+ms.custom: ignite-2022
 ms.topic: include
 ms.date: 06/13/2019
 ms.author: diberry
 ---
-To use the **CONNECTION STRING** values within your code, set this value on the local machine running the application. To set the environment variable, use your preferred terminal to run the following commands:
+To use the **CONNECTION STRING** values within your code, set this value in the local environment running the application. To set the environment variable, use your preferred terminal to run the following commands:
 
 #### [Windows](#tab/windows)
 

@@ -1,18 +1,18 @@
 ---
-title: Save on Azure Synapse Analytics (data warehousing only) charges with Azure reserved capacity
+title: Save on Azure Synapse Analytics - Dedicated SQL pool (formerly SQL DW) charges with Azure reserved capacity
 description: Learn how you save costs for Azure Synapse Analytics charges with reserved capacity to save money.
 author: bandersmsft
 ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 
-# Save costs for Azure Synapse Analytics (data warehousing only) charges with reserved capacity
+# Save costs for Azure Synapse Analytics - Dedicated SQL pool (formerly SQL DW) charges with reserved capacity
 
-You can save money with Azure Synapse Analytics (data warehousing only) by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
+You can save money with Azure Synapse Analytics - Dedicated SQL pool (formerly SQL DW) by committing to a reservation for your cDWU usage for a duration of one or three years. To purchase Azure Synapse Analytics reserved capacity, you need to choose the Azure region, and term. Then, add the Azure Synapse Analytics SKU to your cart and choose the quantity of cDWU units that you want to purchase.
 
 When you purchase a reservation, the Azure Synapse Analytics usage that matches the reservation attributes is no longer charged at the pay-as-you go rates.
 

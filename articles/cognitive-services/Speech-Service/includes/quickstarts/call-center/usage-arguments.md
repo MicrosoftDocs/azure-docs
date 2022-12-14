@@ -32,4 +32,4 @@ Language options include:
 Output options include:
 
 - `--help`: Show the usage help and stop
-- `--output FILE`: Output the transcription, sentiment, conversation PII, and conversation summaries in JSON format to a text file. For more information, see [output examples](/azure/cognitive-services/speech-service/call-center-quickstart#check-results).
+- `--output FILE`: Output the transcription, sentiment, conversation PII, and conversation summaries in JSON format to a text file. For more information, see [output examples](../../../call-center-quickstart.md#check-results).

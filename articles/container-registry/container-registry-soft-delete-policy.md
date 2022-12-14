@@ -55,7 +55,7 @@ For example, after five days of soft deleting the artifact, if the user changes 
 
 ## Known issues
 
->* Enabling the soft delete policy with AZ through ARM template leaves the registry stuck in the `creation` state. To avoid this, we recommend deleting and recreating the registry by disabling the soft delete policy.
+>* Enabling the soft delete policy with Availability Zones through ARM template leaves the registry stuck in the `creation` state. If you see this error, please delete and recreate the registry disabling Geo-replication on the registry.
 >* Accessing the manage deleted artifacts blade after disabling the soft delete policy will throw an error message with 405 status.
 >* The customers with restrictions on permissions to restore, will see an issue as File not found.
 ## Enable soft delete policy for registry - CLI

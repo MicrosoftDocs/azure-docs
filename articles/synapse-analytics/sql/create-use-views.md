@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -76,7 +76,7 @@ from openrowset(
            ) as rows
 ```
 
-Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+For more information, review [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake) and [Azure Synapse Analytics known issues](../known-issues.md).
 
 ## Partitioned views
 
@@ -117,7 +117,7 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+For more information, review [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake) and [Azure Synapse Analytics known issues](../known-issues.md).
 
 ## JSON views
 
@@ -144,9 +144,9 @@ from openrowset(
 
 The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
 
-## <a id="cosmosdb-view"></a> Cosmos DB views on containers
+## <a id="cosmosdb-view"></a> Azure Cosmos DB views on containers
 
-The views can be created on top of the Azure Cosmos DB containers if the Cosmos DB analytical storage is enabled on the container. Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+The views can be created on top of the Azure Cosmos DB containers if the Azure Cosmos DB analytical storage is enabled on the container. The Azure Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
@@ -189,3 +189,9 @@ ORDER BY
 ## Next steps
 
 For information on how to query different file types, refer to the [Query single CSV file](query-single-csv-file.md), [Query Parquet files](query-parquet-files.md), and [Query JSON files](query-json-files.md) articles.
+
+- [What's new in Azure Synapse Analytics?](../whats-new.md). 
+- [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
+- [Troubleshoot serverless SQL pool in Azure Synapse Analytics](resources-self-help-sql-on-demand.md)
+- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)
+- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)

@@ -31,12 +31,12 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio.
+1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechSynthesis`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `main.cpp` with the following code:
+1. Replace the contents of `SpeechSynthesis.cpp` with the following code:
     
     ```cpp
     #include <iostream> 
@@ -46,12 +46,13 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
 
-    std::string getEnvironmentVariable(const char* name);
+    std::string GetEnvironmentVariable(const char* name);
 
     int main()
     {
-        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
-        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        // This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
 
         if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
             std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
@@ -94,7 +95,7 @@ Follow these steps to create a new console application and install the Speech SD
         std::cin.get();
     }
 
-    std::string getEnvironmentVariable(const char* name)
+    std::string GetEnvironmentVariable(const char* name)
     {
     #if defined(_MSC_VER)
         size_t requiredSize = 0;
@@ -117,6 +118,9 @@ Follow these steps to create a new console application and install the Speech SD
 
 [Build and run your new console application](/cpp/build/vscpp-step-2-build) to start speech synthesis to the default speaker.
 
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
+
 Enter some text that you want to speak. For example, type "I'm excited to try text to speech." Press the Enter key to hear the synthesized speech. 
 
 ```console
@@ -127,12 +131,15 @@ I'm excited to try text to speech
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CPP&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Synthesize-to-speaker-output" target="_target">I ran into an issue</a>
 
+> [!WARNING]
+> There is a known issue on Windows 11 that might affect some types of Secure Sockets Layer (SSL) and Transport Layer Security (TLS) connections. For more information, see the [troubleshooting guide](../../../troubleshooting.md#connection-closed-or-timeout).
+
 ## Remarks
 Now that you've completed the quickstart, here are some additional considerations:
 
 This quickstart uses the `SpeakTextAsync` operation to synthesize a short block of text that you enter. You can also get text from files as described in these guides:
-- For information about speech synthesis from a file, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
-- For information about batch synthesis, see [Synthesize long-form text to speech](~/articles/cognitive-services/speech-service/long-audio-api.md). 
+- For information about speech synthesis from a file and finer control over voice styles, prosody, and other settings, see [How to synthesize speech](~/articles/cognitive-services/speech-service/how-to-speech-synthesis.md) and [Improve synthesis with Speech Synthesis Markup Language (SSML)](~/articles/cognitive-services/speech-service/speech-synthesis-markup.md).
+- For information about synthesizing long-form text to speech, see [batch synthesis](~/articles/cognitive-services/speech-service/batch-synthesis.md). 
 
 ## Clean up resources
 

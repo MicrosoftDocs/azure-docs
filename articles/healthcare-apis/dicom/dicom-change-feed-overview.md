@@ -52,7 +52,7 @@ deleted  | This instance has been deleted and is no longer available in the serv
 ### Read Change Feed
 
 **Route**: /changefeed?offset={int}&limit={int}&includemetadata={**true**|false}
-```
+```json
 [
     {
         "Sequence": 1,
@@ -93,7 +93,7 @@ includemetadata | bool | Whether or not to include the metadata (default: true)
 
 **Route**: /changefeed/latest?includemetadata={**true**|false}
 
-```
+```json
 {
     "Sequence": 2,
     "StudyInstanceUid": "{uid}",

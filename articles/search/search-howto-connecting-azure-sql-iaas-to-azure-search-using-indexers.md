@@ -71,9 +71,9 @@ The links below provide instructions on NSG configuration for VM deployments. Us
 
 1. Add the search IP address to the IP filter list of the security group. Either one of following articles explains the steps:
 
-  + [Tutorial: Filter network traffic with a network security group using the Azure portal](/azure/virtual-network/tutorial-filter-network-traffic)
+  + [Tutorial: Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md)
 
-  + [Create, change, or delete a network security group](/azure/virtual-network/manage-network-security-group)
+  + [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md)
 
 IP addressing can pose a few challenges that are easily overcome if you're aware of the issue and potential workarounds. The remaining sections provide recommendations for handling issues related to IP addresses in the ACL.
 

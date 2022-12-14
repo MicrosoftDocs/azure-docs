@@ -18,6 +18,8 @@
         href: quick-create-confidential-vm-arm-amd.md
       - name: Create confidential VM with Azure portal
         href: quick-create-confidential-vm-portal-amd.md
+      - name: Create an AMD confidential VM with Azure CLI
+        href: quick-create-confidential-vm-azure-cli-amd.md
       - name: Create Azure Compute Gallery Image for confidential VM
         href: create-confidential-vm-from-compute-gallery.md
   - name: Virtual machines with app enclaves
@@ -59,6 +61,10 @@
       href: confidential-vm-faq-amd.yml
     - name: AMD processor options for confidential VMs
       href: virtual-machine-solutions-amd.md
+    - name: Guest attestation for confidential VMs
+      href: guest-attestation-confidential-vms.md
+    - name: Microsoft Defender for Cloud integration
+      href: guest-attestation-defender-for-cloud.md
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
@@ -124,10 +130,12 @@
         href: how-to-fortanix-confidential-computing-manager.md
       - name: Fortanix Confidential Computing Manager Node Agent
         href: how-to-fortanix-confidential-computing-manager-node-agent.md
-    - name: Azure confidential VM
+    - name: Azure confidential VMs
       items:
       - name: Key rotation for Azure confidential VMs
         href: key-rotation-offline.md
+      - name: Use sample app with guest attestation
+        href: guest-attestation-example.md
 
 - name: Resources
   items:

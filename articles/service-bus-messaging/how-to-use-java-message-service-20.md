@@ -18,7 +18,7 @@ This article explains how to use the popular **Java Message Service (JMS) 2.0** 
 
 ### Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace. If you don't, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). 
+This guide assumes that you already have a Service Bus namespace. If you don't, then you can [create the namespace and queue](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) using the [Azure portal](https://portal.azure.com). 
 
 For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
 

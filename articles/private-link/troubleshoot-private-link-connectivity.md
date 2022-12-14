@@ -10,10 +10,10 @@ editor: ''
 ms.service: private-link
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
+ms.custom: ignite-2022
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-
 ---
 
 # Troubleshoot Azure Private Link Service connectivity problems
@@ -103,11 +103,11 @@ If you experience connectivity problems with your private link setup, review the
 
        ![Verify private link service metrics](./media/private-link-tsg/pls-metrics.png)
 
-1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#dependency-view) for insights and to see a dependency view of the resources by going to:
+1. Use [Azure Monitor - Networks](../network-watcher/network-insights-overview.md#resource-view) for insights and to see a resource view of the resources by going to:
      - Azure Monitor
      - Networks
      - Private Link services
-     - Dependency view 
+     - Resource view 
 
 ![AzureMonitor](https://user-images.githubusercontent.com/20302679/135001735-56a9484b-f9b4-484b-a503-cfb9d20b264a.png)
 

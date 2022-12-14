@@ -9,11 +9,11 @@ ms.topic: conceptual
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022
+ms.custom: seodec18, mktng-kw-nov2021, event-tier1-build-2022, ignite-2022
 ms.date: 05/11/2022
 ---
 
-# MLOps: Model management, deployment, lineage, and monitoring with Azure Machine Learning
+# MLOps: Model management, deployment, and monitoring with Azure Machine Learning
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -126,7 +126,7 @@ To deploy the model to an endpoint, you must provide the following items:
 * Dependencies required to use the model. Examples are a script that accepts requests and invokes the model and conda dependencies.
 * Deployment configuration that describes how and where to deploy the model.
 
-For more information, see [Deploy online endpoints](how-to-deploy-managed-online-endpoints.md).
+For more information, see [Deploy online endpoints](how-to-deploy-online-endpoints.md).
 
 #### Controlled rollout
 
@@ -136,7 +136,7 @@ When deploying to an online endpoint, you can use controlled rollout to enable t
 * Perform A/B testing by routing traffic to different deployments within the endpoint.
 * Switch between endpoint deployments by updating the traffic percentage in endpoint configuration.
 
-For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-managed-endpoints.md).
+For more information, see [Controlled rollout of machine learning models](./how-to-safely-rollout-online-endpoints.md).
 
 ### Analytics
 
@@ -179,7 +179,7 @@ For more information on using Azure Pipelines with Machine Learning, see:
 Learn more by reading and exploring the following resources:
 
 + [Learning path: End-to-end MLOps with Azure Machine Learning](/training/paths/build-first-machine-operations-workflow/)
-+ [How to deploy a model to an online endpoint](how-to-deploy-managed-online-endpoints.md) with Machine Learning
++ [How to deploy a model to an online endpoint](how-to-deploy-online-endpoints.md) with Machine Learning
 + [Tutorial: Train and deploy a model](tutorial-train-deploy-notebook.md)
 + [CI/CD of machine learning models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
 + [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
