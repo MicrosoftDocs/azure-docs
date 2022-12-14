@@ -224,6 +224,8 @@ az aks update -n <cluster-name> \
 
 ## Next steps
 
+For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
+
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-feature-register]: /cli/azure/feature#az_feature_register
@@ -240,3 +242,4 @@ az aks update -n <cluster-name> \
 [command-invoke]: command-invoke.md
 [container-registry-private-link]: ../container-registry/container-registry-private-link.md
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
+[operator-best-practices-network]: operator-best-practices-network.md

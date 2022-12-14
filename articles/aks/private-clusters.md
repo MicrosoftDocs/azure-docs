@@ -257,6 +257,8 @@ Once the A record is created, link the private DNS zone to the virtual network t
 
 ## Next steps
 
+For associated best practices, see [Best practices for network connectivity and security in AKS][operator-best-practices-network].
+
 <!-- LINKS - external -->
 [rfc1918-document]: https://tools.ietf.org/html/rfc1918
 [aks-supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
@@ -273,3 +275,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [use-custom-domains]: coredns-custom.md#use-custom-domains
 [create-aks-cluster-api-vnet-integration]: api-server-vnet-integration.md
 [azure-home]: ../azure-portal/azure-portal-overview.md#azure-home
+[operator-best-practices-network]: operator-best-practices-network.md
