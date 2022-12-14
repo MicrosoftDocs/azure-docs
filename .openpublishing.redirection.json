@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
+            "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/queues/storage-quickstart-queues-dotnet-legacy.md",
             "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
             "redirect_document_id": false
