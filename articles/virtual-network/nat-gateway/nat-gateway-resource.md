@@ -50,7 +50,9 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ### Connect to the internet with NAT gateway
 
-NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. When NAT gateway is configured to subnets, all previous outbound configurations, such as Load balancer or instance-level public IPs (IL PIPs) are superseded by NAT gateway. Outbound initiated and return traffic go through NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
+NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. Outbound connectivity takes place right away upon deployment of a NAT gateway with a subnet and at least one public IP address. No additional routing configurations are required to start connecting outbound with NAT gateway. NAT gateway becomes the default route to the internet after association to a subnet. 
+
+In the presence of other outbound configurations within a virtual network, such as Load balancer or instance-level public IPs (IL PIPs), NAT gateway takes precedence for outbound connectivity. All new outbound initiated and return traffic starts using NAT gateway. There's no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations.
 
 ### Coexistence of outbound and inbound connectivity 
 
