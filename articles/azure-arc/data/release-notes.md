@@ -28,11 +28,12 @@ For complete release version information, see [Version log](version-log.md#decem
 New for this release:
 
 - Arc data controller.
-    Added defaults on HA supervisor pod to support resource quotas.
+  - Added defaults on HA supervisor pod to support resource quotas.
+  - Update Grafana to version 9.
 
 - Arc-enabled PostgreSQL server
   - Switch to Ubuntu based images.
- 
+
 - Arc-enabled SQL Server
   - Database as a resource compatibility for SQL Server 2014 and SQL Server 2016. See [View databases](/sql/sql-server/azure-arc/view-databases).
 
