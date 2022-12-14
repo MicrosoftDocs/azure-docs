@@ -103,7 +103,7 @@ For the **/hana/log** volume. the configuration would look like:
 | E96(d)s_v5 | 672 GiB | 2,600 MBps | 80,000 | 256 GB | 275 MBps | 3,000 | 672 GB |
 | M32ts | 192 GiB | 500 MBps | 20,000 | 96 GB | 275 MBps | 3,000 | 192 GB | 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 128 GB | 275 MBps | 3,000 | 256 GB | 
-| M64ls | 512 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 512 GB | 
+| M64ls | 512 GiB | 1,000 MBps | 40,000 | 256 GB | 275 MBps | 3,000 | 512 GB | 
 | M32dms_v2, M32ms_v2 | 875 GiB | 500 MBps | 20,000 | 512 GB | 275 MBps | 3,000 | 875 GB | 
 | M64s, M64ds_v2, M64s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB |
 | M64ms, M64dms_v2, M64ms_v2 | 1,792 GiB | 1,000 MBps | 40,000 | 512 GB | 275 MBps | 3,000 | 1,024 GB | 

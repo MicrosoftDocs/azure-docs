@@ -1,6 +1,6 @@
 ---
 title: Set up disaster recovery to another region using PowerShell
-description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC (in preview for ASR functionality) to the parent region where Azure Public MEC (preview) is an extension. 
+description: This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running an Azure Public MEC to the parent region where Azure Public MEC is an extension. 
 author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: tutorial
@@ -13,13 +13,15 @@ ms.author: v-pgaddala
 > [!IMPORTANT]
 > The Azure Site Recovery functionality for Public MEC is in preview state.
 
-This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running on Azure Public MEC (preview) to the parent Azure region where Azure Public MEC (preview) is an extension.
+This article describes how to replicate, failover, and failback Azure virtual machines (VMs) running on Azure Public MEC to the parent Azure region where Azure Public MEC is an extension.
 
-## Disaster recovery in Azure Public MEC (preview)
+## Disaster recovery in Azure Public MEC 
 
-Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. Here the primary location is an Azure Public MEC (preview) and secondary location is the parent region to which the Azure Public MEC (preview) is connected. 
+Site Recovery ensures business continuity by keeping workloads running during outages by continuously replicating the workload from primary to secondary location. The ASR functionality for MEC is in preview. 
 
-## Set up disaster recovery for VMs in an Azure Public MEC (preview) using PowerShell
+Here the primary location is an Azure Public MEC and secondary location is the parent region to which the Azure Public MEC is connected. 
+
+## Set up disaster recovery for VMs in an Azure Public MEC using PowerShell
 
 ### Prerequisites 
 
@@ -32,12 +34,12 @@ Site Recovery ensures business continuity by keeping workloads running during ou
 
 - Ensure the Linux distro version and kernel is supported by Azure Site Recovery. For more information, see the [support matrix](/azure/site-recovery/azure-to-azure-support-matrix#linux).
 
-## Replicate Virtual machines running in an Azure Public MEC (preview) to Azure region
+## Replicate Virtual machines running in an Azure Public MEC to Azure region
 
-To replicate VMs running in an Azure Public MEC (preview) to Azure region, Follow these steps: 
+To replicate VMs running in an Azure Public MEC to Azure region, Follow these steps: 
 
 > [!NOTE] 
-> For this example, the primary location is an Azure Public MEC (preview), and the secondary/recovery location is the Azure Public MEC's (preview) region.
+> For this example, the primary location is an Azure Public MEC, and the secondary/recovery location is the Azure Public MEC's region.
 
 1. Sign-in to your Azure account.
 
@@ -232,7 +234,7 @@ To replicate VMs running in an Azure Public MEC (preview) to Azure region, Follo
     $recoveryNetwork = $recoveryVnet.Id
     ```
 
-1. Use the following PowerShell cmdlet to replicate an Azure Public MEC (preview) Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
+1. Use the following PowerShell cmdlet to replicate an Azure Public MEC Azure virtual machine with managed disks. This step may take around 20 minutes to complete.
 
     1. Get the resource group that the virtual machine must be created in when it's failed 
     over.
@@ -440,7 +442,7 @@ To replicate VMs running in an Azure Public MEC (preview) to Azure region, Follo
         Standard_LRS -Kind Storage
         ```
     
-    1. Use the recovery protection container, the new cache storage account in Azure Public MEC's (preview) region, and the source region VM resource group. 
+    1. Use the recovery protection container, the new cache storage account in Azure Public MEC's region, and the source region VM resource group. 
     
         ```
         $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -
