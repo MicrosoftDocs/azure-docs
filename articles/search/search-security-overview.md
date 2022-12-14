@@ -176,13 +176,13 @@ In Azure Cognitive Search, encryption starts with connections and transmissions.
 
 ### Data at rest
 
-For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the encryption support for that technology.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the [encryption support](/azure/storage/common/storage-service-encryption) for that technology.
 
 | Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
 | server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets), on data disks and temporary disks |
-| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps) on data disks |
-| server-side full encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
+| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after August 1 2020. | Content (indexes and synonym maps) on data disks |
+| server-side full encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, on search services after May 13, 2021. | Content (indexes and synonym maps) on data disks and temporary disks |
 
 #### Service-managed keys
 
@@ -194,9 +194,9 @@ Service-managed encryption applies to permanent and temporary data storage.
 
 Customer-managed keys require another billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. 
 
-CMK support was rolled out in two phases. Your service creation date will determine whether CMK is supported, and to what degree. Services created after May 2021 have full CMK support for double encryption for both data disks and temporary disks. For more information about CMK support, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
+CMK support was rolled out in two phases. Your service creation date will determine whether CMK is supported, and to what degree. Services created after May 2021 have full CMK support for double encryption for both data disks and temporary disks. For more information about CMK support, see [Double encryption](search-security-manage-encryption-keys.md#full-double-encryption).
 
-Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30-60 percent in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## Security administration
 
