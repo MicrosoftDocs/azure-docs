@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: conceptual
-ms.date: 12/15/2022
+ms.date: 12/13/2022
 # As a BizTalk Server customer, I want to learn about the planning considerations, migration options, and best practices when considering a move from BizTalk Server workloads to Azure Integration Services.
 ---
 
@@ -20,8 +20,9 @@ This guide covers migration strategies and resources along with planning conside
 > - [Why migrate from BizTalk Server to Azure Integration Services?](biztalk-server-to-azure-integration-services-overview.md)
 > - [Choose the best Azure Integration Services offerings for your scenario](azure-integration-services-choose-capabilities.md)
 
-
 ## Strategy options
+
+The following section describes various migration strategies along with their benefits and disadvantages:
 
 ### Lift and shift
 
@@ -122,7 +123,9 @@ This tool runs through the following phases:
 
    This phase isn't currently built into the tool, but you run the installation scripts to deploy your application to Azure. You can then assess whether the generated application provides the same functionality as your BizTalk Server on-premises application.
 
-[**DIAGRAM**]
+The following diagram shows the phases that the Azure Integration Migrator tool runs through:
+
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-integration-migrator-tool-biztalk.png" alt-text="Diagram showing phases that Azure Integration Services member services.":::
 
 ### Key team roles and skills for successful migration
 
