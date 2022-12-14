@@ -44,10 +44,11 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 - Enhanced notifications for test migration and migration completion status. 
 - Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
 - Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
 ## Update (June 2022)
 

@@ -12,6 +12,7 @@ ms.custom: MVC, engagement-fy23
 
 This tutorial shows you how to discover, assess, and migrate Google Cloud Platform (GCP) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Migration and modernization tools.
 
+
 In this tutorial, you will learn how to:
 > [!div class="checklist"]
 >

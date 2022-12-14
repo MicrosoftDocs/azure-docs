@@ -12,6 +12,7 @@ ms.custom: MVC, engagement-fy23
 
 This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs, using Azure Migrate: Server Assessment and Migration and modernization tools.
 
+
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
 
