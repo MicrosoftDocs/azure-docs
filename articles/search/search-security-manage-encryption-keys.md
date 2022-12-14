@@ -36,25 +36,23 @@ Encryption is performed over the following content:
 
 ## Full double encryption
 
-When you introduce CMK encryption, you're effectively encrypting content twice. For the objects and fields noted in the previous section, content is first encrypted with your CMK, and secondly with the Microsoft-managed key. Content is encrypted on data disks for long-term storage, and on temporary disks used for short-term storage.
+When you introduce CMK encryption, you're effectively encrypting content twice. For the objects and fields noted in the previous section, content is first encrypted with your CMK, and secondly with the Microsoft-managed key. Content is doubly encrypted on data disks for long-term storage, and on temporary disks used for short-term storage.
 
-Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30-60 percent in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. 
+Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30-60 percent in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
 
 Although double encryption is now available in all regions, support was rolled out in two phases:
 
-+ The first rollout was in August 2020 and included the five regions listed below. Search services created in the following regions supported CMK for data disks, but not temporary disks:
++ The first rollout was on August 1, 2020 and included the five regions listed below. Search services created in the following regions supported CMK for data disks, but not temporary disks:
 
-  | Region | Service creation date |
-  |--------|-----------------------|
-  | West US 2 | After August 1, 2020 |
-  | East US | After August 1, 2020 |
-  | South Central US  | After August 1, 2020 |
-  | US Gov Virginia  | After August 1, 2020 |
-  | US Gov Arizona  | After August 1, 2020 |
+  + West US 2
+  + East US
+  + South Central US
+  + US Gov Virginia
+  + US Gov Arizona
 
-+ The second rollout in May 13, 2021 added encryption for temporary disks and extended CMK encryption to [all other supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product).
++ The second rollout on May 13, 2021 added encryption for temporary disks and extended CMK encryption to [all supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=search#select-product).
 
-  If you're using CMK from a service during the first rollout and you also want CMK encryption over temporary disks, you'll need to create a new search service in your region of choice.
+  If you're using CMK from a service created during the first rollout and you also want CMK encryption over temporary disks, you'll need to create a new search service in your region of choice and redeploy your content.
 
 ## Prerequisites
 

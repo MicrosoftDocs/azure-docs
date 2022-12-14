@@ -180,21 +180,21 @@ For data handled internally by the search service, the following table describes
 
 | Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
-| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets), on data disks and temporary disks |
-| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after August 1 2020. | Content (indexes and synonym maps) on data disks |
+| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 ,018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets), on data disks and temporary disks |
+| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after August 1, 2020. | Content (indexes and synonym maps) on data disks |
 | server-side full encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, on search services after May 13, 2021. | Content (indexes and synonym maps) on data disks and temporary disks |
 
 #### Service-managed keys
 
-Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
+Service-managed encryption is a Microsoft-internal operation that uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
 
-Service-managed encryption applies to permanent and temporary data storage.
+Service-managed encryption applies to all content on long-term and short-term storage.
 
 #### Customer-managed keys (CMK)
 
 Customer-managed keys require another billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. 
 
-CMK support was rolled out in two phases. Your service creation date will determine whether CMK is supported, and to what degree. Services created after May 2021 have full CMK support for double encryption for both data disks and temporary disks. For more information about CMK support, see [Double encryption](search-security-manage-encryption-keys.md#full-double-encryption).
+CMK support was rolled out in two phases. Your service creation date will determine whether CMK is supported, and to what degree. Services created in any region after May 2021 can apply CMK encryption on selected objects. For objects that use CMK encryption, content is encrypted on both long-term and short-term storage. For more information about CMK support, see [full double encryption](search-security-manage-encryption-keys.md#full-double-encryption).
 
 Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30-60 percent in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
