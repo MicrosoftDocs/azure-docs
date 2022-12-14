@@ -250,8 +250,13 @@ Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress`
     nano helm-config.yaml
     ```
 
+   > [!NOTE]
+   > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
+
+
    Values:
      - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
+     - `appgw.environment`: Sets cloud environment. Possbile values: `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, `AZUREPUBLICCLOUD`, `AZUREUSGOVERNMENTCLOUD`
      - `appgw.subscriptionId`: The Azure Subscription ID in which Application Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Name of the Azure Resource Group in which Application Gateway was created. Example: `app-gw-resource-group`
      - `appgw.name`: Name of the Application Gateway. Example: `applicationgatewayd0f0`
