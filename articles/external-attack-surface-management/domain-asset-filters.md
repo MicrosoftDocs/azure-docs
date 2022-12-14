@@ -1,7 +1,7 @@
 ---
 title: Domain asset filters
 titleSuffix: Defender EASM domain asset filters 
-description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for domain assets specifically, includiung operators and applicable field values.
+description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for domain assets specifically, including operators and applicable field values.
 ms.author: dandennis
 ms.service: security
 ms.date: 12/14/2022
@@ -48,4 +48,5 @@ The following filters require that the user manually enters the value with which
 
 ## Next steps 
 [Understanding asset details](understanding-asset-details.md)
+
 [Inventory filters](inventory-filters.md) 
