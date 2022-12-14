@@ -43,7 +43,7 @@ The alerts displayed on the Azure portal are alerts that have been detected by c
 
 This section describes how to view alert details in the Azure portal.
 
-To learn about retention periods for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).
+To learn about data retention for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).
 
 **To view Defender for IoT alerts on the Azure portal**:
 

@@ -11,7 +11,7 @@ Activity that your sensor detects is recorded in the event timeline. Activity in
 
 The event timeline provides a chronological view of events. Use the timeline during investigations, to understand and analyze the chain of events that preceded and followed an attack or incident.
 
-To learn about the retention capacity for event timelines, see [Event timelines retention capacity](references-data-retention.md#event-timelines-retention-capacity).
+To learn about data retention for event timelines, see [Event timelines retention capacity](references-data-retention.md#event-timelines-retention-capacity).
 
 ## Before you start
 

@@ -72,7 +72,7 @@ To export device inventory data, on the **Device inventory** page, select **Expo
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-To learn about the retention periods for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
+To learn about data retention for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
 
 ## Merge devices
 

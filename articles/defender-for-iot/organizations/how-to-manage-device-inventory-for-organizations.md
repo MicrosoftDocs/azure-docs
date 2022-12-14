@@ -109,7 +109,7 @@ On the **Device inventory page**, select **Export** :::image type="icon" source=
 
 The device inventory is exported with any filters currently applied, and you can save the file locally.
 
-To learn about retention periods for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
+To learn about data retention for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
 
 ## Delete a device
 

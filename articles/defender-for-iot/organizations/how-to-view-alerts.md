@@ -36,7 +36,7 @@ After you review the information in an alert, you can carry out various forensic
 
 ## View alerts and alert details
 
-This section describes how to view and filter alerts details on your sensor. For information about retention periods for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).
+This section describes how to view and filter alerts details on your sensor.
 
 **To view alerts in the sensor:**
 
@@ -185,3 +185,5 @@ For more information, see:
 - [Manage the alert event](how-to-manage-the-alert-event.md)
 
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
+
+To learn about data retention for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).

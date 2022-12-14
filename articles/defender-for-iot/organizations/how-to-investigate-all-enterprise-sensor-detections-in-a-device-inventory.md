@@ -46,7 +46,7 @@ To export device inventory data, select the **Import/Export file** :::image type
 
 Save the exported file locally.
 
-To learn about retention periods for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
+To learn about data retention for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
 
 ## Add to and enhance device inventory data
 
