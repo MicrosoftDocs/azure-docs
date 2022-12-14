@@ -180,8 +180,10 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 1. Add Hyper-V modules both initrd and initramfs instructions (Dracut).
-1. Rebuild initrd or initramfs
+1. Rebuild `initrd` or `initramfs`.
+
    **Initramfs**
+
    ```bash
    cp /boot/initramfs-$(uname -r).img /boot/initramfs-[latest kernel version ].img.bak 
    dracut -f -v /boot/initramfs-[latest kernel version ].img  [depending on the version of grub] 
@@ -190,6 +192,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    ```
 
    **Initrd**
+
    ```bash
    mv /boot/[initrd kernel] /boot/[initrd kernel]-old 
    mkinitrd /boot/initrd.img-[initrd kernel]-generic /boot/[initrd kernel]-generic-old 
