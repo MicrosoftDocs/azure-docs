@@ -63,15 +63,44 @@ After selecting a template, on the basics screen:
 
  [![Basics of a workflow.](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
 
-### Workflow details
-Under the workflow details section, you can provide the following information:
+## Workflow overview
+
+Every workflow created has its own overview section, which provides the following:
+
+- Basic Information
+- My Feed
+- Quick Action
+
+In this section you'll learn what each section tells you, and what actions you'll be able to take from this information.
+
+### Basic Information
+
+Within the **Basic Information** you can view the following information:
 
  |Name|Description|
  |-----|-----|
  |Name|The name of the workflow.|
  |Description|A brief description that describes the workflow.|
+ |Category|A string identifying the category of the workflow.|
+ |Date Created|The date and time the workflow was created.|
+ |Workflow ID|A unique string identifier for the workflow.|
+ |Schedule|Defines if the workflow is currently scheduled to run.|
+ |Last run date|The last date and time the workflow ran.|
+ |Last Modified|The last date and time the workflow was modified.|
 
-### Trigger details
+### My Feed
+
+The **My Feed** section of the workflow overview contains a quick peak into when and how the workflow ran. The following information is provided:
+
+- Next target run: The date and time of the next scheduled workflow run.
+- Total processed users: The total number of users processed by the workflow.
+- Processed users with failures: The total users processed with failed status by the workflow.
+- Failed tasks: The total number of failed
+- Number of tasks: The total number of tasks within the workflow.
+- Current version: How many new versions of the workflow have been created.
+
+
+## Trigger details
 
 Under the trigger details section, you can provide the following information.
 
