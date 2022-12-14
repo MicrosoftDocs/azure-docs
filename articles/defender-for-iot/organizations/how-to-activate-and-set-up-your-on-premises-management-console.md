@@ -195,19 +195,19 @@ You can also customize the port range to a number other than 9000. An example is
 
 Sign in to the on-premises management console and run the following command:
 
-      ```bash
-      sudo cyberx-management-tunnel-enable --port 10000
-      
-      ```
+```bash
+sudo cyberx-management-tunnel-enable --port 10000
+          
+```
 
 **To disable the connection**:
 
 Sign in to the on-premises management console and run the following command:
 
-  ```bash
-  cyberx-management-tunnel-disable
+```bash
+cyberx-management-tunnel-disable
   
-  ```
+```
 
 No configuration is needed on the sensor.
 
