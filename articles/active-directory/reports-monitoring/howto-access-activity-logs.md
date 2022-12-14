@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The data in your Azure Active Directory (Azure AD) logs enables you to assess many aspects of your Azure AD tenant. To cover a broad range of scenarios, Azure AD provides you with various options to access your activity log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
 
-This article shows you how to access the Azure AD activity logs and provides common use cases for accessing Azure AD logs data, including recommendations for the right access method. 
+This article shows you how to access the Azure AD activity logs and provides common use cases for accessing Azure AD logs data, including recommendations for the right access method. The article also describes related reports that use the data contained in the activity logs.
 
 ## Prerequisites
 Viewing audit logs is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. To access the sign-ins activity logs, your tenant must have an Azure AD Premium license associated with it.
@@ -78,13 +78,16 @@ The following Azure AD anomalous activity security reports are not included as r
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
 
-### Detected risk detections
+### Risk detection and Azure AD Identity Protection
 
-You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
+You can access reports about risk detections in **[Azure AD Identity Protection](https://portal.azure.com/#view/Microsoft_AAD_IAM/IdentityProtectionMenuBlade/~/Overview)**. With this service you can protect users by reviewing existing user and sign-in risk policies. You can also analyze current activity with the following reports:
 
-- [Users at risk](../identity-protection/overview-identity-protection.md)
-- [Risky sign-ins](../identity-protection/overview-identity-protection.md)
-- [Security reports](./media/howto-find-activity-reports/04.png "Security reports")
+- Risky users
+- Risky workload identities
+- Risky sign-ins
+- Risk detections
+
+For more information, see [What is Identity Protection?](../identity-protection/overview-identity-protection.md)
 
 ## Investigate a single sign-in 
 
@@ -96,9 +99,7 @@ Investigating a single sign-in includes scenarios, in which you need to:
 
 ### Recommendation
 
-For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need.    
-
-The related user interface provides you with filter options enabling you to find the entries you need to solve your scenario.  
+For these one-off investigations with a limited scope, the Azure portal is often the easiest way to find the data you need. The related user interface provides you with filter options enabling you to find the entries you need to solve your scenario.  
 
 Check out the following resources:
 - [Sign-in logs in Azure Active Directory (preview)](concept-all-sign-ins.md)

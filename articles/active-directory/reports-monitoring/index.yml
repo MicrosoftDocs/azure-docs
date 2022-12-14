@@ -46,8 +46,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Access activity reports
-            url: howto-access-activity-reports.md
+          - text: Access activity logs
+            url: howto-access-activity-logs.md
           - text: Remediate users flagged for risk
             url: howto-remediate-users-flagged-for-risk.md
           - text: Use Azure AD workbooks
