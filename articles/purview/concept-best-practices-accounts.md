@@ -57,7 +57,7 @@ An exception applies to VM-based data sources and Power BI tenants.For more info
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Microsoft Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png":::
 
-## Default Microsoft Purview Account
+## Default Microsoft Purview account
 
 Having multiple Microsoft Purview accounts in a tenant poses the challenge of which Microsoft Purview account should all other services like PBI, Synapse connect to. 
 
