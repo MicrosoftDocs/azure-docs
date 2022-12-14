@@ -487,7 +487,7 @@ This table lists some of the key pronunciation assessment results.
 
 | Parameter | Description |
 |-----------|-------------|
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Syllable, word, and full text accuracy scores are aggregated from phoneme-level accuracy score, and refined with assessment objectives.|
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |

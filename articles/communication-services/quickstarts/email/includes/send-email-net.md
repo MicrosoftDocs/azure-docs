@@ -232,7 +232,7 @@ var emailAttachment = new EmailAttachment(
     attachmentFileInBytes
 );
 
-emailMessage.Add(emailAttachment);
+emailMessage.Attachments.Add(emailAttachment);
 ```
 
 You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailWithAttachments)

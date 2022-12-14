@@ -450,7 +450,7 @@ You can access data in the primary storage account directly. There's no need to 
 
 ## IPython Widgets
 
-Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
+Widgets are eventful Python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
 
 ### To use IPython Widget
 1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.

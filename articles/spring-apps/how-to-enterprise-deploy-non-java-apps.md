@@ -66,6 +66,7 @@ The following table indicates the features supported for each language.
 | API portal for VMware Tanzu®                                    | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Spring Cloud Gateway for VMware Tanzu®                          | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | Application Configuration Service for VMware Tanzu®             | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
+| Application Live View for VMware Tanzu®                         | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
 | Application Accelerator for VMware Tanzu®                       | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |
 | VMware Tanzu® Service Registry                                  | ✔️   | ❌    | ❌   | ❌       | ❌ | ❌       |
 | VNET                                                            | ✔️   | ✔️    | ✔️   | ✔️       | ✔️ | ✔️       |

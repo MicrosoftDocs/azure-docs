@@ -62,14 +62,14 @@ In this example, we are going to learn how to deploy a deep learning model based
 
 Batch Endpoint can only deploy registered models. In this case, we need to publish the model we have just downloaded from HuggingFace. You can skip this step if the model you are trying to deploy is already registered.
    
-# [Azure ML CLI](#tab/cli)
+# [Azure CLI](#tab/cli)
 
-```bash
+```azurecli
 MODEL_NAME='bart-text-summarization'
 az ml model create --name $MODEL_NAME --type "custom_model" --path "bart-text-summarization/model"
 ```
 
-# [Azure ML SDK for Python](#tab/sdk)
+# [Python](#tab/sdk)
 
 ```python
 model_name = 'bart-text-summarization'
@@ -136,11 +136,11 @@ One the scoring script is created, it's time to create a batch deployment for it
 
 1. We need to indicate over which environment we are going to run the deployment. In our case, our model runs on `TensorFlow`. Azure Machine Learning already has an environment with the required software installed, so we can reutilize this environment. We are just going to add a couple of dependencies in a `conda.yml` file including the libraries `transformers` and `datasets`.
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    No extra step is required for the Azure ML CLI. The environment definition will be included in the deployment file.
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    Let's get a reference to the environment:
    
@@ -156,7 +156,7 @@ One the scoring script is created, it's time to create a batch deployment for it
    > [!NOTE]
    > This example assumes you have an endpoint created with the name `text-summarization-batch` and a compute cluster with name `cpu-cluster`. If you don't, please follow the steps in the doc [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md).
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
    To create a new deployment under the created endpoint, create a `YAML` configuration like the following:
    
@@ -188,12 +188,12 @@ One the scoring script is created, it's time to create a batch deployment for it
   
    Then, create the deployment with the following command:
    
-   ```bash
+   ```azurecli
    DEPLOYMENT_NAME="text-summarization-hfbart"
    az ml batch-deployment create -f endpoint.yml
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    To create a new deployment with the indicated environment and scoring script use the following code:
    
@@ -231,13 +231,13 @@ One the scoring script is created, it's time to create a batch deployment for it
 
 3. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
-   # [Azure ML CLI](#tab/cli)
+   # [Azure CLI](#tab/cli)
    
-   ```bash
+   ```azurecli
    az ml batch-endpoint update --name $ENDPOINT_NAME --set defaults.deployment_name=$DEPLOYMENT_NAME
    ```
    
-   # [Azure ML SDK for Python](#tab/sdk)
+   # [Python](#tab/sdk)
    
    ```python
    endpoint.defaults.deployment_name = deployment.name

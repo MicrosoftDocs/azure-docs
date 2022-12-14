@@ -142,7 +142,7 @@
     - name: Reliability by service
       items:
       - name: Azure API Management
-        href: ../api-management/api-management-howto-disaster-recovery-backup-restore.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: ../api-management/high-availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure App Configuration
         href: ../azure-app-configuration/faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-does-app-configuration-ensure-high-data-availability
       - name: Azure App Service

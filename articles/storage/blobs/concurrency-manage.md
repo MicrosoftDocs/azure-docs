@@ -6,11 +6,11 @@ services: storage
 author: pauljewellmsft
 
 ms.service: storage
-ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: pauljewell
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

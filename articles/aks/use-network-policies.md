@@ -44,7 +44,7 @@ Azure NPM for Linux uses Linux *IPTables* and Azure NPM for Windows uses *Host N
 | Compliance with Kubernetes specification | All policy types supported |  All policy types supported |
 | Additional features                      | None                       | Extended policy model consisting of Global Network Policy, Global Network Set, and Host Endpoint. For more information on using the `calicoctl` CLI to manage these extended features, see [calicoctl user reference][calicoctl]. |
 | Support                                  | Supported by Azure support and Engineering team | Calico community support. For more information on additional paid support, see [Project Calico support options][calico-support]. |
-| Logging                                  | Logs available with **kubectl log -n kube-system <network-policy-pod>** command | For more information, see [Calico component logs][calico-logs] |
+| Logging                                  | Logs available with **kubectl log -n kube-system \<network-policy-pod\>** command | For more information, see [Calico component logs][calico-logs] |
 
 ## Limitations:
 

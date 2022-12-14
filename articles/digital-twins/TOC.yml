@@ -121,8 +121,6 @@
       href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Logic Apps
       href: how-to-integrate-logic-apps.md
-    - name: Ingest OPC UA data to Azure Digital Twins
-      href: how-to-ingest-opcua-data.md
   - name: Connect output
     items:
     - name: Manage endpoints and routes
@@ -164,13 +162,13 @@
       - name: Control plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/digitaltwins
         - name: Java SDK
           href: /java/api/com.azure.resourcemanager.digitaltwins
       - name: Data plane
         items:
         - name: .NET (C#) SDK
-          href: /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/digitaltwins.core-readme
         - name: Java SDK
           href: /java/api/overview/azure/digital-twins
         - name: JavaScript SDK
@@ -224,9 +222,9 @@
       - name: Control plane Swagger
         href: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable
       - name: .NET (C#) SDK - NuGet
-        href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/
+        href: https://www.nuget.org/packages/Azure.ResourceManager.DigitalTwins
       - name: .NET (C#) SDK - Source code
-        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/digitaltwins/Azure.ResourceManager.DigitalTwins
       - name: Java SDK - Maven
         href: https://search.maven.org/search?q=a:azure-mgmt-digitaltwins
       - name: Java SDK - Source code
@@ -283,6 +281,8 @@
         href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: Azure Digital Twins Postman Collection
         href: https://github.com/microsoft/azure-digital-twins-postman-samples
+      - name: Sample for ingesting OPC UA data into Azure Digital Twins
+        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
       - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: DTDL Validator (sample)
@@ -309,6 +309,8 @@
         href: https://github.com/Azure/opendigitaltwins-smartcities
       - name: Energy grids
         href: https://github.com/Azure/opendigitaltwins-energygrid/
+      - name: Manufacturing
+        href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
   - name: DTDL
     items:
     - name: DTDL extension for VS Code
