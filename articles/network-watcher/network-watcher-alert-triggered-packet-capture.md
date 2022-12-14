@@ -10,7 +10,7 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/20/2021
+ms.date: 12/14/2022
 ms.author: shijaiswal 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 
@@ -24,8 +24,6 @@ This capability can be started remotely from other automation scenarios such as 
 Resources that are deployed in Azure run 24/7. You and your staff cannot actively monitor the status of all resources 24/7. For example, what happens if an issue occurs at 2 AM?
 
 By using Network Watcher, alerting, and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
-
-![Diagram shows Network Watcher extension on a virtual machine which flows to a T C P Segments sent > 100 error, which flows to Azure Functions, which flows to Network Watcher which flows back to Network Watcher extension.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -95,54 +93,6 @@ The first step is to create an Azure function to process the alert and create a 
 
 Customizations are required for this example and are explained in the following steps.
 
-### Add modules
-
-To use Network Watcher PowerShell cmdlets, upload the latest PowerShell module to the function app.
-
-1. On your local machine with the latest Azure PowerShell modules installed, run the following PowerShell command:
-
-    ```powershell
-    (Get-Module Az.Network).Path
-    ```
-
-    This example gives you the local path of your Azure PowerShell modules. These folders are used in a later step. The modules that are used in this scenario are:
-
-   * Az.Network
-
-   * Az.Accounts
-
-   * Az.Resources
-
-     ![PowerShell folders][functions5]
-
-1. Select **Function app settings** > **Go to App Service Editor**.
-
-    ![Function app settings][functions2]
-
-1. Right-click the **AlertPacketCapturePowershell** folder, and then create a folder called **azuremodules**. 
-
-4. Create a subfolder for each module that you need.
-
-    ![Folder and subfolders][functions3]
-
-    * Az.Network
-
-    * Az.Accounts
-
-    * Az.Resources
-
-1. Right-click the **Az.Network** subfolder, and then select **Upload Files**. 
-
-6. Go to your Azure modules. In the local **Az.Network** folder, select all the files in the folder. Then select **OK**. 
-
-7. Repeat these steps for **Az.Accounts** and **Az.Resources**.
-
-    ![Upload files][functions6]
-
-1. After you've finished, each folder should have the PowerShell module files from your local machine.
-
-    ![PowerShell files][functions7]
-
 ### Authentication
 
 To use the PowerShell cmdlets, you must authenticate. You configure authentication in the function app. To configure authentication, you must configure environment variables and upload an encrypted key file to the function app.
@@ -204,11 +154,8 @@ The client ID is the Application ID of an application in Azure Active Directory.
 
 1. In the Azure portal, select **Subscriptions**. Select the subscription to use, and then select **Access control (IAM)**.
 
-    ![Functions IAM][functions9]
-
 1. Choose the account to use, and then select **Properties**. Copy the Application ID.
 
-    ![Functions Application ID][functions10]
 
 #### AzureTenant
 
@@ -318,16 +265,6 @@ The following example is PowerShell code that can be used in the function. There
                 }
             } 
  ``` 
-#### Retrieve the function URL 
-1. After you've created your function, configure your alert to call the URL that's associated with the function. To get this value, copy the function URL from your function app.
-
-    ![Finding the function URL][functions13]
-
-2. Copy the function URL for your function app.
-
-    ![Copying the function URL][2]
-
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 
@@ -353,8 +290,6 @@ Go to an existing virtual machine, and then add an alert rule. More detailed doc
 ## Review the results
 
 After the criteria for the alert triggers, a packet capture is created. Go to Network Watcher, and then select **Packet capture**. On this page, you can select the packet capture file link to download the packet capture.
-
-![View packet capture][functions14]
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
