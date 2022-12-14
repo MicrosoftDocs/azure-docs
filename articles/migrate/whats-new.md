@@ -5,7 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/12/2022
+ms.date: 12/14/2022
 ms.custom: mvc
 ---
 
@@ -25,6 +25,8 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
     - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
     - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
     - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (November 2022)
 
