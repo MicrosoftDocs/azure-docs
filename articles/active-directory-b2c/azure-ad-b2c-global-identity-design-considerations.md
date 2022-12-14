@@ -1,7 +1,7 @@
 ---
-title: Azure Active Directory B2C global identity framework design considerations 
+title: Azure Active Directory B2C global identity framework funnel-based design considerations 
 titleSuffix: Azure AD B2C
-description: Learn the design consideration for Azure AD B2C to provide customer identity management for global customers.
+description: Learn the funnel-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Build a global identity solution
+# Build a global identity solution with funnel-based approach
 
 The architecture you decide to model the solution after, requires making choices based on the trade-offs between the two models described. For example, the funnel model enables you to maintain a single instance of applications. The following section describes the capabilities, selection criteria, and performance that might impact the design you choose.
 
@@ -34,7 +34,7 @@ The following table describes the capabilities provided using a regional versus 
 | Supports fine-grained Conditional Access policies.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
 | Optimized for cost.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
 
-Based on the table above, the following considerations must be taken into account:
+Based on the capabilities, the following considerations must be taken into account:
 
 * When using the region-based approach, the primary consideration is that the approach requires applications spanning multiple regions to have respective configurations for each regional Azure AD B2C tenant.
 
@@ -56,11 +56,11 @@ The approach you choose will be based on the number of applications you host and
 
 The performance advantage of using multiple tenants, in either the regional or funnel-based configuration, will be an improvement over using a single Azure AD B2C tenant for globally operating businesses.
 
-When using the funnel-based approach, although the funnel tenant will be located in one region, but serve users globally, perfomance improvements will be maintained.
+When using the funnel-based approach, although the funnel tenant will be located in one region, but serve users globally, performance improvements will be maintained.
 
 ![Azure AD B2C architecture](./media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-architecture.png)
 
-In the above diagram, the Azure AD B2C tenant in the funnel-based approach will only utilise the Policy Engine to perform the redirection to regional Azure AD B2C tenants. The Azure AD B2C 
+In the above diagram, the Azure AD B2C tenant in the funnel-based approach will only utilize the Policy Engine to perform the redirection to regional Azure AD B2C tenants. The Azure AD B2C 
 Policy Engine component is globally distributed. Therefore, the funnel isn't constrained from a performance perspective, regardless of where the Azure AD B2C funnel tenant is provisioned. A performance loss is encountered due to the extra redirect between funnel and regional tenants in the funnel-based approach.
 
 The regional tenants will perform directory calls into the Directory Store, which is the regionalized component. 
@@ -342,8 +342,12 @@ This use case demonstrates how non-local users are able to perform account linki
 
 1. The funnel tenant issues a token to the application.
 
-### Next steps
+## Next steps
 
-* [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
+- [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-* [Azure AD B2C global identity proof of concept](azure-ad-b2c-global-identity-proof-of-concept.md)
+- [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
+
+- [Azure AD B2C global identity proof of concept funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
+
+- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
