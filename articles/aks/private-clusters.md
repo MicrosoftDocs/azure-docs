@@ -3,29 +3,40 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 10/05/2022
+ms.date: 12/13/2022
 
 ---
 
 # Create a private Azure Kubernetes Service cluster
 
-In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet](https://tools.ietf.org/html/rfc1918) document. By using a private cluster, you can ensure network traffic between your API server and your node pools remains on the private network only.
+In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet][rfc1918-document] document. By using a private cluster, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
-The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
+The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. Your cluster or node pool is in your subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed on the subnet of your AKS cluster.
 
-When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an additional public FQDN with a corresponding A record in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.  
+When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an additional public FQDN with a corresponding A record in Azure public DNS. The agent nodes continue to use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
+
+The purpose of this article is to help you deploy a private link-based AKS cluster. If you are interested in creating an AKS cluster without any required private link or tunnel, see [create an Azure Kubernetes Service cluster with API Server VNet Integration][create-aks-cluster-api-vnet-integration] (preview).
 
 ## Region availability
 
-Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+Private cluster is available in public regions, Azure Government, and Azure China 21Vianet regions where [AKS is supported][aks-supported-regions].
 
 ## Prerequisites
 
 * The Azure CLI version 2.28.0 and higher.
 * The aks-preview extension 0.5.29 or higher.
-* If using ARM or the Azure REST API, the AKS API version must be 2021-05-01 or higher.
+* If using Azure Resource Manager (ARM) or the Azure REST API, the AKS API version must be 2021-05-01 or higher.
 * Azure Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 * To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
+
+## Limitations
+
+* IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
+* [Azure Private Link service limitations][private-link-service] apply to private clusters.
+* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents). 
+* If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
+* No support for converting existing AKS clusters into private clusters
+* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning.
 
 ## Create a private AKS cluster
 
@@ -43,7 +54,7 @@ az group create -l westus -n MyResourceGroup
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
 
-Where `--enable-private-cluster` is a mandatory flag for a private cluster. 
+Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 ### Advanced networking  
 
@@ -63,7 +74,7 @@ az aks create \
 Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 > [!NOTE]
-> If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
+> If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address.
 
 ## Use custom domains
 
@@ -91,9 +102,12 @@ The following parameters can be leveraged to configure Private DNS Zone.
 
 - "system", which is also the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
 - "none", defaults to public DNS which means AKS will not create a Private DNS Zone.  
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `network contributor` roles.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You need the Resource ID of that Private DNS Zone going forward. Additionally, you need a user assigned identity or service principal with at least the `private dns zone contributor`  and `network contributor` roles.
   - If the Private DNS Zone is in a different subscription than the AKS cluster, you need to register Microsoft.ContainerServices in both the subscriptions.
   - "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
+
+    > [!NOTE]
+    > Deploying a private link-based AKS cluster only supports a Private DNS Zone using the following naming format `privatelink.<region>.azmk8s.io` or `<subzone>-privatelink.<region>.azmk8s.io`.
 
 ### Create a private AKS cluster with Private DNS Zone
 
@@ -239,14 +253,11 @@ Once the A record is created, link the private DNS zone to the virtual network t
 > [!WARNING]
 > If the private cluster is stopped and restarted, the private cluster's original private link service is removed and re-created, which breaks the connection between your private endpoint and the private cluster. To resolve this issue, delete and re-create any user created private endpoints linked to the private cluster. DNS records will also need to be updated if the re-created private endpoints have new IP addresses.
 
-## Limitations
+## Next steps
 
-* IP authorized ranges can't be applied to the private API server endpoint, they only apply to the public API server
-* [Azure Private Link service limitations][private-link-service] apply to private clusters.
-* No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider using [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 
-* If you need to enable Azure Container Registry to work with a private AKS cluster, [set up a private link for the container registry in the cluster virtual network][container-registry-private-link] or set up peering between the Container Registry virtual network and the private cluster's virtual network.
-* No support for converting existing AKS clusters into private clusters
-* Deleting or modifying the private endpoint in the customer subnet will cause the cluster to stop functioning.
+<!-- LINKS - external -->
+[rfc1918-document]: https://tools.ietf.org/html/rfc1918
+[aks-supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 
 <!-- LINKS - internal -->
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
@@ -258,3 +269,4 @@ Once the A record is created, link the private DNS zone to the virtual network t
 [virtual-networks-name-resolution]: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server
 [virtual-networks-168.63.129.16]: ../virtual-network/what-is-ip-address-168-63-129-16.md
 [use-custom-domains]: coredns-custom.md#use-custom-domains
+[create-aks-cluster-api-vnet-integration]: api-server-vnet-integration.md

@@ -8,9 +8,9 @@ ms.custom: references_regions
 
 ---
 
-# Create an Azure Kubernetes Service cluster with API Server VNet Integration (PREVIEW)
+# Create an Azure Kubernetes Service cluster with API Server VNet Integration (Preview)
 
-An Azure Kubernetes Service (AKS) cluster with API Server VNet Integration configured projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. This enables network communication between the API server and the cluster nodes without any required private link or tunnel. The API server will be available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes will be configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
+An Azure Kubernetes Service (AKS) cluster configured with API Server VNet Integration (Preview) projects the API server endpoint directly into a delegated subnet in the VNet where AKS is deployed. This enables network communication between the API server and the cluster nodes without any required private link or tunnel. The API server will be available behind an Internal Load Balancer VIP in the delegated subnet, which the nodes will be configured to utilize. By using API Server VNet Integration, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -62,6 +62,11 @@ When the feature has been registered, refresh the registration of the *Microsoft
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## Limitations
+
+* Existing AKS private clusters cannot be converted to API Server VNet Integration clusters at this time.
+* [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
 
 ## Create an AKS cluster with API Server VNet Integration using Managed VNet
 
@@ -217,10 +222,7 @@ az aks update -n <cluster-name> \
     --disable-private-cluster
 ```
 
-## Limitations
-
-* Existing AKS private clusters cannot be converted to API Server VNet Integration clusters at this time.
-* [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
+## Next steps
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az_provider_register
