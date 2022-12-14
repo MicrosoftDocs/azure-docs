@@ -5,7 +5,7 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -201,7 +201,7 @@ The [Azure Linux Agent](../extensions/agent-linux.md) `waagent` provisions a Lin
    The Azure Linux Agent is required for provisioning a Linux image on Azure.  Many distributions provide the agent as an RPM or .deb package (the package is typically called WALinuxAgent or walinuxagent).  The agent can also be installed manually by following the steps in the [Linux Agent Guide](../extensions/agent-linux.md).
    
 > [!NOTE]
-> Make sure **'udf'** and **'vfat'** modules are enable. Blacklisting or removing the udf module will cause a provisioning failure.  Blacklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+> Make sure **'udf'** and **'vfat'** modules are enable. Blocklisting or removing the udf module will cause a provisioning failure.  Blocklisting or removing vfat module will cause both provisioning and boot failures.  **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
    
    Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
@@ -242,11 +242,11 @@ Modify the following parameters in /etc/waagent.conf
 Cloud-init
 Configure cloud-init to handle the provisioning:
     
-       ```bash
-       sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
-       sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-       sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-     ```
+    ```bash
+    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+    ```
 Configure Cloud-init to create swap
 To format and create swap you have 2 options either:
 
