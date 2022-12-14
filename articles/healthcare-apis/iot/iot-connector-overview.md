@@ -48,7 +48,7 @@ These stages are:
 
 2. **Normalize** - After the data has been ingested, the MedTech service uses device mapping to streamline and translate it into a normalized schema format.
 
-3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
+3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation ID.
 
 4. **Transform** - When the normalized data is grouped, it's transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
 
