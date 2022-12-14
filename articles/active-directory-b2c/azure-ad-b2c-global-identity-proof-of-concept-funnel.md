@@ -167,8 +167,6 @@ The following section describes how to create proof of concept implementations f
 1. Configure cross tenant password reset via REST API call
    > Will require brokering API using client_credential authentication and User Admin role applied to the service principal.
 
-### Next steps
-
 ## Next steps
 
 - [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
