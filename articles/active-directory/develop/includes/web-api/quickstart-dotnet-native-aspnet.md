@@ -25,7 +25,7 @@ The article also uses a Windows Presentation Foundation (WPF) app to demonstrate
 
 ## Clone or download the sample
 
-The code sample can be obtained in  two ways:
+The code sample can be obtained in two ways:
 
 * Clone it from your shell or command line:
 
