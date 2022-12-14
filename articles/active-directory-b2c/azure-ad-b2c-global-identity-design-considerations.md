@@ -350,4 +350,3 @@ This use case demonstrates how non-local users are able to perform account linki
 
 - [Azure AD B2C global identity proof of concept funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
 
-- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
