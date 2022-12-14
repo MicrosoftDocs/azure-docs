@@ -82,34 +82,34 @@ After the Device Update agent is running on an IoT device, you must add the devi
    ```bash
    sudo nano /etc/adu/du-config.json
    ```
-  Set up values as shown below in the configuration file: 
-  
-  ```bash
-    {
-      "schemaVersion": "1.1",
-      "aduShellTrustedUsers": [
-        "adu",
-        "do"
-      ],
-      "iotHubProtocol": "mqtt",
-      "manufacturer": "Contoso",
-      "model": "Video",
-      "agents": [
-        {
-          "name": 'aduagent1',
-          "runas": "adu",
-          "connectionSource": {
-            "connectionType": "string", //or “AIS”
-            "connectionData": <Place your Azure IoT device connection string here>
-          },
+    Set up values as shown below in the configuration file: 
+
+    ```bash
+      {
+        "schemaVersion": "1.1",
+        "aduShellTrustedUsers": [
+          "adu",
+          "do"
+        ],
+        "iotHubProtocol": "mqtt",
         "manufacturer": "Contoso",
         "model": "Video",
-        }
-      ]
-    }
-  ```
-   > [!NOTE]
-   >You can also use IoT Identity Service to provision the device. To do, that [install the iot indentity service] (https://azure.github.io/iot-identity-service/installation.html) before the agent and set the connectionType to 'AIS' and connectionData as a blank string in the [configuration file](device-update-configuration-file.md) above. 
+        "agents": [
+          {
+            "name": 'aduagent1',
+            "runas": "adu",
+            "connectionSource": {
+              "connectionType": "string", //or “AIS”
+              "connectionData": <Place your Azure IoT device connection string here>
+            },
+          "manufacturer": "Contoso",
+          "model": "Video",
+          }
+        ]
+      }
+    ```
+     > [!NOTE]
+     >You can also use IoT Identity Service to provision the device. To do, that [install the iot indentity service] (https://azure.github.io/iot-identity-service/installation.html) before the agent and set the connectionType to 'AIS' and connectionData as a blank string in the [configuration file](device-update-configuration-file.md) above. 
 
 1. Set up the agent to run as a simulator. Run the following command on the IoT device so that the Device Update agent invokes the simulator handler to process a package update with SWUpdate (`microsoft/swupdate:1`).
 
