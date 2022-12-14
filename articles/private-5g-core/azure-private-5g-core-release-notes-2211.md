@@ -22,7 +22,7 @@ The support lifetime for version 2211 is extended – due to the December holida
 
 ## What's new
 
-**Multiple attached data networks** - This release extends AP5GC to support connectivity to up to three Attached Data Networks for each Packet Core instead of one. 
+**Multiple data networks** - This release extends AP5GC to support connectivity to up to three Attached Data Networks for each Packet Core instead of one. 
 
 The operator can provision UEs as subscribed in one or more Data Networks and apply Data Network-specific policy and QoS, allowing UEs to use multiple Layer 3 uplink networks selected based on policy or UE preference. 
 
