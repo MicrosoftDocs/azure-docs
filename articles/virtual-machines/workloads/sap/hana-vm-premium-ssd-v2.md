@@ -8,7 +8,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/09/2022
+ms.date: 12/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
