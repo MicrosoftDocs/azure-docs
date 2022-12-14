@@ -34,13 +34,13 @@ Azure AD B2C is a globally distributed service made up of several components:
 
 When creating an Azure AD B2C solution, you must provide a location to host the service. This location only pertains to the region in which the user profile data will be stored, while the rest of the service that processes your sign-in runs globally.
 
-You typically deploy Azure AD B2C tenant in the region closest to their user base. This makes it easier to maintain compliance with data residency laws, as the user profile is only replicated in the respective region. This also provides the best performance during sign-in, as lower latencies to the directory and user store are experienced.
+You typically deploy an Azure AD B2C tenant in the region closest to your user base. This makes it easier to maintain compliance with data residency laws, as the user profile is only replicated in the [selected region](https://learn.microsoft.com/en-us/azure/active-directory-b2c/data-residency). This also provides the best performance during sign-in, as network latencies are optimized to the directory store.
 
-When the Azure AD B2C service serves users across the globe, this poses a challenge. You must determine which location you create the Azure AD B2C tenant in. Users outside the region may not be compliant with data residency requirements and may also experience increased latency.
+When your Azure AD B2C directory requires to service users across the globe, the regional structure poses a challenge. You must determine which location to create the Azure AD B2C tenant in. Any users outside the selected region may not be compliant with data residency requirements and may also experience increased latency when verifying their credentials or reading their user profile data.
 
-For example, consider a solution that supports users in Australia (AUS) and North America, where the optimum domain controllers (DCs) are in North America. Traffic that originates from Australia will experience increased latency to complete their sign-in.
+For example, consider an application that supports users in Australia and North America, and Azure AD B2C directory is created in the North America region. Users who sign-in from Australia may face longer processing times to complete their authentication.
 
-You must deploy multiple Azure AD B2C tenants to meet data residency requirements and mitigate performance issues. By placing the tenant in the same region where customers live, the operations into the directory are optimized for latency. However, by doing so, the solution creates additional overheads to configure, manage and protect these sensitive tenant resources in each region. Additional overheads include:
+To better meet data residency requirements and mitigate performance issues, you must deploy multiple Azure AD B2C tenants. By placing a tenant in each region where your business operates, the operations into the directory are optimized for latency. However, by doing so, the solution creates additional overheads to configure, manage and protect these sensitive tenant resources in each region. Additional overheads include:
 
 * Tenant administration
 
@@ -66,17 +66,17 @@ The following are two approaches to consider when implementing an identity platf
 
 * The first approach uses geographical regions as the boundary and applications are configured specifically for the region.
 
-* The second approach has a global boundary for the applications and uses an Azure AD B2C tenant to orchestrate interaction between regional tenants.
+* The second approach has a global boundary for the applications and uses an additional Azure AD B2C tenant to orchestrate interaction between regional tenants.
 
 ## Regional tenant orchestration
 
-In this model, applications are either hosted per region, or have a per region configuration to connect to the regional tenants. Applications directly send the user to a region-specific tenant. Cross tenant communication is used to perform cross tenant authentications, or profile updates across tenants.
+In this model, applications are either hosted per region, or have a per region configurations to connect to a regional tenant. Applications directly send the user to a region-specific tenant. Cross tenant communication is used to perform cross tenant authentications, or profile updates across tenants, when the user may have travelled to a different region.
 
 ![Regional tenant orchestration](media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-regional-tenant-orchestration.png)
 
 ## Funnel tenant orchestration
 
-In this model, an Azure AD B2C tenant funnels users to regional Azure AD B2C tenants. The funnel tenant functions as a redirect orchestrator to other Azure AD B2C tenants. This is handled by a globally distributed component of the service, therefore that performance isn't a factor. This redirection is performed using OpenId identity provider federations.
+In this model, an Azure AD B2C tenant funnels users to regional Azure AD B2C tenants. The funnel tenant functions as a redirect orchestrator to other Azure AD B2C tenants. This is handled by a globally distributed component of the Azure AD B2C service, therefore performance is unaffected. This redirection is performed using OpenId Connect identity provider federations.
 
 Cross tenant communication is used to perform cross tenant authentications, or profile updates across tenants. The funnel tenant provides applications a single endpoint to communicate with.
 
