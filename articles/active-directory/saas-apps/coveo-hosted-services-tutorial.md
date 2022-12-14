@@ -94,7 +94,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Screenshot shows the image of attributes configuration.](common/default-attributes.png "Image")
 
-1. In addition to above, Coveo Hosted Services application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Coveo Hosted Services application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
 	| Name |  Source Attribute|
 	| ---------------|  --------- |
@@ -131,7 +131,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Coveo Hosted Services tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Coveo Hosted Services tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Coveo Hosted Services for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
