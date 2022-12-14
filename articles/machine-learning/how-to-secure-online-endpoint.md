@@ -46,7 +46,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
 
-* If you want to use a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permission. For details about the required permissions, see [Set up service authentication](/azure/machine-learning/how-to-identity-based-service-authentication#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
+* If you want to use a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) to create and manage online endpoints and online deployments, the identity should have the proper permissions. For details about the required permissions, see [Set up service authentication](/azure/machine-learning/how-to-identity-based-service-authentication#workspace). For example, you need to assign the proper RBAC permission for Azure Key Vault on the identity.
 
 > [!IMPORTANT]
 > The end-to-end example in this article comes from the files in the __azureml-examples__ GitHub repository. To clone the samples repository and switch to the repository's `cli/` directory, use the following commands: 
