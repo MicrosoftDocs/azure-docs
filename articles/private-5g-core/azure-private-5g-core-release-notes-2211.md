@@ -10,15 +10,15 @@ ms.date: 12/12/2022
 
 # Azure Private 5G Core 2211 release notes
 
-The following release notes identify the new features, critical open issues, and resolved issues for the 2211 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they’re added. Before deploying this new version, please carefully review the information contained in these release notes.  
+The following release notes identify the new features, critical open issues, and resolved issues for the 2211 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they’re added. Before deploying this new version, please review the information contained in these release notes.  
 
 This article applies to the AP5GC 2211 release (PMN-2211-0). This release is compatible with the ASE Pro GPU running the ASE 2210 release and is supported by the 2022-04-01-preview and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions.
 
 ## Support
 
-The default support lifetime for a Packet Core version is roughly 2 calendar months from release. 
+The default support lifetime for a Packet Core version is roughly two calendar months from release. 
 
-The support lifetime for version 2211 is extended – due to the December holiday period – to 3 calendar months and will end on February 28th, 2023. Please be prepared to plan your Packet Core upgrade to a future version before 2211 goes out of support on this date. 
+The support lifetime for version 2211 is extended – due to the December holiday period – to three calendar months and will end on February 28, 2023. Please be prepared to plan your Packet Core upgrade to a future version before 2211 goes out of support on this date. 
 
 ## What's new
 
@@ -44,10 +44,10 @@ The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |
   |-----|-----|-----|
-  | 1 | 4G/5G Signaling  | In rare scenarios when a significant number of UEs are bulk registered and send continuous data, the core may incorrectly release data sessions. This issue has been fixed in this release.  |
+  | 1 | 4G/5G Signaling  | In rare scenarios when a significant number of UEs are bulk-registered and send continuous data, the core may incorrectly release data sessions. This issue has been fixed in this release.  |
   | 2 | 4G/5G Signaling  | Azure Private 5G Core may perform an unnecessary PDU Session Resource Setup Transaction following a UE-initiated service request. This issue has been fixed in this release.  |
-  | 3 | Local distributed tracing  | The distributed tracing web GUI fails to display and decode some fields of 4G/5G NAS messages. Specifically, the 'Request Type' and 'DNN' information elements. This issue has been fixed in this release.  |
-  | 4 | Performance | It has been observed very rarely that CPU allocation in an Azure Private 5G Packet Core deployment can result in some signaling processing workloads sharing a logical CPU core with data plane processing workloads, resulting in session creation failures and packet processing latency or failures at a moderate load. This issue has been fixed in this release.  |
+  | 3 | Local distributed tracing  | The distributed tracing web GUI fails to display and decode 'Request Type' and 'DNN' information elements in 4G/5G NAS messages. This issue has been fixed in this release.  |
+  | 4 | Performance | Very rarely, CPU allocation can result in some signaling processing workloads sharing a logical CPU core with data plane processing workloads. This results in session creation failures and packet processing latency or failures at a moderate load. This issue has been fixed in this release.  |
   | 5 | Local dashboards | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server. This issue has been fixed in this release.  |
 
 ## Known issues in the AP5GC 2211 release
@@ -58,7 +58,7 @@ The following table provides a summary of known issues in this release.
   |-----|-----|-----|
   | 1 | Packet forwarding | If Azure Private 5G Core is deployed into a network where the gNodeB is on the same subnet as the Packet Core's N3 interface address (that is, there is no gateway router between them) then all downstream traffic is broken.   | 
   | 2 | Local dashboards | In deployments with multiple Data Networks, **UPF Downstream CPU Utilization** is incorrectly reported on the local dashboards when running calls using single Data Network.  | 
-  | 3 | Local dashboards  | In some scenarios, the local dashboards do not show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
+  | 3 | Local dashboards  | In some scenarios, the local dashboards don't show session rejection under the **Device and Session Statistics** panel if Session Establishment requests are rejected due to invalid PDU type (e.g. IPv6 when only IPv4 supported).   | 
 
 
 ## Known issues from previous releases
