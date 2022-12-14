@@ -21,11 +21,11 @@ This article shows you how to limit the source accounts of copy operations to ac
 > **Permitted scope for copy operations** is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## About the AllowedCopyScope setting
+## About the permitted scope for copy operations
 
-The **AllowedCopyScope** property of a storage account defines the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
+The **AllowedCopyScope** property of a storage account is used to specify the environments from which data can be copied to the destination account. It is displayed in the Azure portal as configuration setting **Permitted scope for copy operations**. The property is not set by default and does not return a value until you explicitly set it. It has three possible values:
 
-- ***(not defined)*** (default): Allow copying from any storage account to the destination account.
+- ***(null)*** (default): Allow copying from any storage account to the destination account.
 - **AAD**: Permits copying only from accounts within the same Azure AD tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
@@ -48,7 +48,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
 1. In the **Monitoring** section, select **Diagnostic settings**.
-1. Select the Azure Storage service for which you want to log requests. For example, choose **blob** to log requests to Blob storage.
+1. Select the Azure Storage service for which you want to log requests. For example, choose **blob** to log requests to Blob Storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
 1. Under **Categories**, in the **Logs** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
@@ -62,13 +62,17 @@ After you create the diagnostic setting, requests to the storage account are sub
 
 Azure Storage logs include all requests to copy data to a storage account from another source. The log entries include the name of the destination storage account and the URI of the source object, along with information to help identify the client requesting the copy. For a complete reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
-To retrieve logs for copy requests made in the last seven days, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the source objects most frequently referenced in requests to copy data to the specified storage account. In the following example, replace the placeholder text *`<account-name>`* with your own storage account name.
+To retrieve logs for requests to copy blobs made in the last seven days, follow these steps:
 
-```kusto
-StorageBlobLogs
-| where OperationName has "CopyBlobSource" and TimeGenerated > ago(7d) and AccountName == "<account-name>"
-| summarize count() by Uri, CallerIpAddress, UserAgentHeader
-```
+1. Navigate to your storage account in the Azure portal.
+1. In the **Monitoring** section, select **Logs**.
+1. Paste the following query into a new log query and run it. This query displays the source objects most frequently referenced in requests to copy data to the specified storage account. In the following example, replace the placeholder text *`<account-name>`* with your own storage account name.
+
+    ```kusto
+    StorageBlobLogs
+    | where OperationName has "CopyBlobSource" and TimeGenerated > ago(7d) and AccountName == "<account-name>"
+    | summarize count() by Uri, CallerIpAddress, UserAgentHeader
+    ```
 
 The results of the query should look similar to the following:
 
@@ -121,7 +125,7 @@ To configure the permitted scope for copy operations for an existing storage acc
 
 # [PowerShell](#tab/azure-powershell)
 
-To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account.
+To configure the permitted scope for copy operations for a new or existing storage account with PowerShell, install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 4.9.0 or later. Next, configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the allowedCopyScope parameter are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
 
 The following example shows how to set the **AllowedCopyScope** property for an existing storage account to allow copying data only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
@@ -151,7 +155,7 @@ To configure the permitted scope for copy operations for a new or existing stora
     >
     > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-1. Use the **allowed-copy-scope** argument of the `az storage account create` or `az storage account update` command to configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the argument are *AAD* or *PrivateLink*.
+1. Use the **allowed-copy-scope** argument of the `az storage account create` or `az storage account update` command to configure the **AllowedCopyScope** property for a new or existing storage account. The only supported values for the argument are *AAD* or *PrivateLink*. To set **AllowedCopyScope** to the default setting of *From any storage account*, you will need to change it in the Azure portal.
 
 The following example shows how to configure the **AllowedCopyScope** property for an existing storage account to allow copying data to the destination account only from storage accounts within the same Azure AD tenant. Replace the placeholder values in angle brackets (**\<\>**) with your own values:
 
