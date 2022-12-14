@@ -61,7 +61,7 @@ sections:
       - question: |
           How long does it take until I can see the activity data after I've completed my task?
         answer: |
-          Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records.
+          Audit logs have a latency ranging from 15 minutes to an hour. Sign-in activity logs can take from 15 minutes to up to 2 hours for some records. If you don’t see the logs even after two hours, please [file a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) and we'll look into it.
 
       - question: |
           Can I get Microsoft 365 activity log information through the Azure portal?
@@ -76,8 +76,12 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
+          You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records. You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
 
+      - question: |
+          How long does Azure AD store activity logs?
+        answer: |
+          Depending on your license, Azure AD stores activity logs for between 7 and 30 days. For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 
   - name: Sign-in logs
     questions:

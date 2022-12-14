@@ -67,8 +67,6 @@
       href: howto-configure-prerequisites-for-reporting-api.md
     - name: Download logs
       href: howto-download-logs.md
-    - name: Find activity reports
-      href: howto-find-activity-reports.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
     - name: Troubleshoot sign-in errors for a user
@@ -82,8 +80,6 @@
     items:
     - name: Analyze activity logs in Azure Monitor logs
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Install and use the log analytics views for Azure AD
-      href: howto-install-use-log-analytics-views.md
     - name: Integrate activity logs with Azure Monitor logs
       href: howto-integrate-activity-logs-with-log-analytics.md    
     - name: Integrate activity logs with ArcSight
