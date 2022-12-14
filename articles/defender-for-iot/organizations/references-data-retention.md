@@ -14,7 +14,6 @@ There are several types of forensic data stored on either a local sensor, a loca
 New alerts are automatically closed if no identical traffic is detected 14 days after the initial detection. After 90 days of being closed, the alert is removed from the sensor console.  
 
 - If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
-
 - Changing the status of an alert to *Learn*, *Mute* or *Close* doesn't affect how long the alert is displayed in the sensor console.
 
 | Storage type | Details |
@@ -27,7 +26,7 @@ New alerts are automatically closed if no identical traffic is detected 14 days 
 
 | Storage type | Details |
 |---------|---------|
-| **Global cloud storage on the Azure portal** | PCAP files are available for download from the Azure portal for as long as the on premises sensor stores them. <br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
+| **Global cloud storage on the Azure portal** | PCAP files are available for download from the Azure portal for as long as the on premises sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
 | **Local storage on the sensor** | PCAP files are stored on the sensor for up to 90 days, depending on the sensor storage capacity. <br><br> Maximum size of filtered PCAPs allowed is 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
 | **Central storage on the on-promises management console** | PCAPs aren't stored on the on-premises management console, but can be accessed through a direct link between the on-premises management console and the sensor, for as long as the on premises sensor stores them. |
 
@@ -35,7 +34,7 @@ New alerts are automatically closed if no identical traffic is detected 14 days 
 
 | Storage type | Details |
 |---------|---------|
-| **Local storage on the sensor** | The maximum size of sensor backup files stored on the sensor itself is 100 GB. <br> If the size of the backup files passes this limit, old backup files are deleted. However, each sensor has its own backup directory on the management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
+| **Local storage on the sensor** | The maximum size of sensor backup files stored on the sensor itself is 100 GB. <br><br> If the size of the backup files passes this limit, old backup files are deleted. However, each sensor has its own backup directory on the management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
 | **Central storage on the on-promises management console** | There are two types of backups saved on the on-premises management console, and each has a property of maximum size allowed: <br><br> - On-premises management console backups, where the maximum size is `backup.max_directory_size.gb` (about 10 GB) <br> - [Sensor backups on the on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#backup-storage-for-sensors), where the size is `sensors_backup.total_size_allowed.gb` (about 40 GB). <br><br> For more information, see [Define sensor backup schedules](how-to-manage-sensors-from-the-on-premises-management-console.md#define-sensor-backup-schedules). |
 
 > [!TIP]
