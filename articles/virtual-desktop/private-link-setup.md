@@ -167,7 +167,7 @@ Follow the directions in [Tutorial: Filter network traffic with a network securi
 When you set up your NSG, you must configure it to allow both the URLs in the [required URL list](safe-url-list.md) and your private endpoints. Make sure to include the URLs for Azure Monitor.
 
 >[!NOTE]
->If you intend to restrict network ports from either the user clients or your session host VMs to the private endpoints you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the endpoint IP assigned with the rdgateway FQDN created by the hostpool subresource private endpoint type. If you restrict the ports to the endpoint your users may not be able to connect successfully due to the inability to connect to the Azure Virtual Desktop service. 
+>If you intend to restrict network ports from either the user clients or your session host VMs to the private endpoints you will need to allow traffic across the entire TCP dynamic port range of 1 - 65535 to the private endpoint for the hostpool resource using the "connection" sub-resource. If you restrict the ports to the endpoint your users may not be able to connect successfully due to the inability to connect to the Azure Virtual Desktop service. 
 
 ## Validate your Private Link deployment
 
