@@ -130,7 +130,7 @@ To configure customer-managed keys for an existing account with automatic updati
 
     :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 
-1. Select the **Customer Managed-Keys** option. If the account was previously configured for **Customer-Managed Keys** with manual updating of the key version, select **Change key** near the bottom of the page.
+1. Select the **Customer-Managed Keys** option. If the account was previously configured for **Customer-Managed Keys** with manual updating of the key version, select **Change key** near the bottom of the page.
 1. Choose the **Select from Key Vault** option.
 1. Select **Select a key vault and key**.
 1. Select the key vault containing the key you want to use. You can also create a new key vault.
