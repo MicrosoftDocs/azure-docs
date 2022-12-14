@@ -93,13 +93,13 @@ This quickstart will be deprecated in the near future and will be updated to use
 > 1. Open webapi.csproj
 > 1. Remove the following line:
 >
->  ```xml
+>  ```C#
    <TargetFramework>netcoreapp3.1</TargetFramework>
    ```
 
 > 1. Add the following line in its place:
 >
->  ```xml
+>  ```C#
    <TargetFramework>netcoreapp6.0</TargetFramework>
    ```
 
