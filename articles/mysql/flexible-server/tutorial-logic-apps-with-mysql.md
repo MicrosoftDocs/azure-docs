@@ -47,8 +47,6 @@ CREATE TABLE `orders` (
 
 3. On the **Logic apps** page, select **Add**.
 
-  > :::image type="content" source="/media/tutorial-logic-apps-with-mysql/add-new-logic-app.png" alt-text="creenshot showing the Azure portal and Logic Apps service page and add option selected":::
-
 4. On the **Create Logic App** pane, on the **Basics** tab, provide the following basic information about your logic app:
   -  **Subscription**: Your Azure subscription name.
   -   **Resource Group**: The Azure resource group where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**).
