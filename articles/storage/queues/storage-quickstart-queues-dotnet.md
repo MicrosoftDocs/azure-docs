@@ -288,7 +288,7 @@ QueueMessage[] messages = await queueClient.ReceiveMessagesAsync(maxMessages: 10
 
 ### Delete messages from a queue
 
-Delete messages from the queue after they're been processed. In this case, processing is just displaying the message on the console.
+Delete messages from the queue after they've been processed. In this case, processing is just displaying the message on the console.
 
 The app pauses for user input by calling `Console.ReadLine` before it processes and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted. Any messages not explicitly deleted will eventually become visible in the queue again for another chance to process them.
 
