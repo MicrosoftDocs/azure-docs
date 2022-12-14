@@ -1,7 +1,6 @@
 ---
 title: Forward on-premises OT alert information to partners - Microsoft Defender for IoT
 description: Learn how to forward OT alert details from an OT sensor or on-premises management console to partner services.
-forwarding rules.
 ms.date: 12/08/2022
 ms.topic: how-to
 ---
