@@ -127,7 +127,7 @@ Configure your TodoListClient project by adding the Application ID to the *app.c
 
 ## Run your projects
 
-Start both projects. If Visual Studio is being used:
+Start both projects. For Visual Studio users;
 
 1. Right click on the Visual Studio solution and select **Properties**
 
