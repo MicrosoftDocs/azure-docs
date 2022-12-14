@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 12/13/2022
 ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -64,6 +64,6 @@ The following table provides a list of control IDs and associated customer respo
 
 * [Configure CMMC Level 1 controls](configure-cmmc-level-1-controls.md)
 
-* [Configure CMMC Level 2 Identification and Authentication (IR) controls](configure-cmmc-level-2-identification-and-authentication.md)
+* [Configure CMMC Level 2 Identification and Authentication (IA) controls](configure-cmmc-level-2-identification-and-authentication.md)
 
 * [Configure CMMC Level 2 additional controls](configure-cmmc-level-2-additional-controls.md)
