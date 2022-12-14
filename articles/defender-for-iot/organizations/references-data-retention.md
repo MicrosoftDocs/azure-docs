@@ -7,7 +7,7 @@ ms.date: 12/14/2022
 
 # Data retention
 
-There are several types of forensic data stored on either a local sensor, a local central manager, or on the Azure portal. Each destination allows a certain storage capacity for each type of data, depending on its architecture. This article details how long a certain data type is stored, or, alternatively, how much of that data is stored until it is either deleted or overridden.
+There are several types of forensic data stored on either a local sensor, a local central manager, or on the Azure portal. Each destination allows a certain storage capacity for each type of data, depending on its architecture. This article details how long a certain data type is stored, or, alternatively, how much of that data is stored until it's either deleted or overridden.
 
 ## Alerts retention periods
 
@@ -19,7 +19,7 @@ New alerts are automatically closed if no identical traffic is detected 14 days 
 
 If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
 
-Changing the status of an alert to *Learn*, *Mute* or *Close* does not impact how long the alert is displayed in the sensor console.
+Changing the status of an alert to *Learn*, *Mute* or *Close* doesn't affect how long the alert is displayed in the sensor console.
 
 For more information, see [View alerts on your sensor](how-to-view-alerts.md).
 
@@ -45,7 +45,7 @@ For more information, see [Download PCAP files](how-to-view-alerts.md#download-p
 
 **Central storage on the on-promises management console**:
 
-PCAPs are not stored on the on-premises management console, but can be accessed through a direct link between the on-premises management console and the sensor, for as long as the on premises sensor stores them.
+PCAPs aren't stored on the on-premises management console, but can be accessed through a direct link between the on-premises management console and the sensor, for as long as the on premises sensor stores them.
 
 **Global cloud storage on the Azure portal**:
 
@@ -95,7 +95,7 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 ## Event timelines retention capacity
 
-Event timeline data is stored according to the sensor's [hardware profile](ot-appliance-sizing.md). Each hardware profile has a capacity to store a certain number of events:
+Event timeline data is stored according to the sensor's [hardware profile](ot-appliance-sizing.md). Each hardware profile has a capacity to store a set number of events:
 
 | Hardware profile | Number of events |
 |---------|---------|
@@ -104,18 +104,18 @@ Event timeline data is stored according to the sensor's [hardware profile](ot-ap
 | E1000 | 6M events |
 | E500 | 6M events |
 | L500 | 3M events |
-| L100 | 500 K events |
-| L60 | 500 K events |
+| L100 | 500-K events |
+| L60 | 500-K events |
 
 For more information about event timelines, see [Track sensor activity](how-to-track-sensor-activity.md).
 
 ## Logs retention capacity
 
-There are a lot of different kinds of log files, and they have different storage capacities. The following statements, however, are relevant to all logs:
+There are numerous different kinds of log files, and they have different storage capacities. The following statements, however, are relevant to all logs:
 
 - Logs are stored on the local sensor and the local central manager, and are overridden when they reach their maximum storage size.
 - Depending on the amount of content, the average size per log is around 100-150 MB.
-- Note that some of the logs have rotation and the data is not overridden immediately.
+- Some of the logs have rotation and the data isn't overridden immediately.
 - Though no logs are stored on the Azure portal itself, services/processing logs are stored for 30 days.
 
 ## Recommendations retention periods

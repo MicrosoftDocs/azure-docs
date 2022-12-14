@@ -133,7 +133,7 @@ When the sensors aren't registered with the on-premises management console, the 
 
 The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
-To learn about retention capacity for backups, see [Backups retention capacity](reference-data-retention.md#backups-retention-capacity).
+To learn about retention capacity for backups, see [Backups retention capacity](references-data-retention.md#backups-retention-capacity).
 
 ### Backup storage for sensors
 
