@@ -24,7 +24,7 @@ An assessment with the Discovery and assessment tool measures the readiness and 
 
 There are three types of assessments you can create using Azure Migrate: Discovery and assessment.
 
-***Assessment Type** | **Details**
+**Assessment Type** | **Details**
 --- | ---
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.

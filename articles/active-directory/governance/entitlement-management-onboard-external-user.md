@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Onboard external users to Azure AD through an approval process - Azure Active Directory
-description: Step-by-step tutorial for how to create an access package for external users requiring approvals in Azure Active Directory entitlement management.
+description: Step-by-step tutorial for how to create an access package for external users requiring approvals in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: Sammak
@@ -128,4 +128,4 @@ In this step, you can delete the **External user package** access package.
 
 ## Next steps
 
-Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in Microsoft Entra entitlement management](./entitlement-management-access-package-first.md)
+Learn about creating access packages to manage access to other types of resources such as applications, and sites. [Tutorial: Manage access to resources in entitlement management](./entitlement-management-access-package-first.md)

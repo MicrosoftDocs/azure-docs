@@ -15,7 +15,7 @@ ms.date: 12/06/2022
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL by using the REST API [Azure REST API](/rest/api/azure/). To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 ### Prerequisites
-An [Azure Database for PostgreSQL server](/azure/postgresql/flexible-server/quickstart-create-server-portal.md) to be the primary server.
+An [Azure Database for PostgreSQL server](quickstart-create-server-portal.md) to be the primary server.
 
 ### Create a read replica
 
