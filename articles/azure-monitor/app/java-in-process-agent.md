@@ -168,8 +168,8 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 ### Autocollected logs
 
-* Log4j (including MDC/Thread Context properties)
 * Logback (including MDC properties)
+* Log4j (including MDC/Thread Context properties)
 * JBoss Logging (including MDC properties)
 * java.util.logging
 
@@ -420,7 +420,7 @@ The following table represents currently supported custom telemetry types that y
 - Custom requests, dependencies, metrics, and exceptions are supported through the OpenTelemetry API.
 - The remaining telemetry types are supported through the [Application Insights Classic SDK](#send-custom-telemetry-by-using-the-application-insights-classic-sdk).
 
-| Custom telemetry type | Micrometer | Log4j, Logback, JUL | OpenTelemetry API | AI Classic SDK |
+| Custom telemetry type | Micrometer | Logback, Log4j, JUL | OpenTelemetry API | AI Classic SDK |
 |-----------------------|------------|---------------------|-------------------|----------------|
 | Custom events         |            |                     |                   | Yes            |
 | Custom metrics        |  Yes       |                     | Yes               | Yes            |
@@ -465,12 +465,16 @@ The following table represents currently supported custom telemetry types that y
 
 ### Send custom traces and exceptions by using your favorite logging framework
 
-Log4j, Logback, and java.util.logging are auto-instrumented. Logging performed via these logging frameworks is autocollected as trace and exception telemetry.
+Logback, Log4j, and java.util.logging are auto-instrumented. Logging performed via these logging frameworks is autocollected as trace and exception telemetry.
 
 By default, logging is only collected when that logging is performed at the INFO level or above.
 To change this level, see the [configuration options](./java-standalone-config.md#auto-collected-logging).
 
-If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html), [Log4j 2 MDC](https://logging.apache.org/log4j/2.x/manual/thread-context.html), or [Logback MDC](http://logback.qos.ch/manual/mdc.html). Application Insights Java 3.x automatically captures those MDC properties as custom dimensions on your trace and exception telemetry.
+Structured logging (attaching custom dimensions to your logs) can be accomplished in these ways:
+* [Logback MDC](http://logback.qos.ch/manual/mdc.html)
+* [Log4j 2 MapMessage](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/message/MapMessage.html) (a `MapMessage` key of `"message"` will be captured as the log message)
+* [Log4j 2 Thread Context](https://logging.apache.org/log4j/2.x/manual/thread-context.html)
+* [Log4j 1.2 MDC](https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/MDC.html)
 
 ### Send custom telemetry by using the Application Insights Classic SDK
 
