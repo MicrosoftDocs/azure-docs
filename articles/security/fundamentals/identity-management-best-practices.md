@@ -322,10 +322,10 @@ An active identity monitoring system can quickly detect suspicious behavior and 
 
 **Best practice**: Have a method to identify:
 
-- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
-- [Brute force](../../active-directory/reports-monitoring/howto-find-activity-reports.md) attacks against a particular account.
+- Attempts to sign in [without being traced](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
+- [Brute force](../../active-directory/reports-monitoring/howto-access-activity-logs.md) attacks against a particular account.
 - Attempts to sign in from multiple locations.
-- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-find-activity-reports.md).
+- Sign-ins from [infected devices](../../active-directory/reports-monitoring/howto-access-activity-logs.md).
 - Suspicious IP addresses.
 
 **Detail**: Use Azure AD Premium [anomaly reports](../../active-directory/reports-monitoring/overview-reports.md). Have processes and procedures in place for IT admins to run these reports on a daily basis or on demand (usually in an incident response scenario).

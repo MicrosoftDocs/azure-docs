@@ -46,12 +46,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Find activity reports
-            url: howto-find-activity-reports.md
+          - text: Access activity reports
+            url: howto-access-activity-reports.md
           - text: Remediate users flagged for risk
             url: howto-remediate-users-flagged-for-risk.md
           - text: Use Azure AD workbooks
             url: howto-use-azure-monitor-workbooks.md
+          - text: Troubleshoot sign-in errors
+            url: howto-troubleshoot-sign-in-errors.md
   # Card
   - title: Use monitoring in Azure AD
     linkLists:
@@ -59,5 +61,5 @@ landingContent:
         links:
           - text: Analyze activity logs in Azure Monitor logs
             url: howto-analyze-activity-logs-log-analytics.md
-          - text: Install and use the log analytics views for Azure AD
-            url: howto-install-use-log-analytics-views.md
+          - text: Integrate activity logs with Azure Monitor
+            url: howto-integrate-activity-logs-with-log-analytics.md

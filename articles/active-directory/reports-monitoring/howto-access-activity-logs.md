@@ -84,11 +84,7 @@ You can access reports about detected risk detections in the **Security** sectio
 
 - [Users at risk](../identity-protection/overview-identity-protection.md)
 - [Risky sign-ins](../identity-protection/overview-identity-protection.md)
-
-    ![Security reports](./media/howto-find-activity-reports/04.png "Security reports")
-
-
-
+- [Security reports](./media/howto-find-activity-reports/04.png "Security reports")
 
 ## Investigate a single sign-in 
 
