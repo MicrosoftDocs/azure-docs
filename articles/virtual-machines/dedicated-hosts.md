@@ -6,7 +6,7 @@ ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
-ms.author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
