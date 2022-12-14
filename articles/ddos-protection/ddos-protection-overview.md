@@ -70,7 +70,7 @@ Azure DDoS Protection is designed for [services that are deployed in a virtual n
 ## Pricing
 
 For DDoS Network Protection, under a tenant, a single DDoS protection plan can be used across multiple subscriptions, so there's no need to create more than one DDoS protection plan.
-For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS on any public IP resource.
+For DDoS IP Protection, there's no need to create a DDoS protection plan. Customers can enable DDoS protection on any public IP resource.
 
 To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/). 
 
