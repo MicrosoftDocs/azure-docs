@@ -174,5 +174,5 @@ The following section describes how to create proof of concept implementations f
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
+- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-funnel-based-design-considerations.md)
 
