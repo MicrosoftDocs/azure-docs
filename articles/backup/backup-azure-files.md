@@ -1,23 +1,17 @@
 ---
 title: Back up Azure file shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
-ms.topic: conceptual
-ms.date: 11/03/2021
+ms.topic: how=to
+ms.date: 12/14/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
+ms.custom: engagement-fy23
 ---
 
 # Back up Azure file shares
 
 This article explains how to  back up [Azure file shares](../storage/files/storage-files-introduction.md) from the Azure portal.
-
-In this article, you'll learn how to:
-
-* Create a Recovery Services vault.
-* Configure backup from the Recovery Services vault
-* Configure backup from the file share pane
-* Run an on-demand backup job to create a restore point
 
 ## Prerequisites
 
