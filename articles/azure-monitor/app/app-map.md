@@ -411,7 +411,7 @@ There are many filter combinations. Here are some suggestions that apply to most
     :::image type="content" source="media/app-map/image-12.png" alt-text="A screenshot displaying the Intelligent Overview toggle.":::
 
 -   Hide low-traffic connectors with no errors to quickly focus on issues that have higher impact:
-     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlihgted errors filters.":::
+     :::image type="content" source="media/app-map/image-13.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 876, and highlighted errors filters.":::
     
 -   Show high-traffic connectors with high average duration to focus on potential performance issues:
      :::image type="content" source="media/app-map/image-14.png" alt-text="A screenshot displaying the Last 24 hours, calls greater than 3057, and average time greater than 467 filters.":::
