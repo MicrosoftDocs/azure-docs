@@ -263,7 +263,7 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 
 To rehydrate archived blobs in a container or folder to the hot or cool tier, enumerate through the blobs and call the Set Blob Tier operation on each one. The following example shows you how to perform this operation by using PowerShell:
 
-## [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
     # Initialize these variables with your values.
@@ -298,6 +298,19 @@ To rehydrate archived blobs in a container or folder to the hot or cool tier, en
     }
     While ($Token -ne $Null)
     
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az storage blob list --account-name $accountName --account-key $key \
+    --container-name $containerName --prefix $folderName \
+    --query "[?properties.blobTier == 'Cool'].name" --output tsv \
+    | xargs -I {} -P 10 \
+    az storage blob set-tier --account-name $accountName --account-key $key \
+    --container-name $containerName --tier Archive --name "{}" 
+
 ```
 
 To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
