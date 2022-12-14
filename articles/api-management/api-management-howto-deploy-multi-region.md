@@ -101,7 +101,7 @@ To take advantage of geographical distribution of your system, you should have b
     ```
 
 > [!TIP]
-> You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically. We recommend using Traffic Manager with the [**Geographic**](../traffic-manager/traffic-manager-routing-methods.md#geographic-traffic-routing-method) routing method for traffic distribution and failover. We don't recommend using Traffic Manager with the Weighted routing method with API Management.
+> You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically. We recommend using Traffic Manager with the [**Geographic**](../traffic-manager/traffic-manager-routing-methods.md#geographic-traffic-routing-method) routing method for traffic distribution and failover. We don't recommend using Traffic Manager with the Weighted routing method with API Management backends.
 
 ## <a name="custom-routing"> </a>Use custom routing to API Management regional gateways
 
