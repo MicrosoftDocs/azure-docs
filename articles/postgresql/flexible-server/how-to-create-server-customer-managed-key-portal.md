@@ -8,14 +8,14 @@ ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 12/12/2022
 ---
-# Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys (CMK) using  Azure Portal
+# Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys (CMK) using  Azure portal
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-In this article, you learn how to create and manage Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using  Azure Portal. To learn more about Customer Managed Keys (CMK) feature with Azure Database for PostgreSQL - Flexible Server, see the [overview](concepts-data-encryption.md).
+In this article, you learn how to create and manage Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using  Azure portal. To learn more about Customer Managed Keys (CMK) feature with Azure Database for PostgreSQL - Flexible Server, see the [overview](concepts-data-encryption.md).
 
 ## Setup Customer Managed Key during Server Creation
-rerequisites:
+Prerequisites:
 
 - Azure Active Directory (Azure AD) user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
@@ -53,4 +53,4 @@ Follow the steps below to update CMK on CMK enabled Flexible Server using Azure 
 
 ## Next steps
 
-- [Manage an Azure Database for PostgreSQL - Flexible Server by using  Azure Portal](how-to-manage-server-portal.md)
+- [Manage an Azure Database for PostgreSQL - Flexible Server by using  Azure portal](how-to-manage-server-portal.md)
