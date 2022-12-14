@@ -169,9 +169,13 @@ The following section describes how to create proof of concept implementations f
 
 ### Next steps
 
+## Next steps
+
 - [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-- [Azure AD B2C global identity design considerations for regional tenant configuration](azure-ad-b2c-global-identity-design-considerations.md)
+- [Azure AD B2C global identity regional-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
+
+- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
 
