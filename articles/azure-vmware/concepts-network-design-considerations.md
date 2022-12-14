@@ -37,7 +37,7 @@ If you're routing back to your on-premises networks using only a default route a
 
 To reach vCenter Server and NSX-T Manager, more specific routes from on-premises need to be provided to allow traffic to have a return path route to those networks.
 
-## Use a default route to Azure VMware Solution for Internet traffic inspection
+## Use a default route to Azure VMware Solution for internet traffic inspection
 
 Certain deployments require inspecting all egress traffic from Azure VMware Solution towards the Internet. While it's possible to create Network Virtual Appliances (NVAs) in Azure VMware Solution, there are use cases when these appliances already exist in Azure that can be applied to inspect Internet traffic from Azure VMware Solution. In this case, a default route can be injected from the NVA in Azure to attract traffic from Azure VMware Solution and inspect it before sending it out to the public Internet.
 
@@ -84,7 +84,7 @@ The following diagram demonstrates how the NVA needs to advertise more generic (
 
 :::image type="content" source="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png" alt-text="Diagram of Azure VMware Solution to on-premises communication with Route Server in a single region." lightbox="media/concepts-network-design/vmware-solution-to-on-premises-hairpin.png":::
 
-### Transit Spoke Virtual Network Topology
+### Transit spoke virtual network topology
 
 > [!NOTE]
 > If advertising less specific prefixes is not possible due to the limits previously described, you can implement an alternative design using two separate Virtual Networks.
