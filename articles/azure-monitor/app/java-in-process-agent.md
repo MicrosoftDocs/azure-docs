@@ -132,10 +132,14 @@ Java 3.x includes the following auto-instrumentation.
 
 * JMS consumers
 * Kafka consumers
-* Netty/WebFlux
+* Netty
 * Quartz
 * Servlets
 * Spring scheduling
+
+> [!NOTE]
+> Servlet and Netty auto-instrumentation covers the majority of Java HTTP services
+> including Java EE, Jakarta EE, Spring Boot, Quarkus, and Micronaut.
 
 ### Autocollected dependencies
 
