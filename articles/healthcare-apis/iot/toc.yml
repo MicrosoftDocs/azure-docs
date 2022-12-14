@@ -4,16 +4,16 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is MedTech service?
+  - name: What is the MedTech service?
     href: iot-connector-overview.md
-  - name: MedTech service data flow
+  - name: The MedTech service data flow
     href: iot-data-flow.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with MedTech service
+  - name: Get started with the MedTech service
     href: get-started-with-iot.md
-  - name: Deploy MedTech service
+  - name: Deploy the MedTech service
     expanded: true
     items:
     - name: Deployment methods   
@@ -81,16 +81,16 @@ items:
 - name: Concepts
   expanded: false
   items:
-  - name: MedTech service and Azure Machine Learning Service
+  - name: The MedTech service and Azure Machine Learning Service
     href: iot-connector-machine-learning.md
-  - name: MedTech service and Microsoft Power BI
+  - name: The MedTech service and Microsoft Power BI
     href: iot-connector-power-bi.md
-  - name: MedTech service and Microsoft Teams notifications
+  - name: The MedTech service and Microsoft Teams notifications
     href: iot-connector-teams.md
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - MedTech service
+  - name: FAQs - The MedTech service
     href: iot-connector-faqs.md
   - name: Open-source projects
     href: iot-git-projects.md     
