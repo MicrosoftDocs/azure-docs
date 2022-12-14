@@ -548,6 +548,22 @@ If the image you're trying to reference doesn't exist in the container registry 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
 * Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
+### I/O Error
+<!--issueDescription-->
+This can happen when a Docker image pull fails due to a network issue.  
+
+**Potential causes:**
+* There is a firewall block or network connection issue  
+* ACR is unreachable and there is network isolation. For additional details, please see [ACR unreachable](https://aka.ms/azureml/environment/acr-unreachable). 
+
+**Affected areas (symptoms):**
+* placeholder
+<!--/issueDescription-->
+
+**Troubleshooting steps**
+* List the host in the firewall rules.
+* Check your network settings. If there's network isolation, you need to change it so they are both behind the same VNet.
+
 
 ### *Conda issues during build*
 ### Bad spec
