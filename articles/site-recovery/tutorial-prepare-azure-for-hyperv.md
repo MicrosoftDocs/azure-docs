@@ -100,13 +100,13 @@ When Azure VMs are created from storage after failover, they're joined to this n
          :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options."::: 
 1. In **Create storage account** > **IP addresses**, do the following:
     1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...) option under available IP address range, then select **Delete address space**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the Create virtual network options."::: 
+        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the delete address space."::: 
     1. After deleting the pre-existing address range, select **Add an IP address space** option to open a new pane.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the Create virtual network options.":::
+        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the adding IP.":::
     1. In **Address space size** enter **10.0.0.**.
     1. Under **Address space size**, select the **/24 (256 addresses)** option.
     1. Select **Add**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the Create virtual network options.":::
+        :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
