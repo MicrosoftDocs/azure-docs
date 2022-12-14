@@ -2,7 +2,7 @@
 title: Use Application Insights Java 2.x
 description: Learn how to use the Application Insights Java 2.x, including sending trace logs, monitoring dependencies, filtering telemetry, and measuring metrics.
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 12/07/2022
 ms.devlang: java
 ms.custom: devx-track-java
 ms.reviewer: mmcc
@@ -554,7 +554,7 @@ For Azure App Services, do the following:
 * Under App Settings, add a new key value pair:
 
 Key: `JAVA_OPTS`
-Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-3.4.7.jar`
+Value: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.6.4.jar`
 
 The agent must be packaged as a resource in your project such that it ends up in the D:/home/site/wwwroot/ directory. You can confirm that your agent is in the correct App Service directory by going to **Development Tools** > **Advanced Tools** > **Debug Console** and examining the contents of the site directory.    
 
