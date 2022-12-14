@@ -76,7 +76,7 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. In the **Policy|Definitions** page, in **Authoring**, select **Definitions**
 1. In the **Definition Type** category, select **Initiative** and in **Category**, select **ChangeTracking andInventory**
    You will see a list of three policies:
-    - Enable ChangeTracking and inventory for virtual machine scale sets
+    - Enable ChangeTracking and inventory for Virtual Machine Scale Sets
     - Enable ChangeTracking and inventory for virtual machines
     - Enable ChangeTracking and inventory for Arc-enabled virtual machines
 1. Select **Enable ChangeTracking and Inventory for virtual machines** to enable the change tracking on Azure virtual machines.
