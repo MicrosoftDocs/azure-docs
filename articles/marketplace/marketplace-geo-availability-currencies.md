@@ -13,7 +13,7 @@ ms.date: 07/27/2022
 
 ## Supported geographic locations
 
-Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in the currencies shown below. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
 A CSP can purchase an offer in Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
@@ -86,7 +86,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Jordan                              | JO        | USD          | EUR, JOD, USD |
 | Kazakhstan                          | KZ        | USD          | EUR, KZT, USD |
 | Kenya                               | KE        | USD          | EUR, KES, USD |
-| Korea (South)                       | KR        | KRW          | EUR, KRW, USD |
+| Korea (South)***                       | KR        | KRW          | EUR, KRW, USD |
 | Kuwait                              | KW        | USD          | EUR, KWD, USD |
 | Kyrgyzstan                          | KG        | USD          | EUR, KGS, USD |
 | Latvia                              | LV        | EUR          | EUR, USD |
@@ -166,25 +166,32 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 
 \** Free and BYOL VM images only.
 
+*** Korea (South) commerce only available for non-Enterprise Agreement customers and is not supported in the CSP channel.
+
 ## How we convert currency
 
-For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center.
+For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to the static local currency of customers according to the exchange rate at the time you first save the price for the plan, in the Pricing and Availability page, in Partner Center.
 
 You can export the prices and review the converted equivalents. To ensure prices are right for each locality before you publish them, or to adjust any price before you publish:
 
 1. Export the pricing spreadsheet.
 1. Review the prices in each market.
-1. Upload the spreadsheet to Partner Center.
-
-To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md).
+1. Upload (Import) the spreadsheet to Partner Center.
+   
+To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md). It takes at least 90 days for price increases to become effective for your customers.
 
 > [!TIP]
-> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. The rate will be updated when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
+> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. These changes will become effective to customers when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
-Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
+Customers see the offer price in their tenant currency, or in their billing account currency if the customers have selected a specific subscription for their purchase.
 
-Microsoft converts offer prices using the Microsoft Treasury exchange rates. The price of an offer is always shown to customers in their local currency.
+Microsoft receives payments from customers in the customer account billing currency and pays you in the currency you selected in Partner Center. Microsoft converts the customer currency using the exchange rate of the month of the transaction.
+
+Microsoft converts offer prices using exchange rates sourced directly from the WMR exchange rates (4pm London WM/Refinitiv). Microsoft sources WMR rates on both a daily and monthly basis.
 
 The following illustration shows the currency conversion flow:
 
-[![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+![currency-exchange-flow-updated-12-12-2022](currency-exchange-flow1.png)
+
+
+
