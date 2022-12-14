@@ -242,12 +242,14 @@ Modify the following parameters in /etc/waagent.conf
 Cloud-init
 Configure cloud-init to handle the provisioning:
     
-    ```bash
-    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
-    sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
-    sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
-Configure Cloud-init to create swap
+   ```bash
+   sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-auto/g' /etc/waagent.conf
+   sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
+   sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+   ```
+
+Configure Cloud-init to create swap.
+
 To format and create swap you have 2 options either:
 
 1. Pass this in as a cloud-init config every time you create a VM through `customdata`. This is the recommended method.
