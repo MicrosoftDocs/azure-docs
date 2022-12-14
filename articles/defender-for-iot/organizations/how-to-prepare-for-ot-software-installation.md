@@ -40,30 +40,6 @@ For more information, see:
 - [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
 - [OT monitoring with virtual appliances](ot-virtual-appliances.md)
 
-## Configure tunneling access for sensors through the on-premises management console
-
-Enhance system security by preventing direct user access to the sensor.
-
-Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
-
-When tunneling access is configured, users use the following URL syntax to access their sensor consoles: `https://<on-premises management console address>/<sensor address>/<page URL>`
-
-For example, the following image shows a sample architecture where users access the sensor consoles via the on-premises management console.
-
-:::image type="content" source="media/tutorial-install-components/sensor-system-graph.png" alt-text="Screenshot that shows access to the sensor." border="false":::
-
-The interface between the IT firewall, on-premises management console, and the OT firewall is done using a reverse proxy with URL rewrites. The interface between the OT firewall and the sensors is done using reverse SSH tunnels.
-
-**To enable tunneling access for sensors**:
-
-1. Sign in to the on-premises management console's CLI with the *cyberx* or the *support* user credentials. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
-
-1. Enter `sudo cyberx-management-tunnel-enable`.
-
-1. Select **Enter**.
-
-1. Enter `--port 10000`.
-
 ## Next steps
 
 For more information, see:
