@@ -9,7 +9,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: ignite-2022
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 11/14/2022
 ms.author: mbaldwin
 ---
 # Azure encryption overview
@@ -49,7 +49,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-You can protect your managed disks by using [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), or [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)), to protect both operating system disks and data disks with full volume encryption.
+You can protect your managed disks by using [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), or [Azure Disk Encryption for Windows VMs](../../virtual-machines/windows/disk-encryption-overview.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)), to protect both operating system disks and data disks with full volume encryption.
 
 Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/general/overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
 

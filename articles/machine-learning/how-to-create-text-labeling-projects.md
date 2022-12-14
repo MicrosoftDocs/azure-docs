@@ -2,8 +2,9 @@
 title: Set up text labeling project
 titleSuffix: Azure Machine Learning
 description: Create a project to label text using the data labeling tool. Specify either a single label or multiple labels to be applied to each piece of text.
-author: sdgilley
-ms.author: sgilley
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
@@ -113,7 +114,7 @@ To directly upload your data:
 > [!NOTE]
 > Incremental refresh is available for projects that use tabular (.csv or .tsv) dataset input. However, only new tabular files are added.  Changes to existing tabular files will not be recognized from the refresh.
 
-## Specify label classes
+## Specify label categories
 
 [!INCLUDE [classes](../../includes/machine-learning-data-labeling-classes.md)]
 
@@ -192,7 +193,7 @@ View and change details of your project.  In this tab you can:
 
 [!INCLUDE [access](../../includes/machine-learning-data-labeling-access.md)]
 
-## Add new label class to a project
+## Add new labels to a project
 
 [!INCLUDE [add-label](../../includes/machine-learning-data-labeling-add-label.md)]
 

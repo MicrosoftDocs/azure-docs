@@ -48,7 +48,7 @@ You can start directly in your Storage Account portal page.
 
 1. Use [Search explorer](search-explorer.md) in the search portal page to query your content.
 
-The wizard is the best place to start, but you'll discover more flexible options when you [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) yourself. You can call the REST APIs using a tool like Postman or Visual Studio Code. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
+The wizard is the best place to start, but you'll discover more flexible options when you [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) yourself. You can call the REST APIs using a tool like Postman. [Tutorial: Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md) walks you through the steps of calling the REST API in Postman.
 
 ## How blobs are indexed
 

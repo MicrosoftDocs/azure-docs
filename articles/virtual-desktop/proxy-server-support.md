@@ -113,7 +113,7 @@ The following table shows which Azure Virtual Desktop clients support proxy serv
 | macOS | Yes |
 | Windows Store | Yes |
 
-For more information about proxy support on Linux based thin clients, see [Thin client support](./user-documentation/linux-overview.md).
+For more information about proxy support on Linux based thin clients, see [Thin client support](users/connect-thin-clients.md).
 
 ## Support limitations
 

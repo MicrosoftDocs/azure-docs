@@ -111,9 +111,6 @@ Non-HTTP protocols like FTP can't be addressed with Azure API Management, Applic
 
 Files need to be stored before SAP can process them. We recommend that you use [SFTP](../../../storage/blobs/secure-file-transfer-protocol-support.md). Azure Blob Storage supports SFTP natively. 
 
-> [!NOTE]
-> [The Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support.md) is currently in preview.
-
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/file-blob-4.png" alt-text="Diagram that shows a file-based scenario with Azure Blob Storage and SAP Process Orchestration on Azure.":::
 
 Alternative SFTP options are available in Azure Marketplace if necessary.
@@ -146,9 +143,6 @@ This second example shows a setup where SAP RISE runs the whole integration chai
 ### File outbound
 
 In this scenario, the SAP-managed Process Orchestration instance writes files to the customer-managed file share on Azure or to a workload sitting on-premises. The customer handles the breakout.
-
-> [!NOTE]
-> The [Azure Blob Storage SFTP feature](../../../storage/blobs/secure-file-transfer-protocol-support.md) is currently in preview.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/rise-5b.png" alt-text="Diagram that shows a file share scenario with SAP Process Orchestration on Azure in the RISE context.":::
 

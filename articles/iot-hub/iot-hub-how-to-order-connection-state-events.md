@@ -21,6 +21,8 @@ From the moment your device runs, an order of operations activates:
 1. The Logic App processes the HTTP request based on a condition you set 
 1. The Logic App logs connection or disconnection events into a new document in Cosmos DB
 
+   :::image type="content" source="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png" alt-text="Screenshot of the setup we'll create for this article. This setup shows how all services and devices are connected." lightbox="media/iot-hub-how-to-order-connection-state-events/event-grid-setup.png":::
+
 <!--
 A sequence number is used in the *Device Connected* and *Device Disconnected* to track and order events. 
 

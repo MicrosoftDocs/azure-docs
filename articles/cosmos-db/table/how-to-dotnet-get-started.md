@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Cosmos DB for Table and .NET
+title: Get started with Azure Cosmos DB for Table using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for Table. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for Table endpoint.
 author: seesharprun
 ms.author: sidandrews
@@ -8,10 +8,10 @@ ms.subservice: table
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp, ignite-2022, devguide-csharp, cosmos-db-dev-journey
 ---
 
-# Get started with Azure Cosmos DB for Table and .NET
+# Get started with Azure Cosmos DB for Table using .NET
 
 [!INCLUDE[Table](../includes/appliesto-table.md)]
 
@@ -21,10 +21,10 @@ This article shows you how to connect to Azure Cosmos DB for Table using the .NE
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure Cosmos DB for Table account. [Create a API for Table account](how-to-create-account.md).
-* [.NET 6.0 or later](https://dotnet.microsoft.com/download)
-* [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- Azure Cosmos DB for Table account. [Create a API for Table account](how-to-create-account.md).
+- [.NET 6.0 or later](https://dotnet.microsoft.com/download)
+- [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ## Set up your project
 
@@ -50,10 +50,9 @@ dotnet build
 
 ## Connect to Azure Cosmos DB for Table
 
-To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to a API for Table account using the **TableServiceClient** class:
+To connect to the API for Table of Azure Cosmos DB, create an instance of the [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) class. This class is the starting point to perform all operations against tables. There are two primary ways to connect to an API for Table account using the **TableServiceClient** class:
 
-* [Connect with a API for Table connection string](#connect-with-a-connection-string)
-* [Connect with Azure Active Directory](#connect-using-the-microsoft-identity-platform)
+- [Connect with a API for Table connection string](#connect-with-a-connection-string)
 
 ### Connect with a connection string
 
@@ -140,71 +139,15 @@ Create a new instance of the **TableServiceClient** class with the ``COSMOS_CONN
 
 :::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/101-client-connection-string/Program.cs" id="connection_string" highlight="3":::
 
-### Connect using the Microsoft Identity Platform
-
-To connect to your API for Table account using the Microsoft Identity Platform and Azure AD, use a security principal. The exact type of principal will depend on where you host your application code. The table below serves as a quick reference guide.
-
-| Where the application runs | Security principal
-|--|--|---|
-| Local machine (developing and testing) | User identity or service principal |
-| Azure | Managed identity |
-| Servers or clients outside of Azure | Service principal |
-
-#### Import Azure.Identity
-
-The **Azure.Identity** NuGet package contains core authentication functionality that is shared among all Azure SDK libraries.
-
-Import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) NuGet package using the ``dotnet add package`` command.
-
-```dotnetcli
-dotnet add package Azure.Identity
-```
-
-Rebuild the project with the ``dotnet build`` command.
-
-```dotnetcli
-dotnet build
-```
-
-In your code editor, add using directives for ``Azure.Core`` and ``Azure.Identity`` namespaces.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="using_identity_directives":::
-
-#### Create TableServiceClient with default credential implementation
-
-If you're testing on a local machine, or your application will run on Azure services with direct support for managed identities, obtain an OAuth token by creating a [``DefaultAzureCredential``](/dotnet/api/azure.identity.defaultazurecredential) instance.
-
-For this example, we saved the instance in a variable of type [``TokenCredential``](/dotnet/api/azure.core.tokencredential) as that's a more generic type that's reusable across SDKs.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="credential":::
-
-Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/102-client-default-credential/Program.cs" id="default_credential":::
-
-#### Create TableServiceClient with a custom credential implementation
-
-If you plan to deploy the application out of Azure, you can obtain an OAuth token by using other classes in the [Azure.Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These other classes also derive from the ``TokenCredential`` class.
-
-For this example, we create a [``ClientSecretCredential``](/dotnet/api/azure.identity.clientsecretcredential) instance by using client and tenant identifiers, along with a client secret.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="credential":::
-
-You can obtain the client ID, tenant ID, and client secret when you register an application in Azure Active Directory (AD). For more information about registering Azure AD applications, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md).
-
-Create a new instance of the **TableServiceClient** class with the ``COSMOS_ENDPOINT`` environment variable and the **TokenCredential** object as parameters.
-
-:::code language="csharp" source="~/azure-cosmos-db-table-dotnet-v12/103-client-secret-credential/Program.cs" id="secret_credential":::
-
 ## Build your application
 
 As you build your application, your code will primarily interact with four types of resources:
 
-* The API for Table account, which is the unique top-level namespace for your Azure Cosmos DB data.
+- The API for Table account, which is the unique top-level namespace for your Azure Cosmos DB data.
 
-* Tables, which contain a set of individual items in your account.
+- Tables, which contain a set of individual items in your account.
 
-* Items, which represent an individual item in your table.
+- Items, which represent an individual item in your table.
 
 The following diagram shows the relationship between these resources.
 
@@ -231,15 +174,15 @@ The following guides show you how to use each of these classes to build your app
 
 ## See also
 
-* [Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
-* [Samples](samples-dotnet.md)
-* [API reference](/dotnet/api/azure.data.tables)
-* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+- [Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/)
+- [Samples](samples-dotnet.md)
+- [API reference](/dotnet/api/azure.data.tables)
+- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables)
+- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
 ## Next steps
 
-Now that you've connected to a API for Table account, use the next guide to create and manage tables.
+Now that you've connected to an API for Table account, use the next guide to create and manage tables.
 
 > [!div class="nextstepaction"]
 > [Create a table in Azure Cosmos DB for Table using .NET](how-to-dotnet-create-table.md)

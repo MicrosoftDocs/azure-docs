@@ -46,7 +46,7 @@ You can integrate Azure Load Testing in your CI/CD pipeline at meaningful points
 
 Get started with [adding load testing to your CI/CD workflow](./tutorial-identify-performance-regression-with-cicd.md) to quickly identify performance degradation of your application under load.
 
-In the test configuration, you [specify pass/fail rules](./how-to-define-test-criteria.md) to catch performance regressions early in the development cycle. For example, when the average response time exceeds a threshold, the test should fail.
+In the test configuration, [specify test fail criteria](./how-to-define-test-criteria.md) to catch application performance or stability regressions early in the development cycle. For example, get alerted when the average response time or the number of errors exceed a specific threshold.
 
 Azure Load Testing will automatically stop an automated load test in response to specific error conditions. You can also use the AutoStop listener in your Apache JMeter script. Automatically stopping safeguards you against failing tests further incurring costs, for example, because of an incorrectly configured endpoint URL.
 
@@ -56,7 +56,7 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 
 Azure Load Testing test engines abstract the required infrastructure for [running a high-scale load test](./how-to-high-scale-load.md). The test engines run the Apache JMeter script to simulate a large number of virtual users simultaneously accessing your application endpoints. When you create a load test based on a URL, Azure Load Testing automatically generates a JMeter test script for you. To scale out the load test, you can configure the number of test engines.
 
-Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins that are available on https://jmeter-plugins.org in your test script.
+Azure Load Testing uses Apache JMeter version 5.4.3 for running load tests. You can use Apache JMeter plugins from https://jmeter-plugins.org or [upload your own plugin code](./how-to-use-jmeter-plugins.md).
 
 The application can be hosted anywhere: in Azure, on-premises, or in other clouds. To load test services that have no public endpoint, [deploy Azure Load Testing in a virtual network](./how-to-test-private-endpoint.md).
 

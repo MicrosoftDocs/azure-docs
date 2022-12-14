@@ -55,11 +55,11 @@ Create and assign persistent environment variables for your key and endpoint.
 # [Command Line](#tab/command-line)
 
 ```CMD
-setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE"
 ```
 
 ```CMD
-setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 ```
 
 # [PowerShell](#tab/powershell)
@@ -105,10 +105,10 @@ curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anom
     from azure.ai.anomalydetector.models import DetectRequest, TimeSeriesPoint, TimeGranularity
     from azure.core.credentials import AzureKeyCredential
     import pandas as pd
-    import os  
+    import os
 
-    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY'] 
-    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT'] 
+    API_KEY = os.environ['ANOMALY_DETECTOR_API_KEY']
+    ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
     client = AnomalyDetectorClient(AzureKeyCredential(API_KEY), ENDPOINT)
@@ -233,7 +233,7 @@ In this code example, we've added the `matplotlib` library to allow us to visual
 
 ## Clean up resources
 
-If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables#using-the-environment-provider-and-item-cmdlets) you created if you no longer intend to use them.
 
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)

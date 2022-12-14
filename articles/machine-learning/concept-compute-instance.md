@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: shoja
+author: shouryaj
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
@@ -44,7 +44,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * The compute instance is also a secure training compute target similar to [compute clusters](how-to-create-attach-compute-cluster.md), but it is single node. 
 * You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview)**.
 * You can also **[use a setup script (preview)](how-to-customize-compute-instance.md)**  for an automated way to customize and configure the compute instance as per your needs.
-* To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview)** to automatically start and stop the compute instance.
+* To save on costs, **[create  a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop)** to automatically start and stop the compute instance.
 
 
 ## Tools and environments
@@ -72,7 +72,7 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |R kernel||
 
-You can [Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview) when you create the instance.
+You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|
@@ -92,7 +92,7 @@ Python packages are all installed in the **Python 3.8 - AzureML** environment. C
 
 Notebooks and Python scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
-The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio. This means that the notebooks and other files you create in Jupyter, JupyterLab, or RStudio are automatically stored on the file share and available to use in other compute instances as well.
+The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, RStudio, and Posit Workbench. This means that the notebooks and other files you create in Jupyter, JupyterLab, RStudio, or Posit are automatically stored on the file share and available to use in other compute instances as well.
 
 The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share.
 

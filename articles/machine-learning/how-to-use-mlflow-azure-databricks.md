@@ -3,25 +3,26 @@ title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: nibaccam
+ms.reviewer: mopeakande
 ms.date: 07/01/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1, event-tier1-build-2022, ignite-2022
+ms.custom: devx-track-python, sdkv2, event-tier1-build-2022, ignite-2022
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning
 
-In this article, learn how to enable MLflow to connect to Azure Machine Learning while working in an Azure Databricks workspace. You can leverage this configuration for tracking, model management and model deployment.
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. You can use MLflow to integrate Azure Databricks with Azure Machine Learning to ensure you get the best from both of the products.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training job metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
-
-See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
-
-If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
+In this article, you will learn:
+> [!div class="checklist"]
+> - The required libraries needed to use MLflow with Azure Databricks and Azure Machine Learning.
+> - How to [track Azure Databricks runs with MLflow in Azure Machine Learning](#track-azure-databricks-runs-with-mlflow).
+> - How to [log models with MLflow](#registering-models-in-the-registry-with-mlflow) to get them registered in Azure Machine Learning.
+> - How to [deploy and consume models registered in Azure Machine Learning](#deploying-and-consuming-models-registered-in-azure-machine-learning).
 
 ## Prerequisites
 
@@ -30,6 +31,9 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 * [Create an Azure Machine Learning Workspace](quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
+### Example notebooks
+
+The [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure ML. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure ML for deployment.
 
 ## Install libraries
 
@@ -99,7 +103,7 @@ You have to configure the MLflow tracking URI to point exclusively to Azure Mach
 
    # [Using the Azure ML SDK v2](#tab/azuremlsdk)
    
-   [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v2.md)]
+   [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
    You can get the Azure ML MLflow tracking URI using the [Azure Machine Learning SDK v2 for Python](concept-v2.md). Ensure you have the library `azure-ai-ml` installed in the cluster you are using. The following sample gets the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
@@ -238,7 +242,7 @@ mlflow.set_registry_uri(azureml_mlflow_uri)
 > [!NOTE]
 > The value of `azureml_mlflow_uri` was obtained in the same way it was demostrated in [Set MLflow Tracking to only track in your Azure Machine Learning workspace](#tracking-exclusively-on-azure-machine-learning-workspace)
 
-For a complete example about this scenario please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb).
+For a complete example about this scenario please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb).
 
 ## Deploying and consuming models registered in Azure Machine Learning
 
@@ -252,20 +256,33 @@ Models registered in Azure Machine Learning Service using MLflow can be consumed
 You can leverage the `azureml-mlflow` plugin to deploy a model to your Azure Machine Learning workspace. Check [How to deploy MLflow models](how-to-deploy-mlflow-models.md) page for a complete detail about how to deploy models to the different targets.
 
 > [!IMPORTANT]
-> Models need to be registered in Azure Machine Learning registry in order to deploy them. If your models happen to be registered in the MLflow instance inside Azure Databricks, you will have to register them again in Azure Machine Learning. If this is you case, please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb)
+> Models need to be registered in Azure Machine Learning registry in order to deploy them. If your models happen to be registered in the MLflow instance inside Azure Databricks, you will have to register them again in Azure Machine Learning. If this is you case, please check the example [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb)
 
 ### Deploy models to ADB for batch scoring using UDFs
 
-You can choose Azure Databricks clusters for batch scoring. The MLFlow model is loaded and used as a Spark Pandas UDF to score new data. 
+You can choose Azure Databricks clusters for batch scoring. By leveraging Mlflow, you can resolve any model from the registry you are connected to. You will typically use one of the following two methods:
+
+- If your model was trained and built with Spark libraries (like `MLLib`), use `mlflow.pyfunc.spark_udf` to load a model and used it as a Spark Pandas UDF to score new data.
+- If your model wasn't trained or built with Spark libraries, either use `mlflow.pyfunc.load_model` or `mlflow.<flavor>.load_model` to load the model in the cluster driver. Notice that in this way, any parallelization or work distribution you want to happen in the cluster needs to be orchestrated by you. Also, notice that MLflow doesn't install any library your model requires to run. Those libraries need to be installed in the cluster before running it.
+
+The following example shows how to load a model from the registry named `uci-heart-classifier` and used it as a Spark Pandas UDF to score new data.
 
 ```python
 from pyspark.sql.types import ArrayType, FloatType 
 
-model_uri = "runs:/"+last_run_id+ {model_path} 
+model_name = "uci-heart-classifier"
+model_uri = "models:/"+model_name+"/latest"
 
 #Create a Spark UDF for the MLFlow model 
 pyfunc_udf = mlflow.pyfunc.spark_udf(spark, model_uri) 
+```
 
+> [!TIP]
+> Check [Loading models from registry](how-to-manage-models-mlflow.md#loading-models-from-registry) for more ways to reference models from the registry. 
+
+Once the model is loaded, you can use to score new data:
+
+```python
 #Load Scoring Data into Spark Dataframe 
 scoreDf = spark.table({table_name}).where({required_conditions}) 
 
@@ -292,10 +309,6 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 1. Select **Delete resource group**.
 
 1. Enter the resource group name. Then select **Delete**.
-
-## Example notebooks
-
-The [Training models in Azure Databricks and deploying them on Azure ML](https://github.com/Azure/azureml-examples/blob/main/v1/notebooks/using-mlflow/no-code-deployment/track_with_databricks_deploy_aml.ipynb) demonstrates how to train models in Azure Databricks and deploy them in Azure ML. It also includes how to handle cases where you also want to track the experiments and models with the MLflow instance in Azure Databricks and leverage Azure ML for deployment.
 
 ## Next steps
 * [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 

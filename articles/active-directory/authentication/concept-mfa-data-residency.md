@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 10/29/2022
 
 ms.author: justinha
 author: justinha
@@ -67,7 +67,7 @@ For Microsoft Azure Government, Microsoft Azure operated by 21Vianet, Azure AD B
 If you use MFA Server, the following personal data is stored.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers who want to require multifactor authentication from their users should use cloud-based Azure AD multifactor authentication. Existing customers who activated Multifactor Authentication Server before July 1, 2019, can download the latest version and updates, and generate activation credentials as usual.
+> In September 2022, Microsoft announced deprecation of Azure Multi-Factor Authentication Server. Beginning September 30, 2024, Azure Multi-Factor Authentication Server deployments will no longer service multifactor authentication (MFA) requests, which could cause authentications to fail for your organization. To ensure uninterrupted authentication services and to remain in a supported state, organizations should [migrate their users’ authentication data](how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md) to the cloud-based Azure MFA service by using the latest Migration Utility included in the most recent [Azure MFA Server update](https://www.microsoft.com/download/details.aspx?id=55849). For more information, see [Azure MFA Server Migration](how-to-migrate-mfa-server-to-azure-mfa.md).
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|

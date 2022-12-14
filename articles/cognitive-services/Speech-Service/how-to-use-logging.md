@@ -16,9 +16,6 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 Logging to file is an optional feature for the Speech SDK. During development logging provides additional information and diagnostics from the Speech SDK's core components. It can be enabled by setting the property `Speech_LogFilename` on a speech configuration object to the location and name of the log file. Logging is handled by a static class in Speech SDK’s native library. You can turn on logging for any Speech SDK recognizer or synthesizer instance. All instances in the same process write log entries to the same log file.
 
-> [!NOTE]
-> Logging is available in all supported Speech SDK programming languages, with the exception of JavaScript.
-
 ## Sample
 
 The log file name is specified on a configuration object. Taking the `SpeechConfig` as an example and assuming that you have created an instance called `config`:

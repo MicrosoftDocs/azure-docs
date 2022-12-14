@@ -451,6 +451,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/linux-emulator.md",
+      "redirect_url": "/azure/cosmos-db/docker-emulator-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/local-emulator-on-docker-windows.md",
+      "redirect_url": "/azure/cosmos-db/docker-emulator-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/tutorial-develop-graph-dotnet.md",
       "redirect_url": "/azure/cosmos-db/create-graph-dotnet",
       "redirect_document_id": false
@@ -893,6 +903,11 @@
     {
       "source_path_from_root": "/articles/cosmos-db/cassandra/cassandra-driver-extensions.md",
       "redirect_url": "/azure/cosmos-db/cassandra/driver-extensions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/dotnet-standard-sdk.md",
+      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme",
       "redirect_document_id": false
     },
     {
@@ -3101,6 +3116,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/advanced-queries.md",
+      "redirect_url": "/azure/cosmos-db/nosql/diagnostic-queries",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/cosmos-db-reserved-capacity.md",
       "redirect_url": "/azure/cosmos-db/reserved-capacity",
       "redirect_document_id": true
@@ -4146,6 +4166,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/relational-nosql.md",
+      "redirect_url": "/azure/cosmos-db/distributed-nosql",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-dotnet-standard.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard",
       "redirect_document_id": true
@@ -4204,6 +4229,16 @@
       "source_path_from_root": "/articles/cosmos-db/sql-sdk-connection-modes.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-sdk-connection-modes",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/import-data.md",
+      "redirect_url": "/azure/cosmos-db/nosql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/table/import.md",
+      "redirect_url": "/azure/cosmos-db/table",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/transactional-batch.md",
@@ -4301,6 +4336,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/postgresql/concepts-audit.md",
+      "redirect_url": "/azure/cosmos-db/postgresql/howto-logging",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/troubleshoot-unauthorized.md",
       "redirect_url": "/azure/cosmos-db/sql/troubleshoot-unauthorized",
       "redirect_document_id": true
@@ -4347,7 +4387,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/table/dotnet-sdk.md",
-      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme-pre",
+      "redirect_url": "/dotnet/api/overview/azure/data.tables-readme",
       "redirect_document_id": false
     },
     {
@@ -4873,6 +4913,11 @@
     {
       "source_path_from_root": "/articles/cosmos-db/sql/sql-query-st-within.md",
       "redirect_url": "/azure/cosmos-db/nosql/query/st-within",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/access-secrets-from-keyvault.md",
+      "redirect_url": "/azure/cosmos-db/store-credentials-key-vault",
       "redirect_document_id": true
     },
     {

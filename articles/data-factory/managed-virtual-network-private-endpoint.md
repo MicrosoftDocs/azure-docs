@@ -179,6 +179,7 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 The following services have native private endpoint support. They can be connected through private link from a Data Factory managed virtual network:
 
+- Azure Databricks
 - Azure Functions (Premium plan)
 - Azure Key Vault
 - Azure Machine Learning

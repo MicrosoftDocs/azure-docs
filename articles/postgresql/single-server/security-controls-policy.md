@@ -7,7 +7,7 @@ ms.topic: sample
 ms.author: sunila
 author: sunilagarwal
 ms.custom: subject-policy-compliancecontrols
-ms.date: 10/12/2022
+ms.date: 11/04/2022
 ---
 
 # Azure Policy Regulatory Compliance controls for Azure Database for PostgreSQL

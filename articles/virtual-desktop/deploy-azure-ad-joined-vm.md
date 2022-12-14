@@ -60,7 +60,7 @@ This section explains how to access Azure AD-joined VMs from different Azure Vir
 
 ### Connect using the Windows Desktop client
 
-The default configuration supports connections from Windows 11 or Windows 10 using the [Windows Desktop client](user-documentation/connect-windows-7-10.md). You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
+The default configuration supports connections from Windows 11 or Windows 10 using the [Windows Desktop client](users/connect-windows.md). You can use your credentials, smart card, [Windows Hello for Business certificate trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust) or [Windows Hello for Business key trust with certificates](/windows/security/identity-protection/hello-for-business/hello-deployment-rdp-certs) to sign in to the session host. However, to access the session host, your local PC must meet one of the following conditions:
 
 - The local PC is Azure AD-joined to the same Azure AD tenant as the session host
 - The local PC is hybrid Azure AD-joined to the same Azure AD tenant as the session host
@@ -94,6 +94,6 @@ Now that you've deployed some Azure AD joined VMs, we recommend enabling single 
 
 - [Configure single sign-on](configure-single-sign-on.md)
 - [Create a profile container with Azure Files and Azure AD](create-profile-container-azure-ad.md)
-- [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md)
-- [Connect with the web client](user-documentation/connect-web.md)
+- [Connect with the Windows Desktop client](users/connect-windows.md)
+- [Connect with the web client](users/connect-web.md)
 - [Troubleshoot connections to Azure AD-joined VMs](troubleshoot-azure-ad-connections.md)

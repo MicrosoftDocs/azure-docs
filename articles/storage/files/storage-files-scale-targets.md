@@ -4,7 +4,7 @@ description: Learn about the capacity, IOPS, and throughput rates for Azure file
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/12/2022
+ms.date: 11/2/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -134,16 +134,16 @@ To help you plan your deployment for each of the stages, below are the results o
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
 | Average File Size | ~200 KiB (Largest File: 100 GiB) |
-| Initial cloud change enumeration | 20 objects per second  |
+| Initial cloud change enumeration | 80 objects per second  |
 | Upload Throughput | 20 objects per second per sync group |
 | Namespace Download Throughput | 400 objects per second |
 
 ### Initial one-time provisioning
 
 **Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
-The rate of performance is 20 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
+The rate of performance is 80 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
 
-   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(20 * 60 * 60 * 24)**
+   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(80 * 60 * 60 * 24)**
 
 **Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
 

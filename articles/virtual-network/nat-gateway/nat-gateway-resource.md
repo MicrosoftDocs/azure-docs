@@ -7,8 +7,8 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: article
 ms.workload: infrastructure-services
-ms.custom: ignite-2022
-ms.date: 02/25/2022
+ms.custom: ignite-2022, FY23 content-maintenance
+ms.date: 12/06/2022
 ms.author: allensu
 ---
 
@@ -16,18 +16,20 @@ ms.author: allensu
 
 NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use up to 16 static IP addresses from either.
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs traffic to and from two subnets of VMs and a virtual machine scale set.":::
+:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway resource with virtual machines and a Virtual Machine Scale Set.":::
 
 *Figure: Virtual Network NAT for outbound to internet*
 
 ## How to deploy NAT
 
-Configuring and using NAT gateway is intentionally made simple:
+Deployments are intentionally made simple:
 
 NAT gateway:
 
 - Create a non-zonal or zonal NAT gateway.
+
 - Assign a public IP address or public IP prefix.
+
 - If necessary, modify TCP idle timeout (optional). Review [timers](#timers) before you change the default.
 
 Virtual network:
@@ -52,13 +54,13 @@ NAT gateway is recommended for all production workloads where you need to connec
 
 ### Coexistence of outbound and inbound connectivity 
 
-NAT gateway, Load balancer and instance-level public IPs are flow direction aware. NAT gateway can coexist in the same virtual network as Load balancer and IL PIPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through Load balancer or IL PIPs is translated separately from outbound traffic through NAT gateway. 
+NAT gateway, load balancer and instance-level public IPs are flow direction aware. NAT gateway can coexist in the same virtual network as a load balancer and instance-level public IPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through a load balancer or instance-level public IPs is translated separately from outbound traffic through NAT gateway. 
 
-The following scenarios are examples of how to ensure coexistence of Load balancer or instance level public IPs for inbound with NAT gateway for outbound.
+The following examples demonstrate co-existence of a load balancer or instance-level public IPs with a NAT gateway. Inbound traffic traverses the load balancer or public IP. Outbound traffic traverses the NAT gateway.
 
 #### NAT and VM with an instance-level public IP
 
-:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets that contain VMs and a virtual machine scale set.":::
+:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram of a NAT gateway resource that consumes all IP addresses for a public IP prefix. The NAT gateway directs traffic for two subnets of VMs and a Virtual Machine Scale Set.":::
 
 *Figure: Virtual Network NAT and VM with an instance level public IP*
 
@@ -84,7 +86,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 #### NAT and VM with an instance-level public IP and a standard public load balancer
 
-:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer.":::
+:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram of a NAT gateway that supports outbound traffic to the internet from a virtual network. Inbound traffic is depicted with an instance-level public IP and a public load balancer.":::
 
 *Figure: Virtual Network NAT and VM with an instance-level public IP and a standard public load balancer*
 
@@ -107,7 +109,7 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 Each NAT gateway can provide up to 50 Gbps of throughput. This data throughput includes data processed both outbound and inbound through a NAT gateway resource. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+NAT gateway can support up to 50,000 concurrent connections per public IP address **to the same destination endpoint** over the internet for TCP and UDP. The total number of connections that NAT gateway can support at any given time is up to 2 million. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
 
 Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
@@ -136,33 +138,25 @@ NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 Source Network Address Translation (SNAT) rewrites the source of a flow to originate from a different IP address and/or port. Typically, SNAT is used when a private network needs to connect to a public host over the internet. SNAT allows multiple VM instances within the private VNet to use the same single Public IP address or set of IP addresses (prefix) to connect to the internet.
 
-NAT gateway SNATs the private IP address and port of a virtual machine to a static public IP address and SNAT port before going outbound to the internet from a virtual network. Each new connection to the same destination endpoint uses a different SNAT port so that connections can be distinguished from one another. SNAT port exhaustion occurs when a source endpoint has run out of available SNAT ports to differentiate between new connections.
+NAT gateway uses SNAT to translate the private IP address and port of a virtual machine to a static public IP address and port. Traffic is translated before leaving the virtual network for the Internet.  Each new connection to the same destination endpoint uses a different SNAT port so that connections can be distinguished from one another. SNAT port exhaustion occurs when a source endpoint has run out of available SNAT ports to differentiate between new connections.
 
 ### Example SNAT flows for NAT gateway
 
-The following example flows explain the basic concept of SNAT and how it works with NAT gateway. 
+NAT gateway provides a many to one configuration in which multiple virtual machine instances within a NAT gatway configured subnet can use the same public IP address to connect outbound.
 
-In the table below the VM makes connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
-
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNAT'd into NAT gateway's public IP address and a SNAT port as shown below:
+In the following table, two different virtual machines (10.0.0.1 and 10.2.0.1) makes connections to https://microsoft.com destination IP 23.53.254.142. When NAT gateway is configured with public IP address 65.52.1.1, each virtual machine's source IPs are translated into NAT gateway's public IP address and a SNAT port:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
+| 1 | 10.0.0.1: 4283 | **65.52.1.1: 1234** | 23.53.254.142: 80 |
+| 2 | 10.0.0.1: 4284 | **65.52.1.1: 1235** | 23.53.254.142: 80 |
+| 3 | 10.2.0.1: 5768 | **65.52.1.1: 1236** | 23.53.254.142: 80 |
 
 "IP masquerading" or "port masquerading" is the act of replacing the private IP and port with the public IP and port before connecting to the internet. Multiple private resources can be masqueraded behind the same public IP of NAT gateway.
 
 ### NAT gateway dynamically allocates SNAT ports
 
-NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT portscan be used on-demand by any virtual machine in subnets configured with NAT gateway:
+NAT gateway dynamically allocates SNAT ports across a subnet's private resources such as virtual machines. SNAT port inventory is made available by attaching public IP addresses to NAT gateway. All available SNAT ports can be used on-demand by any virtual machine in subnets configured with NAT gateway:
 
 :::image type="content" source="./media/nat-overview/lb-vnnat-chart.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT.":::
 
@@ -170,7 +164,7 @@ NAT gateway dynamically allocates SNAT ports across a subnet's private resources
 
 Pre-allocation of SNAT ports to each virtual machine isn't required, which means SNAT ports aren't left unused by VMs not actively needing them.
 
-:::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT with an exhaustion threshold.":::
+:::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram of all available SNAT ports used by virtual machines on subnets configured with NAT and an exhaustion threshold.":::
 
 *Figure: Differences in exhaustion scenarios*
 
@@ -178,17 +172,13 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Source (SNAT) port reuse
 
-NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown below with this extra flow.
-
-| Flow | Source tuple | Destination tuple |
-|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
-
-A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
+NAT gateway selects a port at random out of the available inventory of ports to make new outbound connections. If NAT gateway doesn't find any available SNAT ports, then it will reuse a SNAT port. A SNAT port can be reused when connecting to a different destination IP and port as shown in the following table with this extra flow.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
-| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+| 4 | 10.0.0.1: 4285 | 65.52.1.1: **1234** | 23.53.254.142: 80 |
+
+A NAT gateway will translate flow 4 to a SNAT port that may already be in use for other destinations as well (see flow 1 from previous table). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
 Don't take a dependency on the specific way source ports are assigned in the above example. The preceding is an illustration of the fundamental concept only.
 
@@ -226,15 +216,15 @@ Design recommendations for configuring timers:
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
-- Because UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
+- UDP idle timeout timers aren't configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached, and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 
 ## Limitations
 
 - Basic load balancers and basic public IP addresses aren't compatible with NAT. Use standard SKU load balancers and public IPs instead.
   
-  - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  - To upgrade a load balancer from basic to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a public IP address from basic to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway doesn't support ICMP 
 

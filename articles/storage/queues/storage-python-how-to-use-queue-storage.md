@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.devlang: quickstart
-ms.custom: seo-javascript-october2019, devx-track-python
+ms.custom: seo-javascript-october2019, devx-track-python, py-fresh-zinc
 ---
 
 # How to use Azure Queue Storage from Python

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
+ms.author: vijetaj
+author: vijetajo
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 ms.custom: ignite-fall-2021, event-tier1-build-2022, cliv2
@@ -39,7 +39,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 
 ## Azure Machine Learning compute (managed)
 
@@ -155,18 +155,19 @@ An unmanaged compute target is *not* managed by Azure Machine Learning. You crea
 
 Azure Machine Learning supports the following unmanaged compute types:
 
-* Your local computer
 * Remote virtual machines
 * Azure HDInsight
-* Azure Batch
 * Azure Databricks
 * Azure Data Lake Analytics
-* Azure Container Instance
-* Kubernetes
+* [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
-For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
+    > [!TIP]
+    > Currently this requires the Azure Machine Learning SDK v1.
+* [Kubernetes](how-to-attach-kubernetes-anywhere.md)
+
+For more information, see [Manage compute resources](how-to-create-attach-compute-studio.md).
 
 ## Next steps
 
 Learn how to:
-* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)
+* [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)

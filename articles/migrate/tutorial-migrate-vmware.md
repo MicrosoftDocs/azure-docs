@@ -1,17 +1,17 @@
 ---
-title: Migrate VMware VMs agentless Azure Migrate Server Migration
+title: Migrate VMware VMs agentless the Migration and modernization tool
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
-ms.date: 06/20/2022
-ms.custom: mvc
+ms.date: 12/12/2022
+ms.custom: mvc, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -22,7 +22,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migration:Server Migration tool.
+> * Add the Migration and modernization tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -41,7 +41,7 @@ Before you begin this tutorial, you should:
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you follow the [assessment tutorial](./tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If  you didn't, set it up now, using one of these methods:
+The Migration and modernization tool runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you follow the [assessment tutorial](./tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If  you didn't, set it up now, using one of these methods:
 
 - **OVA template**: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template.
 - **Script**: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government.
@@ -57,7 +57,7 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 Enable replication as follows:
 
-1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/select-replicate.png" alt-text="Screenshot on selecting Replicate option.":::
 
@@ -125,17 +125,17 @@ Enable replication as follows:
 
 ### Provisioning for the first time
 
-If this is the first VM you're replicating in the project, Server Migration automatically provisions these resources, in same resource group as the project.
+If this is the first VM you're replicating in the project, the Migration and modernization tool automatically provisions these resources, in same resource group as the project.
 
-- **Service bus**: Server Migration uses the service bus to send replication orchestration messages to the appliance.
-- **Gateway storage account**: Server Migration uses the gateway storage account to store state information about the VMs being replicated.
+- **Service bus**: The Migration and modernization tool uses the service bus to send replication orchestration messages to the appliance.
+- **Gateway storage account**: The Migration and modernization tool uses the gateway storage account to store state information about the VMs being replicated.
 - **Log storage account**: The Azure Migrate appliance uploads replication logs for VMs to a log storage account. Azure Migrate applies the replication information to the replica managed disks.
 - **Key vault**: The Azure Migrate appliance uses the key vault to manage connection strings for the service bus, and access keys for the storage accounts used in replication.
 
 ## Track and monitor
 
 1. Track job status in the portal notifications.
-2. Monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
+2. Monitor replication status by clicking on **Replicating servers** in **Migration and modernization**.
 
      ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
@@ -156,7 +156,7 @@ When delta replication begins, you can run a test migration for the VMs, before 
 Do a test migration as follows:
 
 
-1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select **Test migrated servers**.
 
     :::image type="content" source="./media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -184,7 +184,7 @@ Do a test migration as follows:
 
 After you've verified that the test migration works as expected, you can migrate the on-premises machines.
 
-1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
+1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicating servers**.
 
     ![Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
 
