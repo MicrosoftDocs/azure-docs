@@ -36,7 +36,7 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **Garland P1GCCAS**
 
-    When using a Garland TAP, make sure **Aggregation mode** is active. For more information, refer to the **Tap Aggregation** diagram under the **Network Diagrams** tab in the [Garland installation guide](https://www.garlandtechnology.com/products/aggregator-tap-copper).
+    When using a Garland TAP, make sure to set up your network to support aggregation. For more information, refer to the **Tap Aggregation** diagram under the **Network Diagrams** tab in the [Garland installation guide](https://www.garlandtechnology.com/products/aggregator-tap-copper).
 
 - **IXIA TPA2-CU3**
 
@@ -44,7 +44,7 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **US Robotics USR 4503**
 
-    When using a US Robotics TAP, make sure **Aggregation mode** is active. For more information, see the [US Robotics installation guide](https://www.usr.com/files/9814/7819/2756/4503-ig.pdf)
+    When using a US Robotics TAP, make sure to toggle the aggregation mode on by setting the selectable switch to **AGG**. For more information, see the [US Robotics installation guide](https://www.usr.com/files/9814/7819/2756/4503-ig.pdf).
 
 ## Next steps
 
