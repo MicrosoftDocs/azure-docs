@@ -100,13 +100,15 @@ To create remediation tasks from the Azure portal:
 
     [![View compliance](media/vminsights-enable-policy/view-compliance.png)](media/vminsights-enable-policy/view-compliance.png#lightbox)
     
-    The **Compliance** page lists assignments matching the specified filter and whether they're compliant. Select an assignment to view its details.
+    This opens the **Compliance** page, which lists assignments that match the specified filter and whether they're compliant. 
     
     [![Policy compliance for Azure VMs](./media/vminsights-enable-policy/policy-view-compliance.png)](./media/vminsights-enable-policy/policy-view-compliance.png#lightbox)
     
-    The **Initiative compliance** page lists the policy definitions in the initiative and whether each is in compliance.
+1. Select an assignment to view its details.
     
     [![Compliance details](media/vminsights-enable-policy/compliance-details.png)](media/vminsights-enable-policy/compliance-details.png#lightbox)
+
+    This opens the **Initiative compliance** page, which lists the policy definitions in the initiative and whether each is in compliance.
     
 1. Select a policy definition to view its details. Scenarios that policy definitions will show as out of compliance include the following:
 
