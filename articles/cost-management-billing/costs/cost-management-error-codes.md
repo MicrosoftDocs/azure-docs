@@ -302,15 +302,17 @@ For any other cases, validate the scope or resource ID.
 
 For more information, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
+<a name="RBACAccessDenied"></a>
+
 ## RBACAccessDenied
 
-Error message `RBACAccessDenied`.
-
-<a name="RBACAccessDenied"></a>
+Indicates that the current user/account does not have adequate Role-Based Access Control (RBAC) permission to perform the action.
 
 **Mitigation**
 
-For mitigation information, see [AuthorizationFailed](#AuthorizationFailed).
+If creating a budget that references an action group (`contactGroups` in the request body), make sure the user/account executing the PUT request has both Cost Management Contributor (or `Microsoft.Consumption/budgets/write`) access as well as Monitoring Reader (or `Microsoft.Insights/actionGroups/read`) access.
+
+For additional mitigation steps, see [AuthorizationFailed](#AuthorizationFailed).
 
 ## ReadOnlyDisabledSubscription
 
