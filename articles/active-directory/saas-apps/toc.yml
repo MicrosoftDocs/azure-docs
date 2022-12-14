@@ -592,6 +592,8 @@
         href: coupa-tutorial.md
       - name: Coupa Risk Assess
         href: coupa-risk-assess-tutorial.md
+      - name: Coveo Hosted Services
+        href: coveo-hosted-services-tutorial.md
       - name: Coverity Static Application Security Testing
         href: coverity-static-application-security-testing-tutorial.md  
       - name: Cincom CPQ
