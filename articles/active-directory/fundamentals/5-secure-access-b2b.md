@@ -218,16 +218,16 @@ Sharing through SharePoint and OneDrive adds users not in the Entitlement Manage
 
 ### Send documents through email
 
-Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. [Learn about Sensitivity labels.](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide).
+Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. [Learn about Sensitivity labels.](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true).
 
 ### Unsanctioned collaboration tools
 
 Your users likely use Google Docs, DropBox, Slack, or Zoom. You can block use of these tools from a corporate network, at the firewall level, and with mobile application management for organization-managed devices. However, this action blocks sanctioned instances and doesn't block access from unmanaged devices. Block tools you don’t want, and create policies for no unsanctioned usage. 
 
-For more information on managing unsanctioned applications, see:
+For more information on governing applications, see:
 
-* [Governing connected apps](/cloud-app-security/governance-actions.md)
-* [Sanctioning and unsanctioning an application.](/cloud-app-security/governance-discovery.md)
+* [Governing connected apps](/defender-cloud-apps/governance-actions)
+* [Govern discovered apps](/defender-cloud-apps/governance-discovery)
 
 ### Next steps
 
