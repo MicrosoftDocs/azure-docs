@@ -74,7 +74,7 @@ The following section describes how to create proof of concept implementations f
 
 ## Sign in
 
-1. Configure identifier to region lookup via global lookup table, use [lookup claim transformation](../active-directory-b2c/general-transformations) to emulate.
+1. Configure identifier to region lookup via global lookup table, use [lookup claim transformation](general-transformations.md) to emulate.
 
    ~~~json
    <ClaimsTransformation Id="UserIdToRegion" TransformationMethod="LookupValue">
@@ -165,15 +165,14 @@ The following section describes how to create proof of concept implementations f
    > No setup due to hardcoded lookup table in 1)
 
 1. Configure cross tenant password reset via REST API call
-   > Will require brokering API using client_credential authentication and User Admin role applied to the service principal.
+   >[NOTE]
+   >Will require brokering API using client_credential authentication and User Admin role applied to the service principal.
 
 ## Next steps
 
 - [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
-
-- [Azure AD B2C global identity regional-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
 
 - [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
 
