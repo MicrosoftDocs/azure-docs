@@ -6,7 +6,7 @@ ms.author: jricketts
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 #Customer intent: As a developer, I want to add authentication and authorization to a Blazor WebAssembly app and call Microsoft Graph.
 ---
 
@@ -39,7 +39,7 @@ Every app that uses Azure AD for authentication must be registered with Azure AD
 
 ## Create the app using the .NET Core CLI
 
-To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
+To create the app, you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
 dotnet new install Microsoft.Identity.Web.ProjectTemplates
@@ -67,7 +67,7 @@ dotnet run
 
 In your browser, navigate to `https://localhost:<port number>`, and log in using an Azure AD user account to see the app running and logging users in with the Microsoft identity platform.
 
-The components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
+The components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this article](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
 ## Retrieving data from a protected API (Microsoft Graph)
 
@@ -75,9 +75,9 @@ The components of this template that enable logins with Azure AD using the Micro
 
 This section is written using a common approach to calling a protected API using a named client. The same method can be used for other protected APIs you want to call. However, if you do plan to call Microsoft Graph from your application you can use the Graph SDK to reduce boilerplate. The .NET docs contain instructions on [how to use the Graph SDK](/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0&preserve-view=true).
 
-Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code below.
+Before you start, log out of your app since you'll be making changes to the required permissions, and your current token won't work. If you haven't already, run your app again and select **Log out** before updating the code in your app.
 
-Now you will update your app's registration and code to pull a user's emails and display the messages within the app.
+Now you'll update your app's registration and code to pull a user's emails and display the messages within the app.
 
 First, add the `Mail.Read` API permission to the app's registration so that Azure AD is aware that the app will request to access its users' email.
 
@@ -239,5 +239,5 @@ After granting consent, navigate to the "Fetch data" page to read some email.
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
