@@ -306,10 +306,10 @@ To rehydrate archived blobs in a container or folder to the hot or cool tier, en
 
 az storage blob list --account-name $accountName --account-key $key \
     --container-name $containerName --prefix $folderName \
-    --query "[?properties.blobTier == 'Cool'].name" --output tsv \
+    --query "[?properties.blobTier == 'Archive'].name" --output tsv \
     | xargs -I {} -P 10 \
     az storage blob set-tier --account-name $accountName --account-key $key \
-    --container-name $containerName --tier Archive --name "{}" 
+    --container-name $containerName --tier Hot --name "{}" 
 
 ```
 
