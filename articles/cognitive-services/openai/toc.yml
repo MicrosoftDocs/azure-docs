@@ -10,6 +10,8 @@ items:
       href: quotas-limits.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   href: quickstart.md
 - name: Concepts
@@ -66,8 +68,12 @@ items:
   items:
     - name: REST API (completions & embeddings)
       href: reference.md
+    - name: REST API (completions & embeddings) swagger
+      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2022-12-01/inference.json
     - name: REST API (authoring & deployment)
-      href: /rest/api/cognitiveservices/azureopenai/deployments/create
+      href: /rest/api/cognitiveservices/azureopenaistable/deployments/create
+    - name: REST API (authoring & deployment) swagger
+      href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/authoring/stable/2022-12-01/azureopenai.json
 - name: Resources
   items: 
     - name: Support and help options
@@ -77,7 +83,7 @@ items:
     - name: Region support
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Terms of use
-      href: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+      href: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA#ServiceSpecificTerms
     
 
 

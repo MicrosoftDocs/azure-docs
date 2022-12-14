@@ -367,6 +367,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
+## Microsoft Dev Box limits
+
+[!INCLUDE [dev-box-limits](../../../includes/dev-box-limits.md)]
+
 ## Microsoft Purview limits
 
 The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
