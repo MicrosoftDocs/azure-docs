@@ -98,11 +98,11 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     1. Enable **SSO** and choose **SAML** protocol.
 
-    1. In the **Login URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. In the **Login URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
-    1. In the **Identifier** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    1. In the **Identifier** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
     
-    1. In the **Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+    1. In the **Logout URL** textbox, paste the **Logout URL** value, which you have copied from the Azure portal.
 
     1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
@@ -118,9 +118,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Flipsnack SAML Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Flipsnack SAML Sign-on URL where you can initiate the login flow.  
 
-* Go to Flipsnack SAML Sign on URL directly and initiate the login flow from there.
+* Go to Flipsnack SAML Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
