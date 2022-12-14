@@ -48,16 +48,16 @@ CREATE TABLE `orders` (
 3. On the **Logic apps** page, select **Add**.
 
 4. On the **Create Logic App** pane, on the **Basics** tab, provide the following basic information about your logic app:
-  -  **Subscription**: Your Azure subscription name.
-  -   **Resource Group**: The Azure resource group where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**).
-  -   **Logic App name**:  Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`).
+    -  **Subscription**: Your Azure subscription name.
+    -   **Resource Group**: The Azure resource group where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**).
+    -   **Logic App name**:  Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`).
 
 5. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
 
 6. Now continue making the following selections:
 
- - **Region**: The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure.
- - **Enable log analytics**: This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. 
+   - **Region**: The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure.
+   - **Enable log analytics**: This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. 
     
 7. When you're ready, select **Review + Create**.
 
