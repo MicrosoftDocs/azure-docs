@@ -129,7 +129,7 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
     --priority 200
 
 ```
-### Create a network interface
+## Create a network interface
 
 You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
 
@@ -178,7 +178,7 @@ Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-networ
 > [!NOTE]
 > When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to.
 
-### Create a virtual machine
+## Create a virtual machine
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
 
