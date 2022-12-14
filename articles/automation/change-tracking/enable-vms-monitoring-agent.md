@@ -3,7 +3,7 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/24/2022
+ms.date: 12/14/2022
 ms.topic: conceptual
 ---
 
@@ -35,7 +35,7 @@ This section provides detailed procedure on how you can enable change tracking o
 
 1. In the **Stay up-to-date with all changes** layout, select **Enable using AMA agent (Recommended)** option and **Enable**. 
 
-   This will initiate the deployment and the notification appears on the top right corner of the screen. You can also [change the workspace](manage-change-tracking-monitoring-agent.md#change-a-workspace) from this screen.
+   This will initiate the deployment and the notification appears on the top right corner of the screen.
    
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
 
@@ -65,8 +65,36 @@ This section provides detailed procedure on how you can enable change tracking o
 1. A notification appears on the top right corner of the screen indicating the status of deployment.
 --- 
 
-> [!NOTE]
-> It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM. For more information, see [Configure data collection rule](manage-change-tracking-monitoring-agent.md#configure-data-collection-rule).
+>[!NOTE]
+>It usually takes up to two to three minutes to successfully onboard and enable the virtual machine(s). After you enable a virtual machine for change tracking, you can make changes to the files, registries, or software for the specific VM.
+
+## Enable Change Tracking at scale using Azure Monitoring Agent
+
+Using the Deploy if not exist (DINE) policy, you can enable Change tracking with Azure Monitoring Agent at scale and in the most efficient manner.
+
+1. In Azure portal, select **Policy**.
+1. In the **Policy|Definitions** page, in **Authoring**, select **Definitions**
+1. In the **Definition Type** category, select **Initiative** and in **Category**, select **ChangeTracking andInventory**
+   You will see a list of three policies:
+    - Enable ChangeTracking and inventory for Virtual Machine Scale Sets
+    - Enable ChangeTracking and inventory for virtual machines
+    - Enable ChangeTracking and inventory for Arc-enabled virtual machines
+1. Select **Enable ChangeTracking and Inventory for virtual machines** to enable the change tracking on Azure virtual machines.
+   This initiative consists of three policies:
+   - Assign Built in User-Assigned Managed identity to Virtual machines
+   - Configure ChangeTracking Extension for Windows virtual machines
+   - Configure ChangeTracking Extension for Linux virtual machines 
+1. Select **Assign** to assign the policy to a resource group. For example, **Assign Built in User-Assigned Managed identity to virtual machines**.
+   >[!NOTE]
+   >The Resource group contains virtual machines and when you assign the policy, it 
+   will enable change tracking at scale to a resource group. The virtual machines 
+   that are on-boarded to the same resource group will automatically have the 
+   change tracking feature enabled.
+1. In the **Enable ChangeTracking and Inventory for virtual machines** page, enter the following options:
+   1. In **Basics**, you can define the scope. Select the three dots to configure a scope. In the **Scope** page, provide the **Subscription** and **Resource group**.
+   1. In **Parameters**, select the option in the **Bring your own user assigned managed identity**.
+   1. Provide the **Data Collection Rule Resource id**.
+   1. Select **Review + create**.
 
  
 ## Next steps

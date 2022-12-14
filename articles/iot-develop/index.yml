@@ -11,8 +11,8 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 11/29/22
-  ms.custom: 
+  ms.date: 12/14/22
+  ms.custom: engagement-fy23
 
 landingContent:
   - title: About IoT device development
@@ -35,20 +35,16 @@ landingContent:
           url: quickstart-send-telemetry-iot-hub.md
         - text: Connect a device to IoT Central
           url: quickstart-send-telemetry-central.md
-  - title: Get started with embedded device development
+  - title: Get started with Azure RTOS development
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect a Microchip ATSAME54-XPro to Azure IoT Hub
+        - text: Connect a Microchip ATSAME54-XPro to IoT Hub
           url: quickstart-devkit-microchip-atsame54-xpro-iot-hub.md
-        - text: Connect a Microchip ATSAME54-XPro to Azure IoT
-          url: quickstart-devkit-microchip-atsame54-xpro.md
-        - text: Connect an STMicroelectronics L475E-IOT01A to Azure IoT Hub
+        - text: Connect an STMicroelectronics B-L475E-IOT01A to IoT Hub
           url: quickstart-devkit-stm-b-l475e-iot-hub.md
-        - text: Connect an STMicroelectronics L4S5I-IOT01A to Azure IoT
+        - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Central
           url: quickstart-devkit-stm-b-l4s5i.md
-        - text: Connect an MXCHIP AZ3166 to Azure IoT Central
-          url: quickstart-devkit-mxchip-az3166.md
         - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
           url: quickstart-devkit-mxchip-az3166-iot-hub.md
   - title: Build device solutions
@@ -65,3 +61,11 @@ landingContent:
           url: overview-iot-plug-and-play.md
         - text: Developer guide
           url: concepts-developer-guide-device.md
+  - title: Get started with FreeRTOS development
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Connect an ESPRESSIF ESP-32 to Azure IoT Central
+          url: quickstart-devkit-espressif-esp32-freertos.md
+        - text: Connect an STMicroelectronics B-L475E-IOT01A to Azure IoT Central
+          url: quickstart-devkit-stm-b-l475e-freertos.md
