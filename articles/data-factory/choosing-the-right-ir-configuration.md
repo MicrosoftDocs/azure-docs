@@ -67,7 +67,7 @@ It is very important to choose an appropriate type of integration runtime. Not o
 5.	What concurrency requirements do you have?<br>
     When processing large-scale data, such as large-scale data migration, we hope to improve the efficiency and speed of processing as much as possible. Concurrency is often a major requirement for data integration.
 
-    - The Azure integration runtime has the highest concurrency support among all integration runtime types. Data integration unit (DIU) is the unit of capability to run on Azure Data Factory. You can select the desired number of DIU for e.g. Copy activity. Within the scope of DIU, you can run multiple activities at the same time. For different region groups, we will have different upper limitations. Learn about the details of these limits in the article [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+    - The Azure integration runtime has the highest concurrency support among all integration runtime types. Data integration unit (DIU) is the unit of capability to run on Azure Data Factory. You can select the desired number of DIU for e.g. Copy activity. Within the scope of DIU, you can run multiple activities at the same time. For different region groups, we will have different upper limitations. Learn about the details of these limits in the article [Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
     - The Azure integration runtime with a managed virtual network has a similar mechanism to the Azure integration runtime, but due to some architectural constraints, the concurrency it can support is less than Azure integration runtime.
     - The concurrent activities that the self-hosted integration runtime can run depend on the machine size and cluster size. You can choose a larger machine or use more self-hosted integration nodes in the cluster if you need greater concurrency.
 
@@ -85,7 +85,7 @@ Based on the characteristics of each integration runtime, different architecture
 
 The Azure integration runtime is a fully managed, auto-scaled compute that you can use to move data from Azure or non-Azure data sources.
 
-:::image type="content" source="media/integration-runtime-overview/integration-runtime-with-fully-managed.png" alt-text="integration runtime is a fully managed":::
+:::image type="content" source="media/choosing-the-right-ir-configuration/integration-runtime-with-fully-managed.png" alt-text="integration runtime is a fully managed.":::
 
 1. The traffic from the Azure integration runtime to data stores is through public network.
 1. We provide a range of static public IP addresses for the Azure integration runtime and these IP addresses can be added to the allow list of the target data store firewall. To learn more about how to get public IP addresses of the Azure Integration runtime, refer to the article [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).
@@ -95,7 +95,7 @@ The Azure integration runtime is a fully managed, auto-scaled compute that you c
 
 When using the Azure integration runtime with a managed virtual network, you should use managed private endpoints to connect your data sources to ensure data security during transmission. With some additional settings such as Private Link Service and Load Balancer, managed private endpoints can also be used to access on-premises data sources.
 
-:::image type="content" source="media/integration-runtime-overview/integration-runtime-with-managed-virtual-network.png" alt-text="integration runtime with a managed virtual network":::
+:::image type="content" source="media/choosing-the-right-ir-configuration/integration-runtime-with-managed-virtual-network.png" alt-text="integration runtime with a managed virtual network.":::
 
 1. A managed private endpoint can’t be reused across different environments. You need to create a set of managed private endpoints for each environment. For all data sources supported by managed private endpoints, refer to the article [Supported data sources and services](managed-virtual-network-private-endpoint.md#supported-data-sources-and-services).
 1. You can also use managed private endpoints for connections to external compute resources that you want to orchestrate such as Azure Databricks and Azure Functions. To see the full list of supported external compute resources, refer to the article [Supported data sources and services](managed-virtual-network-private-endpoint.md#supported-data-sources-and-services).
@@ -107,11 +107,11 @@ When using the Azure integration runtime with a managed virtual network, you sho
 
 To prevent data from different environments from interfering with each other and ensure the security of the production environment, we need to create a corresponding self-hosted integration runtime for each environment. This ensures sufficient isolation between different environments. 
 
-:::image type="content" source="media/integration-runtime-overview/self-hosted-integration-runtime-with-customer-managed-machine.png" alt-text="create a corresponding self-hosted integration runtime for each environment":::
+:::image type="content" source="media/choosing-the-right-ir-configuration/self-hosted-integration-runtime-with-customer-managed-machine.png" alt-text="create a corresponding self-hosted integration runtime for each environment.":::
 
 Since the self-hosted integration runtime runs on a customer managed machine, in order to reduce the cost, maintenance, and upgrade efforts as much as possible, we can make use of the shared functions of the self-hosted integration runtime for different projects in the same environment. For details on self-hosted integration runtime sharing, refer to the article [Create a shared self-hosted integration runtime in Azure Data Factory](create-shared-self-hosted-integration-runtime-powershell.md). At the same time, to make the data more secure during transmission, we can choose to use a private link to connect the data sources and key vault, and connect the communication between the self-hosted integration runtime and the Azure Data Factory service.
 
-:::image type="content" source="media/integration-runtime-overview/self-hosted-integration-runtime-sharing.png" alt-text="use the shared functions of the self-hosted integration runtime for different projects in the same environment":::
+:::image type="content" source="media/choosing-the-right-ir-configuration/self-hosted-integration-runtime-sharing.png" alt-text="use the shared functions of the self-hosted integration runtime for different projects in the same environment.":::
 
 1. Express Route is not mandatory. Without Express Route, the data will not reach the sink through private networks such as a virtual network or a private link, but through the public network.
 1. If the on-premises network is connected to the Azure virtual network via Express Route or VPN, then the self-hosted integration runtime can be installed on virtual machines in a Hub VNET.
