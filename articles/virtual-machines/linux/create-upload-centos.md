@@ -5,7 +5,7 @@ author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 12/14/2022
 ms.author: srijangupta
 ms.reviewer: mattmcinnes
 ---
@@ -352,10 +352,8 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 > [!NOTE]
 > If uploading an UEFI enabled VM, the command to update grub is `grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg`.  Also, the vfat kernel module must be enabled in the kernel otherwise provisioning will fail.
-
-
-> [!NOTE]
-> Make sure the **'udf'** module is enable. Blacklisting or removing it will cause a provisioning failure. **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
+>
+> Make sure the **'udf'** module is enable. Blocklisting or removing it will cause a provisioning failure. **(_Cloud-init >= 21.2 removes the udf requirement. Please read top of document for more detail)**
 
 
 10. If building the image from **VMware, VirtualBox or KVM:** Ensure the Hyper-V drivers are included in the initramfs:
@@ -385,12 +383,10 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
 
     # Configure waagent for cloud-init
-    ```bash
     sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=auto/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
-    ```
-    
+        
     echo "Adding mounts and disk_setup to init stage"
     sed -i '/ - mounts/d' /etc/cloud/cloud.cfg
     sed -i '/ - disk_setup/d' /etc/cloud/cloud.cfg
