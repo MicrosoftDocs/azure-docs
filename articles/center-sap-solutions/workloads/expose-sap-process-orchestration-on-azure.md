@@ -23,24 +23,24 @@ This article describes configuration options on Azure, with emphasis on internet
 
 Existing implementations based on SAP middleware have often relied on SAP's proprietary dispatching technology called [SAP Web Dispatcher](https://help.sap.com/docs/ABAP_PLATFORM_NEW/683d6a1797a34730a6e005d1e8de6f22/488fe37933114e6fe10000000a421937.html). This technology operates on layer 7 of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). It acts as a reverse proxy and addresses load-balancing needs for downstream SAP application workloads like SAP Enterprise Resource Planning (ERP), SAP Gateway, or SAP Process Orchestration.
 
-Dispatching approaches include traditional reverse proxies like Apache, platform as a service (PaaS) options like [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md), and the opinionated SAP Web Dispatcher. The overall concepts described in this article apply to the options mentioned. For guidance on using non-SAP load balancers, see SAP's [wiki](https://wiki.scn.sap.com/wiki/display/SI/Can+I+use+a+different+load+balancer+instead+of+SAP+Web+Dispatcher).
+Dispatching approaches include traditional reverse proxies like Apache, platform as a service (PaaS) options like [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), and the opinionated SAP Web Dispatcher. The overall concepts described in this article apply to the options mentioned. For guidance on using non-SAP load balancers, see SAP's [wiki](https://wiki.scn.sap.com/wiki/display/SI/Can+I+use+a+different+load+balancer+instead+of+SAP+Web+Dispatcher).
 
 > [!NOTE]
 > All described setups in this article assume a hub-and-spoke network topology, where shared services are deployed into the hub. Based on the criticality of SAP, you might need even more isolation. For more information, see the SAP [design guide for perimeter networks](/azure/architecture/guide/sap/sap-internet-inbound-outbound#network-design).
 
 ## Primary Azure services 
 
-[Azure Application Gateway](../../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../../application-gateway/configuration-frontend-ip.md) and [internal private](../../../application-gateway/configuration-frontend-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../../application-gateway/private-link.md). Examples include [security](../../../application-gateway/features.md) and [autoscaling](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
+[Azure Application Gateway](../../application-gateway/how-application-gateway-works.md) handles public [internet-based](../../application-gateway/configuration-frontend-ip.md) and [internal private](../../application-gateway/configuration-frontend-ip.md) HTTP routing, along with [encrypted tunneling across Azure subscriptions](../../application-gateway/private-link.md). Examples include [security](../../application-gateway/features.md) and [autoscaling](../../application-gateway/application-gateway-autoscaling-zone-redundant.md). 
 
-Azure Application Gateway is focused on exposing web applications, so it offers a web application firewall (WAF). Workloads in other virtual networks that will communicate with SAP through Azure Application Gateway can be connected via [private links](../../../application-gateway/private-link-configure.md), even across tenants.
+Azure Application Gateway is focused on exposing web applications, so it offers a web application firewall (WAF). Workloads in other virtual networks that will communicate with SAP through Azure Application Gateway can be connected via [private links](../../application-gateway/private-link-configure.md), even across tenants.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/private-link.png" alt-text="Diagram that shows cross-tenant communication via Azure Application Gateway.":::
 
-[Azure Firewall](../../../firewall/overview.md) handles public internet-based and internal private routing for traffic types on layers 4 to 7 of the OSI model. It offers filtering and threat intelligence that feed directly from Microsoft Security.
+[Azure Firewall](../../firewall/overview.md) handles public internet-based and internal private routing for traffic types on layers 4 to 7 of the OSI model. It offers filtering and threat intelligence that feed directly from Microsoft Security.
 
-[Azure API Management](../../../api-management/api-management-key-concepts.md) handles public internet-based and internal private routing specifically for APIs. It offers request throttling, usage quota and limits, governance features like policies, and API keys to break down services per client.
+[Azure API Management](../../api-management/api-management-key-concepts.md) handles public internet-based and internal private routing specifically for APIs. It offers request throttling, usage quota and limits, governance features like policies, and API keys to break down services per client.
 
-[Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Azure ExpressRoute](../../../expressroute/expressroute-introduction.md) serve as entry points to on-premises networks. They're abbreviated in the diagrams as VPN and XR.
+[Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) serve as entry points to on-premises networks. They're abbreviated in the diagrams as VPN and XR.
 
 ## Setup considerations
 
@@ -49,13 +49,13 @@ Integration architecture needs differ, depending on the interface that an organi
 This article focuses on modern APIs and HTTP, including integration scenarios like [Applicability Statement 2 (AS2)](https://wikipedia.org/wiki/AS2). [File Transfer Protocol (FTP)](https://wikipedia.org/wiki/File_Transfer_Protocol) serves as an example to handle non-HTTP integration needs. For more information about Microsoft load-balancing solutions, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 > [!NOTE]
-> SAP publishes dedicated [connectors](https://support.sap.com/en/product/connectors.html) for its proprietary interfaces. Check SAP's documentation for [Java](https://support.sap.com/en/product/connectors/jco.html) and [.NET](https://support.sap.com/en/product/connectors/msnet.html), for example. They're supported by [Microsoft gateways](../../../data-factory/connector-sap-table.md?tabs=data-factory#prerequisites) too. Be aware that IDocs can also be posted via [HTTP](https://blogs.sap.com/2012/01/14/post-idoc-to-sap-erp-over-http-from-any-application/).
+> SAP publishes dedicated [connectors](https://support.sap.com/en/product/connectors.html) for its proprietary interfaces. Check SAP's documentation for [Java](https://support.sap.com/en/product/connectors/jco.html) and [.NET](https://support.sap.com/en/product/connectors/msnet.html), for example. They're supported by [Microsoft gateways](../../data-factory/connector-sap-table.md?tabs=data-factory#prerequisites) too. Be aware that IDocs can also be posted via [HTTP](https://blogs.sap.com/2012/01/14/post-idoc-to-sap-erp-over-http-from-any-application/).
 
-Security concerns require the usage of [firewalls](../../../firewall/features.md) for lower-level protocols and [WAFs](../../../web-application-firewall/overview.md) to address HTTP-based traffic with [Transport Layer Security (TLS)](https://wikipedia.org/wiki/Transport_Layer_Security). To be effective, TLS sessions need to be terminated at the WAF level. To support zero-trust approaches, we recommend that you [re-encrypt](../../../application-gateway/ssl-overview.md) again afterward to provide end-to-encryption.
+Security concerns require the usage of [firewalls](../../firewall/features.md) for lower-level protocols and [WAFs](../../web-application-firewall/overview.md) to address HTTP-based traffic with [Transport Layer Security (TLS)](https://wikipedia.org/wiki/Transport_Layer_Security). To be effective, TLS sessions need to be terminated at the WAF level. To support zero-trust approaches, we recommend that you [re-encrypt](../../application-gateway/ssl-overview.md) again afterward to provide end-to-encryption.
 
 Integration protocols such as AS2 can raise alerts by using standard WAF rules. We recommend using the [Application Gateway WAF triage workbook](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Workbook%20-%20AppGw%20WAF%20Triage%20Workbook) to identify and better understand why the rule is triggered, so you can remediate effectively and securely. Open Web Application Security Project (OWASP) provides the standard rules. For a detailed video session on this topic with emphasis on SAP Fiori exposure, see the [SAP on Azure webcast](https://www.youtube.com/watch?v=kAnWTqKlGGo).
 
-You can further enhance security by using [mutual TLS (mTLS)](../../../application-gateway/mutual-authentication-overview.md), which is also called mutual authentication. Unlike normal TLS, it verifies the client identity.
+You can further enhance security by using [mutual TLS (mTLS)](../../application-gateway/mutual-authentication-overview.md), which is also called mutual authentication. Unlike normal TLS, it verifies the client identity.
 
 > [!NOTE]
 > Virtual machine (VM) pools require a load balancer. For better readability, the diagrams in this article don't show a load balancer.
@@ -83,12 +83,12 @@ The following outbound scenario shows two possible methods. One uses HTTPS via A
 
 ## Scenario: API Management focused
 
-Compared to the scenarios for inbound and outbound connectivity, the introduction of [Azure API Management in internal mode](../../../api-management/api-management-using-with-internal-vnet.md) (private IP only and virtual network integration) adds built-in capabilities like:
+Compared to the scenarios for inbound and outbound connectivity, the introduction of [Azure API Management in internal mode](../../api-management/api-management-using-with-internal-vnet.md) (private IP only and virtual network integration) adds built-in capabilities like:
 
-- [Throttling](../../../api-management/api-management-sample-flexible-throttling.md).
+- [Throttling](../../api-management/api-management-sample-flexible-throttling.md).
 - [API governance](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
-- Additional security options like [modern authentication flows](../../../api-management/api-management-howto-protect-backend-with-aad.md).
-- [Azure Active Directory](../../../active-directory/develop/active-directory-v2-protocols.md) integration.
+- Additional security options like [modern authentication flows](../../api-management/api-management-howto-protect-backend-with-aad.md).
+- [Azure Active Directory](../../active-directory/develop/active-directory-v2-protocols.md) integration.
 - The opportunity to add SAP APIs to a central API solution across the company.
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/inbound-api-management-2.png" alt-text="Diagram that shows an inbound scenario with Azure API Management and SAP Process Orchestration on Azure.":::
@@ -99,7 +99,7 @@ When you don't need a WAF, you can deploy Azure API Management in external mode 
 
 ## Scenario: Global reach
 
-Azure Application Gateway is a region-bound service. Compared to the preceding scenarios, [Azure Front Door](../../../frontdoor/front-door-overview.md) ensures cross-region global routing, including a web application firewall. For details about the differences, see [this comparison](/azure/architecture/guide/technology-choices/load-balancing-overview).
+Azure Application Gateway is a region-bound service. Compared to the preceding scenarios, [Azure Front Door](../../frontdoor/front-door-overview.md) ensures cross-region global routing, including a web application firewall. For details about the differences, see [this comparison](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 The following diagram condenses SAP Web Dispatcher, SAP Process Orchestration, and the back end into single image for better readability.
 
@@ -109,7 +109,7 @@ The following diagram condenses SAP Web Dispatcher, SAP Process Orchestration, a
 
 Non-HTTP protocols like FTP can't be addressed with Azure API Management, Application Gateway, or Azure Front Door as shown in the preceding scenarios. Instead, the managed Azure Firewall instance or the equivalent network virtual appliance (NVA) takes over the role of securing inbound requests.
 
-Files need to be stored before SAP can process them. We recommend that you use [SFTP](../../../storage/blobs/secure-file-transfer-protocol-support.md). Azure Blob Storage supports SFTP natively. 
+Files need to be stored before SAP can process them. We recommend that you use [SFTP](../../storage/blobs/secure-file-transfer-protocol-support.md). Azure Blob Storage supports SFTP natively. 
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/file-blob-4.png" alt-text="Diagram that shows a file-based scenario with Azure Blob Storage and SAP Process Orchestration on Azure.":::
 
@@ -119,13 +119,13 @@ The following diagram shows a variation of this scenario with integration target
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/file-azure-firewall-4.png" alt-text="Diagram that shows a file-based scenario with on-premises file share and external party using SAP Process Orchestration on Azure.":::
 
-For insights into Network File System (NFS) file shares as an alternative to Blob Storage, see [NFS file shares in Azure Files](../../../storage/files/files-nfs-protocol.md).
+For insights into Network File System (NFS) file shares as an alternative to Blob Storage, see [NFS file shares in Azure Files](../../storage/files/files-nfs-protocol.md).
 
 ## Scenario: SAP RISE specific
 
 SAP RISE deployments are technically identical to the scenarios described earlier, with the exception that SAP itself manages the target SAP workload. The described concepts can be applied here.
 
-The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](../../../virtual-machines/workloads/sap/sap-rise-integration.md#virtual-network-peering-with-sap-riseecs).
+The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](../../virtual-machines/workloads/sap/sap-rise-integration.md#virtual-network-peering-with-sap-riseecs).
 
 > [!IMPORTANT]
 > Contact SAP to ensure that communication ports for your scenario are allowed and opened in NSGs.
@@ -149,7 +149,7 @@ In this scenario, the SAP-managed Process Orchestration instance writes files to
 ## Comparison of gateway setups
 
 > [!NOTE]
-> Performance and cost metrics assume production-grade tiers. For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Also see the following articles: [Azure Firewall performance](../../../firewall/firewall-performance.md), [Application Gateway high-traffic support](../../../application-gateway/high-traffic-support.md), and [Capacity of an Azure API Management instance](../../../api-management/api-management-capacity.md).
+> Performance and cost metrics assume production-grade tiers. For more information, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Also see the following articles: [Azure Firewall performance](../../firewall/firewall-performance.md), [Application Gateway high-traffic support](../../application-gateway/high-traffic-support.md), and [Capacity of an Azure API Management instance](../../api-management/api-management-capacity.md).
 
 :::image type="content" source="media/expose-sap-process-orchestration-on-azure/compare.png" alt-text="A table that compares the gateway components discussed in this article.":::
 
@@ -159,33 +159,33 @@ Depending on the integration protocols you're using, you might need multiple com
 
 To determine which integration scenarios described in this article best fit your requirements, evaluate them on a case-by-case basis. Consider enabling the following capabilities:
 
-- [Request throttling](../../../api-management/api-management-sample-flexible-throttling.md) by using API Management
+- [Request throttling](../../api-management/api-management-sample-flexible-throttling.md) by using API Management
 
 - [Concurrent request limits](https://help.sap.com/docs/ABAP_PLATFORM/683d6a1797a34730a6e005d1e8de6f22/3a450194bf9c4797afb6e21b4b22ad2a.html) on SAP Web Dispatcher
 
-- [Mutual TLS](../../../application-gateway/mutual-authentication-overview.md) to verify the client and the receiver
+- [Mutual TLS](../../application-gateway/mutual-authentication-overview.md) to verify the client and the receiver
 
-- WAF and [re-encryption after TLS termination](../../../application-gateway/ssl-overview.md)
+- WAF and [re-encryption after TLS termination](../../application-gateway/ssl-overview.md)
 
-- [Azure Firewall](../../../firewall/features.md) for non-HTTP integrations
+- [Azure Firewall](../../firewall/features.md) for non-HTTP integrations
 
-- [High availability](../../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
+- [High availability](../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
 
-- Modern [authentication mechanisms like OAuth2](../../../api-management/sap-api.md#production-considerations), where applicable
+- Modern [authentication mechanisms like OAuth2](../../api-management/sap-api.md#production-considerations), where applicable
 
-- A managed key store like [Azure Key Vault](../../../key-vault/general/overview.md) for all involved credentials, certificates, and keys
+- A managed key store like [Azure Key Vault](../../key-vault/general/overview.md) for all involved credentials, certificates, and keys
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 
-With the [Azure Integration Services portfolio](https://azure.microsoft.com/product-categories/integration/), you can natively address the integration scenarios that SAP Process Orchestration covers. For insights on how to design SAP IFlow patterns through cloud-native means, see [this blog series](https://blogs.sap.com/2022/08/30/port-your-legacy-sap-middleware-flows-to-cloud-native-paas-solutions/). The connector guide contains more details about [AS2](../../../logic-apps/logic-apps-enterprise-integration-as2.md) and [EDIFACT](../../../logic-apps/logic-apps-enterprise-integration-edifact.md).
+With the [Azure Integration Services portfolio](https://azure.microsoft.com/product-categories/integration/), you can natively address the integration scenarios that SAP Process Orchestration covers. For insights on how to design SAP IFlow patterns through cloud-native means, see [this blog series](https://blogs.sap.com/2022/08/30/port-your-legacy-sap-middleware-flows-to-cloud-native-paas-solutions/). The connector guide contains more details about [AS2](../../logic-apps/logic-apps-enterprise-integration-as2.md) and [EDIFACT](../../logic-apps/logic-apps-enterprise-integration-edifact.md).
 
-For more information, view the [Azure Logic Apps connectors](../../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces. 
+For more information, view the [Azure Logic Apps connectors](../../logic-apps/logic-apps-using-sap-connector.md) for your desired SAP interfaces. 
 
 ## Next steps
 
 [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
-[Integrate API Management in an internal virtual network with Application Gateway](../../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
+[Integrate API Management in an internal virtual network with Application Gateway](../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
 [Deploy the Application Gateway WAF triage workbook to better understand SAP-related WAF alerts](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Workbook%20-%20AppGw%20WAF%20Triage%20Workbook)
 
@@ -193,4 +193,4 @@ For more information, view the [Azure Logic Apps connectors](../../../logic-apps
 
 [Understand implications of combining Azure Firewall and Azure Application Gateway](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-before-firewall)
 
-[Work with SAP OData APIs in Azure API Management](../../../api-management/sap-api.md)
+[Work with SAP OData APIs in Azure API Management](../../api-management/sap-api.md)

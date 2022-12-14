@@ -61,30 +61,30 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli-inst]:../../../cli/azure/install-classic-cli
-[azure-cli]:../../../cli-install-nodejs.md
+[azure-cli]:/cli/azure/install-cli-version-1.0
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms-guide.md
-[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91
-[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152
-[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64
-[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3
-[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
-[dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b
-[dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30
-[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
-[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
-[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
-[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:dbms_guide_general.md
+[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
+[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91
+[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152
+[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64
+[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3
+[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
+[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b
+[dbms-guide-5.6]:dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
+[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30
+[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737
+[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
+[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
+[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
+[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818
+[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -226,81 +226,81 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 
 [powershell-install-configure]:/powershell/azure/install-az-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/management/overview.md
-[resource-groups-networking]:../../../networking/networking-overview.md
+[resource-group-overview]:../../azure-resource-manager/management/overview.md
+[resource-groups-networking]:../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md
-[storage-premium-storage-preview-portal]:../../disks-types.md
-[storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
-[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
+[storage-azure-cli]:../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md
+[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
+[storage-redundancy]:../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../storage/common/scalability-targets-standard-accounts.md
+[storage-use-azcopy]:../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
+[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.md
+[virtual-machines-azure-resource-manager-architecture]:/azure/azure-resource-manager/management/deployment-models
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
+[virtual-machines-linux-cli-deploy-templates]:../../virtual-machines/linux/cli-deploy-templates.md
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines/windows/index.yml
-[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
-[virtual-machines-linux-capture-image]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
-[virtual-machines-windows-capture-image-resource-manager]:../../windows/capture-image.md
+[virtual-machines-linux-agent-user-guide]:../../virtual-machines/extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/extensions/agent-windows.md#command-line-options
+[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines/linux/capture-image.md#step-2-capture-the-vm
+[virtual-machines-windows-capture-image-resource-manager]:../../virtual-machines/windows/capture-image.md
 [virtual-machines-windows-capture-image]:../../virtual-machines-windows-generalize-vhd.md
 [virtual-machines-windows-capture-image-prepare-the-vm-for-image-capture]:../../virtual-machines-windows-generalize-vhd.md
-[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
-[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
+[virtual-machines-linux-configure-raid]:../../virtual-machines/linux/configure-raid.md
+[virtual-machines-linux-configure-lvm]:../../virtual-machines/linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-create-upload-vhd-oracle]:../../linux/oracle-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
-[virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/availability.md
+[virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines/linux/suse-create-upload-vhd.md
+[virtual-machines-linux-create-upload-vhd-oracle]:../../virtual-machines/linux/oracle-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]:../../virtual-machines/linux/redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]:../../virtual-machines/linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../virtual-machines/linux/add-disk.md#format-and-mount-the-disk
+[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
+[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
+[virtual-machines-manage-availability]:../../virtual-machines/linux/availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
-[virtual-machines-sizes-linux]:../../linux/sizes.md
-[virtual-machines-sizes-windows]:../../windows/sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
+[virtual-machines-sizes-linux]:../../virtual-machines/linux/sizes.md
+[virtual-machines-sizes-windows]:../../virtual-machines/windows/sizes.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md
+[virtual-machines-sql-server-infrastructure-services]:./../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
 [virtual-machines-sql-server-performance-best-practices]:/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../linux/multiple-nics.md
-[virtual-network-deploy-multinic-arm-ps]:../../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
-[virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
-[virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics-windows]:../../windows/multiple-nics.md
-[virtual-networks-multiple-nics-linux]:../../linux/multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/security-overview.md
-[virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
-[virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
-[vpn-gateway-about-vpn-devices]:../../../vpn-gateway/vpn-gateway-about-vpn-devices.md
-[vpn-gateway-create-site-to-site-rm-powershell]:../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:../../../vpn-gateway/vpn-gateway-about-vpngateways.md
-[vpn-gateway-site-to-site-create]:../../../vpn-gateway/vpn-gateway-site-to-site-create.md
-[vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
-[capture-image-linux-step-2-create-vm-image]:../../linux/capture-image.md#step-2-create-vm-image
+[virtual-network-deploy-multinic-arm-cli]:../../virtual-machines/linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../../virtual-machines/windows/multiple-nics.md
+[virtual-network-deploy-multinic-arm-template]:../../virtual-network/template-samples.md
+[virtual-networks-configure-vnet-to-vnet-connection]:../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
+[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.md#create-a-virtual-network
+[virtual-networks-manage-dns-in-vnet]:../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+[virtual-networks-multiple-nics-windows]:../../virtual-machines/windows/multiple-nics.md
+[virtual-networks-multiple-nics-linux]:../../virtual-machines/linux/multiple-nics.md
+[virtual-networks-nsg]:../../virtual-network/security-overview.md
+[virtual-networks-reserved-private-ip]:../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-networks-static-private-ip-arm-pportal]:../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
+[vpn-gateway-about-vpn-devices]:../../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-create-site-to-site-rm-powershell]:../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]:../../vpn-gateway/vpn-gateway-about-vpngateways.md
+[vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-site-to-site-create.md
+[vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
+[xplat-cli]:/cli/azure/install-cli-version-1.0
+[xplat-cli-azure-resource-manager]:/azure/azure-resource-manager/management/manage-resources-cli
+[capture-image-linux-step-2-create-vm-image]:../../virtual-machines/linux/capture-image.md#step-2-create-vm-image
 
 
 
@@ -308,7 +308,7 @@ Microsoft Azure enables companies to acquire compute and storage resources in mi
 This white paper describes the fundamentals of Microsoft Azure Virtual Machine and provides a walk-through of planning and implementation considerations for SAP NetWeaver installations in Azure and as such should be the document to read before starting actual deployments of SAP NetWeaver on Azure.
 The paper complements the SAP Installation Documentation and SAP Notes, which represent the primary resources for installations and deployments of SAP software on given platforms.
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Summary
 Cloud Computing is a widely used term, which is gaining more and more importance within the IT industry, from small companies up to large and multinational corporations.
@@ -380,7 +380,7 @@ General default limitations and maximum limitations of Azure subscriptions can b
 ## Possible Scenarios
 SAP is often seen as one of the most mission-critical applications within enterprises. The architecture and operations of these applications is mostly complex and ensuring that you meet requirements on availability and performance is important.
 
-Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](./hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premises SAP scenarios can be run in Azure as well.
+Thus enterprises have to think carefully about which cloud provider to choose for running such business critical business processes on. Azure is the ideal public cloud platform for business critical SAP applications and business processes. Given the wide variety of Azure infrastructure,  nearly all existing SAP NetWeaver, and S/4HANA systems can be hosted in Azure today. Azure provides VMs with many Terabytes of memory and more than 200 CPUs. Beyond that Azure offers [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md), which allow scale-up HANA deployments of up to 24 TB and SAP HANA scale-out deployments of up to 120 TB. One can state today that nearly all on-premises SAP scenarios can be run in Azure as well.
 
 For a rough description of the scenarios and some non-supported scenarios, see the document [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md).
 
@@ -413,7 +413,7 @@ For a list of the different Azure regions, check the article [Azure geographies]
 ### Availability Zones
 Several of the Azure regions implemented a concept called Availability Zones. Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. For example, deploying two VMs across two Availability Zones of Azure, and implementing a high-availability framework for your SAP DBMS system or the SAP Central Services gives you the best SLA in Azure. For this particular virtual machine SLA in Azure, check the latest version of [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Since Azure regions developed and extended rapidly over the last years, the topology of the Azure regions, the number of physical datacenters, the distance among those datacenters, and the distance between Azure Availability Zones can be different. And with that the network latency.
 
-The principle of Availability Zones does not apply to the HANA specific service of [HANA Large Instances](./hana-overview-architecture.md). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/)
+The principle of Availability Zones does not apply to the HANA specific service of [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/)
 
 
 ### <a name="df49dc09-141b-4f34-a4a2-990913b30358"></a>Fault Domains
@@ -433,13 +433,13 @@ To understand the concept of Azure availability sets and the way availability se
 
 As you define availability sets and try to mix various VMs of different VM families within one availability set, you may encounter problems that prevent you to include a certain VM type into such an availability set. The reason is that the availability set is bound to scale unit that contains a certain type of compute hosts. And a certain type of compute host can only run certain types of VM families. For example, if you create an availability set and deploy the first VM into the availability set and you choose a VM type of the Esv3 family and then you try to deploy as second VM a VM of the M family, you will be rejected in the second allocation. Reason is that the Esv3 family VMs are not running on the same host hardware as the virtual machines of the M family do. The same problem can occur, when you try to resize VMs and try to move a VM out of the Esv3 family to a VM type of the M family. In the case of resizing to a VM family that can't be hosted on the same host hardware, you need to shut down all VMs in your availability set and resize them to be able to run on the other host machine type. For SLAs of VMs that are deployed within availability set, check the article [Virtual Machine SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
 
-The principle of availability set and related update and fault domain does not apply to the HANA specific service of [HANA Large Instances](./hana-overview-architecture.md). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
+The principle of availability set and related update and fault domain does not apply to the HANA specific service of [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md). Service Level agreements for HANA Large Instances can be found in the article [SLA for SAP HANA on Azure Large Instances](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 > [!IMPORTANT]
 > The concepts of Azure Availability Zones and Azure availability sets are mutually exclusive. That means, you can either deploy a pair or multiple VMs into a specific Availability Zone or an Azure availability set. But not both.
 
 ### Azure paired regions
-Azure is offering Azure Region pairs where replication of certain data is enabled between these fixed region pairs. The region pairing is documented in the article [Cross-region replication in Azure: Business continuity and disaster recovery](../../../availability-zones/cross-region-replication-azure.md). As the article describes, the replication of data is tied Azure storage types that can be configured by you to replicate into the paired region. See also the article [Storage redundancy in a secondary region](../../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region). The storage types that allow such a replication are storage types, which are not suitable for DBMS workload. As such the usability of the Azure storage replication would be limited to Azure blob storage (like for backup purposes) or other high latency storage scenarios. As you check for paired regions and the services you want to use as your primary or secondary region, you may encounter situations where Azure services and/or VM types you intend to use in your primary region are not available in the paired region. Or you might encounter a situation where the Azure paired region is not acceptable out of data compliance reasons. For those cases, you need to use a non-paired region as secondary/disaster recovery region. In such a case, you need to take care on replication of some of the part of the data that Azure would have replicated yourself. An example on how to replicate your Active Directory and DNS to your disaster recovery region is described in the article [Set up disaster recovery for Active Directory and DNS](../../../site-recovery/site-recovery-active-directory.md)
+Azure is offering Azure Region pairs where replication of certain data is enabled between these fixed region pairs. The region pairing is documented in the article [Cross-region replication in Azure: Business continuity and disaster recovery](../../availability-zones/cross-region-replication-azure.md). As the article describes, the replication of data is tied Azure storage types that can be configured by you to replicate into the paired region. See also the article [Storage redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region). The storage types that allow such a replication are storage types, which are not suitable for DBMS workload. As such the usability of the Azure storage replication would be limited to Azure blob storage (like for backup purposes) or other high latency storage scenarios. As you check for paired regions and the services you want to use as your primary or secondary region, you may encounter situations where Azure services and/or VM types you intend to use in your primary region are not available in the paired region. Or you might encounter a situation where the Azure paired region is not acceptable out of data compliance reasons. For those cases, you need to use a non-paired region as secondary/disaster recovery region. In such a case, you need to take care on replication of some of the part of the data that Azure would have replicated yourself. An example on how to replicate your Active Directory and DNS to your disaster recovery region is described in the article [Set up disaster recovery for Active Directory and DNS](../../site-recovery/site-recovery-active-directory.md)
 
 
 ## Azure virtual machine services
@@ -479,19 +479,19 @@ As pricing model you have several different pricing options that list like:
 
 The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these articles:
 
-- [What are Azure Reservations?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Virtual machine size flexibility with Reserved VM Instances](../../reserved-vm-instance-size-flexibility.md)
-- [How the Azure reservation discount is applied to virtual machines](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md)
+- [How the Azure reservation discount is applied to virtual machines](../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers, it was worth to deploy into a less expensive Azure region.
 
-Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../maintenance-and-updates.md).
+Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../virtual-machines/dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../virtual-machines/maintenance-and-updates.md).
 
 #### Generation 1 and Generation 2 virtual machines
-Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
+Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../virtual-machines/generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
 
 > [!NOTE]
-> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../generation-2.md) to see a list of those differences.
+> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../virtual-machines/generation-2.md) to see a list of those differences.
 
 Moving an existing VM from one generation to the other generation is not possible. To change the virtual machine generation, you need to deploy a new VM of the generation you desire and re-install the software that you are running in the virtual machine of the generation. This change only affects the base VHD image of the VM and has no impact on the data disks or attached NFS or SMB shares. Data disks, NFS, or SMB shares that originally were assigned to, for example, on a Generation 1 VM.
 
@@ -520,14 +520,14 @@ Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reb
 
 #### Azure Storage accounts
 
-When deploying services or VMs in Azure, deployment of VHDs and VM Images are organized in units called Azure Storage Accounts. [Azure storage accounts](../../../storage/common/storage-account-overview.md) have limitations either in IOPS, throughput, or sizes those can contain. In the past these limitations, which are documented in:
+When deploying services or VMs in Azure, deployment of VHDs and VM Images are organized in units called Azure Storage Accounts. [Azure storage accounts](../../storage/common/storage-account-overview.md) have limitations either in IOPS, throughput, or sizes those can contain. In the past these limitations, which are documented in:
 
-- [Scalability targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md)
-- [Scalability targets for premium page blob storage accounts](../../../storage/blobs/scalability-targets-premium-page-blobs.md)
+- [Scalability targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
+- [Scalability targets for premium page blob storage accounts](../../storage/blobs/scalability-targets-premium-page-blobs.md)
 
 played an important role in planning an SAP deployment in Azure. It was on you to manage the number of persisted disks within a storage account. You needed to manage the storage accounts and eventually create new storage accounts to create more persisted disks.
 
-In recent years, the introduction of [Azure managed disks](../../managed-disks-overview.md) relieved you from those tasks. The recommendation for SAP deployments is to leverage Azure managed disks instead of managing Azure storage accounts yourself. Azure managed disks will distribute disks across different storage accounts, so, that the limits of the individual storage accounts are not exceeded.
+In recent years, the introduction of [Azure managed disks](../../virtual-machines/managed-disks-overview.md) relieved you from those tasks. The recommendation for SAP deployments is to leverage Azure managed disks instead of managing Azure storage accounts yourself. Azure managed disks will distribute disks across different storage accounts, so, that the limits of the individual storage accounts are not exceeded.
 
 Within a storage account, you have a type of a folder concept called 'containers' that can be used to group certain disks into specific containers.
 
@@ -552,7 +552,7 @@ Microsoft Azure provides a network infrastructure, which allows the mapping of a
 * Cross-premises Connectivity between a customer's on-premises network and the Azure network
 * Cross Azure Region or data center connectivity between Azure sites
 
-For more information, see the [Virtual Network documentation](../../../virtual-network/index.yml).
+For more information, see the [Virtual Network documentation](../../virtual-network/index.yml).
 
 There are many different possibilities to configure name and IP resolution in Azure. There is also an Azure DNS service, which can be used instead of setting up your own
 DNS server. More information can be found in [this article][virtual-networks-manage-dns-in-vnet] and on [this page](https://azure.microsoft.com/services/dns/).
@@ -567,7 +567,7 @@ By building up an Azure Virtual Network, you can define the address range of the
 
 Every Virtual Machine in Azure needs to be connected to a Virtual Network.
 
-More details can be found in [this article][resource-groups-networking] and on [this page](../../../virtual-network/index.yml).
+More details can be found in [this article][resource-groups-networking] and on [this page](../../virtual-network/index.yml).
 
 
 > [!NOTE]
@@ -581,12 +581,12 @@ The MAC address of the virtual network card may change, for example after resize
 It is possible to assign fixed or reserved IP addresses to VMs within an Azure Virtual Network. Running the VMs in an Azure Virtual Network opens a great possibility to leverage this functionality if needed or required for some scenarios. The IP assignment remains valid throughout the existence of the VM, independent of whether the VM is running or shutdown. As a result, you need to take the overall number of VMs (running and stopped VMs) into account when defining the range of IP addresses for the Virtual Network. The IP address remains assigned either until the VM and its Network Interface is deleted or until the IP address gets de-assigned again. For more information, read [this article][virtual-networks-static-private-ip-arm-pportal].
 
 > [!NOTE]
-> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](../../../backup/backup-azure-vms-troubleshoot.md#networking).
+> You should assign static IP addresses through Azure means to individual vNICs. You should not assign static IP addresses within the guest OS to a vNIC. Some Azure services like Azure Backup Service rely on the fact that at least the primary vNIC is set to DHCP and not to static IP addresses. See also the document [Troubleshoot Azure virtual machine backup](../../backup/backup-azure-vms-troubleshoot.md#networking).
 >
 
 
 ##### Secondary IP addresses for SAP hostname virtualization
-Each Azure Virtual Machine's network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer's floating IP is [not supported](../../../load-balancer/load-balancer-multivip-overview.md#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
+Each Azure Virtual Machine's network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer's floating IP is [not supported](../../load-balancer/load-balancer-multivip-overview.md#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
 
 
 ##### Multiple NICs per VM
@@ -620,8 +620,8 @@ The Figure above shows two Azure subscriptions have IP address subranges reserve
 Point-to-site VPN requires every client machine to connect with its own VPN into Azure. For the SAP scenarios, we are looking at, point-to-site connectivity is not practical. Therefore, no further references are given to point-to-site VPN connectivity.
 
 More information can be found here
-* [Configure a Point-to-Site connection to a VNet using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [Configure a Point-to-Site connection to a VNet using PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a Point-to-Site connection to a VNet using the Azure portal](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a Point-to-Site connection to a VNet using PowerShell](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 #### Multi-Site VPN
 
@@ -632,7 +632,7 @@ For more documentation, see [this article][vpn-gateway-create-site-to-site-rm-po
 #### VNet to VNet Connection
 
 Using Multi-Site VPN, you need to configure a separate Azure Virtual Network in each of the regions. However often you have the requirement that the software components in the different regions should communicate with each other. Ideally this communication should not be routed from one Azure Region to on-premises and from there to the other Azure Region. To shortcut, Azure offers the possibility to configure a connection from one Azure Virtual Network in one region to another Azure Virtual Network hosted in another region. This functionality is called VNet-to-VNet connection. More details on this functionality can be found here:
-[Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+[Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 
 #### Private Connection to Azure ExpressRoute
 
@@ -640,20 +640,20 @@ Microsoft Azure ExpressRoute allows the creation of private connections between 
 
 Find more details on Azure ExpressRoute and offerings here:
 
-* [ExpressRoute documentation](../../../expressroute/index.yml)
+* [ExpressRoute documentation](../../expressroute/index.yml)
 * [Azure ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/)
-* [ExpressRoute FAQ](../../../expressroute/expressroute-faqs.md)
+* [ExpressRoute FAQ](../../expressroute/expressroute-faqs.md)
 
 Express Route enables multiple Azure subscriptions through one ExpressRoute circuit as documented here
 
-* [Tutorial: Connect a virtual network to an ExpressRoute circuit](../../../expressroute/expressroute-howto-linkvnet-arm.md)
-* [Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell](../../../expressroute/expressroute-howto-circuit-arm.md)
+* [Tutorial: Connect a virtual network to an ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-arm.md)
+* [Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell](../../expressroute/expressroute-howto-circuit-arm.md)
 
 #### Forced tunneling in case of cross-premises
 For VMs joining on-premises domains through site-to-site, point-to-site, or ExpressRoute, you need to make sure that the Internet proxy settings are getting deployed for all the users in those VMs as well. By default, software running in those VMs or users using a browser to access the internet would not go through the company proxy, but would connect straight through Azure to the internet. But even the proxy setting is not a 100% solution to direct the traffic through the company proxy since it is responsibility of software and services to check for the proxy. If software running in the VM is not doing that or an administrator manipulates the settings, traffic to the Internet can be detoured again directly through Azure to the Internet.
 
 In order to avoid such a direct internet connectivity, you can configure Forced Tunneling with site-to-site connectivity between on-premises and Azure. The detailed description of the Forced Tunneling feature is published here: 
-[Configure forced tunneling using the classic deployment model](../../../vpn-gateway/vpn-gateway-about-forced-tunneling.md)
+[Configure forced tunneling using the classic deployment model](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md)
 
 Forced Tunneling with ExpressRoute is enabled by customers advertising a default route via the ExpressRoute BGP peering sessions.
 
@@ -742,7 +742,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../virtual-machines/linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -751,7 +751,7 @@ The first step in deployment planning is NOT to check for VMs available to run S
 
 As useful help, you can point to [Microsoft compliance offerings](/microsoft-365/compliance/offering-home) for a list of compliance offers Microsoft can provide.
 
-Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](../../../security/fundamentals/encryption-overview.md).
+Other areas of concerns like data encryption for data at rest or other encryption in Azure service is documented in [Azure encryption overview](../../security/fundamentals/encryption-overview.md).
 
 Don't underestimate this phase of the project in your planning. Only when you have agreement and rules around this topic, you need to go to the next step, which is the planning of the network architecture that you deploy in Azure.
 
@@ -768,7 +768,7 @@ Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it
 
 You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
-Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](../../../site-recovery/site-recovery-workload.md#protect-sap) of the [About disaster recovery for on-premises apps](../../../site-recovery/site-recovery-workload.md) guide.
+Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](../../site-recovery/site-recovery-workload.md#protect-sap) of the [About disaster recovery for on-premises apps](../../site-recovery/site-recovery-workload.md) guide.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
 
@@ -777,7 +777,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 ---
 > ![Windows logo.][Logo_Windows] Windows
 >
-> For more details, read [Upload a generalized Windows VHD and use it to create new VMs in Azure](../../windows/upload-generalized-managed.md)
+> For more details, read [Upload a generalized Windows VHD and use it to create new VMs in Azure](../../virtual-machines/windows/upload-generalized-managed.md)
 > The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >
@@ -806,7 +806,7 @@ Requirements when preparing your own Azure VM Disk are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127 GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1 TB in size as any other Azure Storage hosted VHD as well.
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../virtual-machines/managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Add another local account with administrator privileges, which can be used by Microsoft support or which can be assigned as context for services and applications to run in until the VM is deployed and more appropriate users can be used.
 * Add other local accounts as those might be needed for the specific deployment scenario.
 
@@ -833,7 +833,7 @@ Requirements when preparing your own Azure VM Image are:
 
 * Originally the VHD containing the operating system could have a maximum size of 127 GB only. This limitation got eliminated at the end of March 2015. Now the VHD containing the operating system can be up to 1 TB in size as any other Azure Storage hosted VHD as well.
 * It needs to be in the fixed VHD format. Dynamic VHDs or VHDs in VHDx format are not yet supported on Azure. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
-* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
+* VHDs, which are mounted to the VM and should be mounted again in Azure to the VM need to be in a fixed VHD format as well. Read [this article](../../virtual-machines/managed-disks-overview.md) for size limits of data disks. Dynamic VHDs will be converted to static VHDs when you upload the VHD with PowerShell commandlets or CLI
 * Add other local accounts as those might be needed for the specific deployment scenario.
 * If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
 
@@ -861,7 +861,7 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 >
 > The last step is to sign in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
 > A small window will appear. It is important to check the **Generalize** option (the default is unchecked) and change the Shutdown Option from its default of 'Reboot' to 'shutdown'. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
-> If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](../../windows/capture-image-resource.md).
+> If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](../../virtual-machines/windows/capture-image-resource.md).
 >
 > ![Linux logo.][Logo_Linux] Linux
 >
@@ -1022,7 +1022,7 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### Azure Storage tools
 
-* [Azure Storage Explorer](../../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 
 Professional editions of Azure Storage Explorers can be found here:
 
@@ -1817,7 +1817,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-For more details, see [Availability of Windows virtual machines in Azure](../../availability.md) and [Availability of Linux virtual machines in Azure](../../availability.md).
+For more details, see [Availability of Windows virtual machines in Azure](../../virtual-machines/availability.md) and [Availability of Linux virtual machines in Azure](../../virtual-machines/availability.md).
 
 #### Azure Storage Redundancy
 
@@ -1825,7 +1825,7 @@ The data in your Microsoft Azure Storage Account is always replicated to ensure 
 
 Since Azure Storage is keeping three images of the data by default, RAID5 or RAID1 across multiple Azure disks are not necessary.
 
-For more details, see [Azure Storage redundancy](../../../storage/common/storage-redundancy.md).
+For more details, see [Azure Storage redundancy](../../storage/common/storage-redundancy.md).
 
 #### Utilizing Azure Infrastructure VM Restart to Achieve Higher Availability of SAP Applications
 
@@ -1899,7 +1899,7 @@ High Availability and Disaster recovery functionality for DBMS in general as wel
 
 Here are two examples of a complete SAP NetWeaver HA architecture in Azure - one for Windows and one for Linux.
 
-Unmanaged disks only: The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind [Scalability and performance targets for standard storage accounts](../../../storage/common/scalability-targets-standard-account.md)
+Unmanaged disks only: The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind [Scalability and performance targets for standard storage accounts](../../storage/common/scalability-targets-standard-account.md)
 
 
 ##### ![Windows logo.][Logo_Windows] HA on Windows
@@ -1953,7 +1953,7 @@ High-Availability aspects of 3-Tier SAP configurations got discussed in earlier 
 #### Location of 3-Tier SAP configurations
 It is not supported to split the application tier itself or the application and DBMS tier between on-premises and Azure. An SAP system is either completely deployed on-premises OR in Azure. It is also not supported to have some of the application servers run on-premises and some others in Azure. That is the starting point of the discussion. We also are not supporting to have the DBMS components of an SAP system and the SAP application server layer deployed in two different Azure Regions. For example, DBMS in West US and SAP application layer in Central US. Reason for not supporting such configurations is the latency sensitivity of the SAP NetWeaver architecture.
 
-However, over the course of last year data center partners developed co-locations to Azure Regions. These co-locations often are in close proximity to the physical Azure data centers within an Azure Region. The short distance and connection of assets in the co-location through ExpressRoute into Azure can result in a latency that is less than 2 milliseconds. In such cases, to locate the DBMS layer (including storage SAN/NAS) in such a co-location and the SAP application layer in Azure is possible. [HANA Large Instances](./hana-overview-architecture.md).
+However, over the course of last year data center partners developed co-locations to Azure Regions. These co-locations often are in close proximity to the physical Azure data centers within an Azure Region. The short distance and connection of assets in the co-location through ExpressRoute into Azure can result in a latency that is less than 2 milliseconds. In such cases, to locate the DBMS layer (including storage SAN/NAS) in such a co-location and the SAP application layer in Azure is possible. [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md).
 
 ### Offline Backup of SAP systems
 Dependent on the SAP configuration chosen (2-Tier or 3-Tier) there could be a need to back up. The content of the VM itself plus to have a backup of the database. The DBMS-related backups are expected to be done with database methods. A detailed description for the different databases, can be found in [DBMS Guide][dbms-guide]. On the other hand, the SAP data can be backed up in an offline manner (including the database content as well) as described in this section or online as described in the next section.

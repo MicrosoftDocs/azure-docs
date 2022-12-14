@@ -51,7 +51,7 @@ Before you begin an installation, see the following SAP notes and documentation:
 | [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
 
 ## Overview
-To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](../../windows/tutorial-availability-sets.md) or across [Azure Availability Zones](./sap-ha-availability-zones.md). 
+To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](../../virtual-machines/windows/tutorial-availability-sets.md) or across [Azure Availability Zones](./sap-ha-availability-zones.md). 
 
 The following graphics display a setup of two database server Azure VMs. Both database server Azure VMs have their own storage attached and are up and running. In HADR, one database instance in one of the Azure VMs has the role of the primary instance. All clients are connected to this primary instance. All changes in database transactions are persisted locally in the Db2 transaction log. As the transaction log records are persisted locally, the records are transferred via TCP/IP to the database instance on the second database server, the standby server, or standby instance. The standby instance updates the local database by rolling forward the transferred transaction log records. In this way, the standby server is kept in sync with the primary server.
 
@@ -394,13 +394,13 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 
 ### Configure Azure Load Balancer
-To configure Azure Load Balancer, we recommend that you use the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-overview.md) and then do the following;
+To configure Azure Load Balancer, we recommend that you use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-overview.md) and then do the following;
 
 > [!NOTE]
 > The Standard Load Balancer SKU has restrictions accessing public IP addresses from the nodes underneath the Load Balancer. The article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) is describing ways on how to enable those nodes to access public IP addresses
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 1. Create a front-end IP pool:
 
@@ -503,7 +503,7 @@ You can use existing highly available NFS shares for transports or a profile dir
 
 - [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server][nfs-ha] 
 - [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](./high-availability-guide-suse-netapp-files.md)
-- [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) (to create NFS shares)
+- [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) (to create NFS shares)
 
 
 ## Test the cluster setup
@@ -906,7 +906,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 [sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
 [ascs-ha]:high-availability-guide-suse.md
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [azr-sap-plancheck]:sap-deployment-checklist.md

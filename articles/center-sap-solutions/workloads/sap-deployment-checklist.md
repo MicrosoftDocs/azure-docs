@@ -83,17 +83,17 @@ Further included in same technical document(s) should be:
   - Network topology within Azure and assignment of different SAP environment
   - Active Directory and DNS design.
   - Identity management solution for both end users and administration
-  - [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
+  - [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
   - Azure resource naming strategy
   - Security operations for Azure resources and workloads within
 - Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
 - Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
-- The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../../azure-portal/supportability/regional-quota-requests.md) as needed.
+- The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../azure-portal/supportability/regional-quota-requests.md) as needed.
 - Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 - An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
 Microsoft developed solutions for SAP deployment automation are:
   - [Azure Center for SAP solutions](/azure/center-sap-solutions/) – Azure service to deploy and operate a SAP system’s infrastructure
-  - [SAP on Azure Deployment Automation](./automation-deployment-framework.md), an open-source orchestration tool for deploying and maintaining SAP environments
+  - [SAP on Azure Deployment Automation](../automation/deployment-framework.md), an open-source orchestration tool for deploying and maintaining SAP environments
 
 > [!NOTE]
 > Define a regular design and deployment review cadence between you as the customer, the system integrator, Microsoft, and other involved parties.
@@ -228,7 +228,7 @@ During this phase, you usually deploy development systems, unit testing systems,
 - Make sure your VMs are deployed to the correct availability zones. If using availability sets and seeing higher than expected latency between VMs, consult the article [Azure proximity placement groups for SAP applications](./sap-proximity-placement-scenarios.md) for correct usage.
 -	Perform all the other checks listed for the proof-of-concept phase before applying the workload.
 -	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage, and network bandwidth of VMs will be reduced as well.
-  - [Sizes for Azure virtual machines](../../sizes.md)
+  - [Sizes for Azure virtual machines](../../virtual-machines/sizes.md)
 -	Experiment with system copy functionality and processes. The goal is to make it easy for you to copy a development system or a test system, so project teams can get new systems quickly.
 -	Optimize and hone your team's Azure role-based access, permissions, and processes to make sure you have separation of duties. At the same time, make sure all teams can perform their tasks in the Azure infrastructure.
 -	Exercise, test, and document high-availability and disaster recovery procedures to enable your staff to execute these tasks. Identify shortcomings and adapt new Azure functionality that you're integrating into your deployments.

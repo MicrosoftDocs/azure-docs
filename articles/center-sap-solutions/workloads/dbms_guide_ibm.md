@@ -62,7 +62,7 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../sizes.md) and [here (Windows)](../../sizes.md).
+As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
 
 As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
@@ -72,14 +72,14 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
+For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
 
 IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set DB2_4K_DEVICE_SUPPORT=ON as documented in:
 
 - [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 - [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512-Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
@@ -299,23 +299,23 @@ Read the article
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[dbms-guide]:dbms-guide.md 
-[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 
-[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 
-[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
-[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 
-[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
-[dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b 
-[dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 
-[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
-[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
-[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 
-[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
-[dbms-guide-managed-disks]:dbms-guide.md#f42c6cb5-d563-484d-9667-b07ae51bce29
+[dbms-guide]:dbms_guide_general.md 
+[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3 
+[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-5.6]:dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
+[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30 
+[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737 
+[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
+[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
+[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide-managed-disks]:dbms_guide_general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -455,16 +455,16 @@ Read the article
 
 [powershell-install-configure]: /powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/management/overview.md
-[resource-groups-networking]:../../../networking/networking-overview.md
+[resource-group-overview]:../../azure-resource-manager/management/overview.md
+[resource-groups-networking]:../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../disks-types.md
+[storage-azure-cli]:../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md

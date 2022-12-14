@@ -45,7 +45,7 @@ Read the following SAP Notes and papers first:
 - [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 - [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 - [Azure Virtual Machines deployment for SAP on Linux](./deployment-guide.md)
-- [Azure Virtual Machines DBMS deployment for SAP on Linux](./dbms-guide.md)
+- [Azure Virtual Machines DBMS deployment for SAP on Linux](./dbms_guide_general.md)
 - General SLES documentation
 	- [Setting up SAP HANA Cluster](https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-cluster.html).
 	- [SLES High Availability Extension 15 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/15-SP3/index.html)
@@ -95,7 +95,7 @@ SAP high availability HANA System Replication configuration uses a dedicated vir
 
 ## Set up the Azure NetApp File infrastructure
 
-Before you continue with the set up for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../../azure-netapp-files/index.yml).
+Before you continue with the set up for Azure NetApp Files infrastructure, familiarize yourself with the Azure [NetApp Files documentation](../../azure-netapp-files/index.yml).
 
 Azure NetApp Files is available in several [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Check to see whether your selected Azure region offers Azure NetApp Files.
 
@@ -103,17 +103,17 @@ For information about the availability of Azure NetApp Files by Azure region, se
 
 ### Deploy Azure NetApp Files resources
 
-The following instructions assume that you've already deployed your [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
+The following instructions assume that you've already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
 
-1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
+1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
-2.	Set up Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
+2.	Set up Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-	The HANA architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Ultra* Service level. For HANA workloads on Azure, we recommend using Azure NetApp Files *Ultra* or *Premium* [service Level](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
+	The HANA architecture presented in this article uses a single Azure NetApp Files capacity pool at the *Ultra* Service level. For HANA workloads on Azure, we recommend using Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
-3.	Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
+3.	Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
-4.	Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).
+4.	Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes.md).
 
 	As you deploy the volumes, be sure to select the NFSv4.1 version. Deploy the volumes in the designated Azure NetApp Files subnet. The IP addresses of the Azure NetApp volumes are assigned automatically.
 
@@ -137,10 +137,10 @@ As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of
 
 - The minimum capacity pool is 4 tebibytes (TiB).
 - The minimum volume size is 100 gibibytes (GiB).
-- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region.
+- Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted, must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region.
 - The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
-- The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.
-- With the Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
+- The throughput of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the HANA Azure NetApp volumes, make sure that the resulting throughput meets the HANA system requirements.
+- With the Azure NetApp Files [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
 - The Azure NetApp Files feature is not zone-aware yet. Currently, the feature is not deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 
 > [!IMPORTANT]
@@ -148,7 +148,7 @@ As you create your Azure NetApp Files for SAP HANA Scale-up systems, be aware of
 
 ### Sizing of HANA database on Azure NetApp Files
 
-The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md).
+The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
 While designing the infrastructure for SAP in Azure, be aware of some minimum storage requirements by SAP, which translate into minimum throughput characteristics:
 
@@ -156,7 +156,7 @@ While designing the infrastructure for SAP in Azure, be aware of some minimum st
 - Read activity of at least 400 MB/s for /hana/data for 16-MB and 64-MB I/O sizes.
 - Write activity of at least 250 MB/s for /hana/data with 16-MB and 64-MB I/O sizes.
 
-The [Azure NetApp Files throughput limits](../../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TiB of volume quota are:
+The [Azure NetApp Files throughput limits](../../azure-netapp-files/azure-netapp-files-service-levels.md) per 1 TiB of volume quota are:
 
 - Premium Storage tier - 64 MiB/s.
 - Ultra Storage tier - 128 MiB/s.
@@ -194,7 +194,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 7.	While creating virtual machine, we won't be adding any disk as all our mount points will be on NFS shares from Azure NetApp Files. 
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.    
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.    
 
 > [!NOTE] 
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
@@ -234,7 +234,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md). See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md). See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Mount the Azure NetApp Files volume
 
@@ -281,7 +281,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    # Mount all volumes
    sudo mount -a
    ```
-   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.        
 
 
 4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.

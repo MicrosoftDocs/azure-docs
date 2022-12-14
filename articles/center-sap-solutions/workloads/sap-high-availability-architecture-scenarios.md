@@ -29,10 +29,10 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -85,9 +85,9 @@ ms.custom: H1Hack27Feb2017
 
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
-[azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
+[azure-virtual-machines-manage-availability]:../../virtual-machines/windows/manage-availability.md
 [azure-storage-redundancy]:/azure/storage/common/storage-redundancy
-[azure-storage-managed-disks-overview]:../../../virtual-machines/managed-disks-overview.md
+[azure-storage-managed-disks-overview]:../../virtual-machines/managed-disks-overview.md
 
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -214,7 +214,7 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../manage-availability.md
 
@@ -279,12 +279,12 @@ An availability set is used for achieving high availability of:
 
 
 ### Azure Availability Zones
-Azure is in process of rolling out a concepts of [Azure Availability Zones](../../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../../availability-zones/az-overview.md).
+Azure is in process of rolling out a concepts of [Azure Availability Zones](../../availability-zones/az-overview.md) throughout different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/). In Azure regions where Availability Zones are offered, the Azure regions have multiple data centers, which are independent in supply of power source, cooling, and network. Reason for offering different zones within a single Azure region is to enable you to deploy applications across two or three Availability Zones offered. Assuming that issues in power sources and/or network would affect one Availability Zone infrastructure only, your application deployment within an Azure region is still fully functional. Eventually with some reduced capacity since some VMs in one zone might be lost. But VMs in the other two zones are still up and running. The Azure regions that offer zones are listed in [Azure Availability Zones](../../availability-zones/az-overview.md).
 
 Using Availability Zones, there are some things to consider. The considerations list like:
 
-- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../co-location.md). For more information see , [combine availability sets and availability zones with proximity placement groups](./sap-proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
-- You can't use the [Basic Load Balancer](../../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md)
+- You can't deploy Azure Availability Sets within an Availability Zone. Only possibility to combine Availability sets and Availability Zones is with [proximity placement groups](../../virtual-machines/co-location.md). For more information see , [combine availability sets and availability zones with proximity placement groups](./sap-proximity-placement-scenarios.md#combine-availability-sets-and-availability-zones-with-proximity-placement-groups)
+- You can't use the [Basic Load Balancer](../../load-balancer/load-balancer-overview.md) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md)
 - Azure Availability Zones are not giving any guarantees of certain distance between the different zones within one region
 - The network latency between different Azure Availability Zones within the different Azure regions might be different from Azure region to region. There will be cases, where you as a customer can reasonably run the SAP application layer deployed across different zones since the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. Whereas there will be customer scenarios where the latency between the active DBMS VM in one zone and an SAP application instance in a VM in another zone can be too intrusive and not acceptable for the SAP business processes. As a result, the deployment architectures need to be different with an active/active architecture for the application or active/passive architecture if latency is too high.
 - Using [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure Availability Zones 

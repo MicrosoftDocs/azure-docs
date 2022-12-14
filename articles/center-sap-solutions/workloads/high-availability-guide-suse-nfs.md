@@ -19,7 +19,7 @@ ms.author: radeltch
 
 # High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
@@ -48,7 +48,7 @@ ms.author: radeltch
 
 
 > [!NOTE]
-> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
@@ -135,7 +135,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
-1. Create a Load Balancer (internal). We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).  
+1. Create a Load Balancer (internal). We recommend [standard load balancer](../../load-balancer/load-balancer-overview.md).  
    1. Follow these instructions to create standard Load balancer:
       1. Create the frontend IP addresses
          1. IP address 10.0.0.4 for NW1
@@ -172,13 +172,13 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          * Repeat the steps above to create load balancing rule for NW2
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### Create Pacemaker cluster
 

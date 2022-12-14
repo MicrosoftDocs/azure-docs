@@ -16,7 +16,7 @@ ms.author: radeltch
 ---
 # High availability of SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
@@ -117,7 +117,7 @@ To deploy the template, follow these steps:
 1. Create a virtual network.
 1. Create an availability set.
    - Set the max update domain.
-1. Create a load balancer (internal). We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md). Select the virtual network created in step 2.
+1. Create a load balancer (internal). We recommend [standard load balancer](../../load-balancer/load-balancer-overview.md). Select the virtual network created in step 2.
 1. Create virtual machine 1.
    - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA on the VM type you selected.
    - Select the availability set created in step 3.
@@ -127,7 +127,7 @@ To deploy the template, follow these steps:
 1. Add data disks.
 
    > [!IMPORTANT]
-   > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.   
+   > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.   
 
    > [!Note]
    > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -171,7 +171,7 @@ To deploy the template, follow these steps:
    For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 > See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## Create a Pacemaker cluster

@@ -30,10 +30,10 @@ ms.custom: H1Hack27Feb2017
 [sap-installation-guides]:http://service.sap.com/instguides
 [tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -150,7 +150,7 @@ ms.custom: H1Hack27Feb2017
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -159,7 +159,7 @@ ms.custom: H1Hack27Feb2017
 
 This article describes the steps you take to prepare the Azure infrastructure for installing and configuring a high-availability SAP ASCS/SCS instance on a Windows failover cluster by using a *cluster shared disk* as an option for clustering an SAP ASCS instance. Two alternatives for *cluster shared disk* are presented in the documentation:
 
-- [Azure shared disks](../../disks-shared.md)
+- [Azure shared disks](../../virtual-machines/disks-shared.md)
 - Using [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create mirrored storage, that will simulate clustered shared disk 
 
 The documentation doesn't cover the database layer.  
@@ -202,17 +202,17 @@ Based on your deployment type, the host names and the IP addresses of the scenar
 The steps mentioned in the document remain same for both deployment type. But if your cluster is running in availability set, you need to deploy LRS for Azure  premium shared disk (Premium_LRS) and if the cluster is running in availability zone deploy ZRS for Azure premium shared disk (Premium_ZRS).
 
 > [!Note]
-> [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+> [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
 > - If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
 > -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
 ## <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Create Azure internal load balancer
 
-SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
-We strongly recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
+We strongly recommend using [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.    
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.    
 
 The following list shows the configuration of the (A)SCS/ERS load balancer. The configuration for both SAP ASCS and ERS2 in performed in the same Azure load balancer.  
 

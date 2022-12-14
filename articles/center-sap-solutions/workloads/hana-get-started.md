@@ -22,7 +22,7 @@ ms.author: juergent
 This guide helps you to point to the right resources to deploy HANA in Azure virtual machines successfully. This guide is going to point you to documentation resources that you need to check before installing SAP HANA in an Azure VM. So, that you are able to perform the right steps to end with a supported configuration of SAP HANA in Azure VMs.  
 
 > [!NOTE]
-> This guide describes deployments of SAP HANA into Azure VMs. For information on how to deploy SAP HANA into HANA large instances, see [How to install and configure SAP HANA (Large Instances) on Azure](./hana-installation.md).
+> This guide describes deployments of SAP HANA into Azure VMs. For information on how to deploy SAP HANA into HANA large instances, see [How to install and configure SAP HANA (Large Instances) on Azure](../../virtual-machines/workloads/sap/hana-installation.md).
  
 ## Prerequisites
 This guide also assumes that you're familiar with:
@@ -37,7 +37,7 @@ This guide also assumes that you're familiar with:
 In this section, the different steps are listed that you need to perform before starting with the installation of SAP HANA in an Azure virtual machine. The order is enumerated and as such should be followed through as enumerated:
 
 1. Not all possible deployment scenarios are supported on Azure. Therefore, you should check the document [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) for the scenario you have in mind with your SAP HANA deployment. If the scenario is not listed, you need to assume that it has not been tested and, as a result, is not supported
-2. Assuming that you have a rough idea on your memory requirement for your SAP HANA deployment, you need to find a fitting Azure VM. Not all the VMs that are certified for SAP NetWeaver, as documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533), are SAP HANA certified. The source of truth for SAP HANA certified Azure VMs is the website [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). The units starting with **S** are [HANA Large Instances](./hana-overview-architecture.md) units and not Azure VMs.
+2. Assuming that you have a rough idea on your memory requirement for your SAP HANA deployment, you need to find a fitting Azure VM. Not all the VMs that are certified for SAP NetWeaver, as documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533), are SAP HANA certified. The source of truth for SAP HANA certified Azure VMs is the website [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). The units starting with **S** are [HANA Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md) units and not Azure VMs.
 3. Different Azure VM types have different minimum operating system releases for SUSE Linux or Red Hat Linux. On the website [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120), you need to click on an entry in the list of SAP HANA certified units to get detailed data of this unit. Besides the supported HANA workload, the OS releases that are supported with those units for SAP HANA are listed
 4. As of operating system releases, you need to consider certain minimum kernel releases. These minimum releases are documented in these SAP support notes:
 	- [SAP support note #2814271 SAP HANA Backup fails on Azure with Checksum Error](https://launchpad.support.sap.com/#/notes/2814271)
@@ -67,7 +67,7 @@ In this phase, you need to go through the steps deploying the VM(s) to install H
 	-  [SAP support note #2382421 - Optimizing the Network Configuration on HANA- and OS-Level](https://launchpad.support.sap.com/#/notes/2382421)
 
 1. Select the Azure storage type for SAP HANA. In this step, you need to decide on storage layout for SAP HANA installation. You are going to use either attached Azure disks or native Azure NFS shares. The Azure storage types that or supported and combinations of different Azure storage types that can be used, are documented in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). Take the configurations documented as starting point. For non-production systems, you might be able to configure lower throughput or IOPS. For production purposes, you might need to configure a bit more throughput and IOPS.
-2. Make sure that you configured [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
+2. Make sure that you configured [Azure Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) for your volumes that contain the DBMS transaction logs or redo logs when you are using M-Series or Mv2-Series VMs. Be aware of the limitations for Write Accelerator as documented.
 2. Check whether [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VM(s) deployed.
 
 > [!NOTE]
@@ -89,8 +89,8 @@ For SAP HANA scale-out configurations using direct attached disks of Azure Premi
 
 ## Additional resources for SAP HANA backup
 For information on how to back up SAP HANA databases on Azure VMs, see:
-* [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md)
-* [SAP HANA Azure Backup on file level](../../../backup/sap-hana-db-about.md)
+* [Backup guide for SAP HANA on Azure Virtual Machines](../../backup/sap-hana-db-about.md)
+* [SAP HANA Azure Backup on file level](../../backup/sap-hana-db-about.md)
 
 ## Next steps
 Read the documentation:

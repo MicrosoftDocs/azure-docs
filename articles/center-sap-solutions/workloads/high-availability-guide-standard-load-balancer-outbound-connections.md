@@ -25,11 +25,11 @@ If you are using Pacemaker with Azure fence agent in your high availability solu
 
 ## Overview
 
-When implementing high availability for SAP solutions via clustering, one of the necessary components is [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). Azure offers two load balancer SKUs: standard and basic.
+When implementing high availability for SAP solutions via clustering, one of the necessary components is [Azure Load Balancer](../../load-balancer/load-balancer-overview.md). Azure offers two load balancer SKUs: standard and basic.
 
 Standard Azure load balancer offers some advantages over the Basic load balancer. For instance, it works across Azure Availability zones, it has better monitoring and logging capabilities for easier troubleshooting, reduced latency. The “HA ports” feature covers all ports, that is, it is no longer necessary to list all individual ports.  
 
-There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](../../../load-balancer/load-balancer-overview.md).  
+There are some important differences between the basic and the standard SKU of Azure load balancer. One of them is the handling of outbound traffic to public end point. For full Basic versus Standard SKU load balancer comparison, see [Load Balancer SKU comparison](../../load-balancer/load-balancer-overview.md).  
  
 When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there is no outbound connectivity to public end points, unless additional configuration is done.  
 
@@ -39,8 +39,8 @@ SAP systems often contain sensitive business data. It is rarely acceptable for V
 
 Examples of scenarios, requiring access to Azure public end point are:  
 - Azure Fence Agent requires access to **management.azure.com** and **login.microsoftonline.com**  
-- [Azure Backup](../../../backup/backup-azure-sap-hana-database.md#establish-network-connectivity)
-- [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
+- [Azure Backup](../../backup/backup-azure-sap-hana-database.md#establish-network-connectivity)
+- [Azure Site Recovery](../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Using public repository for patching the Operating system
 - The SAP application data flow may require outbound connectivity to public end point
 
@@ -54,20 +54,20 @@ If your SAP deployment doesn’t require outbound connectivity to public end poi
 Read the following papers first:
 
 * Azure Standard Load Balancer
-  * [Azure Standard Load Balancer overview](../../../load-balancer/load-balancer-overview.md) - comprehensive overview of Azure Standard Load balancer, important principles, concepts, and tutorials 
-  * [Outbound connections in Azure](../../../load-balancer/load-balancer-outbound-connections.md#scenarios) - scenarios on how to achieve outbound connectivity in Azure
-  * [Load balancer outbound rules](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules)- explains the concepts of load balancer outbound rules and how to create outbound rules
+  * [Azure Standard Load Balancer overview](../../load-balancer/load-balancer-overview.md) - comprehensive overview of Azure Standard Load balancer, important principles, concepts, and tutorials 
+  * [Outbound connections in Azure](../../load-balancer/load-balancer-outbound-connections.md#scenarios) - scenarios on how to achieve outbound connectivity in Azure
+  * [Load balancer outbound rules](../../load-balancer/load-balancer-outbound-connections.md#outboundrules)- explains the concepts of load balancer outbound rules and how to create outbound rules
 * Azure Firewall
-  * [Azure Firewall Overview](../../../firewall/overview.md)- overview of Azure Firewall
-  * [Tutorial: Deploy and configure Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md) - instructions on how to configure Azure Firewall via Azure portal
-* [Virtual Networks -User defined rules](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure routing concepts and rules  
-* [Security Groups Service Tags](../../../virtual-network/network-security-groups-overview.md#service-tags) - how to simplify your Network Security Groups and Firewall configuration with service tags
+  * [Azure Firewall Overview](../../firewall/overview.md)- overview of Azure Firewall
+  * [Tutorial: Deploy and configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md) - instructions on how to configure Azure Firewall via Azure portal
+* [Virtual Networks -User defined rules](../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure routing concepts and rules  
+* [Security Groups Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) - how to simplify your Network Security Groups and Firewall configuration with service tags
 
 ## Option 1: Additional external Azure Standard Load Balancer for outbound connections to internet
 
-One option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end point, is to create a second load balancer with public IP address, add the VMs to the backend pool of the second load balancer and define only [outbound rules](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Use [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) to control the public end points, that are accessible for outbound calls from the VM.  
-For more information, see Scenario 2 in document [Outbound connections](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
+One option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end point, is to create a second load balancer with public IP address, add the VMs to the backend pool of the second load balancer and define only [outbound rules](../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
+Use [Network Security Groups](../../virtual-network/network-security-groups-overview.md) to control the public end points, that are accessible for outbound calls from the VM.  
+For more information, see Scenario 2 in document [Outbound connections](../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 The configuration would look like:  
 
 ![Control connectivity to public end points with Network Security Groups](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
@@ -75,11 +75,11 @@ The configuration would look like:
 ### Important considerations
 
 - You can use one additional Public Load Balancer for multiple VMs in the same subnet to achieve outbound connectivity to public end point and optimize cost  
-- Use [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) to control which public end points are accessible from the VMs. You can assign the Network Security Group either to the subnet, or to each VM. Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the security rules.  
+- Use [Network Security Groups](../../virtual-network/network-security-groups-overview.md) to control which public end points are accessible from the VMs. You can assign the Network Security Group either to the subnet, or to each VM. Where possible, use [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the security rules.  
 - Azure standard Load balancer with public IP address and outbound rules allows direct access to public end point. If you have corporate security requirements to have all outbound traffic pass via centralized corporate solution for auditing and logging, you may not be able to fulfill the requirement with this scenario.  
 
 >[!TIP]
->Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Network Security Group . 
+>Where possible, use [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Network Security Group . 
 
 ### Deployment steps
 
@@ -94,7 +94,7 @@ The configuration would look like:
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
    1. Select the Virtual network  
    1. Select the VMs and their IP addresses and add them to the backend pool  
-3. Create a NAT gateway for outbound internet access. For more information see [Quickstart: Create a NAT gateway - Azure CLI](../../../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md).
+3. Create a NAT gateway for outbound internet access. For more information see [Quickstart: Create a NAT gateway - Azure CLI](../../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md).
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to enable access to the Azure management API: 
    1. Navigate to the Network Security Group
    1. Click Outbound Security Rules
@@ -106,13 +106,13 @@ The configuration would look like:
 
    ![Outbound connection with Second Load Balancer with public IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   For more information on Azure Network security groups, see [Security Groups ](../../../virtual-network/network-security-groups-overview.md). 
+   For more information on Azure Network security groups, see [Security Groups ](../../virtual-network/network-security-groups-overview.md). 
 
 ## Option 2: Azure Firewall for outbound connections to internet
 
 Another option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end points, is with Azure Firewall. Azure Firewall is a managed service, with built-in High Availability and it can span multiple Availability Zones.  
-You will also need to deploy [User Defined Route](../../../virtual-network/virtual-networks-udr-overview.md#custom-routes), associated with subnet where VMs and the Azure load balancer are deployed, pointing to the Azure firewall, to route traffic through the Azure Firewall.  
-For details on how to deploy Azure Firewall, see [Deploy And Configure Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md).  
+You will also need to deploy [User Defined Route](../../virtual-network/virtual-networks-udr-overview.md#custom-routes), associated with subnet where VMs and the Azure load balancer are deployed, pointing to the Azure firewall, to route traffic through the Azure Firewall.  
+For details on how to deploy Azure Firewall, see [Deploy And Configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md).  
 
 The architecture would look like:
 
@@ -126,7 +126,7 @@ The architecture would look like:
 - If the corporate Firewall solution is not Azure Firewall, and you have security requirements to have all outbound traffic pass though centralized corporate solution, this solution may not be practical.  
 
 >[!TIP]
->Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Azure Firewall rules.  
+>Where possible, use [Service tags](../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Azure Firewall rules.  
 
 ### Deployment steps
 

@@ -22,7 +22,7 @@ ms.author: radeltch
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -33,7 +33,7 @@ ms.author: radeltch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover both RHEL 7 and RHEL 8.   
 
@@ -89,7 +89,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this situation, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this situation, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../../virtual-machines/workloads/redhat/byos.md).
 
 1. **[A]** Enable RHEL for SAP repos - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
@@ -232,7 +232,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 The fencing device uses either a managed identity for Azure resource or service principal to authorize against Microsoft Azure. 
 
 ### Using Managed Identity
-To create a managed identity (MSI), [create a system-assigned](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x. 
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on RHEL 7.9 and RHEL 8.x. 
 
 ### Using Service Principal
 Follow these steps to create a service principal, if not using managed identity.
@@ -252,7 +252,7 @@ Follow these steps to create a service principal, if not using managed identity.
 
 ### **[1]** Create a custom role for the fence agent
 
-Neither managed identity nor service principal has permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
+Neither managed identity nor service principal has permissions to access your Azure resources by default. You need to give the managed identity or service principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../role-based-access-control/custom-roles-powershell.md) or [Azure CLI](../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -279,14 +279,14 @@ Use the following content for the input file. You need to adapt the content to y
 
 #### Using Managed Identity
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities [can be delayed](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+> Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### Using Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the service principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).   
 Make sure to assign the role for both cluster nodes.    
 
 ### **[1]** Create the fencing devices

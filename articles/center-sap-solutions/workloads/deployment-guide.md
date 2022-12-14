@@ -68,25 +68,25 @@ ms.author: sedusch
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
-[dbms-guide]:dbms-guide.md (Azure Virtual Machines DBMS deployment for SAP)
-[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
-[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
-[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of a RDBMS deployment)
-[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (High availability and disaster recovery with Azure VMs)
-[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
-[dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
-[dbms-guide-5.6]:dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from the Azure Marketplace)
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure summary)
-[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
-[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and restore)
-[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance considerations for backup and restore)
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Other)
-[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:dbms_guide_general.md (Azure Virtual Machines DBMS deployment for SAP)
+[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
+[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
+[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
+[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of a RDBMS deployment)
+[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3 (High availability and disaster recovery with Azure VMs)
+[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
+[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
+[dbms-guide-5.6]:dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server image from the Azure Marketplace)
+[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure summary)
+[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
+[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
+[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and restore)
+[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance considerations for backup and restore)
+[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818 (Other)
+[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -227,8 +227,8 @@ ms.author: sedusch
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and data disks)
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/management/overview.md
-[resource-groups-networking]:../../../networking/network-overview.md
+[resource-group-overview]:../../azure-resource-manager/management/overview.md
+[resource-groups-networking]:../../networking/network-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image-md%2Fazuredeploy.json
@@ -240,73 +240,73 @@ ms.author: sedusch
 [sap-templates-3-tier-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-md%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-user-image-md%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../disks-types.md
-[storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
-[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
+[storage-azure-cli]:../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
+[storage-redundancy]:../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../storage/common/scalability-targets-standard-accounts.md
+[storage-use-azcopy]:../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
+[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.md
+[virtual-machines-azure-resource-manager-architecture]:/azure/azure-resource-manager/management/deployment-models
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
+[virtual-machines-linux-cli-deploy-templates]:../../virtual-machines/linux/cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md (Manage virtual machines by using Azure Resource Manager and PowerShell)
-[virtual-machines-windows-agent-user-guide]:../../extensions/agent-windows.md
-[virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-linux.md#command-line-options
-[virtual-machines-linux-capture-image]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
-[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
-[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
+[virtual-machines-windows-agent-user-guide]:../../virtual-machines/extensions/agent-windows.md
+[virtual-machines-linux-agent-user-guide]:../../virtual-machines/extensions/agent-linux.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/extensions/agent-linux.md#command-line-options
+[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines/linux/capture-image.md#step-2-capture-the-vm
+[virtual-machines-linux-configure-raid]:../../virtual-machines/linux/configure-raid.md
+[virtual-machines-linux-configure-lvm]:../../virtual-machines/linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
-[virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability]:../../linux/manage-availability.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../windows/quick-create-powershell.md
-[virtual-machines-sizes]:../../linux/sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines/linux/suse-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]:../../virtual-machines/linux/redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]:../../virtual-machines/linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../virtual-machines/linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
+[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
+[virtual-machines-manage-availability]:../../virtual-machines/linux/manage-availability.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines/windows/quick-create-powershell.md
+[virtual-machines-sizes]:../../virtual-machines/linux/sizes.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
 [virtual-machines-sql-server-infrastructure-services]:/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
 [virtual-machines-sql-server-performance-best-practices]:/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices
-[virtual-machines-upload-image-windows-resource-manager]:../../windows/upload-image.md
-[virtual-machines-windows-tutorial]:../../windows/quick-create-portal.md
+[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines/windows/upload-image.md
+[virtual-machines-windows-tutorial]:../../virtual-machines/windows/quick-create-portal.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
-[virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
-[virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/security-overview.md
-[virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
-[virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
-[vpn-gateway-about-vpn-devices]:../../../vpn-gateway/vpn-gateway-about-vpn-devices.md
-[vpn-gateway-create-site-to-site-rm-powershell]:../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:../../../vpn-gateway/vpn-gateway-plan-design.md
-[vpn-gateway-site-to-site-create]:../../../vpn-gateway/vpn-gateway-site-to-site-create.md
-[vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
-[qs-configure-powershell-windows-vm]:../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md
-[qs-configure-cli-windows-vm]:../../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md
-[howto-assign-access-powershell]:../../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md
-[howto-assign-access-cli]:../../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md
+[virtual-network-deploy-multinic-arm-template]:../../virtual-network/template-samples.md
+[virtual-networks-configure-vnet-to-vnet-connection]:../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
+[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.md#create-a-virtual-network
+[virtual-networks-manage-dns-in-vnet]:../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+[virtual-networks-multiple-nics]:../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
+[virtual-networks-nsg]:../../virtual-network/security-overview.md
+[virtual-networks-reserved-private-ip]:../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-networks-static-private-ip-arm-pportal]:../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
+[vpn-gateway-about-vpn-devices]:../../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-create-site-to-site-rm-powershell]:../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]:../../vpn-gateway/vpn-gateway-plan-design.md
+[vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-site-to-site-create.md
+[vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
+[xplat-cli]:/cli/azure/install-cli-version-1.0
+[xplat-cli-azure-resource-manager]:/azure/azure-resource-manager/management/manage-resources-cli
+[qs-configure-powershell-windows-vm]:../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md
+[qs-configure-cli-windows-vm]:../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md
+[howto-assign-access-powershell]:../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md
+[howto-assign-access-cli]:../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
 Azure Virtual Machines is the solution for organizations that need compute and storage resources, in minimal time, and without lengthy procurement cycles. You can use Azure Virtual Machines to deploy classical applications, like SAP NetWeaver-based applications, in Azure. Extend an application's reliability and availability without additional on-premises resources. Azure Virtual Machines supports cross-premises connectivity, so you can integrate Azure Virtual Machines into your organization's on-premises domains, private clouds, and SAP system landscape.
 
@@ -314,7 +314,7 @@ In this article, we cover the steps to deploy SAP applications on virtual machin
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Setting up an Azure virtual machine for SAP software deployment involves multiple steps and resources. Before you start, make sure that you meet the prerequisites for installing SAP software on virtual machines in Azure.
 
@@ -547,7 +547,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 #### Create a virtual machine by using the Azure portal
 
-The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../windows/capture-image-resource.md)
+The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../virtual-machines/windows/capture-image-resource.md)
 
 1.  Navigate to [Images in the Azure portal](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages). Or, in the Azure portal menu, select **Images**.
 1.  Select the Managed Disk image you want to deploy and click on **Create VM**
@@ -863,4 +863,4 @@ When you've prepared the VM as described in [Deployment scenarios of VMs for SAP
 
 ## Next steps
 
-Learn about [RHEL for SAP in-place upgrade](../redhat/redhat-in-place-upgrade.md#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)
+Learn about [RHEL for SAP in-place upgrade](../../virtual-machines/workloads/redhat/redhat-in-place-upgrade.md#upgrade-sap-environments-from-rhel-7-vms-to-rhel-8-vms)

@@ -24,7 +24,7 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[afs-azure-doc]:../../../storage/files/storage-files-introduction.md
+[afs-azure-doc]:../../storage/files/storage-files-introduction.md
 [afs-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 
 [2205917]:https://launchpad.support.sap.com/#/notes/2205917
@@ -52,8 +52,8 @@ ms.author: radeltch
 
 This article describes how to deploy and configure Azure virtual machines (VMs), install the cluster framework, and install a high-availability (HA) SAP NetWeaver system with a simple mount structure. You can implement the presented architecture by using one of the following Azure native Network File System (NFS) services:  
 
--  [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) 
--  [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md)        
+-  [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) 
+-  [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md)        
 
 The simple mount configuration is expected to be the [default](https://documentation.suse.com/sbp/sap/single-html/SAP-S4HA10-setupguide-simplemount-sle15/#id-introduction) for new implementations on SLES for SAP Applications 15.
 
@@ -87,7 +87,7 @@ The following guides contain all the required information to set up a NetWeaver 
 
 ## Overview
 
-This article describes a high-availability configuration for ASCS with a simple mount structure. To deploy the SAP application layer, you need shared directories like `/sapmnt/SID`, `/usr/sap/SID`, and  `/usr/sap/trans`, which are highly available. You can deploy these file systems on [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) *or* [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).   
+This article describes a high-availability configuration for ASCS with a simple mount structure. To deploy the SAP application layer, you need shared directories like `/sapmnt/SID`, `/usr/sap/SID`, and  `/usr/sap/trans`, which are highly available. You can deploy these file systems on [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) *or* [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).   
 
 You still need a Pacemaker cluster to help protect single-point-of-failure components like SAP Central Services (SCS) and ASCS.     
 
@@ -112,14 +112,14 @@ The example configurations and installation commands use the following instance 
 
 ## Prepare the infrastructure
 
-This article assumes that you've already deployed an [Azure virtual network](../../../virtual-network/virtual-networks-overview.md), subnet, and resource group. To prepare the rest of your infrastructure:
+This article assumes that you've already deployed an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), subnet, and resource group. To prepare the rest of your infrastructure:
 
 1. Deploy your VMs. You can deploy VMs in availability sets or in availability zones, if the Azure region supports these options. 
 
    > [!IMPORTANT]
-   > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
+   > If you need additional IP addresses for your VMs, deploy and attach a second network interface controller (NIC). Don't add secondary IP addresses to the primary NIC. [Azure Load Balancer Floating IP doesn't support this scenario](../../load-balancer/load-balancer-multivip-overview.md#limitations).  
  
-2. For your virtual IPs, deploy and configure an [Azure load balancer](../../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+2. For your virtual IPs, deploy and configure an [Azure load balancer](../../load-balancer/load-balancer-overview.md). We recommend that you use a [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
    1. Create front-end IP address 10.27.0.9 for the ASCS instance:
       1. Open the load balancer, select **Frontend IP pool**, and then select **Add**.
       1. Enter the name of the new front-end IP pool (for example, **frontend.NW1.ASCS**).
@@ -157,28 +157,28 @@ This article assumes that you've already deployed an [Azure virtual network](../
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## Deploy NFS
 
-There are two options for deploying Azure native NFS to host the SAP shared directories. You can either deploy an [NFS file share on Azure Files](../../../storage/files/files-nfs-protocol.md) or deploy an [NFS volume on Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). NFS on Azure Files supports the NFSv4.1 protocol. NFS on Azure NetApp Files supports both NFSv4.1 and NFSv3.
+There are two options for deploying Azure native NFS to host the SAP shared directories. You can either deploy an [NFS file share on Azure Files](../../storage/files/files-nfs-protocol.md) or deploy an [NFS volume on Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md). NFS on Azure Files supports the NFSv4.1 protocol. NFS on Azure NetApp Files supports both NFSv4.1 and NFSv3.
 
 The next sections describe the steps to deploy NFS. Select only *one* of the options. 
 
 ### Deploy an Azure Files storage account and NFS shares 
 
-NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).    
+NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).    
 
 There are two options for redundancy within an Azure region:
 
-- [Locally redundant storage (LRS)](../../../storage/common/storage-redundancy.md#locally-redundant-storage) offers local, in-zone synchronous data replication.
-- [Zone-redundant storage (ZRS)](../../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../../availability-zones/az-overview.md) in the region.
+- [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage) offers local, in-zone synchronous data replication.
+- [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
 
-Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] for **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] for **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
-We recommend that you access your Azure storage account through an [Azure private endpoint](../../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Be sure to deploy the Azure Files storage account endpoint, and the VMs where you need to mount the NFS shares, in the same Azure virtual network or in peered Azure virtual networks.
+We recommend that you access your Azure storage account through an [Azure private endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Be sure to deploy the Azure Files storage account endpoint, and the VMs where you need to mount the NFS shares, in the same Azure virtual network or in peered Azure virtual networks.
 
-1. Deploy an Azure Files storage account named **sapnfsafs**. This example uses ZRS. If you're not familiar with the process, see [Create a storage account](../../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
+1. Deploy an Azure Files storage account named **sapnfsafs**. This example uses ZRS. If you're not familiar with the process, see [Create a storage account](../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) for the Azure portal.
 1. On the **Basics** tab, use these settings:
 
     1. For **Storage account name**, enter **sapnfsafs**.
@@ -236,41 +236,41 @@ Next, deploy the NFS shares in the storage account that you created. In this exa
 1. On the **File shares** page, select **File share**, and then:
 
    1. For **Name**, enter **sapnw1**, **saptrans**.
-   1. Select an appropriate share size. Consider the size of the data stored on the share, I/O per second (IOPS), and throughput requirements. For more information, see [Azure file share targets](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   1. Select an appropriate share size. Consider the size of the data stored on the share, I/O per second (IOPS), and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
    1. Select **NFS** as the protocol.
    1. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
-The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage. 
+The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage. 
 
 #### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-- The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../../storage/files/understanding-billing.md#provisioned-model). 
-- Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
-- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../../storage/files/storage-troubleshooting-files-performance.md).
+- The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model). 
+- Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+- Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/storage-troubleshooting-files-performance.md).
 - For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files is not supported.
 - If your SAP system has a heavy load of batch jobs, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For details, see [Job log in the database][2360818].     
 - Deploy a separate `sapmnt` share for each SAP system.
 - Don't use the `sapmnt` share for any other activity, such as interfaces.
 - Don't use the `saptrans` share for any other activity, such as interfaces.
-- Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [scalability and performance targets for storage accounts](../../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
+- Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [scalability and performance targets for storage accounts](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful to not exceed the limits for the storage account, too.
 - In general,  don't consolidate the shares for more than *five* SAP systems in a single storage account. This guideline helps you avoid exceeding the storage account limits and simplifies performance analysis.   
 - In general, avoid mixing shares like `sapmnt` for non-production and production SAP systems in the same storage account.
-- We recommend that you deploy on SLES 15 SP2 or later to benefit from [NFS client improvements](../../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).     
+- We recommend that you deploy on SLES 15 SP2 or later to benefit from [NFS client improvements](../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).     
 - Use a private endpoint. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs.
-- If you're deploying your VMs across availability zones, use a [storage account with ZRS](../../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS. 
+- If you're deploying your VMs across availability zones, use a [storage account with ZRS](../../storage/common/storage-redundancy.md#zone-redundant-storage) in the Azure regions that supports ZRS. 
 - Azure Files doesn't currently support automatic cross-region replication for disaster recovery scenarios.  
 
 ### Deploy Azure NetApp Files resources  
 
 1. Check that the Azure NetApp Files service is available in your [Azure region of choice](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). 
-1. Create the NetApp account in the selected Azure region. Follow [these instructions](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
-1. Set up the Azure NetApp Files capacity pool. Follow [these instructions](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
+1. Create the NetApp account in the selected Azure region. Follow [these instructions](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).  
+1. Set up the Azure NetApp Files capacity pool. Follow [these instructions](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).  
 
    The SAP NetWeaver architecture presented in this article uses a single Azure NetApp Files capacity pool, Premium SKU. We recommend Azure NetApp Files Premium SKU for SAP NetWeaver application workloads on Azure.  
-1. Delegate a subnet to Azure NetApp Files, as described in [these instructions](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
-1. Deploy Azure NetApp Files volumes by following [these instructions](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. 
+1. Delegate a subnet to Azure NetApp Files, as described in [these instructions](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).  
+1. Deploy Azure NetApp Files volumes by following [these instructions](../../azure-netapp-files/azure-netapp-files-create-volumes.md). Deploy the volumes in the designated Azure NetApp Files [subnet](/rest/api/virtualnetwork/subnets). The IP addresses of the Azure NetApp volumes are assigned automatically. 
 
    Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. This example uses two Azure NetApp Files volumes: `sapnw1` and `trans`. The file paths that are mounted to the corresponding mount points are:  
 
@@ -279,7 +279,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
    - Volume `trans` (`nfs://10.27.1.5/trans`)
    
    
-The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
+The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
 
 #### Important considerations for NFS on Azure NetApp Files
 
@@ -287,10 +287,10 @@ When you're considering Azure NetApp Files for the SAP NetWeaver high-availabili
 
 - The minimum capacity pool is 4 tebibytes (TiB). You can increase the size of the capacity pool in 1-TiB increments.
 - The minimum volume is 100 GiB.
-- Azure NetApp Files and all virtual machines where Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't yet supported.
+- Azure NetApp Files and all virtual machines where Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't yet supported.
 - The selected virtual network must have a subnet that's delegated to Azure NetApp Files.
-- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When you're sizing the Azure NetApp Files volumes for SAP, make sure that the resulting throughput meets the application's requirements.  
-- Azure NetApp Files offers an [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md). You can control the allowed clients and the access type (for example, read/write or read-only). 
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). When you're sizing the Azure NetApp Files volumes for SAP, make sure that the resulting throughput meets the application's requirements.  
+- Azure NetApp Files offers an [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md). You can control the allowed clients and the access type (for example, read/write or read-only). 
 - Azure NetApp Files isn't zone aware yet. Currently, Azure NetApp Files isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. 
 - Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP application layer (ASCS/ERS, SAP application servers). 
 

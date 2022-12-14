@@ -20,11 +20,11 @@ ms.author: radeltch
 
 # High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
+[anf-azure-doc]:../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
@@ -55,7 +55,7 @@ In the example configurations, three SAP NetWeaver 7.50 systems are deployed in 
 
 The article doesn't cover the database layer and the deployment of the SAP NFS shares.
 
-The examples in this article use the [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) volume `sapMSID` for the NFS shares, assuming that the volume is already deployed. The examples assume that the Azure NetApp Files volume is deployed with NFSv3 protocol. They use the following file paths for the cluster resources for the ASCS and ERS instances of SAP systems `NW1`, `NW2`, and `NW3`:  
+The examples in this article use the [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-create-volumes.md) volume `sapMSID` for the NFS shares, assuming that the volume is already deployed. The examples assume that the Azure NetApp Files volume is deployed with NFSv3 protocol. They use the following file paths for the cluster resources for the ASCS and ERS instances of SAP systems `NW1`, `NW2`, and `NW3`:  
 
 * volume sapMSID (nfs://10.42.0.4/sapmnt*NW1*)
 * volume sapMSID (nfs://10.42.0.4/usrsap*NW1*ascs)
@@ -105,7 +105,7 @@ Before you begin, refer to the following SAP Notes and papers:
 
 The virtual machines that participate in the cluster must be sized to be able to run all resources in case failover occurs. Each SAP SID can fail over independently from each other in the multi-SID high availability cluster.  
 
-To achieve high availability, SAP NetWeaver requires highly available shares. This article shows examples with the SAP shares deployed on [Azure NetApp Files NFS volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md). You could instead host the shares on highly available [GlusterFS cluster](./high-availability-guide-rhel-glusterfs.md), which can be used by multiple SAP systems.  
+To achieve high availability, SAP NetWeaver requires highly available shares. This article shows examples with the SAP shares deployed on [Azure NetApp Files NFS volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md). You could instead host the shares on highly available [GlusterFS cluster](./high-availability-guide-rhel-glusterfs.md), which can be used by multiple SAP systems.  
 
 ![Diagram shows S A P NetWeaver High Availability overview with Pacemaker cluster and S A P N F S shares.](./media/high-availability-guide-rhel/ha-rhel-multi-sid.png)
 
@@ -115,7 +115,7 @@ To achieve high availability, SAP NetWeaver requires highly available shares. Th
 > [!TIP]
 > The multi-SID clustering of SAP ASCS/ERS is a solution with higher complexity. It is more complex to implement. It also involves higher administrative effort, when executing maintenance activities, like OS patching. Before you start the actual implementation, take time to carefully plan out the deployment and all involved components like VMs, NFS mounts, VIPs, load balancer configurations and so on.  
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, and SAP NetWeaver ERS use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
+SAP NetWeaver ASCS, SAP NetWeaver SCS, and SAP NetWeaver ERS use virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. We recommend using [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 * Frontend IP addresses for ASCS: 10.3.1.50 (NW1), 10.3.1.52 (NW2), and 10.3.1.54 (NW3)  
 * Frontend IP addresses for ERS:  10.3.1.51 (NW1), 10.3.1.53 (NW2), and 10.3.1.55 (NW3)
@@ -123,17 +123,17 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, and SAP NetWeaver ERS use virtual hostnam
 * Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS, and 62122 for NW3 ASCS
 
 > [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there is no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to 0. For more information, see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to 0. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## SAP shares
 
-SAP NetWeaver requires shared storage for the transport, profile directory, and so on. For highly available SAP system, it's important to have highly available shares. You need to decide on the architecture for your SAP shares. One option is to deploy the shares on [Azure NetApp Files NFS volumes](../../../azure-netapp-files/azure-netapp-files-create-volumes.md).  With Azure NetApp Files, you get built-in high availability for the SAP NFS shares.
+SAP NetWeaver requires shared storage for the transport, profile directory, and so on. For highly available SAP system, it's important to have highly available shares. You need to decide on the architecture for your SAP shares. One option is to deploy the shares on [Azure NetApp Files NFS volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md).  With Azure NetApp Files, you get built-in high availability for the SAP NFS shares.
 
 Another option is to build [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver](./high-availability-guide-rhel-glusterfs.md), which can be shared between multiple SAP systems. 
 

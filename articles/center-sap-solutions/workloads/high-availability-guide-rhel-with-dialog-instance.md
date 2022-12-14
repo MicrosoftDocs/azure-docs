@@ -52,7 +52,7 @@ This article describes how to install and configure Primary Application Server (
 
 This article describes the cost optimization scenario where you deploy Primary Application Server (PAS) and Additional Application Server (AAS) dialog instances with SAP ASCS/SCS and SAP ERS instances in high availability setup. To minimize the number of VMs for a single SAP system, you want to install PAS and AAS on the same host where SAP ASCS/SCS and SAP ERS are running. With SAP ASCS/SCS being configured in high availability cluster setup, you want PAS and AAS to be managed by cluster as well. The configuration is basically an addition to already configured SAP ASCS/SCS cluster setup. In this setup PAS and AAS will be installed on a virtual hostname and its instance directory is managed by the cluster.
 
-For this setup, PAS and AAS require a highly available instance directory (`/usr/sap/<SID>/D<nr>`). You can place the instance directory filesystem on the same high available storage that you've used for ASCS and ERS instance configuration. The presented architecture showcases [NFS on Azure Files](../../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for highly available instance directory for the setup.
+For this setup, PAS and AAS require a highly available instance directory (`/usr/sap/<SID>/D<nr>`). You can place the instance directory filesystem on the same high available storage that you've used for ASCS and ERS instance configuration. The presented architecture showcases [NFS on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for highly available instance directory for the setup.
 
 The example shown in this article to describe deployment uses following system information -
 
@@ -131,7 +131,7 @@ This document assumes that you’ve already configured SAP ASCS/SCS cluster setu
 
 > [!IMPORTANT]
 >
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 >
@@ -139,7 +139,7 @@ This document assumes that you’ve already configured SAP ASCS/SCS cluster setu
 
 > [!IMPORTANT]
 >
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ## Prepare servers for PAS and AAS installation
 

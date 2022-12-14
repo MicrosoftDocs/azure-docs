@@ -35,10 +35,10 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
-> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../../availability-zones/az-overview.md)
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](../../availability-zones/az-overview.md)
 > 
 
-For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.
+For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.
 
 ## Prerequisites
 
@@ -311,11 +311,11 @@ Install DBMS and SAP application Servers as described earlier.
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -461,6 +461,6 @@ Install DBMS and SAP application Servers as described earlier.
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../availability.md
+[virtual-machines-manage-availability]:../../virtual-machines/availability.md

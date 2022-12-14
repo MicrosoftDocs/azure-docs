@@ -26,10 +26,10 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -51,7 +51,7 @@ You can configure the SBD device by using either of two options:
   >[!IMPORTANT]
   > When you're planning and deploying Linux Pacemaker clustered nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/). 
   >
-  >Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../../virtual-network/virtual-networks-udr-overview.md).
+  >Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [User-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
 - SBD with an Azure shared disk:
   
@@ -63,16 +63,16 @@ You can configure the SBD device by using either of two options:
 
    - An Azure shared disk with Premium SSD is supported as an SBD device.
    - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
-   - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+   - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
    - Depending on the type of your deployment (availability set or availability zones), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
      - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
      - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
-   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../disks-redundancy.md#limitations).
-   - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
-   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+   - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../virtual-machines/disks-redundancy.md#limitations).
+   - The Azure shared disk that you use for SBD devices doesn’t need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+   - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes).
    - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
    - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
-   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../disks-shared.md#limitations).
+   - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../virtual-machines/disks-shared.md#limitations).
 
 ### Use an Azure fence agent
 You can set up fencing by using an Azure fence agent. Azure fence agent require managed identities for the cluster VMs or a service principal, that manages restarting failed nodes via Azure APIs. Azure fence agent doesn't require the deployment of additional virtual machines.
@@ -393,7 +393,7 @@ This section applies only if you want to use an SBD device with an Azure shared 
    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose</code></pre>
 
-If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md).
+If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../virtual-machines/disks-deploy-zrs.md).
 
 ### Set up an Azure shared disk SBD device
 
@@ -472,7 +472,7 @@ This section applies only if you want to use a fencing device with an Azure fenc
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
 
 #### Using managed identity
-To create a managed identity (MSI), [create a system-assigned](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
+To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
 #### Using service principal
 
@@ -491,7 +491,7 @@ To create a service principal, do the following:
 
 ### **[1]** Create a custom role for the fence agent
 
-By default, neither managed identity norservice principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../../role-based-access-control/custom-roles-cli.md).
+By default, neither managed identity norservice principal have permissions to access your Azure resources. You need to give the managed identity or service principal permissions to start and stop (deallocate) all virtual machines in the cluster. If you didn't already create the custom role, you can do so by using [PowerShell](../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or the [Azure CLI](../../role-based-access-control/custom-roles-cli.md).
 
 Use the following content for the input file. You need to adapt the content to your subscriptions. That is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with your own subscription IDs. If you have only one subscription, remove the second entry under AssignableScopes.
 
@@ -518,14 +518,14 @@ Use the following content for the input file. You need to adapt the content to y
 
 #### Using Managed Identity
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For detailed steps, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify each VM's managed identity role assignment contains all cluster VMs.
 
 > [!IMPORTANT]
-> Be aware assignment and removal of authorization with managed identities [can be delayed](../../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+> Be aware assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
 
 #### Using Service Principal
 
-Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Assign the custom role *Linux fence agent Role* that you already created to the service principal. Do *not* use the *Owner* role anymore. For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.md).   
 
 Make sure to assign the custom role to the service principal at all VM (cluster node) scopes.  
 
@@ -846,7 +846,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources. 
+Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events as VM shutdown, VM redeployment, and so on. Resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, the azure-events agent will place the target cluster node in standby mode to force the cluster to migrate resources away from the VM with pending [Azure scheduled events](../../virtual-machines/linux/scheduled-events.md). To achieve that, you must configure additional Pacemaker resources. 
 
 1. **[A]** Make sure that the package for the azure-events agent is already installed and up to date. 
    

@@ -125,7 +125,7 @@ Storage Spaces Direct is used as a shared disk for a scale-out file share. You c
 When choosing Storage Spaces Direct, consider these use cases:
 
 - The virtual machines used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
-- For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](../../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
+- For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 - It is not supported to stretch the Storage Space Direct Cluster across different Azure Availability Zones.
 
 ### SAP prerequisites for scale-out file shares in Azure
@@ -228,15 +228,15 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
-[dv2-series]:../../dv2-dsv2-series.md
+[dv2-series]:../../virtual-machines/dv2-dsv2-series.md
 [ds-series]:/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -395,7 +395,7 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 

@@ -20,13 +20,13 @@ ms.author: radeltch
 
 # High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications
 
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [high-availability-guide]:high-availability-guide.md
 [dfs-n-reference]:high-availability-guide-windows-dfs.md
 
-[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
+[anf-azure-doc]:../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
@@ -54,9 +54,9 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-This article describes how to deploy, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system  on Windows VMs, using [SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) on [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md).  
+This article describes how to deploy, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system  on Windows VMs, using [SMB](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) on [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).  
 
-The database layer isn't covered in detail in this article. We assume that the Azure [virtual network](../../../virtual-network/virtual-networks-overview.md) has already been created.  
+The database layer isn't covered in detail in this article. We assume that the Azure [virtual network](../../virtual-network/virtual-networks-overview.md) has already been created.  
 
 Read the following SAP Notes and papers first:
 
@@ -77,13 +77,13 @@ Read the following SAP Notes and papers first:
 * [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Add probe port in ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
 * [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Create an SMB volume for Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
+* [Create an SMB volume for Azure NetApp Files](../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure] 
 
 ## Overview
 
 SAP developed a new approach, and an alternative to cluster shared disks, for clustering an SAP ASCS/SCS instance on a Windows failover cluster. Instead of using cluster shared disks, one can use an SMB file share to deploy SAP global host files. Azure NetApp Files supports SMBv3 (along with NFS) with NTFS ACL using Active Directory. Azure NetApp Files is automatically highly available (as it is a PaaS service). These features make Azure NetApp Files great option for hosting the SMB file share for SAP global.  
-Both [Azure Active Directory (AD) Domain Services](../../../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can be in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. In this article, we will use Domain controller in an Azure VM.  
+Both [Azure Active Directory (AD) Domain Services](../../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can be in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. In this article, we will use Domain controller in an Azure VM.  
 High availability(HA) for SAP Netweaver central services requires shared storage. To achieve that on Windows, so far it was necessary to build either SOFS cluster or use cluster shared disk s/w like SIOS. Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed on Azure NetApp Files. Using Azure NetApp Files for the shared storage eliminates the need for either SOFS or SIOS.  
 
 > [!NOTE]
@@ -104,18 +104,18 @@ The share for the SAP Central services in this reference architecture is offered
 
 Perform the following steps, as preparation for using Azure NetApp Files.  
 
-1. Create Azure NetApp account, following the steps described in  [Create a NetApp account](../../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
-2. Set up capacity pool, following the instructions in [Set up a capacity pool](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
-3. Azure NetApp Files resources must reside in delegated subnet. Follow the instructions in [Delegate a subnet to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) to create delegated subnet.  
+1. Create Azure NetApp account, following the steps described in  [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md)  
+2. Set up capacity pool, following the instructions in [Set up a capacity pool](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md)
+3. Azure NetApp Files resources must reside in delegated subnet. Follow the instructions in [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) to create delegated subnet.  
 
    > [!IMPORTANT]
-   > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
+   > You need to create Active Directory connections before creating an SMB volume. Review the [requirements for Active Directory connections](../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
    >   
    > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters to avoid the 13 characters hostname limitation for SAP Applications (a suffix is automatically added to the SMB Computer Account name).     
    > The hostname limitations for SAP applications are described in [2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
 
-4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection). Make sure to add the user that will run SWPM to install the SAP system, as `Administrators privilege user` in the Active Directory connection. If you don't add the SAP installation user as `Administrators privilege user` in the Active Directory connection, SWPM will fail with permission errors, unless you run SWPM as user with elevated Domain Admin rights.  
-6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
+4. Create Active Directory connection, as described in [Create an Active Directory connection](../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection). Make sure to add the user that will run SWPM to install the SAP system, as `Administrators privilege user` in the Active Directory connection. If you don't add the SAP installation user as `Administrators privilege user` in the Active Directory connection, SWPM will fail with permission errors, unless you run SWPM as user with elevated Domain Admin rights.  
+6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
 7. Mount the SMB volume on your Windows Virtual Machine.  
 
 > [!TIP]
@@ -128,7 +128,7 @@ When considering Azure NetApp Files for the SAP Netweaver architecture, be aware
 - The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
 - The minimum volume is 100 GiB
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
-- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
+- The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
  
 
 ## Prepare the infrastructure for SAP HA by using a Windows failover cluster 
@@ -255,7 +255,7 @@ Using DFS-N allows you to utilize individual sapmnt volumes for SAP systems depl
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * To learn how to establish high availability and plan for disaster recovery of SAP 
-* HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
+* HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
 
 [sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/ha-smb-as.png

@@ -86,7 +86,7 @@ Beyond the selection of only supported VM types, you also need to check whether 
 
 ### Storage
 
-Azure Storage has various storage types available for customers. You can find details about them in the article [What disk types are available in Azure?](../../disks-types.md). 
+Azure Storage has various storage types available for customers. You can find details about them in the article [What disk types are available in Azure?](../../virtual-machines/disks-types.md). 
 
 Some of the storage types in Azure have limited use for SAP scenarios, but other types are well suited or optimized for specific SAP workload scenarios. For more information, see the [Azure Storage types for SAP workload](planning-guide-storage.md) guide. It highlights the storage options that are suited for SAP. 
 
@@ -94,17 +94,17 @@ For SAP IQ on Azure, you can use the following Azure storage types. The choice d
 
 - Azure managed disks
 
-  A [managed disk](../../managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../disks-types.md#premium-ssds) for SAP IQ. 
+  A [managed disk](../../virtual-machines/managed-disks-overview.md) is a block-level storage volume that Azure manages. You can use managed disks for SAP IQ simplex deployment. Various types of managed disks are available, but we recommend that you use [premium SSDs](../../virtual-machines/disks-types.md#premium-ssds) for SAP IQ. 
 
 - Azure shared disks
 
-  [Shared disks](../../disks-shared.md) are a new feature for Azure managed disks that allow you to attach a managed disk to multiple VMs simultaneously. Shared managed disks don't natively offer a fully managed file system that can be accessed through SMB or NFS. You need to use a cluster manager like a [Windows Server failover cluster](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/failover-clustering/failover-clustering-overview.md) (WSFC), which handles cluster node communication and write locking. 
+  [Shared disks](../../virtual-machines/disks-shared.md) are a new feature for Azure managed disks that allow you to attach a managed disk to multiple VMs simultaneously. Shared managed disks don't natively offer a fully managed file system that can be accessed through SMB or NFS. You need to use a cluster manager like a [Windows Server failover cluster](https://github.com/MicrosoftDocs/windowsserverdocs/blob/master/WindowsServerDocs/failover-clustering/failover-clustering-overview.md) (WSFC), which handles cluster node communication and write locking. 
   
   To deploy a highly available solution for an SAP IQ simplex architecture on Windows, you can use Azure shared disks between two nodes that WSFC manages. An SAP IQ deployment architecture with Azure shared disks is discussed in the article [Deploy SAP IQ NLS HA solution using Azure shared disk on Windows Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-shared-disk-on-windows/ba-p/2433089).
 
 - Azure NetApp Files
 
-  SAP IQ deployment on Linux can use [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) as a file system (NFS protocol) to install a standalone or a highly available solution. This storage offering isn't available in all regions. For up-to-date information, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) webpage. SAP IQ deployment architecture with Azure NetApp Files is discussed in the article [Deploy SAP IQ-NLS HA solution using Azure NetApp Files on SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172).
+  SAP IQ deployment on Linux can use [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) as a file system (NFS protocol) to install a standalone or a highly available solution. This storage offering isn't available in all regions. For up-to-date information, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) webpage. SAP IQ deployment architecture with Azure NetApp Files is discussed in the article [Deploy SAP IQ-NLS HA solution using Azure NetApp Files on SUSE Linux Enterprise Server](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-iq-nls-ha-solution-using-azure-netapp-files-on-suse/ba-p/1651172).
 
 The following table lists the recommendations for each storage type based on the operating system: 
 
@@ -180,15 +180,15 @@ For a large SAP IQ database, you can use virtual backups. For more information, 
 
 ## Disaster recovery
 
-This section explains the strategy to provide disaster recovery (DR) protection for the SAP IQ NLS solution. It complements the [Set up disaster recovery for SAP](../../../site-recovery/site-recovery-sap.md) article, which represents the primary resources for an overall SAP DR approach. The process described in that article is presented at an abstract level. You need to validate the exact steps and thoroughly test your DR strategy. 
+This section explains the strategy to provide disaster recovery (DR) protection for the SAP IQ NLS solution. It complements the [Set up disaster recovery for SAP](../../site-recovery/site-recovery-sap.md) article, which represents the primary resources for an overall SAP DR approach. The process described in that article is presented at an abstract level. You need to validate the exact steps and thoroughly test your DR strategy. 
 
-For SAP IQ, see [SAP note 2566083](https://launchpad.support.sap.com/#/notes/0002566083), which describes methods to implement a DR environment safely. In Azure, you can also use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) for an SAP IQ DR strategy. The strategy for SAP IQ DR depends on the way it's deployed in Azure, and it should also be in line with your SAP BW system. 
+For SAP IQ, see [SAP note 2566083](https://launchpad.support.sap.com/#/notes/0002566083), which describes methods to implement a DR environment safely. In Azure, you can also use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) for an SAP IQ DR strategy. The strategy for SAP IQ DR depends on the way it's deployed in Azure, and it should also be in line with your SAP BW system. 
 
 ### Standalone deployment of SAP IQ
 
 If you've installed SAP IQ as a standalone system that doesn't have any application-level redundancy or high availability, but the business requires a DR setup, all the disks (Azure-managed disks) attached to the virtual machine will be local. 
   
-You can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to replicate a standalone SAP IQ virtual machine in the secondary region. It replicates the servers and all the attached managed disks to the secondary region so that if a disaster or an outage occurs, you can easily fail over to your replicated environment and continue working. To start replicating the SAP IQ VMs to the Azure DR region, follow the guidance in [Replicate a virtual machine to Azure](../../../site-recovery/azure-to-azure-tutorial-enable-replication.md). 
+You can use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to replicate a standalone SAP IQ virtual machine in the secondary region. It replicates the servers and all the attached managed disks to the secondary region so that if a disaster or an outage occurs, you can easily fail over to your replicated environment and continue working. To start replicating the SAP IQ VMs to the Azure DR region, follow the guidance in [Replicate a virtual machine to Azure](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). 
 
 ### Highly available deployment of SAP IQ
 
@@ -197,12 +197,12 @@ If you've installed SAP IQ as a highly available system where SAP IQ binaries an
 - Whether you need the same highly available SAP IQ system on the DR site.
 - Whether a standalone SAP IQ instance will suffice your business requirements. 
   
-If you need a standalone SAP IQ instance on a DR site, you can use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to replicate a primary SAP IQ virtual machine in the secondary region. It replicates the servers and all the local attached managed disks to the secondary region, but it won't replicate an Azure shared disk or a network drive like Azure NetApp Files. 
+If you need a standalone SAP IQ instance on a DR site, you can use [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) to replicate a primary SAP IQ virtual machine in the secondary region. It replicates the servers and all the local attached managed disks to the secondary region, but it won't replicate an Azure shared disk or a network drive like Azure NetApp Files. 
   
-To copy data from Azure a shared disk or a network drive, you can use any file-base copy tool to replicate data between Azure regions. For more information on how to copy an Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
+To copy data from Azure a shared disk or a network drive, you can use any file-base copy tool to replicate data between Azure regions. For more information on how to copy an Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region).
 
 ## Next steps
 
-- [Set up disaster recovery for a multi-tier SAP app deployment](../../../site-recovery/site-recovery-sap.md)
+- [Set up disaster recovery for a multi-tier SAP app deployment](../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
 - [Azure Virtual Machines deployment for SAP](deployment-guide.md)

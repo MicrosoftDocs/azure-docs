@@ -28,7 +28,7 @@ ms.custom: subject-rbac-steps
 [2815988]:https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
-[dbms-guide]:dbms-guide.md
+[dbms-guide]:dbms_guide_general.md
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [hana-ops-guide]:hana-vm-operations.md
@@ -90,16 +90,16 @@ The Azure connector can use a Service Principal to authorize against Microsoft A
 The Service Principal does not have permissions to access your Azure resources by default.
 Assign the Contributor role to the Service Principal at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Use a Managed Identity to get access to the Azure API
 
-To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+To be able to use a Managed Identity, your SAP LaMa instance has to run on an Azure VM that has a system or user assigned identity. For more information about Managed Identities, read [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) and [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
 
 The Managed Identity does not have permissions to access your Azure resources by default.
 Assign the Contributor role to the Virtual Machine identity at resource group scope for all resource groups that contain SAP systems that should be managed by SAP LaMa.
 
-For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 In your SAP LaMa Azure connector configuration, select 'Use Managed Identity' to enable the usage of the Managed Identity. If you want to use a system assigned identity, make sure to leave the User Name field empty. If you want to use a user assigned identity, enter the user assigned identity Id into the User Name field.
 

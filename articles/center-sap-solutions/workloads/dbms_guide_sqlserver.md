@@ -63,31 +63,31 @@ ms.custom: H1Hack27Feb2017
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
-[azure-cli]:../../../cli-install-nodejs.md
+[azure-cli]:/cli/azure/install-cli-version-1.0
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide_general.md 
-[dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
-[dbms-guide-2.2]:dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 
-[dbms-guide-2.3]:dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 
-[dbms-guide-2]:dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
-[dbms-guide-3]:dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 
-[dbms-guide-5.5.1]:dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
-[dbms-guide-5.5.2]:dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-2.1]:dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3 
+[dbms-guide-5.5.1]:dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 
+[dbms-guide-5.5.2]:dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b 
 [dbms-guide-5.6]:dbms_guide_sqlserver.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 
-[dbms-guide-5.8]:dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 
-[dbms-guide-5]:dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 
-[dbms-guide-8.4.1]:dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
-[dbms-guide-8.4.2]:dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
-[dbms-guide-8.4.3]:dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
-[dbms-guide-8.4.4]:dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 
-[dbms-guide-900-sap-cache-server-on-premises]:dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
-[dbms-guide-managed-disks]:dbms-guide.md#f42c6cb5-d563-484d-9667-b07ae51bce29
+[dbms-guide-5.8]:dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30 
+[dbms-guide-5]:dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737 
+[dbms-guide-8.4.1]:dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d 
+[dbms-guide-8.4.3]:dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c 
+[dbms-guide-8.4.4]:dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818 
+[dbms-guide-900-sap-cache-server-on-premises]:dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide-managed-disks]:dbms_guide_general.md#f42c6cb5-d563-484d-9667-b07ae51bce29
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -226,52 +226,52 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/management/overview.md
-[resource-groups-networking]:../../../networking/networking-overview.md
+[resource-group-overview]:../../azure-resource-manager/management/overview.md
+[resource-groups-networking]:../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../disks-types.md
-[storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
-[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
+[storage-azure-cli]:../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
+[storage-redundancy]:../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../storage/common/scalability-targets-standard-accounts.md
+[storage-use-azcopy]:../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../resource-manager-deployment-model.md
-[virtual-machines-azurerm-versus-azuresm]:../../../resource-manager-deployment-model.md
+[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.md
+[virtual-machines-azure-resource-manager-architecture]:/azure/azure-resource-manager/management/deployment-models
+[virtual-machines-azurerm-versus-azuresm]:/azure/azure-resource-manager/management/deployment-models
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md 
+[virtual-machines-linux-cli-deploy-templates]:../../virtual-machines/linux/cli-deploy-templates.md 
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md 
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-resource-manager-capture]:../../linux/capture-image.md#step-2-capture-the-vm
-[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
-[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
+[virtual-machines-linux-agent-user-guide]:../../virtual-machines/linux/agent-user-guide.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-resource-manager-capture]:../../virtual-machines/linux/capture-image.md#step-2-capture-the-vm
+[virtual-machines-linux-configure-raid]:../../virtual-machines/linux/configure-raid.md
+[virtual-machines-linux-configure-lvm]:../../virtual-machines/linux/configure-lvm.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
-[virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../linux/update-agent.md
-[virtual-machines-manage-availability-linux]:../../linux/manage-availability.md
-[virtual-machines-manage-availability-windows]:../../windows/manage-availability.md
+[virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines/linux/suse-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]:../../virtual-machines/linux/redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]:../../virtual-machines/linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../virtual-machines/linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
+[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
+[virtual-machines-manage-availability-linux]:../../virtual-machines/linux/manage-availability.md
+[virtual-machines-manage-availability-windows]:../../virtual-machines/windows/manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
-[virtual-machines-sizes-linux]:../../linux/sizes.md
-[virtual-machines-sizes-windows]:../../windows/sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-sizes-linux]:../../virtual-machines/linux/sizes.md
+[virtual-machines-sizes-windows]:../../virtual-machines/windows/sizes.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
 [virtual-machines-sql-server-infrastructure-services]:/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
 [virtual-machines-sql-server-performance-best-practices]:/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices
@@ -280,22 +280,22 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/eresources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
-[virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
-[virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/security-overview.md
-[virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
-[virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
-[vpn-gateway-about-vpn-devices]:../../../vpn-gateway/vpn-gateway-about-vpn-devices.md
-[vpn-gateway-create-site-to-site-rm-powershell]:../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:../../../vpn-gateway/vpn-gateway-plan-design.md
-[vpn-gateway-site-to-site-create]:../../../vpn-gateway/vpn-gateway-site-to-site-create.md
-[vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
+[virtual-network-deploy-multinic-arm-template]:../../virtual-network/template-samples.md
+[virtual-networks-configure-vnet-to-vnet-connection]:../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
+[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.md#create-a-virtual-network
+[virtual-networks-manage-dns-in-vnet]:../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+[virtual-networks-multiple-nics]:../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
+[virtual-networks-nsg]:../../virtual-network/security-overview.md
+[virtual-networks-reserved-private-ip]:../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-networks-static-private-ip-arm-pportal]:../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
+[vpn-gateway-about-vpn-devices]:../../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-create-site-to-site-rm-powershell]:../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]:../../vpn-gateway/vpn-gateway-plan-design.md
+[vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-site-to-site-create.md
+[vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
+[xplat-cli]:/cli/azure/install-cli-version-1.0
+[xplat-cli-azure-resource-manager]:/azure/azure-resource-manager/management/manage-resources-cli
 
 
 
@@ -318,8 +318,8 @@ There's some SQL Server in IaaS specific information you should know before cont
 * **SQL Version Support**: For SAP customers, SQL Server 2008 R2 and higher is supported on Microsoft Azure Virtual Machine. Earlier editions aren't supported. Review this general [Support Statement](https://support.microsoft.com/kb/956893) for more details. In general, SQL Server 2008 is supported by Microsoft as well. However due to significant functionality for SAP, which was introduced with SQL Server 2008 R2, SQL Server 2008 R2 is the minimum release for SAP. In general, you should consider using the most recent SQL Server releases to run SAP workload in Azure IaaS. The latest SQL Server releases offer better integration into some of the Azure services and functionality. Or have changes that optimize operations in an Azure IaaS infrastructure. Therefore, the paper is restricted to SQL Server 2016 and SQL Server 2017.
 * **SQL Performance**: Microsoft Azure hosted Virtual Machines perform well in comparison to other public cloud virtualization offerings, but individual results may vary. Check out the article [Performance best practices for SQL Server in Azure Virtual Machines](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
 * **Using Images from Azure Marketplace**: The fastest way to deploy a new Microsoft Azure VM is to use an image from the Azure Marketplace. There are images in the Azure Marketplace, which contain the most recent SQL Server releases. The images where SQL Server already is installed can't be immediately used for SAP NetWeaver applications. The reason is the default SQL Server collation is installed within those images and not the collation required by SAP NetWeaver systems. In order to use such images, check the steps documented in chapter [Using a SQL Server image out of the Microsoft Azure Marketplace][dbms-guide-5.6]. 
-*  **SQL Server multi-instance support within a single Azure VM**: This deployment method is supported. However, be aware of resource limitations, especially around network and storage bandwidth of the VM type that you're using. Detailed information is available in article [Sizes for virtual machines in Azure](../../sizes.md). These quota limitations might prevent you to implement the same multi-instance architecture as you can implement on-premises. As of the configuration and interference of sharing the resources available within a single VM, the same considerations as on-premises need to be taken into account.
-*  **Multiple SAP databases in one single SQL Server instance in a single VM**: As above, configurations like these are supported. Considerations of multiple SAP databases sharing the shared resources of a single SQL Server instance are the same as for on-premises deployments. Additional keep other limits like number of disks that can be attached to a specific VM type in mind. Or network and storage quota limits of specific VM types as detailed [Sizes for virtual machines in Azure](../../sizes.md). 
+*  **SQL Server multi-instance support within a single Azure VM**: This deployment method is supported. However, be aware of resource limitations, especially around network and storage bandwidth of the VM type that you're using. Detailed information is available in article [Sizes for virtual machines in Azure](../../virtual-machines/sizes.md). These quota limitations might prevent you to implement the same multi-instance architecture as you can implement on-premises. As of the configuration and interference of sharing the resources available within a single VM, the same considerations as on-premises need to be taken into account.
+*  **Multiple SAP databases in one single SQL Server instance in a single VM**: As above, configurations like these are supported. Considerations of multiple SAP databases sharing the shared resources of a single SQL Server instance are the same as for on-premises deployments. Additional keep other limits like number of disks that can be attached to a specific VM type in mind. Or network and storage quota limits of specific VM types as detailed [Sizes for virtual machines in Azure](../../virtual-machines/sizes.md). 
 
 
 ## Recommendations on VM/VHD structure for SAP-related SQL Server deployments
@@ -327,7 +327,7 @@ In accordance with the general description, Operating system, SQL Server executa
 
 
 * With all SAP certified VM types (see SAP Note [1928533]), except A-Series VMs, tempdb data, and log files can be placed on the non-persisted D:\ drive. 
-* With SQL Server releases, where SQL Server installs tempdb with one data file by default, it's recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type. For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](../../sizes.md).
+* With SQL Server releases, where SQL Server installs tempdb with one data file by default, it's recommended to use multiple tempdb data files. Be aware D:\ drive volumes are different based on the VM type. For exact sizes of the D:\ drive of the different VMs, check the article [Sizes for Windows virtual machines in Azure](../../virtual-machines/sizes.md).
 
 These configurations enable tempdb to consume more space and more important more I/O operations per second (IOPS) and storage bandwidth than the system drive is able to provide. The nonpersistent D:\ drive also offers better I/O latency and throughput (except for A-Series VMs). In order to determine the proper tempdb size, you can check the tempdb sizes on existing systems. 
 
@@ -347,7 +347,7 @@ SQL Server proportional fill mechanism distributes reads and writes to all dataf
 
 
 ### Special for M-Series VMs
-For Azure M-Series VM, the latency writing into the transaction log can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the SQL Server transaction log. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
+For Azure M-Series VM, the latency writing into the transaction log can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the SQL Server transaction log. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
   
 
 ### Formatting the disks
@@ -371,9 +371,9 @@ SQL Server 2014 and later releases open the possibility to store database files 
 
 * The Storage Account used needs to be in the same Azure Region as the one that is used to deploy the VM SQL Server is running in.
 * Considerations listed earlier regarding the distribution of VHDs over different Azure Storage Accounts apply for this method of deployments as well. Means the I/O operations count against the limits of the Azure Storage Account.
-* Instead of accounting against the VM's storage I/O quota, the traffic against storage blobs representing the SQL Server data and log files, will be accounted into the VM's network bandwidth of the specific VM type. For network and storage bandwidth of a particular VM type, consult the article [Sizes for Windows virtual machines in Azure](../../sizes.md).
+* Instead of accounting against the VM's storage I/O quota, the traffic against storage blobs representing the SQL Server data and log files, will be accounted into the VM's network bandwidth of the specific VM type. For network and storage bandwidth of a particular VM type, consult the article [Sizes for Windows virtual machines in Azure](../../virtual-machines/sizes.md).
 * As a result of pushing file I/O through the network quota, you're stranding the storage quota mostly and with that use the overall bandwidth of the VM only partially.
-* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes don't apply anymore. Even if the blobs you created are located on Azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](../../disks-types.md#premium-ssds). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
+* The IOPS and I/O throughput Performance targets that Azure Premium Storage has for the different disk sizes don't apply anymore. Even if the blobs you created are located on Azure Premium Storage. The targets are documented the article [High-performance Premium Storage and managed disks for VMs](../../virtual-machines/disks-types.md#premium-ssds). As a result of placing SQL Server data files and log files directly on blobs that are stored on Azure Premium Storage, the performance characteristics can be different compared to VHDs on Azure Premium Storage.
 * Host based caching as available for Azure Premium Storage disks isn't available when placing SQL Server data files directly on Azure blobs.
 * On M-Series VMs, Azure Write Accelerator can't be used to support sub-millisecond writes against the SQL Server transaction log file. 
 
@@ -421,7 +421,7 @@ Looking into the documentation, you can see that the functionality with the more
 ### Azure Backup for SQL Server VMs
 This new method of SQL Server backups is offered as of June 2018 as public preview by Azure Backup services. The method to back up SQL Server is the same as other third-party tools are using, namely the SQL Server VSS/VDI interface to stream backups to a target location. In this case, the target location is Azure Recovery Service vault.
 
-A more than detailed description of this backup method, which adds numerous advantages of central backup configurations, monitoring, and administration is available on the [Back up SQL Server databases to Azure](../../../backup/backup-azure-sql-database.md) page.
+A more than detailed description of this backup method, which adds numerous advantages of central backup configurations, monitoring, and administration is available on the [Back up SQL Server databases to Azure](../../backup/backup-azure-sql-database.md) page.
 
 
 ### Third-party backup solutions
@@ -461,7 +461,7 @@ If the result is different, STOP deploying SAP and investigate why the setup com
 Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. As discussed in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) already, Azure provides different up-time SLAs for a single VM and a pair of VMs deployed in an Azure Availability Set. Assumption is that you drive towards the up-time SLA for your production deployments that requires the deployment in Azure Availability Sets. In such a case, you need to deploy a minimum of two VMs in such an Availability Set. One VM will run the active SQL Server Instance. The other VM will run the passive Instance
 
 ### SQL Server Clustering using Windows Scale-out File Server or Azure shared disk
-With Windows Server 2016, Microsoft introduced [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Based on Storage Spaces, Direct Deployment, SQL Server FCI clustering is supported in general. Azure also offers [Azure shared disks](../../disks-shared-enable.md?tabs=azure-cli) that could be used for Windows clustering. For SAP workload, we aren't supporting these HA options. 
+With Windows Server 2016, Microsoft introduced [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Based on Storage Spaces, Direct Deployment, SQL Server FCI clustering is supported in general. Azure also offers [Azure shared disks](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli) that could be used for Windows clustering. For SAP workload, we aren't supporting these HA options. 
 
 ### SQL Server Log Shipping
 One of the methods of high availability (HA) is SQL Server Log Shipping. If the VMs participating in the HA configuration have working name resolution, there's no problem. The setup in Azure doesn't differ from any setup that is done on-premises related to setting up Log Shipping and the principles around Log Shipping. Details of SQL Server Log Shipping can be found in the article [About Log Shipping (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server).

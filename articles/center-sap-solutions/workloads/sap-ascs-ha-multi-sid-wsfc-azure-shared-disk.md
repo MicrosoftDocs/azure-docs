@@ -28,17 +28,17 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 
 Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
--  [Azure Ultra disk](../../disks-types.md#ultra-disks) and [Standard SSD disks](../../disks-types.md#standard-ssds) are not supported as Azure Shared Disk for SAP workloads.
--  [Azure Shared disk](../../disks-shared.md) with [Premium SSD disks](../../disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
+-  [Azure Ultra disk](../../virtual-machines/disks-types.md#ultra-disks) and [Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) are not supported as Azure Shared Disk for SAP workloads.
+-  [Azure Shared disk](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) is supported for SAP deployment in availability set and availability zones.
 -  Azure shared disk with Premium SSD disks comes with two storage SKUs.
    - Locally redundant storage (LRS) for premium shared disk (skuName - Premium_LRS) is supported with deployment in availability set.
    - Zone-redundant storage (ZRS) for premium shared disk (skuName - Premium_ZRS) is supported with deployment in availability zones.
--  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  [Azure proximity placement group](../../windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
+-  Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
+-  [Azure proximity placement group](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disk. But for SAP deployment with PPG, follow below guidelines:
    -  If you are using PPG for SAP system deployed in a region then all virtual machines sharing a disk must be part of the same PPG.
    -  If you are using PPG for SAP system deployed across zones like described in the document [Proximity placement groups with zonal deployments](sap-proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach Premium_ZRS storage to virtual machines sharing a disk.
 
-For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
+For further details on limitations for Azure shared disk, please review carefully the [limitations](../../virtual-machines/disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 #### Important consideration for Premium shared disk
 
@@ -49,9 +49,9 @@ Following are some of the important points to consider with respect to Azure Pre
 
 - ZRS for Premium shared disk
   - Write latency for ZRS is higher than that of LRS due to cross-zonal copy of data.
-  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](../../disks-benchmarks.md) to identify the latency of ZRS disk in your region.
+  - The distance between availability zones in different region varies and with that ZRS disk latency across availability zones as well. [Benchmark your disks](../../virtual-machines/disks-benchmarks.md) to identify the latency of ZRS disk in your region.
   - ZRS for Premium shared disk synchronously replicates data across three availability zones in the region. In case of any issue in one of the storage clusters, your SAP ASCS/SCS will continue to run as storage failover is transparent to the application layer.
-  - Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
+  - Review the [limitations](../../virtual-machines/disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
@@ -137,8 +137,8 @@ The steps mentioned in the document remain same for both deployment type. But if
 
 ### Create Azure internal load balancer
 
-SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
-We strongly recommend using [Standard load balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+SAP ASCS, SAP SCS, and the new SAP ERS2, use virtual hostname and virtual IP addresses. On Azure a [load balancer](../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address. 
+We strongly recommend using [Standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
 
 You will need to add configuration to the existing load balancer for the second SAP SID ASCS/SCS/ERS instance **PR2**. The configuration for the first SAP SID **PR1** should be already in place.  
 
@@ -533,10 +533,10 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
 
 
 [sap-net-weaver-ports]:https://help.sap.com/viewer/ports
@@ -550,7 +550,7 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
 [sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -702,6 +702,6 @@ For the outlined failover tests, we assume that SAP ASCS is active on node A.
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../availability.md
+[virtual-machines-manage-availability]:../../virtual-machines/availability.md

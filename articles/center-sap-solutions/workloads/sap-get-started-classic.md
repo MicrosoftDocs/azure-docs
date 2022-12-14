@@ -22,7 +22,7 @@ Cloud Computing is a widely used term which is gaining more and more importance 
 
 With Microsoft Azure virtual machines, Microsoft offers a comprehensive Infrastructure as a Service (IaaS) platform. SAP NetWeaver based applications are supported on Azure Virtual Machines (IaaS). The whitepapers below describe how to plan and implement SAP NetWeaver based applications on Windows virtual machines in Azure. You can also implement SAP NetWeaver based applications on [Windows virtual machines](./get-started.md?toc=/azure/virtual-machines/windows/classic/toc.json).
 
-[!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
+[!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
 ## SAP NetWeaver on Azure SUSE Linux Virtual Machines
 Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs

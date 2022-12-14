@@ -27,14 +27,14 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 
 - The minimum capacity pool is 4 TiB  
 - The minimum volume size is 100 GiB
-- Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes are mounted, must be in the same Azure Virtual Network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region
+- Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes are mounted, must be in the same Azure Virtual Network or in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region
 - It's important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency.  
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files. The subnet requires a minimum of a /28 IP address range. Ideally a /26 would be better if many ANF volumes should be mounted to VMs in the specific VNET
 - Make sure the latency from the database server to the ANF volume is measured and below 1 millisecond
-- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements. Alternatively consider using a [manual QoS capacity pool](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) where volume capacity and throughput can be configured and scaled independently (SAP HANA specific examples are in [this document](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type)
+- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements. Alternatively consider using a [manual QoS capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) where volume capacity and throughput can be configured and scaled independently (SAP HANA specific examples are in [this document](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type)
 - Try to “consolidate” volumes to achieve more performance in a larger Volume for example, use one volume for /sapmnt, /usr/sap/trans, … if possible  
-- Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
-- Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. Though to achieve proximity, the functionality of [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md) is in public preview. See also later in this article
+- Azure NetApp Files offers [export policy](../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
+- Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions. Though to achieve proximity, the functionality of [Application Volume Groups](../../azure-netapp-files/application-volume-group-introduction.md) is in public preview. See also later in this article
 - The User ID for <b>sid</b>adm and the Group ID for `sapsys` on the virtual machines must match the configuration in Azure NetApp Files. 
 - Implement Linux OS parameters mentioned in SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346)
 
@@ -47,17 +47,17 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 ## NCONNECT mount option
 Nconnect is a mount option for NFS volumes hosted on ANF that allows the NFS client to open multiple sessions against a single NFS volume. Using nconnect with a value of larger than 1 also triggers the NFS client to use more than one RPC session on the client side (in the guest OS) to handle the traffic between the guest OS and the mounted NFS volumes. The usage of multiple sessions handling traffic of one NFS volume, but also the usage of multiple RPC sessions can address performance and throughput scenarios like:
 
-- Mounting of multiple ANF hosted NFS volumes with different [service levels](../../../azure-netapp-files/azure-netapp-files-service-levels.md#supported-service-levels) in one VM
+- Mounting of multiple ANF hosted NFS volumes with different [service levels](../../azure-netapp-files/azure-netapp-files-service-levels.md#supported-service-levels) in one VM
 - The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. Having multiple sessions against one ANF hosted NFS volume can increase the throughput 
 
-For Linux OS releases that support nconnect as a mount option and some important configuration considerations of nconnect, especially with different NFS server endpoints, read the document [Linux NFS mount options best practices for Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). 
+For Linux OS releases that support nconnect as a mount option and some important configuration considerations of nconnect, especially with different NFS server endpoints, read the document [Linux NFS mount options best practices for Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md). 
 
 
 ## Sizing for HANA database on Azure NetApp Files
 
-The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service levels for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service levels for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
-Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint will be dynamically injected into the [Azure NetApp Files delegated subnet](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
+Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint will be dynamically injected into the [Azure NetApp Files delegated subnet](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
 
 The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it doesn't make sense to create a “Ultra” volume larger than 12 TB because the maximal physical bandwidth capacity of a single volume would be exceeded. 
 
@@ -92,12 +92,12 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 | Data Volume Write | 250 MB/sec | 4 TB | 2 TB |
 | Data Volume Read | 400 MB/sec | 6.3 TB | 3.2 TB |
 
-Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements. When using manual QoS capacity pools, size and throughput of the volumes can be defined independently. Since both capacity and throughput are taken from the same capacity pool, the pool‘s service level and size must be large enough to deliver the total performance (see example [here](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type))
+Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements. When using manual QoS capacity pools, size and throughput of the volumes can be defined independently. Since both capacity and throughput are taken from the same capacity pool, the pool‘s service level and size must be large enough to deliver the total performance (see example [here](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type))
 
 For HANA systems, which aren't requiring high bandwidth, the  ANF volume throughput can be lowered by either a  smaller volume size or, using manual QoS, by adjusting the throughput directly. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
 
 > [!IMPORTANT]
-> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth utilized by a consumer in a single session. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
+> Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth utilized by a consumer in a single session. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
 
 To meet the SAP minimum throughput requirements for data and log, and according to the guidelines for **/hana/shared**, the recommended sizes would look like:
 
@@ -160,7 +160,7 @@ net.ipv4.tcp_sack = 1
 ```
 
 ## Deployment through Azure NetApp Files application volume group for SAP HANA (AVG)
-To deploy ANF volumes with proximity to your VM, a new functionality called Azure NetApp Files application volume group for SAP HANA (AVG) got developed. **The functionality is currently in public preview**. There's a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs involves the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
+To deploy ANF volumes with proximity to your VM, a new functionality called Azure NetApp Files application volume group for SAP HANA (AVG) got developed. **The functionality is currently in public preview**. There's a series of articles that document the functionality. Best is to start with the article [Understand Azure NetApp Files application volume group for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md). As you read the articles, it becomes clear that the usage of AVGs involves the usage of Azure proximity placement groups as well. Proximity placement groups are used by the new functionality to tie into with the volumes that are getting created. To ensure that over the lifetime of the HANA system, the VM’s aren't going to be moved away from the ANF volumes, we recommend using a combination of Avset/ PPG for each of the zones you deploy into.
 The order of deployment would look like:
 
 - Using the [form](https://aka.ms/HANAPINNING) you need to request a pinning of the empty AvSet to a compute HW to ensure that VMs aren't going to move
@@ -187,7 +187,7 @@ The same applies for the volume you use write full HANA database backups to.
  
 
 ## Backup
-Besides streaming backups and Azure Back service backing up SAP HANA databases as described in the article [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md), Azure NetApp Files opens the possibility to perform storage-based snapshot backups. 
+Besides streaming backups and Azure Back service backing up SAP HANA databases as described in the article [Backup guide for SAP HANA on Azure Virtual Machines](../../backup/sap-hana-db-about.md), Azure NetApp Files opens the possibility to perform storage-based snapshot backups. 
 
 SAP HANA supports:
 
@@ -231,7 +231,7 @@ This is sample code, provided “as-is” without any maintenance or support.
 
 Available solutions for storage snapshot based application consistent backup:
 
-- Microsoft [Azure Application Consistent Snapshot tool (AzAcSnap)](../../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. See What is Azure Application Consistent Snapshot tool for more details 
+- Microsoft [Azure Application Consistent Snapshot tool (AzAcSnap)](../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. See What is Azure Application Consistent Snapshot tool for more details 
 - For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
 
 

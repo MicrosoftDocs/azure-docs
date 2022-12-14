@@ -67,30 +67,30 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-cli]:../../../cli-install-nodejs.md
+[azure-cli]:/cli/azure/install-cli-version-1.0
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
-[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
-[dbms-guide-2.1]:../../virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
-[dbms-guide-2.2]:../../virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91
-[dbms-guide-2.3]:../../virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152
-[dbms-guide-2]:../../virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64
-[dbms-guide-3]:../../virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3
-[dbms-guide-5.5.1]:../../virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
-[dbms-guide-5.5.2]:../../virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b
-[dbms-guide-5.6]:../../virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
-[dbms-guide-5.8]:../../virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30
-[dbms-guide-5]:../../virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737
-[dbms-guide-8.4.1]:../../virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
-[dbms-guide-8.4.2]:../../virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
-[dbms-guide-8.4.3]:../../virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
-[dbms-guide-8.4.4]:../../virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
-[dbms-guide-900-sap-cache-server-on-premises]:../../virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:../../virtual-machines-windows-sap-dbms_guide_general.md
+[dbms-guide-2.1]:../../virtual-machines-windows-sap-dbms_guide_general.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f
+[dbms-guide-2.2]:../../virtual-machines-windows-sap-dbms_guide_general.md#c8e566f9-21b7-4457-9f7f-126036971a91
+[dbms-guide-2.3]:../../virtual-machines-windows-sap-dbms_guide_general.md#10b041ef-c177-498a-93ed-44b3441ab152
+[dbms-guide-2]:../../virtual-machines-windows-sap-dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64
+[dbms-guide-3]:../../virtual-machines-windows-sap-dbms_guide_general.md#871dfc27-e509-4222-9370-ab1de77021c3
+[dbms-guide-5.5.1]:../../virtual-machines-windows-sap-dbms_guide_general.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
+[dbms-guide-5.5.2]:../../virtual-machines-windows-sap-dbms_guide_general.md#f9071eff-9d72-4f47-9da4-1852d782087b
+[dbms-guide-5.6]:../../virtual-machines-windows-sap-dbms_guide_general.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
+[dbms-guide-5.8]:../../virtual-machines-windows-sap-dbms_guide_general.md#9053f720-6f3b-4483-904d-15dc54141e30
+[dbms-guide-5]:../../virtual-machines-windows-sap-dbms_guide_general.md#3264829e-075e-4d25-966e-a49dad878737
+[dbms-guide-8.4.1]:../../virtual-machines-windows-sap-dbms_guide_general.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573
+[dbms-guide-8.4.2]:../../virtual-machines-windows-sap-dbms_guide_general.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
+[dbms-guide-8.4.3]:../../virtual-machines-windows-sap-dbms_guide_general.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
+[dbms-guide-8.4.4]:../../virtual-machines-windows-sap-dbms_guide_general.md#f77c1436-9ad8-44fb-a331-8671342de818
+[dbms-guide-900-sap-cache-server-on-premises]:../../virtual-machines-windows-sap-dbms_guide_general.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -360,55 +360,55 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 
 [powershell-install-configure]:/powershell/azure/
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/management/overview.md
-[resource-groups-networking]:../../../networking/networking-overview.md
-[networking-limits-azure-resource-manager]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
+[resource-group-overview]:../../azure-resource-manager/management/overview.md
+[resource-groups-networking]:../../networking/networking-overview.md
+[networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
-[storage-azure-cli]:../../../storage/common/storage-azure-cli.md
-[storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
-[storage-introduction]:../../../storage/common/storage-introduction.md
-[storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../disks-types.md
-[storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
-[storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
+[storage-azure-cli]:../../storage/common/storage-azure-cli.md
+[storage-azure-cli-copy-blobs]:../../storage/common/storage-azure-cli.md#copy-blobs
+[storage-introduction]:../../storage/common/storage-introduction.md
+[storage-powershell-guide-full-copy-vhd]:../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
+[storage-premium-storage-preview-portal]:../../virtual-machines/disks-types.md
+[storage-redundancy]:../../storage/common/storage-redundancy.md
+[storage-scalability-targets]:../../storage/common/scalability-targets-standard-accounts.md
+[storage-use-azcopy]:../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
 [templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
-[virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
+[virtual-machines-linux-attach-disk-portal]:../../virtual-machines/linux/attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:../../virtual-machines-windows-attach-disk-portal.md
-[virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/management/overview.md
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture]:../../azure-resource-manager/management/overview.md
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 [virtual-machines-Az-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md 
+[virtual-machines-linux-cli-deploy-templates]:../../virtual-machines/linux/cli-deploy-templates.md 
 [virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
-[virtual-machines-linux-agent-user-guide]:../../linux/agent-user-guide.md
-[virtual-machines-linux-agent-user-guide-command-line-options]:../../linux/agent-user-guide.md#command-line-options
-[virtual-machines-linux-capture-image]:../../linux/capture-image.md
-[virtual-machines-linux-capture-image-capture]:../../linux/capture-image.md#capture-the-vm
+[virtual-machines-linux-agent-user-guide]:../../virtual-machines/linux/agent-user-guide.md
+[virtual-machines-linux-agent-user-guide-command-line-options]:../../virtual-machines/linux/agent-user-guide.md#command-line-options
+[virtual-machines-linux-capture-image]:../../virtual-machines/linux/capture-image.md
+[virtual-machines-linux-capture-image-capture]:../../virtual-machines/linux/capture-image.md#capture-the-vm
 [virtual-machines-windows-capture-image]:../../virtual-machines-windows-capture-image.md
 [virtual-machines-windows-capture-image-capture]:../../virtual-machines-windows-capture-image.md#capture-the-vm
-[virtual-machines-linux-configure-lvm]:../../linux/configure-lvm.md
-[virtual-machines-linux-configure-raid]:../../linux/configure-raid.md
+[virtual-machines-linux-configure-lvm]:../../virtual-machines/linux/configure-lvm.md
+[virtual-machines-linux-configure-raid]:../../virtual-machines/linux/configure-raid.md
 [virtual-machines-linux-classic-create-upload-vhd-step-1]:../../virtual-machines-linux-classic-create-upload-vhd.md#step-1-prepare-the-image-to-be-uploaded
-[virtual-machines-linux-create-upload-vhd-suse]:../../linux/suse-create-upload-vhd.md
-[virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
-[virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
-[virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
-[virtual-machines-linux-update-agent]:../../linux/update-agent.md
+[virtual-machines-linux-create-upload-vhd-suse]:../../virtual-machines/linux/suse-create-upload-vhd.md
+[virtual-machines-linux-redhat-create-upload-vhd]:../../virtual-machines/linux/redhat-create-upload-vhd.md
+[virtual-machines-linux-how-to-attach-disk]:../../virtual-machines/linux/add-disk.md
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../virtual-machines/linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-tutorial]:../../virtual-machines/linux/quick-create-cli.md
+[virtual-machines-linux-update-agent]:../../virtual-machines/linux/update-agent.md
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
-[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
-[virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:./../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
+[virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
+[virtual-machines-windows-classic-ps-sql-int-listener]:./../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
+[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:./../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview
 [virtual-machines-sql-server-infrastructure-services]:/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview
@@ -418,25 +418,25 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
-[virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
-[virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
-[virtual-networks-nsg]:../../../virtual-network/security-overview.md
-[virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
-[virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
-[virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
+[virtual-network-deploy-multinic-arm-template]:../../virtual-network/template-samples.md
+[virtual-networks-configure-vnet-to-vnet-connection]:../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
+[virtual-networks-create-vnet-arm-pportal]:../../virtual-network/manage-virtual-network.md#create-a-virtual-network
+[virtual-networks-manage-dns-in-vnet]:../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
+[virtual-networks-multiple-nics]:../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
+[virtual-networks-nsg]:../../virtual-network/security-overview.md
+[virtual-networks-reserved-private-ip]:../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+[virtual-networks-static-private-ip-arm-pportal]:../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+[virtual-networks-udr-overview]:../../virtual-network/virtual-networks-udr-overview.md
 
-[load-balancer-multivip-overview]:../../../load-balancer/load-balancer-multivip-overview.md
+[load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
 
-[vpn-gateway-about-vpn-devices]:../../../vpn-gateway/vpn-gateway-about-vpn-devices.md
-[vpn-gateway-create-site-to-site-rm-powershell]:../../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
-[vpn-gateway-cross-premises-options]:../../../vpn-gateway/vpn-gateway-plan-design.md
-[vpn-gateway-site-to-site-create]:../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
-[vpn-gateway-vpn-faq]:../../../vpn-gateway/vpn-gateway-vpn-faq.md
-[xplat-cli]:../../../cli-install-nodejs.md
-[xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
+[vpn-gateway-about-vpn-devices]:../../vpn-gateway/vpn-gateway-about-vpn-devices.md
+[vpn-gateway-create-site-to-site-rm-powershell]:../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md
+[vpn-gateway-cross-premises-options]:../../vpn-gateway/vpn-gateway-plan-design.md
+[vpn-gateway-site-to-site-create]:../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+[vpn-gateway-vpn-faq]:../../vpn-gateway/vpn-gateway-vpn-faq.md
+[xplat-cli]:/cli/azure/install-cli-version-1.0
+[xplat-cli-azure-resource-manager]:/azure/azure-resource-manager/management/manage-resources-cli
 
 
 In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
@@ -448,7 +448,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 > [!NOTE]
 > This feature is available only in the Azure Resource Manager deployment model.
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.
