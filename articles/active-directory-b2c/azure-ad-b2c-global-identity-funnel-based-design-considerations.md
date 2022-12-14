@@ -77,13 +77,13 @@ This use case demonstrates how a user from their home country/region performs a 
 
 ![Local user sign-up flow](media/azure-ad-b2c-global-identity-design-considerations/local-user-account-signup.png)
 
-1. User from Europe, Middle East, and Africa (EMEA) attempts to sign up at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from Europe, Middle East, and Africa (EMEA) attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on defined criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on defined criteria using OpenId federation. This can be a lookup based on Application clientId.
 
-1. The user attempts to sign up. The sign-up process checks a global lookup table to determine if the user exists in any of the regional Azure AD B2C tenants.
+1. The user attempts to sign up. The sign-up process checks the global lookup table to determine if the user exists in any of the regional Azure AD B2C tenants.
 
-1. The user isn't found in the global lookup table. The user’s account is written into Azure AD B2C, and a record is created into the global lookup table.
+1. The user isn't found in the global lookup table. The user’s account is written into Azure AD B2C, and a record is created into the global lookup table to track the region in which the user signed-up.
 
 1. The regional tenant issues a token back to the funnel tenant.
 
@@ -95,11 +95,11 @@ This use case demonstrates how a user re-registering the same email from their o
 
 ![Existing account sign-up flow](media/azure-ad-b2c-global-identity-design-considerations/local-existing-account-signup.png)
 
-1. User from EMEA attempts to sign up at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
-1. The user attempts to sign up. The sign-up process checks a global lookup table to determine if the user exists in any of the regional Azure AD B2C tenants.
+1. The user attempts to sign up. The sign-up process checks the global lookup table to determine if the user exists in any of the regional Azure AD B2C tenants.
 
 1. The user’s email is found in the global lookup table, indicating the user has registered this email in the solution at some prior point in time.
 
@@ -111,9 +111,9 @@ This use case demonstrates how a user from their home country/region performs a 
 
 ![Local user sign-in flow](media/azure-ad-b2c-global-identity-design-considerations/local-user-account-signin.png)
 
-1. User from EMEA attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User enters their credentials at the regional tenant.
 
@@ -127,9 +127,9 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 ![Traveling user sign-in flow](media/azure-ad-b2c-global-identity-design-considerations/traveling-user-account-signin.png)
 
-1. User from NOAM attempts to sign in at myapp.fr since there's a holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr** since there's a holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User enters their credentials at the regional tenant.
 
@@ -140,7 +140,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 1. The EMEA Azure AD B2C tenant performs an Azure AD ROPC flow against the NOAM Azure AD B2C tenant to verify credentials.
    >[!NOTE]
    >This call will also fetch a token for the user to perform a Graph API call.
-   The EMEA Azure AD B2C tenant performs a Graph API call to the NOAM Azure AD B2C. tenant to fetch the user’s profile. This call is authenticated by the access token for Graph API acquired in the last step.
+   The EMEA Azure AD B2C tenant performs a Graph API call to the NOAM Azure AD B2C tenant to fetch the user's profile. This call is authenticated by the access token for Graph API acquired in the last step.
 
 7. The regional tenant issues a token back to the funnel tenant.
 
@@ -152,11 +152,11 @@ This use case demonstrates how a user can reset their password when they are wit
 
 ![Local user forgot password flow](media/azure-ad-b2c-global-identity-design-considerations/local-user-forgot-password.png)
 
-1. User from EMEA attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
-1. The user arrives at the EMEA Azure AD B2C tenant and selects “forgot password”. The user enters and verifies their email.
+1. The user arrives at the EMEA Azure AD B2C tenant and selects "forgot password". The user enters and verifies their email.
 
 1. Email lookup is performed to determine which regional tenant the user exists in.
 
@@ -174,11 +174,11 @@ This use case demonstrates how a user can reset their password when they're trav
 
 ![Traveling user forgot password flow](media/azure-ad-b2c-global-identity-design-considerations/traveling-user-forgot-password.png)
 
-1. User from NOAM attempts to sign in at myapp.fr since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr** since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
-1. The user arrives at the EMEA Azure AD B2C tenant and selects “forgot password”. The user enters and verifies their email.
+1. The user arrives at the EMEA Azure AD B2C tenant and selects "forgot password". The user enters and verifies their email.
 
 1. Email lookup is performed to determine which regional tenant the user exists in.
 
@@ -196,9 +196,9 @@ This use case demonstrates how a user can change their password after they've lo
 
 ![Local user password change flow](media/azure-ad-b2c-global-identity-design-considerations/local-user-password-change.png)
 
-1. User from EMEA attempts selects “change password” after logging into myapp.fr.
+1. User from EMEA attempts selects "change password" after logging into **myapp.fr**.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. The user arrives at the EMEA Azure AD B2C tenant, and the SSO cookie set allows the user to change their password immediately.
 
@@ -214,9 +214,9 @@ This use case demonstrates how a user can change their password after they've lo
 
 ![Flow for traveling user password change](media/azure-ad-b2c-global-identity-design-considerations/traveling-user-password-change.png)
 
-1. User from NOAM attempts “change password” after logging into myapp.fr.
+1. User from NOAM attempts "change password" after logging into **myapp.fr**.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. The user arrives at the EMEA Azure AD B2C tenant, and the SSO cookie set allows the user to change their password immediately.
 
@@ -238,9 +238,9 @@ This use case demonstrates how a user from their local region signs up to the se
 
 ![Flow for federated ID sign-up](media/azure-ad-b2c-global-identity-design-considerations/local-federated-id-signup.png)
 
-1. User from EMEA attempts to sign up at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User selects to sign in with a federated identity provider.
 
@@ -260,9 +260,9 @@ This use case demonstrates how a user from their local region signs into the ser
 
 ![Flow for local federated user sign-in](media/azure-ad-b2c-global-identity-design-considerations/local-federated-signin.png)
 
-1. User from EMEA attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-2. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+2. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 3. User selects to sign in with a federated identity provider.
 
@@ -278,9 +278,9 @@ This use case demonstrates how a user located away from the region in which they
 
 ![Flow for traveling federated user sign-in](media/azure-ad-b2c-global-identity-design-considerations/traveling-federated-user-signin.png)
 
-1. User from NOAM attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User selects to sign in with a federated identity provider.
 
@@ -294,13 +294,13 @@ This use case demonstrates how a user located away from the region in which they
 
 ### Merge or link local accounts with matching criteria
 
-This use case demonstrates how users are able to perform account linking when matching criteria is satisfied. The matching criteria is typically an email address.
+This use case demonstrates how users are able to perform account linking when matching criteria is satisfied. The matching criteria is typically the users email address.
 
 ![Flow to merge a federated account](media/azure-ad-b2c-global-identity-design-considerations/local-federated-account-merge.png)
 
-1. User from EMEA attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User selects to sign in with a federated identity provider/social IdP.
 
@@ -318,13 +318,13 @@ This use case demonstrates how users are able to perform account linking when ma
 
 ### Traveling user merge/link accounts
 
-This use case demonstrates how non-local users are able to perform account linking when matching criteria is satisfied. As with local accounts, the matching criteria is an email address.
+This use case demonstrates how non-local users are able to perform account linking when matching criteria is satisfied. The matching criteria is typically the users email address.
 
 ![Flow to merge traveling federated user](media/azure-ad-b2c-global-identity-design-considerations/traveling-federated-user-merge-account.png)
 
-1. User from NOAM attempts to sign in at myapp.fr. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from NOAM attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
-1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on clientId.
+1. User reaches the Global Funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
 1. User selects to sign in with a federated identity provider/social IdP.
 
@@ -334,7 +334,7 @@ This use case demonstrates how non-local users are able to perform account linki
 
 1. Create an id_token_hint link asserting the users currently collected claims. Bootstrap a journey into the NOAM Azure AD B2C tenant using federation. The user will prove that they own the account via the NOAM Azure AD B2C tenant.
    >[!NOTE]
-   >This method is used to re-use existing account linking logic in the home tenant and reduce external API calls to manipulate the identities collection.
+   >This method is used to re-use existing account linking logic in the home tenant and reduce external API calls to manipulate the identities collection. A custom policy sample which utilizes id_token_hint can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite).
 
 1. Once the user proves they own the account in Azure AD B2C, add the new social ID to the existing account by making a Graph API call to the NOAM Azure AD B2C tenant. Add the social ID to the account in the global lookup table.
 
