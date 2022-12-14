@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.date: 12/15/2022
 ms.author: anfdocs
 ---
-# Create cross-zone replication relationships for Azure NetApp Files (Preview)
+# Create cross-zone replication relationships for Azure NetApp Files (preview)
 
 [Cross-zone replication](cross-zone-replication-introduction.md) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
 
@@ -28,9 +28,9 @@ Before you begin, you should review the [requirements and considerations for cro
 ## Register the feature 
 
 >[!IMPORTANT]
-> Cross-zone replication uses the availability zone volume placement feature. The availability zone volume placement feature is currently in private preview. Contact your account team to request access to the availability zone volume placement feature.   
+> Cross-zone replication uses the [availability zone volume placement feature](use-availability-zones.md). The availability zone volume placement feature is currently in preview. You must [register the feature](manage-availability-zone-volume-placement.md#register-the-feature) before you can use availability zone volume placement.
 
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
 
 1. Register the feature: 
 

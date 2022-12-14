@@ -17,13 +17,11 @@ ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Understand cross-zone replication of Azure NetApp Files (Preview)
+# Understand cross-zone replication of Azure NetApp Files (preview)
 
 In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in Using availability zones for high availability. However, often simpler, more cost-effective approaches are considered by using storage-based data replication instead.  
 
 Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
-
-[!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
 
 ## Service-level objectives 
 
@@ -39,10 +37,34 @@ Recovery Time Objective (RTO), or the maximum tolerable business application dow
 
 ## Cost model for cross-zone replication 
 
-Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand-storage-hierarchy.md#capacity_pools). As such, the cost for cross-zone replication is based on the provisioned capacity pool size and tier as normal. There is no additional cost for data replication.	
+Replicated volumes are hosted on a [capacity pool](azure-netapp-files-understand-storage-hierarchy.md#capacity_pools). As such, the cost for cross-zone replication is based on the provisioned capacity pool size and tier as normal. There is no additional cost for data replication.
+
+## Supported regions
+
+The preview of cross-zone replication is available in the following regions: 
+
+* Australia East
+* Brazil South 
+* Canada Central 
+* Central US 
+* East Asia
+* East US 
+* East US 2
+* France Central 
+* Germany West Central 
+* Japan East
+* North Europe
+* Norway East 
+* Southeast Asia
+* South Central US 
+* UK South
+* West Europe
+* West US 2 
+* West US 3 
+
+In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 ## Next steps
 
-* [Cross-region replication of Azure NetApp Files volumes](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-zone replication](cross-zone-replication-requirements-considerations.md)
-
+* [Create cross-zone replication](create-cross-zone-replication.md)

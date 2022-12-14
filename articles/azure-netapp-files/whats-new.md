@@ -25,10 +25,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     With Azure’s push towards the use of availability zones (AZs) the need for storage-based data replication is equally increasing. Azure NetApp Files now supports [cross-zone replication](cross-zone-replication-introduction.md). With this new in-region replication capability - by combining it with the new availability zone volume placement feature - you can replicate your Azure NetApp Files volumes asynchronously from one Azure availability zone to another in a fast and cost-effective way.
 
-    Cross-zone replication helps you protect your data from unforeseeable zone failures, all without the need for host-based data replication. Azure NetApp Files cross-zone replication leverages NetApp SnapMirror technology in the same way cross-region replication does; only changed blocks are sent over the network in a compressed, efficient format. This technology minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
+    Cross-zone replication helps you protect your data from unforeseeable zone failures without the need for host-based data replication. Cross-zone replication minimizes the amount of data required to replicate across the zones, therefore limiting data transfers required and also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO). Cross-zone replication doesn’t involve any network transfer costs, hence it is highly cost-effective.  
 
-    [!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
+    The public preview of the feature is currently available in the following regions: Australia East, Brazil South, Canada Central, Central US, East Asia, East US, East US 2, France Central, Germany West Central, Japan East, North Europe, Norway East, Southeast Asia, South Central US, UK South, West Europe, West US 2, and West US 3.
     
+    In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+
 ## November 2022 
 
 * [Azure NetApp Files datastores for Azure VMware Solution](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) is now generally available (GA) with expanded regional coverage. 

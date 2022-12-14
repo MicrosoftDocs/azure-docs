@@ -19,6 +19,8 @@ ms.author: anfdocs
 
 This article describes requirements and considerations about [using the volume cross-zone replication](create-cross-zone-replication.md) functionality of Azure NetApp Files.
 
+[!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
+
 ## Requirements and considerations 
 
 * The cross-zone replication feature uses the availability zone volume placement feature of Azure NetApp Files. The availability zone volume placement feature is currently in private preview. Contact your account team to request access to the availability zone volume placement feature.  
@@ -37,29 +39,6 @@ This article describes requirements and considerations about [using the volume c
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can't revert a source or destination volume of cross-zone replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
-
-## Supported regions
-
-The preview of cross-zone replication is available in the following regions: 
-
-* Australia East
-* Brazil South 
-* Canada Central 
-* Central India
-* Central US 
-* East Asia
-* East US 
-* France Central 
-* Germany West Central 
-* Japan East
-* North Europe
-* Norway East 
-* Southeast Asia
-* South Central US 
-* UK South
-* West Europe
-* West US 2 
-* West US 3 
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
