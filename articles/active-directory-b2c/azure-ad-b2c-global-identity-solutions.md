@@ -82,8 +82,12 @@ Cross tenant communication is used to perform cross tenant authentications, or p
 
 ![Funnel tenant orchestration](media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-funnel-tenant-orchestration.png)
 
-### Next steps
+## Next steps
 
-* [Azure AD B2C global identity design considerations](azure-ad-b2c-global-identity-design-considerations.md)
+- [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-* [Azure AD B2C global identity proof of concept](azure-ad-b2c-global-identity-proof-of-concept.md)
+- [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
+
+- [Azure AD B2C global identity proof of concept funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
+
+- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-regional-based-design-considerations.md)
