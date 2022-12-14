@@ -17,6 +17,13 @@ ms.subservice: B2C
 
 The following section describes how to create proof of concept implementations for funnel-based orchestration. The completed Azure Active Directory B2C (Azure AD B2C) custom policies can be found [here](https://github.com/azure-ad-b2c/samples/tree/master/policies/global-architecture-model/funnel-based-approach).
 
+## Funnal-based approach
+
+The following block diagram shows the proof of concept. The guidance will show how to configure the Azure AD B2C tenants. The External API layer and Geo distributed lookup table isn't included as part of this guide.
+
+![Screenshot shows the funnel-based approach block diagram](media/azure-ad-b2c-global-identity-proof-of-concept/funnel-based-poc-block-diagram.png)
+
+
 ## Funnel tenant
 
 1. [Create a tenant.](../active-directory-b2c/tutorial-create-tenant.md)
