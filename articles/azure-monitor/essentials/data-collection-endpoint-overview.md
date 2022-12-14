@@ -18,7 +18,7 @@ The following data sources currently use DCEs:
 - [Custom logs](../logs/logs-ingestion-api-overview.md)
 
 ## Components of a data collection endpoint
-A DCE includes the following components.
+A DCE includes the following components:
 
 | Component | Description |
 |:---|:---|

@@ -29,7 +29,7 @@ The following resources describe different scenarios for creating DCRs. In some 
 | Workspace transformation | [Configure ingestion-time transformations by using the Azure portal](../logs/tutorial-workspace-transformations-portal.md)<br>[Configure ingestion-time transformations by using Azure Resource Manager templates and the REST API](../logs/tutorial-workspace-transformations-api.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't use a DCR. |
 
 ## Work with data collection rules
-See the following resources for working with DCRs outside of the Azure portal.
+To work with DCRs outside of the Azure portal, see the following resources:
 
 | Method | Resources |
 |:---|:---|
@@ -41,7 +41,7 @@ See the following resources for working with DCRs outside of the Azure portal.
 Data collection rules are formatted in JSON. Although you might not need to interact with them directly, there are scenarios where you might need to directly edit a DCR. For a description of this structure and the different elements used for different workflows, see [Data collection rule structure](data-collection-rule-structure.md).
 
 ## Permissions
-When you use programmatic methods to create DCRs and associations, you require the following permissions.
+When you use programmatic methods to create DCRs and associations, you require the following permissions:
 
 | Built-in role | Scopes | Reason |
 |:---|:---|:---|

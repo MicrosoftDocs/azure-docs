@@ -58,7 +58,7 @@ To create a custom table in the Azure portal:
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" alt-text="Screenshot showing new data collection rule.":::
 
-4. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) and select **Next**.
+4. Select a [data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) and select **Next**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
 

@@ -1111,7 +1111,7 @@ resource setting 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
 }
 ```
 
-## Diagnostic setting for Azure SQL Database
+## Diagnostic setting for a managed instance of Azure SQL Database
 
 The following sample creates a diagnostic setting for a managed instance of Azure SQL Database by adding a resource of type `microsoft.sql/managedInstances/databases/providers/diagnosticSettings` to the template.
 
