@@ -38,7 +38,7 @@ Azure Integration Services includes the following cloud-based, serverless, scala
 | Azure Event Grid | Integrate applications using events delivered by an event broker to subscriber destinations, such as Azure services, other applications, or any endpoint where Event Grid has network access. Event sources can include other applications, SaaS services, and Azure services. For more information, see [Azure Event Grid](/azure/event-grid/overview). |
 | Azure API Management | Deploy API gateways side-by-side and optimize traffic flow with APIs hosted in Azure, other clouds, and on-premises. Meet security and compliance requirements, while you enjoy a unified management experience and full observability across all internal and external APIs. For more information, see [Azure API Management](/azure/api-management/api-management-key-concepts). |
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-integration-services-archtecture-overview.png" alt-text="Diagram showing Azure Integration Services member services.":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/azure-integration-services-architecture-overview.png" alt-text="Diagram showing Azure Integration Services member services.":::
 
 ## Complementary Azure services
 
