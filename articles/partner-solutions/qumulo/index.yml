@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Native Qumulo Service
-summary: Azure Native Qumulo Service provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
+title: Azure Native Qumulo Scalable File Service
+summary: Azure Native Qumulo Scalable File Service provides a native integrated experience for monitoring where you can create and manage Dynatrace environments from Azure.
 
 metadata:
-  title: Azure Native Qumulo Service documentation
-  description: Azure Native Qumulo Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
+  title: Azure Native Qumulo Scalable File Service documentation
+  description: Azure Native Qumulo Scalable File Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
   ms.topic: landing-page
   ms.date: 12/31/2022
 
@@ -17,27 +17,25 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Native Qumulo Service ?
+          - text: What is Azure Native Qumulo Scalable File Service?
             url: qumulo-overview.md
       - linkListType: how-to-guide
         links:
-          # - text: Complete the prerequisites for Qumulo
-            # url: qumulo-how-to-configure-prereqs.md
-          - text: Manage the Qumulo  resource with the portal
+          - text: Manage the Azure Native Qumulo Scalable File Service with the portal
             url: qumulo-how-to-manage.md
 
   # Card
-  - title: Create Qumulo resource
+  - title: Create Azure Native Qumulo Scalable File Service
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a new Qumulo resource
+          - text: Create a new Azure Native Qumulo Scalable File Service deployment
             url: qumulo-create.md
           # - text: Link to an existing Qumulo environment
             # url: qumulo-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Azure Native Qumulo Service
+          - text: Troubleshooting Azure Native Qumulo Scalable File Service
             url: qumulo-troubleshoot.md
 
   # Card
