@@ -43,31 +43,24 @@ CREATE TABLE `orders` (
 
 2. In the Azure search box, enter `logic apps`, and select **Logic apps**.
 
-  > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/find-select-logic-apps.png" alt-text="Screenshot that shows Azure portal search box with logic apps":::
+  > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/find-select-logic-apps.png" alt-text="Screenshot that shows Azure portal search box with logic apps":::
 
 3. On the **Logic apps** page, select **Add**.
 
-  > :::image type="content" source="/media/ tutorial-logic-apps-with-mysql/add-new-logic-app.png" alt-text="creenshot showing the Azure portal and Logic Apps service page and add option selected":::
+  > :::image type="content" source="/media/tutorial-logic-apps-with-mysql/add-new-logic-app.png" alt-text="creenshot showing the Azure portal and Logic Apps service page and add option selected":::
 
 4. On the **Create Logic App** pane, on the **Basics** tab, provide the following basic information about your logic app:
+  -  **Subscription**: Your Azure subscription name.
+  -   **Resource Group**: The Azure resource group where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**).
+  -   **Logic App name**:  Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`).
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. |
-   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../../../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **My-First-LA-RG**. |
-   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). <br><br>This example creates a logic app named **My-First-Logic-App**. |
-   |||||
-
-5. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use. This logic app type runs in global, multi-tenant Azure Logic Apps and uses the [Consumption billing model](../../../logic-apps/logic-apps-pricing.md#consumption-pricing).
+5. Before you continue making selections, go to the **Plan** section. For **Plan type**, select **Consumption** so that you view only the settings that apply to the Consumption plan-based logic app type. The **Plan type** property specifies the logic app type and billing model to use.
 
 6. Now continue making the following selections:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. <p>**Note**: If your subscription is associated with an [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md), this list includes those environments. |
-   | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
-   ||||
-
+ - **Region**: The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure.
+ - **Enable log analytics**: This option appears and applies only when you select the **Consumption** logic app type. <p><p>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. 
+  
    > [!NOTE]
    >
    > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
@@ -75,10 +68,6 @@ CREATE TABLE `orders` (
    > for your logic app. However, currently supported Azure regions don't include **West US**, 
    > so you can ignore this section for this example. For more information, see 
    > [Protect logic apps from region failures with zone redundancy and availability zones](../../../logic-apps/set-up-zone-redundancy-availability-zones.md).
-
-   When you're done, your settings look similar to this version:
-     
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/create-logic-app-settings.png" alt-text="Screenshot showing the Azure portal and logic app resource creation page with details for new logic app":::
 
 7. When you're ready, select **Review + Create**.
 
@@ -88,16 +77,14 @@ CREATE TABLE `orders` (
 Follow this section to create a new logic app starting with a **When a HTTP Request is received** trigger to perform a data operation on MySQL database.
 
 1. After Azure successfully deploys your app, select **Go to resource**. Or, find and select your logic app resource by typing the name in the Azure search box.
-
-   ![Screenshot showing the resource deployment page and selected button, "Go to resource".]
-     
-  > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/go-to-new-logic-app-resource.png" alt-text="Screenshot showing the resource deployment page and selected button" :::
+    
+  > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/go-to-new-logic-app-resource.png" alt-text="Screenshot showing the resource deployment page and selected button" :::
 
 2. Scroll down past the video and the section named **Start with a common trigger**.
 
 3. Select **When a HTTP Request is received**. 
     
-     > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/add-http-request-trigger.png" alt-text="Screenshot showing the template gallery and selected template":::
+     > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/add-http-request-trigger.png" alt-text="Screenshot showing the template gallery and selected template":::
 
 4. Add a sample payload in json 
 
@@ -109,11 +96,11 @@ Follow this section to create a new logic app starting with a **When a HTTP Requ
     }
     ```
     
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/add-http-sample-payload.png" alt-text="Screenshot showing sample payload":::
+   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/add-http-sample-payload.png" alt-text="Screenshot showing sample payload":::
     
 5. A HTTP request body payload will be generated. 
     
-  > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png" alt-text="Screenshot showing sample payload is generated":::
+  > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/https-request-body-payload-generated.png" alt-text="Screenshot showing sample payload is generated":::
     
 ## Add a MySQL database action
 You can add an action as the next step after the HTTP request trigger to run subsequent operations in your workflow. You can add an action get, insert or update or delete data in the MySQL database. For this tutorial we will insert a new row into the `orders` table.
@@ -122,19 +109,19 @@ You can add an action as the next step after the HTTP request trigger to run sub
 
 2. Search for **Azure database for MySQL** connector. 
     
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/search-for-azure-db-for-mysql.png" alt-text="Screenshot searching for azure database for mysql":::
+   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/search-for-azure-db-for-mysql.png" alt-text="Screenshot searching for azure database for mysql":::
 
 3.  View all the actions for Azure database for MySQL connector. 
     
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/azure-db-for-mysql-connector-actions.png" alt-text="Screenshot Azure database for mysql action listed":::
+   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/azure-db-for-mysql-connector-actions.png" alt-text="Screenshot Azure database for mysql action listed":::
 
 4. Select the **Insert Row** action . Select **Change connection** to add a new connection 
    
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/insert-row-action-mysql-database.png" alt-text="Screenshot Insert row action for Azure database for MySQL":::
+   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/insert-row-action-mysql-database.png" alt-text="Screenshot Insert row action for Azure database for MySQL":::
     
 5. Add a new connection to the existing Azure database for MySQL database. 
      
-   > :::image type="content" source="./media/ tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png" alt-text="Screenshot add new connection for Azure database for MySQL":::
+   > :::image type="content" source="./media/tutorial-logic-apps-with-mysql/azure-mysql-database-add-connection.png" alt-text="Screenshot add new connection for Azure database for MySQL":::
    
 ## Run your workflow
 Select **Run Trigger** to execute the workflow and test if it actually inserts the row into the table. You can use any MySQL client to check if the row was inserted into the table. 
