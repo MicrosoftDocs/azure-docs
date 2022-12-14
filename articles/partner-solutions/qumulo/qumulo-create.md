@@ -13,7 +13,7 @@ ms.date: 12/31/2022
 
 In this quickstart, you create a new instance of Azure Native Qumulo Scalable File Service. When you create the service, the following entities are created and mapped to a Qumulo File System Namespace :
 
-- Delegated subnet: The delegated subnet enables the Qumulo service to be injected into your virtual network.
+- Delegated subnet: The delegated subnet enables the Qumulo service to inject service endpoints (eNICs) into your virtual network.
 - Managed resource group: Managed resource group contains internal networking and other resources required for Qumulo filesystem to work.
 - Qumulo resource: Qumulo file system namespace created in the region of your choosing with your data stored and managed on this entity.
 - Marketplace SaaS resource: The SaaS resource is created automatically, based on the plan you select from the Qumulo Marketplace offer. This resource is used for billing purposes.
