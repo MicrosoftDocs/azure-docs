@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan
-  ms.date: 10/19/2022
+  ms.date: 12/14/2022
 
 landingContent:
   - title: About Azure Center for SAP solutions
@@ -21,20 +21,20 @@ landingContent:
           - text: Frequently asked questions (FAQ)
             url: faq.yml
 
-  - title: Deploy
-    linkLists:
+  - title: Run SAP on Azure
+    linkLists:            
       - linkListType: how-to-guide
         links:
-          - text: Prepare network for deployment
+          - text: Prepare for deployment
             url: prepare-network.md
-          - text: Deploy S/4HANA infrastructure
+          - text: Deploy SAP infrastructure
             url: deploy-s4hana.md
-          - text: Install SAP software in Azure Center for SAP solutions
+          - text: Install SAP software
             url: install-software.md
           - text: Register existing SAP system
             url: register-existing-system.md
 
-  - title: Manage
+  - title: Manage SAP systems
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -47,10 +47,36 @@ landingContent:
           - text: View cost analysis for SAP system
             url: view-cost-analysis.md
 
-  - title: Monitor
+  - title: Automate SAP deployment
     linkLists:
+      - linkListType: concept
+        links:
+          - text: About SAP on Azure deployment automation framework
+            url: ./automation/deployment-framework.md
+          - text: SAP on Azure Deployment Automation Framework for Azure FAQ
+            url: ./automation/faq.yml
+      - linkListType: how-to-guide
+        links:
+          - text: Get started with deployment automation framework
+            url: ./automation/get-started.md
+          - text: Plan your automated deployment
+            url: ./automation/plan-deployment.md
+
+  - title: Monitor SAP systems
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About Azure Monitor for SAP solutions
+            url: ./monitor/about-azure-monitor-sap-solutions.md
+          - text: What are providers in Azure Monitor for SAP solutions?
+            url: ./monitor/providers.md
+          - text: Azure Monitor for SAP solutions FAQ
+            url: ./monitor/faq.yml
       - linkListType: how-to-guide
         links:
           - text: Monitor SAP system in Azure portal
             url: monitor-portal.md
-          
+          - text: Set up Azure Monitor for SAP solutions
+            url: ./monitor/set-up-network.md
+          - text: Configure monitoring alerts in Azure portal
+            url: ./monitor/get-alerts-portal.md

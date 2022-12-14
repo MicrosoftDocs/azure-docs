@@ -4,7 +4,7 @@ description: Learn about how to monitor your SAP resources on Azure for availabi
 author: lauradolan
 ms.service: azure-center-sap-solutions
 ms.subservice: sap-monitor
-ms.topic: overview
+ms.topic: conceptual
 ms.custom: subject-monitoring
 ms.date: 10/27/2022
 ms.author: ladolan
