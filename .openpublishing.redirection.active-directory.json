@@ -4353,7 +4353,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/howto-find-activity-reports.md",
-      "redirect_url": "/azure/active-directory/report-monitoring/howto-access-activity-logs",
+      "redirect_url": "/azure/active-directory/reports-monitoring/howto-access-activity-logs",
       "redirect_document_id": true
     },
     {
