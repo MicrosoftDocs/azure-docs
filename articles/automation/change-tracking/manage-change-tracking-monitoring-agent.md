@@ -44,8 +44,7 @@ To manage tracking and inventory, ensure that you enable Change tracking with AM
     |Enabled | True if the setting is applied, and false otherwise.|
     |Item Name | Friendly name of the file to be tracked. | 
     |Group | A group name to group files logically| 
-    |Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment 
-     variables, such as %winDir%\System32\\\*.*. 
+    |Path | The path to check for the file, for example, **c:\temp\*.txt.** You can also use environment variables, such as %winDir%\System32\\\*.*. 
     |Path Type | The type of path. Possible values are File and Folder.|
     |Recursion | True if recursion is used when looking for the item to be tracked, and False otherwise. |
 
