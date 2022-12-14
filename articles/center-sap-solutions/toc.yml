@@ -53,6 +53,15 @@ items:
   - name: SAP on Azure VM workloads
     href: ../virtual-machines/workloads/sap/index.yml
 
+- name: Quickstarts
+  items:
+  - name: Azure Monitor for SAP solutions
+    items:
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
+      href: monitor/quickstart-portal.md
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
+      href: monitor/quickstart-powershell.md
+
 - name: How-to guides
   items:
   - name: Deployment
@@ -133,15 +142,6 @@ items:
         href: monitor/provider-linux.md
       - name: Configure IBM Db2 provider
         href: monitor/provider-ibm-db2.md
-
-- name: Quickstarts
-  items:
-  - name: Azure Monitor for SAP solutions
-    items:
-    - name: Get started with Azure Monitor for SAP solutions - Azure portal
-      href: monitor/quickstart-portal.md
-    - name: Get started with Azure Monitor for SAP solutions - PowerShell
-      href: monitor/quickstart-powershell.md
 
 - name: Reference
   items:
