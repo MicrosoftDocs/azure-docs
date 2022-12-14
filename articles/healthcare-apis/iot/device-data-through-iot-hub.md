@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/12/2022
+ms.date: 12/13/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub
 
-For enhanced workflows and ease of use, you can use the MedTech service in Azure Health Data Services to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
+For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
 
 In this tutorial, you learn how to:
 
@@ -233,7 +233,7 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, sent a test message, and reviewed your MedTech service metrics.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
 To learn more about other methods of deploying the MedTech service, see
 
