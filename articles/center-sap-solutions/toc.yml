@@ -50,8 +50,66 @@ items:
       href: monitor/faq.yml
     - name: Providers in Azure Monitor for SAP solutions
       href: monitor/providers.md
-  - name: SAP on Azure VM workloads
-    href: ../virtual-machines/workloads/sap/index.yml
+  - name: SAP on Azure Large Instances
+    items:
+      - name: What is SAP HANA on Azure (Large Instances)?
+        href: large-instances/hana-overview-architecture.md
+      - name: Know the terms
+        href: large-instances/hana-know-terms.md
+      - name: Certification
+        href: large-instances/hana-certification.md
+      - name: Available SKUs for HLI
+        href: large-instances/hana-available-skus.md
+      - name: Sizing
+        href: large-instances/hana-sizing.md
+      - name: Onboarding requirements
+        href: large-instances/hana-onboarding-requirements.md
+      - name: SAP HANA data tiering and extension nodes
+        href: large-instances/hana-data-tiering-extension-nodes.md
+      - name: Operations model and responsibilities
+        href: large-instances/hana-operations-model.md
+      - name: Compatible Operating Systems
+        href: large-instances/os-compatibility-matrix-hana-large-instance.md
+      - name: Sample HANA Installation
+        href: large-instances/hana-example-installation.md
+      - name: Architecture
+        items:
+        - name: General architecture
+          href: large-instances/hana-architecture.md
+        - name: Network architecture
+          href: large-instances/hana-network-architecture.md
+        - name: Storage architecture
+          href: large-instances/hana-storage-architecture.md
+        - name: HLI supported scenarios
+          href: large-instances/hana-supported-scenario.md
+      - name: High availability and disaster recovery
+        items:
+        - name: Options and considerations
+          href: large-instances/hana-overview-high-availability-disaster-recovery.md
+        - name: Back up and restore
+          href: large-instances/hana-backup-restore.md
+        - name: Principles and preparation
+          href: large-instances/hana-concept-preparation.md
+        - name: Disaster recovery failover procedure
+          href: large-instances/hana-failover-procedure.md
+        - name: Large instances HA for SAP on RHEL
+          href: large-instances/large-instance-high-availability-rhel.md
+      - name: Troubleshoot and monitor
+        items:
+        - name: Monitoring HLI
+          href: large-instances/troubleshooting-monitoring.md
+        - name: Monitoring and troubleshooting from HANA side
+          href: large-instances/hana-monitor-troubleshoot.md
+      - name: Infrastructure and connectivity
+        items:
+        - name: HLI deployment
+          href: large-instances/hana-overview-infrastructure-connectivity.md
+        - name: Connecting Azure VMs to HANA Large Instances
+          href: large-instances/hana-connect-azure-vm-large-instances.md
+        - name: Connecting a VNet to HANA Large Instance ExpressRoute
+          href: large-instances/hana-connect-vnet-express-route.md
+        - name: Additional network requirements
+          href: large-instances/hana-additional-network-requirements.md
 
 - name: Quickstarts
   items:
@@ -142,6 +200,28 @@ items:
         href: monitor/provider-linux.md
       - name: Configure IBM Db2 provider
         href: monitor/provider-ibm-db2.md
+  - name: SAP on Azure Large Instances
+    items:
+      - name: Validate the configuration
+        href: large-instances/hana-installation.md
+      - name: Azure HANA Large Instances control through Azure portal
+        href: large-instances/hana-li-portal.md
+      - name: HA Setup with fencing device
+        href: large-instances/ha-setup-with-fencing-device.md
+      - name: OS Backup
+        href: large-instances/large-instance-os-backup.md
+      - name: OS Backup HLI TYPE - 2
+        href: large-instances/os-backup-hli-type-ii-skus.md
+      - name: Azure Large Instances high availability for SAP on RHEL
+        href: large-instances/large-instance-high-availability-rhel.md
+      - name: Enable kernel dump for HANA Large Instances
+        href: large-instances/hana-large-instance-enable-kdump.md
+      - name: OS Upgrade for HANA Large Instances
+        href: large-instances/os-upgrade-hana-large-instance.md
+      - name: Setting up SMT server for SUSE Linux
+        href: large-instances/hana-setup-smt.md
+      - name: HLI to Azure VM migration
+        href: large-instances/hana-large-instance-virtual-machine-migration.md
 
 - name: Reference
   items:
