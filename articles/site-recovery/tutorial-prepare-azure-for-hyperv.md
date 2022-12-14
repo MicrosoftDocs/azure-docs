@@ -100,8 +100,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
 7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
 8. Select **Create**.
 
-![Screenshot of the Create virtual network options.](media/tutorial-prepare-azure/create-network.png)
-:::image type="Protection state" source="./media/tutorial-replicate-vms-edge-zone-to-another-zone/protection-state.png" alt-text="Screenshot of Protection state.":::
+:::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options.":::
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
