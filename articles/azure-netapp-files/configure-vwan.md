@@ -5,7 +5,7 @@ services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 ms.author: rambala
 ---
 # Configure Virtual WAN for Azure NetApp Files
@@ -14,17 +14,22 @@ You can configure Azure NetApp Files volumes with Standard network features in o
 
 Your Virtual WAN global deployments could include any combinations of different branches, Point-of-Presence (PoP), private users, offices, Azure virtual networks, and other multicloud deployments. You can use SD-WAN, site-to-site VPN, point-to-site VPN, and ExpressRoute to connect your different sites to a virtual hub. If you have multiple virtual hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment.
 
-Refer to [What is Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md) to learn more about Virtual WAN. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](azure-netapp-files-introduction.md)
+Refer to [What is Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md) to learn more about Virtual WAN.
 
 The following diagram shows the concept of deploying Azure NetApp Files volume in one or more spokes of a Virtual WAN and accessing the volumes globally.
 
-:::image type="content" source="../media/azure-netapp-files/virtualwan1.png" alt-text="conceptual illustration":::
+:::image type="content" source="../media/azure-netapp-files/virtualwan1.png" alt-text="conceptual illustration of vwan set up":::
 
 This article will explain how to deploy and access an Azure NetApp Files volume over Virtual WAN.
 
+## Considerations
+
+* Inter-region secure hub connectivity is not supported. A spoke VNet containing Azure NetApp Files in region A cannot connect to a secure virtual hub in region B.
+* You should be familiar with network policies for Azure NetApp Files [private endpoints](../private-link/disable-private-endpoint-network-policy.md). Refer to [Route Azure NetApp Files traffic from on-premises via Azure Firewall](#Route-Azure-NetApp-Files-traffic-from-on-premises-via-Azure-Firewall) for further information.
+
 ## Before you begin
 
-Before you proceed with configuring Azure NetApp Files, confirm:
+Before you proceed with configuring virtual WAN for Azure NetApp Files, confirm:
 
 * You've configured at least one virtual hub within your Virtual WAN environment. For help with the virtual hub settings, refer to [About virtual hub settings](../virtual-wan/hub-settings.md).
 * You've connected at least one spoke VNet to the virtual hub for deploying Azure NetApp Files volumes. For help, refer to [Connect a virtual network to a Virtual WAN hub](../virtual-wan/howto-connect-vnet-hub.md). 
@@ -46,7 +51,9 @@ To learn how to install an Azure Firewall in a Virtual WAN hub, refer [Configure
 
 To force different traffic flows via the Azure Firewall installed in the hub, see [How to configure Virtual WAN Hub routing intent and routing policies](../virtual-wan/how-to-routing-policies.md).
 
-To force the Azure NetApp Files bound traffic through Azure Firewall in the Virtual WAN hub, the effective routes of the virtual hub should have the specific IP address of the Azure NetApp Files volume pointing to the Azure Firewall. The following image of the Azure portal shows an example virtual hub effective routes. Note the listing of 10.2.0.5/32. The static routing entry's destination prefix is `<IP-Azure NetApp Files-Volume>/32` and the next hop is `Azure-Firewall-in-hub`.
+To force the Azure NetApp Files-bound traffic through Azure Firewall in the Virtual WAN hub, the effective routes of the virtual hub should have the specific IP address of the Azure NetApp Files volume pointing to the Azure Firewall.
+
+The following image of the Azure portal shows an example virtual hub of effective routes. In the first item, the IP address is listed as 10.2.0.5/32. The static routing entry's destination prefix is `<IP-Azure NetApp Files-Volume>/32`, and the next hop is `Azure-Firewall-in-hub`.
 
 :::image type="content" source="../virtual-wan/media/howto-private-link/effective-routes.png" alt-text="inclusion of specific routes in virtual hub effective routes":::
 
