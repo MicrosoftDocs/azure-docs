@@ -160,20 +160,20 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
 
 - **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall` taint to these nodes.
 - **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall` taint
-  - `aml system` taint
+  - `amlarc overall` taint
+  - `amlarc system` taint
 - **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall` taint
-  - `aml workloads` taint
+  - `amlarc overall` taint
+  - `amlarc workloads` taint
 - **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall` taint
-  - `aml resource group (has this <workspace X>)` taint 
-  - `aml <workspace X>` taint
+  - `amlarc overall` taint
+  - `amlarc resource group (has this <workspace X>)` taint 
+  - `amlarc <workspace X>` taint
 - **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
-  - `aml overall` taint
-  - `aml resource group (has this <workspace X>)` taint 
-  - `aml workspace (has this <compute X>)` taint
-  - `aml <compute X>` taint
+  - `amlarc overall` taint
+  - `amlarc resource group (has this <workspace X>)` taint 
+  - `amlarc workspace (has this <compute X>)` taint
+  - `amlarc <compute X>` taint
 
 ## Azureml Extension Release Note
 > [!NOTE]
