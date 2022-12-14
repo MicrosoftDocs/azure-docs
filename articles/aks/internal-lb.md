@@ -223,6 +223,9 @@ spec:
   selector:
     app: internal-app
 ```
+> [!NOTE]
+> 
+> You may need to assign the *Microsoft.Network/virtualNetworks/subnets/read* permission to the AKS cluster MSI on the VNet.
 
 ## Delete the load balancer
 
