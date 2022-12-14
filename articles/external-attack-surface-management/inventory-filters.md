@@ -86,4 +86,4 @@ The following filters require that the user manually enters the value with which
 
 ## Next Steps 
 
-[Understanding asset details](understanding-asset-details)
+[Understanding asset details](understanding-asset-details.md)
