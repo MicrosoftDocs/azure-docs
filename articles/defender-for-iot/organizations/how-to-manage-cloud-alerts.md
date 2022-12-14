@@ -101,7 +101,7 @@ You can update both severity and status for a single alert or for a selection of
 
 *Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor.
 
-For more information, see [Learning alert traffic](alerts.md#learning-alert-traffic).
+For more information, see [Learning alert traffic](alerts.md#learning-ot-alert-traffic).
 
 - **To manage a single alert**:
 

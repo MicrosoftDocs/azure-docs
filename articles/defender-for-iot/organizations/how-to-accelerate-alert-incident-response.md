@@ -1,5 +1,5 @@
 ---
-title: Accelerate alert workflows on an OT network sensor - Microsoft Defender for IoT
+title: Accelerate on-premises OT alert workflows - Microsoft Defender for IoT
 description: Learn how to improve Microsoft Defender for IoT OT alert workflows on an OT network sensor or the on-premises management console.
 ms.date: 12/12/2022
 ms.topic: how-to

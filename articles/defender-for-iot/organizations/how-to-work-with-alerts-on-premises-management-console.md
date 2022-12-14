@@ -55,7 +55,7 @@ Both acknowledging and muting an alert hide it for this instance of the alert on
 
 - **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed. For example:
 
-For more information, see [Learning alert traffic](alerts.md#learning-alert-traffic).
+For more information, see [Learning alert traffic](alerts.md#learning-ot-alert-traffic).
 
 ## Export alerts to a CSV file
 

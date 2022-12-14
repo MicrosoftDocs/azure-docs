@@ -152,7 +152,7 @@ This version includes the following new updates and fixes:
 
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
-- [Bi-directional alert synch between sensors and the Azure portal](alerts.md#managing-alerts-in-a-hybrid-deployment)
+- [Bi-directional alert synch between OT sensors and the Azure portal](alerts.md#managing-ot-alerts-in-a-hybrid-deployment)
 - [Sensor connections restored after certificate rotation](how-to-deploy-certificates.md)
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
