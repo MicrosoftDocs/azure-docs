@@ -40,20 +40,22 @@ Access the single machine analysis experience from the **Monitoring** section of
 | Connection monitor | Open [Network Watcher Connection Monitor](../../network-watcher/connection-monitor-overview.md) to monitor connections between the current virtual machine and other virtual machines. |
 | Workbooks | Open the workbook gallery with the VM insights workbooks for single machines. For a list of the VM insights workbooks designed for individual machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
 
-## Compare Metrics and Logs
-For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper, you'll need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md). Different features of Azure Monitor use different kinds of data. The type of alerting that you use for a particular scenario depends on having that data available in a particular location.
+## Multiple machine experience
+Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. This will include only VMs that are enabled for VM insights. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
-This level of detail can be confusing if you're new to Azure Monitor. The following information helps you understand the differences between the types of data:
+:::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 
-- Any non-numeric data, such as events, is stored in Logs. Metrics can only include numeric data that's sampled at regular intervals.
-- Numeric data can be stored in both Metrics and Logs so that it can be analyzed in different ways and support different types of alerts.
-- Performance data from the guest operating system is sent to Logs by VM insights by using the Log Analytics agent.
-- Performance data from the guest operating system is sent to Metrics by the Azure Monitor agent.
+| Option | Description |
+|:---|:---|
+| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view events for all your machines. |
+| Alerts | View [alerts](../alerts/alerts-overview.md) for all resources, which includes alerts related to virtual machines but that are associated with the workspace. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view alerts for all your machines. |
+| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
+| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
+| Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
 
-> [!NOTE]
-> The Azure Monitor agent sends data to both Metrics and Logs. In this scenario, it's only used for Metrics because the Log Analytics agent sends data to Logs as currently required for VM insights. When VM insights uses the Azure Monitor agent, this scenario will be updated to remove the Log Analytics agent.
 
-## Analyze data with VM insights
+
+## VM insights experience
 VM insights includes multiple performance charts that help you quickly get a status of the operation of your monitored machines, their trending performance over time, and dependencies between machines and processes. It also offers a consolidated view of different aspects of any monitored machine, such as its properties and events collected in the Log Analytics workspace.
 
 The **Get Started** tab displays all machines in your Azure subscription and identifies which ones are being monitored. Use this view to quickly identify which machines aren't being monitored and to onboard individual machines that aren't already being monitored.
@@ -68,27 +70,41 @@ Use the **Map** view to see running processes on machines and their dependencies
 
 :::image type="content" source="media/monitor-virtual-machines/vminsights-map.png" alt-text="Screenshot that shows VM insights map." lightbox="media/monitor-virtual-machines/vminsights-map.png":::
 
+
+
+## Compare Metrics and Logs
+For many features of Azure Monitor, you don't need to understand the different types of data it uses and where it's stored. You can use VM insights, for example, without any understanding of what data is being used to populate the Performance view, Map view, and workbooks. You just focus on the logic that you're analyzing. As you dig deeper, you'll need to understand the difference between [Metrics](../essentials/data-platform-metrics.md) and [Logs](../logs/data-platform-logs.md). Different features of Azure Monitor use different kinds of data. The type of alerting that you use for a particular scenario depends on having that data available in a particular location.
+
+This level of detail can be confusing if you're new to Azure Monitor. The following information helps you understand the differences between the types of data:
+
+- Any non-numeric data, such as events, is stored in Logs. Metrics can only include numeric data that's sampled at regular intervals.
+- Numeric data can be stored in both Metrics and Logs so that it can be analyzed in different ways and support different types of alerts.
+- Performance data from the guest operating system is sent to either Metrics or Logs or both by the Azure Monitor agent.
+- Performance data from the guest operating system is sent to Logs by VM insights.
+
+
 ## Analyze metric data with metrics explorer
 By using metrics explorer, you can plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. For details on how to use this tool, see [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md). 
 
-Three namespaces are used by virtual machines.
+Thwo namespaces are used by virtual machines.
 
 | Namespace | Description | Requirement |
 |:---|:---|:---|
 | Virtual Machine Host | Host metrics automatically collected for all Azure virtual machines. Detailed list of metrics at [Microsoft.Compute/virtualMachines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines). | Collected automatically with no configuration required. |
-| Guest (classic) | Limited set of guest operating system and application performance data. Available in metrics explorer but not other Azure Monitor features, such as metric alerts.  | [Diagnostic extension](../agents/diagnostics-extension-overview.md) installed. Data is read from Azure Storage.  |
-| Virtual Machine Guest | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../essentials/data-collection-rule-overview.md). |
+| insights.virtualmachine | Guest operating system and application performance data available to all Azure Monitor features using metrics. | [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) installed with a [Data Collection Rule](../essentials/data-collection-rule-overview.md). |
 
 ## Analyze log data with Log Analytics
-By using Log Analytics, you can perform custom analysis of your log data. Use Log Analytics when you want to dig deeper into the data used to create the views in VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
+Use Log Analytics to perform custom analysis of your log data and when you want to dig deeper into the data used to create the views in workbooks and VM insights. You might want to analyze different logic and aggregations of that data, correlate security data collected by Microsoft Defender for Cloud and Microsoft Sentinel with your health and availability data, or work with data collected for your [workloads](monitor-virtual-machine-workloads.md).
 
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Select **Queries** at the top of the Log Analytics screen, and view queries with a **Resource type** of **Virtual machines** or **Virtual machine scale sets**. For information on how to use these queries, see [Using queries in Azure Monitor Log Analytics](../logs/queries.md). For a tutorial on how to use Log Analytics to run queries and work with their results, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md).
 
 :::image type="content" source="media/monitor-virtual-machines/vm-queries.png" alt-text="Screenshot that shows virtual machine queries." lightbox="media/monitor-virtual-machines/vm-queries.png":::
 
-When you start Log Analytics from VM insights by using the properties pane in either the **Performance** or **Map** view, it lists the tables that have data for the selected computer. Select a table to open Log Analytics with a simple query that returns all records in that table for the selected computer. Work with these results or modify the query for more complex analysis. The [scope](../log/../logs/scope.md) set to the workspace means that you have access data for all computers using that workspace. 
+When you start Log Analytics from the **Logs** menu for a machine, its [scope](../logs/scope.md) is set to that computer. Any queries will only return records associated with that computer. For a simple query that returns all records in a table, double-click a table in the left pane. Work with these results or modify the query for more complex analysis. To set the scope to all records in a workspace, change the scope or select **Logs** from the **Monitor** menu.
 
 :::image type="content" source="media/monitor-virtual-machines/table-query.png" alt-text="Screenshot that shows a Table query." lightbox="media/monitor-virtual-machines/table-query.png":::
+
+
 
 ## Visualize data with workbooks
 [Workbooks](../visualize/workbooks-overview.MD) provide interactive reports in the Azure portal and combine different kinds of data into a single view. Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
@@ -128,51 +144,8 @@ For instructions on how to create your own custom workbooks, see [Create interac
 
 :::image type="content" source="media/monitor-virtual-machines/workbook-example.png" alt-text="Screenshot that shows virtual machine workbooks." lightbox="media/monitor-virtual-machines/workbook-example.png":::
 
-## VM insights multiple machine experience
-Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. This will include only VMs that are enabled for VM insights. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
-
-:::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
-
-| Option | Description |
-|:---|:---|
-| Activity log | See [activity log](../essentials/activity-log.md#view-the-activity-log) entries filtered for all resources. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view events for all your machines. |
-| Alerts**: View [alerts](../alerts/alerts-overview.md) for all resources, which includes alerts related to virtual machines but that are associated with the workspace. Create a filter for a **Resource Type** of virtual machines or virtual machine scale sets to view alerts for all your machines. |
-| Metrics | Open [metrics explorer](../essentials/metrics-getting-started.md) with no scope selected. This feature is particularly useful when you want to compare trends across multiple machines. Select a subscription or a resource group to quickly add a group of machines to analyze together. |
-| Logs | Open [Log Analytics](../logs/log-analytics-overview.md) with the [scope](../logs/scope.md) set to the workspace. You can select from a variety of existing queries to drill into log and performance data for all machines. Or you can create a custom query to perform additional analysis. |
-| Workbooks | Open the workbook gallery with the VM insights workbooks for multiple machines. For a list of the VM insights workbooks designed for multiple machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks). |
-| Virtual Machines | Open [VM insights](../vm/vminsights-overview.md) with the **Get Started** tab open. This action displays all machines in your Azure subscription and identifies which are being monitored. Use this view to onboard individual machines that aren't already being monitored. |
-
-    Select the **Performance** tab to compare trends of critical performance counters for multiple machines over different periods of time. Select all machines in a subscription or resource group to include in the view. For details on how to use the Map view for a single machine, see [Chart performance with VM insights](vminsights-performance.md#view-performance-directly-from-an-azure-vm).
-
-    Select the **Map** tab to view running processes on machines, dependencies between machines, and external processes. Select all machines in a subscription or resource group, or inspect the data for a single machine. For details on how to use the Map view for multiple machines, see [Use the Map feature of VM insights to understand application components](vminsights-maps.md#view-a-map-from-azure-monitor). 
 
 
-## Azure Resource Graph
-[Azure Resource Graph](../../governance/resource-graph/overview.md) 
-
-
-- Query the latest snapshot of VM availability across all your Azure subscriptions at once.
-- Accurately assess the impact to fleetwide business SLAs and quickly trigger decisive mitigation actions, in response to disruptions and type of failure signature
-- Set up custom dashboards to supervise the comprehensive health of applications by joining VM availability information with additional resource metadata present in ARG
-- Track relevant changes in VM availability across a rolling 14 days window,  by using the change-tracking mechanism for conducting detailed investigations 
-
-
-
-### Alerts
-
-You might want to see a list of the alerts with the affected computers. You can use a custom workbook that uses a custom [Resource Graph](../../governance/resource-graph/overview.md) to provide this view. Use the following query to display alerts, and use the data source **Azure Resource Graph** in the workbook.
-
-```kusto
-alertsmanagementresources
-| extend dimension = properties.context.context.condition.allOf
-| mv-expand dimension
-| extend dimension = dimension.dimensions
-| mv-expand dimension
-| extend Computer = dimension.value
-| extend AlertStatus = properties.essentials.alertState
-| summarize count() by Alert=name, tostring(AlertStatus), tostring(Computer)
-| project Alert, AlertStatus, Computer
-```
 
 
 

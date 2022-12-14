@@ -180,7 +180,7 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 
 ### Sample log queries
 
-**Count the IIS log entries by URL for the host www.contoso.com.**
+- **Count the IIS log entries by URL for the host www.contoso.com.**
     
     ```kusto
     W3CIISLog 
@@ -188,7 +188,7 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
     | summarize count() by csUriStem
     ```
 
-**Review the total bytes received by each IIS machine.**
+- **Review the total bytes received by each IIS machine.**
 
     ```kusto
     W3CIISLog 
@@ -197,7 +197,7 @@ Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/refe
 
 ### Sample alert rule
 
-**Create an alert rule on any record with a return status of 500.**
+- **Create an alert rule on any record with a return status of 500.**
     
     ```kusto
     W3CIISLog 
@@ -224,7 +224,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 
 ### Sample log queries
 
-**List all services and daemons that have recently started.**
+- **List all services and daemons that have recently started.**
     
     ```kusto
     ConfigurationChange
@@ -235,7 +235,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
 
 ### Alert rule samples
 
-**Create an alert rule based on when a specific service stops.**
+- **Create an alert rule based on when a specific service stops.**
 
     
     ```kusto
@@ -247,7 +247,7 @@ When you enable Change Tracking and Inventory, two new tables are created in you
     | summarize AggregatedValue = count() by Computer, SvcName, SvcDisplayName, SvcState, bin(TimeGenerated, 15m)
     ```
 
-**Create an alert rule based on when one of a set of services stops.**
+- **Create an alert rule based on when one of a set of services stops.**
     
     ```kusto
     let services = dynamic(["omskd","cshost","schedule","wuauserv","heathservice","efs","wsusservice","SrmSvc","CertSvc","wmsvc","vpxd","winmgmt","netman","smsexec","w3svc","sms_site_vss_writer","ccmexe","spooler","eventsystem","netlogon","kdc","ntds","lsmserv","gpsvc","dns","dfsr","dfs","dhcp","DNSCache","dmserver","messenger","w32time","plugplay","rpcss","lanmanserver","lmhosts","eventlog","lanmanworkstation","wnirm","mpssvc","dhcpserver","VSS","ClusSvc","MSExchangeTransport","MSExchangeIS"]);
@@ -267,7 +267,7 @@ Port monitoring verifies that a machine is listening on a particular port. Two p
 If you're using VM insights with Processes and dependencies collection enabled, you can use [VMConnection](/azure/azure-monitor/reference/tables/vmconnection) and [VMBoundPort](/azure/azure-monitor/reference/tables/vmboundport) to analyze connections and ports on the machine. The VMBoundPort table is updated every minute with each process running on the computer and the port it's listening on. You can create a log query alert similar to the missing heartbeat alert to find processes that have stopped or to alert when the machine isn't listening on a particular port.
 
 
-**Review the count of ports open on your VMs, which is useful for assessing which VMs have configuration and security vulnerabilities.**
+- **Review the count of ports open on your VMs, which is useful for assessing which VMs have configuration and security vulnerabilities.**
 
     ```kusto
     VMBoundPort
@@ -277,7 +277,7 @@ If you're using VM insights with Processes and dependencies collection enabled, 
     | order by OpenPorts desc
     ```
 
-**List the bound ports on your VMs, which is useful for assessing which VMs have configuration and security vulnerabilities.**
+- **List the bound ports on your VMs, which is useful for assessing which VMs have configuration and security vulnerabilities.**
 
     ```kusto
     VMBoundPort
@@ -285,7 +285,7 @@ If you're using VM insights with Processes and dependencies collection enabled, 
     ```
 
 
-**Analyze network activity by port to determine how your application or service is configured.**
+- **Analyze network activity by port to determine how your application or service is configured.**
 
     ```kusto
     VMBoundPort
@@ -295,7 +295,7 @@ If you're using VM insights with Processes and dependencies collection enabled, 
     | order by Machine, Computer, Port, Ip, ProcessName
     ```
 
-**Review bytes sent and received trends for your VMs.**
+- **Review bytes sent and received trends for your VMs.**
 
     ```kusto
     VMConnection
@@ -304,7 +304,7 @@ If you're using VM insights with Processes and dependencies collection enabled, 
     | render timechart
     ```
 
-**Use connection failures over time to determine if the failure rate is stable or changing.**
+- **Use connection failures over time to determine if the failure rate is stable or changing.**
 
     ```kusto
     VMConnection
@@ -316,7 +316,7 @@ If you're using VM insights with Processes and dependencies collection enabled, 
     | render timechart
     ```
 
-**Link status trends to analyze the behavior and connection status of a machine.**
+- **Link status trends to analyze the behavior and connection status of a machine.**
 
     ```kusto
     VMConnection
