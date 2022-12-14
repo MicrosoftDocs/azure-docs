@@ -156,7 +156,7 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 ## Data residency
 
-When you set up a search service, you choose a location or region that determines where data is stored and processed.Azure Cognitive Search won't store data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+When you set up a search service, you choose a location or region that determines where data is stored and processed. Azure Cognitive Search won't store data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
 
 The only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
 
@@ -166,41 +166,37 @@ If both the storage account and the search service are in the same region, netwo
 
 ## Data protection
 
-At the storage layer, data encryption is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Optionally, you can add customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full "double encryption" of indexed content.
+At the storage layer, data encryption is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Service-managed encryption applies to both long-term data storage and temporary data storage.
+
+Optionally, you can add customer-managed keys (CMK) for supplemental encryption of indexed content for double encryption of data at rest. For services created after August 1 2020, CMK encryption extends to short-term data on temporary disks.
 
 ### Data in transit
 
-In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
+In Azure Cognitive Search, encryption starts with connections and transmissions. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
 
 ### Data at rest
 
-For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the encryption support for that technology.
 
 | Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
-| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
+| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets), on data disks and temporary disks |
 | server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps) on data disks |
-| server-side double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
+| server-side full encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
 
 #### Service-managed keys
 
 Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
 
-Service-managed encryption applies to:
-
-+ Data at rest
-+ Data in temporary storage (written to temporary disks)
-+ Data that's also CMK-encrypted (for double encryption)
+Service-managed encryption applies to permanent and temporary data storage.
 
 #### Customer-managed keys (CMK)
 
-Customer-managed keys require another billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Customer-managed keys require another billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. 
 
-<a name="double-encryption"></a>
+CMK support was rolled out in two phases. Your service creation date will determine whether CMK is supported, and to what degree. Services created after May 2021 have full CMK support for double encryption for both data disks and temporary disks. For more information about CMK support, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
 
-#### Double encryption
-
-In Azure Cognitive Search, double encryption is an extension of CMK. It's understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
+Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## Security administration
 
