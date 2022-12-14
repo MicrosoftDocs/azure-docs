@@ -46,6 +46,8 @@
      href: data/validation-program.md?toc=/azure/azure-arc/toc.json&bc=/azure/azure-arc/breadcrumb/toc.json
 - name: Reference
   items:
+   - name: Network requirements (Consolidated)
+     href: network-requirements-consolidated.md
    - name: Azure CLI
      items:
       - name: Azure Arc resource bridge
