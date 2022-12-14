@@ -30,7 +30,7 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 Follow these steps to create a new console application.
 
-1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Open a command prompt where you want the new project, and create a new file named `speech_translation.py`.
 1. Run this command to install the Speech SDK:  
     ```console
     pip install azure-cognitiveservices-speech
@@ -38,11 +38,12 @@ Follow these steps to create a new console application.
 1. Copy the following code into `speech_translation.py`: 
 
     ```Python
+    import os
     import azure.cognitiveservices.speech as speechsdk
     
     def recognize_from_microphone():
         # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-        speech_translation_config = speechsdk.SpeechTranslationConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+        speech_translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
         speech_translation_config.speech_recognition_language="en-US"
     
         target_language="it"

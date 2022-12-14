@@ -1,5 +1,5 @@
 ---
-title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Best practices for using Azure Data Lake Storage Gen2
 description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -202,5 +202,5 @@ Azure Storage logs in Azure Monitor can be enabled through the Azure portal, Pow
 
 - [Key considerations for Azure Data Lake Storage](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations)
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
-- [The hitchhiker's guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [The hitchhiker's guide to the Data Lake](https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

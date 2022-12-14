@@ -145,6 +145,7 @@ Negates the current condition.
 A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
 
 - Lowercase
+- Uppercase
 - Trim
 - UrlDecode
 - UrlEncode 

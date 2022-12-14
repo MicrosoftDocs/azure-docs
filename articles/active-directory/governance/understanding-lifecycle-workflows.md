@@ -1,5 +1,5 @@
 ---
-title: 'Understanding lifecycle workflows- Azure Active Directory'
+title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
 author: owinfrey
@@ -18,10 +18,14 @@ The following reference document provides an overview of a workflow created usin
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
-## Licenses and Permissions
+## License requirements 
 
 
-[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+
+## Permissions
+
+The following permissions are required for Lifecycle Workflows:
 
 |Parameter  |Display String  |Description  |Admin Consent Required  |
 |---------|---------|---------|---------|
@@ -91,7 +95,7 @@ You can add extra expressions using **And/Or** to create complex conditionals, a
  [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
 > [!NOTE]
-> For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta#supported-user-properties-and-query-parameters)
+> For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
 
 For more information, see [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 

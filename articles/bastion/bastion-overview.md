@@ -5,7 +5,7 @@ author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
 ms.service: bastion
 ms.topic: overview
-ms.date: 10/21/2022
+ms.date: 11/21/2022
 ms.author: cherylmc
 ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
@@ -64,7 +64,7 @@ For more information, see the [Configuration settings](configuration-settings.md
 
 ## <a name="pricing"></a>Pricing
 
-Azure Bastion pricing involves a combination of hourly pricing based on SKU, scale units, and data transfer rates. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
+Azure Bastion pricing is a combination of hourly pricing based on SKU and instances (scale units), plus data transfer rates. Hourly pricing starts from the moment Bastion is deployed, regardless of outbound data usage. For the latest pricing information, see the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
 
 ## <a name="new"></a>What's new?
 

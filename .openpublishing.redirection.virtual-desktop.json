@@ -74,6 +74,36 @@
             "source_path_from_root": "/articles/virtual-desktop/user-documentation/linux-overview.md",
             "redirect_url": "/azure/virtual-desktop/users/connect-thin-clients",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor-costs.md",
+            "redirect_url": "/azure/virtual-desktop/insights-costs",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/azure-monitor-glossary.md",
+            "redirect_url": "/azure/virtual-desktop/insights-glossary",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/whats-new-azure-monitor.md",
+            "redirect_url": "/azure/virtual-desktop/whats-new-insights",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/troubleshoot-client.md",
+            "redirect_url": "/azure/virtual-desktop/troubleshoot-client-windows",
+            "redirect_document_id": true
         }
     ]
 }

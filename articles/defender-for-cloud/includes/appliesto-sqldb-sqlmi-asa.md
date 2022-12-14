@@ -1,0 +1,1 @@
+[!INCLUDE applies-md] :::image type="icon" source="../media/applies-to/yes-icon.svg" border="false"::: Azure SQL Database :::image type="icon" source="../media/applies-to/yes-icon.svg" border="false"::: Azure SQL Managed Instance :::image type="icon" source="../media/applies-to/yes-icon.svg" border="false"::: Azure Synapse Analytics

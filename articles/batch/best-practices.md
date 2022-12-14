@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 10/31/2022
+ms.date: 11/15/2022
 ms.topic: conceptual
 ---
 
@@ -20,13 +20,37 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 - **Pool allocation mode:** When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable a small but important subset of scenarios. For more information, see [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **'virtualMachineConfiguration' or 'cloudServiceConfiguration':** While you can currently create pools using either configuration, new pools should be configured using 'virtualMachineConfiguration' and not 'cloudServiceConfiguration'. All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Services Configuration pools don't support all features and no new capabilities are planned. You won't be able to create new 'cloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+- **`virtualMachineConfiguration` or `cloudServiceConfiguration`:** While you can currently create pools using either
+configuration, new pools should be configured using `virtualMachineConfiguration` and not `cloudServiceConfiguration`.
+All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Service Configuration
+pools don't support all features and no new capabilities are planned. You won't be able to create new
+`cloudServiceConfiguration` pools or add new nodes to existing pools
+[after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
+For more information, see
+[Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+
+- **`classic` or `simplified` node communication mode:** Pools can be configured in one of two node communication modes,
+classic or [simplified](simplified-compute-node-communication.md). In the classic node communication model, the Batch service
+initiates communication to the compute nodes, and compute nodes also require communicating to Azure Storage. In the simplified
+node communication model, compute nodes initiate communication with the Batch service. Due to the reduced scope of
+inbound/outbound connections required, and not requiring Azure Storage outbound access for baseline operation, the recommendation
+is to use the simplified node communication model. Some future improvements to the Batch service will also require the simplified
+node communication model.
 
 - **Job and task run time considerations:** If you have jobs comprised primarily of short-running tasks, and the expected total task counts are small, so that the overall expected run time of the job isn't long, don't allocate a new pool for each job. The allocation time of the nodes will diminish the run time of the job.
 
 - **Multiple compute nodes:** Individual nodes aren't guaranteed to always be available. While uncommon, hardware failures, operating system updates, and a host of other issues can cause individual nodes to be offline. If your Batch workload requires deterministic, guaranteed progress, you should allocate pools with multiple nodes.
 
-- **Images with impending end-of-life (EOL) dates:** We strongly recommended avoiding images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages), [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images). It's your responsibility to periodically refresh your view of the EOL dates pertinent to your pools and migrate your workloads before the EOL date occurs. If you're using a custom image with a specified node agent, ensure that you follow Batch support end-of-life dates for the image for which your custom image is derived or aligned with.
+- **Images with impending end-of-life (EOL) dates:** We strongly recommended avoiding images with impending Batch support
+end of life (EOL) dates. These dates can be discovered via the
+[`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
+[PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or
+[Azure CLI](/cli/azure/batch/pool/supported-images). It's your responsibility to periodically refresh your view of the EOL
+dates pertinent to your pools and migrate your workloads before the EOL date occurs. If you're using a custom image with a
+specified node agent, ensure that you follow Batch support end-of-life dates for the image for which your custom image is
+derived or aligned with. An image without a specified `batchSupportEndOfLife` date indicates that such a date hasn't been
+determined yet by the Batch service. Absence of a date doesn't indicate that the respective image will be supported
+indefinitely. An EOL date may be added or updated in the future at any time.
 
 - **Unique resource names:** Batch resources (jobs, pools, etc.) often come and go over time. For example, you may create a pool on Monday, delete it on Tuesday, and then create another similar pool on Thursday. Each new resource you create should be given a unique name that you haven't used before. You can create uniqueness by using a GUID (either as the entire resource name, or as a part of it) or by embedding the date and time that the resource was created in the resource name. Batch supports [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), which can give a resource a more readable name even if the actual resource ID is something that isn't human-friendly. Using unique names makes it easier for you to differentiate which particular resource did something in logs and metrics. It also removes ambiguity if you ever have to file a support case for a resource.
 
@@ -44,7 +68,7 @@ For the purposes of isolation, if your scenario requires isolating jobs or tasks
 
 Batch node agents aren't automatically upgraded for pools that have non-zero compute nodes. To ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It's recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions. Checking regularly for updates when they were released enables you to plan upgrades to the latest agent version.
 
-Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you're experiencing issues with your Batch pool or compute nodes. This is further discussed in the [Nodes](#nodes) section.
+Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you're experiencing issues with your Batch pool or compute nodes. This process is further discussed in the [Nodes](#nodes) section.
 
 > [!NOTE]
 > For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
@@ -179,6 +203,13 @@ isn't supported and can lead to instability. If you require more disk space, con
 disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pool/add#datadisk). For more information, see the next
 section about attaching and preparing data disks for compute nodes.
 
+> [!TIP]
+> When mounting a data disk in Linux, if nesting the disk mountpoint under the Azure temporary mount points such as `/mnt` or `/mnt/resource`,
+> care should be taken such that no dependency races are introduced. For example, if these mounts are automatically performed by the OS, there
+> can be a race between the temporary disk being mounted and your data disk(s) being mounted under the parent. Steps should be taken to
+> ensure that appropriate dependencies are enforced by facilities available such as `systemd` or defer mounting of the data disk to the start
+> task as part of your idempotent data disk preparation script.
+
 ### Attaching and preparing data disks
 
 Each individual compute node will have the exact same data disk specification attached if specified as part of the Batch pool instance. Only
@@ -227,7 +258,7 @@ Number Friendly Name Serial Number                    HealthStatus         Opera
 Where disk number 2 is the uninitialized data disk attached to this compute node. These disks can then be initialized, partitioned,
 and formatted as required for your workflow.
 
-For more information about Azure data disks in Linux, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
+For more information about Azure data disks in Windows, see this [article](../virtual-machine-scale-sets/tutorial-use-disks-powershell.md).
 
 ### Collect Batch agent logs
 
@@ -245,15 +276,15 @@ Review the following guidance related to connectivity in your Batch solutions.
 
 ### Network Security Groups (NSGs) and User Defined Routes (UDRs)
 
-When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you're closely following the guidelines regarding the use of the `BatchNodeManagement.<region>` service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended; don't use underlying Batch service IP addresses as they can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
+When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you're closely following the guidelines regarding the use of the BatchNodeManagement.*region* service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended; don't use underlying Batch service IP addresses as they can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
 
-For User Defined Routes (UDRs), it's recommended to use `BatchNodeManagement.<region>` [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as they can change over time.
+For User Defined Routes (UDRs), it's recommended to use BatchNodeManagement.*region* [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as they can change over time.
 
 ### Honoring DNS
 
 Ensure that your systems honor DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure that your Batch service clients and other connectivity mechanisms to the Batch service don't rely on IP addresses.
 
-If your requests receive 5xx level HTTP responses and there's a "Connection: close" header in the response, your Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the Batch account service URL, and attempt following requests on a new connection.
+Any HTTP requests with 5xx level status codes along with a "Connection: close" header in the response requires adjusting your Batch service client behavior. Your Batch service client should observe the recommendation by closing the existing connection, re-resolving DNS for the Batch account service URL, and attempt following requests on a new connection.
 
 ### Retry requests automatically
 

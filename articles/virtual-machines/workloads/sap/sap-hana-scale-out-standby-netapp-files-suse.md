@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2022
+ms.date: 11/15/2022
 ms.author: radeltch
 
 ---
@@ -445,6 +445,8 @@ Configure and prepare your OS by doing the following steps:
     # Mount all volumes
     sudo mount -a 
     </code></pre>
+
+   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
 
 7. **[1]** Mount the node-specific volumes on **hanadb1**.  
 
