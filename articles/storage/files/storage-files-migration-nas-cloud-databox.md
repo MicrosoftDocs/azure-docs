@@ -4,7 +4,7 @@ description: Learn how to migrate files from an on-premises Network Attached Sto
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 12/14/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -42,13 +42,34 @@ The migration process consists of several phases. You'll need to deploy Azure st
 
 ## Phase 1: Identify how many Azure file shares you need
 
-[!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
+In this step, you'll determine how many Azure file shares you need. You might have more folders on your volumes that you currently share out locally as SMB shares to your users and apps. Depending on the number of file shares you want to migrate to the cloud, you can choose to either use a 1:1 mapping or share grouping.
+
+### Use a 1:1 mapping
+
+If you have a small enough number of shares, we recommend a 1:1 mapping. The easiest way to picture this scenario is to envision an on-premises share that maps 1:1 to an Azure file share.
+
+#### Use share grouping
+
+If you have a large number of file shares, consider share grouping. For example, if your human resources (HR) department has 15 shares, you might consider storing all the HR data in a single Azure file share. That way, only a single Azure file share in the cloud is needed for this group of on-premises shares.
 
 ## Phase 2: Deploy Azure storage resources
 
-In this phase, consult the mapping table from Phase 1 and use it to provision the correct number of Azure storage accounts and file shares within them.
+In this phase, you'll provision the Azure storage accounts and the file shares within them.
 
-[!INCLUDE [storage-files-migration-provision-azfs](../../../includes/storage-files-migration-provision-azure-file-share.md)]
+Remember that an Azure file share is deployed in the cloud in an Azure storage account. For standard file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
+
+> [!NOTE]
+> There's a limit of 250 storage accounts per subscription per Azure region.
+
+Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
+
+Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
+
+If you've made a list of your shares, you should map each share to the storage account it will be created in.
+
+The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
+
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](../articles/storage/files/storage-how-to-create-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
 
 ## Phase 3: Determine how many Azure DataBox appliances you need
 
