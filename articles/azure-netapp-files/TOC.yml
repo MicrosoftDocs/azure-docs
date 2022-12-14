@@ -97,10 +97,14 @@
         href: cross-region-replication-introduction.md
       - name: Requirements and considerations for cross-region replication
         href: cross-region-replication-requirements-considerations.md
-    - name: High availability and resiliency with availability zones
+    - name: High availability and resiliency with availability zones and cross-zone replication
       items: 
       - name: Use availability zones for high availability 
         href: use-availability-zones.md
+      - name: Understand cross-zone replication 
+        href: cross-zone-replication-introduction.md
+      - name: Requirements and considerations for cross-zone replication 
+        href: cross-zone-replication-requirements-considerations.md
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
@@ -305,10 +309,12 @@
         href: cross-region-replication-delete.md
       - name: Test disaster recovery
         href: test-disaster-recovery.md
-    - name: Manage availability zones
-      items:
+    - name: Manage availability zones and cross-zone replication
+      items: 
       - name: Manage availability zone volume placement
         href: manage-availability-zone-volume-placement.md
+      - name: Create cross-zone replication 
+        href: create-cross-zone-replication.md
   - name: Develop
     items:
     - name: REST API
