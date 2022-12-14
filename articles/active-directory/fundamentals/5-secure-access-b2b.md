@@ -226,8 +226,8 @@ Your users likely use Google Docs, DropBox, Slack, or Zoom. You can block use of
 
 For more information on governing applications, see:
 
-* [Governing connected apps](https://learn.microsoft.com/defender-cloud-apps/governance-actions)
-* [Govern discovered apps](https://learn.microsoft.com/defender-cloud-apps/governance-discovery)
+* [Governing connected apps](./defender-cloud-apps/governance-actions)
+* [Govern discovered apps](./defender-cloud-apps/governance-discovery)
 
 ### Next steps
 
