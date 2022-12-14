@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: brittanyrowe
-ms.author: brittanyrowe
+author: brittanyrowe, vamckMS
+ms.author: brittanyrowe, vamckMS
 ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
