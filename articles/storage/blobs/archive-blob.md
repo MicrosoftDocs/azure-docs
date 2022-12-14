@@ -266,7 +266,7 @@ azcopy copy 'https://<source-account>.blob.core.windows.net/sample-container/blo
 
 ## Bulk archive
 
-When moving blobs in a container or folder to the Archive tier in place, you need to enumerate blobs and call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) on each blob. The following code example shows how to perform this operation:
+To move blobs to the archive tier in a container or a folder, enumerate blobs and call the Set Blob Tier operation on each one. The following example shows how to perform this operation by using PowerShell:
 
 ## [PowerShell](#tab/azure-powershell)
 
