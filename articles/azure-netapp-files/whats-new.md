@@ -31,7 +31,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
     In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
-* [Azure Virtual WAN](configure-vwan.md) (Preview)
+* [Azure Virtual WAN](configure-virtual-wan.md) (Preview)
 
     [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md) is now supported on Azure NetApp Files with Standard network features. Azure Virtual WAN is a spoke-and-hub architecture, enabling cloud-hosted network hub connectivity between endpoints, creating networking, security, and routing functionalities in one interface. Use cases for Azure Virtual WAN include remote user VPN connectivity (point-to-site), private connectivity (ExpressRoute), intra-cloud connectivity, and VPN ExpressRoute inter-connectivity. 
 

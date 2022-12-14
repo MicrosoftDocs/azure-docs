@@ -54,7 +54,7 @@
     - name: SD-WAN connectivity architecture
       href: sd-wan-connectivity-architecture.md
     - name: Configure Virtual WAN for Azure NetApp Files
-      href: ../azure-netapp-files/configure-vwan.md
+      href: ../azure-netapp-files/configure-virtual-wan.md
     - name: Interconnect with China
       href: interconnect-china.md
   - name: Routing
