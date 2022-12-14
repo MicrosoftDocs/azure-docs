@@ -11,17 +11,17 @@ Microsoft Defender for IoT provides tools both in the Azure portal and on-premis
 
 ## Azure users for Defender for IoT
 
-In the Azure portal, user are managed at the subscription level with [Azure Active Directory](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
+In the Azure portal, users are managed at the subscription level with [Azure Active Directory](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Azure subscription users can have one or more user roles, which determine the data and actions they can access from the Azure portal, including in Defender for IoT.
 
 Use the [portal](/azure/role-based-access-control/quickstart-assign-role-user-portal) or [PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell) to assign your Azure subscription users with the specific roles they'll need to view data and take action, such as whether they'll be viewing alert or device data, or managing pricing plans and sensors.
 
-For more information, see [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
+For more information, see [Manage users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
 
 ## On-premises users for Defender for IoT
 
 When working with OT networks, Defender for IoT services and data is available also from on-premises OT network sensors and the on-premises sensor management console, in addition to the Azure portal.
 
-You'll need to define on-premises users on both your OT network sensors and the on-premises management console, in addition to Azure. Both the OT sensors and the on-premises management console are installed with a set of default, privileged users, which you can use to define additional administrators and other users.
+You'll need to define on-premises users on both your OT network sensors and the on-premises management console, in addition to Azure. Both the OT sensors and the on-premises management console are installed with a set of default, privileged users, which you can use to define other administrators and users.
 
 Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and sign into the on-premises management console to [define on-premises management console users](manage-users-on-premises-management-console.md).
 

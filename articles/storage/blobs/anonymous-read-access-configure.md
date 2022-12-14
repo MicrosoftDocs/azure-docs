@@ -11,8 +11,8 @@ ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
-ms.devlang: azurecli
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ---
 
 # Configure anonymous public read access for containers and blobs

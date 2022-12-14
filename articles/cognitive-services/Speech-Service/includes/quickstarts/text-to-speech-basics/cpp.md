@@ -31,12 +31,12 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Create a new C++ console project in Visual Studio.
+1. Create a new C++ console project in Visual Studio Community 2022 named `SpeechSynthesis`.
 1. Install the Speech SDK in your new project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of `main.cpp` with the following code:
+1. Replace the contents of `SpeechSynthesis.cpp` with the following code:
     
     ```cpp
     #include <iostream> 

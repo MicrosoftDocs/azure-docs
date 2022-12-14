@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 12/13/2022
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -68,7 +68,7 @@ Azure NetApp Files Standard network features are supported for the following reg
 *   West US 2
 *	West US 3 
 
-## Considerations  
+## Considerations
 
 You should understand a few considerations when you plan for Azure NetApp Files network.
 
@@ -86,7 +86,7 @@ The following table describes what’s supported for each network features confi
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
 |     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
-|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
+|     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 
 > [!IMPORTANT]
 > Conversion between Basic and Standard networking features in either direction is not currently supported. 
@@ -135,14 +135,12 @@ If the VNet is peered with another VNet, you can't expand the VNet address space
 
 ### UDRs and NSGs
 
-User-defined routes (UDRs) and Network security groups (NSGs) are only supported on Azure NetApp Files delegated subnets that have at least one volume created with the Standard network features.  
+If the subnet has a combination of volumes with the Standard and Basic network features, user-defined routes (UDRs) and network security groups (NSGs) applied on the delegated subnets will only apply to the volumes with the Standard network features.
 
 > [!NOTE]
-> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces. 
+> Associating NSGs at the network interface level is not supported for the Azure NetApp Files network interfaces.
 
-If the subnet has a combination of volumes with the Standard and Basic network features (or for existing volumes not registered for the feature), UDRs and NSGs applied on the delegated subnets will only apply to the volumes with the Standard network features.
-
-Configuring user-defined routes (UDRs) on the source VM subnets with address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
+Configuring UDRs on the source VM subnets with the address prefix of delegated subnet and next hop as NVA isn't supported for volumes with the Basic network features. Such a setting will result in connectivity issues.
 
 > [!NOTE]
 > To access an Azure NetApp Files volume from an on-premises network via a VNet gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the VNet gateway to include the `/32` IPv4 address of the Azure NetApp Files volume listed and point to the firewall as the next hop. Using an aggregate address space that includes the Azure NetApp Files volume IP address will not forward the Azure NetApp Files traffic to the firewall. 

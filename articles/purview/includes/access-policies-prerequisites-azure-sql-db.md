@@ -4,14 +4,14 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 11/10/2022
+ms.date: 12/01/2022
 ms.custom: references_regions
 ---
 
 - Create a new Azure SQL Database or use an existing one in one of the currently available regions for this preview feature. You can [follow this guide to create a new Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 
 #### Region support
-- All regions for Microsoft Purview are supported
+- All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.
 - Enforcement of Microsoft Purview policies is only available in the following regions for Azure SQL Database:
     - East US
     - East US2
