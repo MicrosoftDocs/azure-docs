@@ -92,15 +92,22 @@ The new vault appears on **Dashboard** > **All resources**, and on the main **Re
 When Azure VMs are created from storage after failover, they're joined to this network.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**. Leave Resource Manager selected as the deployment model.
-2. In **Name**, enter a network name. The name must be unique within the Azure resource group. For this tutorial, use **ContosoASRnet**.
-3. Specify the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
-4. In **Address range**, enter **10.0.0.0/24** as the range for the network. There's no subnet for this network.
-5. In **Subscription**, select the subscription in which to create the network.
-6. In **Location**, choose **West Europe**. The network must be in the same region as the Recovery Services vault.
-7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
-8. Select **Create**.
-
-:::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options.":::
+1. In **Create storage account** > **Basics**, do the following:
+    1. In **Subscription**, select the subscription in which to create the network.
+    2. In **Resource group**, specify the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
+    1. In **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For this tutorial, use **ContosoASRnet**.
+    1.  In **Region**, choose **(Europe) West Europe**. The network must be in the same region as the Recovery Services vault.
+         :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options."::: 
+1. In **Create storage account** > **IP addresses**, do the following:
+    1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...) option under available IP address range, then select **Delete address space**.
+        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the Create virtual network options."::: 
+    1. After deleting the pre-existing address range, select **Add an IP address space** option to open a new pane.
+        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the Create virtual network options.":::
+    1. In **Address space size** enter **10.0.0.**.
+    1. Under **Address space size**, select the **/24 (256 addresses)** option.
+    1. Select **Add**.
+        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the Create virtual network options.":::
+1. Select **Review + create** > **Create** to create a new virtual network.
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
