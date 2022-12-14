@@ -154,17 +154,17 @@ The following section describes how to create proof of concept implementations f
 
 ## Sign up
 
-1. Write users region to global lookup table
+1. Write users region to global lookup table.
    > [!NOTE]
-   > No setup due to hardcoded lookup table in 1)
+   > No setup due to hardcoded lookup table.
 
 ## Password reset
 
-1. Configure identifier to region lookup via global lookup table
+1. Configure identifier to region lookup via global lookup table.
    > [!NOTE]
-   > No setup due to hardcoded lookup table in 1)
+   > No setup due to hardcoded lookup table.
 
-1. Configure cross tenant password reset via REST API call
+1. Configure cross tenant password reset via REST API call.
    >[NOTE]
    >Will require brokering API using client_credential authentication and User Admin role applied to the service principal.
 
