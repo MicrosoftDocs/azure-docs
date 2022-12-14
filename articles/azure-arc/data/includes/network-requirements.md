@@ -23,6 +23,3 @@ To use proxy, verify that the agents meet the network requirements. See [Meet ne
 ### Azure Monitor APIs
 
 Connectivity from Azure Data Studio to the Kubernetes API server uses the Kubernetes authentication and encryption that you have established.  Each user that is using Azure Data Studio or CLI must have an authenticated connection to the Kubernetes API to perform many of the actions related to Azure Arc-enabled data services.
-
-> [!NOTE]
-> For now, all browser HTTPS/443 connections to the data controller for running the command `az arcdata dc export` and Grafana and Kibana dashboards are SSL encrypted using self-signed certificates.  A feature will be available in the future that will allow you to provide your own certificates for encryption of these SSL connections.
