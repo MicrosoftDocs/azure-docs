@@ -56,7 +56,7 @@ That approach isn't recommended for production environments.
 ## Control how Private Links apply to your networks
 Private Link access modes allow you to control how Private Links affect your network traffic. These settings can apply to your AMPLS object (to affect all connected networks) or to specific networks connected to it.
 
-Choosing the proper access mode is critical to ensuring continuous, uninterrupted network traffic when you change you access mode settings. Each of these modes can be set for ingestion and queries, separately:
+Choosing the proper access mode is critical to ensuring continuous, uninterrupted network traffic. Each of these modes can be set for ingestion and queries, separately:
 
 * Private Only - allows the VNet to reach only Private Link resources (resources in the AMPLS). That's the most secure mode of work, preventing data exfiltration. To achieve that, traffic to Azure Monitor resources out of the AMPLS is blocked.
 ![Diagram of AMPLS Private Only access mode](./media/private-link-security/ampls-private-only-access-mode.png)
