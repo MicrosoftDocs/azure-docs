@@ -61,7 +61,7 @@ Remember that an Azure file share is deployed in the cloud in an Azure storage a
 > [!NOTE]
 > There's a limit of 250 storage accounts per subscription per Azure region.
 
-Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../articles/storage/common/storage-redundancy.md).
+Another consideration when you're deploying a storage account is the redundancy of Azure Storage. See [Azure Storage redundancy options](../common/storage-redundancy.md).
 
 Azure file shares are created with a 5 TiB limit by default. If you need more capacity, you can create a large file share (100 TiB). However, that share can use only locally redundant storage or zone-redundant storage redundancy options. Consider your storage redundancy needs before using 100 TiB file shares.
 
@@ -69,7 +69,7 @@ If you've made a list of your shares, you should map each share to the storage a
 
 The names of your resources are also important. For example, if you group multiple shares for the HR department into an Azure storage account, you should name the storage account appropriately. Similarly, when you name your Azure file shares, you should use names similar to the ones used for their on-premises counterparts.
 
-Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](../articles/storage/files/storage-how-to-create-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
+Now deploy the appropriate number of Azure storage accounts with the appropriate number of Azure file shares in them, following the instructions in [Create an SMB file share](storage-how-to-create-file-share.md). In most cases, you'll want to make sure the region of each of your storage accounts is the same.
 
 ## Phase 3: Determine how many Azure DataBox appliances you need
 
