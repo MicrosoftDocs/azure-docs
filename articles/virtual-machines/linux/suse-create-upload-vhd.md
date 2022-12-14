@@ -80,14 +80,8 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 7. Update waagent and cloud-init configuration
 
     ```console
-<<<<<<< HEAD
-    sudo -i
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
-=======
     # sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=auto/g' /etc/waagent.conf
     # sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
->>>>>>> e859aea0de0cb5de54de81070eae9575f12e0c8c
 
     sh -c 'printf "datasource:\n  Azure:" > /etc/cloud/cloud.cfg.d/91-azure_datasource.cfg'
     sh -c 'printf "reporting:\n  logging:\n    type: log\n  telemetry:\n    type: hyperv" > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg'
@@ -282,16 +276,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 11. Ensure the Azure Linux Agent runs at startup:
 
     ```console
-<<<<<<< HEAD
     sudo systemctl enable waagent.service
-=======
-   # sudo rm -f /var/log/waagent.log
-   # sudo cloud-init clean
-   # waagent -force -deprovision+user
-   # rm -f ~/.bash_history
-   # export HISTSIZE=0
-   # logout
->>>>>>> e859aea0de0cb5de54de81070eae9575f12e0c8c
     ```
 
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
