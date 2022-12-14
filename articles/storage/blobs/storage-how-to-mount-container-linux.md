@@ -167,7 +167,7 @@ echo "hello world" > test/blob.txt
 
 ## Persist the mount
 
-To learn how to persist the mount, see [Persisting](https://github.com/Azure/azure-storage-fuse/wiki/2.-Configuring-and-Running#persisting) in the BlobFuse wiki.
+To learn how to persist the mount, see [Persisting](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse-Configuring-and-Running#persisting) in the BlobFuse wiki.
 
 ## Feature support
 
