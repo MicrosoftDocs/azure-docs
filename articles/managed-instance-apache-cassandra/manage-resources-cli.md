@@ -222,18 +222,7 @@ az managed-cassandra datacenter update \
 
 ### <a id="update-yaml"></a>Update Cassandra configuration
 
-Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). The following YAML settings are supported:
-
-- column_index_size_in_kb
-- allocate_tokens_for_keyspace
-- compaction_throughput_mb_per_sec
-- read_request_timeout_in_ms
-- range_request_timeout_in_ms
-- aggregated_request_timeout_in_ms
-- write_request_timeout_in_ms
-- request_timeout_in_ms
-- internode_compression
-- batchlog_replay_throttle_in_kb
+Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). 
 
 For example, the following YAML fragment:
 
@@ -260,6 +249,35 @@ az managed-cassandra datacenter update \
     --data-center-name $dataCenterName \
     --base64-encoded-cassandra-yaml-fragment $yamlFragment
 ```
+
+> [!IMPORTANT]
+> Ensure the Cassandra yaml settings you provide are appropriate for the version of Cassandra you have deployed. See [here](https://github.com/apache/cassandra/blob/cassandra-3.11/conf/cassandra.yaml) for Cassandra v3.11 settings and [here](https://github.com/apache/cassandra/blob/cassandra-4.0/conf/cassandra.yaml) for v4.0. The following YAML settings are **not** allowed to be updated:
+>
+> - cluster_name
+> - seed_provider
+> - initial_token
+> - autobootstrap
+> - client_ecncryption_options
+> - server_encryption_options
+> - transparent_data_encryption_options
+> - audit_logging_options
+> - authenticator
+> - authorizer
+> - role_manager
+> - storage_port
+> - ssl_storage_port
+> - native_transport_port
+> - native_transport_port_ssl
+> - listen_address
+> - listen_interface
+> - broadcast_address
+> - hints_directory
+> - data_file_directories
+> - commitlog_directory
+> - cdc_raw_directory
+> - saved_caches_directory
+
+
 
 ### <a id="get-datacenters-cluster"></a>Get the datacenters in a cluster
 

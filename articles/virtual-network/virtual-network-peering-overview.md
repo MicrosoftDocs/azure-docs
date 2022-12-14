@@ -4,14 +4,13 @@ titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure, including how it enables you to connect networks in Azure Virtual Network.
 services: virtual-network
 documentationcenter: na
-author: altambaw
+author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2019
-ms.author: mbender
-
+ms.date: 07/10/2022
+ms.author: allensu
+#customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This will allow me to design connectivity correctly, understand future scalability options, and limitations.
 ---
 # Virtual network peering
 
@@ -37,24 +36,28 @@ Network traffic between peered virtual networks is private. Traffic between the 
 
 For peered virtual networks, resources in either virtual network can directly connect with resources in the peered virtual network.
 
-The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any additional restriction on bandwidth within the peering.
+The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering.
 
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
 You can apply network security groups in either virtual network to block access to other virtual networks or subnets.
-When configuring virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](./network-security-groups-overview.md).
+When you configure virtual network peering, either open or close the network security group rules between the virtual networks. If you open full connectivity between peered virtual networks, you can apply network security groups to block or deny specific access. Full connectivity is the default option. To learn more about network security groups, see [Security groups](./network-security-groups-overview.md).
 
-## Resize the address of Azure virtual networks that are peered
+## Resize the address space of Azure virtual networks that are peered
 
-You can resize the address of Azure virtual networks that are peered without incurring any downtime. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads. With this feature, existing peerings on the virtual network do not need to be deleted before adding or deleting an address prefix on the virtual network. This feature can work for both IPv4 and IPv6 address spaces. 
+You can resize the address space of Azure virtual networks that are peered without incurring any downtime on the currently peered address space. This feature is useful when you need to resize the virtual network's address space after scaling your workloads. After resizing the address space, all that is required is for peers to be synced with the new address space changes. Resizing works for both IPv4 and IPv6 address spaces. 
 
-Note:
+Addresses can be resized in the following ways:
 
-This feature does not support the following scenarios if the virtual network to be updated is peered with: 
+- Modifying the address range prefix of an existing address range (For example changing 10.1.0.0/16 to 10.1.0.0/18)
+- Adding address ranges to a virtual network
+- Deleting address ranges from a virtual network
 
-* A classic virtual network
-* A managed virtual network such as the Azure VWAN hub
-
+Synching of virtual network peers can be performed through the Azure portal or with Azure PowerShell. We recommend that you run sync after every resize address space operation instead of performing multiple resizing operations and then running the sync operation. To learn how to update the address space for a peered virtual network, see [Updating the address space for a peered virtual network](./update-virtual-network-peering-address-space.md).
+> [!IMPORTANT]
+> This feature doesn't support scenarios where the virtual network to be updated is peered with: 
+> * A classic virtual network
+> * A managed virtual network such as the Azure VWAN hub
 
 ## Service chaining
 

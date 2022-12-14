@@ -3,7 +3,7 @@ title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 description: Learn how to create a basic AD and Azure AD environment.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
@@ -19,7 +19,7 @@ This tutorial walks you through creating a basic Active Directory environment.
 
 ![Diagram that shows a basic Azure A D environment.](media/tutorial-single-forest/diagram-2.png)
 
-You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who my be starting from nothing.
+You can use the environment you create in the tutorial to test various aspects of hybrid identity scenarios and will be a prerequisite for some of the tutorials.  If you already have an existing Active Directory environment you can use that as a substitute.  This information is provided for individuals who may be starting from nothing.
 
 This tutorial consists of
 ## Prerequisites

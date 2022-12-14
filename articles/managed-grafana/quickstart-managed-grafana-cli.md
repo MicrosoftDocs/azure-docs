@@ -1,27 +1,24 @@
 ---
-title: 'Quickstart: create an Azure Managed Grafana Preview instance using the Azure CLI'
+title: 'Quickstart: create an Azure Managed Grafana instance using the Azure CLI'
 description: Learn how to create a Managed Grafana instance using the Azure CLI
 ms.service: managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
-ms.date: 06/10/2022
+ms.date: 08/12/2022
 ms.devlang: azurecli
 --- 
 
-# Quickstart: Create an Azure Managed Grafana Preview instance using the Azure CLI
+# Quickstart: Create an Azure Managed Grafana instance using the Azure CLI
 
-Get started by creating an Azure Managed Grafana Preview workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
-
-> [!NOTE]
-> The CLI experience for Azure Managed Grafana Preview is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
+Get started by creating an Azure Managed Grafana workspace using the Azure CLI. Creating a workspace will generate a Managed Grafana instance.
 
 > [!NOTE]
-> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) currently.
+> The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
 
 ## Prerequisite
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
 ## Sign in to Azure
 
@@ -31,7 +28,7 @@ Open your CLI and run the `az login` command:
 az login
 ```
 
-This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
+This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign-in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Create a resource group
 
@@ -53,7 +50,7 @@ Run the code below to create an Azure Managed Grafana workspace.
 | Parameter    | Description                                      | Example |
 |--------------|-----------------------------------------------------------------------------------------|----------|
 | --name       | Choose a unique name for your new Managed Grafana instance. | *grafana-test*     |
-| --location   | Choose an Azure Region where Managed Grafana is available.   | *eastus*     |
+| --resource-group   | Choose a resource group for your Managed Grafana instance.   | *my-resource-group*     |
 
 ```azurecli
    az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name>
@@ -67,16 +64,18 @@ Now let's check if you can access your new Managed Grafana instance.
 
 1. Take note of the **endpoint** URL ending by `eus.grafana.azure.com`, listed in the CLI output.  
 
-1. Open a browser and enter the endpoint URL. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
+1. Open a browser and enter the endpoint URL. Single sign-on via Azure Active Directory has been configured for you automatically. If prompted, enter your Azure account. You should now see your Azure Managed Grafana instance. From there, you can finish setting up your Grafana installation.
 
-:::image type="content" source="media/managed-grafana-quickstart-portal-grafana-workspace.png" alt-text="Screenshot of the Azure Managed Grafana instance in the browser.":::
+   :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of a Managed Grafana instance.":::
 
-> [!NOTE]
-> If creating a Grafana instance fails the first time, please try again. The failure might be due to a limitation in our backend, and we are actively working to fix.
+   > [!NOTE]
+   > Azure Managed Grafana doesn't support connecting with personal Microsoft accounts currently.
+
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
 
 ## Clean up resources
 
-If you're not going to continue to use this instance, delete the Azure resources you created.
+In the preceding steps, you created an Azure Managed Grafana workspace in a new resource group. If you don't expect to need these resources again in the future, delete the resource group.
 
 `az group delete -n <resource-group-name> --yes`
 

@@ -31,7 +31,11 @@ FOREIGN KEY constraint is not supported in dedicated SQL pool.
 
 Having primary key and/or unique key allows dedicated SQL pool engine to generate an optimal execution plan for a query.  All values in a primary key column or a unique constraint column should be unique.
 
-After creating a table with primary key or unique constraint in dedicated SQL pool, users need to make sure all values in those columns are unique.  A violation of that may cause the query to return inaccurate result.  This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
+> [!IMPORTANT]  
+> After creating a table with primary key or unique constraint in dedicated SQL pool, users need to make sure all values in those columns are unique.
+> A violation of that may cause the query to return inaccurate result. 
+
+This example shows how a query may return inaccurate result if the primary key or unique constraint column includes duplicate values.  
 
 ```sql
  -- Create table t1

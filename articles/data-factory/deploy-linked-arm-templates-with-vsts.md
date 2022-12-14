@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 08/05/2022
 ms.author: jburchel
 ---
 # Deploy linked ARM templates with VSTS

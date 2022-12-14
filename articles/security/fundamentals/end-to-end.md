@@ -7,8 +7,8 @@ author: TerryLanfear
 manager: rkarlin
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
-ms.service: security
-ms.subservice: security-fundamentals
+ms.service: information-protection
+ms.subservice: aiplabels
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -29,12 +29,12 @@ The security services map organizes services by the resources they protect (colu
 - Detect threats – Services that identify suspicious activities and facilitate mitigating the threat.
 - Investigate and respond – Services that pull logging data so you can assess a suspicious activity and respond.
 
-The diagram includes the Azure Security Benchmark program, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
+The diagram includes the Microsoft cloud security benchmark, a collection of high-impact security recommendations you can use to help secure the services you use in Azure.
 
 :::image type="content" source="media/end-to-end/security-diagram.svg" alt-text="Diagram showing end-to-end security services in Azure." border="false":::
 
 ## Security controls and baselines
-The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
+The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) includes a collection of high-impact security recommendations you can use to help secure the services you use in Azure:
 
 - Security controls - These recommendations are generally applicable across your Azure tenant and Azure services. Each recommendation identifies a list of stakeholders that are typically involved in planning, approval, or implementation of the benchmark.
 - Service baselines - These apply the controls to individual Azure services to provide recommendations on that service’s security configuration.
@@ -55,7 +55,7 @@ The [Azure Security Benchmark](../benchmarks/introduction.md) program includes a
 | [Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) | A tool that allows organizations to automate the detection and remediation of identity-based risks, investigate risks using data in the portal, and export risk detection data to third-party utilities for further analysis. |
 | **Infrastructure&nbsp;&&nbsp;Network** |  |
 | [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) | A virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet and to send encrypted traffic between Azure virtual networks over the Microsoft network. |
-| [Azure DDoS Protection Standard](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
+| [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | A global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. |
 | [Azure Firewall](../../firewall/overview.md) | A cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Azure Firewall is offered in two SKUs: [Standard](../../firewall/features.md) and [Premium](../../firewall/premium-features.md). |
 | [Azure Key Vault](../../key-vault/general/overview.md) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |

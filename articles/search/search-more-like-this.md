@@ -7,7 +7,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 10/06/2022
 
 ---
 
@@ -16,11 +16,11 @@ ms.date: 10/06/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-`moreLikeThis=[key]` is a query parameter in the [Search Documents API](/rest/api/searchservice/search-documents) that finds documents similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a query is generated with search terms extracted from the given document that describe that document best. The generated query is then used to make the search request. The `moreLikeThis` parameter cannot be used with the search parameter, `search=[string]`.
+`moreLikeThis=[key]` is a query parameter in the [Search Documents API](/rest/api/searchservice/search-documents) that finds documents similar to the document specified by the document key. When a search request is made with `moreLikeThis`, a query is generated with search terms extracted from the given document that describe that document best. The generated query is then used to make the search request. The `moreLikeThis` parameter can't be used with the search parameter, `search=[string]`.
 
 By default, the contents of all top-level searchable fields are considered. If you want to specify particular fields instead, you can use the `searchFields` parameter. 
 
-`MoreLikeThis` on searchable sub-fields in a [complex type](search-howto-complex-data-types.md) is not supported. For indexes that have these types of fields, `searchFields` parameter must be used so that the top-level searchable fields are specified. For example, if the index has a searchable `field1` which is Edm.String and `field2` which is complex type with searchable sub-fields, the value of `searchFields` must be set to `field1` to exclude `field2`.
+The `moreLikeThis` parameter isn't supported for [complex types](search-howto-complex-data-types.md) and the presence of complex types will impact your query logic. If your index is a complex type, you must set `searchFields` to the top-level searchable fields over which `moreLikeThis` iterates. For example, if the index has a searchable `field1` of type `Edm.String`, and `field2` that's a complex type with searchable subfields, the value of `searchFields` must be set to `field1` to exclude `field2`.
 
 ## Examples
 

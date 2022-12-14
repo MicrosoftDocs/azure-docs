@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect cloud sync? | Microsoft Docs'
 description: Describes Azure AD Connect cloud sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview

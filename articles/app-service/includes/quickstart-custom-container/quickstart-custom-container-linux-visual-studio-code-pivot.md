@@ -2,6 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
+ms.custom: ignite-2022
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
@@ -28,7 +29,7 @@ This quickstart uses Azure Container Registry as the registry of choice. You're 
 Create a container registry by following the instructions in [Quickstart: Create a private container registry using the Azure portal](../../../container-registry/container-registry-get-started-portal.md).
 
 > [!IMPORTANT]
-> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#configure-app-service-to-deploy-the-image-from-the-registry).
+> Be sure to set the **Admin User** option to **Enable** when you create the Azure container registry. You can also set it from the **Access keys** section of your registry page in the Azure portal. This setting is required for App Service access. For managed identity, see [Deploy from ACR tutorial](../../tutorial-custom-container.md?pivots=container-linux#vi-configure-the-web-app).
 
 ## 2 - Sign in
 
@@ -172,7 +173,7 @@ The App Service app pulls from the container registry every time it starts. If y
 
 Other Azure extensions:
 
-* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

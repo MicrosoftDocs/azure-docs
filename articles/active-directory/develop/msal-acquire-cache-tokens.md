@@ -2,7 +2,7 @@
 title: Acquire and cache tokens with Microsoft Authentication Library (MSAL)
 description: Learn about acquiring and caching tokens using MSAL.
 services: active-directory
-author: mmacy
+author: cilwerner
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/22/2022
-ms.author: marsma
+ms.author: cwerner
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about acquiring and caching tokens so my app can support authentication and authorization.
@@ -26,7 +26,7 @@ You can also clear the token cache, which is achieved by removing the accounts f
 
 ## Scopes when acquiring tokens
 
-[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. For more information, read [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md). Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
+[Scopes](v2-permissions-and-consent.md) are the permissions that a web API exposes that client applications can request access to. Client applications request the user's consent for these scopes when making authentication requests to get tokens to access the web APIs. MSAL allows you to get tokens to access Azure AD for developers (v1.0) and the Microsoft identity platform APIs. v2.0 protocol uses scopes instead of resource in the requests. Based on the web API's configuration of the token version it accepts, the v2.0 endpoint returns the access token to MSAL.
 
 Several of MSAL's token acquisition methods require a `scopes` parameter. The `scopes` parameter is a list of strings that declare the desired permissions and the resources requested. Well-known scopes are the [Microsoft Graph permissions](/graph/permissions-reference).
 

@@ -3,29 +3,38 @@ title: Service limits
 titleSuffix: Azure Machine Learning
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Machine Learning.
 services: machine-learning
-author: andscho
-ms.author: andscho
+author: blackmist
+ms.author: larryfr
 ms.reviewer: mldocs
 ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/13/2022
+ms.date: 09/27/2022
+ms.metadata: product-dependency
 ---
 
 # Service limits in Azure Machine Learning
 
 This section lists basic limits and throttling thresholds in Azure Machine Learning. 
 
-To learn how increase resource quotas, see ["Manage and increase quotas for resources"](how-to-manage-quotas.md)
-
-> [!Important]
+> [!IMPORTANT]
 > Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
 
-
 ## Workspaces
+
 | Limit | Value |
 | --- | --- |
 | Workspace name | 2-32 characters |
+
+## Experiments
+| Limit | Value |
+| --- | --- |
+| Name | 256 characters |
+| Description | 5,000 characters |
+| Number of tags | 50 |
+| Length of tag key | 250 characters |
+| Length of tag value | 1000 characters |
+| Artifact location | 1024 characters |
 
 ## Runs
 | Limit | Value |
@@ -46,7 +55,6 @@ To learn how increase resource quotas, see ["Manage and increase quotas for reso
 | Warning message length |300 characters |
 | Number of input datasets |200 |
 | Number of output datasets |20 |
-
 
 ## Metrics
 | Limit | Value |
@@ -70,10 +78,8 @@ To learn how increase resource quotas, see ["Manage and increase quotas for reso
 
 ## Limit increases
 
-Some limits can be increased for individual workspaces by [contacting support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). 
+Some limits can be increased for individual workspaces. To learn how to increase these limits, see ["Manage and increase quotas for resources"](how-to-manage-quotas.md)
 
 ## Next steps
 
-- [Configure your Azure Machine Learning environment](how-to-configure-environment.md)
 - Learn how increase resource quotas in ["Manage and increase quotas for resources"](how-to-manage-quotas.md).
-

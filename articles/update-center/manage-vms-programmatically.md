@@ -1,8 +1,7 @@
 ---
 title: Programmatically manage updates for Azure VMs
 description: This article tells how to use update management center (preview) in Azure using REST API with Azure virtual machines.
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -30,7 +29,7 @@ POST on `subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers
 To specify the POST request, you can use the Azure CLI [az rest](/cli/azure/reference-index#az_rest) command.
 
 ```azurecli
-az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Network/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
+az rest --method post --url https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/virtualMachineName/assessPatches?api-version=2020-12-01
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -68,11 +67,11 @@ The following table describes the elements of the request body:
 | `maximumDuration` | Maximum amount of time that the operation runs. It must be an ISO 8601-compliant duration string such as `PT4H` (4 hours). |
 | `rebootSetting` | Flag to state if machine should be rebooted if Guest OS update installation requires it for completion. Acceptable values are: `IfRequired, NeverReboot, AlwaysReboot`. |
 | `windowsParameters` | Parameter options for Guest OS update on Azure VMs running a supported Microsoft Windows Server operating system. |
-| `windowsParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, UpdateRollUp, FeaturePack, ServicePack, Definition, Tools, Update` |
+| `windowsParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, UpdateRollUp, FeaturePack, ServicePack, Definition, Tools, Updates` |
 | `windowsParameters - kbNumbersToInclude` | List of Windows Update KB Ids that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `kbNumbersToInclude` is an optional list of specific KBs to be installed in addition to the classifications. For example: `1234` |
 | `windowsParameters - kbNumbersToExclude` | List of Windows Update KB Ids that should **not** be installed. This parameter overrides `windowsParameters - classificationsToInclude`, meaning a Windows Update KB Id specified here will not be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
 | `linuxParameters` | Parameter options for Guest OS update on Azure VMs running a supported Linux server operating system. |
-| `linuxParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, Others` |
+| `linuxParameters - classificationsToInclude` | List of categories/classifications to be used for selecting the updates to be installed on the machine. Acceptable values are: `Critical, Security, Other` |
 | `linuxParameters - packageNameMasksToInclude` | List of Linux packages that should be installed. All updates belonging to the classifications provided in `classificationsToInclude` list will be installed. `packageNameMasksToInclude` is an optional list of package names to be installed in addition to the classifications. For example: `mysql, libc=1.0.1.1, kernel*` |
 | `linuxParameters - packageNameMasksToExclude` | List of updates that should **not** be installed. This parameter overrides `linuxParameters - packageNameMasksToExclude`, meaning a package specified here will not be installed even if it belongs to the classification provided under `classificationsToInclude` parameter. |
 
@@ -216,7 +215,9 @@ PUT on '/subscriptions/0f55bb56-6089-4c7e-9306-41fb78fc5844/resourceGroups/atsca
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode" : "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-08-21 01:18",
@@ -260,7 +261,9 @@ The format of the request body is as follows:
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode": "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-08-21 01:18",
@@ -300,7 +303,9 @@ Invoke-AzRestMethod -Path "/subscriptions/<subscriptionId>/resourceGroups/<resou
   "location": "eastus2euap",
   "properties": {
     "namespace": null,
-    "extensionProperties": {},
+    "extensionProperties": {
+      "InGuestPatchMode" : "User"
+    },
     "maintenanceScope": "InGuestPatch",
     "maintenanceWindow": {
       "startDateTime": "2021-12-21 01:18",

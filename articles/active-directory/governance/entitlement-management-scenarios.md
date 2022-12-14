@@ -1,10 +1,10 @@
 ---
-title: Common scenarios in entitlement management - Azure AD
+title: Common scenarios in entitlement management
 description: Learn the high-level steps you should follow for common scenarios in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 06/18/2020
-ms.author: owinfreyatl
+ms.author: owinfrey
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
 
 ---
-# Common scenarios in Azure AD entitlement management
+# Common scenarios in entitlement management
 
 There are several ways that you can configure entitlement management for your organization. However, if you're just getting started, it's helpful to understand the common scenarios for administrators, catalog owners, access package managers, approvers, and requestors.
 
@@ -46,6 +46,12 @@ There are several ways that you can configure entitlement management for your or
 1. [Delegate users to access package manager role](entitlement-management-delegate-managers.md)
 
 ## Govern access for users in your organization
+
+### Administrator: Assign employees access automatically (preview)
+
+1. [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package)
+1. [Add groups, Teams, applications, or SharePoint sites to access package](entitlement-management-access-package-create.md#resource-roles)
+1. [Add an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md)
 
 ### Access package manager: Allow employees in your organization to request access to resources
 
@@ -151,7 +157,7 @@ There are several ways that you can configure entitlement management for your or
 
 ## Programmatic administration
 
-You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with the those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages.
+You can also manage access packages, catalogs, policies, requests and assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the [entitlement management API](/graph/tutorial-access-package-api).  An application with those application permissions can also use many of those API functions, with the exception of managing resources in catalogs and access packages. And an application which only needs to operate within specific catalogs can be added to the **Catalog owner** or **Catalog reader** roles of a catalog to be authorized to update or read within that catalog.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Creating and using a service principal with an Azure Red Hat OpenShift cluster
 description: In this how-to article, learn how to create and use a service principal with an Azure Red Hat OpenShift cluster using Azure CLI or the Azure portal.
-author: rahulm23
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.author: rahulmehta
-ms.date: 03/21/2022
+ms.author: johnmarc
+ms.date: 10/18/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal
 #Customer intent: I need to create and use an Azure service principal to restrict permissions to my Azure Red Hat OpenShift cluster.
@@ -29,7 +29,7 @@ The following sections explain how to create and use a service principal to depl
 
 ## Prerequisites - Azure CLI
 
-If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you’re using the Azure CLI, you’ll need Azure CLI version 2.30.0 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group - Azure CLI
 
@@ -50,7 +50,7 @@ AZ_SUB_ID=$(az account show --query id -o tsv)
 az ad sp create-for-rbac -n "test-aro-SP" --role contributor --scopes "/subscriptions/${AZ_SUB_ID}/resourceGroups/${AZ_RG}"
 ```
 
-The output is similar to the following example.
+The output is similar to the following example:
 
 ```
 { 
@@ -79,9 +79,7 @@ To grant permissions to an existing service principal with the Azure portal, see
 
 ## Create a service principal with the Azure portal
 
-This section explains how to use the Azure portal to create a service principal for your Azure Red Hat OpenShift cluster. 
-
-To create a service principal, see [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the client ID and the appID.**
+To create a service principal for your Azure Red Hat OpenShift cluster via the Azure portal, see [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md). **Be sure to save the Application (client) ID and the secret.**
 
 
 

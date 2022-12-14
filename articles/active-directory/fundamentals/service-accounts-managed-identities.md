@@ -8,10 +8,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 3/1/2021
+ms.date: 08/20/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
-ms.custom: "it-pro, seodec18"
+ms.custom: it-pro, seodec18, ignite-2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -41,7 +41,7 @@ With managed identities the source system can obtain a token from Azure AD witho
 
 The target system needs to authenticate (identify) and authorize the source system before allowing access. When the target service supports Azure AD-based authentication it accepts an access token issued by Azure AD. 
 
-Azure has a control plane and a data plane. In the control plane, you create resources, and in the data plane you access them. For example, you create a Cosmos database in the control plane, but query it in the data plane.
+Azure has a control plane and a data plane. In the control plane, you create resources, and in the data plane you access them. For example, you create an Azure Cosmos DB database in the control plane, but query it in the data plane.
 
 Once the target system accepts the token for authentication, it can support different mechanisms for authorization for its control plane and data plane.
 
@@ -91,7 +91,7 @@ There are several ways in which you can find managed identities:
 
 You can get a list of all managed identities in your tenant with the following GET request to Microsoft Graph:
 
-`https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
+`https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity')`
 
 You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get).
 
@@ -101,11 +101,10 @@ You can assess the security of managed identities in the following ways:
 
 * Examine privileges and ensure that the least privileged model is selected. Use the following PowerShell cmdlet to get the permissions assigned to your managed identities.
 
-   ` Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
+   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
  
-* Ensure the managed identity is not part of any privileged groups, such as an administrators group.  
-‎You can do this by enumerating the members of your highly privileged groups with PowerShell.
+* Ensure the managed identity is not part of any privileged groups, such as an administrators group. You can do this by enumerating the members of your highly privileged groups with PowerShell.
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
@@ -134,8 +133,3 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 
 [Introduction to on-premises service accounts](service-accounts-on-premises.md)
-
- 
-
- 
-

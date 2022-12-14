@@ -49,7 +49,7 @@ In this tutorial you'll learn how to:
 
 A new resource group will now be added to your IoT solution.
 
-Defender for IoT will now monitor you're newly added resource groups, and surfaces relevant security recommendations, and alerts as part of your IoT solution.
+Defender for IoT will now monitor your newly added resource groups, and surfaces relevant security recommendations and alerts as part of your IoT solution.
 
 ## Next steps
 

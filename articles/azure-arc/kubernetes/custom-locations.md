@@ -1,7 +1,6 @@
 ---
 title: "Create and manage custom locations on Azure Arc-enabled Kubernetes"
-ms.service: azure-arc
-ms.date: 07/21/2022
+ms.date: 11/01/2022
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
 description: "Use custom locations to deploy Azure PaaS services on Azure Arc-enabled Kubernetes clusters"
@@ -9,9 +8,9 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- The *Custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
+ The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL server, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
 
-A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure RBAC can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
+A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure role-based access control (Azure RBAC) can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
 
 A conceptual overview of this feature is available in [Custom locations - Azure Arc-enabled Kubernetes](conceptual-custom-locations.md).
 
@@ -22,12 +21,12 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 
-- Install the following Azure CLI extensions:
-  - `connectedk8s` (version 1.2.0 or later)
-  - `k8s-extension` (version 1.0.0 or later)
-  - `customlocation` (version 0.1.3 or later) 
+- Install the latest versions of the following Azure CLI extensions:
+  - `connectedk8s`
+  - `k8s-extension`
+  - `customlocation`
   
     ```azurecli
     az extension add --name connectedk8s
@@ -35,7 +34,7 @@ In this article, you learn how to:
     az extension add --name customlocation
     ```
 
-    If you have already installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the **latest version** using the following command:
+    If you have already installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the **latest version** by using the following command:
 
     ```azurecli
     az extension update --name connectedk8s
@@ -59,11 +58,11 @@ In this article, you learn how to:
         Once registered, the `RegistrationState` state will have the `Registered` value.
 
 - Verify you have an existing [Azure Arc-enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
-  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.5.3 or later.
+  - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 ## Enable custom locations on your cluster
 
-If you are signed in to Azure CLI as an Azure AD user, to enable this feature on your cluster, execute the following command:
+If you are signed in to Azure CLI as an Azure Active Directory (Azure AD) user, to enable this feature on your cluster, execute the following command:
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
@@ -75,18 +74,26 @@ If you run the above command while signed in to Azure CLI using a service princi
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-This is because a service principal doesn't have permissions to get information of the application used by the Azure Arc service. To avoid this error, execute the following steps:
+This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service. To avoid this error, complete the following steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the Azure AD application used by Azure Arc service. The command you use depends on your version of Azure CLI.
+
+   If you're using an Azure CLI version lower than 2.37.0, use the following command:
+
+   ```azurecli
+   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
+   ```
+
+   If you're using Azure CLI version 2.37.0 or higher, use the following command instead:
+
+   ```azurecli
+   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+   ```
+
+1. Sign in to Azure CLI using the service principal. Use the `<objectId>` or `id` value from the previous step to enable custom locations on the cluster:
 
     ```azurecli
-    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
-    ```
-
-1. Sign in to Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
-
-    ```azurecli
-    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
     ```
 
 > [!NOTE]
@@ -130,7 +137,7 @@ This is because a service principal doesn't have permissions to get information 
      | Parameter name | Description |
      |----------------|------------|
      | `--name, --n` | Name of the custom location |
-     | `--resource-group, --g` | Resource group of the custom location  | 
+     | `--resource-group, --g` | Resource group of the custom location  |
      | `--namespace` | Namespace in the cluster bound to the custom location being created |
      | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
      | `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-separated list of the cluster extension IDs  |
@@ -163,7 +170,7 @@ Required parameters:
 To list all custom locations in a resource group, use the following command:
 
 ```azurecli
-az customlocation show -g <resourceGroupName> 
+az customlocation list -g <resourceGroupName> 
 ```
 
 Required parameters:
@@ -185,7 +192,7 @@ Required parameters:
 | Parameter name | Description |
 |----------------|------------|
 | `--name, --n` | Name of the custom location |
-| `--resource-group, --g` | Resource group of the custom location  | 
+| `--resource-group, --g` | Resource group of the custom location  |
 | `--namespace` | Namespace in the cluster bound to the custom location being created |
 | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
 
@@ -198,7 +205,7 @@ Optional parameters:
 
 ## Patch a custom location
 
-Use the `patch` command to replace existing tags, cluster extension IDs with new tags, and cluster extension IDs. `--cluster-extension-ids`, `assign-identity`, `--tags` can be patched. 
+Use the `patch` command to replace existing tags, cluster extension IDs with new tags, and cluster extension IDs. `--cluster-extension-ids`, `assign-identity`, `--tags` can be patched.
 
 ```azurecli
 az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
@@ -209,7 +216,7 @@ Required parameters:
 | Parameter name | Description |
 |----------------|------------|
 | `--name, --n` | Name of the custom location |
-| `--resource-group, --g` | Resource group of the custom location  | 
+| `--resource-group, --g` | Resource group of the custom location  |
 
 Optional parameters:
 
@@ -223,8 +230,21 @@ Optional parameters:
 To delete a custom location, use the following command:
 
 ```azurecli
-az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation delete -n <customLocationName> -g <resourceGroupName> 
 ```
+
+Required parameters:
+
+| Parameter name | Description |
+|----------------|------------|
+| `--name, --n` | Name of the custom location |
+| `--resource-group, --g` | Resource group of the custom location  |
+
+## Troubleshooting
+
+If custom location creation fails with the error 'Unknown proxy error occurred', it may be due to network policies configured to disallow pod-to-pod internal communication.
+
+To resolve this issue, modify your network policy to allow pod-to-pod internal communication within the `azure-arc` namespace. Be sure to also add the `azure-arc` namespace as part of the no-proxy exclusion list for your configured policy.
 
 ## Next steps
 

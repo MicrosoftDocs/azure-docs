@@ -6,7 +6,7 @@ ms.date: 07/15/2022
 ---
 
 # Tutorial: Send data to Azure Monitor Logs using REST API (Azure portal)
-[Logs ingestion API (preview)](logs-ingestion-api-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
+[Logs ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
 > [!NOTE]
 > This tutorial uses the Azure portal. See [Tutorial: Send data to Azure Monitor Logs using REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md) for a similar tutorial using resource manager templates.
@@ -45,7 +45,7 @@ Start by registering an Azure Active Directory application to authenticate again
 
 3. Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-id.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-id.png" alt-text="Screenshot showing app id.":::
+    :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-id.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-id.png" alt-text="Screenshot showing app ID.":::
 
 4. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
 
@@ -236,7 +236,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse RawData.value with 
     ClientIP:string
     ' ' *
     ' ' *
@@ -247,17 +247,17 @@ Instead of directly configuring the schema of the table, the portal allows you t
     " " *
     ```
 
-7. Click **Run** to views the results. This extracts the contents of `RawData` into separate columns  `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`. 
+7. Click **Run** to view the results. This extracts the contents of `RawData` into separate columns  `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`. 
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-query-02.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-query-02.png" alt-text="Screenshot showing custom log data query with parse command.":::
 
-8. The query can be optimized more though by removing the `RawData` and `Time` columns since they aren't needed anymore.You can also filter out any records with `ResponseCode` of 200 since you're only interested in collecting data for requests that were not successful. This reduces the volume of data being ingested which reduces its overall cost.
+8. The query can be optimized more though by removing the `RawData` and `Time` columns since they aren't needed anymore. You can also filter out any records with `ResponseCode` of 200 since you're only interested in collecting data for requests that were not successful. This reduces the volume of data being ingested which reduces its overall cost.
 
 
     ```kusto
     source
     | extend TimeGenerated = todatetime(Time)
-    | parse RawData with 
+    | parse RawData.value with 
     ClientIP:string
     ' ' *
     ' ' *
@@ -270,7 +270,7 @@ Instead of directly configuring the schema of the table, the portal allows you t
     | project-away Time, RawData
     ```
 
-9. Click **Run** to views the results.
+9. Click **Run** to view the results.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-query-03.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-query-03.png" alt-text="Screenshot showing custom log data query with filter.":::
 

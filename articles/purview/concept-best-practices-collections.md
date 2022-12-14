@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 09/13/2022
 ---
 
 # Microsoft Purview collections architectures and best practices  
@@ -42,7 +42,9 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 
 - Consider security and access management as part of your design decision-making process when you build collections in Microsoft Purview. 
 
-- Each collection has a name attribute and a friendly name attribute. If you use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+- Each collection has a name attribute and a friendly name attribute. If you use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.
+
+- Currently, a collection name can contain up to 36 characters and a collection friendly name can have up to 100 characters.
 
 - When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
 

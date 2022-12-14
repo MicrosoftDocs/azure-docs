@@ -24,17 +24,43 @@ sections:
           Purpose of this FAQ
         answer: |
           This FAQ answers common questions that customers and field teams often ask. It's intended to clarify questions about Microsoft Purview and related solutions, such as Azure Data Catalog (ADC) Gen 2 (deprecated) and Azure Information Protection.
+      - question: |
+          Does this FAQ include information about the Microsoft Purview compliance portal?
+        answer: |
+          No. For the FAQ about Microsoft Purview risk and compliance solutions, see [Microsoft Purview compliance documentation](/microsoft-365/compliance/compliance-manager-faq)
+      - question: |
+          Where can I submit feedback or feature requests?
+        answer: |
+          You can submit feature requests on [our feedback page](https://feedback.azure.com/d365community/forum/82d7bddb-fb24-ec11-b6e6-000d3a4f07b8) which is checked regularly by the product team.
 
+          If you have an issue with Microsoft Purview, [reach out to support](https://azure.microsoft.com/support/create-ticket/).
+
+          If you have feedback about the documentation, reach out using the feedback button at the bottom of every documentation page.
       - question: |
           What are the source types available for metadata scanning and classification?
         answer: |
-          There are a number of sources available, and we're adding more all the time.
+          There are many sources available, and we're adding more all the time.
           For a full list of sources and all their available capabilities, see our [supported data sources article](azure-purview-connector-overview.md).
-          
+
+      - question: |
+          Does Microsoft Purview support scanning zipped files?
+        answer: |
+          Currently, Microsoft Purview supports scanning GZIP files that contain a single CSV. For more information, see [supported file types for scanning.](microsoft-purview-connector-overview.md#file-types-supported-for-scanning)
+
+      - question: |
+          Do Microsoft Purview scans impact operational database performance?
+        answer: |
+          It depends. The amount of load on a database will be dependent on the number of assets being scanned, and complexity of the table schema (like number of columns, etc.). Microsoft Purview only samples a subset of the data to determine classification. For sampling related details, see the [supported data sources documentation](microsoft-purview-connector-overview.md). It's recommended to schedule scans outside of normal business hours. For scanning best practices, see the [scanning best practices documentation](concept-best-practices-scanning.md).
+      
+      - question: |
+          Can I customize the number of rows scanned?
+        answer: |
+          No. Number of rows scanned is determined by the data source being scanned. For more information, see [our sampling documentation.](microsoft-purview-connector-overview.md#sampling-data-for-classification)
+      
       - question: |
           What data systems/processors can we connect and get lineage?
         answer: |
-          Our lineage offering updates often. For a full list of systems see our [lineage user guide](catalog-lineage-user-guide.md). 
+          Our lineage offering updates often. For a full list of systems, see our [lineage user guide](catalog-lineage-user-guide.md). 
           
       - question: |
           How are ADC Gen 2, Azure Information Protection, and Microsoft Purview (formerly Azure Purview) related?
@@ -75,7 +101,7 @@ sections:
           What's the difference between a glossary and classification?
         answer: |
           A glossary uses a naming convention followed by non-technical/business users of the data, also known as data consumers. These types of people are business analysts or data scientists who use Microsoft Purview to search for certain types of data, based on business usage. For instance, supply chain analysts might need to search for the terms *SKU types* and *shipment details*. They search the glossary for these terms to find relevant data.
-          Classification is a tag applied to a data asset at the table, column, or file level, that identifies what data exists in the asset. Classification can be applied automatically or manually, based on the type of data found. Typically, you use classification tags to identify whether an asset contains sensitive data, and what type of sensitive data that might be.
+          Classification is a tag applied to a data asset at the table, column, or file level that identifies what data exists in the asset. Classification can be applied automatically or manually, based on the type of data found. Typically, you use classification tags to identify whether an asset contains sensitive data, and what type of sensitive data that might be.
           
       - question: |
           Can Microsoft Purview (formerly Azure Purview) scan and classify emails, PDFs etc. in my SharePoint and OneDrive?
@@ -85,24 +111,24 @@ sections:
       - question: |
           What is the compute used for the scan?
         answer: |
-          There is a Microsoft-managed scanning infrastructure. For most Azure/AWS resources that we support, you don't need to deploy a scanning infrastructure.
+          There's a Microsoft-managed scanning infrastructure. For most Azure/AWS resources that we support, you don't need to deploy a scanning infrastructure.
 
       - question: |
-          Is there a way to provision Microsoft Purview via Azure Resource Manager (ARM) template / CLI / PowerShell?
+          Is there a way to create a Microsoft Purview account programatically? For example, using Azure Resource Manager (ARM) template / CLI / PowerShell?
         answer: |
-          Yes, ARM template is available.
+          Yes, [PowerShell commands](create-catalog-powershell.md), [a .NET script](create-azure-purview-dotnet.md), [a Python script](create-azure-purview-python.md), [an ARM template](quickstart-arm-create-azure-purview.md), and [a Bicep template](quickstart-bicep-create-azure-purview.md) are all available.
 
       - question: |
           I'm already using Atlas, can I easily move to Microsoft Purview?
         answer: |
-          Microsoft Purview is compatible with Atlas API. If you are migrating from Atlas, it's recommended to scan your data sources first using Microsoft Purview. Once the assets are available in your account, you can use similar Atlas APIs to integrate such as updating assets or adding custom lineage. Microsoft Purview modifies the Search API to use Azure Search so you should be able to use Advance Search.
+          Microsoft Purview is compatible with Atlas API. If you're migrating from Atlas, it's recommended to scan your data sources first using Microsoft Purview. Once the assets are available in your account, you can use similar Atlas APIs to integrate such as updating assets or adding custom lineage. Microsoft Purview modifies the Search API to use Azure Search so you should be able to use Advance Search.
 
       - question: |
           Can I create multiple catalogs in my tenant?
         answer: |
           Yes, you can create multiple Microsoft Purview accounts per subscription and per tenant. You can review the limits page [Manage and increase quotas for resources with Microsoft Purview](how-to-manage-quotas.md).
           
-          More recommendations on when you should or should not have multiple accounts are documented in our [Microsoft Purview deployment best practices](deployment-best-practices.md).
+          More recommendations on when you should or shouldn't have multiple accounts are documented in our [Microsoft Purview deployment best practices](deployment-best-practices.md).
           
       - question: |
           Can I register multiple tenants within a single Microsoft Purview account?
@@ -124,4 +150,29 @@ sections:
         answer: |
           No, the data map doesn't currently provide the data loss prevention capabilities that are supported for Microsoft 365 apps and services. 
           
-          Read about [Data Loss Prevention in Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you are interested in data loss prevention for Microsoft 365 apps and services.
+          Read about [Data Loss Prevention in Microsoft Purview Information Protection](/microsoft-365/compliance/information-protection#prevent-data-loss) if you're interested in data loss prevention for Microsoft 365 apps and services.
+
+      - question: |
+          Can I use the same self-hosted integration runtime (SHIR) for both Microsoft Purview and Azure Data Factory?
+        answer: |
+          No. For more information about the SHIR, see our [self-hosted integration runtime documentation](manage-integration-runtimes.md).
+
+      - question: |
+          How do I use the REST API for Microsoft Purview?
+        answer: |
+          You can follow our documentation for examples: [using the REST API to access the data catalog](tutorial-using-rest-apis.md), and [using the REST API to manage access control](tutorial-metadata-policy-collections-apis.md). We also have a tutorial for using the [Python SDK](tutorial-using-python-sdk.md), and [Atlas 2.2 APIs](tutorial-atlas-2-2-apis.md).
+
+      - question: |
+          What network, security, and firewall configurations are recommended for Microsoft Purview?
+        answer: |
+          For network, security, and firewall configuration recommendations, see our [security best practices documentation.](concept-best-practices-security.md)
+
+      - question: |
+          Does Microsoft Purview have master data management (MDM) capabilities?
+        answer: |
+          Yes; Currently, Microsoft Purview has [partnered with Profisee for master data management capabilities](how-to-deploy-profisee-purview-integration.md).
+
+      - question: |
+          Does Microsoft Purview support custom insights?
+        answer: |
+          No. Microsoft Purview Data Estate Insights don't currently support custom insights. For more information about the available insights, see the [Microsoft Purview Data Estate Insights documentation](concept-insights.md).   

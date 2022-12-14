@@ -55,7 +55,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
+      href: /security/benchmark/azure/baselines/azure-firewall-manager-security-baseline?toc=/azure/firewall-manager/toc.json
 - name: How-to guides
   items:
   - name: Deploy security partner providers
@@ -101,6 +101,6 @@
   - name: Community templates
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-firewall/
+    href: https://azure.microsoft.com/pricing/details/firewall-manager/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/

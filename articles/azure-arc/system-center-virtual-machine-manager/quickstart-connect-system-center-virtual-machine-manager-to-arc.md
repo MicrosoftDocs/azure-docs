@@ -4,7 +4,7 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.custom: references_regions
 ---
 
@@ -16,12 +16,15 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 ## Prerequisites
 
+>[!Note]
+>If VMM server is running on Windows Server 2016 machine, ensure that [Open SSH package](https://github.com/PowerShell/Win32-OpenSSH/releases) is installed. 
+
 | **Requirement** | **Details** |
 | --- | --- |
 | **Azure** | An Azure subscription  <br/><br/> A resource group in the above subscription where you have the *Owner/Contributor* role. |
 | **SCVMM** | You need an SCVMM management server running version 2016 or later.<br/><br/> A private cloud that has at least one cluster with minimum free capacity of 16 GB of RAM, 4 vCPUs with 100 GB of free disk space. <br/><br/> A VM network with internet access, directly or through proxy. Appliance VM will be deployed using this VM network.<br/><br/> For dynamic IP allocation to appliance VM, DHCP server is required. For static IP allocation, VMM static IP pool is required. |
 | **SCVMM accounts** | An SCVMM admin account that can perform all administrative actions on all objects that VMM manages. <br/><br/> The user should be part of local administrator account in the SCVMM server. <br/><br/>This will be used for the ongoing operation of Azure Arc-enabled SCVMM as well as the deployment of the Arc Resource bridge VM. |
-| **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
+| **Workstation** | The workstation will be used to run the helper script.<br/><br/> A Windows/Linux machine that can access both your SCVMM management server and internet, directly or through proxy.<br/><br/> The helper script can be run directly from the VMM server machine as well.<br/><br/> To avoid network latency issues, we recommend executing the helper script directly in the VMM server machine.<br/><br/> Note that when you execute the script from a Linux machine, the deployment takes a bit longer and you may experience performance issues. |
 
 ## Prepare SCVMM management server
 
@@ -46,6 +49,10 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 1. Under **Region**, select an Azure location where you want to store the resource metadata. The currently supported regions are **East US** and **West Europe**.
 1. Provide a name for **Custom location**.
    This is the name that you'll see when you deploy virtual machines. Name it for the datacenter or the physical location of your datacenter. For example: *contoso-nyc-dc.*
+
+    >[!Note]
+    >If you are using an existing resource bridge created for a different provider (HCI/VMware), ensure that you create a separate custom location for each provider.  
+
 1. Leave the option **Use the same subscription and resource group as your resource bridge** selected.
 1. Provide a name for your **SCVMM management server instance** in Azure. For example: *contoso-nyc-scvmm.*
 1. Select **Next: Download and run script**.
@@ -60,6 +67,9 @@ Use the following instructions to run the script, depending on the Operating Sys
 >[!NOTE]
 >Before running the script, install the latest version of Azure CLI (2.36.0 or later).
 
+**Known issue**
+
+We are observing intermittent extension installation issues with Azure CLI 2.42.0 version. To avoid failures, install Azure CLI 2.41.0 versions. [Download the specific version of Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli-windows?tabs=azure-cli#specific-version).
 
 ### Windows
 
@@ -128,8 +138,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
     bash resource-bridge-onboarding-script.sh --force
   ```
 >[!NOTE]
-> - After successful deployment, we recommend to maintain the state of **Arc Resource Bridge VM** as *online*.
-> - Intermittently appliance might become unreachable, when you shut down and restart the VM.
+> - After successful deployment, we recommend maintaining the state of **Arc Resource Bridge VM** as *online*.
+> - Intermittently appliance might become unreachable when you shut down and restart the VM.
+>- After successful deployment, save the config YAML files in a secure location. The config files are required to perform management operations on the resource bridge.   
+> - After the execution of command, your setup is complete, and you can try out the capabilities of Azure Arc-enabled SCVMM. 
 
 
 ## Next steps

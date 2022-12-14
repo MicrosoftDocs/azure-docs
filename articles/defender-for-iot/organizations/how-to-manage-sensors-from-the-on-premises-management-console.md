@@ -57,9 +57,12 @@ You can define the following sensor system settings from the management console:
 
 ## Update threat intelligence packages
 
-The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content. 
+The data package for threat intelligence is provided with each new Defender for IoT version, or if needed between releases. The package contains signatures (including malware signatures), CVEs, and other security content.
 
-You can manually upload this file in the Azure portal and automatically update it to sensors. 
+You can manually upload this file in the Azure portal and automatically update it to sensors.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
 
 **To update the threat intelligence data:**
 
@@ -131,7 +134,7 @@ When the default sensor backup location is changed, the on-premises management c
 
 When the sensors aren't registered with the on-premises management console, the **Sensor Backup Schedule** dialog box indicates that no sensors are managed.  
 
-The restore process is the same regardless of where the files are stored.
+The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ### Backup storage for sensors
 
@@ -207,23 +210,7 @@ Failures might occur because:
 
 - There's not enough room allocated to the on-premises management console to complete the backup.  
 
-You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **System Notifications**. 
-
-### Restoring sensors 
-
-You can restore backups from the on-premises management console and by using the CLI.  
-
-**To restore from the console:**
-
-- Select **Restore Image** from the **Sensor System** setting window.
-
-  :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/restore.png" alt-text="Restore a backup of your image.":::
-
-  The console then displays restore failures.  
-
-To restore by using the CLI: 
-
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`. 
+You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **Forwarding**.
 
 ### Save a sensor backup to an external SMB server
 

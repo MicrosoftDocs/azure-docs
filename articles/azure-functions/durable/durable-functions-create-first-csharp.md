@@ -7,7 +7,7 @@ ms.date: 06/15/2022
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
-ms.custom: mode-other, devdivchpfy22
+ms.custom: mode-other, devdivchpfy22, vscode-azure-extension-update-complete
 ---
 
 # Create your first durable function in C#
@@ -53,7 +53,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     | Prompt | Value | Description |
     | ------ | ----- | ----------- |
     | Select a language for your function app project | C# | Create a local C# Functions project. |
-    | Select a version | Azure Functions v3 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
+    | Select a version | Azure Functions v4 | You only see this option when the Core Tools aren't already installed. In this case, Core Tools are installed the first time you run the app. |
     | Select a template for your project's first function | Skip for now | |
     | Select how you would like to open your project | Open in current window | Reopens Visual Studio Code in the folder you selected. |
 
@@ -170,7 +170,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2019 also supports Durable Functions development, but the UI and steps differ.
 
-* Verify that you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running.
+* Verify that you have the [Azurite Emulator](../../storage/common//storage-use-azurite.md) installed and running.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

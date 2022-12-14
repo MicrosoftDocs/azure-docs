@@ -9,7 +9,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 09/16/2022
 ms.author: davidmu
 ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
@@ -266,7 +266,7 @@ For each claim schema entry defined in this property, certain information is req
 
 **Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.
 
-**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory extension attribute where the data in the claim is sourced from. For more information, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values:
 
@@ -336,10 +336,10 @@ The ID element identifies which property on the source provides the value for th
 | User | lastpasswordchangedatetime | Last Password Change Date/Time |
 | User | mobilephone | Mobile Phone |
 | User | officelocation | Office Location |
-| User | onpremisesdomainname | On-Premises Domain Name |
-| User | onpremisesimmutableid | On-Premises Imutable ID |
-| User | onpremisessyncenabled | On-Premises Sync Enabled |
-| User | preferreddatalocation | Preffered Data Location |
+| User | onpremisesdomainname | On-premises Domain Name |
+| User | onpremisesimmutableid | On-premises Immutable ID |
+| User | onpremisessyncenabled | On-premises Sync Enabled |
+| User | preferreddatalocation | Preferred Data Location |
 | User | proxyaddresses | Proxy Addresses |
 | User | usertype | User Type |
 | User | telephonenumber| Business Phones / Office Phones |
@@ -362,7 +362,7 @@ The ID element identifies which property on the source provides the value for th
 > [!NOTE]
 > Names and URIs of claims in the restricted claim set cannot be used for the claim type elements. For more information, see the "Exceptions and restrictions" section later in this article.
 
-### Group Filter (Preview)
+### Group Filter
 
 **String:** GroupFilter
 
@@ -404,9 +404,9 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions, which are storing a UPN or email address value for the user for example, johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
+|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other directory extensions, which are storing a UPN or email address value for the user, for example, johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
-**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue** (Preview)
+**InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has three attributes: **ClaimTypeReferenceId**, **TransformationClaimType** and **TreatAsMultiValue**
 
 - **ClaimTypeReferenceId** is joined with ID element of the claim schema entry to find the appropriate input claim.
 - **TransformationClaimType** is used to give a unique name to this input. This name must match one of the expected inputs for the transformation method.
@@ -475,4 +475,4 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 - To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
-- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
+- To learn more about extension attributes, see [Using directory extension attributes in claims](active-directory-schema-extensions.md).

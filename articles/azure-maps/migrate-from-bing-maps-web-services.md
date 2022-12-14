@@ -266,7 +266,7 @@ Azure Maps can snap coordinates to roads by using the [route directions](/rest/a
 There are two different ways to use the route directions API to snap coordinates to roads.
 
 * If there are 150 coordinates or less, they can be passed as waypoints in the GET route directions API. Using this approach two different types of snapped data can be retrieved; route instructions will contain the individual snapped waypoints, while the route path will have an interpolated set of coordinates that fill the full path between the coordinates.
-* If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://azuremapscodesamples.azurewebsites.net/?sample=Snap%20points%20to%20logical%20route%20path) of this approach using the services module in the Azure Maps Web SDK.
+* If there are more than 150 coordinates, the POST route directions API can be used. The coordinates start and end coordinates have to be passed into the query parameter, but all coordinates can be passed into the `supportingPoints` parameter in the body of the POST request and formatted a GeoJSON geometry collection of points. The only snapped data available using this approach will be the route path that is an interpolated set of coordinates that fill the full path between the coordinates. [Here is an example](https://samples.azuremaps.com/?sample=snap-points-to-logical-route-path) of this approach using the services module in the Azure Maps Web SDK.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -310,7 +310,7 @@ The Azure Maps route directions API does not currently return speed limit data, 
 
 The Azure Maps Web SDK uses vector tiles to render the maps. These vector tiles contain the raw road geometry information and can be used to calculate the nearest road to a coordinate for simple snapping of individual coordinates. This is useful when you want the coordinates to visually appear over roads and you are already using the Azure Maps Web SDK to visualize the data.
 
-This approach however will only snap to the road segments that are loaded within the map view. When zoomed out at country level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving. [Here is a code sample](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic) that demonstrates this.
+This approach however will only snap to the road segments that are loaded within the map view. When zoomed out at country level there may be no road data, so snapping can’t be done, however at that zoom level a single pixel can represent the area of several city blocks so snapping isn’t needed. To address this, the snapping logic can be applied every time the map has finished moving. [Here is a code sample](https://samples.azuremaps.com/?sample=basic-snap-to-road-logic) that demonstrates this.
 
 **Using the Azure Maps vector tiles directly to snap coordinates**
 
@@ -656,7 +656,7 @@ Here are some useful resources around hosting and querying spatial data in Azure
 
 Azure Maps provides client libraries for the following programming languages;
 
-* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [NPM package](https://www.npmjs.com/package/azure-maps-rest)
+* JavaScript, TypeScript, Node.js – [documentation](./how-to-use-services-module.md) \| [npm package](https://www.npmjs.com/package/azure-maps-rest)
 
 Open-source client libraries for other programming languages;
 

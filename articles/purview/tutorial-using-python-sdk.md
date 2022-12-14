@@ -116,7 +116,7 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
 
 ## Create Python script file
 
-Create a plain text file, and save it as a python script with the suffix .py.
+Create a plain text file, and save it as a Python script with the suffix .py.
 For example: tutorial.py.
 
 ## Instantiate a Scanning, Catalog, and Administration client
@@ -194,7 +194,7 @@ In this section, you'll register your Blob Storage.
 
 1. Gather the resource ID for your storage account by following this guide: [get the resource ID for a storage account.](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account)
 
-1. Then, in your python file, define the following information to be able to register the Blob storage programmatically:
+1. Then, in your Python file, define the following information to be able to register the Blob storage programmatically:
 
     ```python
     storage_name = "<name of your Storage Account>"
@@ -254,7 +254,7 @@ In this section, you'll register your Blob Storage.
     body_input = {
             "kind": "AzureStorage",
             "properties": {
-                "endpoint": "endpoint": f"https://{storage_name}.blob.core.windows.net/",
+                "endpoint": f"https://{storage_name}.blob.core.windows.net/",
                 "resourceGroup": rg_name,
                 "location": rg_location,
                 "resourceName": storage_name,

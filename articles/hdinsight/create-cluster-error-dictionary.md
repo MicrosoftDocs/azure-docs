@@ -193,7 +193,7 @@ Typically, this error is generated when there's a transient problem or an Azure 
 
 ### Resolution
 
-Check the [Azure status](https://status.azure.com) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
+Check the [Azure status](https://azure.status.microsoft) page for any Azure outages that might affect cluster deployment. If there are no outages, retry cluster deployment.
 
 ---
 

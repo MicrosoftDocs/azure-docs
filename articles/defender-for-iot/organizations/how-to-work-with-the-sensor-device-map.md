@@ -29,7 +29,7 @@ A variety of map tools help you gain insight into devices and connections of int
 - [Group highlight and filters tools](#group-highlight-and-filters-tools)
 - [Map display tools](#map-display-tools)
 
-Your user role determines which tools are available in the Device Map window. See [Create and manage users](how-to-create-and-manage-users.md) for details about user roles.
+Your user role determines which tools are available in the Device Map window. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md) and [Create and manage users on an OT network sensor](manage-users-sensor.md).
 
 ### Basic search tools
 
@@ -103,9 +103,7 @@ You can display devices from saved filters in the Device map. For more informati
 
 ### Map zoom views
 
-Working with map views helps expedite forensics when analyzing large networks.
-
-Three device detail views can be displayed:
+Working with map views helps expedite forensics when analyzing large networks. Map views include the following options:
 
   - [Bird’s-eye view](#birds-eye-view)
 

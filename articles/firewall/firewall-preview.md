@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/15/2022
+ms.date: 11/07/2022
 ms.author: victorh
 ---
 
@@ -57,12 +57,6 @@ Run the following Azure PowerShell command to turn off this feature:
 Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -ProviderNamespace Microsoft.Network 
 ```
 
-### IDPS Private IP ranges (preview)
-
-In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
-
-:::image type="content" source="media/firewall-preview/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
-
 ### Structured firewall logs (preview)
 
 Today, the following diagnostic log categories are available for Azure Firewall:
@@ -93,7 +87,22 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
 
-By default, the new resource specific tables are disabled. Open a support ticket to enable the functionality in your environment.
+By default, the new resource specific tables are disabled. 
+
+Run the following Azure PowerShell commands to enable Azure Firewall Structured logs:
+
+```azurepowershell
+Connect-AzAccount 
+Select-AzSubscription -Subscription "subscription_id or subscription_name" 
+Register-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+Run the following Azure PowerShell command to turn off this feature:
+
+```azurepowershell
+Unregister-AzProviderFeature -FeatureName AFWEnableStructuredLogs -ProviderNamespace Microsoft.Network 
+```
 
 In addition, when setting up your log analytics workspace, you must select whether you want to work with the AzureDiagnostics table (default) or with Resource Specific Tables.
 
@@ -108,7 +117,9 @@ Policy Analytics provides insights, centralized visibility, and control to Azure
 
 For large, geographically dispersed organizations, manually managing Firewall rules and policies is a complex and sometimes  error-prone process. The new Policy Analytics feature is the answer to this common challenge faced by IT teams.
 
-You can now refine and update Firewall rules and policies with confidence in just a few steps in the Azure portal. You have granular control to define your own custom rules for an enhanced security and compliance posture. You can automate rule and policy management to reduce the risks associated with a manual process.
+You can now refine and update Firewall rules and policies with confidence in just a few steps in the Azure portal. You have granular control to define your own custom rules for an enhanced security and compliance posture. You can automate rule and policy management to reduce the risks associated with a manual process.<br><br>
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE57NCC]
 
 #### Pricing
 
@@ -131,7 +142,9 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 
 ### Enable Policy Analytics
 
-#### Firewall with no Azure Diagnostics settings configured
+Policy analytics starts monitoring the flows in the DNAT, Network, and Application rule analysis only after you enable the feature. It can't analyze rules hit before the feature is enabled.  
+
+#### Firewall with no Diagnostics settings configured
 
 
 1.	Once all prerequisites are met, select **Policy analytics (preview)** in the table of contents. 
@@ -142,9 +155,9 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
 6. Go to the Firewall attached to the policy and enter the **Diagnostic settings** page. You'll see the **FirewallPolicySetting** added there as part of the policy analytics feature.
 7. Select **Edit Setting**, and ensure the **Resource specific** toggle is checked, and the highlighted tables are checked. In the previous example, all logs are written to the log analytics workspace.
 
-#### Firewall with Azure Diagnostics settings already configured
+#### Firewall with Diagnostics settings already configured
 
-1. Ensure that the Firewall attached to the policy is connected to **Resource Specific** tables, and that the following three tables are enabled:
+1. Ensure that the Firewall attached to the policy is logging to **Resource Specific** tables, and that the following three tables are also selected:
    - AZFWApplicationRuleAggregation
    - AZFWNetworkRuleAggregation
    - AZFWNatRuleAggregation
@@ -156,6 +169,23 @@ Enabling Policy Analytics on a Firewall Policy associated with a single firewall
    During the save process, you might see the following error message: **Failed to update Diagnostic Settings**
 
    You can disregard this error message if the policy was successfully updated.
+
+> [!TIP]
+> Policy Analytics has a dependency on both Log Analytics and Azure Firewall resource specific logging. Verify the Firewall is configured appropriately or follow the previous instructions. Be aware that logs take 60 minutes to appear after enabling them for the first time. This is because logs are aggregated in the backend every hour. You can check logs are configured appropriately by running a log analytics query on the resource specific tables such as **AZFWNetworkRuleAggregation**, **AZFWApplicationRuleAggregation**, and **AZFWNatRuleAggregation**.
+
+### Single click upgrade/downgrade (preview)
+
+You can now easily upgrade your existing Firewall Standard SKU to Premium SKU as well as downgrade from Premium to Standard SKU. The process is fully automated and has no service impact (zero service downtime).
+
+In the upgrade process, you can select the policy to be attached to the upgraded Premium SKU. You can select an existing Premium Policy or an existing Standard Policy. You can use your existing Standard policy and let the system automatically duplicate, upgrade to Premium Policy, and then attach it to the newly created Premium Firewall.
+
+This new capability is available through the Azure portal as shown here, as well as via PowerShell and Terraform simply by changing the sku_tier attribute.
+
+:::image type="content" source="media/premium-features/upgrade.png" alt-text="Screenshot showing SKU upgrade" lightbox="media/premium-features/upgrade.png":::
+
+> [!NOTE]
+> This new upgrade/downgrade capability will also support the Basic SKU for GA.
+
 
 ## Next steps
 

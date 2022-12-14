@@ -3,17 +3,14 @@
 title: How to download logs in Azure Active Directory | Microsoft Docs
 description: Learn how to download activity logs in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
-manager: karenhoran
-editor: ''
-
+author: shlipsey3
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/25/2022
-ms.author: markvi
+ms.date: 10/31/2022
+ms.author: sarahlipsey
 ms.reviewer: besiler 
 
 ms.collection: M365-identity-device-management
@@ -63,7 +60,7 @@ You can also download activity logs using Microsoft Graph; however, downloading 
 
 While the global administrator works, you should use an account with lower privileges to perform this task. To access the audit logs, the following roles work:
 
-- Report Reader
+- Reports Reader
 - Global Reader
 - Security Administrator
 - Security Reader

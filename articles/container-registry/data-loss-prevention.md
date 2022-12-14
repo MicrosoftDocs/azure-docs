@@ -2,7 +2,9 @@
 title: Disable export of artifacts
 description: Set a registry property to prevent data exfiltration from a Premium Azure container registry.
 ms.topic: how-to
-ms.date: 07/27/2021
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # Disable export of artifacts from an Azure container registry 

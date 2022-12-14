@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 06/28/2022
+ms.date: 09/07/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
 #Customer intent: As a data professional, I want to validate upcoming releases.
@@ -58,13 +58,13 @@ To install a pre-release version, follow these pre-requisite instructions:
 If you use the Azure CLI extension:
 
 - Uninstall the Azure CLI extension (`az extension remove -n arcdata`).
-- Download the latest pre-release Azure CLI extension `.whl` file from [https://aka.ms/az-cli-arcdata-ext](https://aka.ms/az-cli-arcdata-ext).
+- Download the latest pre-release Azure CLI extension `.whl` file from the link in the [Current preview release information](#Current preview release information)
 - Install the latest pre-release Azure CLI extension (`az extension add -s <location of downloaded .whl file>`).
 
 If you use the Azure Data Studio extension to install:
 
 - Uninstall the Azure Data Studio extension. Select the Extensions panel and select on the **Azure Arc** extension, select **Uninstall**.
-- Download the latest pre-release Azure Data Studio extension .vsix files from [https://aka.ms/ads-arcdata-ext](https://aka.ms/ads-arcdata-ext) and [https://aka.ms/ads-azcli-ext](https://aka.ms/ads-azcli-ext).
+- Download the latest pre-release Azure Data Studio extension .vsix files from the links in the [Current preview release information](#Current preview release information)
 - Install the extensions by choosing File -> Install Extension from VSIX package and then browsing to the download location of the .vsix files. Install the `azcli` extension first and then `arc`.
 
 ### Install using Azure CLI
@@ -159,7 +159,7 @@ Run the notebook by clicking **Run All**.
 
 Follow the instructions to [Arc-enabled the Kubernetes cluster](create-data-controller-direct-prerequisites.md) as normal.
 
-Open the Azure portal by using this special URL: [https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
+Open the Azure portal by using this special URL: [https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=preview#home).
 
 Follow the instructions to [Create the Azure Arc data controller from Azure portal - Direct connectivity mode](create-data-controller-direct-azure-portal.md) except that when choosing a deployment profile, select **Custom template** in the **Kubernetes configuration template** drop-down.  Set the repository to either `arcdata/test` or `arcdata/preview` as appropriate and enter the desired tag in the **Image tag** field.  Fill out the rest of the custom cluster configuration template fields as normal.
 

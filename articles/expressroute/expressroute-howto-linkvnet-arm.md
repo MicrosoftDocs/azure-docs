@@ -82,6 +82,15 @@ The 'circuit owner' is an authorized Power User of the ExpressRoute circuit reso
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
+  > [!NOTE]
+  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > The definition of the circuit owner is any role with the following access:
+  > - Microsoft.Network/expressRouteCircuits/authorizations/write
+  > - Microsoft.Network/expressRouteCircuits/authorizations/read
+  > - Microsoft.Network/expressRouteCircuits/authorizations/delete
+  > 
+  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](../role-based-access-control/built-in-roles.md).
+
 ### Circuit owner operations
 
 **To create an authorization**
@@ -198,7 +207,6 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
-
 ### FastPath and Private Link for 100 Gbps ExpressRoute Direct
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This is Generally Available for connections associated to 100 Gb ExpressRoute Direct circuits. To enable this, follow the below guidance:
@@ -220,23 +228,18 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and VNet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath support for VNet peering is limited to connections associated to ExpressRoute Direct.
-
 ### FastPath virtual network peering and user defined routes (UDRs).
 
 With FastPath and virtual network peering, you can enable ExpressRoute connectivity directly to VMs in a local or peered virtual network, bypassing the ExpressRoute virtual network gateway in the data path.
 
 With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct ExpressRoute traffic to an Azure Firewall or third party NVA. FastPath will honor the UDR and send traffic directly to the target Azure Firewall or NVA, bypassing the ExpressRoute virtual network gateway in the data path.
 
-> [!NOTE]
-> The previews for virtual network peering and user defined routes (UDRs) are offered together. You cannot enable only one scenario.
->
+To enroll in the preview, send an email to **exrpm@microsoft.com**, providing the following information: 
+* Azure Subscription ID
+* Virtual Network (VNet) Resource ID
+* ExpressRoute Circuit Resource ID
 
-To enroll in these previews, run the following Azure PowerShell command in the target Azure subscription:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName ExpressRouteVnetPeeringGatewayBypass -ProviderNamespace Microsoft.Network
-```
+**FastPath support for virtual network peering and UDRs is only available for ExpressRoute Direct connections**.
 
 ### FastPath and Private Link for 10 Gbps ExpressRoute Direct
 

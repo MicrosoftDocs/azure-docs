@@ -73,6 +73,6 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
 
 ## Next steps
 
-* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../azure-monitor/insights/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
+* Learn more about [Azure ExpressRoute](expressroute-introduction.md), [Network Insights](../network-watcher/network-insights-overview.md), and [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)
 * [Customize your metrics](expressroute-monitoring-metrics-alerts.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
 

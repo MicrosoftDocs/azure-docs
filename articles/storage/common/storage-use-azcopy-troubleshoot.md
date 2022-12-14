@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot problems with AzCopy (Azure Storage) | Microsoft Docs
+title: Troubleshoot problems with AzCopy (Azure Storage)
 description: Find workarounds to common issues with AzCopy v10.
 author: normesta
 ms.service: storage
@@ -23,6 +23,8 @@ If the exit code is `0-success`, then the job completed successfully.
 If the exit code is `1-error`, then examine the log file. Once you understand the exact error message, then it becomes much easier to search for the right key words and figure out the solution. To learn more, see  [Find errors and resume jobs by using log and plan files in AzCopy](storage-use-azcopy-configure.md).
 
 If the exit code is `2-panic`, then check the log file exists. If the file doesn't exist, file a bug or reach out to support.
+
+If the exit code is any other non-zero exit code, it may be an exit code from the system. For example, OOMKilled.  Check your operating system documentation for special exit codes.
 
 ## 403 errors
 

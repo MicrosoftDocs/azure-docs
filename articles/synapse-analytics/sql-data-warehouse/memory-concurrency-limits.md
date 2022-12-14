@@ -1,13 +1,13 @@
 ---
 title: Memory and concurrency limits
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
-author: ronortloff
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/04/2021
-ms.author: rortloff
+ms.author: wiassaf
 ms.reviewer: sngun
 ms.custom: azure-synapse
 ---

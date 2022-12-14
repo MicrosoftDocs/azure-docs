@@ -24,7 +24,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
-- [Python](configure-language-python.md#access-environment-variables)
+- [Python](configure-language-python.md#access-app-settings-as-environment-variables)
 - [Java](configure-language-java.md#configure-data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
@@ -191,6 +191,14 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 It's not possible to edit app settings in bulk by using a JSON file with Azure PowerShell.
 
 -----
+
+### Configure arrays in app settings
+
+You can also configure arrays in app settings as shown in the table below.
+
+|App setting name | App setting value |
+|-----------------|-------------------|
+|MY_ENV_VAR | ['entry1', 'entry2', 'entry3'] |
 
 ## Configure connection strings
 

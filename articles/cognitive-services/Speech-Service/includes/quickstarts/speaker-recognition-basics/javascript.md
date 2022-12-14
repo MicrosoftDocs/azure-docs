@@ -85,6 +85,9 @@ const ticks_per_second = 10000000;
 
 These statements import the required libraries and get your Speech service subscription key and region from your environment variables. They also specify paths to audio files that you'll use in the following tasks.
 
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../use-key-vault.md). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+
 ## Create a helper function
 
 Add the following helper function to read audio files into streams for use by the Speech service:

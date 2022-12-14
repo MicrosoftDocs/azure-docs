@@ -38,7 +38,7 @@ To get started, you'll need the following resources:
 
 * An active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
 
-* A [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource.
+* A [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource.
 
 * A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your files within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 

@@ -1,9 +1,9 @@
 ---
-title: Link your Domain to your Decentralized Identifier (DID) (preview) - Microsoft Entra Verified ID
+title: Link your Domain to your Decentralized Identifier (DID) - Microsoft Entra Verified ID
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,14 +13,9 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID) (preview)
+# Link your domain to your Decentralized Identifier (DID)
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
-
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Prerequisites
@@ -37,7 +32,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## When do you need to update the domain in your DID?
 
-In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal
+In the event where the domain associated with your company changes, you would also need to change the domain in your DID document. You can update the domain in your DID directly from the [Microsoft Entra Verified ID blade in the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_DecentralizedIdentity/InitialMenuBlade/~/domainUpdateBlade).
 
 ## How do we link DIDs and domains?
 
@@ -111,8 +106,8 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ## How do you update the linked domain on your DID?
 
-1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. On the left side of the page, select **Domain**.
+1. Navigate to the Verified ID in the Azure portal.  
+1. On the left side of the page, select **Registration**.
 1. In the Domain box, enter your new domain name.
 1. Select **Publish**.
 
@@ -132,14 +127,14 @@ Yes. You need to wait until the config.json file gets updated before you publish
 
 ### How do I know when the linked domain update has successfully completed?
 
-If the trust system is ION, once the domain changes are published to ION, the domain section inside the Azure AD Verifiable Credentials service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
+If the trust system is ION, once the domain changes are published to ION, the domain section inside the Microsoft Entra Verified ID service will display Published as the status and you should be able to make new changes to the domain. If the trust system is Web, the changes are public as soon as you replace the did-configuration.json file on your web server.
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.
 
 ## Distribute well-known config
 
-1. From the Azure portal, navigate to the Verifiable Credentials page. Select **Domain** and choose **Verify this domain**
+1. From the Azure portal, navigate to the Verified ID page. Select **Registration** and choose **Verify** for the domain
 
 2. Download the did-configuration.json file shown in the image below.
 
@@ -157,6 +152,13 @@ If the trust system is ION, once the domain changes are published to ION, the do
 >By default, 'Warn about unsafe apps' is turned on.
 
 Congratulations, you now have bootstrapped the web of trust with your DID!
+
+## How can I verify that the verification is working?
+
+The portal verifies that the `did-configuration.json` is reachable and correct when you click the **Refresh verification status** button. You should also consider verifying that you can request that URL in a browser to avoid errors like not using https, a bad SSL certificate or the URL not being public. If the `did-configuration.json` file cannot be requested anonymously in a browser or via tools such as `curl`, without warnings or errors, the portal will not be able to complete the **Refresh verification status** step either.
+
+>[!NOTE]
+> If you are experiencing problems refreshing your verification status, you can troubleshoot it via running `curl -Iv https://yourdomain.com/.well-known/did-configuration.json` on an machine with Ubuntu OS. Windows Subsystem for Linux with Ubuntu will work too. If curl fails, refreshing the verification status will not work.
 
 ## Linked Domain domain made easy for developers
 

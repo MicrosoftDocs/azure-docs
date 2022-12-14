@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
 
 > [!NOTE]
-> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [Isolated process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
+> The OpenAPI and API Management integration featured in this article is currently in preview. This method for exposing a serverless API is only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [isolated worker process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The Azure Functions project template in Visual Studio creates a project that you
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 6** | This value creates a function project that runs in-process on version 4.x of the Azure Functions runtime. OpenAPI file generation is only supported for versions 3.x and 4.x of the Functions runtime, and isolated process isn't supported.    |
+    | **Functions worker** | **.NET 6** | This value creates a function project that runs in-process on version 4.x of the Azure Functions runtime. OpenAPI file generation is only supported for versions 3.x and 4.x of the Functions runtime, and isolated worker process isn't supported.    |
     | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | **Selected** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
     | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information about keys and authorization, see [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). |

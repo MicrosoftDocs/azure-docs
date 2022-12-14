@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/11/2022
+ms.date: 08/05/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -29,18 +29,21 @@ If a policy where "Require one of the selected controls" is selected, we prompt 
 
 All policies are enforced in two phases:
 
-- Phase 1: Collect session details 
+- **Phase 1**: Collect session details 
    - Gather session details, like network location and device identity that will be necessary for policy evaluation. 
    - Phase 1 of policy evaluation occurs for enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
-- Phase 2: Enforcement 
+- **Phase 2**: Enforcement 
    - Use the session details gathered in phase 1 to identify any requirements that haven't been met. 
    - If there's a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
    - The user will be prompted to complete more grant control requirements that weren't satisfied during phase 1 in the following order, until policy is satisfied:  
-      - Multi-factor authentication​ 
-      - Approved client app/app protection policy​ 
-      - Managed device (compliant or hybrid Azure AD join)​ 
-      - Terms of use 
-      - Custom controls  
+      1. [Multi-factor authentication​](concept-conditional-access-grant.md#require-multi-factor-authentication)
+      2. [Device to be marked as compliant](./concept-conditional-access-grant.md#require-device-to-be-marked-as-compliant)
+      3. [Hybrid Azure AD joined device](./concept-conditional-access-grant.md#require-hybrid-azure-ad-joined-device)
+      4. [Approved client app](./concept-conditional-access-grant.md#require-approved-client-app)
+      5. [App protection policy](./concept-conditional-access-grant.md#require-app-protection-policy)
+      6. [Password change](./concept-conditional-access-grant.md#require-password-change)
+      7. [Terms of use](concept-conditional-access-grant.md#terms-of-use)
+      8. [Custom controls](./concept-conditional-access-grant.md#custom-controls-preview)
    - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Defender for Cloud Apps, and token Lifetime) 
    - Phase 2 of policy evaluation occurs for all enabled policies. 
 
@@ -76,7 +79,7 @@ Location data is provided by IP geolocation data. Administrators can choose to d
 
 #### Client apps
 
-By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition isn't configured.
+The software the user is employing to access the cloud app. For example, 'Browser', and 'Mobile apps and desktop clients'. By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition isn't configured.
 
 The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they'll remain unchanged. However, if you select on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
 
@@ -104,7 +107,7 @@ Block access does just that, it will block access under the specified assignment
 
 The grant control can trigger enforcement of one or more controls. 
 
-- Require multi-factor authentication (Azure AD Multi-Factor Authentication)
+- Require multi-factor authentication
 - Require device to be marked as compliant (Intune)
 - Require Hybrid Azure AD joined device
 - Require approved client app
@@ -123,7 +126,7 @@ Administrators can choose to require one of the previous controls or all selecte
 
 - Use app enforced restrictions
    - Currently works with Exchange Online and SharePoint Online only.
-      - Passes device information to allow control of experience granting full or limited access.
+   - Passes device information to allow control of experience granting full or limited access.
 - Use Conditional Access App Control
    - Uses signals from Microsoft Defender for Cloud Apps to do things like: 
       - Block download, cut, copy, and print of sensitive documents.
@@ -133,6 +136,8 @@ Administrators can choose to require one of the previous controls or all selecte
    - Ability to change the default sign in frequency for modern authentication.
 - Persistent browser session
    - Allows users to remain signed in after closing and reopening their browser window.
+- Customize continuous access evaluation
+- Disable resilience defaults 
 
 ## Simple policies
 

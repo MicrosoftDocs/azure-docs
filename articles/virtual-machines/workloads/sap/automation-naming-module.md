@@ -1,17 +1,17 @@
 ---
 title: Configure custom naming for the automation framework
-description: Explanation of how to implement custom naming conventions for the SAP deployment automation framework on Azure.
+description: Explanation of how to implement custom naming conventions for the SAP on Azure Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 10/19/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Overview
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md).
+The [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md) uses a standard naming convention for Azure [resource naming](automation-naming.md).
 
 The Terraform module `sap_namegenerator` defines the names of all resources that the automation framework deploys. The module is located at `/deploy/terraform/terraform-units/modules/sap_namegenerator/` in the repository. The framework also supports providing your own names for some of the resources using the [parameter files](automation-configure-system.md).
 
@@ -68,7 +68,7 @@ The names for the key vaults are defined in the "keyvault_names" structure. The 
 ```
 
 > [!NOTE]
-> This key vault names need to be unique across Azure, SDAF appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+> This key vault names need to be unique across Azure, SAP on Azure Deployment Automation Framework appends 3 random characters (ABC in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
 
 The "private_access" names are currently not used.
 
@@ -93,7 +93,7 @@ The names for the storage accounts are defined in the "storageaccount_names" str
 ```
 
 > [!NOTE]
-> This key vault names need to be unique across Azure, SDAF appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
+> This key vault names need to be unique across Azure, SAP on Azure Deployment Automation Framework appends 3 random characters (abc in the example) at the end of the key vault name to reduce the likelihood for name conflicts.
 
 ### Virtual Machine names
 

@@ -1,26 +1,25 @@
 ---
-title: Download a blob with JavaScript - Azure Storage
+title: Download a blob with JavaScript
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the JavaScript client library.
 services: storage
-author: normesta
-
-ms.author: normesta
-ms.date: 03/28/2022
+author: pauljewellmsft
+ms.author: pauljewell
+ms.date: 11/30/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.devlang: javascript
-ms.custom: "devx-track-javascript"
+ms.custom: devx-track-js, devguide-js
 ---
 
 # Download a blob in Azure Storage using the JavaScript client library
 
-You can download a blob by using any of the following methods:
+Create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then download a blob by using any of the following methods:
 
 - Blob.[download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download)
-- Blob.[downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1)
-- Blob.[downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile)
-
+- Blob.[downloadToBuffer](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtobuffer-1) (only available in Node.js runtime)
+- Blob.[downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) (only available in Node.js runtime)
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
@@ -29,7 +28,7 @@ The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets
  
 ## Download to a file path
 
-The following example downloads a blob by using a file path with the [BlobClient.downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) method:
+The following example downloads a blob by using a file path with the [BlobClient.downloadToFile](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-downloadtofile) method. This method is only available in the Node.js runtime:
 
 ```javascript
 async function downloadBlobToFile(containerClient, blobName, fileNameWithPath) {
