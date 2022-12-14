@@ -37,7 +37,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 1. In Visual Studio Code, open the **Explorer** view.
 1. At the bottom of the Explorer, expand the **Azure IoT Hub** section.
 
-   ![Expand Azure IoT Hub Devices section](./media/iot-edge-register-device-symmetric/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](/media/iot-edge-register-device-symmetric/azure-iot-hub-devices.png)
 
 1. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, click on or hover over the header.
 1. Choose **Select IoT Hub**.
@@ -68,7 +68,7 @@ This command includes three parameters:
 * `--hub-name` or `-n`: Provide the name of your IoT hub.
 * `--edge-enabled` or `--ee`: Declare that the device is an IoT Edge device.
 
-   ![az iot hub device-identity create output](./media/iot-edge-register-device-symmetric/create-edge-device-cli.png)
+   ![az iot hub device-identity create output](/media/iot-edge-register-device-symmetric/create-edge-device-cli.png)
 
 ---
 
@@ -82,7 +82,7 @@ Devices that use symmetric key authentication need their connection strings to c
 
 The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page. You can filter the list by type *Iot Edge Device*. 
 
-:::image type="content" source="./media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub.":::
+:::image type="content" source="/media/iot-edge-register-device/portal-view-devices.png" alt-text="Screenshot of how to view your devices in the Azure portal, IoT Hub.":::
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
@@ -95,7 +95,7 @@ Devices that authenticate with symmetric keys have their connection strings avai
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
-![Use VS Code to view all IoT Edge devices in your IoT hub](./media/iot-edge-register-device-symmetric/view-devices.png)
+![Use VS Code to view all IoT Edge devices in your IoT hub](/media/iot-edge-register-device-symmetric/view-devices.png)
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 

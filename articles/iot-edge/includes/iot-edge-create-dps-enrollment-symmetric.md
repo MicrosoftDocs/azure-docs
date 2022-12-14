@@ -13,9 +13,9 @@ Create an enrollment to provision one or more devices through DPS.
 
 If you are looking to provision a single IoT Edge device, create an **individual enrollment**. If you need multiple devices provisioned, follow the steps for creating a DPS **group enrollment**.
 
-When you create an enrollment in DPS, you have the opportunity to declare an **initial device twin state**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](../articles/iot-edge/how-to-deploy-at-scale.md).
+When you create an enrollment in DPS, you have the opportunity to declare an **initial device twin state**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](../how-to-deploy-at-scale.md).
 
-For more information about enrollments in the device provisioning service, see [How to manage device enrollments](../articles/iot-dps/how-to-manage-enrollments.md).
+For more information about enrollments in the device provisioning service, see [How to manage device enrollments](/articles/iot-dps/how-to-manage-enrollments.md).
 
 # [Individual enrollment](#tab/individual-enrollment)
 

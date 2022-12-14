@@ -60,14 +60,14 @@ Install IoT Edge for Linux on Windows on your target device.
    >   Deploy-Eflow -cpuCount 4 -memoryInMB 4096 -vmDiskSize 20
    >   ```
    >
-   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    >[!WARNING]
    >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. Please check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md).
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/articles/iot-edge/gpu-acceleration.md).
 
-   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
@@ -78,7 +78,7 @@ Install IoT Edge for Linux on Windows on your target device.
 
 1. Once the deployment is complete, the PowerShell window reports **Deployment successful**.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](./media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](/media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
    After a successful deployment, you are ready to provision your device.
 
@@ -95,7 +95,7 @@ Install IoT Edge for Linux on Windows on your target device.
 
 1. Confirm that your local device is listed under **All connections**, like shown below.
 
-   ![Initial Windows Admin Center dashboard with target device listed, PNG.](./media/iot-edge-install-linux-on-windows/windows-admin-center-initial-dashboard.png)
+   ![Initial Windows Admin Center dashboard with target device listed, PNG.](/media/iot-edge-install-linux-on-windows/windows-admin-center-initial-dashboard.png)
 
    If you want to deploy to a remote target device instead of your local device and you do not see your desired target device in the list, follow the [instructions to add your device](/windows-server/manage/windows-admin-center/use/get-started#connecting-to-managed-nodes-and-clusters).
 
@@ -105,7 +105,7 @@ Install IoT Edge for Linux on Windows on your target device.
 
    If you already have IoT Edge for Linux on Windows running on a device, you could select **Add** to connect to that existing IoT Edge device and manage it with Windows Admin Center.
 
-   ![Select Create New on Azure IoT Edge tile in Windows Admin Center, PNG.](./media/iot-edge-install-linux-on-windows/resource-creation-tiles.png)
+   ![Select Create New on Azure IoT Edge tile in Windows Admin Center, PNG.](/media/iot-edge-install-linux-on-windows/resource-creation-tiles.png)
 
 1. The **Create an Azure IoT Edge for Linux on Windows deployment** pane will open. On the **1. Getting Started** tab, review the minimum requirements and select **Next**.
 
@@ -115,11 +115,11 @@ Install IoT Edge for Linux on Windows on your target device.
 
 1. Select **Next: Deploy**.
 
-   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference, PNG.](./media/iot-edge-install-linux-on-windows/select-next-deploy.png)
+   ![Select the Next: Deploy button after toggling optional diagnostic data to your preference, PNG.](/media/iot-edge-install-linux-on-windows/select-next-deploy.png)
 
 1. On the **2. Deploy** tab, under **Select a target device**, click on your listed device to validate it meets the minimum requirements. Once its status is confirmed as supported, select **Next**.
 
-   ![Select your device to verify it is supported, PNG.](./media/iot-edge-install-linux-on-windows/evaluate-supported-device.png)
+   ![Select your device to verify it is supported, PNG.](/media/iot-edge-install-linux-on-windows/evaluate-supported-device.png)
 
 1. On the **2.2 Settings** tab, review the configuration settings of your deployment. The table below shows the settings and their default values.
 
@@ -133,9 +133,9 @@ Install IoT Edge for Linux on Windows on your target device.
    >[!NOTE]
    >IoT Edge for Linux on Windows uses a default switch, which assigns the Linux virtual machine an internal IP address. This internal IP address cannot be reached from outside the Windows machine. You can connect to the virtual machine locally while logged onto the Windows machine.
    >
-   >If you are using Windows Server, [set up a default switch](../articles/iot-edge/how-to-create-virtual-switch.md) before deploying IoT Edge for Linux on Windows.
+   >If you are using Windows Server, [set up a default switch](/articles/iot-edge/how-to-create-virtual-switch.md) before deploying IoT Edge for Linux on Windows.
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/articles/iot-edge/gpu-acceleration.md). If you are only installing these prerequisites at this point in the deployment process, you will need to start again from the beginning.
 
    There are two options for GPU passthrough available: **Direct Device Assignment (DDA)** and **GPU Paravirtualization (GPU-PV)**, depending on the GPU adaptor you assign to your deployment.
 
@@ -150,7 +150,7 @@ Install IoT Edge for Linux on Windows on your target device.
 
 1. On the **2.3 Deployment** tab, you can watch the progress of the deployment. The full process includes downloading the Azure IoT Edge for Linux on Windows package, installing the package, configuring the host device, and setting up the Linux virtual machine. This process may take several minutes to complete. A successful deployment is pictured below.
 
-   ![A successful deployment will show each step with a green check mark and a 'Complete' label, PNG.](./media/iot-edge-install-linux-on-windows/successful-deployment.png)
+   ![A successful deployment will show each step with a green check mark and a 'Complete' label, PNG.](/media/iot-edge-install-linux-on-windows/successful-deployment.png)
 
 1. Once your deployment is complete, you are ready to provision your device. Select **Next: Connect** to proceed to the **3. Connect** tab, which handles Azure IoT Edge device provisioning.
 
@@ -243,14 +243,14 @@ Install IoT Edge for Linux on Windows on your target device.
    >   Deploy-Eflow -cpuCount 1 -memoryInMB 1024 -vmDataSize 2
    >   ```
    >
-   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   >For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    >[!WARNING]
    >By default, the EFLOW Linux virtual machine has no DNS configuration. Deployments using DHCP will try to obtain the DNS configuration propagated by the DHCP server. Please check your DNS configuration to ensure internet connectivity. For more information, see [AzEFLOW-DNS](https://aka.ms/AzEFLOW-DNS).
 
-   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md).
+   You can assign a GPU to your deployment to enable GPU-accelerated Linux modules. To gain access to these features, you will need to install the prerequisites detailed in [GPU acceleration for Azure IoT Edge for Linux on Windows](/articles/iot-edge/gpu-acceleration.md).
 
-   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
+   To use a GPU passthrough, add the **gpuName**, **gpuPassthroughType**, and **gpuCount** parameters to your `Deploy-Eflow` command. For information about all the optional parameters available, see [PowerShell functions for IoT Edge for Linux on Windows](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow).
 
    >[!WARNING]
    >Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
@@ -261,7 +261,7 @@ Install IoT Edge for Linux on Windows on your target device.
 
 1. Once the deployment is complete, the PowerShell window reports **Deployment successful**.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](./media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages, PNG.](/media/iot-edge-install-linux-on-windows/successful-powershell-deployment.png)
 
    After a successful deployment, you are ready to provision your device.
 
