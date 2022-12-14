@@ -1,9 +1,8 @@
 ---
 title: Migrate servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
-author: deseelam
-ms.author: deseelam
-ms.manager: vijain
+author: vijain
+ms.author: vijain
 zone_pivot_groups: migrate-agentlessvmware-hyperv-agentbased
 ms.topic: how-to
 ms.date: 12/12/2022

@@ -1,9 +1,8 @@
 ---
 title: Use Azure Migrate with private endpoints
 description: Use Azure Migrate private link support to discover, assess, and migrate by using Azure Private Link.
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.custom: subject-rbac-steps, engagement-fy23
 ms.topic: how-to
 ms.date: 12/12/2022
