@@ -1,5 +1,5 @@
 ---
-title: Integration runtime overview
+title: Choosing the right IR configuration for your scenario
 description: Some recommended architectures for each integration runtime.
 ms.service: data-factory
 ms.subservice: integration-runtime
@@ -10,7 +10,7 @@ ms.custom: seo-lt-2019
 ms.date: 12/14/2022
 ---
 
-# Integration Runtime Overview
+# Choosing the right IR configuration for your scenario
 
 The integration runtime is a very important part of the infrastructure for the data integration solution provided by Azure Data Factory. This requires you to fully consider how to adapt to the existing network structure and data source at the beginning of designing the solution, as well as consider performance, security and cost. In this article, we will first systematically compare the similarities and differences of various integration runtimes. Later we will give some recommended architectures for each integration runtime.
 
