@@ -1,25 +1,25 @@
 ---
-title: Tutorial - Use automation to check and record IP address reputation in incident
-description: In this tutorial, learn how to use Microsoft Sentinel automation rules and playbooks to automatically check any IP addresses in any of your incidents against an external threat intelligence source and record each result in the relevant incident or incidents.
+title: Tutorial - Automatically check and record IP address reputation in incident
+description: In this tutorial, learn how to use Microsoft Sentinel automation rules and playbooks to automatically check IP addresses in your incidents against a threat intelligence source and record each result in its relevant incident.
 author: yelevin
 ms.author: yelevin
 ms.topic: tutorial
 ms.date: 12/05/2022
 ---
 
-# Tutorial: Use automation to check and record IP address reputation in incident
+# Tutorial: Automatically check and record IP address reputation information in incidents
 
-One of the first things you'll want to do when trying to assess the severity of an incident is to check any IP addresses in it for their reputation scores - if they're known as safe or malicious, or anything in between. Having a way to do this automatically can save you a lot of time and effort.
+One quick and easy way to assess the severity of an incident is to see if any IP addresses in it are known to be sources of malicious activity. Having a way to do this automatically can save you a lot of time and effort.
 
-In this tutorial, you learn how to use Microsoft Sentinel automation rules and playbooks to automatically check any IP addresses in any of your incidents against an external threat intelligence source and record each result in the relevant incident or incidents.
+In this tutorial, you'll learn how to use Microsoft Sentinel automation rules and playbooks to automatically check IP addresses in your incidents against a threat intelligence source and record each result in its relevant incident.
 
 When you complete this tutorial, you'll be able to:
 
 > [!div class="checklist"]
 > * Create a playbook from a template
-> * Modify and approve the playbook for your environment
-> * Create an automation rule
-> * Invoke the playbook from your automation rule
+> * Configure and authorize the playbook's connections to other resources
+> * Create an automation rule to invoke the playbook
+> * See the results of your automated process
 
 
 ## Prerequisites
@@ -43,7 +43,7 @@ To complete this tutorial, make sure you have:
 
 1. On the **Microsoft Sentinel | Overview** page, select **Automation** from the navigation menu, under **Configuration**.
 
-## 1 - Create a playbook from a template
+## Create a playbook from a template
 
 Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that you can customize and use to automate a large number of basic SecOps objectives and scenarios. Let's find one to enrich the IP address information in our incidents.
 
@@ -77,9 +77,9 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     1. Leave the **Microsoft Sentinel** connection as is (it should say "*Connect with managed identity*").
 
-    2. If any connections say "*New connection will be configured*," you will be prompted to do this at the next stage of the tutorial. Or, if you already have connections to these resources, select the expander arrow to the left of the connection and choose an existing connection from the expanded list. For this exercise we'll leave it as is.
+    2. If any connections say "*New connection will be configured*," you will be prompted to do so at the next stage of the tutorial. Or, if you already have connections to these resources, select the expander arrow to the left of the connection and choose an existing connection from the expanded list. For this exercise, we'll leave it as is.
 
-        :::image type="content" source="media/tutorial-enrich-ip-info/4b-playbook-connections-tab.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
+        :::image type="content" source="media/tutorial-enrich-ip-info/4-playbook-connections-tab.png" alt-text="Screenshot of the Connections tab of the playbook creation wizard.":::
 
     1. Select **Next : Review and create >**.
 
@@ -87,72 +87,114 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     :::image type="content" source="media/tutorial-enrich-ip-info/5-playbook-review-tab.png" alt-text="Screenshot of the Review and create tab from the playbook creation wizard.":::
 
-## 2 - Modify and approve the playbook for your environment
+    As the playbook is deployed, you'll see a quick series of notifications of its progress. Then the **Logic app designer** will open with your playbook displayed. We still need to authorize the logic app's connections to the resources it interacts with so that the playbook can run. Then we'll review each of the actions in the playbook to make sure they're suitable for our environment, making changes if necessary.
 
-As the playbook is deployed, you'll see a quick series of notifications of its progress. Then the **Logic app designer** will open with your playbook displayed. We'll go through each of the actions in the playbook to make sure it's suitable for our environment, making changes as necessary.
+    :::image type="content" source="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png" alt-text="Screenshot of playbook open in logic app designer window." lightbox="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png":::
 
-:::image type="content" source="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png" alt-text="Screenshot of playbook open in logic app designer window." lightbox="media/tutorial-enrich-ip-info/6-playbook-logic-app-designer.png":::
+## Authorize logic app connections
 
-1. The first step is the incident trigger which sets the incident as the input schema for the playbook.
+Recall that when we created the playbook from the template, we were told that the Azure Log Analytics Data Collector and Virus Total connections would be configured later. 
 
-1. The second step is the extraction of the list of IP address entities in the incident, to be used by the next step.
+:::image type="content" source="media/tutorial-enrich-ip-info/7-authorize-connectors.png" alt-text="Screenshot of review information from playbook creation wizard.":::
 
-1. The third step introduces a computation: For each IP address discovered in the incident, the playbook will take the actions defined inside the **For each** frame. Select the **For each** action to open it.
+Here's where we do that.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/7a-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
+### Authorize Virus Total connection
 
-    1. If you already have an existing connection to Virus Total, skip this step. If you don't, you should see an orange warning triangle on an action labeled **Connections** instead of the **Get an IP report (Preview)** action. Select it to open it and enter the connection parameters from your Virus Total account, then select **Create**.
+1. Select the **For each** action to expand it and review its contents (the actions that will be performed for each IP address).
 
-        :::image type="content" source="media/tutorial-enrich-ip-info/8-virus-total-connection.png" alt-text="Screenshot shows how to enter API key and other connection details for Virus Total.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/8-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
 
-    1. Now you'll see the **Get an IP report (Preview)** action properly. (If you already had a Virus Total account, you'll already be at this stage.)
+1. The first action item you see is labeled **Connections** and has an orange warning triangle. 
 
-        :::image type="content" source="media/tutorial-enrich-ip-info/9-get-ip-report-action.png" alt-text="Screenshot shows the action to submit an IP address to Virus Total to receive a report about it.":::
+    (If instead, that first action is labeled **Get an IP report (Preview)**, that means you already have an existing connection to Virus Total and you can go to the [next step](#next-step-condition).)
 
-1. The next action is a **Condition** that determines the rest of the playbook's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates the address is harmless; a score lower than 0 indicates it's malicious.
+    1. Select the **Connections** action to open it. 
+    1. Select the icon in the **Invalid** column for the displayed connection.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/10-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
+        :::image type="content" source="media/tutorial-enrich-ip-info/9-virus-total-invalid.png" alt-text="Screenshot of invalid Virus Total connection configuration.":::
 
-    Whether the condition is true or false, we want to send the data in the report to a table in Log Analytics so it can be queried and analyzed, and add a comment to the incident.
+        You'll be prompted for connection information.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/11-condition-true-false-actions.png":::
+        :::image type="content" source="media/tutorial-enrich-ip-info/10-virus-total-connection.png" alt-text="Screenshot shows how to enter API key and other connection details for Virus Total.":::
 
-1. Inside both the **True** and **False** frames is an identical action: send data to a Log Analytics table. 
+    1. Enter "*Virus Total*" as the **Connection name**. 
 
-    - The **JSON Request Body** field contains the dynamic content item representing the data in the Virus Total report. 
-    - The **Custom Log Name** field contains the name of the Log Analytics table into which the data will be placed. 
-    - Finally, the **Time-generated-field** field indicates the value to be placed in the timestamp field in the destination table. It's populated by a function that returns the current time (the time of the execution of this action) in UTC format.
+    1. For **x-api_key**, copy and paste the API key from your Virus Total account.
 
-1. Following the send data action in both the **True** and **False** frames is another near-identical action: add a comment to the open incident.
+    1. Select **Update**.
 
-    - The **Incident ARM id** field contains the ID of the open incident.
-    - The **Incident comment message** field contains a rich-text message of your choosing, that can incorporate dynamic content elements from any available object. It's pre-populated in this template by a message indicating the IP address being checked is most likely harmless (in the **True** frame) or malicious (in the **False** frame).
+    1. <a name="next-step-condition"></a>Now you'll see the **Get an IP report (Preview)** action properly. (If you already had a Virus Total account, you'll already be at this stage.)
 
-1. If you made any changes in the design, including adding or changing connection credentials, select **Save** at the top of the **Logic app designer** window.
+        :::image type="content" source="media/tutorial-enrich-ip-info/11-get-ip-report-action.png" alt-text="Screenshot shows the action to submit an IP address to Virus Total to receive a report about it.":::
 
-## 3 - Create an automation rule
+### Authorize Log Analytics connection
+
+The next action is a **Condition** that determines the rest of the for-each loop's actions based on the outcome of the IP address report. It analyzes the **Reputation** score given to the IP address in the report. A score higher than 0 indicates the address is harmless; a score lower than 0 indicates it's malicious.
+
+:::image type="content" source="media/tutorial-enrich-ip-info/12-reputation-condition.png" alt-text="Screenshot of condition action in logic app designer.":::
+
+Whether the condition is true or false, we want to send the data in the report to a table in Log Analytics so it can be queried and analyzed, and add a comment to the incident.
+
+But as you'll see, we have more invalid connections we need to authorize. 
+
+:::image type="content" source="media/tutorial-enrich-ip-info/13-condition-true-false-actions.png" alt-text="Screenshot showing true and false scenarios for defined condition." lightbox="media/tutorial-enrich-ip-info/13-condition-true-false-actions.png":::
+
+1. Select the **Connections** action in the **True** frame.
+
+1. Select the icon in the **Invalid** column for the displayed connection.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/14-log-analytics-invalid.png" alt-text="Screenshot of invalid Log Analytics connection configuration.":::
+
+    You'll be prompted for connection information.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/15-log-analytics-connection.png" alt-text="Screenshot shows how to enter Workspace ID and key and other connection details for Log Analytics.":::
+
+1. Enter "*Log Analytics*" as the **Connection name**. 
+
+1. For **Workspace Key** and **Workspace ID**, copy and paste the key and ID from your Log Analytics workspace settings. They can be found in the **Agents management** page, inside the **Log Analytics agent instructions** expander.
+
+1. Select **Update**.
+
+1. <a name="next-step-send-data"></a>Now you'll see the **Send data** action properly. (If you already had a Log Analytics connection from Logic Apps, you'll already be at this stage.)
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/16-send-data.png" alt-text="Screenshot shows the action to send a Virus Total report record to a table in Log Analytics.":::
+
+1. Now select the **Connections** action in the **False** frame. This action uses the same connection as the one in the True frame.
+
+1. Verify the connection called **Log Analytics** is marked, and select **Cancel**. This ensures that the action will now be displayed properly in the playbook.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/17-log-analytics-invalid-2.png" alt-text="Screenshot of second invalid Log Analytics connection configuration.":::
+
+    Now you'll see your entire playbook, properly configured:
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/18-whole-playbook.png" alt-text="Screenshot of whole playbook properly configured." lightbox="media/tutorial-enrich-ip-info/18-whole-playbook.png":::
+
+1. **Very important!** Don't forget to select **Save** at the top of the **Logic app designer** window. After you see notification messages that your playbook was saved successfully, you'll see your playbook listed in the *Active playbooks** tab in the **Automation** page.
+
+## Create an automation rule
 
 Now, to actually run this playbook, you'll need to create an automation rule that will run when incidents are created and invoke the playbook.
 
 1. From the **Automation** page, select **+ Create** from the top banner. From the drop-down menu, select **Automation rule**.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/12-add-automation-rule.png" alt-text="Screenshot of creating an automation rule from the Automation page.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/19-add-automation-rule.png" alt-text="Screenshot of creating an automation rule from the Automation page.":::
 
 1. In the **Create new automation rule** panel, give a name to the rule.
 
     Under **Conditions**, select **+ Add** and **Condition (And)**.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/13-create-automation-rule-name.png" alt-text="Screenshot of creating an automation rule, naming it, and adding a condition.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/20-create-automation-rule-name.png" alt-text="Screenshot of creating an automation rule, naming it, and adding a condition.":::
 
 1. We're not going to restrict which analytics rules will be covered by this automation, but we are going to limit the coverage to incidents that contain IP address entities.
 
     Select **IP Address** from the property drop-down on the left. Select **Contains** from the operator drop-down, and leave the value field blank. This effectively means that the rule will apply to incidents that have an IP address field that contains anything.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/14-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/21-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
 
 1. Under **Actions**, select **Change status** from the drop-down. In the new drop-down that appears just below that, select **Active**.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/15-create-automation-rule-action.png" alt-text="Screenshot showing how to add actions to your automation rule.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/22-create-automation-rule-action.png" alt-text="Screenshot showing how to add actions to your automation rule.":::
 
 1. Select **+ Add action**. From the new action drop-down that appears, select **Assign owner** and choose an owner of your choice from the drop-down that appears below.
 
@@ -160,13 +202,13 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
 1. Select the new drop-down that appears.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/16-add-run-playbook-action.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 1.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/23-add-run-playbook-action.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 1.":::
 
     You'll see a list of all the playbooks in your subscription. The grayed-out ones are those you don't have access to. In the **Search playbooks** text box, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. When you see your playbook in the list, select it.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/17-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/24-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/18-playbook-selected.png" alt-text="Screenshot showing your selected playbook.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/25-playbook-selected.png" alt-text="Screenshot showing your selected playbook.":::
 
 1. Leave the remaining settings as they are, and select **Apply**.
 
