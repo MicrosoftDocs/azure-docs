@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 12/15/2022
 ms.author: kgremban
 ---
 
@@ -47,7 +47,7 @@ Decide which route type you want to create: an event hub, a Service queue or top
 
 You can choose an Event Hubs resource (namespace and entity).
 
-#### Create an Event Hubs resource with authorization rule
+### Create an Event Hubs resource with authorization rule
 
 1. Create the Event Hubs namespace. For `name`, use a unique value. For `l` (location), use your resource group region.
 
@@ -78,7 +78,7 @@ For more information, see [Quickstart: Create an event hub by using the Azure CL
 
 You can choose a Service Bus queue resource (namespace and queue).
 
-#### Create a Service Bus queue resource with authorization rule
+### Create a Service Bus queue resource with authorization rule
 
 To create a Service bus queue resource with a subscription, you need an authorization rule to access the Service Bus queue.
 
@@ -116,7 +116,7 @@ For more information, see [Use the Azure CLI to create a Service Bus namespace a
 
 You can choose a Service Bus topic resource (namespace, topic, and subscription).
 
-#### Create a Service Bus topic resource with subscription
+### Create a Service Bus topic resource with subscription
 
 To create a Service Bus topic resource with a subscription, you need an authorization rule to access the Service Bus topic.
 
@@ -158,7 +158,7 @@ For more information, see [Use Azure CLI to create a Service Bus topic and subsc
 
 You can choose an Azure Storage resource (account and container).
 
-#### Create an Azure Storage resource with container
+### Create an Azure Storage resource with container
 
 1. Create a new storage account.
 
