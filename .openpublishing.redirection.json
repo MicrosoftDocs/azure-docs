@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/backup/backup-afs.md",
+            "redirect_url": "/azure/backup/backup-azure-files",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
             "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
             "redirect_document_id": false
@@ -9811,11 +9816,6 @@
         {
             "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md",
             "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/backup/backup-azure-files.md",
-            "redirect_url": "/azure/backup/backup-afs",
             "redirect_document_id": false
         },
         {
