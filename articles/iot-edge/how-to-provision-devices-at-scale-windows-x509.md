@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Create and provision IoT Edge devices at scale on Windows using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Windows IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -35,7 +35,7 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### Device requirements
 
@@ -70,10 +70,10 @@ To create test certificates, follow the steps in [Create demo certificates to te
 You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 <!-- Create a DPS enrollment using X.509 certificates H2 and content -->
-[!INCLUDE [iot-edge-create-dps-enrollment-x509.md](../../includes/iot-edge-create-dps-enrollment-x509.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-x509.md](includes/iot-edge-create-dps-enrollment-x509.md)]
 
 <!-- Install IoT Edge on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
+[!INCLUDE [install-iot-edge-windows.md](includes/iot-edge-install-windows.md)]
 
 ## Provision the device with its cloud identity
 
