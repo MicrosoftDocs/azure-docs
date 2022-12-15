@@ -11,7 +11,7 @@ ms.date: 11/03/2022
 
 # Microsoft Purview automation best practices
 
-While Microsoft Purview provides an out of the box user experience with the Microsoft Purview governance portal, not all tasks are suited to the point-and-click nature of the graphical user experience. 
+While [Microsoft Purview governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) provide an out of the box user experience with the Microsoft Purview governance portal, not all tasks are suited to the point-and-click nature of the graphical user experience. 
 
 For example:
 * Triggering a scan to run as part of an automated process.

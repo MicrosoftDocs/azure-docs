@@ -11,7 +11,10 @@ ms.date: 06/28/2022
 
 # Microsoft Purview security best practices
 
-This article provides best practices for common security requirements in Microsoft Purview. The security strategy described follows the layered defense-in-depth approach.
+This article provides best practices for common security requirements for Microsoft Purview governance solutions. The security strategy described follows the layered defense-in-depth approach.
+
+>[!NOTE]
+>These best practices cover security for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
 
 :::image type="content" source="media/concept-best-practices/security-defense-in-depth.png" alt-text="Screenshot that shows defense in depth in Microsoft Purview." :::
 
