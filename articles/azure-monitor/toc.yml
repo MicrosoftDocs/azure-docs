@@ -1039,7 +1039,7 @@ items:
       href: vm/vminsights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
-    - name: Configure workspace
+    - name: Configure workspace 
       href: vm/vminsights-configure-workspace.md
     - name: Enable and configure
       items:
@@ -1051,7 +1051,7 @@ items:
         href: vm/vminsights-enable-powershell.md
       - name: ARM templates
         href: vm/vminsights-enable-resource-manager.md
-      - name: Azure Policy
+      - name: Azure Policy 
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
