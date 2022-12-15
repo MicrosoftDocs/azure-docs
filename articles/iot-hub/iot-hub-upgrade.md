@@ -33,11 +33,11 @@ These examples are meant to help you understand how to adjust your IoT hub as yo
 
 1. To upgrade the tier for your hub, select **Overview**, then select the value for **Tier** from the **Essentials** section of the details pane as shown in the following picture. Choose the new tier, select **I agree** to agree to the updated tier and pricing, then click **Upgrade**.
    
-   :::image type="content" source="./media/iot-hub-upgrade/iot-hub-upgrade-overview-tier.png" alt-text="Choose the tier to upgrade the tier of your IoT hub.":::
+   :::image type="content" source="./media/iot-hub-upgrade/iot-hub-upgrade-overview-tier.png" alt-text="Screenshot that shows how to upgrade the tier of your IoT hub.":::
    
 1. To change the size or units for your hub, select **Overview**, then select the value for **Daily message limit** from the **Essentials** section of the details pane as shown in the following picture. Choose the new daily message limit, then click **Adjust**.
    
-   :::image type="content" source="./media/iot-hub-upgrade/iot-hub-upgrade-overview-message-limit.png" alt-text="Choose the daily message limit to upgrade the size or units of your IoT hub.":::
+   :::image type="content" source="./media/iot-hub-upgrade/iot-hub-upgrade-overview-message-limit.png" alt-text="Screenshot that shows how to upgrade the size or units of your IoT hub.":::
    
 Your IoT hub is now adjusted, and your configurations are unchanged.
 
