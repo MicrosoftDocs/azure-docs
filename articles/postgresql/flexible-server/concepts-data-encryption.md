@@ -137,9 +137,6 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 After Azure Database for PostgreSQL - Flexible Server is encrypted with a customer's managed key stored in Key Vault, any newly created server copy is also encrypted. You can make this new copy through a [PITR restore](concepts-backup-restore.md) operation or read replicas.
 
-> [!NOTE]  
-> At this time we don't support revoking the original encryption key after restoring CMK enabled server to another server
-
 Avoid issues while setting up customer-managed data encryption during restore or read replica creation by following these steps on the primary and restored/replica servers:
 
 - Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible server.
