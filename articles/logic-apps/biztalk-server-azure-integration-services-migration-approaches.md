@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/15/2022
 # As a BizTalk Server customer, I want to learn about the planning considerations, migration options, and best practices when considering a move from BizTalk Server workloads to Azure Integration Services.
 ---
 
