@@ -50,7 +50,7 @@ The following table describes the different components:
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any Personal Identifiable Information (PII) in the sampler name in your JMeter script. The sampler names used in the JMeter script appear in the test run results dashboard. |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any Personally Identifiable Information (PII) in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard. |
 
 ### Supported client metrics for fail criteria
 
