@@ -66,7 +66,7 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
 
 5. Enter or select this information in the **Networking** tab:
 
-     Setting                           | Value                                                    |
+    | Setting                           | Value                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network Configuration** |                                                          |
     | Virtual network                   | Select **myVNet** or your existing virtual network.      |
