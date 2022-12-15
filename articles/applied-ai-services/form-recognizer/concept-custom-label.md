@@ -2,8 +2,8 @@
 title: Best practices for labeling documents in the Form Recognizer Studio
 titleSuffix: Azure Applied AI Services
 description: Label documents in the Studio to create a training dataset. Labeling guidelines aimed at training a model with high accuracy
-author: vkurpad
-manager: netahw
+author: laujan
+manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
@@ -63,8 +63,8 @@ Custom neural models currently only support key-value pairs, structured fields (
 
 | Model type | Form fields | Selection marks | Tabular fields | Signature | Region |
 |--|--|--|--|--|--|
-| Custom neural | Supported| Supported | Supported | Unsupported | Supported<sup>1</sup> |
-| Custom template | Supported| Supported | Supported | Supported | Supported |
+| Custom neural | ✔️Supported | ✔️Supported | ✔️Supported | Unsupported | ✔️Supported<sup>1</sup> |
+| Custom template | ✔️Supported| ✔️Supported | ✔️Supported | ✔️Supported | ✔️Supported |
 
 <sup>1</sup> Region labeling implementation differs between template and neural models. For template models, the training process injects synthetic data at training time if no text is found in the region labeled. With neural models, no synthetic text is injected and the recognized text is used as is.
 
@@ -72,20 +72,20 @@ Custom neural models currently only support key-value pairs, structured fields (
 
 Tabular fields (tables) are supported with custom neural models starting with API version ```2022-06-30-preview```. Models trained with API version 2022-06-30-preview or later will accept tabular field labels and documents analyzed with the model with API version 2022-06-30-preview or later will produce tabular fields in the output within the  ```documents``` section of the result in the ```analyzeResult``` object.
 
-Tabular fields support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice, ensure that your dataset contains a few samples of the expected variations, for example include samples where the entire table is on a single page, samples of the table spanning two or more pages.
+Tabular fields support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where an entire table is on a single page and samples of a table spanning two or more pages.
 
 Tabular field is also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
 ## Labeling guidelines
 
-* Label only the value required, don't include any of the surrounding text. For example when labeling a checkbox, name the field to indicate the check box selection for example ```selectionYes``` and ```selectionNo``` rather than labeling the yes or no text in the document.
+* Labeling the value is required; don't include the surrounding text. For example when labeling a checkbox, name the field to indicate the check box selection for example ```selectionYes``` and ```selectionNo``` rather than labeling the yes or no text in the document.
 * Non interleaving values - Value words/region of one field must be either
     - Consecutive sequence in natural reading order without interleaving with other fields or
     - In a region that doesn't cover any other fields
 * Consistent labeling - If a value appears in multiple contexts withing the document, consistently pick the same context across documents to label the value.
 * Tables support visually repeating groups of information not just explicit tables. Explicit tables will be identified in tables section of the analyzed documents as part of the layout output and don't need to be labeled as tables. Only label a table field if the information is visually repeating and not identified as a table as part of the layout response. An example would be the repeating work experience section of a resume.
 * Region labeling (custom template) allows you to define a value when none exists. If the value is optional, ensure that you leave a few sample documents with the region not labeled.
-* When labeling regions, don't include any of the surrounding text with the label.
+* When labeling regions, don't include the surrounding text with the label.
 
 ## Next steps
 

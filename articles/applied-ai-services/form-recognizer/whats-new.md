@@ -29,8 +29,6 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## December 2022
 
-December 2022
-
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
 
   The December Form Recognizer Studio release includes the latest updates to Form Recognizer Studio. There are significant improvements to user experience, primarily with custom model labeling support.
@@ -39,13 +37,13 @@ December 2022
 
   * **Custom model labeling**:
 
-    * **Run layout on all documents**. You can opt to run layout on all documents in the setup wizard when creating a custom project. This speeds up labeling as you no longer have to select each document in the dataset.
+    * **Run Layout API automatically**. You can opt to run the Layout API for all documents automatically in your blob storage during the setup process for custom model.
 
-    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement i useful when labeling large documents where the value you want to label isn't always on the same page.
+    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
 
-    * **Navigation**.  You can select labels to target labeled words within a document. On a multi-page document, clicking on a field will navigate to the page with the value labeled.
+    * **Navigation**.  You can select labels to target labeled words within a document.
 
-    * **Auto table labeling**. With tables that layout recognizes, use the auto-label option to label the table with just a few clicks. Auto-label currently only supports single page tables.
+    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
 
     * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
 
@@ -177,7 +175,7 @@ December 2022
   * Form Recognizer SDK version 4.0.0 GA release
     * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
     * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
-    * Update your applications using your programming language's **migration guide** (see above).
+    * Update your applications using your programming language's **migration guide**.
 
 ---
 
@@ -827,7 +825,7 @@ December 2022
 
 ## April 2020
 
-* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use these links to get started with your language of choice:
 * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
 * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
 * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
@@ -890,7 +888,7 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 ## January 2020
 
-This release introduces the Form Recognizer 2.0. In the sections below, you'll find more information about new features, enhancements, and changes.
+This release introduces the Form Recognizer 2.0. In the next sections, you'll find more information about new features, enhancements, and changes.
 
 * New features
 

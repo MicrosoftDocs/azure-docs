@@ -36,7 +36,7 @@ Custom neural models currently only support key-value pairs and selection marks 
 |:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> |
 
-<sup>1</sup> Region labels in custom neural models will use the results from Layout for specified region. This is different from template models, where if no value is present text is generated at training time.
+<sup>1</sup> Region labels in custom neural models will use the results from the Layout API for specified region. This feature is different from template models where, if no value is present, text is generated at training time.
 
 ### Build mode
 
@@ -84,7 +84,7 @@ As of October 18, 2022, Form Recognizer custom neural model training will only b
 
 
 > [!TIP]
-> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed above to **any other region** and use it accordingly.
+> You can [copy a model](disaster-recovery.md#copy-api-overview) trained in one of the select regions listed to **any other region** and use it accordingly.
 >
 > Use the [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/CopyDocumentModelTo) or [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) to copy a model to another region.
 

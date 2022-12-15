@@ -2,8 +2,8 @@
 title: Labeling tips and tricks for custom models in the Form Recognizer Studio
 titleSuffix: Azure Applied AI Services
 description: Label tips and tricks for Form Recognizer Studio
-author: vkurpad
-manager: netahw
+author: laujan
+manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
@@ -23,11 +23,11 @@ The Studio now includes a search box for instances when you know you need to fin
 
 ## Auto label tables
 
-Tables can be tedious to label, when they have many rows or dense text. If the layout table extracts the result you need, you should just use that and not have to label a table. In instances where the layout table is not exactly what you need, you can start with generating the table field from the values layout extracts. Start by selecting the table icon on the page and click on the auto label button. You can then edit the values as needed. Auto label currently only supports single page tables and a future update will include support for multi page tables.
+Tables can be tedious to label, when they have many rows or dense text. If the layout table extracts the result you need, you should just use that result and skip labeling the table. In instances where the layout table isn't exactly what you need, you can start with generating the table field from the values layout extracts. Start by selecting the table icon on the page and select on the auto label button. You can then edit the values as needed. Auto label currently only supports single page tables and a future update will include support for multi page tables.
 
 ## Shift select
 
-When labeling a large span of text, rather than paint each word in the span, hold down the shift key as you are selecting the words to speed up labeling and ensure you do not miss any words in the span of text
+When labeling a large span of text, rather than paint each word in the span, hold down the shift key as you're selecting the words to speed up labeling and ensure you don't miss any words in the span of text
 
 ## Region labeling
 
@@ -39,6 +39,4 @@ When creating a field, select the right subtype to minimize post processing, for
 
 ## Batch layout
 
-When creating a project, select the batch layout option to prepare all documents in your dataset for labeling. This ensures that you no longer have to click on each document and wait for the layout results before you can start labeling.
-
-## 
+When creating a project, select the batch layout option to prepare all documents in your dataset for labeling. This feature ensures that you no longer have to select on each document and wait for the layout results before you can start labeling.
