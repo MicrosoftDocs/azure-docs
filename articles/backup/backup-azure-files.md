@@ -31,7 +31,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 # [Backup center](#tab/backup-center)
 
-To configure backup for multiple file shares from the Recovery Services vault pane, follow these steps:
+To configure backup for multiple file shares from the Backup center, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and select **+Backup**.
 
