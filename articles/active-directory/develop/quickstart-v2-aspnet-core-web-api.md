@@ -17,16 +17,16 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 
 # Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
 
-
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
 > > [Quickstart:Protect an ASP.NET Core web API](web-api-quickstart.md?pivots=devlang-aspnet-core)
->
+> 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
+>
 >
 > ## Prerequisites
 > 
@@ -60,7 +60,7 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
 >
 > > [!Note]
-> The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
+> The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60).
 This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
 >
 > 
