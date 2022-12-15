@@ -89,7 +89,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 1. Press **+/-** to select **Enabled**.
 
-1. Go to **Advanced** > **Boot option filter [Legacy only]** and change the setting in the following fields to **Legacy**:
+1. Go to **Advanced** > **CSM Configuration** and change the setting in the following fields to **Legacy**:
 
     - Network
     - Storage
