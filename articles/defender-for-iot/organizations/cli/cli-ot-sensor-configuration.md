@@ -199,15 +199,11 @@ You can also view filters on your sensor machine in the `/var/cyberx/properties/
 
 The following table shows where you can find details about each capture filter on the sensor. <!--this table doesn't actually belong here as this is a CLI reference. it should be somewhere else. also what are these? it's completely unclear-->
 
-<!--according to Amos this table isn't up to date.-->
-
 |Name  |File |Property  |
 |---------|---------|---------|
-|**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties`       |  `bpf_filter property`       |
-|**dissector**     |   `/var/cyberx/properties/cybershark.properties`      |    `override.capture_filter`     |
-|**rpc-parser**     |   `/var/cyberx/properties/rpc-parser.properties`      |   `override.capture_filter`      |
-|**smb-parser**     |   `/var/cyberx/properties/smb-parser.properties`      | `override.capture_filter`        |
-|**collector**     | `/var/cyberx/properties/collector.properties`        |   `general.bpf_filter`      |
+|**horizon**     |  `/var/cyberx/properties/horizon.properties`       |  `horizon.processor.filter`       |
+|**traffic-monitor**     |   `/var/cyberx/properties/traffic-monitor.properties`      |    `horizon.processor.filter`     |
+|**dumpark**     |   `/var/cyberx/properties/dumpark.properties`      |   `dumpark.network.filter`      |
 
 
 ### Resetting all capture filters
