@@ -74,11 +74,11 @@ You learn how to register an application in the next tutorial.
 
    - For **Organization name**, enter a name for your Azure AD B2C tenant.
    - For **Initial domain name**, enter a domain name for your Azure AD B2C tenant.
-   - For **Country or region**, select your country or region from the list. If the country you select has a [Go-Local add-on](data-residency.md#go-local-add-on) option, such as Japan or Australia, and you want to store your data exclusively within that country, select the **Enable local data residency** checkbox. Local data residency is a paid add-on whose charge is added to your Azure AD B2C Premium P1 or P2 licenses charges, see [Billing model](billing.md#about-go-local-add-on). You can't change the data residency region after you create your Azure AD B2C tenant. 
+   - For **Location**, select your country from the list. If the country you select has a [Go-Local add-on](data-residency.md#go-local-add-on) option, such as Japan or Australia, and you want to store your data exclusively within that country, select the **Store Azure AD Core Store data, components and service data in the location selected above** checkbox. Go-Local add-on is a paid add-on whose charge is added to your Azure AD B2C Premium P1 or P2 licenses charges, see [Billing model](billing.md#about-go-local-add-on). You can't change the data residency region after you create your Azure AD B2C tenant. 
    - For **Subscription**, select your subscription from the list.
    - For **Resource group**, select or search for the resource group that will contain the tenant.
 
-    ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
+    :::image type="content" source="media/tutorial-create-tenant/review-and-create-tenant.png" alt-text="Screenshot of create tenant form in with example values in Azure portal.":::
 
 1. Select **Review + create**.
 1. Review your directory settings. Then select **Create**. Learn more about [troubleshooting deployment errors](../azure-resource-manager/templates/common-deployment-errors.md).
