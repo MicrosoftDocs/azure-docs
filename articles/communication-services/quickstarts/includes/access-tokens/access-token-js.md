@@ -157,7 +157,7 @@ console.log(`\nIssued an access token with 'voip' scope that expires at ${expire
 console.log(token);
 ```
 
-## Refresh access tokens
+## Refreshing access tokens
 
 As tokens expire, you'll periodically need to refresh them. Refreshing is easy just call `getToken` again with the same identity that was used to issue the tokens. You'll also need to provide the `scopes` of the refreshed tokens.
 

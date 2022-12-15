@@ -129,7 +129,7 @@ print("\nIssued an access token with 'voip' scope that expires at " + expires_on
 print(token)
 ```
 
-## Refresh access tokens
+## Refreshing access tokens
 
 To refresh an access token, use the `CommunicationUserIdentifier` object to reissue a token by passing in the existing identity:
 

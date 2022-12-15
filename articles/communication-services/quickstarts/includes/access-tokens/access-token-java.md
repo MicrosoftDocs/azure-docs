@@ -179,7 +179,7 @@ String token = accessToken.getToken();
 System.out.println("\nIssued an access token with 'chat' scope that expires at: " + expiresAt + ": " + token);
 ```
 
-## Refresh access tokens
+## Refreshing access tokens
 
 To refresh an access token, use the `CommunicationUserIdentifier` object to reissue it:
 

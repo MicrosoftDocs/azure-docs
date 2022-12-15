@@ -163,7 +163,7 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-## Refresh access tokens
+## Refreshing access tokens
 
 To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 
