@@ -123,7 +123,7 @@ az aks create -g <ResourceGroupName> -n <ClusterName> -l <Location> --enable-add
 To enable Web Application  Routing on an existing cluster, add the `--addons` parameter and specify *web_application_routing* as shown in the following example:
 
 ```azurecli-interactive
-az aks enable-addons-g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
+az aks enable-addons -g <ResourceGroupName> -n <ClusterName> --addons azure-keyvault-secrets-provider,web_application_routing --enable-secret-rotation
 ```
 
 ---
@@ -221,7 +221,8 @@ Create a file named **deployment.yaml** and copy in the following YAML.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld  
+  name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   replicas: 1
   selector:
@@ -251,6 +252,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   type: ClusterIP
   ports:
@@ -289,6 +291,11 @@ metadata:
   namespace: hello-web-app-routing
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
+  defaultBackend:
+    service:
+      name: aks-helloworld
+      port:
+        number: 80
   rules:
   - host: <Hostname>
     http:
@@ -339,10 +346,10 @@ spec:
 Use the [kubectl apply][kubectl-apply] command to create the resources.
 
 ```bash
-kubectl apply -f deployment.yaml -n hello-web-app-routing
-kubectl apply -f service.yaml -n hello-web-app-routing
-kubectl apply -f ingress.yaml -n hello-web-app-routing
-kubectl apply -f ingressbackend.yaml -n hello-web-app-routing
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+kubectl apply -f ingressbackend.yaml
 ```
 
 The following example output shows the created resources:
@@ -372,12 +379,13 @@ Create a file named **deployment.yaml** and copy in the following YAML.
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld  
+  name: aks-helloworld
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: aks-helloworld
+      namespace: hello-web-app-routing
   template:
     metadata:
       labels:
@@ -402,6 +410,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld
+  namespace: hello-web-app-routing
 spec:
   type: ClusterIP
   ports:
@@ -433,6 +442,11 @@ metadata:
   namespace: hello-web-app-routing
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
+  defaultBackend:
+    service:
+      name: aks-helloworld
+      port:
+        number: 80
   rules:
   - host: <Hostname>
     http:
@@ -455,9 +469,9 @@ spec:
 Use the [kubectl apply][kubectl-apply] command to create the resources.
 
 ```bash
-kubectl apply -f deployment.yaml -n hello-web-app-routing
-kubectl apply -f service.yaml -n hello-web-app-routing
-kubectl apply -f ingress.yaml -n hello-web-app-routing
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
 ```
 
 The following example output shows the created resources:
