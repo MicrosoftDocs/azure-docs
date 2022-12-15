@@ -12,19 +12,19 @@ services: azure-maps
 
 # Release notes - Map Control
 
-See below for information about new features and other changes to the Map Control.
+This document contains information about new features and other changes to the Map Control.
 
 ## [3.0.0-preview.2](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2) (December 9, 2022)
 
 ### New Features
-
-- Add `trafficSpeedAnimation` to [TrafficOptions][TrafficOptions] to enable traffic flow animation. This feature addresses an accessibility issue where traffic levels couldn't be distinguished if colors aren't taken into account.
 
 - Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.1 release notes](#221-december-9-2022).
 
 ### Bug Fixes
 
 - Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
+
+- Fix the initial state of `incidents` will always be true in [TrafficControl][TrafficControl].
 
 - Add `.atlas-map` to all css selectors to scope the styles within the map container. The fix prevents the css from accidentally adding unwanted styles to other elements on the page.
 
@@ -74,6 +74,8 @@ See below for information about new features and other changes to the Map Contro
 
 - Fix an issue that the ordering of user layers wasn't preserved after calling `map.layers.move()`.
 
+- Fix the initial state of `incidents` will always be true in [TrafficControl][TrafficControl].
+
 ## Next steps
 
 Explore samples showcasing Azure Maps:
@@ -87,4 +89,4 @@ Stay up to date on Azure Maps:
 [azure-maps-control]: https://www.npmjs.com/package/azure-maps-control
 [maplibre-gl]: https://www.npmjs.com/package/maplibre-gl
 [StyleOptions]: /javascript/api/azure-maps-control/atlas.styleoptions
-[TrafficOptions]: /javascript/api/azure-maps-control/atlas.trafficoptions
+[TrafficControl]: /javascript/api/azure-maps-control/atlas.control.trafficcontrol
