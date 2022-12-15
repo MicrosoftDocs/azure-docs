@@ -127,7 +127,7 @@ In the above list of metrics, some of the metrics have dimension such as `databa
 
 Here in this example below, we have done **splitting** by `State` dimension and **filtered** on a specific `state` types.
 
-![image](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
+![Screenshot of sessions by state](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
 
 For more details on setting-up charts with dimensional metrics, see [Metric chart examples](../../azure-monitor/essentials/metric-chart-samples.md)
 
