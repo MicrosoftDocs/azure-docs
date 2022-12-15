@@ -25,7 +25,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string or int |The value to convert to a boolean. The string value is case-insensitive. 0 is considered to be false and all other integers are considered be true.  |
+| arg1 |Yes |string or int |The value to convert to a boolean. The string value is case-insensitive. 0 is considered to be false and all other integers are considered to be true.  |
 
 ### Return value
 
