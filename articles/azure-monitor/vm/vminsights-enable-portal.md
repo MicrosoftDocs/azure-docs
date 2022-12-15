@@ -98,13 +98,20 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
 
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
-
-1. Follow the process described in [Enable VM insights for Azure Monitor Agent
-](#enable-vm-insights-for-azure-monitor-agent) to select a data collection rule. The only difference is that the data collection rule hasn't created for monitored machines has **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
+1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a rule from the **Data collection rule** dropdown. 
  
     :::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
 
-1. With both agents installed, a warning will be displayed indicating that you may be collecting duplicate data.
+    The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
+
+    - **Guest performance** enabled.
+    - **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
+
+    Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
+
+    Selecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. When you migrate a machine on which Dependency Agent is installed, if you do not need the Map feature, you must uninstall Dependency Agent.
+
+    With both agents installed, Azure Monitor displays a warning that you may be collecting duplicate data.
 
     :::image type="content" source="media/vminsights-enable-portal/both-agents-installed.png" lightbox="media/vminsights-enable-portal/both-agents-installed.png" alt-text="Screenshot showing warning message for both agents installed":::
 
