@@ -123,7 +123,7 @@ For more information on configuring your own DNS server to support private endpo
 
 ### Create a private endpoint using Azure CLI
 
-1. Login to Azure CLI
+1. Log in to Azure CLI
     ```azurecli
     az login
     ```
