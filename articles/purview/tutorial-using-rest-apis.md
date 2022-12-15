@@ -84,7 +84,7 @@ You can send a POST request to the following URL to get access token.
 
 `https://login.microsoftonline.com/{your-tenant-id}/oauth2/token`
 
-You can find your Tenant ID by searching for **Tenant Properties** in the Azure Portal. The ID will be available on the tenant properties page.
+You can find your Tenant ID by searching for **Tenant Properties** in the Azure portal. The ID will be available on the tenant properties page.
 
 The following parameters need to be passed to the above URL:
 
@@ -93,7 +93,7 @@ The following parameters need to be passed to the above URL:
 - **grant_type**: This should be ‘client_credentials’.
 - **resource**: This should be ‘https://purview.azure.net’
 
-Here's a sample POST request in Powershell:
+Here's a sample POST request in PowerShell:
 
 ```azurepowershell
 $tenantID = "12a345bc-67d1-ef89-abcd-efg12345abcde"
