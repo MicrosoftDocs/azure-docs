@@ -24,7 +24,7 @@ Considering all these factors, is critical for a good DCR organization. All the 
 
 Given the native granularity, which allows a given DCR to be associated with more than one target virtual machine and vice versa, it's important to keep the DCR as simple as possible using fewer data sources each. It's also important to keep the list of collected items in each data source, lean and oriented to the observability scope.
 
-:::image type="content" source="media/data-collection-rule-best-practices/dcr-to-vm-relationship.png" lightbox="media/data-collection-rule-best-practices/dcr-to-vm-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
+:::image type="content" source="media/data-collection-rule-best-practices/data-collection-rules-to-vm-relationship.png" lightbox="media/data-collection-rule-best-practices/data-collection-rules-to-vm-relationship.png" alt-text="Screenshot of data collection rules to virtual machines relation.":::
 
 It not ideal, even not recommended, to create a single DCR containing all the necessary data source, collection items and destination to implement our observability. In the following table, there are several recommendations that could help in better planning DCR creation and maintenance:
 
