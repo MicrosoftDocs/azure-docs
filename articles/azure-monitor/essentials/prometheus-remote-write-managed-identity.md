@@ -105,14 +105,14 @@ This step isn't required if you're using an AKS identity since it will already h
               httpGet:
                 path: /health
                 port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
+              initialDelaySeconds: 10
+              timeoutSeconds: 10
             readinessProbe:
               httpGet:
                 path: /ready
                 port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
+              initialDelaySeconds: 10
+              timeoutSeconds: 10
             env:
               - name: INGESTION_URL
                 value: <INGESTION_URL>
