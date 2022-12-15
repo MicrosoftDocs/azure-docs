@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 12/15/2022
 ms.author: kgremban
 ---
 
@@ -278,9 +278,9 @@ Use the `Get-AzIotHubRoute` command to confirm the change in your route:
 Get-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub
 ```
 
-## Delete an Event Hubs endpoint
+## Delete an endpoint
 
-To delete an Event Hubs endpoint:
+To delete an endpoint:
 
 ```powershell
 Remove-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub -EndpointName MyEndpoint -PassThru
@@ -288,7 +288,7 @@ Remove-AzIotHubRoutingEndpoint -ResourceGroupName MyResourceGroup -Name MyIotHub
 
 ## Delete an IoT Hub route
 
-To delete an IoT Hub endpoint:
+To delete an IoT Hub route:
 
 ```powershell
 Remove-AzIotHubRoute -ResourceGroupName MyResourceGroup -Name MyIotHub -RouteName MyRoute -PassThru
