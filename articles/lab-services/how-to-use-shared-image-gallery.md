@@ -43,7 +43,7 @@ After a compute gallery is attached, an educator can save an image to the comput
 
     :::image type="content" source="./media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png" alt-text="Export to Azure Compute Gallery dialog":::
 
-3. You'll see a note telling you to go to the Azure port to see the progress of this operation. This operation can take sometime.
+3. You'll see a note telling you to go to the Azure portal to see the progress of this operation. This operation can take sometime.
 
     ![Export in progress](./media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
 
