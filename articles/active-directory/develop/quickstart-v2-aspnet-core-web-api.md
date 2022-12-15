@@ -71,7 +71,7 @@ This quickstart will be deprecated in the near future and will be updated to use
 > 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
 > 1. Open the solution in the *webapp* folder in your code editor.
-1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
+> 1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
 > 
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here",
@@ -89,39 +89,39 @@ This quickstart will be deprecated in the near future and will be updated to use
 > ### Step 4: Update the sample code to ASP.NET Core 6.0
 >
 > To update this code sample to target ASP.NET Core 6.0, follow these steps:
->
-> 1. Open webapi.csproj
-> 1. Remove the following line:
->
->  ```C#
-   <TargetFramework>netcoreapp3.1</TargetFramework>
-   ```
 
-> 1. Add the following line in its place:
->
->  ```C#
-   <TargetFramework>netcoreapp6.0</TargetFramework>
-   ```
+>1. Open webapi.csproj
+>1. Remove the following line:
 
+>   ```xml
+>   <TargetFramework>netcoreapp3.1</TargetFramework>
+>   ```
+
+>1. Add the following line in its place:
+
+>   ```xml
+>   <TargetFramework>netcoreapp6.0</TargetFramework>
+>   ```
+>
 > This step will ensure that the sample is targeting the .NET Core 6.0 framework.
 >
 > ### Step 5: Run the sample
->
+
 > 1. Open a terminal and change directory to the project folder.
->
->   ```powershell
-    dotnet run
-    ```
+
+>    ```powershell
+>    cd webapi
+>    ```
 
 > 1. Run the following command to build the solution:
->
+
 >   ```powershell
-    dotnet run
-    ```
+>   dotnet run
+>   ```
 
 > If the build has been successful, the following output is displayed:
->   
->   ```powershell
+
+>    ```powershell
     Building...
     info: Microsoft.Hosting.Lifetime[0]
         Now listening on: https://localhost:{port}
@@ -131,6 +131,8 @@ This quickstart will be deprecated in the near future and will be updated to use
         Application started. Press Ctrl+C to shut down.
     ...
     ```
+>
+>
 >
 > ## How the sample works
 > 
