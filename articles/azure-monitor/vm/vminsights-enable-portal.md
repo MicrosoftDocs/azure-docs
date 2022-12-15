@@ -87,7 +87,8 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
 
 ## Enable Azure Monitor Agent on monitored machines
-Use this procedure to add the Azure Monitor agent to machines that are already enabled with the Log Analytics agent. 
+
+To add Azure Monitor Agent to machines that are already enabled with the Log Analytics agent. 
 
 1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
  
