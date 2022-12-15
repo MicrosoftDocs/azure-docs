@@ -19,13 +19,18 @@ This article describes how to enable VM insights using the Azure portal for Azur
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 ## View monitored and unmonitored machines
-Open VM insights by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. Machines will either be included in the **Monitored** or **Not monitored** tab depending on whether the machine is currently being monitored by VM insights. 
 
-A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights. If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
+To see which virtual machines in your directory are monitored using VM insights, from the Azure portal:
 
-> [!NOTE]
->  **Data collection rule** column has replaced the **Workspace** column on the **Overview** page to support the [Azure Monitor agent](vminsights-enable-overview.md#agents). This either shows the data collection rules used by the Azure Monitor agent for each machine, or it gives the option to configure with the Azure Monitor agent.
+1. From the **Monitor** menu, select **Virtual Machines** > **Overview**. 
 
+    The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. 
+
+1. Select the **Monitored** tab for the list of machines that have VM insights enabled.
+    
+1. Select the **Not monitored** tab for the list of machines that do not have VM insights enabled. 
+
+    A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights. If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
 
 ## Enable VM insights for Azure Monitor Agent
 > [!NOTE]
