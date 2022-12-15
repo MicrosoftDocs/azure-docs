@@ -33,13 +33,11 @@ Use the information in this article to move external collaboration into Azure Ac
 
 You can limit the organizations your users collaborate with (inbound and outbound), and who in your organization can invite guests. Most organizations permit business units to decide collaboration, and delegate approval and oversight. For example, organizations in government, education, and financial often don't permit open collaboration. You can use Azure AD features to control collaboration.
 
-You can control access your tenant: 
+You can control access your tenant, by deploying one or more of the following solutions:
 
 - **External Collaboration Settings** – Restrict the email domains that invitations got to
-- **Cross Tenant Access Settings** – Control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound). 
-- **Connected Organizations** – Determine what organizations can request Access Packages in Entitlement Management. 
-
-You can deploy one or more of these solutions. 
+- **Cross Tenant Access Settings** – Control application access by guests by user, group, or tenant (inbound). Control external Azure AD tenant and application access for users (outbound)
+- **Connected Organizations** – Determine what organizations can request Access Packages in Entitlement Management 
 
 ### Determine collaboration partners
 
@@ -48,7 +46,7 @@ Document the organizations you collaborate with, and organization users' domains
 If your users use Azure AD B2B, you can discover the external Azure AD tenants they're collaborating, with via the sign-in logs, PowerShell, or a workbook. Learn more:
 
 * [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
-* [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).
+* [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md)
 
 You can enable future collaboration with: 
 
@@ -92,7 +90,7 @@ You can block access to tenants (blocklist). Set the default policy to Allow and
 
 To control external organizations users access, configure outbound access policies similarly to inbound access: allowlist and blocklist. Configure default and organization-specific policies. 
 
-Learn more: [Configure cross-tenant access settings for B2B collaboration](../external-identities/cross-tenant-access-settings-b2b-collaboration.md). 
+Learn more: [Configure cross-tenant access settings for B2B collaboration](../external-identities/cross-tenant-access-settings-b2b-collaboration.md)
 
 > [!NOTE]
 > Cross Tenant Access Settings apply to Azure AD tenants. To control access for partners not using Azure AD, use External Collaboration Settings.
@@ -152,7 +150,7 @@ Invited guest users from a collaboration partner can have trouble redeeming an i
 
 ## External users access
 
-Generally, there are resources you can share with external users, and some you can't. You can control what external users access. [Manage external access with Entitlement Management](6-secure-access-entitlement-managment.md).
+Generally, there are resources you can share with external users, and some you can't. You can control what external users access. See, [Manage external access with Entitlement Management](6-secure-access-entitlement-managment.md).
 
 By default, guest users see information and attributes about tenant members and other partners, including group memberships. Consider limiting external user access to this information.
 
@@ -216,9 +214,9 @@ Sharing through SharePoint and OneDrive adds users not in the Entitlement Manage
 * [Secure external access to Microsoft Teams, SharePoint, and OneDrive for Business](9-secure-access-teams-sharepoint.md)
 * [Block OneDrive use from Office](/office365/troubleshoot/group-policy/block-onedrive-use-from-office.md) 
 
-### Send documents through email
+### Documents in email
 
-Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. [Learn about Sensitivity labels.](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true).
+Users send documents to external users by email. You can use sensitivity labels to restrict and encrypt access to documents. See, [Learn about sensitivity labels](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide&preserve-view=true).
 
 ### Unsanctioned collaboration tools
 
