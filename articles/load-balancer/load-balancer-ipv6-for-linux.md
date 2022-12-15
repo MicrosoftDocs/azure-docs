@@ -28,7 +28,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-## Ubuntu (17.10 or later)
+## Ubuntu (17.10)
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
 
@@ -40,19 +40,19 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 For example, create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
 
-    ```config
-    network:
-        version: 2
-        ethernets:
-            eth0:
-                addresses: 172.16.0.30/24
-                dhcp4: true
-                dhcp6: true
-                match:
-                    driver: hv_netvsc
-                    macaddress: 00:00:00:00:00:00
-            set-name: eth0
-    ```
+```config
+  network:
+     version: 2
+     ethernets:
+        eth0:
+           addresses: 172.16.0.30/24
+           dhcp4: true
+           dhcp6: true
+           match:
+             driver: hv_netvsc
+             macaddress: 00:00:00:00:00:00
+           set-name: eth0
+```
     
 Note the IP address range and MAC address would be specific to your configuraion and should be replaced with the appropriate values.
 
@@ -63,21 +63,6 @@ Note the IP address range and MAC address would be specific to your configuraion
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-
-On **Ubuntu 17.10**, 
-
-Include a *dhcp6:true* statement for each ethernet interface in your configuration.  For example:
-
-```config
-network:
-  version: 2
-  ethernets:
-    eno1:
-      dhcp6: true
-```
-
-During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon
-For reference information about NETPLAN, see https://netplan.io/reference.
  
 ## Debian
 
