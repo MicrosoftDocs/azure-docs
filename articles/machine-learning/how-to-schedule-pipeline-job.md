@@ -38,6 +38,11 @@ In this article, you'll learn how to programmatically schedule a pipeline to run
 
 - An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 - Understanding of Azure Machine Learning pipelines. See [what are machine learning pipelines](concept-ml-pipelines.md), and how to create pipeline job in [CLI v2](how-to-create-component-pipelines-cli.md) or [SDK v2](how-to-create-component-pipeline-python.md).
+- To enable this feature:
+  1. Navigate to Azure Machine Learning studio UI.
+  2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+  3. In **Managed preview feature** panel, toggle on **Create and manage your pipeline schedule** feature.
+    :::image type="content" source="./media/how-to-schedule-pipeline-job/manage-preview-features.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-schedule-pipeline-job/manage-preview-features.png":::
 
 ---
 
@@ -503,7 +508,7 @@ Currently there are three action rules related to schedules and you can configur
   - If you set the recurrence as the 31st day of every month, in months with less than 31 days, the schedule won't trigger jobs.
   - If you're using cron expressions, MONTH isn't supported. If you pass a value, it will be ignored and treated as *. This is a known limitation.
 - Are event-based schedules supported?
-    No, V2 schedule does not support event-based schedules.
+  - No, V2 schedule does not support event-based schedules.
 
 ## Next steps
 
