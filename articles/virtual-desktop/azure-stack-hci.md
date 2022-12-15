@@ -3,7 +3,7 @@ title: Set up Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
 description: How to set up Azure Virtual Desktop for Azure Stack HCI (preview).
 author: dansisson
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 12/16/2022
 ms.author: v-dansisson
 ms.reviewer: daknappe
 manager: femila
@@ -13,13 +13,13 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
-There are two methods you can use to set up Azure Virtual Desktop for Azure Stack HCI, depending on whether you are running Preview 1 or Preview 2 of Azure Stack HCI.
+You can configure Azure Virtual Desktop for Azure Stack HCI manually. You can also deploy the workload directly from the **Azure Virtual Desktop** tile on your cluster's Overview page on Azure Portal, which is integrated with ARM templates for an end-to-end automated deployment.
 
 > [!IMPORTANT]
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply.
 
-# [Preview 2](#tab/preview2)
+# [Using ARM templates](#tab/arm-templates)
 
 ## Prerequisites
 
@@ -146,7 +146,7 @@ To create a profile container using a file share on Azure Stack HCI, do the foll
 
 For an overview and pricing information, see [Azure Virtual Desktop for Azure Stack HCI](azure-stack-hci-overview.md).
 
-# [Preview 1](#tab/preview1)
+# [Manual setup](#tab/manual-setup)
 
 ## Prerequisites
 
