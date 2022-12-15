@@ -9,7 +9,7 @@ ms.author: nicktrog
 
 # Use an Azure compute gallery in Azure Lab Services
 
-An image contains the operating system, software applications, files, and settings that are installed on a VM. This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
+An image contains the operating system, software applications, files, and settings that are installed on a VM. This article shows how educators or lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) for others to create new labs.
 
 You can use two types of images to set up a new lab:
 
@@ -66,9 +66,9 @@ An educator can pick a custom image available in the compute gallery for the tem
 
 For more information about replicating images, see  [replication in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
 
-### Re-save a custom image to compute gallery
+### Resave a custom image to compute gallery
 
-After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or to update the original image.
+After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or update the original image.
 
 If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
 
