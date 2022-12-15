@@ -75,7 +75,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Search the Azure Marketplace for *Recovery Services*.
-1. Select **Backup and Site Recovery**. Next, select **Create**.
+1. Select **Backup and Site Recovery** from the search results. Next, select **Create**.
 1. In the **Create Recovery Services vault** page, under the **Basics** > **Project details** section, do the following: 
     1. Under **Subscription**, select the subscription in which you want to create the new recovery services vault.
     1. In **Resource group**, select an existing resource group or create a new one. For example, **contosoRG**.
@@ -121,6 +121,6 @@ The virtual network takes a few seconds to create. After it's created, you'll se
 ## Next steps
 
 Learn about:
-- [Prepare the on-premises Hyper-V infrastructure for disaster recovery to Azure](hyper-v-prepare-on-premises-tutorial.md)
+- [Preparing the on-premises Hyper-V infrastructure for disaster recovery to Azure](hyper-v-prepare-on-premises-tutorial.md)
 - [Azure networks](../virtual-network/virtual-networks-overview.md)
 - [Managed disks](../virtual-machines/managed-disks-overview.md)
