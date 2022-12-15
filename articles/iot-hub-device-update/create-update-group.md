@@ -195,7 +195,7 @@ az iot du device group show \
 
 ## Deleting device groups
 
-While device groups are automatically created, groups, device classes and deployments are not automatically cleaned up so as to retain them for historical records or other user needs. Device groups can be deleted through Azure Portal by individually selecting and deleting the desired groups, or by calling the DELETE API on the group. [Learn more](https://learn.microsoft.com/rest/api/deviceupdate/2022-10-01/device-management/delete-group?tabs=HTTP)
+While device groups are automatically created, groups, device classes and deployments are not automatically cleaned up so as to retain them for historical records or other user needs. Device groups can be deleted through Azure Portal by individually selecting and deleting the desired groups, or by calling the DELETE API on the group. [Learn more](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete)
 
 If a device is ever connected again for this group after the group is deleted, while the group will be automatically re-created there will be no associated device or deployment history. 
 
