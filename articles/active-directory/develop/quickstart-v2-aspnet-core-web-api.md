@@ -17,17 +17,17 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 
 # Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
 
+
 > [!div renderon="docs"]
 > Welcome! This probably isn't the page you were expecting. While we work on a fix, this link should take you to the right article:
 >
 > > [Quickstart:Protect an ASP.NET Core web API](web-api-quickstart.md?pivots=devlang-aspnet-core)
-> 
+>
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > The following quickstart uses a ASP.NET Core web API code sample to demonstrate how to restrict resource access to authorized accounts. The sample supports authorization of personal Microsoft accounts and accounts in any Azure Active Directory (Azure AD) organization.
-> 
-> 
+>
 > ## Prerequisites
 > 
 > - Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -46,22 +46,23 @@ ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-cor
 > 1. For **Name**, enter a name for the application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of the app will see this name, and can be changed later.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting  **Save and continue**, and then enter the following details:
-   - **Scope name**: `access_as_user`
-   - **Who can consent?**: **Admins and users**
-   - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
-   - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
-   - **User consent display name**: `Access AspNetCoreWebApi-Quickstart`
-   - **User consent description**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
-   - **State**: **Enabled**
+>  - **Scope name**: `access_as_user`
+>  - **Who can consent?**: **Admins and users**
+>  - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
+>  - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+>  - **User consent display name**: `Access AspNetCoreWebApi-Quickstart`
+>  - **User consent description**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+>  - **State**: **Enabled**
 > 1. Select **Add scope** to complete the scope addition.
 > 
 > ## Step 2: Download the ASP.NET Core project
 > 
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) from GitHub.
-
-> [!Note]
+>
+> > [!Note]
 > The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
 This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
+>
 > 
 > 
 > ## Step 3: Configure the ASP.NET Core project
@@ -70,8 +71,8 @@ This quickstart will be deprecated in the near future and will be updated to use
 > 
 > 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 
-> 1. Open the solution in the *webapp* folder in your code editor.
-> 1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`. The value for the application (client) ID and the directory (tenant) ID, can be found in the app's **Overview** page on the Azure portal.
+> 1. Open the solution in the *webapi* folder in your code editor.
+> 1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`.
 > 
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here",
