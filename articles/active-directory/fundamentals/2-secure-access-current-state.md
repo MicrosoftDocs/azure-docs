@@ -33,7 +33,7 @@ Users seeking external collaboration know the applications needed for their work
 
 To find collaborating users:
 
-* [Microsoft 365 audit log activities, sharing and access request activities](microsoft-365/compliance/audit-log-activities?view=o365-worldwide#sharing-and-access-request-activities)
+* [Microsoft 365 audit log activities, sharing and access request activities](microsoft-365/compliance/audit-log-activities?view=o365-worldwide#sharing-and-access-request-activities&preserve-view=true )
 * [Auditing and reporting a B2B collaboration user](../external-identities/auditing-and-reporting.md)
 
 ## Collaboration with external users and organizations
@@ -67,19 +67,19 @@ If you use entitlement management, you can confine access packages to a subset o
 
 After you have an inventory of external users and organizations, determine the access to grant to these users. You can use the Microsoft Graph API to determine Azure AD group membership or application assignment.
 
-* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0)
-* [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0)
+* [Working with groups in Microsoft Graph](/graph/api/resources/groups-overview?context=graph%2Fcontext&view=graph-rest-1.0&preserve-view=true)
+* [Applications API overview](/graph/applications-concept-overview?view=graph-rest-1.0&preserve-view=true)
 
 ### Enumerate application permissions
 
-Investigate access to your sensitive apps for awareness about external access. See, [Grant or revoke API permissions programmatically](/graph/permissions-grant-via-msgraph?view=graph-rest-1.0&tabs=http&pivots=grant-application-permissions).
+Investigate access to your sensitive apps for awareness about external access. See, [Grant or revoke API permissions programmatically](/graph/permissions-grant-via-msgraph?view=graph-rest-1.0&tabs=http&pivots=grant-application-permissions&preserve-view=true).
 
 ### Detect informal sharing
 
 If your email and network plans are enabled, you can investigate content sharing through email or unauthorized software as a service (SaaS) apps. 
 
 * Identify, prevent, and monitor accidental sharing
-  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide)
+  * [Learn about data loss prevention](/microsoft-365/compliance/dlp-learn-about-dlp?view=o365-worldwide&preserve-view=true )
 * Identify unauthorized apps
   * [Microsoft Defender for Cloud Apps](/security/business/siem-and-xdr/microsoft-defender-cloud-apps?rtc=1)
 
