@@ -18,9 +18,9 @@ This article describes how to enable VM insights on Azure virtual machines using
 > This article only applies to the Log Analytics agent. To enable VM insights with the Azure monitor agent, use other installation methods described in [Enable VM insights overview](vminsights-enable-overview.md).
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md).
+- [Log Analytics workspace configured for VM insights](../vm/vminsights-configure-workspace.md). 
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
-
+- See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
 
 ## PowerShell script
 
