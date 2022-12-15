@@ -48,9 +48,12 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
-1. Select **Enable** on the introduction page to view the configuration. 
+1. Select **Enable** on the **Insights Onboarding** page. 
  
-1. Select **Azure Monitor agent** from the **Monitoring configuration** page. 
+1. Select **Azure Monitor agent** on the **Monitoring configuration** page. 
+
+    :::image type="content" source="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" lightbox="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" alt-text="Screenshot that shows the Monitoring configuration screen for V M insights."::: 
+
 
 1. If a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) hasn't already been created for unmonitored machines, then one will be created with the following details. 
 
