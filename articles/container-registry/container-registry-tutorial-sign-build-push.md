@@ -24,7 +24,7 @@ In this tutorial:
 
 ## Prerequisites
 
-> * Install, create and sign in to OCI artifact enabled registry ACR
+> * Create and sign in ACR with OCI artifact enabled
 > * Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
@@ -201,7 +201,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
    notation ls $IMAGE
    ```
 
-## [Option] View the graph of artifacts with the ORAS CLI
+## View the graph of artifacts with the ORAS CLI (optional)
 
 ACR support for OCI artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI.
 
@@ -212,7 +212,7 @@ ACR support for OCI artifacts enables a linked graph of supply chain artifacts t
     oras discover -o tree $IMAGE
     ```
 
-## [Option] View the graph of artifacts with the Azure CLI
+## View the graph of artifacts with the Azure CLI (optional)
 
 1. List the manifest details for the container image.
 
@@ -243,9 +243,9 @@ ACR support for OCI artifacts enables a linked graph of supply chain artifacts t
 
 1. Configure trust policy before verification.
 
-   The trust policy is a JSON document named `trustpolicy.jsoin`, which is stored under notation configuration directory. Users who verify signed artifact from a registry use the trust policy to specify trusted identities which sign the artifacts, and level of signature verification to use. 
-   
-   Use the following command to configure trust policy for this tutorial. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored under repository `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`.
+   The trust policy is a JSON document named `trustpolicy.json`, which is stored under the notation configuration directory. Users who verify signed artifacts from a registry use the trust policy to specify trusted identities that sign the artifacts, and the level of signature verification to use.
+
+   Use the following command to configure trust policy for this tutorial. Upon successful execution of the command, one trust policy named `wabbit-networks-images` is created. This trust policy applies to all the artifacts stored in repositories defined in `$REGISTRY/$REPO`. The trust identity that user trusts has the x509 subject `$CERT_SUBJECT` from previous step, and stored under trust store named `$STORE_NAME` of type `$STORE_TYPE`. See [Trust store and trust policy specification](https://notaryproject.dev/docs/concepts/trust-store-trust-policy-specification/) for details.
 
     ```bash
     cat <<EOF > $HOME/.config/notation/trustpolicy.json
