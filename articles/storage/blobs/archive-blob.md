@@ -268,6 +268,10 @@ azcopy copy 'https://<source-account>.blob.core.windows.net/sample-container/blo
 
 To move blobs to the archive tier in a container or a folder, enumerate blobs and call the Set Blob Tier operation on each one. The following example shows how to perform this operation:
 
+### [Portal](#tab/azure-portal)
+
+N/A
+
 ### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -317,6 +321,12 @@ az storage blob list --account-name $accountName --account-key $key \
     az storage blob set-tier --account-name $accountName --account-key $key \
     --container-name $containerName --tier Archive --name "{}" 
 ```
+
+### [AzCopy](#tab/azcopy)
+
+N/A
+
+---
 
 When moving a large number of blobs to the Archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The suboperations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
 
