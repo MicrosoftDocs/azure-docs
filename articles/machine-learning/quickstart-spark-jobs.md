@@ -30,7 +30,7 @@ In this quickstart guide, you'll learn how to submit a Spark job using Azure Mac
   1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/quickstart-spark-jobs/how_to_enable_managed_spark_preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+  :::image type="content" source="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -135,13 +135,13 @@ The above script takes two arguments `--titanic_data` and `--wrangled_data`, whi
 # [Studio UI](#tab/studio-ui)
 First, upload the parameterized Python code `titanic.py` to the Azure Blob storage container for workspace default datastore `workspaceblobstore`. To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
-:::image type="content" source="media/quickstart-spark-jobs/create_standalone_spark_job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
 
 1. In the left pane, select **+ New**.
 2. Select **Spark job (preview)**.
 3. On the **Compute** screen:
  
-    :::image type="content" source="media/quickstart-spark-jobs/create_standalone_spark_job_compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
+    :::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
 
    1. Under **Select compute type**, select **Spark automatic compute (Preview)** for Managed (Automatic) Spark compute.
    2. Select **Virtual machine size**. The following instance types are currently supported:
