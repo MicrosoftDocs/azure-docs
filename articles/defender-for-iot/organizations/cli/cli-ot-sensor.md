@@ -469,8 +469,6 @@ For example, for the *cyberx* user:
 root@xsense:/# cyberx-xsense-certificate-import
 ```
 
-<!--better example with attributes showing and also response?-->
-
 ### Restore default self-signed certificate by CLI
 
 Use this command in order to restore the default self-signed certificates on the appliance (This should be used only for troubleshooting and not production environments).

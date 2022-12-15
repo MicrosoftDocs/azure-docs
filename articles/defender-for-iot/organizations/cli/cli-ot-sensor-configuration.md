@@ -38,17 +38,19 @@ Triggering Test Alert...
 Test Alert was successfully triggered.
 ```
 
-## Applying ingress traffic filters (*capture* filter)
+## Applying ingress traffic capture filters
 
-For advanced network scenarios, administrators can use the **capture** filter <!--not sure what this is, we should clarify--> to eliminate network traffic that doesn't need to be monitored from detected data. Use either include or exclude lists to filter traffic.
+To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source.
+
+In such cases, create and configure capture filters on your OT network sensors to filter the traffic as needed. Capture filters use both include and exclude lists.
 
 > [!NOTE]
-> Commands for applying traffic filters don't support Defender for IoT malware detections.
+> Commands for applying traffic filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 >
 
-### Creating a new capture-filter
+### Creating a new capture filter
 
-Use the following command to create a new capture filter on your sensor.
+Use the following commands to create a new capture filter on your sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -69,8 +71,8 @@ Supported attributes are defined as follows:
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple reports by commas, with no spaces.                          |
 |`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the program you're working with, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all` <!--do we need more information about when to use each?-->        |
 |`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines the base capture filter, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
-|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    The basic capture filter (the default is "") <!--this is the same as the prev-->     |
-|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | The basic capture filter (the default is "") <!--this is the same as the prev-->             |
+|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    Defines the basic capture filter. <br> Default value = `""`    |
+|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | Defines the basic capture filter (the default is "") <!--this is the same as the prev-->             |
 |`-m <MODE>`, `--mode <MODE>`     | Relevant only when an include list is used.  <!--the following description is unclear--> Assume A and B are in the included set and X isn't so "-m  internal" allows only [A B] and "-m all-connected" also allows [A X] [B X]    |
 | `-S`, `--from-shell` | Replaces special characters in arguments received from the shell CLI. <!--can we give an example?--> |
 

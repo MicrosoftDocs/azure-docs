@@ -75,7 +75,6 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 |**cyberx**     |  `cyberx-xsense-logout`       |
 |**cyberx_host**     |   `logout`      |
 
-<!--to sign out manually from EIoT sensors?-->
 
 ## Next steps
 
