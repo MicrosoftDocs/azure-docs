@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: kgremban
-ms.custom: mqtt, devx-track-python
+ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
 # Get started with device twins (Python)

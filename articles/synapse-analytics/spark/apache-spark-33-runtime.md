@@ -28,7 +28,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 | Hadoop | 3.3.3        |
 | .NET Core | 3.1          |
 | .NET | 2.0.0        |
-| Delta Lake | 2.1.1        |
+| Delta Lake | 2.1.0        |
 | Python | 3.8          |
 | R (Preview) | 4.2.2        | 
 

@@ -21,6 +21,12 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## November 2022
+
+### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
+
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](../azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](../azure-arc/vmware-vsphere/overview.md) in preview.
+
 
 ## October 2022
 

@@ -3,10 +3,13 @@ title: Manage block blobs with Azure CLI
 titleSuffix: Azure Storage
 description: Manage blobs with Azure CLI 
 author: StevenMatthew
+
 ms.author: shaas
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/02/2022
+ms.devlang: azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Manage block blobs with Azure CLI

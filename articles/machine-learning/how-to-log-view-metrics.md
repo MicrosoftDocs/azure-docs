@@ -164,7 +164,7 @@ Metrics, as opposite to parameters, are always numeric. The following table desc
 |Log a boolean value | `mlflow.log_metric("my_metric", 0)`| 0 = True, 1 = False|
 
 > [!IMPORTANT]
-> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `mlflow.log_batch` which accepts multiple type of elements for logging.
+> __Performance considerations:__ If you need to log multiple metrics (or multiple values for the same metric) avoid making calls to `mlflow.log_metric` in loops. Better performance can be achieved by logging batch of metrics. Use the method `mlflow.log_metrics` which accepts a dictionary with all the metrics you want to log at once or use `MLflowClient.log_batch` which accepts multiple type of elements for logging. See [Logging curves or list of values](#logging-curves-or-list-of-values) for an example.
 
 ### Logging curves or list of values
 
@@ -267,13 +267,9 @@ You can browse completed job records, including logged metrics, in the [Azure Ma
 
 Navigate to the **Jobs** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar. Click on the job of interest to enter the details view, and then select the **Metrics** tab.
 
-Select the logged metrics to render charts on the right side.
+Select the logged metrics to render charts on the right side. You can customize the charts by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
 
-:::image type="content" source="media/how-to-log-view-metrics/metrics-old.png" alt-text="Screenshot of the current metrics view.":::
-
-For a customizable view of your job metrics (preview), use the [preview panel](./how-to-enable-preview-features.md) to enable the feature. Once enabled, you can add/remove charts and customize them by applying smoothing, changing the color, or plotting multiple metrics on a single graph. You can also resize and rearrange the layout as you wish. Once you have created your desired view, you can save it for future use and share it with your teammates using a direct link.
-
-:::image type="content" source="media/how-to-log-view-metrics/metrics-new.png" alt-text="Screenshot of the new metrics view.":::
+:::image type="content" source="media/how-to-log-view-metrics/metrics.png" alt-text="Screenshot of the metrics view.":::
 
 ### View and download diagnostic logs
 
