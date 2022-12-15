@@ -420,15 +420,15 @@ The following table represents currently supported custom telemetry types that y
 - Custom requests, dependencies, metrics, and exceptions are supported through the OpenTelemetry API.
 - The remaining telemetry types are supported through the [Application Insights Classic SDK](#send-custom-telemetry-by-using-the-application-insights-classic-sdk).
 
-| Custom telemetry type | Micrometer | Logback, Log4j, JUL | OpenTelemetry API | AI Classic SDK |
-|-----------------------|------------|---------------------|-------------------|----------------|
-| Custom events         |            |                     |                   | Yes            |
-| Custom metrics        |  Yes       |                     | Yes               | Yes            |
-| Dependencies          |            |                     | Yes               | Yes            |
-| Exceptions            |            | Yes                 | Yes               | Yes            |
-| Page views            |            |                     |                   | Yes            |
-| Requests              |            |                     | Yes               | Yes            |
-| Traces                |            | Yes                 |                   | Yes            |
+| Custom telemetry type | Micrometer | Logback, Log4j, JUL | OpenTelemetry API | Classic SDK |
+|-----------------------|------------|---------------------|-------------------|-------------|
+| Custom events         |            |                     |                   | Yes         |
+| Custom metrics        |  Yes       |                     | Yes               | Yes         |
+| Dependencies          |            |                     | Yes               | Yes         |
+| Exceptions            |            | Yes                 | Yes               | Yes         |
+| Page views            |            |                     |                   | Yes         |
+| Requests              |            |                     | Yes               | Yes         |
+| Traces                |            | Yes                 |                   | Yes         |
 
 ### Send custom metrics by using Micrometer
 
