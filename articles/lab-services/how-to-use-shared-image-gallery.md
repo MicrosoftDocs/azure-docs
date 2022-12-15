@@ -1,8 +1,10 @@
 ---
-title: Use an Azure Compute Gallery in Azure Lab Services | Microsoft Docs
-description: Learn how to configure a lab plan to use a compute gallery so that a user can share an image with other and another user can use the image to create a template VM in the lab. 
+title: Use an Azure Compute Gallery in Azure Lab Services
+description: Learn how to configure a lab plan to use a compute gallery to let you share a VM image and use the image to create a template VM in the lab.
 ms.topic: how-to
-ms.date: 11/13/2021
+ms.date: 15/12/2022
+author: ntrogh
+ms.author: nicktrog
 ---
 
 # Use an Azure Compute Gallery in Azure Lab Services
