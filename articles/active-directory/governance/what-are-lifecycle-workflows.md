@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # What are Lifecycle Workflows? (Public Preview)
 
-Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that enables organizations to manage Azure AD users by automating these three basic lifecycle processes: 
+Lifecycle Workflows is a new Identity Governance service that enables organizations to manage Azure AD users by automating these three basic lifecycle processes: 
 
 - Joiner - When an individual comes into scope of needing access.  An example is a new employee joining a company or organization.
 - Mover - When an individual moves between boundaries within an organization. This movement may require more access or authorization.  An example would be a user who was in marketing is now a member of the sales organization.
@@ -23,7 +23,7 @@ Azure AD Lifecycle Workflows is a new Azure AD Identity Governance service that 
 
 Workflows contain specific processes, which run automatically against users as they move through their life cycle. Workflows are made up of [Tasks](lifecycle-workflow-tasks.md) and [Execution conditions](understanding-lifecycle-workflows.md#understanding-lifecycle-workflows). 
 
-Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "“who” and the 'Trigger' of “when” a workflow will be performed. For example, send a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees, can be described as a workflow.  It consists of:
+Tasks are specific actions that run automatically when a workflow is triggered. An Execution condition defines the 'Scope' of "who" and the 'Trigger' of "when" a workflow will be performed. For example, sending a manager an email 7 days before the value in the NewEmployeeHireDate attribute of new employees can be described as a workflow.  It consists of:
    - Task:  send email
    - When (trigger):  Seven days before the NewEmployeeHireDate attribute value
    - Who (scope):  new employees
@@ -40,17 +40,17 @@ Finally, Lifecycle Workflows can even [integrate with Logic Apps](lifecycle-work
 Anyone who wants to modernize their identity lifecycle management process for employees, needs to ensure: 
 
   - **New employee on-boarding** - That when a user joins the organization, they're ready to go on day one.  They have the correct access to the information, membership to groups, and applications they need. 
-  - **Employee retirement/terminations/off-boarding** - That users who are no longer tied to the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner
+  - **Employee retirement/terminations/off-boarding** - That users who are no longer tied to the company for various reasons (termination, separation, leave of absence or retirement), have their access revoked in a timely manner.
   - **Easy to administer in my organization** - That there's a seamless process to accomplish the above tasks, that isn't overly burdensome or time consuming for Administrators.
   - **Robust troubleshooting/auditing/compliance** - That there's the ability to easily troubleshoot issues when they arise and that there's sufficient logging to help with this and compliance related issues.
 
 The following are key reasons to use Lifecycle workflows.
 -  **Extend** your HR-driven provisioning process with other workflows that simplify and automate tasks.  
 - **Centralize** your workflow process so you can easily create and manage workflows all in one location.
-- Easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs
+- Easily **troubleshoot** workflow scenarios with the Workflow history and Audit logs.
 - **Manage** user lifecycle at scale.  As your organization grows, the need for other resources to manage user lifecycles are reduced.
-- **Reduce** or remove manual tasks that were done in the past with automated lifecycle workflows
-- **Apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps
+- **Reduce** or remove manual tasks that were done in the past with automated lifecycle workflows.
+- **Apply** logic apps to extend workflows for more complex scenarios using your existing Logic apps.
 
 
 All of the above can help ensure a holistic experience by allowing you to remove other dependencies and applications to achieve the same result.  Thus translating into, increased on-boarding and off-boarding efficiency.
@@ -68,7 +68,19 @@ You can use Lifecycle workflows to address any of the following conditions.
 - **Automate user account management**: Making sure users who are leaving have their access to resources revoked is a key part of the identity lifecycle process. Lifecycle Workflows allow you to automate the disabling and removal of user accounts.
 - **Integrate with Logic Apps**: Ability to apply logic apps to extend workflows for more complex scenarios using your existing Logic apps.
 
+## License requirements
 
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/lifecycle-workflows-license.md)]
+
+
+### How many licenses must you have?
+
+To utilize the Lifecycle Workflows feature, you must have at least one Azure AD Premium P2 license in your tenant. With one license, you're able to:
+
+- Create, manage, and delete workflows for any, or all, users in your tenant up to the total limit of 50 workflows.
+- Trigger on-demand and scheduled workflow execution.
+- Manage and configure existing tasks to create workflows that are specific to your needs.
+- Create up to 100 custom task extensions to be used in your workflows.
 
 
 ## Next steps

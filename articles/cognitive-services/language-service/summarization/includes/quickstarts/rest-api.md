@@ -1,18 +1,18 @@
 ---
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/18/2022
+ms.date: 09/19/2022
 ms.author: aahi
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022
 ---
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -51,7 +51,7 @@ Choose the type of summarization you would like to perform, and select one of th
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2211684)
 
 |parameter  |Description  |
 |---------|---------|
@@ -62,52 +62,61 @@ Choose the type of summarization you would like to perform, and select one of th
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-
 ## Document summarization
 
-[!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
+### Document extractive summarization example
+
+The following example will get you started with document extractive summarization:
+
+1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
+  "displayName": "Document ext Summarization Task Example",
   "analysisInput": {
     "documents": [
       {
-        "language": "en",
         "id": "1",
+        "language": "en",
         "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."
       }
     ]
   },
-  "tasks": {
-    "extractiveSummarizationTasks": [
-      {
-        "parameters": {
-          "model-version": "latest",
-          "sentenceCount": 3,
-          "sortBy": "Offset"
-        }
+  "tasks": [
+    {
+      "kind": "ExtractiveSummarization",
+      "taskName": "Document Extractive Summarization Task 1",
+      "parameters": {
+        "sentenceCount": 6
       }
-    ]
-  }
+    }
+  ]
 }
 '
 ```
+2. Make the following changes in the command where needed:
+- Replace the value `your-language-resource-key` with your key.
+- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
-Get the `operation-location` from the response header. The value will look similar to the following URL:
+3. Open a command prompt window (for example: BASH).
+
+4. Paste the command from the text editor into the command prompt window, then run the command.
+
+5. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-resource.cognitiveservices.azure.com/text/analytics/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
+https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
+6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-preview.1/analyze/jobs/my-job-id \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -115,195 +124,17 @@ curl -X GET    https://<your-language-resource-endpoint>/text/analytics/v3.2-pre
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
 
-
-### JSON response
-
-```json
-{
-   "jobId":"da3a2f68-eb90-4410-b28b-76960d010ec6",
-   "lastUpdateDateTime":"2021-08-24T19:15:47Z",
-   "createdDateTime":"2021-08-24T19:15:28Z",
-   "expirationDateTime":"2021-08-25T19:15:28Z",
-   "status":"succeeded",
-   "errors":[
-      
-   ],
-   "displayName":"NA",
-   "tasks":{
-      "completed":1,
-      "failed":0,
-      "inProgress":0,
-      "total":1,
-      "extractiveSummarizationTasks":[
-         {
-            "lastUpdateDateTime":"2021-08-24T19:15:48.0011189Z",
-            "taskName":"ExtractiveSummarization_latest",
-            "state":"succeeded",
-            "results":{
-               "documents":[
-                  {
-                     "id":"1",
-                     "sentences":[
-                        {
-                           "text":"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
-                           "rankScore":1.0,
-                           "offset":0,
-                           "length":160
-                        },
-                        {
-                           "text":"In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
-                           "rankScore":0.9582327572675664,
-                           "offset":324,
-                           "length":192
-                        },
-                        {
-                           "text":"At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
-                           "rankScore":0.9294747193132348,
-                           "offset":517,
-                           "length":203
-                        }
-                     ],
-                     "warnings":[
-                        
-                     ]
-                  }
-               ],
-               "errors":[
-                  
-               ],
-               "modelVersion":"2021-08-01"
-            }
-         }
-      ]
-   }
-}
-```
-
-# [Conversation summarization](#tab/conversation-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
-
-|parameter  |Description  |
-|---------|---------|
-|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
-|`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
-|`-d <documents>`     | The JSON containing the documents you want to send.         |
-
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
-
-## Conversation summarization
-
-[!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
-
-```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
--H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
--d \
-' 
-{
-    "displayName": "Analyze conversations from 123",
-    "analysisInput": {
-        "conversations": [
-            {
-                "modality": "text",
-                "id": "conversation1",
-                "language": "en",
-                "conversationItems": [
-                    {
-                        "text": "Hello, you’re chatting with Rene. How may I help you?",
-                        "id": "1",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
-                        "id": "2",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
-                        "id": "3",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
-                        "id": "4",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
-                        "id": "5",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "No. Nothing happened.",
-                        "id": "6",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
-                        "id": "7",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    }
-                ]
-            }
-        ]
-    },
-    "tasks": [
-        {
-            "taskName": "analyze 1",
-            "kind": "ConversationalSummarizationTask",
-            "parameters": {
-                "modelVersion": "2022-05-15-preview",
-                "summaryAspects": [
-                    "Issue",
-                    "Resolution"
-                ]
-            }
-        }
-    ]
-}
-'
-```
-
-Get the `operation-location` from the response header. The value will look similar to the following URL:
-
-```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
-```
-
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
-
-```bash
-curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/my-job-id \
--H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
-```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
-
-
-
-### JSON response
+### Document extractive summarization example JSON response
 
 ```json
 {
-    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
-    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
-    "createdDateTime": "2022-05-31T16:52:51Z",
-    "expirationDateTime": "2022-06-01T16:52:51Z",
+    "jobId": "56e43bcf-70d8-44d2-a7a7-131f3dff069f",
+    "lastUpdateDateTime": "2022-09-28T19:33:43Z",
+    "createdDateTime": "2022-09-28T19:33:42Z",
+    "expirationDateTime": "2022-09-29T19:33:42Z",
     "status": "succeeded",
     "errors": [],
-    "displayName": "Analyze conversations from 123",
+    "displayName": "Document ext Summarization Task Example",
     "tasks": {
         "completed": 1,
         "failed": 0,
@@ -311,33 +142,241 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
         "total": 1,
         "items": [
             {
-                "kind": "conversationalSummarizationResults",
-                "taskName": "analyze 1",
-                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
+                "kind": "ExtractiveSummarizationLROResults",
+                "taskName": "Document Extractive Summarization Task 1",
+                "lastUpdateDateTime": "2022-09-28T19:33:43.6712507Z",
                 "status": "succeeded",
                 "results": {
-                    "conversations": [
+                    "documents": [
                         {
-                            "id": "conversation1",
-                            "summaries": [
+                            "id": "1",
+                            "sentences": [
                                 {
-                                    "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
+                                    "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
+                                    "rankScore": 0.69,
+                                    "offset": 0,
+                                    "length": 160
                                 },
                                 {
-                                    "aspect": "resolution",
-                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
+                                    "text": "In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z).",
+                                    "rankScore": 0.66,
+                                    "offset": 324,
+                                    "length": 192
+                                },
+                                {
+                                    "text": "At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
+                                    "rankScore": 0.63,
+                                    "offset": 517,
+                                    "length": 203
+                                },
+                                {
+                                    "text": "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages.",
+                                    "rankScore": 1.0,
+                                    "offset": 721,
+                                    "length": 134
+                                },
+                                {
+                                    "text": "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today.",
+                                    "rankScore": 0.74,
+                                    "offset": 856,
+                                    "length": 159
+                                },
+                                {
+                                    "text": "I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks.",
+                                    "rankScore": 0.49,
+                                    "offset": 1481,
+                                    "length": 148
                                 }
                             ],
                             "warnings": []
                         }
                     ],
                     "errors": [],
-                    "modelVersion": "2022-05-15-preview"
+                    "modelVersion": "latest"
                 }
             }
         ]
     }
+}
+```
+
+# [Conversation summarization](#tab/conversation-summarization)
+
+## Conversation issue and resolution summarization
+
+The following example will get you started with conversation issue and resolution summarization:
+
+1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
+
+```bash
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
+-d \
+' 
+{
+  "displayName": "Conversation Task Example",
+  "analysisInput": {
+    "conversations": [
+      {
+        "conversationItems": [
+          {
+            "text": "Hello, you’re chatting with Rene. How may I help you?",
+            "id": "1",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
+            "id": "2",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
+            "id": "3",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
+            "id": "4",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine? ",
+            "id": "5",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "No. Nothing happened.",
+            "id": "6",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
+            "id": "7",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          }
+        ],
+        "modality": "text",
+        "id": "conversation1",
+        "language": "en"
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "taskName": "Conversation Task 1",
+      "kind": "ConversationalSummarizationTask",
+      "parameters": {
+        "summaryAspects": ["issue"]
+      }
+    },
+    {
+      "taskName": "Conversation Task 2",
+      "kind": "ConversationalSummarizationTask",
+      "parameters": {
+        "summaryAspects": ["resolution"],
+        "sentenceCount": 1
+      }
+    }
+  ]
+}
+'
+```
+2. Make the following changes in the command where needed:
+- Replace the value `your-language-resource-key` with your key.
+- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
+
+3. Open a command prompt window (for example: BASH).
+
+4. Paste the command from the text editor into the command prompt window, then run the command.
+
+5. Get the `operation-location` from the response header. The value will look similar to the following URL:
+
+```http
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
+```
+
+6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
+
+```bash
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
+```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
+
+### Conversation issue and resolution summarization example JSON response
+
+```json
+{
+  "jobId": "02ec5134-78bf-45da-8f63-d7410291ec40",
+  "lastUpdatedDateTime": "2022-09-29T17:43:02Z",
+  "createdDateTime": "2022-09-29T17:43:01Z",
+  "expirationDateTime": "2022-09-30T17:43:01Z",
+  "status": "succeeded",
+  "errors": [],
+  "displayName": "Conversation Task Example",
+  "tasks": {
+    "completed": 2,
+    "failed": 0,
+    "inProgress": 0,
+    "total": 2,
+    "items": [
+      {
+        "kind": "conversationalSummarizationResults",
+        "taskName": "Conversation Task 1",
+        "lastUpdateDateTime": "2022-09-29T17:43:02.3584219Z",
+        "status": "succeeded",
+        "results": {
+          "conversations": [
+            {
+              "summaries": [
+                {
+                  "aspect": "issue",
+                  "text": "Customer wants to connect their Smart Brew 300 to their Wi-Fi. | The Wi-Fi connection didn't work."
+                }
+              ],
+              "id": "conversation1",
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "latest"
+        }
+      },
+      {
+        "kind": "conversationalSummarizationResults",
+        "taskName": "Conversation Task 2",
+        "lastUpdateDateTime": "2022-09-29T17:43:02.2099663Z",
+        "status": "succeeded",
+        "results": {
+          "conversations": [
+            {
+              "summaries": [
+                {
+                  "aspect": "resolution",
+                  "text": "Asked customer to check if the power light is blinking on and off every second."
+                }
+              ],
+              "id": "conversation1",
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "latest"
+        }
+      }
+    ]
+  }
 }
 ```
 

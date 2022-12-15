@@ -39,7 +39,9 @@
     items:
     - name: Containers
       items:
-      - name: Cognitive Services containers
+      - name: Cognitive Services containers documentation
+        href: containers/index.yml
+      - name: Cognitive Services containers overview
         href: cognitive-services-container-support.md
       - name: Container image tags and releases notes
         href: ./containers/container-image-tags.md
@@ -67,14 +69,14 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-      - name: Cognitive Services containers documentation
-        href: containers/index.yml
   - name: Security
     items:
     - name: Security features
       href: security-features.md
     - name: Authenticate requests to Cognitive Services
       href: authentication.md
+    - name: Rotate keys
+      href: rotate-keys.md
     - name: Use environment variables with Cognitive Services
       href: cognitive-services-environment-variables.md
     - name: Configure customer-managed keys

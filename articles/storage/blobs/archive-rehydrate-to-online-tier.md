@@ -6,12 +6,13 @@ services: storage
 author: normesta
 
 ms.service: storage
+ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/24/2022
+ms.date: 09/29/2022
 ms.author: normesta
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
-ms.subservice: blobs
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Rehydrate an archived blob to an online tier
@@ -89,16 +90,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to an online tier with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
-
-> [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
-
-```azcopy
-azcopy copy 'https://mystorageeaccount.blob.core.windows.net/mysourcecontainer/myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mydestinationcontainer/myTextFile.txt' --block-blob-tier=hot
-```
-
-The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
+N/A
 
 ---
 
@@ -185,16 +177,7 @@ az storage blob copy start \
 
 #### [AzCopy](#tab/azcopy)
 
-To copy an archived blob to a blob in an online tier in a different storage account with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to the target tier.
-
-> [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example also contains no SAS token because it assumes that you've provided authorization credentials by using Azure Active Directory (Azure AD).  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
-
-```azcopy
-azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --block-blob-tier=hot
-```
-
-The copy operation is synchronous so when the command returns, it indicates that all files have been copied.
+N/A
 
 ---
 
@@ -204,7 +187,7 @@ If you've configured your storage account to use read-access geo-redundant stora
 
 To rehydrate from a secondary region, use the same guidance that is presented in the previous section ([Rehydrate a blob to a different storage account in the same region](#rehydrate-a-blob-to-a-different-storage-account-in-the-same-region). Append the suffix `–secondary` to the account name of the source endpoint. For example, if your primary endpoint for Blob storage is `myaccount.blob.core.windows.net`, then the secondary endpoint is `myaccount-secondary.blob.core.windows.net`. The account access keys for your storage account are the same for both the primary and secondary endpoints.
 
-To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#read-access-to-data-in-the-secondary-region).
+To learn more about obtaining read access to secondary regions, see [Read access to data in the secondary region](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json#read-access-to-data-in-the-secondary-region).
 
 ## Rehydrate a blob by changing its tier
 
@@ -277,6 +260,68 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 ---
 
 ## Bulk rehydrate a set of blobs
+
+To rehydrate archived blobs in a container or folder to the hot or cool tier, enumerate through the blobs and call the Set Blob Tier operation on each one. The following example shows you how to perform this operation:
+
+### [Portal](#tab/azure-portal)
+
+N/A
+
+### [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+    # Initialize these variables with your values.
+    $rgName = "<resource-group>"
+    $accountName = "<storage-account>"
+    $containerName = "<container>"
+    $folderName = "<folder>/"
+    
+    $ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).Context
+    
+    $blobCount = 0
+    $Token = $Null
+    $MaxReturn = 5000
+    
+    do {
+        $Blobs = Get-AzStorageBlob -Context $ctx -Container $containerName -Prefix $folderName -MaxCount $MaxReturn -ContinuationToken $Token
+        if($Blobs -eq $Null) { break }
+        #Set-StrictMode will cause Get-AzureStorageBlob returns result in different data types when there is only one blob
+        if($Blobs.GetType().Name -eq "AzureStorageBlob")
+        {
+            $Token = $Null
+        }
+        else
+        {
+            $Token = $Blobs[$Blobs.Count - 1].ContinuationToken;
+        }
+        $Blobs | ForEach-Object {
+                if(($_.BlobType -eq "BlockBlob") -and ($_.AccessTier -eq "Archive") ) {
+                    $_.BlobClient.SetAccessTier("Hot", $null, "Standard")
+                }
+            }
+    }
+    While ($Token -ne $Null)
+    
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az storage blob list --account-name $accountName --account-key $key \
+    --container-name $containerName --prefix $folderName \
+    --query "[?properties.blobTier == 'Archive'].name" --output tsv \
+    | xargs -I {} -P 10 \
+    az storage blob set-tier --account-name $accountName --account-key $key \
+    --container-name $containerName --tier Hot --name "{}" 
+
+```
+
+### [AzCopy](#tab/azcopy)
+
+N/A
+
+---
 
 To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 

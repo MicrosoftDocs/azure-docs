@@ -1,5 +1,5 @@
 ---
-title: Add scoring profiles to boost search scores
+title: Add scoring profiles
 titleSuffix: Azure Cognitive Search
 description: Boost search relevance scores for Azure Cognitive Search results by adding scoring profiles to a search index.
 
@@ -7,23 +7,27 @@ manager: nitinme
 author: shmed
 ms.author: ramero
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/24/2022
+ms.topic: how-to
+ms.date: 11/03/2022
 ---
 
-# Add scoring profiles to a search index
+# Add scoring profiles to boost search scores
 
-For full text search queries, the search engine computes a search score for each matching document, which allows results to be ranked from high to low. Azure Cognitive Search uses a default scoring algorithm to compute an initial score, but you can customize the calculation through a *scoring profile*.
+In this article, you'll learn how to define a scoring profile for boosting search scores based on criteria.
 
-Scoring profiles are embedded in index definitions and include properties for boosting the score of matches, where additional criteria found in the profile provides the boosting logic. For example, you might want to boost matches based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
+Criteria can be a weighted field, such as when a match found in a "tags" field is more relevant than a match found in "descriptions". Criteria can also be a function, such as the `distance` function that favors results that are within a specified distance of the current location.
 
-Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search, but the video also covers basic concepts. You might also want to review [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+Scoring profiles are defined in a search index and invoked on query requests. You can create multiple profiles and then modify query logic to choose which one is used.
 
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+> [!NOTE]
+> Unfamiliar with relevance concepts? The following video segment fast-forwards to how scoring profiles work in Azure Cognitive Search. You can also visit [Relevance and scoring in Azure Cognitive Search](index-similarity-and-scoring.md) for more background.
+>
+> > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+>
 
-## What is a scoring profile?
+## Scoring profile definition
 
-A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters. The purpose of a scoring profile is to boost or amplify matching documents based on criteria you provide. 
+A scoring profile is part of the index definition and is composed of weighted fields, functions, and parameters.
 
 The following definition shows a simple profile named 'geo'. This example boosts results that have the search term in the hotelName field. It also uses the `distance` function to favor results that are within 10 kilometers of the current location. If someone searches on the term 'inn', and 'inn' happens to be part of the hotel name, documents that include hotels with 'inn' within a 10 KM radius of the current location will appear higher in the search results.  
 
@@ -52,14 +56,20 @@ The following definition shows a simple profile named 'geo'. This example boosts
 ]
 ```  
 
-To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request.
+To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests.
+
+```http
+GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30
+```
+
+Notice the syntax differences when using POST. In POST, "scoringParameters" is plural and it's an array.
 
 ```http
 POST /indexes/hotels/docs&api-version=2020-06-30
 {
     "search": "inn",
     "scoringProfile": "geo",
-    "scoringParameter": currentLocation--122.123,44.77233
+    "scoringParameters": [currentLocation--122.123,44.77233]
 }
 ```  
 
@@ -71,10 +81,9 @@ See the [Extended example](#bkmk_ex) to review a more detailed example of a scor
 
 ## How scores are computed
 
-Scores are computed for full text search queries for the purpose of ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
+Scores are computed for full text search queries for ranking the most relevant matches and returning them at the top of the response. The overall score for each document is an aggregation of the individual scores for each field, where the individual score of each field is computed based on the term frequency and document frequency of the searched terms within that field (known as [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) or term frequency-inverse document frequency). 
 
-> [!TIP]
-> You can use the [featuresMode](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request additional scoring details with the search results (including the field level scores).
+You can use the [featuresMode (preview)](index-similarity-and-scoring.md#featuresmode-parameter-preview) parameter to request extra scoring details with the search results (including the field level scores).
 
 ## When to add scoring logic
 
@@ -82,86 +91,13 @@ You should create one or more scoring profiles when the default ranking behavior
 
 Relevancy-based ordering in a search page is also implemented through scoring profiles. Consider search results pages you’ve used in the past that let you sort by price, date, rating, or relevance. In Azure Cognitive Search, scoring profiles can be used to drive the ‘relevance’ option. The definition of relevance is user-defined, predicated on business objectives and the type of search experience you want to deliver.  
 
-<a name="bkmk_ex"></a>
-
-## Extended example
-
-The following example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set. 
-
-The `boostGenre` profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the musicstoreindex), you might need a larger variance in the relative weights. For example, in the musicstoreindex, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
-
-```json
-{  
-  "name": "musicstoreindex",  
-  "fields": [  
-    { "name": "key", "type": "Edm.String", "key": true },  
-    { "name": "albumTitle", "type": "Edm.String" },  
-    { "name": "albumUrl", "type": "Edm.String", "filterable": false },  
-    { "name": "genre", "type": "Edm.String" },  
-    { "name": "genreDescription", "type": "Edm.String", "filterable": false },  
-    { "name": "artistName", "type": "Edm.String" },  
-    { "name": "orderableOnline", "type": "Edm.Boolean" },  
-    { "name": "rating", "type": "Edm.Int32" },  
-    { "name": "tags", "type": "Collection(Edm.String)" },  
-    { "name": "price", "type": "Edm.Double", "filterable": false },  
-    { "name": "margin", "type": "Edm.Int32", "retrievable": false },  
-    { "name": "inventory", "type": "Edm.Int32" },  
-    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }  
-  ],  
-  "scoringProfiles": [  
-    {  
-      "name": "boostGenre",  
-      "text": {  
-        "weights": {  
-          "albumTitle": 1.5,  
-          "genre": 5,  
-          "artistName": 2  
-        }  
-      }  
-    },  
-    {  
-      "name": "newAndHighlyRated",  
-      "functions": [  
-        {  
-          "type": "freshness",  
-          "fieldName": "lastUpdated",  
-          "boost": 10,  
-          "interpolation": "quadratic",  
-          "freshness": {  
-            "boostingDuration": "P365D"  
-          }  
-        },  
-        {
-          "type": "magnitude",  
-          "fieldName": "rating",  
-          "boost": 10,  
-          "interpolation": "linear",  
-          "magnitude": {  
-            "boostingRangeStart": 1,  
-            "boostingRangeEnd": 5,  
-            "constantBoostBeyondRange": false  
-          }  
-        }  
-      ]  
-    }  
-  ],  
-  "suggesters": [  
-    {  
-      "name": "sg",  
-      "searchMode": "analyzingInfixMatching",  
-      "sourceFields": [ "albumTitle", "artistName" ]  
-    }  
-  ]   
-}  
-```  
-
 ## Steps for adding a scoring profile
 
 To implement custom scoring behavior, add a scoring profile to the schema that defines the index. You can have up to 100 scoring profiles within an index (see [Service Limits](search-limits-quotas-capacity.md)), but you can only specify one profile at time in any given query.
 
 1. Start with an index definition. You can add and update scoring profiles on an existing index without having to rebuild it. Use an [Update Index](/rest/api/searchservice/update-index) request to post your revision.
 
-1. Paste in the [Template](#bkmk_template) provided in this topic.  
+1. Paste in the [Template](#bkmk_template) provided in this article.  
 
 1. Provide a name. Scoring profiles are optional, but if you add one, the name is required. Be sure to follow Cognitive Search [naming conventions](/rest/api/searchservice/naming-rules) for fields (starts with a letter, avoids special characters and reserved words).  
 
@@ -286,9 +222,9 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 | functions > magnitude > boostingRangeStart | Sets the start value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 1. For margins over 50%, this would be 50.|  
 | functions > magnitude > boostingRangeEnd | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4.|  
 | functions > magnitude > constantBoostBeyondRange | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range.|  
-| functions > freshness | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. </br></br>It is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future. </br></br>In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the boostingDuration. To boost a range of times in the future, use a negative boostingDuration. </br></br>The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.|  
+| functions > freshness | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. </br></br>It's also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future. </br></br>In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the boostingDuration. To boost a range of times in the future, use a negative boostingDuration. </br></br>The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1.|  
 | functions > freshness > boostingDuration | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration](#bkmk_boostdur) in the following section for syntax and examples.|  
-| functions > distance | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the scoringParameter query parameter) as a `lon,lat` argument.|  
+| functions > distance | The distance scoring function is used to affect the score of documents based on how close or far they're relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the scoringParameter query parameter) as a `lon,lat` argument.|  
 |functions >  distance > referencePointParameter | A parameter to be passed in queries to use as reference location (using the scoringParameter query parameter). |  
 | functions > distance > boostingDistance | A number that indicates the distance in kilometers from the reference location where the boosting range ends.|  
 | functions > tag | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query are provided as a scoring parameter in each search request (using the scoringParameter query parameter). |  
@@ -306,8 +242,8 @@ Interpolations allow you to set the shape of the slope used for scoring. Because
 |-|-|  
 |`linear`|For items that are within the max and min range, the boost applied to the item will be done in a constantly decreasing amount. Linear is the default interpolation for a scoring profile.|  
 |`constant`|For items that are within the start and ending range, a constant boost will be applied to the rank results.|  
-|`quadratic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.|  
-|`logarithmic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.|  
+|`quadratic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option isn't allowed in tag scoring functions.|  
+|`logarithmic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option isn't allowed in tag scoring functions.|  
 
  ![Constant, linear, quadratic, log10 lines on graph](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -329,6 +265,79 @@ The following table provides several examples.
 |30 days, 5 hours, 10 minutes, and 6.334 seconds|"P30DT5H10M6.334S"|  
 
 For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
+
+<a name="bkmk_ex"></a>
+
+## Extended example
+
+The following example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set. 
+
+The `boostGenre` profile uses weighted text fields, boosting matches found in albumTitle, genre, and artistName fields. The fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the musicstoreindex), you might need a larger variance in the relative weights. For example, in the musicstoreindex, 'rock' appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.
+
+```json
+{  
+  "name": "musicstoreindex",  
+  "fields": [  
+    { "name": "key", "type": "Edm.String", "key": true },  
+    { "name": "albumTitle", "type": "Edm.String" },  
+    { "name": "albumUrl", "type": "Edm.String", "filterable": false },  
+    { "name": "genre", "type": "Edm.String" },  
+    { "name": "genreDescription", "type": "Edm.String", "filterable": false },  
+    { "name": "artistName", "type": "Edm.String" },  
+    { "name": "orderableOnline", "type": "Edm.Boolean" },  
+    { "name": "rating", "type": "Edm.Int32" },  
+    { "name": "tags", "type": "Collection(Edm.String)" },  
+    { "name": "price", "type": "Edm.Double", "filterable": false },  
+    { "name": "margin", "type": "Edm.Int32", "retrievable": false },  
+    { "name": "inventory", "type": "Edm.Int32" },  
+    { "name": "lastUpdated", "type": "Edm.DateTimeOffset" }  
+  ],  
+  "scoringProfiles": [  
+    {  
+      "name": "boostGenre",  
+      "text": {  
+        "weights": {  
+          "albumTitle": 1.5,  
+          "genre": 5,  
+          "artistName": 2  
+        }  
+      }  
+    },  
+    {  
+      "name": "newAndHighlyRated",  
+      "functions": [  
+        {  
+          "type": "freshness",  
+          "fieldName": "lastUpdated",  
+          "boost": 10,  
+          "interpolation": "quadratic",  
+          "freshness": {  
+            "boostingDuration": "P365D"  
+          }  
+        },  
+        {
+          "type": "magnitude",  
+          "fieldName": "rating",  
+          "boost": 10,  
+          "interpolation": "linear",  
+          "magnitude": {  
+            "boostingRangeStart": 1,  
+            "boostingRangeEnd": 5,  
+            "constantBoostBeyondRange": false  
+          }  
+        }  
+      ]  
+    }  
+  ],  
+  "suggesters": [  
+    {  
+      "name": "sg",  
+      "searchMode": "analyzingInfixMatching",  
+      "sourceFields": [ "albumTitle", "artistName" ]  
+    }  
+  ]   
+}  
+```  
 
 ## See also
 

@@ -21,6 +21,23 @@ Microsoft Energy Data Services is updated on an ongoing basis. To stay up to dat
 - Deprecated functionality
 - Plans for changes
 
+
+<hr width=100%>
+
+
+## October 20, 2022
+
+### Support for Private Links
+
+Azure Private Link on Microsoft Energy Data Services provides private access to the service. This means traffic between your private network and Microsoft Energy Data Services travels over the Microsoft backbone network therefore limiting any exposure over the internet. By using Azure Private Link, you can connect to a Microsoft Energy Data Services instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network. You can then limit access to your Microsoft Energy Data Services instance over these private IP addresses. [Create a private endpoint for Microsoft Energy Data Services](how-to-set-up-private-links.md).
+
+### Encryption at Rest using Customer Managed Keys
+Microsoft Energy Data Services Preview supports customer managed encryption keys (CMK). All data in Microsoft Energy Data Services is encrypted with Microsoft-managed keys by default. In addition to Microsoft-managed key, you can use your own encryption key to protect the data in Microsoft Energy Data Services. When you specify a customer-managed key, that key is used to protect and control access to the Microsoft-managed key that encrypts your data. [Data security and encryption in Microsoft Energy Data Services](how-to-manage-data-security-and-encryption.md).
+
+
+<hr width=100%>
+
+
 ## Microsoft Energy Data Services Preview Release
 
 
@@ -32,7 +49,7 @@ Microsoft Energy Data Services is developed in alignment with the emerging requi
 
 ### Partition & User Management
 
-- New data partitions can be [created dynamically](how-to-add-more-data-partitions.md) as needed post provising of the platform (up to five). Earlier, data partitions could only be created when provisioning a new instance.
+- New data partitions can be [created dynamically](how-to-add-more-data-partitions.md) as needed post provisioning of the platform (up to five). Earlier, data partitions could only be created when provisioning a new instance.
 - The domain name for entitlement groups for [user management](how-to-manage-users.md) has been changed to "dataservices.energy".
 
 ### Data Ingestion

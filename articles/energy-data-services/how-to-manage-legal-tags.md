@@ -9,10 +9,10 @@ ms.date: 08/19/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# How to manage legal tags?
-A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services Preview instance. Legal tag is a collection of properties that governs how data can be ingested and consumed. A legal tag is necessarily required for data to be [ingested](concepts-csv-parser-ingestion.md) into your Microsoft Energy Data Services Preview instance. It's also required for the [consumption](concepts-index-and-search.md) of the data from your Microsoft Energy Data Services Preview instance. Legal tags are defined at a data partition level individually.
+# How to manage legal tags
+In this article, you'll know how to manage legal tags in your Microsoft Energy Data Services Preview instance. A Legal tag is the entity that represents the legal status of data in the Microsoft Energy Data Services Preview instance. Legal tag is a collection of properties that governs how data can be ingested and consumed. A legal tag is required for data to be [ingested](concepts-csv-parser-ingestion.md) into your Microsoft Energy Data Services Preview instance. It's also required for the [consumption](concepts-index-and-search.md) of the data from your Microsoft Energy Data Services Preview instance. Legal tags are defined at a data partition level individually.
 
-While in Microsoft Energy Data Services Preview instance, [entitlement service](concepts-entitlements.md) defines access to data for a given user(s), legal tag defines the overall access to the data across users. A user may have access to manage the data within a data partition however, they may not be able to do so, until certain legal requirements are fulfilled.
+While in Microsoft Energy Data Services Preview instance, [entitlement service](concepts-entitlements.md) defines access to data for a given user(s), legal tag defines the overall access to the data across users. A user may have access to manage the data within a data partition however, they may not be able to do so-until certain legal requirements are fulfilled.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -88,8 +88,7 @@ Run the below curl command in Azure Cloud Bash to create a legal tag for a given
 
 The country of origin should follow [ISO Alpha2 format](https://www.nationsonline.org/oneworld/country_code_list.htm).
 
-> [!NOTE]
-> Create Legal Tag api, internally appends data-partition-id to legal tag name if it isn't already present. For instance, if request has name as: ```legal-tag```, then the create legal tag name would be ```<instancename>-<data-partition-id>-legal-tag``` 
+The Create Legal Tag api, internally appends data-partition-id to legal tag name if it isn't already present. For instance, if request has name as: ```legal-tag```, then the create legal tag name would be ```<instancename>-<data-partition-id>-legal-tag``` 
 
 ```bash
     curl --location --request POST 'https://<instance>.energy.azure.com/api/legal/v1/legaltags' \

@@ -6,7 +6,7 @@ services: internet-peering
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 10/10/2022
 ms.author: halkazwini
 ---
 
@@ -81,6 +81,9 @@ For optimized routing for your Communication services infrastructure prefixes, y
 Please ensure that the prefixes registered are being announced over the direct interconnects established in that location.
 If the same prefix is announced in multiple peering locations, it is sufficient to register them with just one of the peerings in order to retrieve the unique prefix keys after validation.
 
+> [!NOTE] 
+> The Connection State of your peering connections must be Active before registering any prefixes.
+
 **Prefix Registration**
 
 1. If you are an Operator Connect Partner, you would be able to see the “Register Prefix” tab on the left panel of your peering resource page. 
@@ -122,6 +125,14 @@ Below are the steps to activate the prefix.
 
 ## FAQs:
 
+**Q.**   When will my BGP peer come up?
+
+**A.**   After the LAG comes up, our automated process configures BGP with BFD. Peer must configure BGP with BFD. Note, BFD must be configured and up on the non-MSFT peer to start route exchange.
+
+**Q.**   When will peering IP addresses be allocated and displayed in the Azure portal?
+
+**A.**   Our automated process allocates addresses and sends the information via email after the port is configured on our side.
+
 **Q.**	I have smaller subnets (</24) for my Communications services. Can I get the smaller subnets also routed?
 
 **A.**	Yes, Microsoft Azure Peering service supports smaller prefix routing also. Please ensure that you are registering the smaller prefixes for routing and the same are announced over the interconnects.
@@ -129,6 +140,10 @@ Below are the steps to activate the prefix.
 **Q.**	What Microsoft routes will we receive over these interconnects?
 
 **A.** Microsoft announces all of Microsoft's public service prefixes over these interconnects. This will ensure not only Communications but other cloud services are accessible from the same interconnect.
+
+**Q.**   Are there any AS path constraints?
+
+**A.**   Yes, a private ASN cannot be in the AS path. For registered prefixes smaller than /24, the AS path must be less than four.
 
 **Q.**	I need to set the prefix limit, how many routes Microsoft would be announcing?
 
@@ -157,6 +172,10 @@ Below are the steps to activate the prefix.
 **Q.** How does it take to complete the onboarding process?
 
 **A.** Time will be variable depending on number and location of sites, and if Peer is migrating existing private peerings or establishing new cabling. Carrier should plan for 3+ weeks.
+
+**Q.** How is progress communicated outside of the portal status?
+
+**A.** Automated emails are sent at varying milestones
 
 **Q.** Can we use APIs for onboarding?
 

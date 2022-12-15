@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/01/2022
+ms.date: 12/09/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -25,7 +25,9 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
 
 > [!TIP]
-> [**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
+> Unsure which feature to use? See [Which Language service feature should I use?](#which-language-service-feature-should-i-use) to help you decide.
+
+[**Language Studio**](./language-studio.md) enables you to use the below service features without needing to write code.
 
 ### Named Entity Recognition (NER)
 
@@ -70,7 +72,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
       :::image type="content" source="media/studio-examples/sentiment-analysis-example.png" alt-text="A screenshot of a sentiment analysis example." lightbox="media/studio-examples/sentiment-analysis-example.png":::
    :::column-end:::
    :::column span="":::
-      [Sentiment analysis and opinion mining](./language-detection/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
+      [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) are pre-configured features that help you find out what people think of your brand or topic by mining text for clues about positive or negative sentiment, and can associate them with specific aspects of the text.
 
    :::column-end:::
 :::row-end:::
@@ -178,6 +180,28 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
    :::column-end:::
 :::row-end:::
 
+## Which Language service feature should I use?
+
+This section will help you decide which Language service feature you should use for your application:
+
+|What do you want to do?  |Document format  |Your best solution  | Is this solution customizable?* |
+|---------|---------|---------|---------|
+| Detect and/or redact sensitive information such as PII and PHI. | Unstructured text, <br> transcribed conversations | [PII detection](./personally-identifiable-information/overview.md) | |
+| Extract categories of information without creating a custom model.     | Unstructured text         | The [pre-configured NER feature](./named-entity-recognition/overview.md) |       |
+| Extract categories of information using a model specific to your data. | Unstructured text | [Custom NER](./custom-named-entity-recognition/overview.md) | ✓ |
+|Extract main topics and important phrases.     | Unstructured text        | [Key phrase extraction](./key-phrase-extraction/overview.md) |   |
+| Determine the sentiment and opinions expressed in text. | Unstructured text | [Sentiment analysis and opinion mining](./sentiment-opinion-mining/overview.md) | |
+| Summarize long chunks of text or conversations. | Unstructured text, <br> transcribed conversations. | [Summarization](./summarization/overview.md) | | 
+| Disambiguate entities and get links to Wikipedia. | Unstructured text | [Entity linking](./entity-linking/overview.md) | | 
+| Classify documents into one or more categories. | Unstructured text | [Custom text classification](./custom-text-classification/overview.md) | ✓|
+| Extract medical information from clinical/medical documents. | Unstructured text | [Text analytics for health](./text-analytics-for-health/overview.md) | |
+| Build an conversational application that responds to user inputs. | Unstructured user inputs | [Question answering](./question-answering/overview.md) | ✓ |
+| Detect the language that a text was written in. | Unstructured text | [Language detection](./language-detection/overview.md) | | 
+| Predict the intention of user inputs and extract information from them. | Unstructured user inputs | [Conversational language understanding](./conversational-language-understanding/overview.md) | ✓ |
+| Connect apps from conversational language understanding, LUIS, and question answering. | Unstructured user inputs | [Orchestration workflow](./orchestration-workflow/overview.md) | ✓ | 
+
+\* If a feature is customizable, you can train an AI model using our tools to fit your data specifically. Otherwise a feature is pre-configured, meaning the AI models it uses cannot be changed. You just send your data, and use the feature's output in your applications.
+
 ## Migrate from Text Analytics, QnA Maker, or Language Understanding (LUIS)
 
 Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
@@ -188,7 +212,7 @@ After you've had a chance to get started with the Language service, try our tuto
 
 * [Extract key phrases from text stored in Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
 * [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
-* [Use Flask to translate text, analyze sentiment, and synthesize speech](/learn/modules/python-flask-build-ai-web-app/)
+* [Use Flask to translate text, analyze sentiment, and synthesize speech](/training/modules/python-flask-build-ai-web-app/)
 * [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
 * [Create a FAQ Bot](question-answering/tutorials/bot-service.md)
 

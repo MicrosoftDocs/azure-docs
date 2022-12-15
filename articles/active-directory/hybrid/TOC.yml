@@ -141,6 +141,8 @@
       href: how-to-connect-post-installation.md
     - name: Uninstall Azure AD Connect
       href: how-to-connect-uninstall.md
+    - name: Using a deprecated version
+      href: deprecated-azure-ad-connect.md
   - name: Plan and design
     items:
     - name: Design concepts
@@ -404,3 +406,5 @@
     href: reference-connect-msexchuserholdpolicies.md
   - name: Azure AD Connect version history archive
     href:  reference-connect-version-history-archive.md
+  - name: How to use BypassDirSyncOverrides
+    href: how-to-bypassdirsyncoverrides.md

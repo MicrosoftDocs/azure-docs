@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Front Door
-            url: /learn/modules/intro-to-azure-front-door/       
+            url: /training/modules/intro-to-azure-front-door/       
        
   # Card
   - title: Create a Front Door

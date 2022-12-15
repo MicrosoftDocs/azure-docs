@@ -6,8 +6,8 @@ metadata:
   ms.service: synapse-analytics
   ms.topic: faq
   ms.subservice: overview
-  ms.custom: event-tier1-build-2022
-  ms.date: 08/24/2022
+  ms.custom: event-tier1-build-2022, ignite-2022
+  ms.date: 11/16/2022
   ms.author: saveenr
   ms.reviewer: sngun, wiassaf
 title: Azure Synapse Analytics frequently asked questions
@@ -67,12 +67,12 @@ sections:
       - question: |
           Is Azure Synapse Link to Azure Cosmos DB generally available?
         answer: |
-          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Cosmos DB](../cosmos-db/synapse-link.md).
+          Azure Synapse Analytics currently supports Azure Synapse Link from Azure Cosmos DB to Synapse Apache Spark and serverless SQL pool. Azure Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in preview. For more information, see [Azure Synapse Link for Azure Cosmos DB](../cosmos-db/synapse-link.md).
 
       - question: |
-          Is Azure Synapse Link to SQL Server 2022 generally available?
+          Is Azure Synapse Link for SQL generally available?
         answer: |
-          Azure Synapse Link for SQL Server 2022 is in preview. For more information, see [What is Azure Synapse Link for SQL?](synapse-link/sql-synapse-link-overview.md).
+          Azure Synapse Link for SQL is generally available for both SQL Server 2022 and Azure SQL Database. For more information, see [What is Azure Synapse Link for SQL?](synapse-link/sql-synapse-link-overview.md).
 
       - question: |
           Does Azure Synapse workspace Support CI/CD? 
@@ -92,7 +92,7 @@ sections:
       - question: |
           What is Auto Compaction?
         answer: |
-          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/delta/optimizations/auto-optimize).
+          Auto Compaction is one of two complementary features of Auto Optimize for Delta tables. After a write to a table succeeds, Auto Compaction can further compact files for partitions that have the most number of small files. Opting in to Auto Compaction is recommended for streaming use cases where adding minutes of latency is acceptable and when you don't have regular OPTIMIZE calls on your table. For more information on Auto Optimize and Auto Compaction, check out this [Auto Optimize Guide](/azure/databricks/optimizations/auto-optimize).
 
   - name: Pipelines
     questions:
@@ -217,3 +217,5 @@ additionalContent: |
      * [Get started with Azure Synapse Analytics](get-started.md)
      * [Create a workspace](quickstart-create-workspace.md)
      * [Use serverless SQL pool](quickstart-sql-on-demand.md)
+     * [Azure Synapse Analytics known issues](known-issues.md)
+     * [What's New in Azure Synapse Analytics](whats-new.md)

@@ -14,6 +14,8 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
+You will also need a `.wav` audio file on your local machine. You can use your own `.wav` file (up to 30 seconds) or download the [https://crbn.us/whatstheweatherlike.wav](https://crbn.us/whatstheweatherlike.wav) sample file.
+
 ### Set environment variables
 
 [!INCLUDE [Environment variables](../../common/environment-variables.md)]
@@ -34,6 +36,9 @@ curl --location --request POST \
 --header "Content-Type: audio/wav" \
 --data-binary $audio_file
 ```
+
+> [!IMPORTANT]
+> Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). If you don't set these variables, the sample will fail with an error message.
 
 You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file. Up to 30 seconds of audio will be recognized and converted to text.
 

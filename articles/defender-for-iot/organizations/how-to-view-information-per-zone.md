@@ -6,7 +6,6 @@ manager: rkarlin
 ms.author: rkarlin
 ms.date: 06/12/2022 
 ms.topic: how-to
-ms.service: azure-resource-manager
 ---
 
 

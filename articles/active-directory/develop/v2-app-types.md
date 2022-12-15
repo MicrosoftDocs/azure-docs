@@ -77,7 +77,7 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try the code samples in [Sign in users from a Web app](scenario-web-app-sign-user-overview.md).
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a Representational State Transfer ([REST](https://docs.microsoft.com/rest/api/azure/)) API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, refer to our code [sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-1-Call-MSGraph/README.md).
+In addition to simple sign-in, a web server app might need to access another web service, such as a [Representational State Transfer (REST) API](/rest/api/azure/). In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, refer to our code [sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-1-Call-MSGraph/README.md).
 
 ## Web APIs
 

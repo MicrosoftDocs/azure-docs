@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent network requirements
 description: Learn about the networking requirements for using the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 09/09/2022
+ms.date: 11/15/2022
 ms.topic: conceptual 
 ---
 
@@ -55,8 +55,9 @@ The table below lists the URLs that must be available in order to install and us
 |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Public |
 |`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
 |`*.servicebus.windows.net`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|Public|
+|`*.waconazure.com`|For Windows Admin Center connectivity|If using Windows Admin Center|Public|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
-|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
 
 > [!NOTE]
 > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
@@ -74,7 +75,7 @@ The table below lists the URLs that must be available in order to install and us
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
 |`*.blob.core.usgovcloudapi.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
-|`dc.applicationinsights.us`|Agent telemetry|Optional| Public |
+|`dc.applicationinsights.us`|Agent telemetry|Optional, not used in agent versions 1.24+| Public |
 
 ### [Azure China](#tab/azure-china)
 
@@ -96,7 +97,7 @@ The table below lists the URLs that must be available in order to install and us
 |`azgn*.servicebus.chinacloudapi.cn`|Notification service for extension and connectivity scenarios|Always|
 |`*.servicebus.chinacloudapi.cn`|For Windows Admin Center and SSH scenarios|If using SSH or Windows Admin Center from Azure|
 |`*.blob.core.chinacloudapi.cn`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints|
-|`dc.applicationinsights.azure.cn`|Agent telemetry|Optional|
+|`dc.applicationinsights.azure.cn`|Agent telemetry|Optional, not used in agent versions 1.24+|
 
 ---
 

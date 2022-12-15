@@ -13,7 +13,7 @@ services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
@@ -49,6 +49,8 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
 
 >[!TIP]
+>Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
+>
 >The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 This method accepts a JSON payload with the following schema:
@@ -155,6 +157,8 @@ Use the **UploadModuleLogs** direct method to send the requested logs to a speci
 ::: moniker range=">=iotedge-2020-11"
 
 > [!NOTE]
+> Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
+>
 > If you wish to upload logs from a device behind a gateway device, you will need to have the [API proxy and blob storage modules](how-to-configure-api-proxy-module.md) configured on the top layer device. These modules route the logs from your lower layer device through your gateway device to your storage in the cloud.
 
 ::: moniker-end

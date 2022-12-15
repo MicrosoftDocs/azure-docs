@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 02/08/2022
+ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -77,7 +77,7 @@ The following tables provide coverage information for Azure Maps routing.
 | British Virgin Islands                 |                ✓                  |                   |             |
 | Canada                                 |                ✓                  |         ✓         |     ✓      |
 | Cayman Islands                         |                ✓                  |                   |             |
-| Chile                                  |                ✓                  |         ✓         |     ✓      |
+| Chile                                  |                ✓                  |         ✓         |             |
 | Colombia                               |                ✓                  |         ✓         |             |
 | Costa Rica                             |                ✓                  |                   |             |
 | Cuba                                   |                ✓                  |                   |             |
@@ -139,7 +139,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Guam                                   |                ✓                  |                   |             |
 | Hong Kong SAR                          |                ✓                  |         ✓         |             |
 | India                                  |                ✓                  |         ✓         |             |
-| Indonesia                              |                ✓                  |         ✓         |             |
+| Indonesia                              |                ✓                  |         ✓         |     ✓      |
 | Kiribati                               |                ✓                  |                   |             |
 | Laos                                   |                ✓                  |                   |             |
 | Macao SAR                              |                ✓                  |         ✓         |             |
@@ -160,7 +160,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Philippines                            |                ✓                  |         ✓         |      ✓     |
 | Pitcairn Islands                       |                ✓                  |                   |             |
 | Samoa                                  |                ✓                  |                   |             |
-| Singapore                              |                ✓                  |         ✓         |             |
+| Singapore                              |                ✓                  |         ✓         |     ✓      |
 | Solomon Islands                        |                ✓                  |                   |             |
 | Sri Lanka                              |                ✓                  |                   |             |
 | Taiwan                                 |                ✓                  |         ✓         |      ✓     |
@@ -219,7 +219,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Montenegro                             |                ✓                  |                   |     ✓       |
 | Netherlands                            |                ✓                  |         ✓         |     ✓      |
 | North Macedonia                        |                ✓                  |                   |             |
-| Norway                                 |                ✓                  |         ✓         |             |
+| Norway                                 |                ✓                  |         ✓         |     ✓      |
 | Poland                                 |                ✓                  |         ✓         |     ✓      |
 | Portugal                               |                ✓                  |         ✓         |     ✓      |
 | Romania                                |                ✓                  |         ✓         |     ✓      |
@@ -302,7 +302,7 @@ The following tables provide coverage information for Azure Maps routing.
 | Seychelles                             |                ✓                  |                   |             |
 | Sierra Leone                           |                ✓                  |                   |             |
 | Somalia                                |                ✓                  |                   |             |
-| South Africa                           |                ✓                  |         ✓         |             |
+| South Africa                           |                ✓                  |         ✓         |      ✓     |
 | South Sudan                            |                ✓                  |                   |             |
 | St. Helena                             |                ✓                  |                   |             |
 | Sudan                                  |                ✓                  |                   |             |

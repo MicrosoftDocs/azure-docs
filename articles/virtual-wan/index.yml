@@ -6,12 +6,11 @@ summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure 
 metadata:
   title: Virtual WAN documentation 
   description: Learn about Virtual WAN
-  services: virtual-wan
   ms.service: virtual-wan
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/30/2022
+  ms.date: 09/22/2022
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -26,6 +25,8 @@ landingContent:
         links:
           - text: What is Virtual WAN?
             url: virtual-wan-about.md
+          - text: What's new?
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: Migrate to Virtual WAN
@@ -37,7 +38,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Virtual WAN
-            url: /learn/modules/introduction-azure-virtual-wan/
+            url: /training/modules/introduction-azure-virtual-wan/
       - linkListType: video
         links:
           - text: Remote user connectivity with Azure Virtual WAN

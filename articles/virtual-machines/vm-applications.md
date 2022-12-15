@@ -6,8 +6,8 @@ ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 05/18/2022
-author: nikhilpatel909
-ms.author: erd
+author: ericd-mst-github
+ms.author: nikhilpatel
 ms.reviewer: erd
 ms.custom: 
 
@@ -108,7 +108,7 @@ VM application versions are the deployable resource. Versions are defined with t
 The download location of the application package and the configuration files are:
   
 - Linux: `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> `
-- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.4\Downloads\<appname>\<app version> `
+- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.9\Downloads\<appname>\<app version> `
 
 
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.

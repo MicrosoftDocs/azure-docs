@@ -75,7 +75,7 @@ Go to the [reference code](https://github.com/AzureAD/SCIMReferenceCode) from Gi
 
 1. If not installed, add [Azure App Service for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
-1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](/azure/app-service/tutorial-dotnetcore-sqldb-app#2---create-the-app-service).
+1. To deploy the Microsoft.SCIM.WebHostSample app to Azure App Services, [create a new App Services](../../app-service/tutorial-dotnetcore-sqldb-app.md#2---create-the-app-service).
 
 1. In the Visual Studio Code terminal, run the .NET CLI command below. This command generates a deployable publish folder for the app in the bin/debug/publish directory.
 

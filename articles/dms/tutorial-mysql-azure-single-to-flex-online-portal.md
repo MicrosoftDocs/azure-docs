@@ -2,11 +2,11 @@
 title: "Tutorial: Migrate Azure Database for MySQL - Single Server to Flexible Server online using DMS via the Azure portal"
 titleSuffix: "Azure Database Migration Service"
 description: "Learn to perform an online migration from Azure Database for MySQL - Single Server to Flexible Server by using Azure Database Migration Service."
-author: "adig"
-ms.author: "adig"
+author: aditivgupta
+ms.author: adig
+ms.reviewer: "maghan"
 manager: "pariks"
-ms.reviewer: ""
-ms.date: 09/16/2022
+ms.date: 09/17/2022
 ms.service: dms
 ms.topic: tutorial
 ms.custom: seo-lt-2019
@@ -168,8 +168,8 @@ To register the Microsoft.DataMigration resource provider, perform the following
 6. To the right of **Pricing tier**, select **Configure tier**.
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/7-project-details.png" alt-text="Screenshot of a Select Configure Tier.":::
 
-7. On the **Configure** page, select the pricing tier and number of vCores for your DMS instance, and then select **Apply**.
-    For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
+7. On the **Configure** page, select the **Premium** pricing tier with 4 vCores for your DMS instance, and then select **Apply**.
+    DMS Premium 4-vCore is free for 6 months (183 days) from the DMS service creation date before incurring any charges. For more information on DMS costs and pricing tiers, see the [pricing page](https://aka.ms/dms-pricing).
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-online/8-configure-pricing-tier.png" alt-text="Screenshot of a Select Pricing tier.":::
 
     Next, we need to specify the VNet that will provide the DMS instance with access to the source single server and the target flexible server.

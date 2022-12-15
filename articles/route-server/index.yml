@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Route Server
-            url: /learn/modules/intro-to-azure-route-server
+            url: /training/modules/intro-to-azure-route-server
             
   # Card
   - title: Get started

@@ -28,6 +28,8 @@
   - name: Create durable function - Java
     displayName: get started, chaining
     href: quickstart-java.md
+  - name: Configure storage provider - MSSQL
+    href: quickstart-mssql.md
 - name: Tutorials
   items:
   - name: Function chaining
@@ -138,8 +140,8 @@
       href: durable-functions-billing.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-functions
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-functions
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Pricing

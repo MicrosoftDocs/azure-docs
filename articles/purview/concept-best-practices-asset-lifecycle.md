@@ -84,7 +84,7 @@ This process describes the high-level steps and roles to manage and define the b
 | 4 | [Create a scan rule set](create-a-scan-rule-set.md)
 | 5 & 6 | [Apply classifications to assets](apply-classifications.md) 
 | 7 & 8 | [Understand business glossary features](concept-business-glossary.md)
-| 9 & 10 | [Create, import and export glossary terms](how-to-create-import-export-glossary.md)
+| 9 & 10 | [Create and manage glossary terms](how-to-create-manage-glossary-term.md)
 | 11 | [Search the Data Catalog](how-to-search-catalog.md)   
 | 12 & 13 | [Browse the Data Catalog](how-to-browse-catalog.md)  
 

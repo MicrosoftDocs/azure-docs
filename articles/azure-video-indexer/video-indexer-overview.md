@@ -8,6 +8,8 @@ ms.author: juliako
 
 # What is Azure Video Indexer?
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [regulation](./includes/regulation.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
@@ -20,11 +22,6 @@ Azure Video Indexer analyzes the video and audio content by running 30+ AI model
 > :::image type="content" source="./media/video-indexer-overview/model-chart.png" alt-text="Diagram of Azure Video Indexer flow." lightbox="./media/video-indexer-overview/model-chart.png":::
 
 To start extracting insights with Azure Video Indexer, see the [how can I get started](#how-can-i-get-started-with-azure-video-indexer) section below.
-
-## Compliance, Privacy and Security
-
-> [!Important]
-> Before you continue with Azure Video Indexer, read [Compliance, privacy and security](compliance-privacy-security.md).
 
 ## What can I do with Azure Video Indexer?
 
@@ -63,6 +60,13 @@ Unless specified otherwise, a model is generally available.
     * **People's detected clothing** (preview): Detects the clothing types of people appearing in the video and provides information such as long or short sleeves, long or short pants and skirt or dress. The detected clothing is associated with the people wearing it and the exact timestamp (start, end) along with a confidence level for the detection are provided. For more information, see [detected clothing](detected-clothing.md).
     * **Featured clothing** (preview): captures featured clothing images appearing in a video. You can improve your targeted ads by using the featured clothing insight. For information on how the featured clothing images are ranked and how to get the insights, see [featured clothing](observed-people-featured-clothing.md).
 * **Matched person** (preview): Matches people that were observed in the video with the corresponding faces detected. The matching between the observed people and the faces contain a confidence level.
+* **Slate detection** (preview): identifies the following movie post-production insights when indexing a video using the advanced indexing option:
+    
+    * Clapperboard detection with metadata extraction.
+    * Digital patterns detection, including color bars.
+    * Textless slate detection, including scene matching.
+
+    For details, see [Slate detection](slate-detection-insight.md).
 
 ### Audio models
 
@@ -80,7 +84,7 @@ Unless specified otherwise, a model is generally available.
 * **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
-    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer website. For more information, see [Audio effects detection](audio-effects-detection.md).
 
     > [!NOTE]
     > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.
@@ -97,43 +101,17 @@ When indexing by one channel, partial result for those models will be available.
 
 ## How can I get started with Azure Video Indexer?
 
-### Prerequisite
+Learn how to [get started with Azure Video Indexer](video-indexer-get-started.md).
 
-Before creating a new account, review [Account types](accounts-overview.md).
+Once you set up, start using [insights](video-indexer-output-json-v2.md) and check out other **How to guides**.
 
-### Supported browsers
+## Compliance, Privacy and Security
 
-The following list shows the supported browsers that you can use for the Azure Video Indexer website and for your apps that embed the widgets. The list also shows the minimum supported browser version:
+As an important reminder, you must comply with all applicable laws in your use of Azure Video Indexer, and you may not use Azure Video Indexer or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
 
-- Edge, version: 16
-- Firefox, version: 54
-- Chrome, version: 58
-- Safari, version: 11
-- Opera, version: 44
-- Opera Mobile, version: 59
-- Android Browser, version: 81
-- Samsung Browser, version: 7
-- Chrome for Android, version: 87
-- Firefox for Android, version: 83
+Before uploading any video/image to Azure Video Indexer, You must have all the proper rights to use the video/image, including, where required by law, all the necessary consents from individuals (if any) in the video/image, for the use, processing, and storage of their data in Azure Video Indexer and Azure. Some jurisdictions may impose special legal requirements for the collection, online processing and storage of certain categories of data, such as biometric data. Before using Azure Video Indexer and Azure for the processing and storage of any data subject to special legal requirements, You must ensure compliance with any such legal requirements that may apply to You.
 
-### Supported file formats
-
-See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
-
-### Start using Azure Video Indexer
-
-You can access Azure Video Indexer capabilities in three ways:
-
-* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
-
-    For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
-* API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
-
-    To get started as a developer, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
-* Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app.
-
-    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
+To learn about compliance, privacy and security in Azure Video Indexer please visit the Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). For Microsoft's privacy obligations, data handling and retention practices, including how to delete your data, please review Microsoft's [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). By using Azure Video Indexer, you agree to be bound by the OST, DPA and the Privacy Statement.
 
 ## Next steps
 

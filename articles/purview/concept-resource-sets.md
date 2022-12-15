@@ -1,8 +1,8 @@
 ---
 title: Understanding resource sets
 description: This article explains what resource sets are and how Microsoft Purview creates them.
-author: djpmsft
-ms.author: daperlov
+author: nayenama
+ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual

@@ -12,9 +12,13 @@
       href: resources-faq.md
     - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Server Assessment tool/dependency analysis
+    - name: Discovery and dependency analysis
+      href: common-questions-discovery-dependency-analysis.md
+    - name: Assessment
       href: common-questions-discovery-assessment.md
-    - name: Server Migration tool
+    - name: Business case
+      href: common-questions-business-case.md
+    - name: Migration and modernization tool
       href: common-questions-server-migration.md
 - name: Quickstarts
   items:
@@ -122,6 +126,10 @@
       href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
+  - name: Plan
+    items:
+    - name: Business case overview
+      href: concepts-business-case-calculation.md
   - name: Assess
     items:
     - name: Assessments overview (migrate to Azure VMs)
@@ -161,7 +169,7 @@
   items:
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Use Azure Migrate with private endpoints
+  - name: Use Azure Migrate with private endpoints 
     items:
       - name: Support requirements and considerations
         href: how-to-use-azure-migrate-with-private-endpoints.md
@@ -199,6 +207,12 @@
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
       href: how-to-create-group-machine-dependencies-agentless.md
+  - name: Plan
+    items:
+    - name: Build business case
+      href: how-to-build-a-business-case.md
+    - name: View business case
+      href: how-to-view-a-business-case.md
   - name: Assess
     items:
     - name: Add assessment tools

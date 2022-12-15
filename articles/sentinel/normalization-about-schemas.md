@@ -19,15 +19,16 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
-| [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
-| [DNS Activity](dns-normalization-schema.md) | 0.1.4 | Preview |
+| [Audit Event](normalization-schema-audit.md) | 0.1 | Preview |
+| [Authentication Event](authentication-normalization-schema.md) | 0.1.2 | Preview |
+| [DNS Activity](dns-normalization-schema.md) | 0.1.5 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
-| [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
-| [Network Session](normalization-schema.md) | 0.2.4 | Preview |
-| [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
-| [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
+| [File Activity](file-event-normalization-schema.md) | 0.2 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.5 | Preview |
+| [Process Event](process-events-normalization-schema.md) | 0.1.4 | Preview |
+| [Registry Event](registry-event-normalization-schema.md) | 0.1.2 | Preview |
 | [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
-| [Web Session](web-normalization-schema.md) | 0.2.4 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.5 | Preview |
 
 
 > [!IMPORTANT]
@@ -59,7 +60,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/azure/data-explorer/kusto/query/scalar-data-types/datetime).       |  [Log Analytics date and time representation](/azure/kusto/query/scalar-data-types/datetime) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/azure/kusto/query/datetime-timespan-arithmetic). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC address**    |  String       | Colon-Hexadecimal notation.        |
 |**IP address**     |String         |    Microsoft Sentinel schemas don't have separate IPv4 and IPv6 addresses. Any IP address field might include either an IPv4 address or an IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation.<br>- **IPv6** in 8-hextets notation, allowing for the short form.<br><br>For example:<br>- **IPv4**: `192.168.10.10` <br>- **IPv6**: `FEDC:BA98:7654:3210:FEDC:BA98:7654:3210`<br>- **IPv6 short form**: `1080::8:800:200C:417A`     |
-|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `docs.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
+|**FQDN**        |   String      |    A fully qualified domain name using a dot notation, for example, `learn.microsoft.com`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="hostname"></a>**Hostname** | String | A hostname which is not an FQDN, includes up to 63 characters including letters, numbers and hyphens. For more information, see [The Device entity](#the-device-entity).|
 | **DomainType** | Enumerated | The type of domain stored in domain and FQDN fields. For a list of values and more information, see [The Device entity](#the-device-entity). |
 | **DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. For a list of allowed values and further information refer to [DvcIdType](#dvcidtype). |
@@ -104,7 +105,7 @@ Users are central to activities reported by events. The fields listed in this se
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
 | <a name="userid"></a>**UserId** | Optional | String | A machine-readable, alphanumeric, unique representation of the  user.  |
-| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which the user is defined. For example, an AAD tenant for. The scope type is tightly coupled to the user ID type, and therefore the [UserIdType](#useridtype) field represents also the type of the associated with this field. |
+| <a name="userscope"></a>**UserScope** | Optional | string | The scope in which [UserId](#userid) and [Username](#username) are defined. For example, an AAD tenant. The [UserIdType](#useridtype) field represents also the type of the associated with this field. |
 | <a name="useridtype"></a>**UserIdType** | Optional | UserIdType | The type of the ID stored in the [UserId](#userid) field. |
 | **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store specific user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). Populate the relevant specific ID field, in addition to [UserId](#userid), even if the event has only one ID. |
 | **UserAADTenant**, **UserAWSAccount** | Optional | String | Fields used to store specific scopes. Use the [UserScope](#userscope) field for the scope associated with the ID stored in the [UserId](#userid) field.  Populate the relevant specific scope field, in addition to [UserScope](#userscope), even if the event has only one ID. | 
@@ -118,18 +119,6 @@ The allowed values for a user ID type are:
 | **AADID**| An Azure Active Directory user ID.| `9267d02c-5f76-40a9-a9eb-b686f3ca47aa` |
 | **OktaId** | An Okta user ID. |  `00urjk4znu3BcncfY0h7` |
 | **AWSId** | An AWS user ID. | `72643944673` |
-
-#### The user scope
-
-The user context defines the sc
-
-| Field | Class | Type | Description |
-|-------|-------|------|-------------|
-| <a name="userscope"></a>**UserContext** | Optional | string | The context in which the user is defined 
-| <a name="usercontexttype"></a>**UserContextType** | Optional | UserContextType | The type of the ID stored in the [UserId](#userid) field. |
-| **UserSid**, **UserUid**, **UserAadId**, **UserOktaId**, **UserAWSId** | Optional | String | Fields used to store additional user IDs, if the original event includes multiple user IDs. Select the ID most associated with the event as the primary ID stored in [UserId](#userid). 
-
-
 
 #### The user name
 
@@ -162,7 +151,7 @@ The allowed values for a username type are:
 
 Devices, or hosts, are the common terms used for the systems that take part in the event. The `Dvc` prefix is used to designate the primary device on which the event occurs. Some events, such as network sessions, have source and destination devices, designated by the prefix `Src` and `Dst`. In such a case, the `Dvc` prefix is used for the device reporting the event, which might be the source, destination, or a monitoring device.
 
-### The device alias 
+### The device aliases
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -193,13 +182,15 @@ For example:
 When the value provided by the source is an FQDN, or when the value may be either and FQDN or a short hostname, the parser should calculate the 4 values. Use the ASIM helper functions `_ASIM_ResolveFQDN`, `_ASIM_ResolveSrcFQDN`, `_ASIM_ResolveDstFQDN`, and `_ASIM_ResolveDvcFQDN` to easily set all four fields based on a single input value. For more information, see [ASIM helper functions](normalization-functions.md).
 
 
-#### The device ID
+#### The device ID and Scope
 
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | <a name ="dvcid"></a>**DvcId**               | Optional    | String     | The unique ID of the device . For example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). This field is required if the [DvcId](#dvcid) field is used. |
+| <a name="scopeid"></a>**ScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **Scope** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="scope"></a>**Scope** | Optional | String | The cloud platform scope the device belongs to. **Scope** map to a subscription on Azure and to an account on AWS. | 
+| <a name="dvcidtype"></a>**DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid). Typically this field will also identify the type of [Scope](#scope) and [ScopeId](#scopeid). This field is required if the [DvcId](#dvcid) field is used. |
 | **DvcAzureResourceId**, **DvcMDEid**, **DvcMD4IoTid**, **DvcVMConnectionId**, **DvcVectraId**, **DvcAwsVpcId** |  Optional | String | Fields used to store additional device IDs, if the original event includes multiple device IDs. Select the device ID most associated with the event as the primary ID stored in [DvcId](#dvcid). |
 
 Note that fields named should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role.
@@ -239,7 +230,7 @@ For example, the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsi
 | <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="interface"></a>**Interface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
-| <a name="subscription"></a>**SubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+
 
 Note that fields named in the list with the Dvc prefix should prepend a role prefix such as `Src` or `Dst`, but should not prepend a second `Dvc` prefix if used in that role. 
 
