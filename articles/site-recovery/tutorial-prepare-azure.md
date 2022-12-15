@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Read common questions for [VMware](vmware-azure-common-questions.md) and [Hyper-V](hyper-v-azure-common-questions.md)
 
 
-**Verify account permissions:**
+### Verify account permissions
 
 If you just created your free Azure account, you're the administrator of your subscription and you have the permissions you need. If you're not the subscription administrator, work with the administrator to assign the permissions you need. To enable replication for a new virtual machine, you must have permission to:
 
