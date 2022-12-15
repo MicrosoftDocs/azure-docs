@@ -127,18 +127,6 @@ In addition to the default behavior, you may want to help your SOC and OT manage
 
     For more information, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
 
-## OT alert data retention
-<!--update with Shereen's PR-->
-On an OT network sensor:
-
-- New alerts are automatically closed if no identical traffic detected is 14 days after  initial detection. After 90 days of being closed, the alert is removed from the sensor.
-
-- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
-
-Updating an alert’s status, learning the alert, or muting the alert doesn’t affect how long the alert is displayed.
-
-<!--missing more info. is this replicated to the portal? cm? sentinel?-->
-
 ## Next steps
 
 Review alert types and messages to help you understand and plan remediation actions and playbook integrations. For more information, see [OT monitoring alert types and descriptions](alert-engine-messages.md).
