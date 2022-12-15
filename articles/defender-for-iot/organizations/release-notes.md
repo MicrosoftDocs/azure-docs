@@ -70,8 +70,19 @@ Defender for IoT provides **1 year of support** for every new version, starting 
 
 Earlier versions use a legacy support model, with support dates [detailed for each version](#on-premises-monitoring-software-versions).
 
+### Security Appliance - OS
+
+The OT sensor and management console have been designed as a "locked down" security appliance with a hardened attack surface; Control and access to the appliance can only be achieved through the management port (HTTP Web console, SSH support shell). 
+
+We adhere to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/) throughout the entire development lifecycle including activities such as training, compliance, code reviews, threat modeling, design requirements, component governance, pen testing. . All appliances are locked down according to industry best practices and should not be modified.
+
+The maintenance of the appliance (for example, performing backups, log exports, or monitoring the health of the appliance) can be performed from the graphical user interface or from the proprietary CLI command shell (this does not require any prior OS administration knowledge). 
+
+
+
+
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
+> Manual changes to software packages or additions of external packages may have detrimental security or functional effect on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
 ### Feature documentation per versions
