@@ -103,9 +103,10 @@ Once the database has been created with the above database name, Server admin lo
 
 Follow the next steps to build and run the application locally.
 
-1. Build the Bootable JAR.
+1. Build the Bootable JAR. Because we are using the `eap-datasources-galleon-pack` with MS SQL Server database, we must specify the database driver version we want to use with this specific environment variable. For more information on the `eap-datasources-galleon-pack` and MS SQL Server, see the [documentation from Red Hat](https://github.com/jbossas/eap-datasources-galleon-pack/blob/main/doc/mssqlserver/README.md)
 
     ```bash
+    export MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11
     mvn clean package
     ```
 
