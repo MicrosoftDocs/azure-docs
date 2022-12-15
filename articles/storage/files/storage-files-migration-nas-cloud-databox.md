@@ -48,7 +48,7 @@ In this step, you'll determine how many Azure file shares you need. You might ha
 
 If you have a small enough number of shares, we recommend a 1:1 mapping. The easiest way to picture this scenario is to envision an on-premises share that maps 1:1 to an Azure file share.
 
-#### Use share grouping
+### Use share grouping
 
 If you have a large number of file shares, consider share grouping. For example, if your human resources (HR) department has 15 shares, you might consider storing all the HR data in a single Azure file share. That way, only a single Azure file share in the cloud is needed for this group of on-premises shares.
 
@@ -56,7 +56,9 @@ If you have a large number of file shares, consider share grouping. For example,
 
 In this phase, you'll provision the Azure storage accounts and the file shares within them.
 
-Remember that an Azure file share is deployed in the cloud in an Azure storage account. For standard file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
+Remember that an Azure file share is deployed in the cloud in an Azure storage account. For standard file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares. 
+
+As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (premium) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
 > [!NOTE]
 > There's a limit of 250 storage accounts per subscription per Azure region.
