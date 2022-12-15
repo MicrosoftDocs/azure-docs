@@ -61,7 +61,7 @@ Upon AzureML extension deployment completes, it will create following resources 
 
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
    |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relayserver is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relayserver works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
+   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relay server is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relay server works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
@@ -135,7 +135,7 @@ spec:
 
 ## Supported AzureML taints and tolerations
 
-[Taint and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concepts that work together to ensure that pods are not scheduled onto inappropriate nodes. 
+[Taint and Toleration](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concepts that work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
 Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific AzureML taints and tolerations, allowing users to add specific AzureML taints on the AzureML-dedicated nodes, to prevent non-AzureML workloads from being scheduled onto these dedicated nodes.
 
@@ -156,20 +156,20 @@ We only support placing the amlarc-specific taints on your nodes, which are defi
 
 ### Best practices
 
-According to your scheduling requirements of the Azureml-dedicated nodes, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. Below, we list best practices for using amlarc taints:
+According to your scheduling requirements of the Azureml-dedicated nodes, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. We list best practices for using amlarc taints:
 
 - **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall` taint to these nodes.
-- **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+- **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
   - `amlarc overall` taint
   - `amlarc system` taint
-- **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+- **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
   - `amlarc overall` taint
   - `amlarc workloads` taint
-- **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+- **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
   - `amlarc overall` taint
   - `amlarc resource group (has this <workspace X>)` taint 
   - `amlarc <workspace X>` taint
-- **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add below taints: 
+- **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
   - `amlarc overall` taint
   - `amlarc resource group (has this <workspace X>)` taint 
   - `amlarc workspace (has this <compute X>)` taint
@@ -180,13 +180,13 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
  >
  > New features are released at a biweekly cadance.
 
-| Date | Version |Verson descrisption |
+| Date | Version |Version description |
 |---|---|---|
 | Aug 29, 2022 | 1.1.9 | Improved health check logic. Bugs fixed.|
-| Jun 23, 2022 | 1.1.6 | Bugs fixe |
-| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for Aks extension. Removed service bus usage from the extension. Updated security context usage. Updated inference scorefe to v2. Updated to use Volcano as training job scheduler. Bugs fixed. |
+| Jun 23, 2022 | 1.1.6 | Bugs fixed. |
+| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference scorefe to v2. Updated to use Volcano as training job scheduler. Bugs fixed. |
 | Oct 14, 2021 | 1.0.37 | PV/PVC volume mount support in AMLArc training job. |
-| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explanability. See job queue details in AML Workspace Studio. Auto-killing licy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster autoscale support. Arc agent and ML extension deployment from on-prem container registry.|
+| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster autoscale support. Arc agent and ML extension deployment from on premises container registry.|
 | August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
-| August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes.Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. Optimize AzureML extension components CPU/memory resources utilization.|
-| July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments.Performance improvement on job launcher, which shortens the job execution time to a great deal.|
+| August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes. Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. Optimize AzureML extension components CPU/memory resources utilization.|
+| July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|
