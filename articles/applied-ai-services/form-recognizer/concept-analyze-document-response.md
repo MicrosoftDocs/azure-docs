@@ -1,5 +1,5 @@
 ---
-title: Form Recognizers analyze API response
+title: Form Recognizer analyze document API response
 titleSuffix: Azure Applied AI Services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan
@@ -13,7 +13,9 @@ ms.custom: references_regions
 monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
-# Azure Form Recognizer: analyze document response
+# Analyze document API response
+
+In this article, we'll examine the different objects returned as part of the analyze document response and how to use the document analysis API response in your applications.
 
 Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API, submitting a document returns an operation location header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
 
