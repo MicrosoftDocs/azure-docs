@@ -32,7 +32,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | Integration with SAP RISE managed workloads | Learn how to [integrate your SAP RISE managed workloads](sap-rise-integration.md#sap-btp-connectivity) with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
-| Microsoft Power Platform | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
+| [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | SAP Fiori | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | Connect SAP services to Azure AD | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | Azure Integration Services | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
@@ -63,6 +63,20 @@ For more information about integration with Microsoft Teams, see [Native SAP app
 - [Embedding SAP Cloud Portal and SAP Build Work Zone into Microsoft Teams](https://blogs.sap.com/2022/01/26/integrate-sap-cloud-portal-and-launchpad-service-into-microsoft-teams-including-sso/)
 - [Embed self-hosted SAP Fiori Launchpad into Microsoft Teams](https://blogs.sap.com/2022/08/02/embed-self-hosted-sap-fiori-launchpad-into-microsoft-teams/)
 - [Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba and Microsoft Teams](https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/)
+
+### Microsoft Power Platform
+
+For more information about integration with Microsoft Power Platform, see the following Power Automate resources:
+
+- [Overview of SAP integration](/power-automate/sap-integration/overview)
+- [Understand prebuilt solution available for integrating SAP with Power Platform](/power-automate/sap-integration/solutions)
+- [Finance and operations templates for SAP process mining with Power Automate Process Advisor](/power-automate/process-mining-finance-ops-templates)
+- [Hyperautomation special video series for SAP based integration and automation with Power Automate](https://flow.microsoft.com/blog/hyperautomation-special-video-series-for-sap-based-integration-automation-with-power-automate/)
+- [RPA Playbook for SAP GUI Automation with Power Automate](https://flow.microsoft.com/blog/rpa-playbook-for-sap-gui-automation-with-power-automate-api-flows-ui-flows-and-power-automate-desktop/)
+
+Also see the following SAP resources:
+- [Snoozing SAP systems with Power Apps](https://blogs.sap.com/2021/02/10/hey-sap-systems-my-powerapp-says-snooze-but-only-if-youre-ready-yet/)
+- [Use SAP Business Rules Service (part of SAP Workflow) to expose SAP business logic to Power Apps](https://blogs.sap.com/2020/07/31/scp-business-rules-put-to-the-test-with-microsoft-power-platform/)
 
 ## Free developer accounts
 
