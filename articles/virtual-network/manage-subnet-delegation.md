@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, FY23 content-maintenance
 ---
