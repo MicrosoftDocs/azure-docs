@@ -33,7 +33,7 @@ Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manag
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
+[Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
@@ -41,7 +41,7 @@ To see more related templates, select [here](https://azure.microsoft.com/resourc
 
 To create an ExpressRoute Circuit by deploying a template:
 
-1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
+1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
