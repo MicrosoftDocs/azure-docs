@@ -333,7 +333,7 @@ In this section, we'll provide an overview of how the inference server works and
 The basic steps for troubleshooting are:
 1. Gather version information for your Python environment.
 1. Make sure the azureml-inference-server-http python package version that specified in the environment file matches the AzureML Inferencing HTTP server version that displayed in the [startup log](#startup-logs). Sometimes pip's dependency resolver leads to unexpected versions of packages installed.
-3. If you specify Flask (and or its dependencies) in your environment, remove them. The dependencies include `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way in when the server supports new versions of Flask, you'll automatically get them.
+1. If you specify Flask (and or its dependencies) in your environment, remove them. The dependencies include `Flask`, `Jinja2`, `itsdangerous`, `Werkzeug`, `MarkupSafe`, and `click`. Flask is listed as a dependency in the server package and it's best to let our server install it. This way when the server supports new versions of Flask, you'll automatically get them.
 
 ### Server version
 
