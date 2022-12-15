@@ -150,7 +150,7 @@ This step isn't required if you're using an AKS identity since it will already h
     az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
  
     # use helm to update your remote write config 
-    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack -namespace <namespace where Prometheus pod resides> 
+    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus pod resides> 
     ```
 
 ## Verification and troubleshooting
