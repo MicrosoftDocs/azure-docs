@@ -9819,11 +9819,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/backup/backup-azure-files.md",
-            "redirect_url": "/azure/backup/backup-afs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/backup/tutorial-backup-azure-files.md",
             "redirect_url": "/azure/backup/backup-afs",
             "redirect_document_id": false
