@@ -104,7 +104,7 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-You need to create an Azure Functions app on Azure. To do this, follow the instructions in the *Create a function app* section of [these instructions](/articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app-a-function)
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in the *Create a function app* section of [these instructions](/articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app-a-function).
 
 ### Set up Event Hubs
 
@@ -135,7 +135,6 @@ You need to add your connection string as an application setting in your Functio
 
 ![In the Function App view, go to "configuration" and select "new application setting."](./media/quickstart-netherite/add-configuration.png)
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
-
 
 ### Enable runtime scaling (Elastic Premium only)
 
