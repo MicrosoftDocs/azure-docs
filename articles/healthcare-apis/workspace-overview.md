@@ -1,7 +1,7 @@
 ---
 title:  What is the workspace? - Azure Health Data Services
 description: This article describes an overview of the Azure Health Data Services workspace.
-author: msjateppe
+author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
