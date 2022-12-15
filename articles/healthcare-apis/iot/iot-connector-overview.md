@@ -6,21 +6,21 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 10/28/2022
+ms.date: 12/14/2022
 ms.author: jasteppe
 ---
 
-# What is MedTech service?
+# What is the MedTech service?
 
 ## Overview
 
-MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
+The MedTech service in Azure Health Data Services is a Platform as a service (PaaS) that enables you to gather data from diverse medical devices and convert it into a Fast Healthcare Interoperability Resources (FHIR&#174;) service format. The MedTech service's device data translation capabilities make it possible to transform a wide variety of data into a unified FHIR format that provides secure health data management in a cloud environment.
 
-MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative effect on gaining clinical insights and a patient's health and wellness. The ability to transform many types of medical device data into a unified FHIR format enables MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
+The MedTech service is important because healthcare data can be difficult to access or lost when it comes from diverse or incompatible devices, systems, or formats. If medical information isn't easy to access, it may have a negative effect on gaining clinical insights and a patient's health and wellness. The ability to transform many types of medical device data into a unified FHIR format enables the MedTech service to successfully link devices, health data, labs, and remote in-person care to support the clinician, care team, patient, and family. As a result, this capability can facilitate the discovery of important clinical insights and trend capture. It can also help make connections to new device applications and enable advanced research projects.
 
-## How MedTech service works
+## How the MedTech service works
 
-The following diagram outlines the basic elements of how MedTech service transforms medical device data into a standardized FHIR resource in the cloud.
+The following diagram outlines the basic elements of how the MedTech service transforms medical device data into a standardized FHIR resource in the cloud.
 
 :::image type="content" source="media/iot-what-is/what-is-simple-diagram.png" alt-text="Simple diagram showing the MedTech service." lightbox="media/iot-what-is/what-is-simple-diagram.png":::
 
@@ -28,7 +28,7 @@ These elements are:
 
 ### Deployment
 
-In order to implement MedTech service, you need to have an Azure subscription, set up a workspace, and set up a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This setup creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
+In order to implement the MedTech service, you need to have an Azure subscription, set up a workspace, and set up a namespace to deploy three Azure services: MedTech service, FHIR service, and Event Hubs service. This setup creates the PaaS configuration required to receive and process data from Internet of Medical Things (IoMT) devices.
 
 ### Devices
 
@@ -38,17 +38,17 @@ After the PaaS deployment is completed, high-velocity and low-velocity patient m
 
  IoMT data is then sent from a device over the Internet to Event Hubs service to hold it temporarily in the cloud. The event hub can asynchronously process millions of data points per second, eliminating data traffic jams, making it possible to easily handle huge amounts of information in real time.
 
-### MedTech service
+### The MedTech service
 
-When the device data has been loaded into Event Hubs service, MedTech service can then process it in five stages to convert the data into a unified FHIR format.
+When the device data has been loaded into Event Hubs service, the MedTech service can then process it in five stages to convert the data into a unified FHIR format.
 
 These stages are:
 
-1. **Ingest** - MedTech service asynchronously loads the device data from the event hub at high speed.
+1. **Ingest** - The MedTech service asynchronously loads the device data from the event hub at high speed.
 
-2. **Normalize** - After the data has been ingested, MedTech service uses device mapping to streamline and translate it into a normalized schema format.
+2. **Normalize** - After the data has been ingested, the MedTech service uses device mapping to streamline and translate it into a normalized schema format.
 
-3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation id.
+3. **Group** - The normalized data is then grouped by parameters to prepare it for the next stage of processing. The parameters are: device identity, measurement type, time period, and (optionally) correlation ID.
 
 4. **Transform** - When the normalized data is grouped, it's transformed through FHIR destination mapping templates and is ready to become FHIR Observation resources.
 
@@ -56,19 +56,19 @@ These stages are:
 
 ### FHIR service
 
-MedTech service data processing is complete when the new FHIR Observation resource is successfully persisted and saved into the FHIR service. Now it's ready for use by the care team, clinician, laboratory, or research facility.
+The MedTech service data processing is complete when the new FHIR Observation resource is successfully persisted and saved into the FHIR service. Now it's ready for use by the care team, clinician, laboratory, or research facility.
 
-## Key features of MedTech service
+## Key features of the MedTech service
 
-MedTech service has many features that make it secure, configurable,  scalable, and extensible.
+The MedTech service has many features that make it secure, configurable,  scalable, and extensible.
 
 ### Secure
 
-MedTech service delivers your data to FHIR service in Azure Health Data Services, ensuring that your Protected Personal Health Information (PHI) has unparalleled security and advanced threat protection. The FHIR service isolates your data in a unique database per API instance and protects it with multi-region failover. In addition, MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and control of your MedTech service assets. 
+The MedTech service delivers your data to FHIR service in Azure Health Data Services, ensuring that your Protected Personal Health Information (PHI) has unparalleled security and advanced threat protection. The FHIR service isolates your data in a unique database per API instance and protects it with multi-region failover. In addition, the MedTech service uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for extra security and control of your MedTech service assets. 
 
 ### Configurable
 
-Your MedTech service can be customized and configured by using [device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
+The MedTech service can be customized and configured by using [device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
 
 Useful options could include:
 
@@ -109,7 +109,7 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 In this article, you learned about the MedTech service. To learn more about the MedTech service data flow and how to deploy the MedTech service in the Azure portal, see
 
 > [!div class="nextstepaction"]
-> [MedTech service data flows](iot-data-flow.md)
+> [The MedTech service data flow](iot-data-flow.md)
 
 > [!div class="nextstepaction"]
 > [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md)
