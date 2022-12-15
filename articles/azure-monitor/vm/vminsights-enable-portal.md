@@ -20,9 +20,9 @@ This article describes how to enable VM insights using the Azure portal for Azur
 
 ## View monitored and unmonitored machines
 
-To see which virtual machines in your directory are monitored using VM insights, from the Azure portal:
+To see which virtual machines in your directory are monitored using VM insights:
 
-1. From the **Monitor** menu, select **Virtual Machines** > **Overview**. 
+1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Overview**. 
 
     The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. 
 
@@ -38,15 +38,13 @@ To see which virtual machines in your directory are monitored using VM insights,
 
 To enable VM insights on an unmonitored virtual machine or virtual machine scale set using Azure Monitor Agent:
 
-1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
-
-1. From the **Overview** page, select **Not Monitored**. 
+1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Not Monitored**. 
  
 1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, you must start it to enable it.
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
-1. Select **Enable** on the **Insights Onboarding** page. 
+1. on the **Insights Onboarding** page, select **Enable**. 
  
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) from the **Data collection rule** dropdown. 
 
@@ -70,19 +68,17 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
 To enable VM insights on an unmonitored virtual machine or virtual machine scale set using Log Analytics agent:
 
-1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
-
-1. From the **Overview** page, select **Not Monitored**. 
+1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Overview** > **Not Monitored**. 
  
 1. Select **Enable** next to any machine that you want to enable. If a machine is currently running, then you must start it to enable it.
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
-1. Select **Enable** on the **Insights Onboarding** page. 
+1. On the **Insights Onboarding** page, select **Enable**. 
  
-1. Select **Log Analytics agent** on the **Monitoring configuration** page. 
+1. On the **Monitoring configuration** page, select **Log Analytics agent**. 
 
-1. If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
+    If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
 
     > [!NOTE]
     > If you select a workspace that wasn't previously configured for VM insights, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for VM insights. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.
@@ -94,18 +90,16 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
 ## Enable Azure Monitor Agent on monitored machines
 
-To add Azure Monitor Agent to machines that are already enabled with the Log Analytics agent. 
+To add Azure Monitor Agent to machines that are already enabled with the Log Analytics agent: 
 
-1. Select **Virtual Machines** from the **Monitor** menu in the Azure portal.
- 
-1. From the **Overview** page, select **Monitored**.
+1. From the **Monitor** menu in the Azure portal, select **Virtual Machines** > **Overview** > **Monitored**.
  
 1. Select **Configure using Azure Monitor agent** next to any machine that you want to enable. If a machine is currently running, you must start it to enable it.
 
     :::image type="content" source="media/vminsights-enable-portal/add-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/add-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration to Azure Monitor agent to monitored machine.":::
 
 
-1. Follow the process described in [Enable VM insights for Azure Monitor agent
+1. Follow the process described in [Enable VM insights for Azure Monitor Agent
 ](#enable-vm-insights-for-azure-monitor-agent) to select a data collection rule. The only difference is that the data collection rule hasn't created for monitored machines has **Processes and dependencies** enabled for backward compatibility with the Log Analytics agent.
  
     :::image type="content" source="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" lightbox="media/vminsights-enable-portal/enable-monitored-configure-azure-monitor-agent.png" alt-text="Screenshot showing monitoring configuration for Azure Monitor agent for monitored machine.":::
