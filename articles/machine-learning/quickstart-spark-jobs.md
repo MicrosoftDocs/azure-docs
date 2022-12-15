@@ -140,7 +140,7 @@ First, upload the parameterized Python code `titanic.py` to the Azure Blob stora
 1. In the left pane, select **+ New**.
 2. Select **Spark job (preview)**.
 3. On the **Compute** screen:
- 
+
     :::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" lightbox="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Expandable screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
 
    1. Under **Select compute type**, select **Spark automatic compute (Preview)** for Managed (Automatic) Spark compute.
