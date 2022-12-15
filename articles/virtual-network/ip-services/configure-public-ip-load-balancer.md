@@ -178,5 +178,5 @@ In this article, you:
 
 - Changed an outbound frontend configuration to use a public IP prefix.
 
-- For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
-- To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).
+For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
+To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).
