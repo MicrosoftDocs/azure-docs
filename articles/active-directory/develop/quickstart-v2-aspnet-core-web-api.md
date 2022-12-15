@@ -70,7 +70,7 @@ This quickstart will be deprecated in the near future and will be updated to use
 > In this step, the sample code will be configured to work with the app registration that was created earlier.
 > 
 > 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
-
+>
 > 1. Open the solution in the *webapi* folder in your code editor.
 > 1. In *appsettings.json*, replace the values of `ClientId`, and `TenantId`.
 > 
@@ -90,16 +90,16 @@ This quickstart will be deprecated in the near future and will be updated to use
 > ### Step 4: Update the sample code to ASP.NET Core 6.0
 >
 > To update this code sample to target ASP.NET Core 6.0, follow these steps:
-
+>
 >1. Open webapi.csproj
 >1. Remove the following line:
-
+>
 >   ```xml
 >   <TargetFramework>netcoreapp3.1</TargetFramework>
 >   ```
-
+>
 >1. Add the following line in its place:
-
+>
 >   ```xml
 >   <TargetFramework>netcoreapp6.0</TargetFramework>
 >   ```
@@ -107,21 +107,21 @@ This quickstart will be deprecated in the near future and will be updated to use
 > This step will ensure that the sample is targeting the .NET Core 6.0 framework.
 >
 > ### Step 5: Run the sample
-
+>
 > 1. Open a terminal and change directory to the project folder.
-
+>
 >    ```powershell
 >    cd webapi
 >    ```
-
+>
 > 1. Run the following command to build the solution:
-
+>
 >   ```powershell
 >   dotnet run
 >   ```
-
+>
 > If the build has been successful, the following output is displayed:
-
+>
 >    ```powershell
 >    Building...
 >    info: Microsoft.Hosting.Lifetime[0]
@@ -132,7 +132,7 @@ This quickstart will be deprecated in the near future and will be updated to use
 >        Application started. Press Ctrl+C to shut down.
 >    ...
 >   ```
-
+>
 > ## How the sample works
 > 
 > The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
@@ -153,7 +153,8 @@ This quickstart will be deprecated in the near future and will be updated to use
 > 
 > The line that contains `.AddMicrosoftIdentityWebApi` adds the Microsoft identity platform authorization to the web API. It's then configured to validate access tokens issued by the Microsoft identity platform based on the information in the `AzureAD` section of the *appsettings.json* configuration file:
 > 
-> | *appsettings.json* key | Description                                                                                                                                                          |
+> | *appsettings.json* key | Description                                                                                                                         
+|
 > |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | `ClientId`             | Application (client) ID of the application registered in the Azure portal.                                                                                       |
 > | `Instance`             | Security token service (STS) endpoint for the user to authenticate. This value is typically `https://login.microsoftonline.com/`, indicating the Azure public cloud. |
