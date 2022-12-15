@@ -346,7 +346,7 @@ items:
       href: essentials/data-collection-rule-overview.md
     - name: Best practices
       displayName: data collection, data collection rules
-      href: essentials/data-collection-rule-bestpractices.md
+      href: essentials/data-collection-rule-best-practices.md
     - name: Edit
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
