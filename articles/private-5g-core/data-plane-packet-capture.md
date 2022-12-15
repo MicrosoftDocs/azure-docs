@@ -27,7 +27,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 ## Performing packet capture
 
-1. Enter the UPF-PP troubleshooter pod:
+1. In a command line with kubectl access to the Azure Arc-enabled Kubernetes cluster, enter the UPF-PP troubleshooter pod:
 
     `kubectl exec -it -n core core-upf-pp-0 -c troubleshooter – bash`.
 
@@ -41,6 +41,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
         1. Enable packet capture by running `upft.py start <interface> <duration>`, where
             - \<interface\> specifies the interface or interfaces to enable capture on. You can specify `any` to enable packet capture on all possible interfaces.
             - \<duration\> specifies the time in seconds before packet capture automatically disables.
+        1. Type *yes* when prompted and then press <kbd>Enter</kbd> to continue.
         1. Run `tcpdump` on the interface.
         1. Once complete, run `upft.py stop <interface>` to disable packet capture if the timer has not expired.
 1. Leave the container:
