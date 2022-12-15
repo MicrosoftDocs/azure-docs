@@ -6,8 +6,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: how-to
-ms.date: 11/16/2022
-ms.custom: template-how-to, engagement-fy23
+ms.date: 12/15/2022
+ms.custom: template-how-to
 ---
 
 
