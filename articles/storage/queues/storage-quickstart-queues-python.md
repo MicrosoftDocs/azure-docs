@@ -138,7 +138,37 @@ These example code snippets show you how to do the following actions with the Az
 
 ### Authorize access and create a client
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via the Azure CLI, or Azure PowerShell.
+
+### [Azure CLI](#tab/sign-in-azure-cli)
+
+Sign-in to Azure through the Azure CLI using the following command:
+
+```azurecli
+az login
+```
+
+### [Visual Studio Code](#tab/sign-in-visual-studio-code)
+
+You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+
+On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
+
+Sign-in to Azure through the Azure CLI using the following command:
+
+```azurecli
+az login
+```
+
+### [PowerShell](#tab/sign-in-powershell)
+
+Sign-in to Azure using PowerShell via the following command:
+
+```azurepowershell
+Connect-AzAccount
+```
+
+--- 
 
 You can authorize a `QueueClient` object to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
 
@@ -169,28 +199,17 @@ Add the following code inside the `try` block, and make sure to replace the `<st
     queue_client = QueueClient(account_url, queue_name=queue_name ,credential=default_credential)
 ```
 
-### Create a queue
-
-Using the `QueueClient` object, call the [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-create-queue) method to create the queue in your storage account.
-
-Add this code to the end of the `try` block:
-
-```python
-    print("Creating queue: " + queue_name)
-
-    # Create the queue
-    queue_client.create_queue()
-```
-
 ## [Connection String](#tab/connection-string)
 
-### Get the connection string
+### Get the connection string and create a client
 
 The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `try` block:
 
 ```python
+    print("Azure Queue storage - Python quickstart sample")
+
     # Retrieve the connection string for use with the application. The storage
     # connection string is stored in an environment variable on the machine
     # running the application called AZURE_STORAGE_CONNECTION_STRING. If the
@@ -200,14 +219,10 @@ Add this code inside the `try` block:
     connect_str = os.getenv('AZURE_STORAGE_CONNECTION_STRING')
 ```
 
-### Create a queue
-
-Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
-
-Create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class. Then, call the [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-create-queue) method to create the queue in your storage account.
 
 Add this code to the end of the `try` block:
 
@@ -220,15 +235,25 @@ Add this code to the end of the `try` block:
     # Instantiate a QueueClient which will be
     # used to create and manipulate the queue
     queue_client = QueueClient.from_connection_string(connect_str, queue_name)
-
-    # Create the queue
-    queue_client.create_queue()
 ```
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
 
 ---
+
+### Create a queue
+
+Using the `QueueClient` object, call the [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-create-queue) method to create the queue in your storage account.
+
+Add this code to the end of the `try` block:
+
+```python
+    print("Creating queue: " + queue_name)
+
+    # Create the queue
+    queue_client.create_queue()
+```
 
 ### Add messages to a queue
 
