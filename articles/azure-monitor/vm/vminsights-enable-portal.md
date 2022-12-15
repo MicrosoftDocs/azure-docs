@@ -52,12 +52,12 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
     :::image type="content" source="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" lightbox="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" alt-text="Screenshot that shows the Monitoring configuration screen for V M insights."::: 
 
-    The dropdown lists only data collection rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
+    The **Data collection rule** dropdown lists only rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
 
     - **Guest performance** enabled.
     - **Processes and dependencies** disabled.
 
-    If you want a different configuration, select **Create new** to create a new data collection rule. This allows you to select a workspace and specify whether you want to collect processes and dependencies to enable the [map feature in VM insights](vminsights-maps.md).
+    Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
