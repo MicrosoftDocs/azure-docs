@@ -39,7 +39,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
 | [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
-| SAP Business Technology Platform (BTP) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
+| [SAP Business Technology Platform (BTP)](#sap-btp) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Microsoft Office
 
@@ -163,6 +163,22 @@ For more information about threat monitoring with Microsoft Sentinel for SAP, se
 - [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)
 - [Deploy the Microsoft Sentinel solution for SAP](/sentinel/sap/deploy-sap-security-content)
 - [Microsoft Sentinel SAP solution data reference](/sentinel/sap/sap-solution-log-reference)
+
+### SAP BTP
+
+For more information about Azure integration with SAP Business Technology Platform (BTP), see the following SAP resources:
+
+- [SAP Discovery Center for Azure Services and Missions](https://discovery-center.cloud.sap/search/Azure)
+- [Getting Started with SAP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/)
+- [SAP Private Link service use cases for SAP Cloud Integration and SAP Launchpad Service](https://blogs.sap.com/2022/08/22/sap-private-link-service-use-cases-for-sap-cloud-integration-and-sap-launchpad/)
+- [Automate SAP Cloud Integration flow recovery](https://blogs.sap.com/2022/03/04/how-to-notice-and-handle-faulty-cpi-iflow-states-automatically/)
+- [Monitor multiple SAP Cloud Integration tenants with Azure Monitor](https://blogs.sap.com/2020/11/11/broadcast-cpi-errors-to-azure-monitor-via-scp-alert-notifications/)
+- [Route Multi-Region Traffic to SAP BTP Services Intelligently with Azure Traffic Manager](https://discovery-center.cloud.sap/missiondetail/3603/)
+- [Distributed Resiliency of SAP CAP applications using SAP HANA Cloud with Azure Traffic Manager](https://blogs.sap.com/2022/11/12/distributed-resiliency-of-sap-cap-applications-using-sap-hana-cloud-multi-zone-replication-with-azure-traffic-manager/)
+- [Federate your data from Azure Data Explorer to SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3433/3473/)
+- [Integrate globally available SAP BTP apps with Azure CosmosDB via OData](https://blogs.sap.com/2021/06/11/sap-where-can-i-get-toilet-paper-an-implementation-of-the-geodes-pattern-with-s4-btp-and-azure-cosmosdb/)
+- [Explore your Azure data sources with SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3656/3699/)
+- [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
 
 ## Free developer accounts
 
