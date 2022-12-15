@@ -118,7 +118,7 @@ The following steps help you get started understanding the service, but for prod
     # [bash](#tab/bash)
 
     ```azurecli
-    az group create --group $AKS_CLUSTER_GROUP_NAME --location $LOCATION
+    az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create \
        --resource-group $AKS_CLUSTER_GROUP_NAME \
        --name $AKS_NAME \ 
@@ -129,7 +129,7 @@ The following steps help you get started understanding the service, but for prod
     # [PowerShell](#tab/azure-powershell)
     
     ```azurepowershell
-    az group create --group $AKS_CLUSTER_GROUP_NAME --location $LOCATION
+    az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create `
        --resource-group $AKS_CLUSTER_GROUP_NAME `
        --name $AKS_NAME `
@@ -152,13 +152,13 @@ The following steps help you get started understanding the service, but for prod
     # [bash](#tab/bash)
 
     ```azurecli
-        az group create --group $GROUP_NAME --location $LOCATION
+        az group create --name $GROUP_NAME --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    az group create --group $GROUP_NAME --location $LOCATION
+    az group create --name $GROUP_NAME --location $LOCATION
     ```
 
     ---

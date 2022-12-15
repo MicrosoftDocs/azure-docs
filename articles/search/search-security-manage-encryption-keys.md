@@ -22,7 +22,7 @@ This article walks you through the steps of setting up customer-managed key (CMK
 
 + CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
-+ CMK encryption occurs when an object is created. You can't encrypt objects that already exist.
++ CMK encryption becomes operational when an object is created. You can't encrypt objects that already exist. CMK encryption occurs whenever an object is saved to disk, either data at rest for long-term storage or temporary data for short-term storage.
 
 ## CMK encrypted objects
 
