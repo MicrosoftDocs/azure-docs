@@ -11,7 +11,7 @@ services: iot-edge
 
 # Create and provision IoT Edge for Linux on Windows devices at scale using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -32,16 +32,16 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 <!-- Create a DPS enrollment using symmetric keys H2 and content -->
-[!INCLUDE [iot-edge-create-dps-enrollment-symmetric.md](../../includes/iot-edge-create-dps-enrollment-symmetric.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-symmetric.md](includes/iot-edge-create-dps-enrollment-symmetric.md)]
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](includes/iot-edge-install-linux-on-windows.md)]
 
 ## Provision the device with its cloud identity
 
@@ -216,7 +216,7 @@ You can verify that the group enrollment that you created in device provisioning
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 <!-- Uninstall IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](../../includes/iot-edge-uninstall-linux-on-windows.md)]
+[!INCLUDE [uninstall-iot-edge-linux-on-windows.md](includes/iot-edge-uninstall-linux-on-windows.md)]
 
 ## Next steps
 
