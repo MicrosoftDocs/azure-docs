@@ -25,7 +25,7 @@ Before you create an external-access security plan, ensure the following conditi
 For your security plan, document the following information:
 
 * Applications and resources to be grouped for access
-* Sign-in conditions for external users: 
+* Sign-in conditions for external users
   * Device state, sign-in location, client application requirements, and user risk
 * Policies that determine when to review and remove access
 * User populations to be grouped for a similar experience
@@ -80,9 +80,9 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 Consider the follwing policies to trigger MFA.
 
-**Low** - MFA for some application sets
-**Medium** - MFA when other risks are present
-**High** - External users always use MFA
+* **Low** - MFA for some application sets
+* **Medium** - MFA when other risks are present
+* **High** - External users always use MFA
 
 Learn more: 
 
