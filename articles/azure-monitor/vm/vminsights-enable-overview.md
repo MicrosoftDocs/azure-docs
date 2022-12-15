@@ -14,7 +14,7 @@ ms.custom: references_regions
 This article provides an overview of the options available to enable VM insights to monitor the health and performance of:
 
 - Azure virtual machines.
-- Azure virtual machine scale sets.
+- Azure Virtual Machine Scale Sets.
 - Hybrid virtual machines connected with Azure Arc.
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
@@ -73,7 +73,7 @@ When you enable VM insights for a machine, the following agents are installed. F
 > [!IMPORTANT]
 > VM insights support for the Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace.
+- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
 - **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
 ### Network requirements
@@ -100,7 +100,7 @@ The DCR is defined by the options in the following table.
 > [!IMPORTANT]
 > Don't create your own DCR to support VM insights. The DCR created by VM insights includes a special data stream required for its operation. You can edit this DCR to collect more data, such as Windows and Syslog events, but you should create more DCRs and associate them with the machine.
 
-If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent is not installed, the Map view will not be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
+If you associate a data collection rule with the Map feature enabled to a machine on which Dependency Agent isn't installed, the Map view won't be available. To enable the Map view, set `enableAMA property = true` in the Dependency Agent extension when you install Dependency Agent. We recommend following the procedure described in [Enable VM insights for Azure Monitor Agent](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent).  
 
 ## Migrate from Log Analytics agent to Azure Monitor Agent
 
@@ -116,7 +116,7 @@ If you associate a data collection rule with the Map feature enabled to a machin
 
 - You must remove the Log Analytics agent yourself from any machines that are using it. Before you do this step, ensure that the machine isn't relying on any other solutions that require the Log Analytics agent. For more information, see [Migrate to Azure Monitor Agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the *VMInsights* solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace). It's no longer needed.
+- After you verify that no Log Analytics agents are still connected to your Log Analytics workspace, you can [remove the VM Insights solution from the workspace](vminsights-configure-workspace.md#remove-vminsights-solution-from-workspace). It's no longer needed.
 
     > [!NOTE]
     > To check if you have any machines with both agents sending data to your Log Analytics workspace, run the following [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-overview.md). This query will show the last heartbeat for each computer. If a computer has both agents, it will return two records, each with a different `category`. The Azure Monitor agent will have a `category` of *Azure Monitor Agent*. The Log Analytics agent will have a `category` of *Direct Agent*.
