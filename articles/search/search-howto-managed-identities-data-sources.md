@@ -191,12 +191,15 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
 1. On the **Role** page, select the roles needed for your search service:
 
-   | Role | Usage |
-   |------|-------|
-   | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
-   | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants read permissions for indexer access, plus write permissions for debug sessions, knowledge store object projections, and enrichment cache. |
-   | **Storage Table Data Contributor** | Grants read permissions for indexer access, plus write permissions for knowledge store table projections. |
+   | Task | Role assignment |
+   |------|-----------------|
+   | Blob indexing | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing | Add **Storage Blob Data Reader** |
+   | Table indexing | Add **Reader and Data Access** |
+   | File indexing | Add **Reader and Data Access** |
+   | Write to a knowledge store | Add **Storage Blob DataContributor** and **Storage Table Data Contributor** |
+   | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
+   | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. On the **Members** page, select **Managed Identity**.
 
