@@ -240,7 +240,7 @@ A search request to Azure Storage can also be made under a user-assigned managed
 
 [**Knowledge store:**](knowledge-store-create-rest.md)
 
-A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string doesn't include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {
