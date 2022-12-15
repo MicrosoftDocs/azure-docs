@@ -279,33 +279,33 @@
   - name: FAQ
     items:
     - name: General
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#general
+      href: faq#general
     - name: Billing
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#billing
+      href: faq#billing
     - name: Support
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#support
+      href: faq#support
     - name: Customer Communication
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#customer-communication
+      href: faq#customer-communication
     - name: Configuration & setup
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#configuration-and-setup
+      href: faq#configuration-and-setup
     - name: VMware solution software
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#vmware-solution-software
+      href: faq#vmware-solution-software
     - name: Migrate
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#migrate
+      href: faq#migrate
     - name: Compute
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#compute
+      href: faq#compute
     - name: Backup
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#backup
+      href: faq#backup
     - name: Networking & interconnectivity
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#networking-and-interconnectivity
+      href: faq#networking-and-interconnectivity
     - name: Storage
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#storage
+      href: faq#storage
     - name: Hosts, clusters, & private clouds
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#hosts--clusters--and-private-clouds
+      href: faq#hosts--clusters--and-private-clouds
     - name: Identity management
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#identity-management
+      href: faq#identity-management
     - name: CSP & multi-tenancy
-      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#csp-and-multi-tenancy
+      href: faq#csp-and-multi-tenancy
   - name: Videos
     items:
     - name: Playlist
