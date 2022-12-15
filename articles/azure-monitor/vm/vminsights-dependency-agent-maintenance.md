@@ -60,7 +60,7 @@ Update the agent on a Windows VM from the command prompt, with a script or other
 
 ### Upgrade Linux agent 
 
-Upgrade from prior versions of the Dependency agent on Linux is supported and performed following the same command as a new installation.
+Upgrade from prior versions of the Dependency Agent on Linux is supported and performed following the same command as a new installation.
 
 You can download the latest version of the Linux agent from [here](https://aka.ms/dependencyagentlinux).
 
@@ -74,6 +74,14 @@ You can download the latest version of the Linux agent from [here](https://aka.m
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
 
+## Uninstall Dependency Agent 
+
+To uninstall Dependency Agent:
+
+1. From the **Virtual Machines** menu in the Azure portal, select your virtual machine.
+1. Select **Extensions + applications** > **DependencyAgentWindows** or **DependencyAgentLinux** > **Uninstall**.
+
+    :::image type="content" source="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" lightbox="media/vminsights-dependency-agent-maintenance/azure-monitor-uninstall-dependency-agent.png" alt-text="Screenshot showing the Extensions and applications screen for a virtual machine.":::
 ## Dependency Agent Linux support
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
