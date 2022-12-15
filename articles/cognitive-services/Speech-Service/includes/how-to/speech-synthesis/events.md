@@ -10,7 +10,7 @@ ms.author: eur
 
 | Event | Description | Use case |
 | --- | --- | --- |
-|`BookmarkReached`|Signals that a bookmark was reached. To trigger a bookmark reached event, a `bookmark` element is required in the [SSML](../../../speech-synthesis-markup.md#bookmark-element). This event reports the output audio's elapsed time between the beginning of synthesis and the `bookmark` element. The event's `Text` property is the string value that you set in the bookmark's `mark` attribute. The `bookmark` elements won't be spoken.|You can use the `bookmark` element to insert custom markers in SSML to get the offset of each marker in the audio stream. The `bookmark` element can be used to reference a specific location in the text or tag sequence.|
+|`BookmarkReached`|Signals that a bookmark was reached. To trigger a bookmark reached event, a `bookmark` element is required in the [SSML](../../../speech-synthesis-markup-structure.md#bookmark-element). This event reports the output audio's elapsed time between the beginning of synthesis and the `bookmark` element. The event's `Text` property is the string value that you set in the bookmark's `mark` attribute. The `bookmark` elements won't be spoken.|You can use the `bookmark` element to insert custom markers in SSML to get the offset of each marker in the audio stream. The `bookmark` element can be used to reference a specific location in the text or tag sequence.|
 |`SynthesisCanceled`|Signals that the speech synthesis was canceled.|You can confirm when synthesis has been canceled.|
 |`SynthesisCompleted`|Signals that speech synthesis has completed.|You can confirm when synthesis has completed.|
 |`SynthesisStarted`|Signals that speech synthesis has started.|You can confirm when synthesis has started.|

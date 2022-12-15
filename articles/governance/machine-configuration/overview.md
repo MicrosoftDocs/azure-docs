@@ -249,24 +249,29 @@ Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
 
-### Azure Arc-enabled servers
+### Communicate over public endpoints outside of Azure
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the machine configuration service. Details about network and proxy requirements
-provided in the
-[Azure Arc documentation](../../azure-arc/servers/overview.md).
+Servers located on-premises or in other clouds can be managed with machine configuration
+by connecting them to [Azure Arc](../../azure-arc/servers/overview.md).
 
-For Arc-enabled servers in private datacenters, allow traffic using the
-following patterns:
+For Azure Arc-enabled servers, allow traffic using the following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
 - Global URL: `*.guestconfiguration.azure.com`
+
+See the [Azure Arc-enabled servers network requirements](../../azure-arc/servers/network-requirements.md) for a full list
+of all network endpoints required by the Azure Connected Machine Agent for core Azure Arc and machine configuration scenarios.
+
+### Communicate over Private Link outside of Azure
+
+When using [private link with Arc-enabled servers](../../azure-arc/servers/private-link-security.md), built-in policy packages will automatically be downloaded over the private link.
+You do not need to set any tags on the Arc-enabled server to enable this feature.
 
 ## Assigning policies to machines outside of Azure
 
 The Audit policy definitions available for machine configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../azure-arc/servers/overview.md) that are in the
+[Azure Arc-enabled servers](../../azure-arc/servers/overview.md) that are in the
 scope of the policy assignment are automatically included.
 
 ## Managed identity requirements

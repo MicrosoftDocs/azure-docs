@@ -69,7 +69,7 @@ To change the lab capacity (number of VMs in the lab), select **Lab capacity** o
 
 :::image type="content" source="./media/how-to-manage-vm-pool/virtual-machine-pool-update-lab-capacity.png" alt-text="Screenshot of Lab capacity window.":::
 
-If using [Teams](how-to-manage-vm-pool-within-teams.md) or [Canvas](how-to-manage-vm-pool-within-canvas.md) integration, lab capacity will automatically be updated when Azure Lab Services syncs the user list.
+If using [Teams](./how-to-manage-labs-within-teams.md#manage-a-lab-vm-pool-in-teams) or [Canvas](how-to-manage-vm-pool-within-canvas.md) integration, lab capacity will automatically be updated when Azure Lab Services syncs the user list.
 
 ## Export list of VMs
 

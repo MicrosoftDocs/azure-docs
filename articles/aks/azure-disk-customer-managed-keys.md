@@ -50,10 +50,10 @@ Replace *myKeyVaultName* with the name of your key vault.  You will also need a 
 
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
-$keyVaultId=az keyvault show --name myKeyVaultName --query "[id]" -o tsv
+keyVaultId=$(az keyvault show --name myKeyVaultName --query "[id]" -o tsv)
 
 # Retrieve the Key Vault key URL and store it in a variable
-$keyVaultKeyUrl=az keyvault key show --vault-name myKeyVaultName  --name myKeyName  --query "[key.kid]" -o tsv
+keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName --name myKeyName --query "[key.kid]" -o tsv)
 
 # Create a DiskEncryptionSet
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
