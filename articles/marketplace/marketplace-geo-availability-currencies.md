@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
-ms.author: keferna
-ms.date: 07/27/2022
+ms.author: bzamora
+ms.date: 12/15/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
@@ -192,6 +192,7 @@ Microsoft converts offer prices using exchange rates sourced directly from the W
 The following illustration shows the currency conversion flow:
 
 ![currency-exchange-flow-updated-12-12-2022](currency-exchange-flow1.png)
+
 
 
 
