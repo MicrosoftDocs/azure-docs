@@ -30,7 +30,7 @@ In this quickstart guide, you'll learn how to submit a Spark job using Azure Mac
   1. Navigate to Azure Machine Learning studio UI.
   2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
   3. In **Managed preview feature** panel, toggle on **Run notebooks and jobs on managed Spark** feature.
-  :::image type="content" source="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Screenshot showing option for enabling Managed Spark preview.":::
+  :::image type="content" source="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" lightbox="media/quickstart-spark-jobs/how-to-enable-managed-spark-preview.png" alt-text="Expandable screenshot showing option for enabling Managed Spark preview.":::
 
 # [CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -72,13 +72,13 @@ To assign appropriate roles to the user identity:
 1. Select **Access Control (IAM)** from the left panel.
 1. Select **Add role assignment**.
 
-    :::image type="content" source="media/quickstart-spark-jobs/storage-account-add-role-assignment.png" alt-text="Screenshot showing the Azure access keys screen.":::
+    :::image type="content" source="media/quickstart-spark-jobs/storage-account-add-role-assignment.png" lightbox="media/quickstart-spark-jobs/storage-account-add-role-assignment.png" alt-text="Expandable screenshot showing the Azure access keys screen.":::
 
 1. Search for the role **Storage Blob Data Contributor**.
 1. Select the role: **Storage Blob Data Contributor**.
 1. Select **Next**.
 
-    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-choose-role.png" alt-text="Screenshot showing the Azure add role assignment screen.":::
+    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-choose-role.png" lightbox="media/quickstart-spark-jobs/add-role-assignment-choose-role.png" alt-text="Expandable screenshot showing the Azure add role assignment screen.":::
 
 1. Select **User, group, or service principal**.
 1. Select **+ Select members**.
@@ -87,11 +87,11 @@ To assign appropriate roles to the user identity:
 1. Select the appropriate user identity.
 1. Select **Next**.
 
-    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-choose-members.png" alt-text="Screenshot showing the Azure add role assignment screen Members tab.":::
+    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-choose-members.png" lightbox="media/quickstart-spark-jobs/add-role-assignment-choose-members.png" alt-text="Expandable screenshot showing the Azure add role assignment screen Members tab.":::
 
 1. Select **Review + Assign**.
 
-    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-review-and-assign.png" alt-text="Screenshot showing the Azure add role assignment screen review and assign tab.":::
+    :::image type="content" source="media/quickstart-spark-jobs/add-role-assignment-review-and-assign.png" lightbox="media/quickstart-spark-jobs/add-role-assignment-review-and-assign.png" alt-text="Expandable screenshot showing the Azure add role assignment screen review and assign tab.":::
 1. Repeat steps 2-13 for **Contributor** role assignment.
 
 Data in the Azure Data Lake Storage (ADLS) Gen 2 storage account should become accessible once the user identity has appropriate roles assigned.
@@ -135,13 +135,13 @@ The above script takes two arguments `--titanic_data` and `--wrangled_data`, whi
 # [Studio UI](#tab/studio-ui)
 First, upload the parameterized Python code `titanic.py` to the Azure Blob storage container for workspace default datastore `workspaceblobstore`. To submit a standalone Spark job using the Azure Machine Learning studio UI:
 
-:::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job.png" alt-text="Screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
+:::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job.png" lightbox="media/quickstart-spark-jobs/create-standalone-spark-job.png" alt-text="Expandable screenshot showing creation of a new Spark job in Azure Machine Learning studio UI.":::
 
 1. In the left pane, select **+ New**.
 2. Select **Spark job (preview)**.
 3. On the **Compute** screen:
  
-    :::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
+    :::image type="content" source="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" lightbox="media/quickstart-spark-jobs/create-standalone-spark-job-compute.png" alt-text="Expandable screenshot showing compute selection screen for a new Spark job in Azure Machine Learning studio UI.":::
 
    1. Under **Select compute type**, select **Spark automatic compute (Preview)** for Managed (Automatic) Spark compute.
    2. Select **Virtual machine size**. The following instance types are currently supported:
