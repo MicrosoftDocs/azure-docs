@@ -242,7 +242,6 @@ debug: set new filter for horizon ''
 root@xsense:/#
 ```
 
-
 ## Alert exclusion rules from an OT sensor
 
 The following commands support alert exclusion features on your OT sensor, including showing current exclusion rules, adding and editing rules, and deleting rules.
@@ -264,7 +263,7 @@ starting "/usr/local/bin/cyberx-xsense-exclusion-rule-list"
 root@xsense:
 ```
 
-### Creating a new alert suppression rule
+### Creating a new alert exclusion rule
 
 Use the following commands to create a local alert exclusion rule on your sensor.
 
@@ -291,7 +290,7 @@ alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-### Modify an alert suppression rule
+### Modify an alert exclusion rule
 
 Use the following commands to modify an existing local alert exclusion rule on your sensor.
 
@@ -318,7 +317,7 @@ alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-### Deleting an alert suppression rule
+### Deleting an alert exclusion rule
 
 Use the following commands to delete an existing local alert exclusion rule on your sensor.
 
@@ -341,10 +340,9 @@ Supported attributes are defined as follows:
 The following example shows the command syntax and response for the *support* user:
 
 ```bash
-alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
+alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
-
 
 ## Next steps
 
