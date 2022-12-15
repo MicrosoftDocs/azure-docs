@@ -47,7 +47,7 @@ To group resources for access:
 
 Document the applications to be grouped. Considerations include:
 
-* **Risk profile** - Asses the risk if a bad actor gains access to an application. 
+* **Risk profile** - Assess the risk if a bad actor gains access to an application. 
   * Identify application as high, medium, or low risk. Avoid grouping high-risk with low-risk.
   * Document applications that can't be shared with external users
 * **Compliance frameworks** - Determine compliance frameworks for apps
@@ -78,7 +78,7 @@ Learn more: [What is Conditional Access?](../conditional-access/overview.md)
 
 **Resource risk-profile sign-in conditions**
 
-Consider the follwing policies to trigger MFA.
+Consider the following risk-based policies to trigger MFA.
 
 * **Low** - MFA for some application sets
 * **Medium** - MFA when other risks are present
@@ -86,9 +86,9 @@ Consider the follwing policies to trigger MFA.
 
 Learn more: 
 
-* [Tutorial: Enforce multi-factor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md). 
+* [Tutorial: Enforce multi-factor authentication for B2B guest users](../external-identities/b2b-tutorial-require-mfa.md)
 * Trust MFA from external tenants
-  * See, [Configure cross-tenant access settings for B2B collaboration, Modify inbound access settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings).
+  * See, [Configure cross-tenant access settings for B2B collaboration, Modify inbound access settings](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#modify-inbound-access-settings)
 
 ### User and device sign-in conditions
 
@@ -189,7 +189,7 @@ Items in bold are recommended.
 | Microsoft 365 or Office 365 groups|N/A| **Access to group site(s) and associated content**|**Access to Microsoft 365 group teams and associated content**|N/A|
 | Sensitivity labels|N/A| Manually classify and restrict access| Manually classify and restrict access| Manually classify to restrict and encrypt |
 | Conditional Access policies| Conditional Access policies for access control|N/A|N/A|N/A|
-| Additional methods|N/A| Restrict SharePoint site access with security groups<br>Disallow direct sharing| **Restrict external invitations from a team**|N/A|
+| Other methods|N/A| Restrict SharePoint site access with security groups<br>Disallow direct sharing| **Restrict external invitations from a team**|N/A|
 
 ### Next steps
 
