@@ -37,11 +37,16 @@ To create a new service principal:
 1. On the **Register an application** page:
     1. Enter a **Name** for the application (the service principal name).
     1. Select **Accounts in this organizational directory only (_&lt;your tenant's name&gt;_ only - Single tenant)**.
-    1. For **Redirect URI (optional)**, select **Web** and enter a value. This value doesn't need to be a valid URI.
+    1. For **Redirect URI (optional)**, select **Web** and enter a value. This value doesn't need to be a valid endpoint. `https://exampleURI.com` will do.
     1. Select **Register**.
+
+    :::image type="content" source="./media/tutorial-using-rest-apis/application-registration.png" alt-text="Screenshot of the application registration page, with the above options filled out.":::
+
 1. On the new service principal page, copy the values of the **Display name** and the **Application (client) ID** to save for later.
 
    The application ID is the `client_id` value in the sample code.
+
+   :::image type="content" source="./media/tutorial-using-rest-apis/application-id.png" alt-text="Screenshot of the application page in the portal with the Applicaion (client) ID highlighted.":::
 
 To use the service principal (application), you need to know the service principal's password that can be found by:
 
