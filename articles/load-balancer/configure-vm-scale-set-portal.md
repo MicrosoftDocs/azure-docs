@@ -1,22 +1,23 @@
 ---
-title: Configure virtual machine scale set with an existing Azure Load Balancer - Azure portal
-description: Learn how to configure a virtual machine scale set with an existing Azure Load Balancer by using the Azure portal.
+title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer - Azure portal
+description: Learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer by using the Azure portal.
 author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 12/15/2022
+ms.custom: FY23 content-maintenance
 ---
 
-# Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal
+# Configure a Virtual Machine Scale Set with an existing Azure Load Balancer using the Azure portal
 
-In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer. 
+In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. 
 
 ## Prerequisites
 
 - An Azure subscription.
-- An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
-- An Azure Virtual Network for the virtual machine scale set.
+- An existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
+- An Azure Virtual Network for the Virtual Machine Scale Set.
 
 ## Sign in to the Azure portal
 
@@ -24,14 +25,14 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 
 
-## Deploy virtual machine scale set with existing load balancer
+## Deploy Virtual Machine Scale Set with existing load balancer
 
-In this section, you'll create a virtual machine scale set in the Azure portal with an existing Azure load balancer.
+In this section, you'll create a Virtual Machine Scale Set in the Azure portal with an existing Azure load balancer.
 
 > [!NOTE]
 > The following steps assume a virtual network named **myVNet** and a Azure load balancer named **myLoadBalancer** has been previously deployed.
 
-1. On the top left-hand side of the screen, click **Create a resource** and search for **Virtual machine scale set** in the marketplace search.
+1. On the top left-hand side of the screen, select **Create a resource** and search for **Virtual machine scale set** in the marketplace search.
 
 2. Select **Virtual machine scale set** and Select **Create**.
 
@@ -76,7 +77,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Select a load balancer            | Select **myLoadBalancer** or your existing load balancer |
     | Select a backend pool             | Select **myBackendPool** or your existing backend pool.  |
 
-:::image type="content" source="media/configure-vm-scale-set/create-vm-scale-set-network-thumb.png" alt-text="Screenshot shows the Create virtual machine scale set Networking tab." lightbox="media/configure-vm-scale-set/create-vm-scale-set-network.png":::
+:::image type="content" source="media/configure-vm-scale-set/create-vm-scale-set-network-thumb.png" alt-text="Screenshot shows the Create Virtual Machine Scale Set Networking tab." lightbox="media/configure-vm-scale-set/create-vm-scale-set-network.png":::
 
 6. Select the **Management** tab.
 
@@ -88,7 +89,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
 
 ## Next steps
 
-In this article, you deployed a virtual machine scale set with an existing Azure Load Balancer.  To learn more about virtual machine scale sets and load balancer, see:
+In this article, you deployed a Virtual Machine Scale Set with an existing Azure Load Balancer.  To learn more about Virtual Machine Scale Sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are virtual machine scale sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
