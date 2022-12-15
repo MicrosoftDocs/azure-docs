@@ -54,5 +54,7 @@ Data plane packet capture works by mirroring packets to a Linux kernel interface
 
 ## Next steps
 
+For more options to monitor your deployment and view analytics:
+
 - [Learn more about enabling log analytics Azure Private 5G Core](enable-log-analytics-for-private-5g-core.md)
 - [Learn more about monitoring Azure Private 5G Core using Log Analytics](monitor-private-5g-core-with-log-analytics.md)
