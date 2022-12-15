@@ -10,15 +10,16 @@ ms.date: 12/13/2022
 ---
 
 # Enable VM insights by using Azure Policy
-This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, or hybrid virtual machine connected with Azure Arc using [Azure Policy](/azure/governance/policy/overview). Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your Azure environment and automatically enable monitoring for VMs as each virtual machine is created. VM insights provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
+
+With [Azure Policy](/azure/governance/policy/overview) you can install the agents required for VM insights and enable monitoring on all new virtual machines in your Azure environment. VM insights provides a set policy initiatives, which are predefined sets of policies, that discover and remediate noncompliant new VMs in your environment. This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, and hybrid virtual machines connected with Azure Arc using the predefined VM insights policy initiates. 
 
 > [!NOTE]
 > To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
-VM insights provides policy initiatives, which are predefined sets of policies, to install Azure Monitor Agent and Dependency agent on Azure virtual machines. Assign these initiatives to a management group, subscription, or resource group to install the agents on any Windows or Linux Azure virtual machines in that scope automatically.
+VM insights policy initiatives install Azure Monitor Agent and Dependency Agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on any Windows or Linux Azure virtual machines within a defined scope automatically.
 
-Azure Monitor applies initiatives to new machines you create and machines you modify, but not to existing VMs. 
+The initiatives apply to new machines you create and machines you modify, but not to existing VMs. 
 
 |Name |Description |
 |:---|:---|
@@ -27,8 +28,6 @@ Azure Monitor applies initiatives to new machines you create and machines you mo
 | Enable Azure Monitor for Hybrid VMs with AMA | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
 | Legacy - Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
 | Legacy - Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
-
-
 
 ## Assign a VM insights policy initiative
 
@@ -116,9 +115,11 @@ To create remediation tasks from the Azure portal:
     * VM image (OS) isn't identified in the policy definition. The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported.
     * VMs aren't logging to the specified Log Analytics workspace. Some VMs in the initiative scope are connected to a Log Analytics workspace other than the one that's specified in the policy assignment.
     
+1. To create a remediation task to mitigate compliance issues, select **Create Remediation Task**. 
+
     [![Policy compliance details](media/vminsights-enable-policy/policy-compliance-details.png)](media/vminsights-enable-policy/policy-compliance-details.png#lightbox)
 
-1. To create a remediation task to mitigate compliance issues, select **Create Remediation Task**. 
+    
 
     [![New remediation task](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
 
