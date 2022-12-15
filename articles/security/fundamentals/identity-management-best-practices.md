@@ -318,7 +318,7 @@ Organizations that are not controlling how resources are created are more suscep
 
 ## Actively monitor for suspicious activities
 
-An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists two Azure AD capabilities that can help organizations monitor their identities:
+An active identity monitoring system can quickly detect suspicious behavior and trigger an alert for further investigation. The following table lists Azure AD capabilities that can help organizations monitor their identities:
 
 **Best practice**: Have a method to identify:
 

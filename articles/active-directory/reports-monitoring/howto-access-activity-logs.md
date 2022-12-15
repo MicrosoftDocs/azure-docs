@@ -42,20 +42,18 @@ The following roles provide read access to audit and sign-in logs. Always use th
 
 ## Logs and reports that use activity log data
 
-The data captured in the Azure AD activity logs are used in many reports and services. These reports may help you determine where to focus when exploring the activity logs.
+The data captured in the Azure AD activity logs are used in many reports and services. You can review the sign-in logs, audit logs, and provisioning logs for specific scenarios or use the reports to look at patterns and trends. For example the sign-in logs are helpful when researching a user's sign-in activity or to track an application's usage. If you want to see trends or see how your policies impact the data, you can start with the Azure AD Identity Protection reports or use **Diagnostic settings** to [send your data to **Azure Monitor**](howto-integrate-activity-logs-with-log-analytics.md) for further analysis.
 
 ### Audit logs
 
-The audit logs report consolidates several reports. New audit information is added periodically, so this list is not exhaustive.
+The audit logs capture a wide variety of data. Some examples of the types of activity captured in the logs are included in the following list. New audit information is added periodically, so this list is not exhaustive.
 
-* Audit report
-* Password reset activity
-* Password reset registration activity
+* Password reset and registration activity
 * Self-service groups activity
-* Office365 Group Name Changes
-* Account provisioning activity
-* Password rollover status
-* Account provisioning errors
+* Microsoft365 Group name changes
+* Account provisioning activity and errors
+* Privileged Identity Management activity
+* Device registration and compliance activity
 
 ### Anomalous activity reports
 
