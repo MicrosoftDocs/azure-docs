@@ -43,7 +43,7 @@ The key benefits of enhanced soft delete are:
 
 ## Supported regions
 
-Enhanced soft delete is currently available in the following regions: East US, West US, West US 2, West Central US, Japan East, , Brazil South, Australia East, and North Europe.
+Enhanced soft delete is currently available in the following regions: East US, West US, West US 2, West Central US, Japan East, Brazil South, Australia East, and North Europe.
 
 ## Supported scenarios
 

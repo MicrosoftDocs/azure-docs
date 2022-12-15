@@ -8,7 +8,7 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 10/09/2022
+ms.date: 12/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -100,7 +100,7 @@ For the **/hana/log** volume. the configuration would look like:
 | E48(d)s_v5 | 384 GiB | 1,315 MBps | 76,800 | 192 GB | 275 MBps | 3,000 | 384 GB | 
 | E64ds_v4 | 504 GiB | 1,200 MBps | 80,000 | 256 GB | 275 MBps | 3,000 | 504 GB | 
 | E64(d)s_v5 | 512 GiB | 1,735 MBps | 80,000 | 256 GB | 275 MBps | 3,000 | 512 GB | 
-| E96(d)s_v5 | 672 GiB | 2,600 MBps | 80,000 | 256 GB | 275 MBps | 3,000 | 672 GB |
+| E96(d)s_v5 | 672 GiB | 2,600 MBps | 80,000 | 512 GB | 275 MBps | 3,000 | 672 GB |
 | M32ts | 192 GiB | 500 MBps | 20,000 | 96 GB | 275 MBps | 3,000 | 192 GB | 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 128 GB | 275 MBps | 3,000 | 256 GB | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 256 GB | 275 MBps | 3,000 | 512 GB | 

@@ -22,17 +22,17 @@ A Windows device with the following minimum requirements:
 
 * Virtualization support
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
-  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../articles/iot-edge/nested-virtualization.md).
-  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](../articles/iot-edge/nested-virtualization.md).
+  * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](/articles/iot-edge/nested-virtualization.md).
+  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](/articles/iot-edge/nested-virtualization.md).
 
 * Networking support
-  * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](../articles/iot-edge/how-to-create-virtual-switch.md).
+  * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch.  For more information, see [Create virtual switch for Linux on Windows](/articles/iot-edge/how-to-create-virtual-switch.md).
   * Windows Desktop versions come with a default switch that can be used for EFLOW installation. If needed, you can create your own custom virtual switch.
 
 > [!TIP]
 > If you want to use **GPU-accelerated Linux modules** in your Azure IoT Edge for Linux on Windows deployment, there are several configuration options to consider.
 >
-> You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md).
+> You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](/articles/iot-edge/gpu-acceleration.md).
 >
 > Make sure you take the time to satisfy the prerequisites for GPU acceleration now. You will need to restart the installation process if you decide you want GPU acceleration during installation.
 
@@ -59,7 +59,7 @@ If you want to use PowerShell, use the following steps to prepare your target de
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
+For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
@@ -73,7 +73,7 @@ If you want to use Windows Admin Center, use the following steps to download and
 
    1. Install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
 
-      ![Select the gear icon in the top right of the dashboard to access the settings, PNG.](../articles/iot-edge/media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
+      ![Select the gear icon in the top right of the dashboard to access the settings, PNG.](/articles/iot-edge/media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
 
    1. On the **Settings** menu, under **Gateway**, select **Extensions**.
 
@@ -102,7 +102,7 @@ Prepare your target device for the installation of Azure IoT Edge for Linux on W
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
+For more information on the Azure IoT Edge for Linux on Windows PowerShell module, see the [PowerShell functions reference](/articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md).
 
 :::moniker-end
 <!-- end iotedge-2020-11 -->
