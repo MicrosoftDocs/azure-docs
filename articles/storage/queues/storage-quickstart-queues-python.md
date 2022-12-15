@@ -125,8 +125,8 @@ Use the following Python classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Python:
 
-- [Authorize access and instantiate a QueueClient](#authorize-access-and-instantiate-a-queueclient)
-- [Create a queue using a QueueClient object](#create-a-queue-using-a-queueclient-object)
+- [Authorize access and create a client](#authorize-access-and-instantiate-a-queueclient)
+- [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
 - [Update a message in a queue](#update-a-message-in-a-queue)
@@ -140,15 +140,15 @@ These example code snippets show you how to do the following actions with the Az
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step. 
+You can authorize a `QueueClient` object to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
 
-Make sure to install the **azure-identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add an import statement from `azure.identity` in the *queues-quickstart.py* file:
+Make sure to install the **azure-identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add the following import statement in the *queues-quickstart.py* file:
 
 ```python
 from azure.identity import DefaultAzureCredential
 ```
 
-Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
+Next, decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -171,7 +171,7 @@ Add the following code inside the `try` block, and make sure to replace the `<st
     queue_client = QueueClient(account_url, queue_name=queue_name ,credential=default_credential)
 ```
 
-### Create a queue using a QueueClient object
+### Create a queue
 
 Using the `QueueClient` object, call the [`create_queue`](/python/api/azure-storage-queue/azure.storage.queue.queueclient#azure-storage-queue-queueclient-create-queue) method to create the queue in your storage account.
 
@@ -229,6 +229,7 @@ Add this code to the end of the `try` block:
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
+
 ---
 
 ### Add messages to a queue
