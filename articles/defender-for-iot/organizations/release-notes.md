@@ -82,7 +82,7 @@ Maintain your sensors and on-premises management consoles, for activities like b
 
 
 > [!IMPORTANT]
-> Manual changes to software packages or additions of external packages may have detrimental security or functional effect on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
+> Manual changes to software packages or additions of external packages may have detrimental security or functional effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
 ### Feature documentation per versions
