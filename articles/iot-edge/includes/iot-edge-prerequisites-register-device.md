@@ -13,18 +13,18 @@ You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for t
 
 # [Portal](#tab/azure-portal)
 
-A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
+A free or standard [IoT hub](/articles/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-* A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
+* A free or standard [IoT hub](/articles/iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code
 * [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code
 
 # [Azure CLI](#tab/azure-cli)
 
-* A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-using-cli.md) in your Azure subscription
+* A free or standard [IoT hub](/articles/iot-hub/iot-hub-create-using-cli.md) in your Azure subscription
 * [Azure CLI](/cli/azure/install-azure-cli) in your environment
 
   At a minimum, your Azure CLI version must be 2.0.70 or newer. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.

@@ -31,11 +31,11 @@ The following resources can be associated with a public IP address:
 
 * Application Gateways
 
-* Azure Firewall
+* Azure Firewalls
 
-* Bastion Host
+* Bastion Hosts
 
-* Route Server
+* Route Servers
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
