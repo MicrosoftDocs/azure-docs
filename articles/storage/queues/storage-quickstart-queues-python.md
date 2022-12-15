@@ -125,7 +125,7 @@ Use the following Python classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Python:
 
-- [Authorize access and create a client](#authorize-access-and-instantiate-a-queueclient)
+- [Authorize access and create a client](#authorize-access-and-create-a-client)
 - [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
@@ -136,7 +136,7 @@ These example code snippets show you how to do the following actions with the Az
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-### Authorize access and instantiate a QueueClient
+### Authorize access and create a client
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
@@ -148,12 +148,10 @@ Make sure to install the **azure-identity** package, as described in [Install th
 from azure.identity import DefaultAzureCredential
 ```
 
-Next, decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming queues, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
-
-Create an instance of the [`QueueClient`](/python/api/azure-storage-queue/azure.storage.queue.queueclient) class, using `DefaultAzureCredential` for authorization.
 
 Add the following code inside the `try` block, and make sure to replace the `<storage-account-name>` placeholder value:
 
