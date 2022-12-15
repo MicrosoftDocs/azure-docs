@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 11/11/2022
+ms.date: 12/15/2022
 ms.author: kgremban
 ---
 
@@ -243,13 +243,13 @@ To update a route in the Azure portal:
   
        You can't modify an existing endpoint, but you can create a new endpoint for your IoT hub route, and you can change the endpoint that your route uses.
 
-    * For **Date source**, select a new source.
+    * For **Data source**, select a new source.
     * For **Enable route**, enable or disable your route.
     * In **Routing query**, create or change queries.
 
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-routing-portal/update-route.png" alt-text="Screenshot that shows where and how to modify an existing IoT hub route.":::
+   :::image type="content" source="media/how-to-routing-portal/update-route.png" alt-text="Screenshot that shows where and how to modify an existing IoT hub route.":::
 
 ## Delete a route
 
@@ -259,7 +259,7 @@ To delete a route in the Azure portal:
 
 1. Select **Delete**.
 
-:::image type="content" source="media/how-to-routing-portal/delete-route-portal.png" alt-text="Screenshot that shows where and how to delete an existing IoT hub route." lightbox="media/how-to-routing-portal/delete-route-portal.png":::
+   :::image type="content" source="media/how-to-routing-portal/delete-route-portal.png" alt-text="Screenshot that shows where and how to delete an existing IoT hub route." lightbox="media/how-to-routing-portal/delete-route-portal.png":::
 
 ## Delete a custom endpoint
 
@@ -267,11 +267,11 @@ To delete a custom endpoint in the Azure portal:
 
 1. In **Message routing** for your IoT hub, select the **Custom endpoints** tab.
 
-1. Select the Event Hubs endpoint to delete.
+1. Select the endpoint to delete.
 
 1. Select **Delete**.
 
-:::image type="content" source="media/how-to-routing-portal/delete-endpoint-portal.png" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/how-to-routing-portal/delete-endpoint-portal.png":::
+   :::image type="content" source="media/how-to-routing-portal/delete-endpoint-portal.png" alt-text="Screenshot that shows where and how to delete an existing Event Hubs endpoint." lightbox="media/how-to-routing-portal/delete-endpoint-portal.png":::
 
 ## Next steps
 
