@@ -66,15 +66,13 @@ If needed, use the pencil icon to edit the **Basic SAML Configuration** manually
 <p>
 	
 1. On the **Basic SAML Configuration** section, perform the following steps:
-
 	- In the **Identifier** textbox, type a URL using the following pattern:
-    	`https://<SUBDOMAIN>.spedtrack.com`
+    	```https://<SUBDOMAIN>.spedtrack.com```
 	- In the **Reply URL** textbox, type a URL using the following pattern:
-    	`https://<SUBDOMAIN>.spedtrack.com/SSO/AssertionConsumerService.aspx`
-	- If you want to configure **SP** initiated SSO, then perform the following step:  
-	
-2. In the **Sign on URL** textbox, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.spedtrack.com/Login.aspx`
+    	```https://<SUBDOMAIN>.spedtrack.com/SSO/AssertionConsumerService.aspx```
+2. If you want to configure **SP** initiated SSO, then perform the following step:  
+	- In the **Sign on URL** textbox, type a URL using the following pattern:
+    	```https://<SUBDOMAIN>.spedtrack.com/Login.aspx```
 </p>
 </details>
 
