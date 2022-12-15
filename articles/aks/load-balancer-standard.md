@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 12/13/2022
+ms.date: 12/15/2022
 ms.author: jpalma
 author: palma21
 
@@ -131,7 +131,13 @@ When using a *Standard* SKU load balancer with managed outbound public IPs (whic
 Use the following command to update an existing cluster. You can also set this parameter to have multiple managed outbound public IPs.
 
 > [!IMPORTANT]
-> We don't recommend using the Azure portal to make any outbound rule changes. Outbound rule changes made directly on the Load Balancer resource in the Azure portal will be removed whenever the cluster is reconciled, such as when it's stopped, started, upgraded, or scaled. Instead, use the Azure CLI, as shown in the examples. Outbound rule changes made using `az aks` CLI commands are permanent across cluster downtime.
+> We don't recommend using the Azure portal to make any outbound rule changes. When making these changes, you should go through the AKS cluster and not directly on the Load Balancer resource.
+>
+> Outbound rule changes made directly on the Load Balancer resource will be removed whenever the cluster is reconciled, such as when it's stopped, started, upgraded, or scaled.
+>
+> Use the Azure CLI, as shown in the examples. Outbound rule changes made using `az aks` CLI commands are permanent across cluster downtime.
+>
+> For more information, see [Azure Load Balancer outbound rules][alb-outbound-rules].
 
 ```azurecli-interactive
 az aks update \
@@ -456,3 +462,4 @@ To learn more about using internal load balancer for inbound traffic, see the [A
 [service-tags]: ../virtual-network/network-security-groups-overview.md#service-tags
 [maxsurge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-lb]: ../load-balancer/load-balancer-overview.md
+[alb-outbound-rules]: ../load-balancer/outbound-rules.md
