@@ -399,7 +399,7 @@ When you have a new version pipeline job with optimized performance, you can upd
 
 In schedule detail page, you can select **Update settings** to update the basic settings and advanced settings (including job input/output and runtime settings) of the schedule.
 
-:::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-update-settings.png" alt-text="Screenshot of update settings showing the basic settings tab. ." lightbox= "./media/how-to-schedule-pipeline-job/schedule-update-settings.png":::
+:::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-update-settings.png" alt-text="Screenshot of update settings showing the basic settings tab." lightbox= "./media/how-to-schedule-pipeline-job/schedule-update-settings.png":::
 
 --- 
 
