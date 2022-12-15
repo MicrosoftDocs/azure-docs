@@ -1,17 +1,17 @@
 ---
-title: Monitor scan runs in Microsoft Purview
-description: This guide describes how to monitor the scan runs in Microsoft Purview. 
+title: Monitor data map population in Microsoft Purview
+description: This guide describes how to monitor data map population including the scan runs and links in Microsoft Purview. 
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 12/14/2022
 ---
 
-# Monitor scan runs in Microsoft Purview
+# Monitor data map population in Microsoft Purview
 
-In Microsoft Purview, you can register and scan various types of data sources, and you can view the scan status over time. This article outlines how to monitor and get a bird's eye view of your scan runs in Microsoft Purview.
+In Microsoft Purview, you can scan various types of data sources and view the scan status over time; you can also connect other services with Microsoft Purview and view the trends of the ingested assets/relationship. This article outlines how to monitor and get a bird's eye view of the data map population.
 
 ## Monitor scan runs
 
@@ -67,7 +67,7 @@ You can click the **run ID** to check more about the scan run details:
     - **Assets classified**: The number of assets sampled to classify the data, regardless of whether the assets have any matching classification or not. It's a subset of the discovered assets based on the [sampling mechanism](microsoft-purview-connector-overview.md#sampling-data-for-classification). For incremental scan, only newly created or updated assets may be selected for classification.
     - **Duration**: The scan phase duration and the start/end time.
 
-- **Data ingestion** section summarizes the metrics for ingestion phase that Purview populates the data map with the identified metadata and lineage.
+- **Data ingestion** section summarizes the metrics for ingestion phase that Purview populates the data map with the identified metadata and relationship.
 
     - **Ingestion status**:
 
@@ -80,11 +80,42 @@ You can click the **run ID** to check more about the scan run details:
         | In Progress         | The ingestion is running in progress.                        |
         | Queued              | The ingestion is waiting for available service resource or waiting for scan to discover metadata. |
 
-    - **Assets ingested**: The number of assets ingested into the data map. For full scan, the number is equal to the "assets discovered" count; for incremental scan, it only includes the newly created or updated assets, in which case may be less than the "assets discovered" count. When scanning file-based source, it's the raw assets count before resource set aggregation.
+    - **Assets ingested**: The number of assets ingested into the data map. For incremental scan, it only includes the newly created or updated assets, in which case may be less than the "assets discovered" count. When scanning file-based source, it's the raw assets count before resource set aggregation.
 
     - **Relationships ingested**: The number of relationships ingested into the data map. It includes lineage and other relationships like foreign key relationships.
 
     - **Duration**: The ingestion duration and the start/end time.
+
+## Monitor links
+
+You can connect other services with Microsoft Purview to establish a "link", which will make the metadata and lineage of that service's assets available to Microsoft Purview. Currently, link is supported for [Azure Data Factory](how-to-link-azure-data-factory.md) and [Azure Synapse Analytics](how-to-lineage-azure-synapse-analytics.md).
+
+To monitor the assets and relationship ingested over the links:
+
+1. Go to your Microsoft Purview account -> open **Microsoft Purview governance portal** -> **Data map** -> **Monitoring** -> **Links**. You need to have **Data source admin** role on any collection to access the Monitoring tab. And you'll see the results that belong to the collections on which you have data source admin privilege. Permission on root collection is needed to monitor Azure Data Factory and Azure Synapse Analytics links.
+
+1. You can see the high-level KPIs including total number of sources, number of ingested assets and relationship (lineage), followed by trending charts over time. You can apply additional filters on the following to narrow down the results:
+
+    - Source type
+    - Source name
+    - Date range: Default is 30 days. You can also choose last seven days or a custom date range. The retention is 45 days.
+
+    The metrics are reported till the date time shown at the top right corner. And the aggregation will happen hourly.
+
+    :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links.png" alt-text="Screenshot of view link results."  lightbox="./media/how-to-monitor-scan-runs/monitor-links.png":::
+
+1. At the bottom of the graph, there's a **View more** link for you to explore further. In the **Link status** page, you can see a list of source names along with the source type, assets ingested, relationship ingested and the last run date time. The filters in the previous page will be carried over, and you can further filter the list by source type, source name and date range.
+
+    :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links-drilldown.png" alt-text="Screenshot of view link results by source."  lightbox="./media/how-to-monitor-scan-runs/monitor-links-drilldown.png":::
+
+1. You can drill down to each source to see the next level details by clicking the source name. For example, for Azure Data Factory, it shows how each pipeline activity reports the assets and relationship to Microsoft Purview, with the name in the format of `<pipeline_name>/<activity_name>`.
+
+    :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-layer.png" alt-text="Screenshot of view link results by source's sub-artifacts."  lightbox="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-layer.png":::
+
+### Known limitations
+
+- For Azure Data Factory and Azure Synapse Analytics, currently this link monitoring captures the assets and relationship generated from copy activity, but not data flow and SSIS activities.
+- The aggregation and date filter are in UTC time.
 
 ## Scans no longer run
 
