@@ -70,9 +70,9 @@ Supported attributes are defined as follows:
 |`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple reports by commas, with no spaces.                    |
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple reports by commas, with no spaces.                          |
 |`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the program you're working with, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all` <!--do we need more information about when to use each?-->        |
-|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines the base capture filter, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
-|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    Defines the basic capture filter. <br> Default value = `""`    |
-|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | Defines the basic capture filter (the default is "") <!--this is the same as the prev-->             |
+|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines the base capture filter for the `horizon` program, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
+|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    Defines the basic capture filter for the `traffic-monitor` filter. <br> Default value = `""`    |
+|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | Defines the basic capture filter for the `collector` filter.  <br> Default value = `""`             |
 |`-m <MODE>`, `--mode <MODE>`     | Relevant only when an include list is used.  <!--the following description is unclear--> Assume A and B are in the included set and X isn't so "-m  internal" allows only [A B] and "-m all-connected" also allows [A X] [B X]    |
 | `-S`, `--from-shell` | Replaces special characters in arguments received from the shell CLI. <!--can we give an example?--> |
 
@@ -80,7 +80,9 @@ After you run the command, answer the questions that are prompted as follows:
 
 1. `Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
-    Select `Y` to open a nano file where you can add a device, channel, port, and subset. Including a device, channel, or subnet causes the sensor to process all valid traffic for the supplied argument, including ports and traffic that wouldn't otherwise be processed. <!--for example?-->
+    Select `Y` to open a nano file where you can add a device, channel, port, and subset.
+
+    Including a device, channel, or subnet causes the sensor to process all valid traffic for the supplied argument, including ports and traffic that wouldn't otherwise be processed. <!--for example?-->
 
     In the nano file, use the following syntax:
 
@@ -94,7 +96,9 @@ After you run the command, answer the questions that are prompted as follows:
 
 1. `Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
-    Select `Y` to open a nano file where you can add a device, channel, port, and subset. Excluding a device, channel, or subnet prevents the sensor from processing traffic for the supplied argument, including ports and traffic that would otherwise be processed. <!--for example?-->
+    Select `Y` to open a nano file where you can add a device, channel, port, and subset.
+
+    Excluding a device, channel, or subnet prevents the sensor from processing traffic for the supplied argument, including ports and traffic that would otherwise be processed. <!--for example?-->
 
     In the nano file, use the following syntax:
 
@@ -185,7 +189,6 @@ debug: set new filter for horizon ''
 root@xsense:
 ```
 
-
 ### Viewing capture filters on the sensor components
 
 Use the following commands to show details about the current capture filters configured for your sensor components.
@@ -240,20 +243,18 @@ root@xsense:/#
 ```
 
 
-## Local alert suppression
+## Alert exclusion rules from an OT sensor
 
-The following commands support alert suppression features on your sensor, including showing current suppression rules, adding and editing rules, and deleting rules.
+The following commands support alert exclusion features on your OT sensor, including showing current exclusion rules, adding and editing rules, and deleting rules.
 
-<!--for more information, see. I don't see where else we talk about this?? is it possible that we don't? how is this different from what we have in the section below?-->
-
-### Showing alert suppression rules
+### Showing alert exclusion rules
 
 Use the following command to display a list of currently configured exclusion rules.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| **support** | `alerts exclusion-rule-list` | No attributes |
-| **cyberx** | `cyberx-xsense-exclusion-rule-list` | No attributes |
+|**support**     |   `alerts exclusion-rule-list`      |   `alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
+|**cyberx**     |  `alerts cyberx-xsense-exclusion-rule-list`       |   `alerts cyberx-xsense-exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
 
 The following example shows the command syntax and response for the *support* user:
 
@@ -281,7 +282,7 @@ Supported attributes are defined as follows:
 |`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
 |`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
 |`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
-| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` |
 
 The following example shows the command syntax and response for the *support* user:
 
@@ -308,10 +309,9 @@ Supported attributes are defined as follows:
 |`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
 |`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
 |`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
-| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` |
 
-The following example shows the command syntax and response for the *support* user:
-<!--in entire page, need to replace variables in these samples with actual sample values that would make sense here-->
+Use the following command syntax with the **support* user:
 
 ```bash
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
@@ -336,7 +336,7 @@ Supported attributes are defined as follows:
 |`[-ts <TIMES>]` `[--time_span <TIMES>]` | Defines the time span for which the rule is active, using the following syntax: `xx:yy-xx:yy, xx:yy-xx:yy` |
 |`[-dir <DIRECTION>]`, `--direction <DIRECTION>` | Address direction to exclude. Use one of the following values: `both`, `src`, `dst`|
 |`[-dev <DEVICES>]`, `[--devices <DEVICES>]` | Device addresses or address types to exclude, using the following syntax: `ip-x.x.x.x`, `mac-xx:xx:xx:xx:xx:xx`, `subnet:x.x.x.x/x`|
-| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` <!--where do you find hex values?-->|
+| `[-a <ALERTS>]`, `--alerts <ALERTS>`|Alert names to exclude, by hex value. For example: `0x00000, 0x000001` |
 
 The following example shows the command syntax and response for the *support* user:
 
@@ -345,39 +345,6 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-## Local alert exclusion rules
-
-<!--extra intro about what these are and xref to where we talk about them in the main docs-->
-
-### Showing local alert exclusion rules
-
-Run one of the following commands to show the current alert exclusion rules:
-
-|User  |Command  |Full command syntax |
-|---------|---------|---------|
-|**support**     |   `alerts exclusion-rule-list`      |   `alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
-|**cyberx**     |  `alerts cyberx-xsense-exclusion-rule-list`       |   `alerts cyberx-xsense-exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  [-dev DEVICES] [-a ALERTS]`      |
-
-The following example shows the command syntax and response for the *support* user:
-
-<!-- tbd full example including response-->
-
-
-## template section
-
-<!--do x--> by running one of the following commands:
-
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
-|---------|---------|---------|
-|**support**     |   `<command>`      |   `<full command syntax with attributes`      |
-|**cyberx**     |   `<command>`      |   `<full command syntax with attributes`      |
-
-
-The following example shows the command syntax and response for the *support* user:
-
-<!-- tbd full example including response-->
-
-For more information, see <!--xref to section w attributes listed if we have any-->.
 
 ## Next steps
 
