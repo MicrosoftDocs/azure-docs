@@ -1039,8 +1039,6 @@ items:
       href: vm/vminsights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
-    - name: Configure workspace 
-      href: vm/vminsights-configure-workspace.md
     - name: Enable and configure
       items:
       - name: Overview
@@ -1057,6 +1055,8 @@ items:
         href: vm/vminsights-enable-hybrid.md
       - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
+      - name: Configure workspace 
+        href: vm/vminsights-configure-workspace.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
