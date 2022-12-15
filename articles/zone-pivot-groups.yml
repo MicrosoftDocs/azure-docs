@@ -76,13 +76,13 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: programming-language-csharp
-    title: C#
+    title: "C#: Visual Studio"
   - id: programming-language-go
     title: Go
   - id: programming-language-java
-    title: Java
+    title: "Java: Gradle"
   - id: programming-language-javascript
-    title: JavaScript
+    title: "JavaScript: Node.js"
   - id: programming-language-python
     title: Python
   - id: programming-language-rest-api
