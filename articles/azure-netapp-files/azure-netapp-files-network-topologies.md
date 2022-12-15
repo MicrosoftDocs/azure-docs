@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/14/2022
 ms.author: ramakk
 ms.custom: references_regions
 ---
@@ -81,10 +81,10 @@ The following table describes what’s supported for each network features confi
 |     Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |     [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1000    |
 |     Azure NetApp Files delegated subnets per VNet    |     1    |     1    |
 |     [Network Security Groups](../virtual-network/network-security-groups-overview.md) (NSGs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
-|     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated   subnets    |     Yes    |     No    |
+|     [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDRs) on Azure NetApp Files delegated subnets    |     Yes    |     No    |
 |     Connectivity to [Private Endpoints](../private-link/private-endpoint-overview.md)    |     No    |     No    |
 |     Connectivity to [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)    |     No    |     No    |
-|     Azure policies (for   example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
+|     Azure policies (for example, custom naming policies) on the Azure NetApp Files interface    |     No    |     No    |
 |     Load balancers for Azure   NetApp Files traffic    |     No    |     No    |
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)   |
 
@@ -109,9 +109,10 @@ The following table describes the network topologies supported by each network f
 |     Connectivity from on-premises to a volume in a spoke VNet   over VPN gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
 |     Connectivity over Active/Passive VPN gateways    |     Yes    |     Yes    |
 |     Connectivity over Active/Active VPN gateways    |     Yes    |     No    |
-|     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
+|     Connectivity over Active/Active Zone Redundant gateways    |     Yes    |     No    |
 | Connectivity over Active/Passive Zone Redundant gateways | Yes | Yes |
-|     Connectivity over Virtual WAN (VWAN)    |    No    |     No    |
+|     [Connectivity over Virtual WAN (VWAN)](configure-virtual-wan.md)    |    Yes    |     No    |
+
 
 \* This option will incur a charge on ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/). For more general information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md). 
 
