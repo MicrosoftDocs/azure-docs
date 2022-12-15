@@ -16,7 +16,7 @@ Durable Functions offers several [storage providers](durable-functions-storage-p
 
 ## Note on data migration
 
-Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers is not currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with Netherite cannot be preserved when switching to a different storage provider.
+Migration of [Task Hub data](durable-functions-task-hubs.md) across storage providers isn't currently supported. Function apps with existing runtime data will start with a fresh, empty task hub after switching to the MSSQL backend. Similarly, the task hub contents created with Netherite can't be preserved when switching to a different storage provider.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In particular, this quickstart assumes that you have already:
 2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 3. Configured the project for local debugging.
 
-If this is not the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
+If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
 - [Create your first durable function - C#](durable-functions-create-first-csharp.md)
 - [Create your first durable function - JavaScript](quickstart-js-vscode.md)
@@ -40,7 +40,7 @@ If this is not the case, we suggest you start with one of the following articles
 > [!NOTE]
 > If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
 
-You will need to install the latest version of the  `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
+You'll need to install the latest version of the  `Microsoft.Azure.DurableTask.Netherite.AzureFunctions` [Extension on NuGet](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions) on your app. This usually means to include a reference to it in your `.csproj` file and building the project.
 
 You can install the Extension using the following [Azure Functions Core Tools CLI](../functions-run-local.md#install-the-azure-functions-core-tools) command
 
@@ -54,7 +54,7 @@ For more information on installing Azure Functions Extensions via the Core Tools
 
 The Netherite backend requires a connection string to [Event Hubs](https://azure.microsoft.com/products/event-hubs/) to run on Azure. However, for local development, providing the string `"MemoryF"` bypasses the need for Event Hubs.
 
-In `local.settings.json`, set the the value of `EventHubsConnection` to `MemoryF` as shown below:
+In `local.settings.json`, set the value of `EventHubsConnection` to `MemoryF` as shown below:
 
 ```json
 {
@@ -94,7 +94,7 @@ The snippet above is just a *minimal* configuration. Later, you may want to cons
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can test this is working as expected using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows). If Netherite is running correctly, the this table will not be empty; see the example below.
+While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can test this is working as expected using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows). If Netherite is running correctly, the table won't be empty; see the example below.
 
 ![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partitiontable.png)
 
@@ -140,9 +140,9 @@ You need to add your connection string as an application setting. To do this thr
 ### Enable runtime scaling (Elastic Premium only)
 
 > [!NOTE]
-> Skip this section if you app is not in the Elastic Premium plan.
+> Skip this section if your app is not in the Elastic Premium plan.
 
-If you are running on the Elastic Premium Plan, it is recommended that you enable runtime scale monitoring for better scaling. To do this, go to "Configuration", select "Function runtime settings" and toggle "Runtime Scale Monitoring" to "On".
+If your app is running on the Elastic Premium Plan, it is recommended that you enable runtime scale monitoring for better scaling. To do this, go to "Configuration", select "Function runtime settings" and toggle "Runtime Scale Monitoring" to "On".
 
 ![How to enable Runtime Scale Monitoring in the portal.](./media/quickstart-netherite/runtime-scale-monitoring.png)
 
@@ -151,7 +151,7 @@ If you are running on the Elastic Premium Plan, it is recommended that you enabl
 > [!NOTE]
 > Skip this section if your app is running on Linux, or if it is running on Functions runtime V4 or older.
 
-Netherite requires a 64-bit architecture to work: please ensure that your app is running on a 64-bit platform. Starting on Functions V4, this should be the default. You can inspect this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you do not see this option in the portal, then it is possible you are already running on a 64-bit platform. For example, Linux apps will not show this setting because they only support 64-bit.
+Netherite requires a 64-bit architecture to work: please ensure that your app is running on a 64-bit platform. Starting on Functions V4, this should be the default. You can inspect this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
 
 ![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/64bit.png)
 
