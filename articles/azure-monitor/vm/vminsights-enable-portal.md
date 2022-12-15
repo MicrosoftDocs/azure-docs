@@ -109,7 +109,8 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
 
     Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
-    Selecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. When you migrate a machine on which Dependency Agent is installed, if you do not need the Map feature, you must uninstall Dependency Agent.
+    > [!NOTE]
+    > Information the user should notice even if skimmingSelecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. If you do not need the Map feature, [uninstall Dependency Agent manually](../vm/vminsights-dependency-agent-maintenance.md#uninstall-dependency-agent).
 
     With both agents installed, Azure Monitor displays a warning that you may be collecting duplicate data.
 
