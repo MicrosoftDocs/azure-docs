@@ -6,7 +6,7 @@ ms.service: architecture-center
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/15/2022
 # As an Azure customer, I want to better understand which offerings in Azure Integration Services work best for my integration scenarios and requirements.
 ---
 
