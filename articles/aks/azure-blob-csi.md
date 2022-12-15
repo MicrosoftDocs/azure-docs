@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/30/2022
+ms.date: 12/15/2022
 author: mgoedtel
 
 ---
@@ -227,7 +227,6 @@ To have a storage volume persist for your workload, you can use a StatefulSet. T
 [concepts-storage]: concepts-storage.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [csi-drivers-aks]: csi-storage-drivers.md
-[azure-csi-blob-storage]: azure-csi-blob-storage.md
-[csi-storage-driver-overview]: csi-storage-drivers.md
+[azure-csi-blob-storage]: azure-csi-blob-storage-provision.md
 [azure-disk-csi-driver]: azure-disk-csi.md
 [azure-files-csi-driver]: azure-files-csi.md
