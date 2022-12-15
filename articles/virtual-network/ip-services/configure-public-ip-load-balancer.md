@@ -160,7 +160,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 * With a load balancer setup, members of backend pool can often also be assigned instance-level public IPs. With this architecture, sending traffic directly to these IPs bypasses the load balancer. 
 
-* Both standard public load balancers and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned as a load balancer frontend, the timeout value on the IP takes precedence. Note this setting applies to inbound connections to the load balancer only. For more information, see [Load Balancer TCP Reset and Idle Timeout](../../load-balancer/load-balancer-tcp-reset.md)
+* Both standard public load balancers and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned as a load balancer frontend, the timeout value on the IP takes precedence. This setting applies only to inbound connections to the load balancer. For more information, see [Load Balancer TCP Reset and Idle Timeout](../../load-balancer/load-balancer-tcp-reset.md)
 
 ## Caveats
 
