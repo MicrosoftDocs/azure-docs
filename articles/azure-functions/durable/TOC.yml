@@ -28,7 +28,7 @@
   - name: Create durable function - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Configure Storage Provider - Netherite
+  - name: Configure storage provider - Netherite
     href: quickstart-netherite.md
   - name: Configure storage provider - MSSQL
     href: quickstart-mssql.md

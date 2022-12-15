@@ -103,11 +103,11 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-To run your app in Azure, you will need an Event Hubs namespace. You can create one using the Azure portal.
+To run your app on Azure, you will need an Event Hubs namespace. You can create one using the Azure portal.
 
 ### Set up Event Hubs
 
-You will need to set up an Event Hubs namespace to run Netherite in Azure. You can also set it up if you prefer to use Event Hubs during local development.
+You will need to set up an Event Hubs namespace to run Netherite on Azure. You can also set it up if you prefer to use Event Hubs during local development.
 
 > [!NOTE]
 > An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
