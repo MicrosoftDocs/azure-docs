@@ -77,6 +77,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Add video calling to your Android WebView client app
+      href: quickstarts/voice-video-calling/get-started-android-webview.md
     - name: Record calls
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
