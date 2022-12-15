@@ -185,6 +185,9 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Accept the default project name (translator-text-app) by selecting **Return** or **Enter**.
 
+  > [!NOTE]
+  > It may take a few minutes for the entire application to be created, but soon you should see several folders and files including `build-gradle.kts`.
+
 1. Update `build.gradle.kts` with the following code:
 
   ```kotlin

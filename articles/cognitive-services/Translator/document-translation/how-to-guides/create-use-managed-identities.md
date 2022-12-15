@@ -34,7 +34,6 @@ Managed identities for Azure resources are service principals that create an Azu
 >
 > * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
-
 ## Prerequisites
 To get started, you'll need:
 

@@ -12,6 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
+zone_pivot_groups: programming-languages-set-translator
 ---
 
 # Get started with Document Translation
@@ -22,6 +23,13 @@ ms.custom: mode-other
 
 [!INCLUDE [C# programming](includes/csharp.md)]
 ::: zone-end
+
+:::zone pivot="programming-language-go"
+
+[!INCLUDE [Go programming](includes/go.md)]
+::: zone-end
+
+:: zone pivot="programming-language-rest-api"
 
 ::: zone pivot="programming-language-java"
 
@@ -39,11 +47,6 @@ ms.custom: mode-other
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
-
-[!INCLUDE [Go programming](includes/go.md)]
-::: zone-end
-
-:: zone pivot="programming-language-rest-api"
 
 [!INCLUDE [REST API](includes/rest-api.md)]
 ::: zone-end
@@ -442,7 +445,7 @@ let data = JSON.stringify({"inputs": [
               "targetUrl": "https://YOUR-TARGET-URL-WITH-WRITE-LIST-ACCESS-SAS",
               "storageSource": "AzureBlob",
               "category": "general",
-              "language": "es"}]}]});
+              "language": "es"}]});
 
 let config = {
   method: 'post',
