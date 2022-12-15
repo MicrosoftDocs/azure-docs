@@ -93,7 +93,7 @@ When you have a pipeline job with satisfying performance and outputs, you can se
 
     :::image type="content" source="./media/how-to-schedule-pipeline-job/schedule-entry-button.png" alt-text="Screenshot of the jobs tab with schedule button selecting showing the create new schedule button." lightbox= "./media/how-to-schedule-pipeline-job/schedule-entry-button.png":::
 
-2. The *Basic settings* of  the schedule creation wizard contains following properties.
+2. The *Basic settings* of  the schedule creation wizard contain following properties.
 
     :::image type="content" source="./media/how-to-schedule-pipeline-job/create-schedule-basic-settings.png" alt-text="Screenshot of schedule creation wizard showing the basic settings." lightbox= "./media/how-to-schedule-pipeline-job/create-schedule-basic-settings.png":::
 
@@ -162,7 +162,7 @@ When you have a pipeline job with satisfying performance and outputs, you can se
 
 1. In pipeline job detail page, select **Schedule** -> **Create new schedule** to open the schedule creation wizard.
 
-2. The *Basic settings* of the schedule creation wizard contains following properties.
+2. The *Basic settings* of the schedule creation wizard contain following properties.
 
     - **Name**: the unique identifier of the schedule within the workspace.
     - **Description**: description of the schedule.
@@ -380,7 +380,7 @@ When you have a new version pipeline job with optimized performance, you can upd
 
 1. In the new version pipeline job detail page, select **Schedule** -> **Update to existing schedule**.
 
-     :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the of jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
+     :::image type="content" source="./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png" alt-text="Screenshot of the jobs tab with schedule button selected showing update to existing schedule button." lightbox= "./media/how-to-schedule-pipeline-job/update-to-existing-schedule.png":::
 
 2. Select an existing schedule from the table. 
 
