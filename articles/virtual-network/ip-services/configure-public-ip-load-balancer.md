@@ -146,11 +146,11 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 9. Select **Save**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public I P prefix of the load balancer.":::
+:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
 
 10. In **Frontend IP configuration**, verify the load balancer frontend displays the public IP prefix named **myPublicIPPrefixOutbound**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P prefix.":::
+:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
 
 ## More information
 
