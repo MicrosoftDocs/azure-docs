@@ -39,9 +39,9 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 ### Create the project
 
-Create a Java application named `queues-quickstart`.
+Create a Java application named *queues-quickstart*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name `queues-quickstart`. Type the following `mvn` command to create a "hello world" Java project.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *queues-quickstart*. Type the following `mvn` command to create a "Hello, world!" Java project.
 
     # [PowerShell](#tab/powershell)
 
@@ -147,8 +147,8 @@ Then add the following dependency elements to the group of dependencies. The **a
 
 From the project directory:
 
-1. Navigate to the `/src/main/java/com/queues/quickstart` directory
-1. Open the `App.java` file in your editor
+1. Navigate to the */src/main/java/com/queues/quickstart* directory
+1. Open the *App.java* file in your editor
 1. Delete the `System.out.println("Hello, world");` statement
 1. Add `import` directives
 
@@ -209,7 +209,7 @@ Use the following Java classes to interact with these resources:
 - [`QueueClientBuilder`](/java/api/com.azure.storage.queue.queueclientbuilder): The `QueueClientBuilder` class configures and instantiates a `QueueClient` object.
 - [`QueueServiceClient`](/java/api/com.azure.storage.queue.queueserviceclient): The `QueueServiceClient` allows you to manage the all queues in your storage account.
 - [`QueueClient`](/java/api/com.azure.storage.queue.queueclient): The `QueueClient` class allows you to manage and manipulate an individual queue and its messages.
-- [`QueueMessageItem`](/java/api/com.azure.storage.queue.models.queuemessageitem): The `QueueMessageItem` class represents the individual objects returned when calling - [`ReceiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) on a queue.
+- [`QueueMessageItem`](/java/api/com.azure.storage.queue.models.queuemessageitem): The `QueueMessageItem` class represents the individual objects returned when calling [`ReceiveMessages`](/java/api/com.azure.storage.queue.queueclient.receivemessages) on a queue.
 
 ## Code examples
 
@@ -231,7 +231,7 @@ These example code snippets show you how to do the following actions with the Az
 
 You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step. 
 
-Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the `App.java` file:
+Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the *App.java* file:
 
 ```java
 import com.azure.identity.*;
@@ -260,23 +260,9 @@ QueueClient queueClient = new QueueClientBuilder()
         .buildClient();
 ```
 
-### Create a queue
-
-Using the `QueueClient` object, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
-
-Add this code to the end of the `main` method:
-
-```java
-
-System.out.println("Creating queue: " + queueName);
-
-// Create the queue
-queueClient.create();
-```
-
 ## [Connection String](#tab/connection-string)
 
-### Get the connection string
+### Get the connection string and create a client
 
 The following code retrieves the connection string for the storage account. The connection string is stored in the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
@@ -294,14 +280,10 @@ System.out.println("Azure Queue Storage client library - Java quickstart sample\
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
-### Create a queue
-
-Decide on a name for the new queue. The following code sample appends a GUID value to the queue name to ensure that it's unique.
+Decide on a name for the queue and create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class, using the connection string for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
-
-Create an instance of the [`QueueClient`](/java/api/com.azure.storage.queue.queueclient) class. Then, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
 
 Add this code to the end of the `main` method:
 
@@ -317,15 +299,26 @@ QueueClient queueClient = new QueueClientBuilder()
         .connectionString(connectStr)
         .queueName(queueName)
         .buildClient();
-
-// Create the queue
-queueClient.create();
 ```
 
 > [!IMPORTANT]
 > The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
 
 ---
+
+### Create a queue
+
+Using the `QueueClient` object, call the [`create`](/java/api/com.azure.storage.queue.queueclient.create) method to create the queue in your storage account.
+
+Add this code to the end of the `main` method:
+
+```java
+
+System.out.println("Creating queue: " + queueName);
+
+// Create the queue
+queueClient.create();
+```
 
 ### Add messages to a queue
 
