@@ -96,7 +96,7 @@ Your app is now ready for local development: You can start the Function app to t
 
 While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can test this is working as expected using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows). If Netherite is running correctly, the table won't be empty; see the example below.
 
-![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partitiontable.png)
+![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
 > [!NOTE]
 > For more information on the contents of this table, see the [Partition Table](https://microsoft.github.io/durabletask-netherite/#/ptable) article.
@@ -126,8 +126,7 @@ To obtain the connection string for your Event Hubs namespace, go to the Azure p
 
 Below are guiding screenshots on how to find this data in the portal:
 
-![Select "Shared access policies"](./media/quickstart-netherite/namespace-connection-string-1.png)
-![Select RootManageSharedAccessKey and Connection string-primary key](./media/quickstart-netherite/namespace-connection-string-2.png)
+![Find the connection string primary key on the portal"](./media/quickstart-netherite/namespace-connection-string.png)
 
 ### Add connection string as an application setting
 
@@ -146,14 +145,14 @@ If your app is running on the Elastic Premium Plan, it is recommended that you e
 
 ![How to enable Runtime Scale Monitoring in the portal.](./media/quickstart-netherite/runtime-scale-monitoring.png)
 
-### Configure for 64 bit (Functions runtime older prior V4 on Windows only)
+### Ensure your app is using a 64-bit architecture (Windows only)
 
 > [!NOTE]
-> Skip this section if your app is running on Linux, or if it is running on Functions runtime V4 or older.
+> Skip this section if your app is running on Linux.
 
-Netherite requires a 64-bit architecture to work: please ensure that your app is running on a 64-bit platform. Starting on Functions V4, this should be the default. You can inspect this setting in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
+Netherite requires a 64-bit architecture to work. Starting on Functions V4, this should be the default. You can usually validate this in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
 
-![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/64bit.png)
+![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/ensure-64bit-architecture.png)
 
 ## Deploy
 
