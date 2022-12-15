@@ -154,7 +154,7 @@ We only support placing the amlarc-specific taints on your nodes, which are defi
 > 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
 > 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes. For more examples,see the [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
-### Best Pratices
+### Best practices
 
 According to your scheduling requirements of the Azureml-dedicated nodes, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. Below, we list best practices for using amlarc taints:
 
@@ -175,7 +175,7 @@ According to your scheduling requirements of the Azureml-dedicated nodes, you ca
   - `amlarc workspace (has this <compute X>)` taint
   - `amlarc <compute X>` taint
 
-## Azureml Extension Release Note
+## Azureml extension release note
 > [!NOTE]
  >
  > New features are released at a biweekly cadance.
