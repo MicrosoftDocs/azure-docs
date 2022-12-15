@@ -1,5 +1,5 @@
 ---
-title: Best practices for data collection rule creation and management in Azure Monitor (preview)
+title: Best practices for data collection rule creation and management in Azure Monitor
 description: Details on the best practices to be followed to correctly create and maintain data collection rule in Azure Monitor.
 ms.topic: conceptual
 author: brunoga
@@ -11,7 +11,7 @@ ms.reviwer:
 
 
 
-# Best practices for data collection rule creation and management in Azure Monitor (preview)
+# Best practices for data collection rule creation and management in Azure Monitor
 [Data Collection Rules (DCRs)](data-collection-rule-overview.md) determine how to collect and process telemetry sent to Azure. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes the structure of DCRs for creating and editing data collection rules in those cases where you need to work with them directly.
 
 When creating a DCR, there are some aspects that need to be considered such as:
