@@ -279,29 +279,33 @@
   - name: FAQ
     items:
     - name: General
-      href: ./faq.yml
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#general
     - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#billing
+    - name: Support
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#support
+    - name: Customer Communication
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#customer-communication
+    - name: Configuration & setup
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#configuration-and-setup
+    - name: VMware solution software
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#vmware-solution-software
+    - name: Migrate
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#migrate
     - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#compute
+    - name: Backup
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#backup
+    - name: Networking & interconnectivity
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#networking-and-interconnectivity
     - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#storage
+    - name: Hosts, clusters, & private clouds
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#hosts--clusters--and-private-clouds
     - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#identity-management
+    - name: CSP & multi-tenancy
+      href: https://learn.microsoft.com/en-us/azure/azure-vmware/faq#csp-and-multi-tenancy
   - name: Videos
     items:
     - name: Playlist
