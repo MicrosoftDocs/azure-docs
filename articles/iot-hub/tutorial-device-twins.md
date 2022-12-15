@@ -40,8 +40,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * This tutorial uses the Azure CLI to create cloud resources. If you already have an IoT hub with a device registered to it, you can skip those steps. There are two ways to run CLI commands:
 
-  * Use the Bash environment in [Azure Cloud Shell](../articles/cloud-shell/quickstart.md). For more information, see [Azure Cloud Shell Quickstart - Bash](../articles/cloud-shell/quickstart.md).
-   [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md). For more information, see [Azure Cloud Shell Quickstart - Bash](../cloud-shell/quickstart.md).
+   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
   * If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider running Azure CLI in a Docker container. For more information, see [How to run the Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * Sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command. 
@@ -98,7 +98,7 @@ az iot hub device-identity connection-string show --device-id MyTwinDevice --hub
 
 ```
 
-## Send state information
+## Send state information to a device
 
 You use desired properties to send state information from a back-end application to a device. In this section, you see how to:
 
@@ -111,7 +111,7 @@ You can structure your desired properties in any way that's convenient to your a
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 
-### Review the simulated device application
+### Receive desired properties in a device application
 
 To view the simulated device sample code that receives desired properties, navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
@@ -153,7 +153,7 @@ The following snippet shows how the simulated device handles insert, update, and
 
 [!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
-### Review the back end application
+### Send desired properties from a back end application
 
 You've seen how a device implements handlers for receiving desired property updates. This section shows you how to send desired property changes to a device from a back-end application.
 
@@ -171,7 +171,7 @@ The following snippet shows how the back-end application sends a desired propert
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
-## Receive state information
+## Receive state information from a device
 
 Your back-end application receives state information from a device as reported properties. A device sets the reported properties, and sends them to your hub. A back-end application can read the current values of the reported properties from the device twin stored in your hub.
 
