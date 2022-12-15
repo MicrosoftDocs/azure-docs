@@ -39,7 +39,7 @@ This section walks you through preparing a project to work with the Azure Queue 
 
 ### Create the project
 
-Create a Node.js application named `queues-quickstart`
+Create a Node.js application named `queues-quickstart`.
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project:
 
@@ -91,7 +91,7 @@ From the project directory, install the following packages using the `npm instal
 
 From the project directory:
 
-1. Open another new text file in your code editor
+1. Open a new text file in your code editor
 1. Add `require` calls to load Azure and Node.js modules
 1. Create the structure for the program, including very basic exception handling
 
@@ -100,7 +100,7 @@ From the project directory:
     ```javascript
     const { QueueClient } = require("@azure/storage-queue");
     const { DefaultAzureCredential } = require('@azure/identity');
-    const uuidv1 = require("uuid/v1");
+    const { v1: uuidv1 } = require("uuid");
 
     async function main() {
         console.log("Azure Queue Storage client library - JavaScript quickstart sample");
@@ -112,7 +112,7 @@ From the project directory:
 
     ```
 
-1. Save the new file as `queues-quickstart.js` in the `queues-quickstart` directory.
+1. Save the new file as `index.js` in the `queues-quickstart` directory.
 
 ## Authenticate to Azure
 
@@ -163,6 +163,8 @@ These example code snippets show you how to do the following actions with the Az
 - [Delete messages from a queue](#delete-messages-from-a-queue)
 - [Delete a queue](#delete-a-queue)
 
+## [Passwordless (Recommended)](#tab/passwordless)
+
 ### Authorize access and create a client
 
 [!INCLUDE [default-azure-credential-sign-in-no-vs](../../../includes/passwordless/default-azure-credential-sign-in-no-vs.md)]
@@ -188,7 +190,7 @@ const queueName = "quickstart" + uuidv1();
 
 // Instantiate a QueueClient which will be used to create and interact with a queue
 // TODO: replace <storage-account-name> with the actual name
-const queueClient = new QueueClient(`https://<storage-account-name>.queue.core.windows.net`, new DefaultAzureCredential());
+const queueClient = new QueueClient(`https://<storage-account-name>.queue.core.windows.net/${queueName}`, new DefaultAzureCredential());
 ```
 
 ## [Connection String](#tab/connection-string)
@@ -353,10 +355,10 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-In your console window, navigate to the directory containing the `queues-quickstart.js` file, then use the following `node` command to run the app.
+In your console window, navigate to the directory containing the `index.js` file, then use the following `node` command to run the app.
 
 ```console
-node queues-quickstart.js
+node index.js
 ```
 
 The output of the app is similar to the following example:
