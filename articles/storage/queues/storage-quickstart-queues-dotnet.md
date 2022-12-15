@@ -145,7 +145,7 @@ You can authorize a `QueueClient` instance to access queue data using `DefaultAz
 Make sure to add the **Azure.Identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add a using directive for the `Azure.Identity` namespace in the *Program.cs* file:
 
 ```csharp
-using Azure.Identity
+using Azure.Identity;
 ```
 
 Decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
@@ -196,8 +196,7 @@ Add this code to the end of the *Program.cs* file:
 // Create a unique name for the queue
 string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
 
-// Instantiate a QueueClient which will be
-// used to create and manipulate the queue
+// Instantiate a QueueClient to create and interact with the queue
 QueueClient queueClient = new QueueClient(connectionString, queueName);
 ```
 
