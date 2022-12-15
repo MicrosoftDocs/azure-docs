@@ -293,8 +293,8 @@ String queueName = "quickstartqueues-" + java.util.UUID.randomUUID();
 
 System.out.println("Creating queue: " + queueName);
 
-// Instantiate a QueueClient which will be
-// used to create and manipulate the queue
+// Instantiate a QueueClient
+// We'll use this client object to create and interact with the queue
 QueueClient queueClient = new QueueClientBuilder()
         .connectionString(connectStr)
         .queueName(queueName)
@@ -313,7 +313,6 @@ Using the `QueueClient` object, call the [`create`](/java/api/com.azure.storage.
 Add this code to the end of the `main` method:
 
 ```java
-
 System.out.println("Creating queue: " + queueName);
 
 // Create the queue
