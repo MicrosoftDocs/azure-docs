@@ -1,7 +1,7 @@
 ---
 title: General Purpose Azure Dedicated Host SKUs
 description: Specifications for VM packing of General Purpose ADH SKUs.
-author: vakavuru
+author: vamckMS
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
 ms.service: azure-dedicated-host

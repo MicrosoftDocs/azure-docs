@@ -1,7 +1,7 @@
 ---
 title: Azure Dedicated Host SKU Retirement
 description: Azure Dedicated Host SKU Retirement landing page
-author: vakavuru
+author: vamckMS
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
 ms.service: azure-dedicated-host
