@@ -99,7 +99,9 @@ Setting an alert status to **Closed** or **Muted** on a sensor or on-premises ma
 >
 ## Accelerating OT alert workflows
 
-**Admin** users on an OT network sensor can use the following options to help their SOC and OT management teams triage and remediate alerts faster:
+New alerts are automatically closed if no identical traffic is detected 14 days after the initial detection. If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
+
+In addition to the default behavior, you may want to help your SOC and OT management teams triage and remediate alerts faster. Sign into an OT network sensor as an **Admin** user for any of the following options:
 
 - **Create custom alert rules**. Add custom alert rules to trigger alerts for specific activity on your network that's not covered by out-of-the-box functionality.
 
