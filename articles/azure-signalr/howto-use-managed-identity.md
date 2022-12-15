@@ -64,18 +64,18 @@ Azure SignalR Service is a fully managed service.  It uses a managed identity to
 
 ### Enable managed identity authentication in upstream settings
 
-Once you've added a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your SignalR instance, you can enable managed identity authentication in the upstream settings.
+Once you've added a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your SignalR instance, you can enable managed identity authentication in the upstream endpoint settings.
 
 1. Browse to your SignalR instance.
 1. Select **Settings** from the menu.
 1. Select the **Serverless** service mode.
-1. Enter the upstream URL pattern in the **Add an upstream URL pattern** text box.  See [URL template settings](concept-upstream.md#url-template-settings)
-1. Select Add one Upstream Setting and select any asterisk to get into a detailed page as shown below.
-    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="pre-msi-setting":::
+1. Enter the upstream endpoint URL pattern in the **Add an upstream URL pattern** text box.  See [URL template settings](concept-upstream.md#url-template-settings)
+1. Select Add one Upstream Setting and select any asterisk go to **Upstream Settings**.
+    :::image type="content" source="media/signalr-howto-use-managed-identity/pre-msi-settings.png" alt-text="Screenshot of Azure SignalR service Settings.":::
 
-1. Configure your upstream settings.  
+1. Configure your upstream endpoint settings.  
 
-    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
+    :::image type="content" source="media/signalr-howto-use-managed-identity/msi-settings.png" alt-text="Screenshot of Azure SignalR service Upstream settings.":::
 
 1. In the managed identity authentication settings, for **Resource**, you can specify the target resource. The resource will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be one of the following formats:
     - Empty
@@ -101,7 +101,10 @@ Libraries and code samples that show how to handle token validation are availabl
 You can easily set access validation for a Function App without code changes using the Azure portal.
 
 1. Go to the Function App in the Azure portal.
-1. In the **Authentication** page, select **Add identity provider**
+1. Select **Authentication** from the menu.
+1. Select **Add identity provider**.
+1. In the **Basics** tab, select **Microsoft** from the **Identity provider** dropdown.
+1. 
 1. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
 1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Azure AD provider, see [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
     :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::

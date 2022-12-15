@@ -71,11 +71,11 @@ sections:
       - question: |
           Can I send message from client in serverless mode?
         answer: |
-          You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored.
+          You can send message from client if you configure upstream endpoints in your SignalR instance. Upstream endpoints are a set of endpoints that can receive messages and connection events from SignalR service. If no upstream endpoints are configured, messages from client will be ignored.
           
-          For more information about upstream, see [Upstream settings](concept-upstream.md).
+          For more information.see [Upstream endpoints](concept-upstream.md).
           
-          Upstream is currently in public preview.
+          The upstream endpoints feature is currently in public preview.
           
       - question: |
           Are there any feature differences in using Azure SignalR Service with ASP.NET SignalR?

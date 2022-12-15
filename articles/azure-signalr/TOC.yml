@@ -67,7 +67,7 @@
       href: signalr-concept-serverless-development-config.md
     - name: SignalR Service bindings for Azure Functions reference
       href: ../azure-functions/functions-bindings-signalr-service.md
-    - name: Upstream settings
+    - name: Upstream endpoints
       href: concept-upstream.md
   - name: High availability
     items:
