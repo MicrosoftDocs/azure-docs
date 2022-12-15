@@ -25,11 +25,8 @@ A basic SKU Azure Load Balancer is limited in availability options and feature s
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
 > * Create a load balancer with an existing public IP address in your subscription. 
-
 > * Change the current public IP associated to a load balancer. 
-
 > * Change the frontend configuration of a load balancer to a public IP prefix.  
 
 Finally, the article reviews unique aspects of using public IPs and public IP prefixes with a load balancer. 
