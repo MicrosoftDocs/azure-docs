@@ -31,9 +31,9 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
 > [!NOTE]
 > The following steps assume a virtual network named **myVNet** and a Azure load balancer named **myLoadBalancer** has been previously deployed.
 
-1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Virtual machine scale set** or search for **Virtual machine scale set** in the marketplace search.
+1. On the top left-hand side of the screen, click **Create a resource** and search for **Virtual machine scale set** in the marketplace search.
 
-2. Select **Create**.
+2. Select **Virtual machine scale set** and Select **Create**.
 
 3. In **Create a virtual machine scale set**, enter, or select this information in the **Basics** tab:
 
@@ -46,6 +46,9 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Virtual machine scale set name | Enter **myVMSS**                                                                                      |
     | Region                         | Select **East US 2**                                                                                    |
     | Availability zone              | Select **None**                                                                                       |
+    | **Orchestration** |                    |        |
+    | Orchestration mode | Select **Uniform** |
+    | Security type | Select **Standard** |
     | **Instance details**           |                                                                                                       |
     | Image                          | Select **Ubuntu Server 18.04 LTS**                                                                    |
     | Azure Spot instance            | Select **No**                                                                                         |
@@ -56,8 +59,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Password                       | Enter your admin password    |
     | Confirm password               | Reenter your admin password |
 
-
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Screenshot shows the Create virtual machine scale set Basics tab." border="true":::
+:::image type="content" source="media/configure-vm-scale-set/create-vm-scale-set-thumb.png" alt-text="Screenshot of Create a virtual machine scale set page" lightbox="media/configure-vm-scale-set/create-vm-scale-set.png":::
 
 4. Select the **Networking** tab.
 
@@ -74,7 +76,7 @@ In this section, you'll create a virtual machine scale set in the Azure portal w
     | Select a load balancer            | Select **myLoadBalancer** or your existing load balancer |
     | Select a backend pool             | Select **myBackendPool** or your existing backend pool.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Screenshot shows the Create virtual machine scale set Networking tab." border="true":::
+:::image type="content" source="media/configure-vm-scale-set/create-vm-scale-set-network-thumb.png" alt-text="Screenshot shows the Create virtual machine scale set Networking tab." lightbox="media/configure-vm-scale-set/create-vm-scale-set-network.png":::
 
 6. Select the **Management** tab.
 
