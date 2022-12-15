@@ -178,7 +178,6 @@ $vnet = Get-AzVirtualNetwork @net
 
 $sub = @{
     Name = 'mySubnet'
-    ResourceGroupName = 'myResourceGroup'
     VirtualNetwork = $vnet
 }
 $subnet = Get-AzVirtualNetworkSubnetConfig @sub
@@ -197,7 +196,7 @@ Use [Get-AzDelegation](/powershell/module/az.network/get-azdelegation) to verify
 ```azurepowershell-interactive
 $sub = @{
     Name = 'myVNet'
-    ResourceGroupName 'myResourceGroup'
+    ResourceGroupName = 'myResourceGroup'
 }  
 $subnet = Get-AzVirtualNetwork @sub | Get-AzVirtualNetworkSubnetConfig -Name 'mySubnet'
 
@@ -295,7 +294,6 @@ $vnet = Get-AzVirtualNetwork @net
 
 $sub = @{
     Name = 'mySubnet'
-    ResourceGroupName = 'myResourceGroup'
     VirtualNetwork = $vnet
 }
 $subnet = Get-AzVirtualNetworkSubnetConfig @sub
@@ -313,7 +311,7 @@ Use [Get-AzDelegation](/powershell/module/az.network/get-azdelegation) to verify
 ```azurepowershell-interactive
 $sub = @{
     Name = 'myVNet'
-    ResourceGroupName 'myResourceGroup'
+    ResourceGroupName = 'myResourceGroup'
 }  
 $subnet = Get-AzVirtualNetwork @sub | Get-AzVirtualNetworkSubnetConfig -Name 'mySubnet'
 
@@ -322,6 +320,9 @@ $dg = @{
     Subnet = $subnet
 }
 Get-AzDelegation @dg  
+```
+```console
+Get-AzDelegation: Sequence contains no matching element
 ```
 
 # [**Azure CLI**](#tab/manage-subnet-delegation-cli)
