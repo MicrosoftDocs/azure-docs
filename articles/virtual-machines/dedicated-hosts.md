@@ -16,17 +16,17 @@ ms.reviewer: mattmcinnes
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
-Azure Dedicated Host is a service which provides physical servers able to host one or more virtual machines assigned to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided instead as a directly accessible hardware resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts in whatever configuration best meets your needs.
+Azure Dedicated Host is a service that provides physical servers able to host one or more virtual machines assigned to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided instead as a directly accessible hardware resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts in whatever configuration best meets your needs.
 
 ## Benefits
 
 Reserving the entire host provides several benefits beyond those of a standard shared virtual machine host:
 
--   Cost Optimization: With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. Using the hybrid benefits provides you with additional benefits. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
+-   Cost Optimization: With the Azure hybrid benefit, you can bring your own licenses for Windows and SQL to Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
--   Reliability: You have near complete control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
+-   Reliability: You have near complete control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
 
--   Performance Efficiency: Because you have control over a physical host, you can choose which applications share physical resources such as memory and storage. This can speed up certain workloads which benefit from low latency and extremely high throughput on the host machine.
+-   Performance Efficiency: Because you have control over a physical host, you can choose which applications share physical resources such as memory and storage. This can speed up certain workloads that benefit from low latency and high throughput on the host machine.
 
 -   Security: Hardware isolation at the physical server level allows for sensitive memory data to remain isolated within a physical host. No other customer's VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 
@@ -61,7 +61,7 @@ VMs deployed to hosts with different fault domains, will have their underlying m
 
 ### Using Availability Zones and Fault Domains
 
-You can use both capabilities together to achieve even more fault isolation. In this case, you'd specify the availability zone and fault domain count in for each host group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
+You can use both capabilities together to achieve even more fault isolation. To use both, specify the availability zone and fault domain count in for each host group, assign a fault domain to each hosts in the group, then assign an availability zone to each VM.
 
 The [Resource Manager sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
 
@@ -86,7 +86,7 @@ Known issues and limitations when using automatic VM placement:
 
 Virtual machine scale sets let you treat a group of virtual machines as a single resource, and apply  availability, management, scaling and orchestration policies as a group. Your existing dedicated hosts can also be used for virtual machine scale sets.
 
-When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.
+When creating a virtual machine scale set, you can specify an existing host group to have all of the VM instances created on dedicated hosts.
 
 The following requirements apply when creating a virtual machine scale set in a dedicated host group:
 
@@ -137,7 +137,7 @@ Free trial and MSDN subscriptions don't have quota for Azure Dedicated Hosts.
 
 ## Pricing
 
-Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you'll see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.
+Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement, you'll see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.
 
 The host price is set based on VM family, type (hardware size), and region. A host price is relative to the largest VM size supported on the host.
 
