@@ -49,7 +49,7 @@ The following block diagram shows the proof of concept. The guidance will show h
    </ClaimsTransformation>
    ```
 
-1. Configure federations to be enabled based on client_id – region mapping
+1. Configure federations to be enabled based on client_id – region mapping.
 
    ```xml
    <TechnicalProfile Id="HRDLogic">
@@ -104,7 +104,7 @@ The following block diagram shows the proof of concept. The guidance will show h
    ```
 
 1. Configure API based authentication for traveling user, and MS Graph API call to fetch users profile.
-   1. Check credentials and get MS Graph API token from respective tenant. Register **Native** App registration in each regional tenant with permissions to MS Graph API for delegated permission: *user.read*.
+   1. Check credentials and get MS Graph API token from respective tenant. Register **Native** app registration in each regional tenant with permissions to MS Graph API for delegated permission: *user.read*.
 
       ```xml
       <TechnicalProfile Id="REST-login-NonInteractive-APAC">
@@ -131,7 +131,7 @@ The following block diagram shows the proof of concept. The guidance will show h
       </TechnicalProfile>
       ```
 
-   1. Read profile via MS Graph API for traveling user
+   1. Read profile via MS Graph API for traveling user.
 
       ```xml
       <TechnicalProfile Id="Azure AD-Read-User-MSGraph">
@@ -161,7 +161,7 @@ The following block diagram shows the proof of concept. The guidance will show h
 
 ## Sign up
 
-1. Write users region to global lookup table.
+Write users region to global lookup table.
    > [!NOTE]
    > No setup due to hardcoded lookup table.
 
@@ -172,7 +172,7 @@ The following block diagram shows the proof of concept. The guidance will show h
    > No setup due to hardcoded lookup table.
 
 1. Configure cross tenant password reset via REST API call.
-   >[NOTE]
+   >[!NOTE]
    >Will require brokering API using client_credential authentication and User Admin role applied to the service principal.
 
 ## Next steps
