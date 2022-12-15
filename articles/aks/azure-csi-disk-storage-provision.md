@@ -218,7 +218,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-This volume name forms the underlying Azure Disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, as shown in the following example:
+This volume name forms the underlying Azure disk name. Query for the disk ID with [az disk list][az-disk-list] and provide your PVC volume name, as shown in the following example:
 
 ```azurecli
 az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -354,7 +354,7 @@ When you create an Azure disk for use with AKS, you can create the disk resource
     ```
 
     > [!NOTE]
-    > Azure disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
+    > Azure Disks are billed by SKU for a specific size. These SKUs range from 32GiB for S4 or P4 disks to 32TiB for S80 or P80 disks (in preview). The throughput and IOPS performance of a Premium managed disk depends on both the SKU and the instance size of the nodes in the AKS cluster. See [Pricing and Performance of Managed Disks][managed-disk-pricing-performance].
 
     The disk resource ID is displayed once the command has successfully completed, as shown in the following example output. This disk ID is used to mount the disk in the next section.
 

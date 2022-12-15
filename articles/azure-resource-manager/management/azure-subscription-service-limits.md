@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 12/13/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -163,30 +163,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-### Alerts
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-alerts.md)]
-
-### Action groups
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
-
-### Autoscale
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
-
-### Log queries and language
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
-
-### Log Analytics workspaces
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
-
-### Application Insights
-
-[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
-
+For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
 
 ## Azure Data Factory limits
 
@@ -389,6 +366,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ## Notification Hubs limits
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
+
+## Microsoft Dev Box limits
+
+[!INCLUDE [dev-box-limits](../../../includes/dev-box-limits.md)]
 
 ## Microsoft Purview limits
 

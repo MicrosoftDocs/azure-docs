@@ -235,6 +235,8 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 
 This section provides guidance for cluster administrators who want to create one or more persistent volumes that include details of an existing Azure Files share to use with a workload.
 
+### Static provisioning parameters
+
 |Name | Meaning | Available Value | Mandatory | Default value |
 |--- | --- | --- | --- | --- |
 |volumeAttributes.resourceGroup | Specify an Azure resource group name. | myResourceGroup | No | If empty, driver uses the same resource group name as current cluster. |
@@ -254,36 +256,54 @@ This section provides guidance for cluster administrators who want to create one
 
 ### Create an Azure file share
 
-Before you can use Azure Files as a Kubernetes volume, you must create an Azure Storage account and the file share. The following commands create a resource group named *myAKSShare*, a storage account, and a file share named *aksshare*:
+Before you can use an Azure Files file share as a Kubernetes volume, you must create an Azure Storage account and the file share. In this article, you'll create the storage container in the node resource group.
 
-```azurecli-interactive
-# Change these four parameters as needed for your own environment
-AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
-AKS_PERS_RESOURCE_GROUP=myAKSShare
-AKS_PERS_LOCATION=eastus
-AKS_PERS_SHARE_NAME=aksshare
+1. Get the resource group name with the [az aks show][az-aks-show] command and add the `--query nodeResourceGroup` query parameter. The following example gets the node resource group for the AKS cluster named **myAKSCluster** in the resource group named **myResourceGroup**.
 
-# Create a resource group
-az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
+    ```azurecli
+    az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+    ```
 
-# Create a storage account
-az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
+    The output of the command resembles the following example:
 
-# Export the connection string as an environment variable, this is used when creating the Azure file share
-export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -o tsv)
+    ```azurecli
+    MC_myResourceGroup_myAKSCluster_eastus
+    ```
 
-# Create the file share
-az storage share create -n $AKS_PERS_SHARE_NAME --connection-string $AZURE_STORAGE_CONNECTION_STRING
+2. The following command creates a storage account using the Standard_LRS SKU. Replace the following placeholders:
 
-# Get storage account key
-STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+   * `myAKSStorageAccount` with the name of the storage account
+   * `nodeResourceGroupName` with the name of the resource group that the AKS cluster nodes are hosted in
+   * `location` with the name of the region to create the resource in. It should be the same region as the AKS cluster nodes. 
 
-# Echo storage account name and key
-echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
-echo Storage account key: $STORAGE_KEY
-```
+    ```azurecli
+    az storage account create -n myAKSStorageAccount -g nodeResourceGroupName -l location --sku Standard_LRS
+    ```
 
-Copy the storage account name and key shown at the end of the script output. These values are needed when you create the Kubernetes volume in one of the following steps.
+3. Run the following command to export the connection string as an environment variable. This is used when creating the Azure file share in a later step.
+
+    ```azurecli
+    export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n storageAccountName -g resourceGroupName -o tsv)
+    ```
+
+4. Create the file share using the [Az storage create][az-storage-create] command. Replace the placeholder `shareName` with a name you want to use for the share.
+
+    ```azurecli
+    az storage share create -n shareName --connection-string $AZURE_STORAGE_CONNECTION_STRING
+    ```
+
+5. Run the following command to export the storage account key as an environment variable. 
+
+    ```azurecli
+    STORAGE_KEY=$(az storage account keys list --resource-group $AKS_PERS_RESOURCE_GROUP --account-name $AKS_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
+    ```
+
+6. Run the following commands to echo the storage account name and key. Copy this information as these values are needed when you create the Kubernetes volume later in this article. 
+
+    ```azurecli
+    echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
+    echo Storage account key: $STORAGE_KEY
+    ```
 
 ### Create a Kubernetes secret
 
@@ -344,92 +364,102 @@ You now have a running pod with an Azure Files file share mounted at */mnt/azure
 
 ### Mount file share as a persistent volume
 
- - Mount options
-> The default value for *fileMode* and *dirMode* is *0777*.
+The following example demonstrates how to mount a file share as a persistent volume.
 
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: azurefile
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: azurefile-csi
-  csi:
-    driver: file.csi.azure.com
-    readOnly: false
-    volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
-    volumeAttributes:
-      resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, only set this when storage account is not in the same resource group as agent node
-      shareName: aksshare
-    nodeStageSecretRef:
-      name: azure-secret
-      namespace: default
-  mountOptions:
-    - dir_mode=0777
-    - file_mode=0777
-    - uid=0
-    - gid=0
-    - mfsymlinks
-    - cache=strict
-    - nosharesock
-    - nobrl
-```
+1. Create a file named `azurefiles-pv.yaml` and copy in the following YAML. Under `csi`, update `resourceGroup`, `volumeHandle`, and `shareName`. For mount options, the default value for *fileMode* and *dirMode* is *0777*.
 
-Create a *azurefile-mount-options-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: azurefile
+    spec:
+      capacity:
+        storage: 5Gi
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: azurefile-csi
+      csi:
+        driver: file.csi.azure.com
+        readOnly: false
+        volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+        volumeAttributes:
+          resourceGroup: resourceGroupName  # optional, only set this when storage account is not in the same resource group as agent node
+          shareName: aksshare
+        nodeStageSecretRef:
+          name: azure-secret
+          namespace: default
+      mountOptions:
+        - dir_mode=0777
+        - file_mode=0777
+        - uid=0
+        - gid=0
+        - mfsymlinks
+        - cache=strict
+        - nosharesock
+        - nobrl
+    ```
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: azurefile
-spec:
-  accessModes:
-    - ReadWriteMany
-  storageClassName: azurefile-csi
-  volumeName: azurefile
-  resources:
-    requests:
-      storage: 5Gi
-```
+2. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
-Use the `kubectl` commands to create the *PersistentVolume* and *PersistentVolumeClaim*.
+    ```bash
+    kubectl create -f azurefiles-pv.yaml
+    ```
 
-```console
-kubectl apply -f azurefile-mount-options-pv.yaml
-kubectl apply -f azurefile-mount-options-pvc.yaml
-```
+3. Create a *azurefiles-mount-options-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume* and copy the following YAML.
 
-Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume*.
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: azurefile
+    spec:
+      accessModes:
+        - ReadWriteMany
+      storageClassName: azurefile-csi
+      volumeName: azurefile
+      resources:
+        requests:
+          storage: 5Gi
+    ```
 
-```console
-$ kubectl get pvc azurefile
-
-NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
-azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
-```
-
-Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example:
-
-```yaml
-...
-  volumes:
-  - name: azure
-    persistentVolumeClaim:
-      claimName: azurefile
-```
-
-Because a pod spec can't be updated in place, use `kubectl` commands to delete, and then re-create the pod:
+4. Use the `kubectl` commands to create the *PersistentVolumeClaim*.
 
 ```console
-kubectl delete pod mypod
-
-kubectl apply -f azure-files-pod.yaml
+kubectl apply -f azurefiles-mount-options-pvc.yaml
 ```
+
+5. Verify your *PersistentVolumeClaim* is created and bound to the *PersistentVolume* by running the following command.
+
+    ```console
+    kubectl get pvc azurefile
+    ```
+
+    The output from the command resembles the following example:
+
+    ```console
+    NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+    azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
+    ```
+
+6. Update your container spec to reference your *PersistentVolumeClaim* and update your pod. For example:
+
+    ```yaml
+    ...
+      volumes:
+      - name: azure
+        persistentVolumeClaim:
+          claimName: azurefile
+    ```
+
+7. Because a pod spec can't be updated in place, use `kubectl` commands to delete, and then re-create the pod:
+
+    ```console
+    kubectl delete pod mypod
+    
+    kubectl apply -f azure-files-pod.yaml
+    ```
 
 ## Next steps
 

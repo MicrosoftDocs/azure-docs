@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/05/2022
+ms.date: 12/12/2022
 ms.author: jasteppe
 ---
 
@@ -93,6 +93,17 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
    For example: `New-AzResourceGroupDeployment -ResourceGroupName BicepTestDeployment -TemplateFile main.bicep -basename abc123 -location southcentralus`
 
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
+
 ## Deploy the MedTech service with the Bicep file and the Azure CLI
 
 Complete the following five steps to deploy the MedTech service using the Azure CLI:
@@ -139,6 +150,17 @@ Complete the following five steps to deploy the MedTech service using the Azure 
    ```
 
    For example: `az deployment group create --resource-group BicepTestDeployment --template-file main.bicep --parameters basename=abc location=southcentralus`
+
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   > 
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
 
 ## Review deployed resources and access permissions
 
