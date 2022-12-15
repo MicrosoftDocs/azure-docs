@@ -318,7 +318,7 @@ When adding a Db2 database to the configuration, the following values are requir
 - **Db2 Server's Address** = The database server hostname or IP address.
   - If Db2 Server Address (serverAddress) matches '127.0.0.1' or 'localhost' then azacsnap will execute all `db2` commands locally (refer "Local connectivity").  Otherwise AzAcSnap will use the serverAddress as the host to connect to via SSH using the "Instance User" as the SSH login name, this can be validated with `ssh <instanceUser>@<serverAddress>` replacing instanceUser and serverAddress with the respective values (refer "Remote connectivity").
 - **Instance User** = The database System Instance User.
-- **SID** - The database System Identifier.
+- **SID** = The database System ID.
 
 ---
 
