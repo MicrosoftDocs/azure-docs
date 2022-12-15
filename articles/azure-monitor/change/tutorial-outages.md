@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 12/08/2022
+ms.date: 12/15/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -50,32 +50,21 @@ git clone https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample.
 cd changeanalysis-webapp-storage-sample
 ``` 
 
-### Create and deploy
+### Run the PowerShell script
 
-1. Create and deploy the web application.
+1. Open `Publish-WebApp.ps1`.
 
-```bash
-az webapp up --name {webapp_name} --sku S2 --location eastus
-```
+1. Edit the `SUBSCRIPTION_ID` and `LOCATION` environment variables.
 
-1. Make a note of the resource group created, if you'd like to deploy your storage account in the same resource group.
+   | Environment variable | Description |
+   | -------------------- | ----------- | 
+   | `SUBSCRIPTION_ID`    | Your Azure subscription ID. |
+   | `LOCATION`           | The location of the resoure group where you'd like to deploy the sample application. |
 
-1. Create the storage account.
-
-```bash
-az storage account create --name {storage_name} --resource-group {resourcegroup_name} --sku Standard_RAGRS --https-only
-```
-
-1. Show your new storage account connection string.
+1. Run the script from the `./changeanalysis-webapp-storage-sample` directory.
 
 ```bash
-az storage account show-connection-string -g {resourcegroup_name} -n {storage_name}
-```
-
-1. Connect the web application to the storage account through **App Settings**.
-
-```bash
-az webapp config appsettings set -g {resourcegroup_name} -n {webapp_name} --settings AzureStorageConnection={storage_connectionstring_from_previous_step}
+./Publish-WebApp.ps1
 ```
 
 ## Enable Change Analysis
