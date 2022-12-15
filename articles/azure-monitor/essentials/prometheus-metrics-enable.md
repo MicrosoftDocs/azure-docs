@@ -16,7 +16,7 @@ This article describes how to configure your Azure Kubernetes Service (AKS) clus
 ## Prerequisites
 
 - You must either have an [Azure Monitor workspace](azure-monitor-workspace-overview.md) or [create a new one](azure-monitor-workspace-overview.md#create-an-azure-monitor-workspace).
-- The cluster must use [managed identity authentication](../containers/container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
+- The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights
