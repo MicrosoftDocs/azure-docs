@@ -45,7 +45,7 @@ You can deploy one or more of these solutions.
 
 Document the organizations you collaborate with, and organization users' domains, if needed. Domain-based restrictions might be impractical. One collaboration partner can have multiple domains, and a partner can add domains. For example, a partner with multiple business units, with separate domains, and add more domains as they configure synchronization.
 
-If your users use Azure AD B2B, you can discover the external Azure AD tenants they are collaborating, with via the sign-in logs, PowerShell, or a workbook. Learn more:
+If your users use Azure AD B2B, you can discover the external Azure AD tenants they're collaborating, with via the sign-in logs, PowerShell, or a workbook. Learn more:
 
 * [Get MsIdCrossTenantAccessActivity](https://github.com/AzureAD/MSIdentityTools/wiki/Get-MSIDCrossTenantAccessActivity)
 * [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md).
@@ -53,7 +53,7 @@ If your users use Azure AD B2B, you can discover the external Azure AD tenants t
 You can enable future collaboration with: 
 
 -	External organizations (most inclusive)
--	External organizations except those denied
+-	External organizations (but not denied organizations)
 -	Specific external organizations (most restrictive)
 
 > [!NOTE]
@@ -70,18 +70,18 @@ You can use an allowlist or blocklist to from specific organizations. You can us
 * **Allowlist** - Limit collaboration to a list of domains. All other domains are on the blocklist.
 * **Blocklist** - Allow collaboration with domains not on the blocklist
 
-Learn more: [Allow or block invitations to B2B users from specific organizationss](../external-identities/allow-deny-list.md) 
+Learn more: [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md) 
 
 > [!IMPORTANT]
 > These lists don't apply to users in your directory. By default, they don't apply to OneDrive for Business and SharePoint allowlist or blocklists. These lists are separate, but you can enable [SharePoint-OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration.md).  
 
-Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a .com domain, an unrelated organization can use the Contoso .org domain, and attempt a phishing attack. 
+Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a .com domain, an unrelated organization can use the .org domain, and attempt a phishing attack. 
 
 ### Cross Tenant Access Settings
 
 You can control inbound and outbound access using Cross Tenant Access Settings. In addition, you can trust multi-factor authentication (MFA), a compliant device, and hybrid Azure Active Directory joined device (HAADJ) claims from external Azure AD tenants. When you configure an organizational policy, it applies to the Azure AD tenant and covers users in that tenant, regardless of domain suffix. 
 
-You can enable collaboration across Microsoft clouds such as Microsoft Azure China 21Vianet or Microsoft Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. Learn more: [Configure Microsoft cloud settings for B2B collaboration (Preview)](../external-identities/cross-cloud-settings.md).
+You can enable collaboration across Microsoft clouds such as Microsoft Azure operated by 21Vianet (Azure China) or Microsoft Azure Government. Determine if your collaboration partners reside in a different Microsoft cloud. Learn more: [Configure Microsoft cloud settings for B2B collaboration (Preview)](../external-identities/cross-cloud-settings.md).
 
 You can allow inbound access to specific tenants (allowlist), and set the default policy to block access. You then create organizational policies that allow access by user, group, or application.
 
@@ -111,7 +111,7 @@ To begin collaboration, invite or enable a partner to access resources. Users ga
 * [Self-service sign-up](../external-identities/self-service-sign-up-overview.md)
 * [Requesting access to an access package in entitlement management](../governance/entitlement-management-request-access.md)
 
-When you enable Azure AD B2B, you can invite guest users with links and email invitations. Self service sign-up, and publishing Access Packages to the My Access portal, require additional configuration. 
+When you enable Azure AD B2B, you can invite guest users with links and email invitations. Self service sign-up, and publishing Access Packages to the My Access portal, require more configuration. 
 
 > [NOTE]
 > Self service sign-up enforces no allowlist or blocklist in External Collaboration Settings. Use Cross Tenant Access Settings. You can integrate allowlists and blocklists with self service sign-up using custom API connectors. See, [Add an API connector to a user flow](../external-identities/self-service-sign-up-add-api-connector.md).
@@ -123,7 +123,7 @@ Determine who can invite guest users to access resources.
 * Most restrictive: Allow only administrators and users with the Guest Inviter role
   * See, [Configure external collaboration settings](../external-identities/external-collaboration-settings-configure.md)
 * If security requirements permit, allow all UserType of Member to invite guests
-* Determine if UserType of Guest, (default Azure AD B2B user account) cam invite guests
+* Determine if UserType of Guest, the default Azure AD B2B user account, can invite guests
 
     ![Screenshot of guest invitation settings.](media/secure-external-access/5-guest-invite-settings.png)
 
@@ -133,7 +133,7 @@ Use Azure AD entitlement management to configure questions that external users a
 
 Learn more: [Change approval and requestor information settings for an access package in entitlement management](../governance/entitlement-management-access-package-approval-policy.md)
 
-If you use a self-service portal, use API connectors to collect user attributes during sign up. Use the attributes to assign access. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. Read and write these attributes by using the Microsoft Graph API. 
+If you use a self-service portal, use API connectors to collect user attributes during sign-up. Use the attributes to assign access. You can create custom attributes in the Azure portal and use them in your self-service sign-up user flows. Read and write these attributes by using the Microsoft Graph API. 
 
 Learn more:
 
@@ -172,7 +172,7 @@ Learn more: [Conditional Access: Cloud apps, actions, and authentication context
 
 ## Remove users who don't need access
 
-Establish a process to review and remove users who don't need access. Include external users in your tenant as guests, and those with member accounts.
+Establish a process to review and remove users who don't need access. Include external users in your tenant as guests, and users with member accounts.
 
 Learn more: [Use Azure AD Identity Governance to review and remove external users who no longer have resource access](../governance/access-reviews-external-users.md)
 
