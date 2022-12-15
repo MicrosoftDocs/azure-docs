@@ -54,19 +54,18 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
     :::image type="content" source="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" lightbox="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" alt-text="Screenshot that shows the Monitoring configuration screen for V M insights."::: 
 
+1. Select a [data collection rule](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) from the **Data collection rule** dropdown.
 
-1. If a [data collection rule (DCR)](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) hasn't already been created for unmonitored machines, then one will be created with the following details. 
+    The dropdown lists only data collection rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
 
     - **Guest performance** enabled.
     - **Processes and dependencies** disabled.
 
-1. If you want this configuration, select **Configure** to start the agent installation. Otherwise, select a different data collection rule from the dropdown. You can only select data collection rules enabled for VM insights.
- 
-1. If you want a different configuration or want to use a different Log Analytics workspace, select **Create new** to create a new data collection rule. This will allow you to select a workspace and specify whether you want to collect processes and dependencies to enable the [map feature in VM insights](vminsights-maps.md).
+    If you want a different configuration, select **Create new** to create a new data collection rule. This allows you to select a workspace and specify whether you want to collect processes and dependencies to enable the [map feature in VM insights](vminsights-maps.md).
 
     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
 
-1. Select **Configure** to start the configuration process. It will take several minutes for the agent to be installed and data to start being collected. You'll receive status messages as the configuration is performed.
+1. Select **Configure** to start the configuration process. It takes several minutes to install the agent and start collecting data. You'll receive status messages as the configuration is performed.
  
 1. If you use a manual upgrade model for your virtual machine scale set, upgrade the instances to complete the setup. You can start the upgrades from the **Instances** page, in the **Settings** section.
 
