@@ -24,6 +24,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
     * [**ReadMe**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/README.md)
     * [**Samples**](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+ * New model version (`2022-10-05`) released for Language Detection. The new model version comes with improvements in language detection quality on short texts. Additionally, with the new model on-premises customers only need 1 container instead of 2. 
 
 ## November 2022
 
