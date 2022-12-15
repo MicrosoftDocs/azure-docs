@@ -59,10 +59,13 @@ After you save the image to the compute gallery, you can use that image from the
 
 An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
-![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
+:::image type="content" source="./media/how-to-use-shared-image-gallery/use-shared-image.png" alt-text="Screenshot that shows the list of virtual machine images in the Create a new lab page.":::
 
->[!IMPORTANT]
+>[!NOTE]
 >Azure Compute Gallery images will not show if they have been disabled or if the region of the lab plan is different than the gallery images.
+
+> [!IMPORTANT]
+> When you create a new lab from an exported lab VM image, you need to use the same credentials as the original template VM when creating the lab. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
 
 For more information about replicating images, see  [replication in Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). For more information about disabling gallery images for a lab plan, see [enable and disable images](how-to-attach-detach-shared-image-gallery.md#enable-and-disable-images).
 
@@ -73,6 +76,16 @@ After you've created a lab from a custom image in a compute gallery, you can mak
 If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
 
 If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
+
+## Troubleshooting
+
+### Unable to login with the credentials you used for creating the lab
+
+When you create a new lab from an exported lab VM image, perform the following steps:
+
+1. Reuse the same credentials as the original template VM when creating the new lab.
+
+1. After the lab creation finishes, you can [reset the username and password](./how-to-set-virtual-machine-passwords.md).
 
 ## Next steps
 
