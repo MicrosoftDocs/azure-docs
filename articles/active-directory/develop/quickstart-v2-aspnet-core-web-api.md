@@ -122,18 +122,16 @@ This quickstart will be deprecated in the near future and will be updated to use
 > If the build has been successful, the following output is displayed:
 
 >    ```powershell
-    Building...
-    info: Microsoft.Hosting.Lifetime[0]
-        Now listening on: https://localhost:{port}
-    info: Microsoft.Hosting.Lifetime[0]
-        Now listening on: http://localhost:{port}
-    info: Microsoft.Hosting.Lifetime[0]
-        Application started. Press Ctrl+C to shut down.
-    ...
-    ```
->
->
->
+>    Building...
+>    info: Microsoft.Hosting.Lifetime[0]
+>        Now listening on: https://localhost:{port}
+>    info: Microsoft.Hosting.Lifetime[0]
+>        Now listening on: http://localhost:{port}
+>    info: Microsoft.Hosting.Lifetime[0]
+>        Application started. Press Ctrl+C to shut down.
+>    ...
+>   ```
+
 > ## How the sample works
 > 
 > The web API receives a token from a client application, and the code in the web API validates the token. This scenario is explained in more detail in [Scenario: Protected web API](scenario-protected-web-api-overview.md).
