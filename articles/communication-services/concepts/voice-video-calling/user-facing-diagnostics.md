@@ -16,15 +16,28 @@ ms.subservice: calling
 
 When working with calls in Azure Communication Services, problems may arise that cause issues for your customers. To help with this scenario, we have a feature called "User Facing Diagnostics" that you can use to examine various properties of a call to determine what the issue might be.
 
-> [!NOTE] 
-> User-facing diagnostics is currently supported only for our JavaScript / Web SDK.
-
 ## Accessing diagnostics
 
 User-facing diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
 const userFacingDiagnostics = call.feature(Features.UserFacingDiagnostics);
+```
+
+### Native iOS
+
+```swift
+let userFacingDiagnostics = self.call?.feature(Features.diagnostics)
+```
+
+### Native Android
+```java
+// TODO:
+```
+
+### Native Windows
+```csharp
+// TODO:
 ```
 
 ## Diagnostic values
@@ -74,7 +87,20 @@ The following user-facing diagnostics are available:
 | capturerStartFailed          | System screen sharing failed.                                | - Set to`True` when we fail to start capturing the screen. <br/> - Set to `False` when capturing the screen can start successfully.                                                                    |                                               | When value is set to`True` give visual notification to end user that there was possibly a problem sharing their screen. (When value is set back to `False` remove notification).                 |
 | capturerStoppedUnexpectedly  | System screen sharing malfunction                            | - Set to`True` when screen capturer enters stopped state unexpectedly. <br/> - Set to `False` when screen capturer starts to successfully capture again.                                               | Check screen sharing is functioning correctly | When value is set to`True` give visual notification to end user that there possibly a problem that causes sharing their screen to stop. (When value is set back to `False` remove notification). |
 
+### Native Only
+
+
+| Name                         | Description                                                  | Possible values                                                                                                                                                                                        | Use cases                                     | Mitigation Steps                                                                                                                                                                                 |
+| ------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| speakerVolumeIsZero | Zero volume on a device (speaker). | - Set to `True` when the speaker volume is zero. <br/> - Set to `False` when speaker volume is not zero. | Not hearing audio from participants on call. | When value is set to `True` you may have accidentally just have the volume at lowest(zero). |
+| speakerMuted        | Speaker device is muted.           | - Set to `True` when the speaker device is muted. <br/> - Set to `False` when the speaker device is not muted. | Not hearing audio from participants on call. | When value is set to `True` you may have accidentally muted the speaker.    |
+| speakerNotFunctioningDeviceInUse | Speaker is already in use. Either the device is being used in exclusive mode, or the device is being used in shared mode and the caller asked to use the device in exclusive mode. | - Set to `True` when the speaker device stream acquisition times out (audio). <br/> - Set to `False` when speaker acquisition is successful. | Not hearing audio from participants on call through speaker. | When value is set to `True` give visual notification to end user so they can check if another application is using the speaker and try closing it. |
+| speakerNotFunctioning | Speaker is not functioning (failed to initialize the audio device client or device became inactive for more than 5 sec) | - Set to `True` when when speaker is unavailable, or device stream acquisition times out (audio). <br/> - Set to `False` when speaker acquisition is successful. | Not hearing audio from participants on call through speaker. | Try checking the state of the speaker device. |
+| microphoneNotFunctioningDeviceInUse | Microphone is already in use. Either the device is being used in exclusive mode, or the device is being used in shared mode and the caller asked to use the device in exclusive mode. | - Set to `True` when the microphone device stream acquisition times out (audio). <br/> - Set to `False` when microphone acquisition is successful. | Your audio not reaching other participants in the call. | When value is set to `True` give visual notification to end user so they can check if another application is using the microphone and try closing it. |
+
 ## User Facing Diagnostic events
+
+### Javascript / Web SDK 
 
 - Subscribe to the `diagnosticChanged` event to monitor when any user-facing diagnostic changes.
 
@@ -112,7 +138,58 @@ userFacingDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener)
 userFacingDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
+### Native / iOS SDK
+
+- Implement the delegates for `media` and `network` diagnostic sources. `MediaDiagnosticsDelegate` and `NetworkDiagnosticsDelegate` respectively.
+
+```swift
+extension CallObserver: MediaDiagnosticsDelegate {
+  func mediaDiagnostics(_ mediaDiagnostics: MediaDiagnostics,
+                        didChangeFlagDiagnosticValue args: MediaFlagDiagnosticChangedEventArgs) {
+    let diagnostic = args.diagnostic // Which media diagnostic value is changing.
+    let value = args.value // Boolean indicating new media flag value.
+    // Handle the diagnostic event value changed...
+  }
+}
+
+extension CallObserver: NetworkDiagnosticsDelegate {
+  func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
+                          didChangeFlagDiagnosticValue args: NetworkFlagDiagnosticChangedEventArgs) {
+    let diagnostic = args.diagnostic // Which network diagnostic value is changing.
+    let value = args.value // Boolean indicating new media flag value.
+    // Handle the diagnostic event value changed...
+  }
+
+  func networkDiagnostics(_ networkDiagnostics: NetworkDiagnostics,
+                          didChangeQualityDiagnosticValue args: NetworkQualityDiagnosticChangedEventArgs) {
+    let diagnostic = args.diagnostic // Which network diagnostic value is changing.
+    let value = args.value // Quality flag indicating the new value.
+    // Handle the diagnostic event value changed...
+  }
+}
+```
+
+- Hold a reference to `media` and `network` diagnostics and set delegate object to list to events.
+
+```swift
+self.mediaDiagnostics = userFacingDiagnostics?.media
+self.networkDiagnostics = userFacingDiagnostics?.network
+self.mediaDiagnostics?.delegate = self.callObserver
+self.networkDiagnostics?.delegate = self.callObserver
+```
+
+### Native / Android SDK
+
+TODO
+
+### Native / Windows SDK
+
+TODO
+
+
 ## Get the latest User Facing Diagnostics
+
+### Javascript / Web SDK 
 
 - Get the latest diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 
@@ -151,3 +228,22 @@ console.log(
     `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`
 );
 ```
+
+### Native / iOS SDK
+
+- Get the latest diagnostic values that were raised. If a we still didn't receive a value for the diagnostic, `nil` is returned.
+
+```swift
+let lastMediaFlagValue = self.mediaDiagnostics.latestValue(for: .speakerNotFunctioning) // Boolean?
+let lastNetworkFlagValue = self.latestValue(for: .networkRelaysNotReachable) // Boolean?
+let lastNetworkQualityValue = self.latestValue(for: .networkReconnect) // DiagnosticQuality? (.good, .poor, .bad)
+
+```
+
+### Native / Android SDK
+
+TODO
+
+### Native / Windows SDK
+
+TODO
