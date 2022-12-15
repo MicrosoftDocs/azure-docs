@@ -20,7 +20,7 @@ In Azure Data Factory, we have three kinds of integration runtimes: the Azure in
 
 This table lists the differences in some aspects of all integration runtimes, you can choose the appropriate one according to your actual needs. For the Azure-SSIS integration runtime, you can learn more in the article [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md)
 
-|| Azure integration runtime | Azure integration runtime with managed virtual network | Self-hosted integration runtime |
+| Feature | Azure integration runtime | Azure integration runtime with managed virtual network | Self-hosted integration runtime |
 | ---------- | ------------------------- | ------------------------------------------------------ | ------------------- |
 | Managed compute | Y | Y | N |
 | Auto-scale | Y | Y* | N |
