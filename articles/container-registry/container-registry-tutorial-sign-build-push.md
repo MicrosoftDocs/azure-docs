@@ -201,7 +201,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
    notation ls $IMAGE
    ```
 
-## [Optional] View the graph of artifacts with the ORAS CLI
+## View the graph of artifacts with the ORAS CLI (optional)
 
 ACR support for OCI artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI.
 
@@ -212,7 +212,7 @@ ACR support for OCI artifacts enables a linked graph of supply chain artifacts t
     oras discover -o tree $IMAGE
     ```
 
-## [Optional] View the graph of artifacts with the Azure CLI
+## View the graph of artifacts with the Azure CLI (optional)
 
 1. List the manifest details for the container image.
 
