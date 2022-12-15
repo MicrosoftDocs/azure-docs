@@ -44,7 +44,7 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
-1. on the **Insights Onboarding** page, select **Enable**. 
+1. On the **Insights Onboarding** page, select **Enable**. 
  
 1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) from the **Data collection rule** dropdown. 
 
@@ -58,6 +58,9 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
     Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
     :::image type="content" source="media/vminsights-enable-portal/create-data-collection-rule.png" lightbox="media/vminsights-enable-portal/create-data-collection-rule.png" alt-text="Screenshot showing screen for creating new data collection rule.":::
+
+    > [!NOTE]
+    > If you select a data collection rule with Map enabled and your virtual machine is not [supported by the Dependency Agent](../vm/vminsights-dependency-agent-maintenance.md), Dependency Agent will be installed and will run in degraded mode.
 
 1. Select **Configure** to start the configuration process. It takes several minutes to install the agent and start collecting data. You'll receive status messages as the configuration is performed.
  
@@ -110,7 +113,7 @@ To add Azure Monitor Agent to machines that are already enabled with the Log Ana
     Select **Create new** to create a new data collection rule. This lets you select a workspace and specify whether to collect processes and dependencies using the [VM insights Map feature](vminsights-maps.md).
 
     > [!NOTE]
-    > Information the user should notice even if skimmingSelecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. If you do not need the Map feature, [uninstall Dependency Agent manually](../vm/vminsights-dependency-agent-maintenance.md#uninstall-dependency-agent).
+    > Selecting a data collection rule that does not use the Map feature does not uninstall Dependency Agent from the machine. If you do not need the Map feature, [uninstall Dependency Agent manually](../vm/vminsights-dependency-agent-maintenance.md#uninstall-dependency-agent).
 
     With both agents installed, Azure Monitor displays a warning that you may be collecting duplicate data.
 
