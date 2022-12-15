@@ -120,7 +120,7 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 
 #### Applying Filters and Splitting on enhanced metrics
 
-In the above list of metrics, some of the metrics have dimension such as `database name`, `state` etc. [Filtering](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#filters) and [Splitting](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-charts#apply-splitting) are allowed for the metrics that have dimensions. These features show how various metric segments ("dimension values") affect the overall value of the metric. You can use them to identify possible outliers.
+In the above list of metrics, some of the metrics have dimension such as `database name`, `state` etc. [Filtering](../../azure-monitor/essentials/metrics-charts#filters) and [Splitting](../../azure-monitor/essentials/metrics-charts#apply-splitting) are allowed for the metrics that have dimensions. These features show how various metric segments ("dimension values") affect the overall value of the metric. You can use them to identify possible outliers.
 
 * **Filtering** lets you choose which dimension values are included in the chart. For example, you might want to show idle connections when you chart the `Sessions-by-State`  metric. You apply the filter on the __idle__ on __state__ dimension.
 * **Splitting** controls whether the chart displays separate lines for each value of a dimension or aggregates the values into a single line. For example, you can see one line for an `Sessions-by-State` metric across all sessions. Or you can see separate lines for each session grouped by their `state`. You apply splitting on the `State` dimension to see separate lines. 
