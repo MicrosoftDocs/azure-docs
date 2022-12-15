@@ -14,6 +14,8 @@ This article lists the endpoints, ports, and protocols required for Azure Arc-en
 
 ## Azure Arc resource bridge (preview)
 
+This section describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
+
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
 ## Azure Arc-enabled data services

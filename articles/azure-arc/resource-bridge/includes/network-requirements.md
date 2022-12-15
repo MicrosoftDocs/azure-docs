@@ -6,9 +6,6 @@ ms.topic: include
 ms.date: 12/13/2022
 ---
 
-
-This section describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
-
 ### Outbound connectivity
 
 The firewall and proxy URLs below must be allowlisted in order to enable communication from the host machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
