@@ -35,7 +35,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| Azure Integration Services | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | App Development and DevOps | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | Azure Data Services | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
 | Threat Monitoring with Microsoft Sentinel for SAP | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
@@ -113,6 +113,21 @@ For how to configure single sign-on, see the following Azure documentation and t
 Also see the following SAP resources:
 - [Azure Application Gateway Setup for for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
 - [SAPGUI using Kerberos and Azure AD Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
+
+### Azure Integration Services
+
+For more information about using SAP with Azure Integration services, see the following Microsoft resources and Azure documentation:
+
+- [New SAP events on Azure Event Grid with SAP Event Mesh](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372)
+- [Expose SAP Process Orchestration on Azure securely](expose-sap-process-orchestration-on-azure.md)
+- [Connect to SAP from workflows in Azure Logic Apps](../../../logic-apps/logic-apps-using-sap-connector.md)
+
+Also see the following SAP resources:
+
+- [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
+- [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
+- [Automate SAP invoice processing using Azure Logic Apps and Cognitive Services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
+- [Import SAP OData metadata as an API into Azure API Management](../../../api-management/sap-api.md)
 
 ## Free developer accounts
 
