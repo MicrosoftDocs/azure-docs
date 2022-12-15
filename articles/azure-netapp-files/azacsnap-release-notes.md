@@ -27,18 +27,20 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 AzAcSnap 7 is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
-  - Shortening of snapshot name suffix, replacing the 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (e.g. 2022-11-17T030002-7299835Z) with an 11 character hex-decimal equivalent which is also based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions (e.g., F2D212540D5).
-  - Restore (`-c restore`) improvements:
+  - Backup (`-c backup`) changes:
+    - Shortening of snapshot name suffix, replacing the 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (e.g. 2022-11-17T030002-7299835Z) with an 11 character hex-decimal equivalent which is also based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions (e.g., F2D212540D5).
+    - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
+    - Timeout when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
+    - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (aka 'backint'). Therefore, AzAcSnap 'backint' detection logic has been re-ordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 will continue to disable/enable backint.  As this is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
+- Restore (`-c restore`) changes:
     - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
       - via the command-line with `--clonesuffix <custom suffix>`.
       - interactively when running the command without the `--force` option.
     - When doing a `--restore snaptovol` on ANF, then Volume Clone will also inherit the new 'NetworkFeatures' setting from the Source Volume.
     - Can now do a restore if there are no Data Volumes configured.  It will only do a restore of the Other Volumes using the Other Volumes latest snapshot (the `--snapshotfilter` option only applies to Data Volumes).
     - Additional logging for `-c restore` command.
-  - Test (`-c test`) now does tests for all otherVolume(s) as well as all dataVolume(s).
-  - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
-  - Timeout when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
-  - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (aka 'backint'). Therefore, AzAcSnap 'backint' detection logic has been re-ordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 will continue to disable/enable backint.  As this is no longer necessary for Azure Backup, we would strongly recommend to set the value of `autoDisableEnableBackint=false`.
+  - Test (`-c test`) changes:
+    - Now does tests for all otherVolume(s) as well as all dataVolume(s).
 - Features moved to GA (generally available):
   - None.
 - Features added to [Preview](azacsnap-preview.md):
