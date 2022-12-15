@@ -5,10 +5,9 @@ author: vamckMS
 ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 12/07/2020
+ms.date: 12/14/2022
 ms.author: vakavuru
 ms.reviewer: mattmcinnes
-
 
 #Customer intent: As an IT administrator, I want to learn more about using a dedicated host for my Azure virtual machines
 ---
@@ -18,7 +17,6 @@ ms.reviewer: mattmcinnes
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 Azure Dedicated Host is a service which provides physical servers able to host one or more virtual machines assigned to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided instead as a directly accessible hardware resource. You can provision dedicated hosts within a region, availability zone, and fault domain. You can then place VMs directly into your provisioned hosts in whatever configuration best meets your needs.
-
 
 ## Benefits
 
@@ -55,15 +53,15 @@ If you assign a host group to an availability zone, all VMs created on that host
 
 A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you are required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs do not require any fault domain assignment.
 
-Fault domains are not the same as colocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
+Fault domains aren't the same as colocation. Having the same fault domain for two hosts doesn't mean they are in proximity with each other.
 
-Fault domains are scoped to the host group. You should not make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
+Fault domains are scoped to the host group. You shouldn't make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
 
 VMs deployed to hosts with different fault domains, will have their underlying managed disks services on multiple storage stamps, to increase the fault isolation protection.
 
 ### Using Availability Zones and Fault Domains
 
-You can use both capabilities together to achieve even more fault isolation. In this case, you will specify the availability zone and fault domain count in for each host group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
+You can use both capabilities together to achieve even more fault isolation. In this case, you'd specify the availability zone and fault domain count in for each host group, assign a fault domain to each of your hosts in the group, and assign an availability zone to each of your VMs
 
 The [Resource Manager sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
 
@@ -74,14 +72,14 @@ When creating a VM in Azure, you can select which dedicated host to use. You can
 
 When creating a new host group, make sure the setting for automatic VM placement is selected. When creating your VM, select the host group and let Azure pick the best host for your VM.
 
-Host groups that are enabled for automatic placement do not require all the VMs to be automatically placed. You will still be able to explicitly pick a host, even when automatic placement is selected for the host group.
+Host groups that are enabled for automatic placement don't require all the VMs to be automatically placed. You'll still be able to explicitly pick a host, even when automatic placement is selected for the host group.
 
 ### Limitations
 
 Known issues and limitations when using automatic VM placement:
 
-- You will not be able to redeploy your VM.
-- You will not be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
+- You won't be able to redeploy your VM.
+- You won't be able to use DCv2, Lsv2, NVasv4, NVsv3, Msv2, or M-series VMs with dedicated hosts.
 
 
 ## Virtual machine scale set support
@@ -101,23 +99,23 @@ The following requirements apply when creating a virtual machine scale set in a 
 - The supported VM sizes for your dedicated hosts should match the one used for your scale set.
 
 Not all scale-set orchestration and optimizations settings are supported by dedicated hosts. Apply the following settings to your scale set:
-- Overprovisioning is not recommended, and it is disabled by default. You can enable overprovisioning, but the scale set allocation will fail if the host group does not have capacity for all of the VMs, including the overprovisioned instances.
+- Overprovisioning isn't recommended, and it's disabled by default. You can enable overprovisioning, but the scale set allocation will fail if the host group doesn't have capacity for all of the VMs, including the overprovisioned instances.
 - Use the ScaleSetVM orchestration mode
-- Do not use proximity placement groups for co-location
+- Don't use proximity placement groups for co-location
 
 
 
 ## Maintenance control
 
-The infrastructure supporting your virtual machines may occasionally be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, but customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be frozen or disconnected for maintenance.
+The infrastructure supporting your virtual machines may occasionally be updated to improve reliability, performance, security, and to launch new features. The Azure platform tries to minimize the impact of platform maintenance whenever possible, however customers with *maintenance sensitive* workloads can't tolerate even few seconds that the VM needs to be shut down for maintenance.
 
-**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order which may not follow the user defined fault domains.
+**Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window. Within the maintenance window, you can apply maintenance directly at the host level, in any order. Once the maintenance window is over, Microsoft will move forward and apply the pending maintenance to the hosts in an order that may not follow the user defined fault domains.
 
 For more information, see [Managing platform updates with Maintenance Control](./maintenance-configurations.md).
 
 ## Capacity considerations
 
-Once a dedicated host is provisioned, Azure assigns it to physical server. This guarantees the availability of the capacity when you need to provision your VM. Azure uses the entire capacity in the region (or zone) to pick a physical server for your host. It also means that customers can expect to be able to grow their dedicated host footprint without the concern of running out of space in the cluster.
+Once a dedicated host is provisioned, Azure assigns it to physical server. Doing so guarantees the availability of the capacity when you need to provision your VM. Azure uses the entire capacity in the region (or zone) to pick a physical server for your host. It also means that customers can expect to be able to grow their dedicated host footprint without the concern of running out of space in the cluster.
 
 ## Quotas
 
@@ -128,22 +126,22 @@ There are two types of quota that are consumed when you deploy a dedicated host.
 
 To request a quota increase, create a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-Provisioning a dedicated host will consume both dedicated host vCPU and the VM family vCPU quota, but it will not consume the regional vCPU. VMs placed on a dedicated host will not count against VM family vCPU quota. Should a VM be moved off a dedicated host into a multi-tenant environment, the VM will consume VM family vCPU quota.
+Provisioning a dedicated host will consume both dedicated host vCPU and the VM family vCPU quota, but it won't consume the regional vCPU. VMs placed on a dedicated host won't count against VM family vCPU quota. Should a VM be moved off a dedicated host into a multi-tenant environment, the VM will consume VM family vCPU quota.
 
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 For more information, see [Virtual machine vCPU quotas](./windows/quotas.md).
 
-Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
+Free trial and MSDN subscriptions don't have quota for Azure Dedicated Hosts.
 
 ## Pricing
 
-Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you will see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.
+Users are charged per dedicated host, regardless how many VMs are deployed. In your monthly statement you'll see a new billable resource type of hosts. The VMs on a dedicated host will still be shown in your statement, but will carry a price of 0.
 
 The host price is set based on VM family, type (hardware size), and region. A host price is relative to the largest VM size supported on the host.
 
-Software licensing, storage and network usage are billed separately from the host and VMs. There is no change to those billable items.
+Software licensing, storage and network usage are billed separately from the host and VMs. There's no change to those billable items.
 
 For more information, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
@@ -168,15 +166,15 @@ Azure monitors and manages the health status of your hosts. The following states
 | Health State   | Description       |
 |----------|----------------|
 | Host Available     | There are no known issues with your host.   |
-| Host Under Investigation  | We’re having some issues with the host which we’re looking into. This is a transitional state required for Azure to try and identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
+| Host Under Investigation  | We’re having some issues with the host that we’re looking into. This transitional state is required for Azure to try to identify the scope and root cause for the issue identified. Virtual machines running on the host may be impacted. |
 | Host Pending Deallocate   | Azure can’t restore the host back to a healthy state and ask you to redeploy your virtual machines out of this host. If `autoReplaceOnFailure` is enabled, your virtual machines are *service healed* to healthy hardware. Otherwise, your virtual machine may be running on a host that is about to fail.|
-| Host deallocated  | All virtual machines have been removed from the host. You are no longer being charged for this host since the hardware was taken out of rotation.   |
+| Host deallocated  | All virtual machines have been removed from the host. You're no longer being charged for this host since the hardware was taken out of rotation.   |
 
 
 ## Next steps
 
 - To deploy a dedicated host, see [Deploy VMs and scale sets to dedicated hosts](./dedicated-hosts-how-to.md).
 
-- There is a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
+- There's a [sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also save on costs with a [Reserved Instance of Azure Dedicated Hosts](prepay-dedicated-hosts-reserved-instances.md).
