@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/17/2022
+ms.date: 12/20/2022
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume

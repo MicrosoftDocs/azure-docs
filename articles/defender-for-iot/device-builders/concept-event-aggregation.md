@@ -1,11 +1,11 @@
 ---
-title: Micro agent event collection (Preview)
+title: Micro agent event collection
 description: Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing, and analytics.
 ms.date: 04/26/2022
 ms.topic: conceptual
 ---
 
-# Micro agent event collection (Preview)
+# Micro agent event collection
 
 Defender for IoT security agents collect data and system events from your local device, and send the data to the Azure cloud for processing.
 
@@ -159,5 +159,5 @@ When the agent collects similar events to the ones that are already stored in me
 
 For more information, see:
 
-- [Micro agent configurations (Preview)](concept-micro-agent-configuration.md)
+- [Micro agent configurations](concept-micro-agent-configuration.md)
 - Check your [Defender for IoT security alerts](concept-security-alerts.md).

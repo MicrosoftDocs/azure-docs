@@ -199,7 +199,7 @@ Then, **copy the following code** of the runnable sample into your project:
 Next, complete the following steps to configure your project code:
 1. Add the **Room.json** and **Floor.json** files you downloaded earlier to your project, and replace the `<path-to>` placeholders in the code to tell your program where to find them.
 1. Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's host name.
-1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), and the second provides tools to help with authentication against Azure.
+1. Add two dependencies to your project that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins.core-readme), and the second provides tools to help with authentication against Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core

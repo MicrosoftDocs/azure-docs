@@ -103,6 +103,9 @@ When you're using data encryption by using a customer-managed key, here are reco
 
     :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
 
+> [!NOTE]
+>Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access, since portal is not considered to be trusted service.
+
 Here are recommendations for configuring a customer-managed key:
 
 - Keep a copy of the customer-managed key in a secure place, or escrow it to the escrow service.
@@ -155,10 +158,15 @@ Some of the reasons why server state can become *Inaccessible* are:
 - If you delete the key from the KeyVault, the Azure Database for PostgreSQL- Flexible Server will be unable to access the key and will move to *Inaccessible* state. [Recover the Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the server *Available*.
 - If you delete [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) from Azure AD that is used to retrieve a key from KeyVault, the Azure Database for PostgreSQL- Flexible Server will be unable to access the key and will move to *Inaccessible* state.[Recover the identity](../../active-directory/fundamentals/recover-from-deletions.md) and revalidate data encryption to make server *Available*. 
 - If you revoke  the Key Vault's list, get, wrapKey, and unwrapKey access policies from the [managed identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md) that is used to retrieve a key from KeyVault, the Azure Database for PostgreSQL- Flexible Server will be unable to access the key and will move to *Inaccessible* state. [Add required access policies](../../key-vault/general/assign-access-policy.md) to the identity in KeyVault. 
-- If you setup overly restrictive Azure KeyVault firewall rules that cause Azure Database for PostgreSQL- Flexible Server inability to communicate with Azure KeyVault to retrieve keys. If you enable [KeyVault firewall](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), make sure you check an option to *'Allow Trusted Microsoft Services to bypass this firewall.'*
+- If you set up overly restrictive Azure KeyVault firewall rules that cause Azure Database for PostgreSQL- Flexible Server inability to communicate with Azure KeyVault to retrieve keys. If you enable [KeyVault firewall](../../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), make sure you check an option to *'Allow Trusted Microsoft Services to bypass this firewall.'*
 
+
+> [!NOTE]  
+> CLI examples below are based on 2.43.0 version of Azure Database for PostgreSQL - Flexible Server CLI libraries, which are in preview and may be subject to changes.  
 
 ## Setup Customer Managed Key during Server Creation
+
+### Portal
 
 Prerequisites:
 
@@ -166,7 +174,7 @@ Prerequisites:
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
 
-Follow the steps below to enable CMK while creating Postgres Flexible Server.
+Follow the steps below to enable CMK while creating Postgres Flexible Server using Azure portal.
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create pane via Azure portal
 
@@ -178,7 +186,42 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server.
 
 1. Once it's finished, you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
 
+
+### CLI:
+
+Prerequisites:
+
+- You must have an Azure subscription and be an administrator on that subscription.
+
+Follow the steps below to enable CMK while creating Postgres Flexible Server using Azure CLI.
+
+1.  Create a key vault and a key to use for a customer-managed key. Also enable purge protection and soft delete on the key vault.
+
+```azurecli-interactive
+     az keyvault create -g <resource_group> -n <vault_name> --location <azure_region> --enable-purge-protection true
+```
+
+2.  In the created Azure Key Vault, create the key that will be used for the data encryption of the Azure Database for PostgreSQL - Flexible server.
+
+```azurecli-interactive
+     keyIdentifier=$(az keyvault key create --name <key_name> -p software --vault-name <vault_name> --query key.kid -o tsv)
+```
+3. Create Managed Identity which will be used to retrieve key from Azure Key Vault
+```azurecli-interactive
+ identityPrincipalId=$(az identity create -g <resource_group> --name <identity_name> --location <azure_region> --query principalId -o tsv)
+```
+
+4. Add access policy with key permissions of *wrapKey*,*unwrapKey*, *get*, *list* in Azure KeyVault to the managed identity we created above
+```azurecli-interactive
+az keyvault set-policy -g <resource_group> -n <vault_name>  --object-id $identityPrincipalId --key-permissions wrapKey unwrapKey get list
+```
+5.  Finally, lets create Azure Database for PostgreSQL - Flexible Server with CMK based encryption enabled
+```azurecli-interactive
+az postgres flexible-server create -g <resource_group> -n <postgres_server_name> --location <azure_region>  --key $keyIdentifier --identity <identity_name>
+```
 ## Update Customer Managed Key on the CMK enabled Flexible Server
+
+### Portal
 
 Prerequisites:
 
@@ -186,7 +229,7 @@ Prerequisites:
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key.
 
-Follow the steps below to update CMK on CMK enabled Flexible Server:
+Follow the steps below to update CMK on CMK enabled Flexible Server using Azure portal:
 
 1. Navigate to Azure Database for PostgreSQL - Flexible Server create a page via the Azure portal.
 
@@ -196,9 +239,25 @@ Follow the steps below to update CMK on CMK enabled Flexible Server:
 
 1. Select different key by choosing subscription, Key Vault and key from dropdowns provided.
 
+
+### CLI
+
+Prerequisites:
+- You must have an Azure subscription and be an administrator on that subscription.
+- Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+
+Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
+1. Change key/identity  for data encryption for existing server, first lets get new key identifier
+```azurecli-interactive
+ newKeyIdentifier=$(az keyvault key show --vault-name <vault_name> --name <key_name>  --query key.kid -o tsv)
+```
+2. Update server with new key and\or identity
+```azurecli-interactive
+  az postgres flexible-server update --resource-group <resource_group> --name <server_name> --key $newKeyIdentifier --identity <identity_name>
+```
 ## Limitations
 
-The following are limitations for configuring the customer-managed key in Flexible Server:
+The following are current limitations for configuring the customer-managed key in Flexible Server:
 
 - CMK encryption can only be configured during creation of a new server, not as an update to the existing Flexible Server.
 
@@ -206,15 +265,11 @@ The following are limitations for configuring the customer-managed key in Flexib
 
 - CMK encryption isn't available on Burstable SKU.
 
-The following are other limitations for the public preview of configuring the customer-managed key that we expect to remove at the General Availability of this feature:
+- **No support for revoking key after restoring CMK enabled server to another server**
 
 - No support for Geo backup enabled servers
 
-- **No support for revoking key after restoring CMK enabled server to another server**
-
-- No support for Azure HSM Key Vault
-
-- No CLI or PowerShell support
+- No support for Azure HSM Key Vault 
 
 ## Next steps
 

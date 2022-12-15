@@ -194,8 +194,8 @@ Here are details of the application's actions and arguments:
 |`-t`,<br/>`-Stop`||Stop the self-hosted integration runtime host service.|
 |`-sus`,<br/>`-StartUpgradeService`||Start the self-hosted integration runtime upgrade service.|
 |`-tus`,<br/>`-StopUpgradeService`||Stop the self-hosted integration runtime upgrade service.|
-|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update.|
-|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Turn on the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Turn off the self-hosted integration runtime auto-update. This command is for Azure Data Factory V1 only.|
 |`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts.|
 |`-elma`,<br/>`-EnableLocalMachineAccess`|| Enable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|
 |`-dlma`,<br/>`-DisableLocalMachineAccess`|| Disable local machine access (localhost, private IP) on the current self-hosted IR node. In self-hosted IR High Availability scenario, the action needs to be invoked on every self-hosted IR node.|

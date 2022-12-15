@@ -37,6 +37,8 @@ There are three primary components to provisioning users into an on-premises app
 
 You don't need to open inbound connections to the corporate network. The provisioning agents only use outbound connections to the provisioning service, which means there's no need to open firewall ports for incoming connections. You also don't need a perimeter (DMZ) network because all connections are outbound and take place over a secure channel.
 
+The required outbound endpoints for the provisioning agents are detailed [here](../cloud-sync/how-to-prerequisites.md#firewall-and-proxy-requirements).
+
 ## ECMA Connector Host architecture
 The ECMA Connector Host has several areas it uses to achieve on-premises provisioning.  The diagram below is a conceptual drawing that presents these individual areas.  The table below describes the areas in more detail.
 

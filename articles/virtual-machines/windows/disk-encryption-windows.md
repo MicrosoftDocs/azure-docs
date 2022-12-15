@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
-ms.date: 08/06/2019
+ms.date: 12/07/2022
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
@@ -315,8 +315,8 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Moving an encrypted VM to another subscription or region.
 - Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
 - M-series VMs with Write Accelerator disks.
-- Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
-- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](../disk-encryption.md).
+- Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
+- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
 - Encrypting VMs in failover clusters.
 - Encryption of [Azure ultra disks](../disks-enable-ultra-ssd.md).
 

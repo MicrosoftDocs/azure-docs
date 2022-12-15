@@ -2,7 +2,7 @@
 title: Partner Events overview for customers 
 description: Send or receive from a SaaS or ERP system directly to/from Azure services with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 12/14/2022
 ---
 
 # Partner Events overview for customers - Azure Event Grid
@@ -48,24 +48,21 @@ You may want to use the Partner Events feature if you've one or more of the foll
   
 
 ## Available partners
-A partner must go through an [onboarding process](onboard-partner.md) before a customer can start receiving or sending events to partners. Following is the list of available partners and whether their services were designed to send events to or receive events from Event Grid.
 
-### Microsoft partners
-| Partner              | Sends events to Azure?  | Receives events from Azure?   |
-| :--------------------|:-----------------------:|:----------------------:|
-| Microsoft Graph API* |   Yes                   | N/A                    |
+A partner must go through an [onboarding process](onboard-partner.md) before a customer can start receiving events from partners. Following is the list of available partners from which you can receive events via Event Grid.
 
-#### Microsoft Graph API
+### Microsoft Graph API
 Through Microsoft Graph API, you can get events from a diverse set of Microsoft services such as [Azure AD](azure-active-directory-events.md), [Microsoft Outlook](outlook-events.md), [Teams](teams-events.md), **SharePoint**, and so on. For a complete list of event sources, see [Microsoft Graph API's change notifications documentation](/graph/webhooks#supported-resources).
 
-### Non-Microsoft partners
-| Partner       | Sends events to Azure?  | Receives events from Azure?   |
-| :------------ |:-----------------------:|:----------------------:|
-| Auth0         |  Yes                    | N/A                    |
-
 ### Auth0
-
 [Auth0](https://auth0.com) is a managed authentication platform for businesses to authenticate, authorize, and secure access for applications, devices, and users. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md).
+
+### SAP
+You can configure your SAP system to send events to Azure Event Grid. For more information, see [Subscribe to SAP events](subscribe-to-sap-events.md).
+
+### Tribal Group
+
+You can receive events from Tribal Group’s Edge Education platform by defining events you want to receive by configuring an event stream using the Admin Edge application. For more information, see [Subscribe to Tribal Group events](subscribe-to-tribal-group-events.md).
 
 ## Verified partners
 
