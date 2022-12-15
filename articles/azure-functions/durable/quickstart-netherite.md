@@ -68,7 +68,7 @@ In `local.settings.json`, set the value of `EventHubsConnection` to `MemoryF` as
 ```
 
 > [!NOTE]
-> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).For example, if using C#, your local.settings.json file may look something like [this example](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
+> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).
 
 ## Update host.json
 
