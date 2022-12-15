@@ -201,11 +201,9 @@ The following table shows where you can find details about each capture filter o
 
 |Name  |File |Property  |
 |---------|---------|---------|
-|**statistics-collector**     |  `/var/cyberx/properties/net.stats.collector.properties`       |  `bpf_filter property`       |
-|**dissector**     |   `/var/cyberx/properties/cybershark.properties`      |    `override.capture_filter`     |
-|**rpc-parser**     |   `/var/cyberx/properties/rpc-parser.properties`      |   `override.capture_filter`      |
-|**smb-parser**     |   `/var/cyberx/properties/smb-parser.properties`      | `override.capture_filter`        |
-|**collector**     | `/var/cyberx/properties/collector.properties`        |   `general.bpf_filter`      |
+|**horizon**     |  `/var/cyberx/properties/horizon.properties`       |  `horizon.processor.filter`       |
+|**traffic-monitor**     |   `/var/cyberx/properties/traffic-monitor.properties`      |    `horizon.processor.filter`     |
+|**dumpark**     |   `/var/cyberx/properties/dumpark.properties`      |   `dumpark.network.filter`      |
 
 
 ### Resetting all capture filters

@@ -171,7 +171,9 @@ root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
 
-## Reset local user passwords
+## Local sign-in and passwords
+
+### Reset local user passwords
 
 Use the following commands to reset passwords for local users on your OT sensor.
 
@@ -196,13 +198,13 @@ resetting the password of UI user "support"
 root@xsense:/#
 ```
 
-The *cyberx_host* user can be changed after a successful login with the following command:
+The *cyberx_host* user can be changed after a successful sign-in with the following command:
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx_host**  |   `passwd` | No attributes   |
 
-For example:
+For example with the cyberx_host user:
 
 ```bash
 cyberx_host@xsense:/# passwd
@@ -213,6 +215,25 @@ Retype new password:
 passwd: all authentication tokens updated successfully.
 cyberx_host@xsense:/#
 ```
+
+### Adjust protection against failed sign-in
+
+In the case of too many failed sign-ins, the failed sign-in protection mechanism will disallow any user from logging in from that IP address.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**  |   `nano /var/cyberx/components/xsense-web/cyberx_web/settings.py` | No attributes   |
+
+1. By using SSH, log in as **cyberx** to sensor
+
+1. To change the setting, run the following command: <br>`nano /var/cyberx/components/xsense-web/cyberx_web/settings.py`
+
+1. Set  `"MAX_FAILED_LOGINS = 5"` to a desired value (eg. 10, 20 up to 100), taking into account the number of concurrent users.
+
+1. Write to the file and exit
+
+1. To apply changes, run the following command: `sudo monit restart all`
+
 
 ## Validate network settings
 
@@ -417,7 +438,9 @@ The configuration wizard starts automatically after you run this command.
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage SSL and TLS certificates
+
 ### Set up SSL certificates by CLI
+
 Use the following command to import SSL and TLS certificates to the sensor from the CLI.
 
 To use this command:
@@ -449,6 +472,7 @@ root@xsense:/# cyberx-xsense-certificate-import
 <!--better example with attributes showing and also response?-->
 
 ### Restore default self-signed certificate by CLI
+
 Use this command in order to restore the default self-signed certificates on the appliance (This should be used only for troubleshooting and not production environments).
 
 |User  |Command  |Full command syntax   |
@@ -471,42 +495,54 @@ finished
 root@xsense:/#
 ```
 
-## Upgrade sensor software from CLI
+## Update sensor software from CLI
 
-In this procedure, you will learn how to update the OT sensor software through the command line interface.
+<!--here for review purposes only. otherwise move them to the update section of the how-tos and reference out. these are standard linux CLI commands, not something specific for D4IoT-->
 
-1. Transfer the upgrade file to the sensor (sftp or scp can be used)<br><br>Login as `cyberx_host` user and Transfer the file to  `/opt/sensor/logs/`
+This procedure describes how to update OT sensor software via the CLI.
+
+1. Use SFTP or SCP to copy the update file to the sensor machine.
+
+1. Sign in to the sensor as the `cyberx_host` user and copy the update file to the `/opt/sensor/logs/` directory.
  
-1. Login as cyberx user <br>Move the file to the location accessible for the upgrade process
-```bash
-cd /var/host-logs/ 
-mv <filename> /var/cyberx/media/device-info/update_agent.tar
-```
-1. Start the upgrade process:<br>
-```bash
-curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
-```
+1. Sign in to the sensor as the `cyberx` user and copy the file to a location accessible for the update process. For example:
 
-1. Monitoring the upgrade progress has started<br>
-```bash
-tail -f /var/cyberx/logs/upgrade.log
-```
-Output will appear similar to the example below<br>
+    ```bash
+    cd /var/host-logs/ 
+    mv <filename> /var/cyberx/media/device-info/update_agent.tar
+    ```
 
-```bash
-2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
+1. Start running the software update. Run:
 
-2022-05-23 15:39:33,180 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Prepared upgrade, scheduling in 30 seconds
+    ```bash
+    curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
+    ```
 
-2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
-```
-1. During the upgrade, ssh will disconnect - an indication that it is running.<br>
+1. Verify that the update process has started by checking the `upgrade.log` file. Run:
 
-1. Monitoring the upgrade process is possible using the following command (login as `cyberx_host`)<br>
+    ```bash
+    tail -f /var/cyberx/logs/upgrade.log
+    ```
 
-```bash
-tail -f /opt/sensor/logs/install.log
-```
+    Output similar to the following appears:
+       
+    ```bash
+    2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
+
+    2022-05-23 15:39:33,180 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Prepared upgrade, scheduling in 30 seconds
+
+    2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
+    ```
+        
+    At some point during the update process, your SSH connection will disconnect. This is a good indication that your update is running.
+
+1. Continue to monitor the update process by checking the `install.log` file.
+
+    Sign into the sensor as the `cyberx_host` user and run:
+
+    ```bash
+    tail -f /opt/sensor/logs/install.log
+    ```
 
 ## Back up and restore appliance snapshot
 
