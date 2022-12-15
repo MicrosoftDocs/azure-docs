@@ -99,7 +99,7 @@ To create remediation tasks from the Azure portal:
 
     [![View compliance](media/vminsights-enable-policy/view-compliance.png)](media/vminsights-enable-policy/view-compliance.png#lightbox)
     
-    This opens the **Compliance** page, which lists assignments that match the specified filter and whether they're compliant. 
+    This opens the **Compliance** page, which lists assignments that match the specified filter and indicates whether they're compliant. 
     
     [![Policy compliance for Azure VMs](./media/vminsights-enable-policy/policy-view-compliance.png)](./media/vminsights-enable-policy/policy-view-compliance.png#lightbox)
     
