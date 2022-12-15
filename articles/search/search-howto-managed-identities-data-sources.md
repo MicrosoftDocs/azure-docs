@@ -191,12 +191,15 @@ The following steps are for Azure Storage. If your resource is Azure Cosmos DB o
 
 1. On the **Role** page, select the roles needed for your search service:
 
-   | Role | Usage |
-   |------|-------|
-   | **Reader and Data Access** | Grants read permissions for indexer access to content in Azure Table Storage and Azure File Storage. |
-   | **Storage Blob Data Reader** | Grants read permissions for indexer access to content in Blob Storage and Azure Data Lake Storage Gen2. |
-   | **Storage Blob Data Contributor** | Grants read permissions for indexer access, plus write permissions for debug sessions, knowledge store object projections, and enrichment cache. |
-   | **Storage Table Data Contributor** | Grants read permissions for indexer access, plus write permissions for knowledge store table projections. |
+   | Task | Role assignment |
+   |------|-----------------|
+   | Blob indexing | Add **Storage Blob Data Reader** |
+   | ADLS Gen2 indexing | Add **Storage Blob Data Reader** |
+   | Table indexing | Add **Reader and Data Access** |
+   | File indexing | Add **Reader and Data Access** |
+   | Write to a knowledge store | Add **Storage Blob DataContributor** and **Storage Table Data Contributor** |
+   | Write to an enrichment cache | Add **Storage Blob Data Contributor**  |
+   | Save debug session state | Add **Storage Blob Data Contributor**  |
 
 1. On the **Members** page, select **Managed Identity**.
 
@@ -237,7 +240,7 @@ A search request to Azure Storage can also be made under a user-assigned managed
 
 [**Knowledge store:**](knowledge-store-create-rest.md)
 
-A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
+A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is the unique resource ID of your storage account. Notice that the string doesn't include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
 
 ```json
 "knowledgeStore": {

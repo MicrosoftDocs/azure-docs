@@ -14,7 +14,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Tutorial: Send data via transparent gateway
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we once again use the development VM as a simulated device. However instead of sending data directly to the IoT Hub, the device sends data to the IoT Edge device configured as a transparent gateway.
 

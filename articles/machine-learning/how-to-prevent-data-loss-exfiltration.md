@@ -35,6 +35,13 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
 * An Azure Virtual Network (VNet)
 * An Azure Machine Learning workspace with a private endpoint that connects to the VNet.
     * The storage account used by the workspace must also connect to the VNet using a private endpoint.
+* You need to recreate compute instance or scale down compute cluster to zero node.
+    * Not required if you have joined preview.
+    * Not required if you have new compute instance and compute cluster created after December 2022.
+
+## Why do I need to use the service endpoint policy
+
+Service endpoint policies allow you to filter egress virtual network traffic to Azure Storage accounts over service endpoint and allow data exfiltration to only specific Azure Storage accounts. Azure Machine Learning compute instance and compute cluster requires access to Microsoft-managed storage accounts for its provisioning. The Azure Machine learning alias in service endpoint policies includes Microsoft-managed storage accounts. We use service endpoint policies with the Azure Machine Learning alias to prevent data exfiltration or control the destination storage accounts. You can learn more in [Service Endpoint policy documentation](../virtual-network/virtual-network-service-endpoint-policies-overview.md).
 
 ## 1. Create the service endpoint policy
 
@@ -62,6 +69,9 @@ Azure Machine Learning has several inbound and outbound dependencies. Some of th
         > The Azure CLI and Azure PowerShell do not provide support for adding an alias to the policy.
 
 1. Select __Review + Create__, and then select __Create__.
+
+> [!IMPORTANT]
+> If your compute instance and compute cluster need access to additional storage accounts, your service endpoint policy should include the additional storage accounts in the resources section. Note that it is not required if you use Storage private endpoints. Service endpoint policy and private endpoint are independent.
 
 ## 2. Allow inbound and outbound network traffic
 
@@ -140,6 +150,10 @@ When using Azure ML curated environments, make sure to use the latest environmen
     * `*.data.mcr.microsoft.com`
 
     ---
+
+## Limitations
+
+If you want to have data exfiltration with **No Public IP option**, you need to opt in to this Azure Machine Learning preview. Microsoft will contact you once your subscription has been allowlisted to the preview. It may take one to two weeks to allowlist your subscription. Use the form at [https://forms.office.com/r/0Rw6mXTT07](https://forms.office.com/r/0Rw6mXTT07) to opt in to this Azure Machine Learning preview.
 
 ## Next steps
 

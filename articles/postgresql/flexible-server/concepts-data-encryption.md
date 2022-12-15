@@ -103,6 +103,9 @@ When you're using data encryption by using a customer-managed key, here are reco
 
     :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/key-vault-trusted-service.png":::
 
+> [!NOTE]
+>Important to note, that after choosing **disable public access** option in Azure Key Vault networking and allowing only *trusted Microsoft* services you may see error similar to following : *You have enabled the network access control. Only allowed networks will have access to this key vault* while attempting to administer Azure Key Vault via portal through public access, since portal is not considered to be trusted service.
+
 Here are recommendations for configuring a customer-managed key:
 
 - Keep a copy of the customer-managed key in a secure place, or escrow it to the escrow service.
