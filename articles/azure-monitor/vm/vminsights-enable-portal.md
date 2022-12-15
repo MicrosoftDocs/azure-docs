@@ -2,9 +2,10 @@
 title: Enable VM insights in the Azure portal
 description: Learn how to enable VM insights on a single Azure virtual machine or virtual machine scale set using the Azure portal.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/08/2022
+author: guywi-ms
+ms.author: guywild
+ms.reviewer: xpathak
+ms.date: 12/15/2022
 
 ---
 
