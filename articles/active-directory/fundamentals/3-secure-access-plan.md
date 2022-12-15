@@ -122,7 +122,7 @@ Your policies will be customized, however consider the following parameters:
   * [Create an access review of an access package in entitlement management](../governance/entitlement-management-access-reviews-create.md)
   * [Add a connected organization in entitlement management](../governance/entitlement-management-organization.md): group users from a partner and schedule reviews
 * **Microsoft 365 groups**: 
-  * [Microsoft 365 group expiration policy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide)
+  * [Microsoft 365 group expiration policy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide&preserve-view=true)
 * **Options**: 
   * If external users don't use access packages or Microsoft 365 groups, determine when accounts become inactive or deleted
   * Remove sign-in for accounts that don't sign in for 90 days
