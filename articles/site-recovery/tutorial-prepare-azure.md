@@ -3,8 +3,8 @@ title: Prepare Azure for on-premises disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
-ms.custom: MVC
+ms.date: 12/15/2022
+ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -91,8 +91,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
         :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
 
-   ![Screenshot of the Create virtual network options.](media/tutorial-prepare-azure/create-network.png)
-
+ 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
 
