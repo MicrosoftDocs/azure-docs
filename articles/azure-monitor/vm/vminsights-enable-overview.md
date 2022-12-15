@@ -66,7 +66,7 @@ Output for this command will look similar to the following and specify whether a
 /sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
 ```
 
-## Azure Monitor Agent and Dependency Agent
+## Agents
 
 When you enable VM insights for a machine, the following agents are installed. For the network requirements for these agents, see [Network requirements](../agents/log-analytics-agent.md#network-requirements).
 
