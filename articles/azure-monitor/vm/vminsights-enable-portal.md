@@ -82,9 +82,9 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
 
     :::image type="content" source="media/vminsights-enable-portal/enable-unmonitored.png" lightbox="media/vminsights-enable-portal/enable-unmonitored.png" alt-text="Screenshot with unmonitored machines in V M insights.":::
  
-1. Select **Enable** on the introduction page to view the configuration. 
+1. Select **Enable** on the **Insights Onboarding** page. 
  
-1. Select **Azure Monitor agent** from the **Monitoring configuration** page and then select **Log Analytics agent**. 
+1. Select **Log Analytics agent** on the **Monitoring configuration** page. 
 
 1. If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../logs/quick-create-workspace.md), then you can select a default for the location where the virtual machine or virtual machine scale set is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for VM insights if it wasn't already.
 
