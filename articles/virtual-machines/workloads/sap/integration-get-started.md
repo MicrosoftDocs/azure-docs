@@ -30,7 +30,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | Area | Description |
 | ---- | ----------- |
 | Integration with SAP RISE managed workloads | Learn how to [integrate your SAP RISE managed workloads](sap-rise-integration.md#sap-btp-connectivity) with Azure services. |
-| Microsoft Office | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
+| [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | Microsoft Teams | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | Microsoft Power Platform | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | SAP Fiori | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
@@ -40,6 +40,19 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | Azure Data Services | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
 | Threat Monitoring with Microsoft Sentinel for SAP | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
 | SAP Business Technology Platform (BTP) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
+
+### Microsoft Office
+
+For more information about integration with Microsoft Office, see the following Azure documentation:
+
+- [Outbound E-Mail from SAP to Exchange Online](exchange-online-integration-sap-email-outbound.md)
+- [Enable SAP Principal Propagation for live OData feeds with Excel](expose-sap-odata-to-power-query.md)
+
+Also see these SAP resources:
+
+- [SAP Analysis for Microsoft Office Excel and PowerPoint](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html)
+- [SAP Analytics Cloud, add-in for Microsoft Office](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD_OFFICE/c637c9ff5d61457eb415ce161e38e57b/c9217302603a4fd6baa0fe6a6e780f8d.html)
+- [Access SAP Data Warehouse Cloud with Microsoft Excel](https://blogs.sap.com/2022/05/17/access-sap-data-warehouse-cloud-with-saps-microsoft-excel-add-ins/)
 
 ## Free developer accounts
 
