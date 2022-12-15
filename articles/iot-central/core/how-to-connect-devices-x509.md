@@ -90,7 +90,7 @@ Make a note of the location of these files. You need it later.
 
 1. Open your IoT Central application and navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**. You can create enrollment groups for either IoT devices ot IoT Edge devices.
+1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**. You can create enrollment groups for either IoT devices or IoT Edge devices.
 
 1. In the enrollment group you created, select **Manage primary**.
 

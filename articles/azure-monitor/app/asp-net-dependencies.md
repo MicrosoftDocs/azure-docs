@@ -2,7 +2,7 @@
 title: Dependency tracking in Application Insights | Microsoft Docs
 description: Monitor dependency calls from your on-premises or Azure web application with Application Insights.
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 12/13/2022
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.reviewer: casocha
@@ -28,7 +28,7 @@ Application Insights SDKs for .NET and .NET Core ship with `DependencyTrackingTe
 |[Azure Service Bus client SDK](https://nuget.org/packages/Azure.Messaging.ServiceBus)| Use the latest package: https://nuget.org/packages/Azure.Messaging.ServiceBus. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
-If you're missing a dependency or using a different SDK, make sure it's in the list of [autocollected dependencies](./auto-collect-dependencies.md). If the dependency isn't autocollected, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+If you're missing a dependency or using a different SDK, make sure it's in the list of [autocollected dependencies](#dependency-auto-collection). If the dependency isn't autocollected, you can track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
 
 ## Set up automatic dependency tracking in console apps
 
@@ -224,8 +224,53 @@ In the Log Analytics query view, `timestamp` represents the moment the TrackDepe
 
 Like every Application Insights SDK, the dependency collection module is also open source. Read and contribute to the code or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
+## Dependency auto-collection
+
+Below is the currently supported list of dependency calls that are automatically detected as dependencies without requiring any additional modification to your application's code. These dependencies are visualized in the Application Insights [Application map](./app-map.md) and [Transaction diagnostics](./transaction-diagnostics.md) views. If your dependency isn't on the list below, you can still track it manually with a [track dependency call](./api-custom-events-metrics.md#trackdependency).
+
+### .NET
+
+| App frameworks| Versions |
+| ------------------------|----------|
+| ASP.NET Webforms | 4.5+ |
+| ASP.NET MVC | 4+ |
+| ASP.NET WebAPI | 4.5+ |
+| ASP.NET Core | 1.1+ |
+| <b> Communication libraries</b> |
+| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
+| [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
+| [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - latest stable release. (See Note below.)
+| [Event Hubs Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
+| [ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
+| <b>Storage clients</b>|  |
+| ADO.NET | 4.5+ |
+
+> [!NOTE]
+> There is a [known issue](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) with older versions of Microsoft.Data.SqlClient. We recommend using 1.1.0 or later to mitigate this issue. Entity Framework Core does not necessarily ship with the latest stable release of Microsoft.Data.SqlClient so we advise confirming that you are on at least 1.1.0 to avoid this issue.   
+
+
+### Java
+
+See the list of Application Insights Java's
+[autocollected dependencies](java-in-process-agent.md#autocollected-dependencies).
+
+### Node.js
+
+A list of the latest [currently supported modules](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers) is maintained [here](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers).
+
+### JavaScript
+
+| Communication libraries | Versions |
+| ------------------------|----------|
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | All |
+
 ## Next steps
 
 * [Exceptions](./asp-net-exceptions.md)
 * [User and page data](./javascript.md)
 * [Availability](./monitor-web-app-availability.md)
+* Set up custom dependency tracking for [Java](java-in-process-agent.md#add-spans).
+* Set up custom dependency tracking for [OpenCensus Python](./opencensus-python-dependency.md).
+* [Write custom dependency telemetry](./api-custom-events-metrics.md#trackdependency)
+* See [data model](./data-model.md) for Application Insights types and data model.
+* Check out [platforms](./app-insights-overview.md#supported-languages) supported by Application Insights.
