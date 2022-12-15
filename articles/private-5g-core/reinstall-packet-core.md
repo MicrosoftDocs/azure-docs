@@ -34,7 +34,7 @@ Before reinstalling, follow this step to check the packet core instance's instal
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-1. Under the **Essentials** heading, check the **Packet core installation state** field. If the status under this field indicates the packet core instance is running a process (such as installing, upgrading or rolling back), wait for it to finish before attempting a reinstall.
+1. Under the **Essentials** heading, check the current packet core state under the **Packet core installation state** field. If the status under this field indicates the packet core instance is already running a reinstall process, wait for it to finish before attempting another reinstall.
 
 ## Back up deployment information
 
