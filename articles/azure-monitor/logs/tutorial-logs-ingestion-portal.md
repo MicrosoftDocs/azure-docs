@@ -9,7 +9,7 @@ ms.date: 07/15/2022
 The [Logs Ingestion API](logs-ingestion-api-overview.md) in Azure Monitor allows you to send external data to a Log Analytics workspace with a REST API. This tutorial uses the Azure portal to walk through configuration of a new table and a sample application to send log data to Azure Monitor.
 
 > [!NOTE]
-> This tutorial uses the Azure portal. For a similar tutorial using Azure Resource Manager templates, see [Tutorial: Send data to Azure Monitor Logs by using a REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md).
+> This tutorial uses the Azure portal. For a similar tutorial that uses Azure Resource Manager templates, see [Tutorial: Send data to Azure Monitor Logs by using a REST API (Resource Manager templates)](tutorial-logs-ingestion-api.md).
 
 In this tutorial, you learn to:
 
@@ -24,10 +24,12 @@ To complete this tutorial, you need:
 
 - A Log Analytics workspace where you have at least [contributor rights](manage-access.md#azure-rbac).
 - [Permissions to create DCR objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
-- PowerShell 7.2 or higher.
+- PowerShell 7.2 or later.
 
 ## Overview of the tutorial
-In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This approach requires a script to convert this data to the JSON format that's required for the Azure Monitor Logs Ingestion API. The data will further be converted with a transformation in a DCR that filters out records that shouldn't be ingested. It also creates the columns required for the table where the data will be sent. After the configuration is finished, you'll send sample data from the command line, and then inspect the results in Log Analytics.
+In this tutorial, you'll use a PowerShell script to send sample Apache access logs over HTTP to the API endpoint. This approach requires a script to convert this data to the JSON format that's required for the Azure Monitor Logs Ingestion API. The data will further be converted with a transformation in a DCR that filters out records that shouldn't be ingested. It also creates the columns required for the table where the data will be sent. 
+
+After the configuration is finished, you'll send sample data from the command line, and then inspect the results in Log Analytics.
 
 ## Configure the application
 Start by registering an Azure Active Directory application to authenticate against the API. Any Resource Manager authentication scheme is supported, but this tutorial will follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
@@ -44,11 +46,11 @@ Start by registering an Azure Active Directory application to authenticate again
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-id.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-id.png" alt-text="Screenshot that shows the app ID.":::
 
-1. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** > **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. The value **1 year** is selected here, although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode, such as a certificate.
+1. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** > **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. The value **1 year** is selected here. For a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode, such as a certificate.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret.png" alt-text="Screenshot that shows a secret for a new app.":::
 
-1. Select **Add** to save the secret and then note the **Value**. Ensure that you record this value because you can't recover it after you navigate away from this page. Use the same security measures as you would for safekeeping a password because it's the functional equivalent.
+1. Select **Add** to save the secret and then note the **Value**. Ensure that you record this value because you can't recover it after you move away from this page. Use the same security measures as you would for safekeeping a password because it's the functional equivalent.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" lightbox="media/tutorial-logs-ingestion-portal/new-app-secret-value.png" alt-text="Screenshot that shows the secret value for the new app.":::
 
@@ -69,7 +71,7 @@ A [data collection endpoint](../essentials/data-collection-endpoint-overview.md)
 
 ## Generate sample data
 > [!IMPORTANT]
-> You must be using PowerShell version 7.2 or higher.
+> You must be using PowerShell version 7.2 or later.
 
 The following PowerShell script generates sample data to configure the custom table and sends sample data to the logs ingestion API to test the configuration.
 
@@ -198,7 +200,7 @@ Before you can send data to the workspace, you need to create the custom table w
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" lightbox="media/tutorial-logs-ingestion-portal/new-data-collection-rule.png" alt-text="Screenshot that shows the new DCR.":::
 
-1. Select the DCE that you created and select **Next**.
+1. Select the DCE that you created, and then select **Next**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-table-name.png" alt-text="Screenshot that shows the custom log table name.":::
 
@@ -222,7 +224,7 @@ Instead of directly configuring the schema of the table, you can use the portal 
     | extend TimeGenerated = todatetime(Time)
     ```
 
-1. Select **Run** to view the results. You can see that the `TimeGenerated` column is now added to the other columns. Most of the interesting data is contained in the `RawData` column though.
+1. Select **Run** to view the results. You can see that the `TimeGenerated` column is now added to the other columns. Most of the interesting data is contained in the `RawData` column, though.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/custom-log-query-01.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-query-01.png" alt-text="Screenshot that shows the initial custom log data query.":::
 
@@ -288,7 +290,7 @@ With the DCR created, you need to collect its ID, which is needed in the API cal
     :::image type="content" source="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" lightbox="media/tutorial-logs-ingestion-portal/data-collection-rule-immutable-id.png" alt-text="Screenshot that shows collecting the immutable ID from the JSON view.":::
 
 ## Assign permissions to the DCR
-The final step is to give the application permission to use the DCR. Any application using the correct application ID and application key can now send data to the new DCE and DCR.
+The final step is to give the application permission to use the DCR. Any application that uses the correct application ID and application key can now send data to the new DCE and DCR.
 
 1. Select **Access Control (IAM)** for the DCR and then select **Add role assignment**.
 
@@ -298,7 +300,7 @@ The final step is to give the application permission to use the DCR. Any applica
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot that shows selecting the role for the DCR role assignment.":::
 
-1. Select **User, group, or service principal** for **Assign access to** and choose **Select members**. Select the application that you created and choose **Select**.
+1. Select **User, group, or service principal** for **Assign access to** and choose **Select members**. Select the application that you created and then choose **Select**.
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot that shows selecting members for the DCR role assignment.":::
 
@@ -315,7 +317,7 @@ Allow at least 30 minutes for the configuration to take effect. You might also e
     .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUri <data collection endpoint URL> 
     ```
 
-1. From Log Analytics, query your newly created table to verify that data arrived and if it's transformed properly.
+1. From Log Analytics, query your newly created table to verify that data arrived and that it's transformed properly.
 
 ## Troubleshooting
 This section describes different error conditions you might receive and how to correct them.
