@@ -46,7 +46,7 @@ To create a new service principal:
 
    The application ID is the `client_id` value in the sample code.
 
-   :::image type="content" source="./media/tutorial-using-rest-apis/application-id.png" alt-text="Screenshot of the application page in the portal with the Applicaion (client) ID highlighted.":::
+   :::image type="content" source="./media/tutorial-using-rest-apis/application-id.png" alt-text="Screenshot of the application page in the portal with the Application (client) ID highlighted.":::
 
 To use the service principal (application), you need to know the service principal's password that can be found by:
 
