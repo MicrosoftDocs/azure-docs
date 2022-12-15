@@ -84,8 +84,8 @@ If you want to provide a custom HTTPS certificate at site creation, follow the s
       > If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
    1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
 
-      - [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal). You'll need **Get** and **List** permissions under **Secret permissions** and **Certificate permissions**.
-      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli). You'll need **Key Vault Reader** and **Key Vault Secrets User** permissions.
+      - [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
 
    1. Collect the values in the following table.
 
