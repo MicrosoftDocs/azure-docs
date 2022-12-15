@@ -241,10 +241,12 @@ az network vnet subnet show \
 [
   {
     "actions": [
-      "Microsoft.Network/virtualNetworks/subnets/join/action"
+      "Microsoft.Network/virtualNetworks/subnets/join/action",
+      "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+      "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"
     ],
-    "etag": "W/\"8a8bf16a-38cf-409f-9434-fe3b5ab9ae54\"",
-    "id": "/subscriptions/3bf09329-ca61-4fee-88cb-7e30b9ee305b/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet/delegations/0",
+    "etag": "W/\"30184721-8945-4e4f-9cc3-aa16b26589ac\"",
+    "id": "/subscriptions/23250d6d-28f0-41dd-9776-61fc80805b6e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet/delegations/0",
     "name": "0",
     "provisioningState": "Succeeded",
     "resourceGroup": "myResourceGroup",
