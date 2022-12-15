@@ -186,7 +186,7 @@ Items in bold are recommended.
 
 |Feature | App and resource access| SharePoint and OneDrive access| Teams access| Email and document security |
 | - |-|-|-|-|
-| Microsoft 365 or Office 365 groups|N/A| **Access to group site(s) and associated content**|**Access to Microsoft 365 group teams and associated content**|  |
+| Microsoft 365 or Office 365 groups|N/A| **Access to group site(s) and associated content**|**Access to Microsoft 365 group teams and associated content**|N/A|
 | Sensitivity labels|N/A| Manually classify and restrict access| Manually classify and restrict access| Manually classify to restrict and encrypt |
 | Conditional Access policies| Conditional Access policies for access control|N/A|N/A|N/A|
 | Additional methods|N/A| Restrict SharePoint site access with security groups<br>Disallow direct sharing| **Restrict external invitations from a team**|N/A|
