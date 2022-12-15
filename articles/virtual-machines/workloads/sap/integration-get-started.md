@@ -38,7 +38,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
-| Threat Monitoring with Microsoft Sentinel for SAP | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
+| [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
 | SAP Business Technology Platform (BTP) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
 ### Microsoft Office
@@ -154,6 +154,15 @@ For more information about integration with Azure Data Services, see the followi
 Also see the following SAP resources:
 - [Integrate SAP Data Warehouse Cloud with Power BI and Azure Synapse Analytics](https://blogs.sap.com/2022/07/27/your-sap-on-azure-part-28-integrate-sap-data-warehouse-cloud-with-powerbi-and-azure-synapse/)
 - [Extend SAP Integrated Business Planning forecasting algorithms with Azure Machine Learning](https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/)
+
+### Microsoft Sentinel
+
+For more information about threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
+
+- [SAP security content reference](/sentinel/sap/sap-solution-security-content)
+- [How to use Microsoft Sentinel's SOAR capabilities with SAP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-microsoft-sentinel-s-soar-capabilities-with-sap/ba-p/3251485)
+- [Deploy the Microsoft Sentinel solution for SAP](/sentinel/sap/deploy-sap-security-content)
+- [Microsoft Sentinel SAP solution data reference](/sentinel/sap/sap-solution-log-reference)
 
 ## Free developer accounts
 
