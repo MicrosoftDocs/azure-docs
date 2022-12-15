@@ -30,11 +30,11 @@ To see which virtual machines in your directory are monitored using VM insights,
     
 1. Select the **Not monitored** tab for the list of machines that do not have VM insights enabled. 
 
-    A machine may be listed in **Not monitored** even though it has the Azure Monitor or Log Analytics agent installed but has not been enabled for VM insights. If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, the Azure Monitor agent will be started without being given the option for the Log Analytics agent.
+    The **Not monitored** tab includes all machines that don't have VM insights enabled, even if the machines have Azure Monitor Agent or Log Analytics agent installed. If a virtual machine has the Log Analytics agent installed but not the Dependency agent, it will be listed as not monitored. In this case, Azure Monitor Agent will be started without being given the option for the Log Analytics agent.
 
 ## Enable VM insights for Azure Monitor Agent
 > [!NOTE]
-> A system-assigned managed identity will be added for a machine as part of the installation process of Azure Monitor Agent if one doesn't already exist.
+> As part of the Azure Monitor Agent installation process, Azure Monitor adds a [system-assigned managed identity](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity) to the machine if a managed identity doesn't already exist for the machine.
 
 To enable VM insights on an unmonitored virtual machine or virtual machine scale set using Azure Monitor Agent:
 
