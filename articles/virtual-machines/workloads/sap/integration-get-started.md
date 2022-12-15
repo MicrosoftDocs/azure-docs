@@ -34,7 +34,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
-| Connect SAP services to Azure AD | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
+| [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | Azure Integration Services | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | App Development and DevOps | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | Azure Data Services | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
@@ -85,6 +85,34 @@ For more information about interation with SAP Fiori, see [Introduction to the A
 Also see the following SAP resources:
 - [Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
 - [Web Application Firewall Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
+
+### Azure AD
+
+For more information about integration with Azure AD, see the following Azure documentation:
+
+- [Secure access with SAP Cloud Identity Services and Azure AD](../../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
+- [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
+- [Provision users from SAP SuccessFactors to Active Directory](../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [Provision users from SAP SuccessFactors to Azure AD](../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+- [Write-back users from Azure AD to SAP SuccessFactors](../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
+- [Provision users to SAP Cloud Identity Services - Identity Authentication](../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
+
+For how to configure single sign-on, see the following Azure documentation and tutorials:
+- [SAP Cloud Identity Services - Identity Authentication](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
+- [SAP SuccessFactors](../../../active-directory/saas-apps/successfactors-tutorial.md)
+- [SAP Analytics Cloud](../../../active-directory/saas-apps/sapboc-tutorial.md)
+- [SAP Fiori](../../../active-directory/saas-apps/sap-fiori-tutorial.md)
+- [SAP Qualtrics](../../../active-directory/saas-apps/qualtrics-tutorial.md)
+- [SAP Ariba](../../../active-directory/saas-apps/ariba-tutorial.md)
+- [SAP Concur Travel and Expense](../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md)
+- [SAP Business Technology Platform](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md)
+- [SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md)
+- [SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md)
+- [SAP Cloud for Customer](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
+
+Also see the following SAP resources:
+- [Azure Application Gateway Setup for for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
+- [SAPGUI using Kerberos and Azure AD Domain Services](https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/)
 
 ## Free developer accounts
 
