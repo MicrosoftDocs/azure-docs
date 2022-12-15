@@ -12,7 +12,10 @@ ms.custom: fasttrack-edit
 
 # Microsoft Purview network architecture and best practices
 
-Microsoft Purview is a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+Microsoft Purview data governance solutions are a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+
+>[!NOTE]
+>These best practices cover the network architecture for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
 
 For an added layer of security, you can create private endpoints for your Microsoft Purview account. You then get a private IP address from your virtual network in Azure to the Microsoft Purview account and its managed resources. This address will restrict all traffic between your virtual network and the Microsoft Purview account to a private link for user interaction with the APIs and Microsoft Purview governance portal, or for scanning and ingestion. 
 
