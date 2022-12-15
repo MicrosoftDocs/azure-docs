@@ -188,7 +188,7 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 | CentOS Linux 8                                              | X | X |   |
 | CentOS Linux 7                                              | X<sup>3</sup> | X | X |
 | CentOS Linux 6                                              |   | X |   |
-| CBL-Mariner 2.0                                             | X<sup>3</sup> |   |   |
+| CBL-Mariner 2.0                                             | X<sup>3,4</sup> |   |   |
 | Debian 11                                                   | X<sup>3</sup> |   |   |
 | Debian 10                                                   | X | X |   |
 | Debian 9                                                    | X | X | X |
@@ -219,9 +219,13 @@ View [supported operating systems for Azure Arc Connected Machine agent](../../a
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
 <sup>3</sup> Also supported on Arm64-based machines.
+<sup>4</sup> Requires at least 4GB of disk space allocated (not provided by default).
 
 > [!NOTE]
 > Machines and appliances that run heavily customized or stripped-down versions of the above distributions and hosted solutions that disallow customization by the user are not supported. Azure Monitor and legacy agents rely on various packages and other baseline functionality that is often removed from such systems, and their installation may require some environmental modifications considered to be disallowed by the appliance vendor. For instance, [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/overview/about-github-enterprise-server) is not supported due to heavy customization as well as [documented, license-level disallowance](https://docs.github.com/en/enterprise-server/admin/overview/system-overview#operating-system-software-and-patches) of operating system modification.
+
+> [!NOTE]
+> CBL-Mariner 2.0's disk size is by default around 1GB to provide storage COGS savings, compared to other Azure VMs that are around 30GB. However, the Azure Monitor Agent requires at least 4GB disk size in order to install and run successfully. Please check out [CBL-Mariner's documentation](https://eng.ms/docs/products/mariner-linux/gettingstarted/azurevm/azurevm#disk-size) for more information and instructions on how to increase disk size before installing the agent.
 
 ## Next steps
 
