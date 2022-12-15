@@ -70,7 +70,7 @@ Defender for IoT provides **1 year of support** for every new version, starting 
 
 Earlier versions use a legacy support model, with support dates [detailed for each version](#on-premises-monitoring-software-versions).
 
-### Security Appliance - OS
+### On-premises appliance security
 
 The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the management port, via HTTP for web access and SSH for the support shell.
 
