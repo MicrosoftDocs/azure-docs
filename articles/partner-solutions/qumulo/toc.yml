@@ -1,23 +1,21 @@
-- name: Azure Native Qumulo File Serivice Documentation 
+- name: Azure Native Qumulo Scalable File Serivice Documentation 
   href: index.yml
 - name: Overview
   items:
-  - name: What is Qumulo?
+  - name: What is Azure Native Qumulo Scalable File Serivice?
     href: qumulo-overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Qumulo resource
+  - name: Create a Azure Native Qumulo Scalable File Serivice resource
     href: qumulo-create.md
-  # - name: Link to existing Qumulo resource
-    # href: qumulo-link-to-existing.md
 - name: How to
   items:
   # - name: Configure prerequisites
   #   href: qumulo-how-to-configure-prereqs.md
-  - name: Manage Qumulo
+  - name: Manage Azure Native Qumulo Scalable File Serivice
     href: qumulo-how-to-manage.md
-  - name: Troubleshoot
+  - name: Troubleshoot Azure Native Qumulo Scalable File Serivice
     href: qumulo-troubleshoot.md
 #- name: Reference
 #  items:

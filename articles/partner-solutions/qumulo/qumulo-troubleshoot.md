@@ -15,8 +15,7 @@ This article describes how to contact support when working with Azure Native Qum
 
 To contact support about the Azure Native Qumulo Scalable File Service, select [**New Support request**](https://aka.ms/partners/Qumulo/Support) in the left pane. Select the link to the Qumulo support website.
 
-  Screenshot
-:::image type="content" source="media/qumulo-troubleshoot/image12.png" alt-text="Screenshot showing a support request form for Qumulo.":::
+:::image type="content" source="media/qumulo-troubleshooting/qumulo-support-request.png" alt-text="Screenshot showing a support request form for Qumulo.":::
 
 
 ## Fix common errors
@@ -40,7 +39,7 @@ If those options do not solve the problem, contact [Qumulo support.](https://aka
 
 - To set up the Azure Native Qumulo Scalable Service integration, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the proper access on both the subnet resource group and Qumulo service resource group before starting the setup.
 
-- Custom RBAC roles needs to have the following permission in the subnet and Qumulo service resource groups to successfully create a Qumulo service. These permissions are
+- Custom RBAC roles needs to have the following permissions in the subnet and Qumulo service resource groups to successfully create a Qumulo service:
 
   - Qumulo.Storage/\*
 
