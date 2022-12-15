@@ -9,7 +9,7 @@ ms.date: 12/13/2022
 > Azure Arc agents require the following outbound URLs on `https://:443` to function.
 > For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
-### [Azure Cloud](#/azure-cloud)
+### [Azure Cloud](#tab/azure-cloud)
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -24,7 +24,7 @@ ms.date: 12/13/2022
 |`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
 
-### [Azure Government](#/azure-government)
+### [Azure Government](#tab/azure-government)
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
