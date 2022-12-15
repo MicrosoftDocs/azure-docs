@@ -381,4 +381,7 @@ For more information, see <!--xref to section w attributes listed if we have any
 
 ## Next steps
 
-For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).
+For more information, see:
+
+- [Getting started with the Defender for IoT CLI](../references-work-with-defender-for-iot-cli-commands.md)
+- [Advanced CLI reference: OT sensor appliance management](cli-ot-sensor.md)

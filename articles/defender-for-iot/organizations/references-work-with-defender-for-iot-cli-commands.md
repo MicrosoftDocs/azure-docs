@@ -43,26 +43,6 @@ To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor 
 
 Each CLI command on an OT network sensor or on-premises management console is supported a different set of privileged users, as noted in the relevant CLI descriptions. Make sure you sign in as the user required for the command you want to run. For more information, see [Privileged user access for OT monitoring](#privileged-user-access-for-ot-monitoring).
 
-## CLI Reference
-
-The following list gives a high-level overview of the functions available from the command line interface.
-
-### OT sensor
-
-- [Appliance management](cli-ot-sensor.md)
-- [Configuration commands](cli-ot-sensor-configuration.md)
-
-### On-premises management console
-
-- [Appliance management](cli-management.md)
-- [Configuration commands](cli-management-configuration.md)
-- [Sensor management](cli-manage-ot-sensors.md)
-
-### Enterprise IoT sensor
-
-- [Installation](cli-enterprise-install.md)
-- [Troubleshooting](cli-enterprise-troubleshoot.md)
-
 ## Sign out of the CLI
 
 Make sure to properly sign out of the CLI when you're done using it. You're automatically signed out after an inactive period of 300 seconds.
@@ -78,8 +58,7 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 
 ## Next steps
 
+- [Manage an OT sensor from the CLI](cli-ot-sensor.md)
+- [Manage on on-premises management console from the CLI](cli-ot-sensor-configuration.md)
+
 You can also control and monitor your cloud connected sensors from the Defender for IoT **Sites and sensors** page. For more information, see [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md).
-
-See also:
-
-For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).

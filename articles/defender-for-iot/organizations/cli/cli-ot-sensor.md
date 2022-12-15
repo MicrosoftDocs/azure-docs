@@ -495,52 +495,7 @@ root@xsense:/#
 
 ## Update sensor software from CLI
 
-<!--here for review purposes only. otherwise move them to the update section of the how-tos and reference out. these are standard linux CLI commands, not something specific for D4IoT-->
-
-This procedure describes how to update OT sensor software via the CLI.
-
-1. Use SFTP or SCP to copy the update file to the sensor machine.
-
-1. Sign in to the sensor as the `cyberx_host` user and copy the update file to the `/opt/sensor/logs/` directory.
- 
-1. Sign in to the sensor as the `cyberx` user and copy the file to a location accessible for the update process. For example:
-
-    ```bash
-    cd /var/host-logs/ 
-    mv <filename> /var/cyberx/media/device-info/update_agent.tar
-    ```
-
-1. Start running the software update. Run:
-
-    ```bash
-    curl -X POST http://127.0.0.1:9090/core/api/v1/configuration/agent
-    ```
-
-1. Verify that the update process has started by checking the `upgrade.log` file. Run:
-
-    ```bash
-    tail -f /var/cyberx/logs/upgrade.log
-    ```
-
-    Output similar to the following appears:
-       
-    ```bash
-    2022-05-23 15:39:00,632 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Extracting upgrade package from /var/cyberx/media/device-info/update_agent.tar to /var/cyberx/media/device-info/update
-
-    2022-05-23 15:39:33,180 [http-nio-0.0.0.0-9090-exec-2] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Prepared upgrade, scheduling in 30 seconds
-
-    2022-05-23 15:40:03,181 [pool-34-thread-1] INFO  com.cyberx.infrastructure.common.utils.UpgradeUtils- [32200] Send upgrade request to os-manager. file location: /var/cyberx/media/device-info/update
-    ```
-        
-    At some point during the update process, your SSH connection will disconnect. This is a good indication that your update is running.
-
-1. Continue to monitor the update process by checking the `install.log` file.
-
-    Sign into the sensor as the `cyberx_host` user and run:
-
-    ```bash
-    tail -f /opt/sensor/logs/install.log
-    ```
+For more information, see [Update your sensors](../update-ot-software.md#update-your-sensors&tabs=onprem).
 
 ## Back up and restore appliance snapshot
 
@@ -650,5 +605,7 @@ root@xsense:
 
 ## Next steps
 
+For more information, see:
 
-For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).
+- [Getting started with the Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md)
+- [Advanced CLI reference: OT sensor network monitoring](cli-ot-sensor-configuration.md)
