@@ -15,24 +15,29 @@ This article describes how to  back up [Azure file shares](../storage/files/stor
 
 Azure file share backup is a native, cloud based backup solution that protects your data in the cloud and eliminates additional maintenance overheads involved in on-premises backup solutions. The Azure Backup service smoothly integrates with Azure File Sync, and allows you to centralize your file share data as well as your backups. This simple, reliable, and secure solution enables you to configure protection for your enterprise file shares in a few simple steps with an assurance that you can recover your data in case of any accidental deletion.
 
+[Learn about](azure-file-share-backup-overview.md) the Azure file share snapshot-based backup solution.
+
 ## Prerequisites
 
-* [Learn](azure-file-share-backup-overview.md) about the Azure file share snapshot-based backup solution.
 * Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
 * Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * In case you have restricted access to your storage account, check the firewall settings of the account to ensure that the exception "Allow Azure services on the trusted services list to access this storage account" is granted. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-## Configure backup from the Recovery Services vault
+## Configure the backup
+
+**Choose the navigation point**
+
+# [Backup center](#tab/backup-center)
 
 To configure backup for multiple file shares from the Recovery Services vault pane, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and click **+Backup**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and select **+Backup**.
 
    :::image type="content" source="./media/backup-afs/backup-center-configure-inline.png" alt-text="Screenshot showing to configure Backup for Azure File." lightbox="./media/backup-afs/backup-center-configure-expanded.png":::
 
-1. Select **Azure Files (Azure Storage)** as the datasource type, select the vault that you wish to protect the file shares with, and then click **Continue**.
+1. Select **Azure Files (Azure Storage)** as the datasource type, select the vault that you wish to protect the file shares with, and then select **Continue**.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-select-vault.png" alt-text="Screenshot showing to select Azure Files.":::
 
@@ -70,7 +75,7 @@ To configure backup for multiple file shares from the Recovery Services vault pa
 
       1. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-      1. After defining all attributes of the policy, click **OK**.
+      1. After defining all attributes of the policy, select **OK**.
 
          :::image type="content" source="./media/backup-afs/azure-file-share-policy-parameters-inline.png" alt-text="Screenshot showing to provide policy name and retention values." lightbox="./media/backup-afs/azure-file-share-policy-parameters-expanded.png":::
 
@@ -87,7 +92,7 @@ To configure backup for multiple file shares from the Recovery Services vault pa
 After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
 
-## Configure backup from the file share pane
+# [File share pane](#tab/file-share-pane)
 
 The following steps explain how you can configure backup for individual file shares from the respective file share pane:
 
@@ -132,7 +137,7 @@ The following steps explain how you can configure backup for individual file sha
 
          2. Follow the steps 3-7 in the [Create a new policy](manage-afs-backup.md#create-a-new-policy) section.
 
-         3. After defining all attributes of the policy, click **OK**.
+         3. After defining all attributes of the policy, select **OK**.
 
             ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
 
@@ -148,13 +153,19 @@ The following steps explain how you can configure backup for individual file sha
 
    ![Vault essentials](./media/backup-afs/vault-essentials.png)
 
+---
+
 ## Run an on-demand backup job
 
 Occasionally, you might want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common reason to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it might be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an on-demand backup is often required before you make planned changes to your file shares.
 
-### From Backup center
+**Choose the navigation point**
 
-1. Go to **Backup center** and click **Backup Instances** from the menu.
+# [Backup center](#tab/backup-center)
+
+To run an on-de,and bacup, follow these steps:
+
+1. Go to **Backup center** and select **Backup Instances** from the menu.
 
    Filter for **Azure Files (Azure Storage)** as the datasource type.
 
@@ -176,7 +187,9 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
    To monitor the job progress in the **Backup center** dashboard, select **Backup center** -> **Backup Jobs** -> **In progress**.
 
-### From the file share pane
+# [File share pane](#tab/file-share-pane)
+
+To run an on=demamd backup, follow these steps:
 
 1. Open the file share’s **Overview** pane for which you want to take an on-demand backup.
 
@@ -192,6 +205,8 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 >[!NOTE]
 >Azure Backup locks the storage account when you configure protection for any file share in the corresponding account. This provides protection against accidental deletion of a storage account with backed up file shares.
+
+---
 
 ## Best practices
 
