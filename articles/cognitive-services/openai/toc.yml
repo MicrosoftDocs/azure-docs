@@ -49,19 +49,11 @@ items:
 - name: Responsible AI
   items:
     - name : Transparency note
-      items: 
-        - name: Use cases for Azure OpenAI
-          href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
-        - name: Characteristics and limitations
-          href: /legal/cognitive-services/openai/characteristics-and-limitations?context=/azure/cognitive-services/openai/context/context
-    - name: Integration and responsible use
-      items:
-        - name: Limited access
-          href: /legal/cognitive-services/openai/limited-access?context=/azure/cognitive-services/openai/context/context
-        - name: Guidelines for integration and responsible use
-          href: /legal/cognitive-services/openai/guidance-integration-responsible-use?context=/azure/cognitive-services/openai/context/context
-        - name: Code of conduct
-          href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
+      href: /legal/cognitive-services/openai/transparency-note?context=/azure/cognitive-services/openai/context/context
+    - name: Limited access
+      href: /legal/cognitive-services/openai/limited-access?context=/azure/cognitive-services/openai/context/context
+    - name: Code of conduct
+      href: /legal/cognitive-services/openai/code-of-conduct?context=/azure/cognitive-services/openai/context/context
     - name: Data, privacy, and security
       href: /legal/cognitive-services/openai/data-privacy?context=/azure/cognitive-services/openai/context/context
 - name: Reference
