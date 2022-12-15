@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 08/05/2022
+ms.date: 11/07/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -92,6 +92,10 @@ Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescr
 Risk-based policies require access to [Identity Protection](../identity-protection/overview-identity-protection.md), which is an Azure AD P2 feature.
 
 Other products and features that may interact with Conditional Access policies require appropriate licensing for those products and features.
+
+When licenses required for Conditional Access expire, policies aren't automatically disabled or deleted so customers can migrate away from Conditional Access policies without a sudden change in their security posture. Remaining policies can be viewed and deleted, but no longer updated. 
+
+[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) help protect against identity-related attacks and are available for all customers.  
 
 ## Next steps
 

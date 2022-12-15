@@ -139,7 +139,7 @@ If you are reviewing access to an application, then before creating the review, 
 
 1. In the **Enable review decision helpers** section choose whether you want your reviewer to receive recommendations during the review process:
     1. If you select **No sign-in within 30 days**, users who have signed in during the previous 30-day period are recommended for approval. Users who haven't signed in during the past 30 days are recommended for denial. This 30-day interval is irrespective of whether the sign-ins were interactive or not. The last sign-in date for the specified user will also display along with the recommendation.
-    1. If you select User-to-Group Affiliation, reviewers will get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are very distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
+    1. If you select **(Preview) User-to-Group Affiliation**, reviewers will get the recommendation to Approve or Deny access for the users based on user’s average distance in the organization’s reporting-structure. Users who are very distant from all the other users within the group are considered to have "low affiliation" and will get a deny recommendation in the group access reviews.
 
    > [!NOTE]
    > If you create an access review based on applications, your recommendations are based on the 30-day interval period depending on when the user last signed in to the application rather than the tenant. 

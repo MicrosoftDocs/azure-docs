@@ -4,7 +4,7 @@ description: Monitor ASP.NET Core web applications for availability, performance
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 10/12/2021
+ms.date: 10/27/2022
 ms.reviewer: casocha
 ---
 # Application Insights for ASP.NET Core applications
@@ -167,7 +167,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-The default configuration collects `ILogger` `Warning` logs and more severe logs. Review the FAQ to [customize this configuration](../faq.yml).
+The default configuration collects `ILogger` `Warning` logs and more severe logs. Review [How do I customize ILogger logs collection?](#how-do-i-customize-ilogger-logs-collection) for more information.
 
 ### Dependencies
 

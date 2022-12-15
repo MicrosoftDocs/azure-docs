@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/25/2022
 ---
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics
@@ -118,6 +118,7 @@ Linked services can be created in the Azure Data Factory UX via the [management 
 
 You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), [Azure Resource Manager Template](quickstart-create-data-factory-resource-manager-template.md), and [Azure portal](quickstart-create-data-factory-portal.md).
 
+When creating a linked service, the user needs appropriate authorization to the designated service. If sufficient access is not granted, the user will not be able to see the available resources and will need to use manual entry option.
 
 ## Data store linked services
 

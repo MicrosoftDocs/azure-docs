@@ -92,7 +92,23 @@ If you want to use different display settings to those specified by your admin, 
 
 ## Input methods
 
-You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
+You can use touch input, or a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
+
+### Use touch gestures and mouse modes in a remote session
+
+You can use touch gestures to replicate mouse actions in your remote session. If you connect to Windows 10 or later with Azure Virtual Desktop, native Windows touch and multi-touch gestures are supported.
+
+The following table shows which mouse operations map to which gestures:
+
+| Mouse operation      | Gesture                                                               |
+|:---------------------|:----------------------------------------------------------------------|
+| Left-click           | Tap with one finger                                                   |
+| Right-click          | Tap and hold with one finger                                          |
+| Left-click and drag  | Double-tap and hold with one finger, then drag                        |
+| Right-click          | Tap with two fingers                                                  |
+| Right-click and drag | Double-tap and hold with two fingers, then drag                       |
+| Mouse wheel          | Tap and hold with two fingers, then drag up or down                   |
+| Zoom                 | With two fingers, pinch to zoom out and move fingers apart to zoom in |
 
 ### Keyboard
 
@@ -211,7 +227,7 @@ If you already have configured the Remote Desktop client to use Insider releases
 
 ### Enterprise deployment
 
-To deploy the Remote Desktop client in an enterprise, you can use `maiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
+To deploy the Remote Desktop client in an enterprise, you can use `msiexec` to install the MSI file. You can install the client per-device or per-user by running the relevant command from Command Prompt as an administrator:
 
 - Per-device installation:
 
@@ -264,6 +280,12 @@ To subscribe to a workspace with a link:
 
 1. Enter your user account, then select **Sign in**. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
 
+## Azure Virtual Desktop (HostApp)
+
+The Azure Virtual Desktop (HostApp) is a platform component containing a set of predefined user interfaces and APIs that Azure Virtual Desktop developers can use to deploy and manage Remote Desktop connections to their Azure Virtual Desktop resources. If this application is required on a device for another application to work correctly, it will automatically be downloaded by the other application. There should be no need for user interaction.
+
+The purpose of the Azure Virtual Desktop (HostApp) is to provide core functionality to other client apps in the Microsoft Store. This is known as the *Hosted App Model*. For more information, see [Hosted App Model](https://blogs.windows.com/windowsdeveloper/2020/03/19/hosted-app-model/).
+
 ## Provide feedback
 
 If you want to provide feedback to us on the Remote Desktop client for Windows, you can do so by selecting the button that looks like a smiley face emoji in the client app, as shown in the following image. This will open the **Feedback Hub**.
@@ -274,4 +296,4 @@ To best help you, we need you to give us as detailed information as possible. Al
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-windows.md).

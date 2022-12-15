@@ -60,7 +60,8 @@ The first section lists a summary of the current incident, including basic infor
 
 - Analyzed root cause is an automatically analyzed result. Metrics Advisor analyzes all anomalies that are captured on time series within one metric with different dimension values at the same timestamp. Then performs correlation, clustering to group related anomalies together and generates root cause advice. 
 
-:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident summary":::																																													
+:::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Incident summary":::
+
 For metrics with multiple dimensions, it's a common case that multiple anomalies will be detected at the same time. However, those anomalies may share the same root cause. Instead of analyzing all anomalies one by one, leveraging **Analyzed root cause** should be the most efficient way to diagnose current incident.  
 
 

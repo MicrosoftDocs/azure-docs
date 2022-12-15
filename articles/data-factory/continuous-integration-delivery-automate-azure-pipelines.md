@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 09/24/2021 
+ms.date: 10/25/2022 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -19,7 +19,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 ## Requirements
 
--   An Azure subscription linked to Visual Studio Team Foundation Server or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   An Azure subscription linked to Azure DevOps Server (formerly Visual Studio Team Foundation Server) or Azure Repos that uses the [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   A data factory configured with Azure Repos Git integration.
 

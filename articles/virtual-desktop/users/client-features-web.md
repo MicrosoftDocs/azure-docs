@@ -31,11 +31,13 @@ Native resolution is set to off by default. To turn on native resolution:
 
 1. Set **Enable native display resolution** to **On**.
 
+## Input methods
+
 You can use a built-in or external PC keyboard, trackpad and mouse to control desktops or apps.
 
 ### Keyboard
 
-There are several keyboard shortcuts you can use to help use some of the features. Most common Windows keyboard shortcuts, such as <kbd>CTRL + C</kbd> for copy and <kbd>CTRL + Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
+There are several keyboard shortcuts you can use to help use some of the features. Most common Windows keyboard shortcuts, such as <kbd>CTRL</kbd>+<kbd>C</kbd> for copy and <kbd>CTRL</kbd>+<kbd>Z</kbd> for undo, are the same when using Azure Virtual Desktop. There are some keyboard shortcuts that are different so Windows knows when to use them in Azure Virtual Desktop or on your local device. These are:
 
 | Windows shortcut | Azure Virtual Desktop shortcut | Description |
 |--|--|--|
@@ -50,7 +52,7 @@ There are several keyboard shortcuts you can use to help use some of the feature
 
 #### Input Method Editor
 
-The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME, you must install the language pack for the keyboard you want to use in the remote session must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](/azure/virtual-desktop/language-packs).
+The web client supports Input Method Editor (IME) in the remote session. Before you can use the IME, you must install the language pack for the keyboard you want to use in the remote session must be installed on your session host by your admin. To learn more about setting up language packs in the remote session, see [Add language packs to a Windows 10 multi-session image](../language-packs.md).
 
 To enable IME input using the web client:
 
@@ -144,4 +146,4 @@ If you want to provide feedback to us on the Remote Desktop Web client, you can 
 
 ## Next steps
 
-If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client.md).
+If you're having trouble with the Remote Desktop client, see [Troubleshoot the Remote Desktop client](../troubleshoot-client-web.md).

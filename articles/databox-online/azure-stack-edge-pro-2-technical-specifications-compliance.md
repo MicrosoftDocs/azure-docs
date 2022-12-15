@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 11/09/2022
 ms.author: sipastak
 ---
 
@@ -28,8 +28,10 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 2 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | 64 GB RAM |
 | Memory: usable | 51 GB RAM |
+| GPU | None |
 
 # [Model 128G4T1GPU](#tab/sku-b)
+The Azure Stack Edge Pro 2 device has the following specifications for compute and memory:
 
 | Specification  | Value                                                                       |
 |----------------|-----------------------------------------------------------------------------|
@@ -39,8 +41,10 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 32 GB DDR4-2933 RDIMM |
 | Memory: raw   | 128 GB RAM |
 | Memory: usable | 102 GB RAM |
+| GPU | 1 NVIDIA A2 GPU <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 # [Model 256G6T2GPU](#tab/sku-c)
+The Azure Stack Edge Pro 2 device has the following specifications for compute and memory:
 
 | Specification  | Value                                                                       |
 |----------------|-----------------------------------------------------------------------------|
@@ -50,6 +54,7 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type     | 4 x 64 GB DDR4-2933 RDIMM |
 | Memory: raw   | 256 GB RAM |
 | Memory: usable | 204 GB RAM |
+| GPU | 2 NVIDIA A2 GPUs <br> For more information, see [NVIDIA A2 GPUs](https://www.nvidia.com/en-us/data-center/products/a2/). |
 
 ---
 
@@ -161,23 +166,23 @@ The following table lists the dimensions of the shipping package in millimeters 
 
 ### Enclosure weight
 
-# [Model 642GT](#tab/sku-a)
+# [Model 64G2T](#tab/sku-a)
 
 | Line # | Hardware                                                                           | Weight lbs |
 |--------|------------------------------------------------------------------------------------|------------|
-| 1      | Model 642GT                                                                        | 21.0       |
+| 1      | Model 64G2T                                                                        | 21.0       |
 |        |                                                                                    |            |
 | 2      | Shipping weight, with 4-post mount                                                 | 35.3       |
-| 3      | Model 642GT install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
+| 3      | Model 64G2T install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
 | 4      | Shipping weight, with 2-post mount                                                 | 32.1       |
-| 5      | Model 642GT install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+| 5      | Model 64G2T install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
 |        |                                                                                    |            |
 | 6      | Shipping weight with wall mount                                                    | 31.1       |
-| 7      | Model 642GT install handling without bezel                                         | 19.8       |
+| 7      | Model 64G2T install handling without bezel                                         | 19.8       |
 |        |                                                                                    |            |
-| 4      | 4-post in box                                                                      | 6.28       |
-| 7      | 2-post in box                                                                      | 3.08       |
+| 8      | 4-post in box                                                                      | 6.28       |
+| 9      | 2-post in box                                                                      | 3.08       |
 | 10      | Wallmount as packaged                                                             | 2.16       |
 
 # [Model 128G4T1GPU](#tab/sku-b)

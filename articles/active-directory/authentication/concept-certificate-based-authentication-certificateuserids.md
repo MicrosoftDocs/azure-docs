@@ -134,7 +134,7 @@ To map the pattern supported by certificateUserIds, administrators must use expr
 You can use the following expression for mapping to SKI and SHA1-PUKEY:
 
 ```
-IF(IsPresent([alternativeSecurityId]),
+IIF(IsPresent([alternativeSecurityId]),
                 Where($item,[alternativeSecurityId],BitOr(InStr($item, "x509:<SKI>"),InStr($item, "x509:<SHA1-PUKEY>"))>0),[alternativeSecurityId]
 )
 ```
@@ -157,6 +157,27 @@ GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds
 GET https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds eq 'bob@contoso.com'
 ```
             
+## Update certificate user IDs using Microsoft Graph queries
+PATCH the user object certificateUserIds value for a given userId
+
+#### Request body:
+
+```http
+PATCH https://graph.microsoft.us/v1.0/users/{id}
+Content-Type: application/json
+{
+
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users(authorizationInfo,department)/$entity",
+    "department": "Accounting",
+    "authorizationInfo": {
+        "certificateUserIds": [
+            "X509:<PN>123456789098765@mil"
+        ]
+    }
+}
+```
+
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)

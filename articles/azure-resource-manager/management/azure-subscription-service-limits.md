@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 12/13/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -55,7 +55,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-resource-groups-limits](../../../includes/azure-resource-groups-limits.md)]
 
-## Active Directory limits
+## Azure Active Directory limits
 
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
@@ -163,30 +163,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-### Alerts
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-alerts.md)]
-
-### Action groups
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-action-groups.md)]
-
-### Autoscale
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-autoscale.md)]
-
-### Log queries and language
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-log-queries.md)]
-
-### Log Analytics workspaces
-
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-workspaces.md)]
-
-### Application Insights
-
-[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
-
+For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
 
 ## Azure Data Factory limits
 
@@ -213,6 +190,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure Spring Apps limits
+
+To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
 
 ## Azure Virtual Desktop Service limits
 
@@ -386,6 +367,10 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
+## Microsoft Dev Box limits
+
+[!INCLUDE [dev-box-limits](../../../includes/dev-box-limits.md)]
+
 ## Microsoft Purview limits
 
 The latest values for Microsoft Purview quotas can be found in the [Microsoft Purview quota page](../../purview/how-to-manage-quotas.md).
@@ -406,6 +391,10 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-machine-learning.md)]
 
+### Multi workspace limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-multi-workspace.md)]
+
 ### Notebook limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
@@ -425,6 +414,10 @@ This section lists the most common service limits you might encounter as you use
 ### Watchlist limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
+
+### Workbook limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-workbooks.md)]
 
 ## Service Bus limits
 

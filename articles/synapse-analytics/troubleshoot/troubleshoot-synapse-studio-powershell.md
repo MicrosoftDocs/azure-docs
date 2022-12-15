@@ -19,7 +19,7 @@ Azure Synapse Studio depends on a set of Web API endpoints to work properly. Thi
 ## Prerequisite
 
 * PowerShell 5.0 or higher version on Windows, or
-* PowerShell Core 6.0 or higher version on Windows or Linux.
+* PowerShell Core 6.0 or higher version on Windows.
 
 ## Troubleshooting steps
 
