@@ -27,7 +27,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 AzAcSnap 7 is being released with the following fixes and improvements:
 
 - Fixes and Improvements:
-  - Shortening of snapshot names, replacing the 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (e.g. 2022-11-17T030002-7299835Z) with an 11 character hex-decimal equivalent which is also based on the ten-thousandths of a second since the Unix epoch (e.g., F2D212540D5).
+  - Shortening of snapshot name suffix, replacing the 26 character suffix of "YYYY-MM-DDThhhhss-nnnnnnnZ" (e.g. 2022-11-17T030002-7299835Z) with an 11 character hex-decimal equivalent which is also based on the ten-thousandths of a second since the Unix epoch to avoid naming collisions (e.g., F2D212540D5).
   - Restore (`-c restore`) improvements:
     - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
       - via the command-line with `--clonesuffix <custom suffix>`.
