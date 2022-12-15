@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/05/2022
+ms.date: 12/14/2022
 ---
 # How to connect Azure Data Factory and Microsoft Purview
 
@@ -100,6 +100,10 @@ If your Microsoft Purview account is protected by firewall, learn how to let Dat
 ## Bring Data Factory lineage into Microsoft Purview
 
 For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Microsoft Purview](../data-factory/turorial-push-lineage-to-purview.md).
+
+## Monitor the Data Factory links
+
+In Microsoft Purview governance portal, you can [monitor the Data Factory links](how-to-monitor-data-map-population.md/monitor-links).
 
 ## Supported lineage patterns
 
