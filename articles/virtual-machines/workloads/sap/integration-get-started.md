@@ -33,7 +33,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
-| SAP Fiori | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
+| [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | Connect SAP services to Azure AD | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | Azure Integration Services | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | App Development and DevOps | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
@@ -77,6 +77,14 @@ For more information about integration with Microsoft Power Platform, see the fo
 Also see the following SAP resources:
 - [Snoozing SAP systems with Power Apps](https://blogs.sap.com/2021/02/10/hey-sap-systems-my-powerapp-says-snooze-but-only-if-youre-ready-yet/)
 - [Use SAP Business Rules Service (part of SAP Workflow) to expose SAP business logic to Power Apps](https://blogs.sap.com/2020/07/31/scp-business-rules-put-to-the-test-with-microsoft-power-platform/)
+
+### SAP Fiori
+
+For more information about interation with SAP Fiori, see [Introduction to the Application Gateway WAF Triage Workbook](https://techcommunity.microsoft.com/t5/azure-network-security-blog/introducing-the-application-gateway-waf-triage-workbook/ba-p/2973341). 
+
+Also see the following SAP resources:
+- [Azure CDN for SAPUI5 libraries](https://blogs.sap.com/2021/03/22/sap-fiori-using-azure-cdn-for-sapui5-libraries/)
+- [Web Application Firewall Setup for Internet facing SAP Fiori Apps](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
 
 ## Free developer accounts
 
