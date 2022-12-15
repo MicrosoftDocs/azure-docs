@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -68,7 +68,7 @@ The MedTech service delivers your data to FHIR service in Azure Health Data Serv
 
 ### Configurable
 
-The MedTech service can be customized and configured by using [device](how-to-use-device-mappings.md) and [FHIR destination](how-to-use-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
+The MedTech service can be customized and configured by using [device](how-to-configure-device-mappings.md) and [FHIR destination](how-to-configure-fhir-mappings.md) mappings to define the filtering and transformation of your data into FHIR observation resources.
 
 Useful options could include:
 
@@ -86,7 +86,7 @@ The MedTech service enables developers to easily modify and extend the capabilit
 
 ### Integration
 
-The MedTech service may also be integrated into our [open-source projects](iot-git-projects.md) for ingesting IoMT device data from these wearables:
+The MedTech service may also be integrated into our [open-source projects](git-projects.md) for ingesting IoMT device data from these wearables:
 
 - Fitbit&#174;
 
@@ -98,23 +98,29 @@ The following Microsoft solutions can use MedTech service for extra functionalit
 
 - [**Microsoft Azure IoT Hub**](../../iot-hub/iot-concepts-and-iot-hub.md) - enhances workflow and ease of use.
 
-- [**Azure Machine Learning Service**](iot-connector-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
+- [**Azure Machine Learning Service**](concepts-machine-learning.md) - helps build, deploy, and manage models, integrate tools, and increase open-source operability.
 
-- [**Microsoft Power BI**](iot-connector-power-bi.md) - enables data visualization features.
+- [**Microsoft Power BI**](concepts-power-bi.md) - enables data visualization features.
 
-- [**Microsoft Teams**](iot-connector-teams.md) - facilitates virtual visits.
+- [**Microsoft Teams**](concepts-teams.md) - facilitates virtual visits.
 
 ## Next steps
 
-In this article, you learned about the MedTech service. To learn more about the MedTech service data flow and how to deploy the MedTech service in the Azure portal, see
+In this article, you learned about the MedTech service and its capabilities.
+
+To learn about the MedTech service data flow, see
 
 > [!div class="nextstepaction"]
-> [The MedTech service data flow](iot-data-flow.md)
+> [The MedTech service data flow](data-flow.md)
+
+To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service using the Azure portal](deploy-iot-connector-in-azure.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
+
+To learn about the MedTech service frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
-> [Frequently asked questions about the MedTech service](iot-connector-faqs.md)
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
