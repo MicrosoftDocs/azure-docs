@@ -1,11 +1,12 @@
 ---
 title: Choose the best Azure integration services for your scenarios
 description: How to choose the best Azure Integration Services capabilities for your scenarios and requirements.
-services: architecture-center
-ms.service: architecture-center
+services: logic-apps
+ms.service: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, kewear, azla
-ms.topic: conceptual
+author: kewear
+ms.author: kewear
+ms.reviewer: estfan, azlams.topic: conceptual
 ms.date: 12/15/2022
 # As an Azure customer, I want to better understand which offerings in Azure Integration Services work best for my integration scenarios and requirements.
 ---
