@@ -31,7 +31,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | ---- | ----------- |
 | Integration with SAP RISE managed workloads | Learn how to [integrate your SAP RISE managed workloads](sap-rise-integration.md#sap-btp-connectivity) with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
-| Microsoft Teams | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
+| [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | Microsoft Power Platform | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | SAP Fiori | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
 | Connect SAP services to Azure AD | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
@@ -53,6 +53,16 @@ Also see these SAP resources:
 - [SAP Analysis for Microsoft Office Excel and PowerPoint](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html)
 - [SAP Analytics Cloud, add-in for Microsoft Office](https://help.sap.com/docs/SAP_ANALYTICS_CLOUD_OFFICE/c637c9ff5d61457eb415ce161e38e57b/c9217302603a4fd6baa0fe6a6e780f8d.html)
 - [Access SAP Data Warehouse Cloud with Microsoft Excel](https://blogs.sap.com/2022/05/17/access-sap-data-warehouse-cloud-with-saps-microsoft-excel-add-ins/)
+
+### Microsoft Teams
+
+For more information about integration with Microsoft Teams, see [Native SAP apps on the Teams marketplace](https://appsource.microsoft.com/marketplace/apps?product=teams&search=sap&page=1). Also see the following SAP resources. 
+
+- [SAP SuccessFactors Learning](https://help.sap.com/docs/SAP_SUCCESSFACTORS_LEARNING/b5f34f583e874dd58c40525e4504b99e/e7c54e3fc9a24ee2b114a78761d3ff90.html)
+- [SAP Build Work Zone, advanced edition](https://help.sap.com/docs/WZ/b03c84105ff74f809631e494bd612e83/bfa596db8219450ba9c65b809300b55d.html)
+- [Embedding SAP Cloud Portal and SAP Build Work Zone into Microsoft Teams](https://blogs.sap.com/2022/01/26/integrate-sap-cloud-portal-and-launchpad-service-into-microsoft-teams-including-sso/)
+- [Embed self-hosted SAP Fiori Launchpad into Microsoft Teams](https://blogs.sap.com/2022/08/02/embed-self-hosted-sap-fiori-launchpad-into-microsoft-teams/)
+- [Simplify Supplier forecasting with SAP Integrated Business Planning, Ariba and Microsoft Teams](https://blogs.sap.com/2022/10/03/using-microsoft-adaptive-cards-in-supply-chain-scenarios/)
 
 ## Free developer accounts
 
