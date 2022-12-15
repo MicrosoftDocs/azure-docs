@@ -1,24 +1,24 @@
 ### YamlMime:Hub
 
 title: Azure OpenAI Documentation
-summary: Learn how to use Azure OpenAI powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
+summary: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series for content generation, summarization, semantic search, and natural language to code translation.
 brand: azure
 
 metadata:
   title: Azure OpenAI - Documentation, quickstarts, API reference
   titleSuffix: Azure Cognitive Services
-  description: Learn how to use Azure OpenAI powerful language models including the GPT-3, Codex and Embeddings model series.
+  description: Learn how to use Azure OpenAI's powerful language models including the GPT-3, Codex and Embeddings model series.
   services: cognitive-services
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: openai
   ms.topic: hub-page
-  ms.date: 06/28/2022
+  ms.date: 12/13/2022
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure OpenAI? (Preview)
+    - title: What is Azure OpenAI?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
     - title: Quickstarts
@@ -27,6 +27,9 @@ highlightedContent:
     - title: Create a resource
       itemType: how-to-guide
       url: ./how-to/create-resource.md
+    - title: Embeddings
+      itemType: tutorial
+      url: ./tutorials/embeddings.md
     - title: Completions
       itemType: how-to-guide
       url: ./how-to/completions.md
@@ -36,9 +39,6 @@ highlightedContent:
     - title: Azure OpenAI Models
       itemType: concept
       url: ./concepts/models.md
-    - title: REST API
-      itemType: reference
-      url: reference.md
     - title: Support and help options
       itemType: reference
       url: ../cognitive-services-support-options.md

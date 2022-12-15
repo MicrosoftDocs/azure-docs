@@ -29,7 +29,7 @@ The factors that define the data you can access are described in the following t
 | [Access mode](#access-mode) | Method used to access the workspace. Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
 | [Azure role-based access control (RBAC)](#azure-rbac) | Permissions applied to individuals or groups of users for the workspace or resource sending data to the workspace. Defines what data you have access to. |
-| [Table-level Azure RBAC](#set-table-level-read-access-preview) | Optional permissions that define specific data types in the workspace that you can access. Apply to all users no matter your access mode or access control mode. |
+| [Table-level Azure RBAC](#set-table-level-read-access) | Optional permissions that define specific data types in the workspace that you can access. Apply to all users no matter your access mode or access control mode. |
 
 ## Access mode
 
@@ -56,14 +56,14 @@ The following table summarizes the access modes:
 |:---|:---|:---|
 | Who is each model intended for? | Central administration.<br>Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams.<br>Administrators of Azure resources being monitored. Allows them to focus on their resource without filtering. |
 | What does a user require to view logs? | Permissions to the workspace.<br>See "Workspace permissions" in [Manage access using workspace permissions](./manage-access.md#azure-rbac). | Read access to the resource.<br>See "Resource permissions" in [Manage access using Azure permissions](./manage-access.md#azure-rbac). Permissions can be inherited from the resource group or subscription or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. The user doesn't require access to the workspace.|
-| What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables they have permissions to. See [Set table-level read access](./manage-access.md#set-table-level-read-access-preview). | Azure resource.<br>Users can query logs for specific resources, resource groups, or subscriptions they have access to in any workspace, but they can't query logs for other resources. |
+| What is the scope of permissions? | Workspace.<br>Users with access to the workspace can query all logs in the workspace from tables they have permissions to. See [Set table-level read access](./manage-access.md#set-table-level-read-access). | Azure resource.<br>Users can query logs for specific resources, resource groups, or subscriptions they have access to in any workspace, but they can't query logs for other resources. |
 | How can a user access logs? | On the **Azure Monitor** menu, select **Logs**.<br><br>Select **Logs** from **Log Analytics workspaces**.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). | Select **Logs** on the menu for the Azure resource. Users will have access to data for that resource.<br><br>Select **Logs** on the **Azure Monitor** menu. Users will have access to data for all resources they have access to.<br><br>Select **Logs** from **Log Analytics workspaces**. Users will have access to data for all resources they have access to.<br><br>From Azure Monitor [workbooks](../best-practices-analysis.md#workbooks). |
 
 ## Access control mode
 
 The *access control mode* is a setting on each workspace that defines how permissions are determined for the workspace.
 
-* **Require workspace permissions**. This control mode doesn't allow granular Azure RBAC. To access the workspace, the user must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#set-table-level-read-access-preview).
+* **Require workspace permissions**. This control mode doesn't allow granular Azure RBAC. To access the workspace, the user must be [granted permissions to the workspace](#azure-rbac) or to [specific tables](#set-table-level-read-access).
 
     If a user accesses the workspace in [workspace-context mode](#access-mode), they have access to all data in any table they've been granted access to. If a user accesses the workspace in [resource-context mode](#access-mode), they have access to only data for that resource in any table they've been granted access to.
 
@@ -276,13 +276,13 @@ In addition to using the built-in roles for a Log Analytics workspace, you can c
   - `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: Required to be able to use Update Management solutions
 - Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`
 
-## Set table-level read access (preview)
+## Set table-level read access
 
 To create a [custom role](../../role-based-access-control/custom-roles.md) that lets specific users or groups read data from specific tables in a workspace:
 
-1. Create a custom role that grants users permission to execute queries in the Log Analytics workspace, based on the built-in Azure Monitor Logs **Reader** role:
+1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
     
-    1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
+    1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
     
     1. Right-click the **Reader** role and select **Clone**.
     
@@ -290,7 +290,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
       
        This opens the **Create a custom role** screen.
 
-    1. On the **Basics** tab of the screen, enter a **Custom role name** value and, optionally, provide a description.
+    1. On the **Basics** tab of the screen enter a **Custom role name** value and, optionally, provide a description.
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
@@ -299,6 +299,17 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
+    1. Copy the custom role ID:
+        1. Select **Access control (AIM)** > **Roles**.
+        1. Right-click on your custom role and select **Edit**. 
+          
+           This opens the **Custom Role** screen.
+
+            :::image type="content" source="media/manage-access/manage-access-role-definition-id.png" alt-text="Screenshot that shows the JSON tab of the Custom Role screen with the ID field highlighted." lightbox="media/manage-access/manage-access-role-definition-id.png":::        
+
+        1. Select **JSON** and copy the `id` field.
+             
+            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value when you call the `https://management.azure.com/batch?api-version=2020-06-01` POST API.
 
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
@@ -328,9 +339,9 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
                 "content": {
                     "Id": "<GUID_1>",
                     "Properties": {
-                        "PrincipalId": "<user_object_ID>",
+                        "PrincipalId": "<User_object_ID>",
                         "PrincipalType": "User",
-                        "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                        "RoleDefinitionId": "<custom_role_ID>",
                         "Scope": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>",
                         "Condition": null,
                         "ConditionVersion": null
@@ -349,7 +360,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - `<user_object_ID>` is the object ID of the user to which you want to grant table read access.
+    - `<custom_role_ID>` is the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value you copied earlier.
     - `<subscription_ID>` is the ID of the subscription related to the workspace.
     - `<resource_group_name>` is the resource group of the workspace.
     - `<workspace_name>` is the name of the workspace.
@@ -357,7 +368,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
 ### Legacy method of setting table-level read access
 
-[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific tables in the workspace, although we recommend defining [table-level read access](#set-table-level-read-access-preview) as described above. 
+[Azure custom roles](../../role-based-access-control/custom-roles.md) let you grant access to specific tables in the workspace, although we recommend defining [table-level read access](#set-table-level-read-access) as described above. 
 
 Azure custom roles apply to workspaces with either workspace-context or resource-context [access control modes](#access-control-mode) regardless of the user's [access mode](#access-mode).
 
