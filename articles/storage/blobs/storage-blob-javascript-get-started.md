@@ -181,7 +181,7 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="20, 25":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="19, 24":::
 
 
 -----------------
