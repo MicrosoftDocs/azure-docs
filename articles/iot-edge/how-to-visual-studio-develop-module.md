@@ -11,7 +11,7 @@ zone_pivot_groups: iotedge-dev
 ---
 # Use Visual Studio 2022 to develop and debug modules for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article shows you how to use Visual Studio 2022 to develop, debug, and deploy custom Azure IoT Edge modules. Visual Studio 2022 provides templates for IoT Edge modules written in C and C#. The supported device architectures are Windows x64, Linux x64, ARM32, and ARM64 (preview). For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
 

@@ -582,10 +582,7 @@ To use RStudio, set up a custom application as follows:
 
 1. Set up the application to be accessed on **Published port** `8787` - you can configure the application to be accessed on a different Published port if you wish.
 1. Point the **Docker image** to `ghcr.io/azure/rocker-rstudio-ml-verse:latest`. 
-1. Use **Bind mounts** to add access to the files in your default storage account: 
-   * Specify **/home/azureuser/cloudfiles** for **Host path**.  
-   * Specify **/home/azureuser/cloudfiles** for the **Container path**.
-   * Select **Add** to add this mounting.  Because the files are mounted, changes you make to them will be available in other compute instances and applications.
+
 1. Select **Create** to set up RStudio as a custom application on your compute instance.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-open-source.png" alt-text="Screenshot shows form to set up RStudio as a custom application" lightbox="media/how-to-create-manage-compute-instance/rstudio-open-source.png":::
@@ -620,13 +617,6 @@ Access the custom applications that you set up in studio:
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
 > [!NOTE]
 > It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
-
-Once you launch **RStudio** or **Posit Workbench**, you may not see any of your files, even after specifying the correct **Bind mounts** above.  If this happens:
-
-1. Select the **...** at the far right of the Files pane
-1. For the **Path to folder**, type `/home/azureuser/cloudfiles/code`
-
-:::image type="content" source="media/how-to-create-manage-compute-instance/find-files.png" alt-text="Screenshot: Configure RStudio to find your cloudfiles.":::
 
 ## Manage
 

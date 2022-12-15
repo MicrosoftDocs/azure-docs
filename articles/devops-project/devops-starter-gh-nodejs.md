@@ -4,12 +4,13 @@ description: DevOps Starter makes it easy to get started on Azure using GitHub A
 author: ninallam
 editor: ninallam
 ms.assetid: 
-ms.service: az-devops-project
+ms.service: azure-devops
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload:
 ms.date: 08/24/2020
 ms.author: ninallam
+ms.subservice: azure-devops-starter
 ---
 
 # Set up CI/CD for a Node.js app with DevOps Starter using GitHub Actions
