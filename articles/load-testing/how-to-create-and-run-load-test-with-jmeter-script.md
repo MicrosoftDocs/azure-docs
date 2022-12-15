@@ -114,7 +114,7 @@ To create a sample JMeter test script:
 1. Save and close the file.
 
     > [!IMPORTANT]
-    > Don't include any Personal Identifiable Information (PII) in the sampler name. The sampler names used in the JMeter script appear in the test run results dashboard. 
+    > Don't include any Personally Identifiable Information (PII) in the sampler name in the JMeter script. The sampler names appear in the Azure Load Testing test run results dashboard.
 
 ## Create a load test
 
