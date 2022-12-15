@@ -340,23 +340,11 @@
   - name: Defender for IoT CLI
     items:
     - name: Overview
-      href: cli/cli-overview.md
+      href: references-work-with-defender-for-iot-cli-commands.md
     - name: OT sensor appliance management
       href: cli/cli-ot-sensor.md
     - name: OT sensor network monitoring
       href: cli/cli-ot-sensor-configuration.md
-    - name: Manage an on-premises management console
-      href: cli/cli-management.md
-    - name: Configure an on-premises management console
-      href: cli/cli-management-configuration.md
-    - name: Manage multiple OT network sensors
-      href: cli/cli-manage-ot-sensors.md
-    - name: Install an Enterprise IoT network sensor
-      href: cli/cli-enterprise-install.md
-    - name: Troubleshoot an Enterprise IoT network sensor
-      href: cli/cli-enterprise-troubleshoot.md
-  - name: Defender for IoT CLI commands
-    href: references-work-with-defender-for-iot-cli-commands.md
   - name: Frequently asked questions
     items:
     - name: General FAQ
