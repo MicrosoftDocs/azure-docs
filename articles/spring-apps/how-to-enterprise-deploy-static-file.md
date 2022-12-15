@@ -17,7 +17,7 @@ ms.custom: event-tier1-build-2022
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier, leveraging Tanzu Web Servers buildpack in behind. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically-configured web server (HTTPD and NGINX) to serve those assets.
+This article shows you how to deploy your static files to Azure Spring Apps Enterprise tier, leveraging Tanzu Web Servers buildpack. This approach is useful if you have applications that are purely for holding static files like HTML, CSS, or front-end applications built with the JavaScript framework of your choice. You can directly deploy these applications with an automatically-configured web server (HTTPD and NGINX) to serve those assets.
 
 ## Prerequisites
 
