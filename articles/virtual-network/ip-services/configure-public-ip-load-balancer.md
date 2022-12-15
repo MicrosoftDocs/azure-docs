@@ -172,7 +172,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 In this article, you:
 
-- Created a load balancer with an existing public IP. 
+- Created a load balancer using an existing public IP. 
 
 - Replaced the IP address in a load balancer frontend configuration. 
 
