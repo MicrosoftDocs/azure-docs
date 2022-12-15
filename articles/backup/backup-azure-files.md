@@ -27,7 +27,7 @@ Azure file share backup is a native, cloud based backup solution that protects y
 
 ## Configure the backup
 
-**Choose the navigation point**
+**Choose an entry point**
 
 # [Backup center](#tab/backup-center)
 
@@ -83,11 +83,11 @@ To configure backup for multiple file shares from the Recovery Services vault pa
 
       To choose one of the existing backup policies for configuring protection, select the desired policy from the **Backup policy** drop-down list.<br>
 
-      ![Choose existing policy](./media/backup-afs/choose-existing-policy.png)
+      ![Screenshot shows how to choose an existing policy.](./media/backup-afs/choose-existing-policy.png)
 
 1. Select **Enable Backup** to start protecting the file share.
 
-   ![Choose enable backup](./media/backup-afs/enable-backup.png)
+   ![Screenshot shows how to enable backup.](./media/backup-afs/enable-backup.png)
 
 After you set a backup policy, a snapshot of the file shares is taken at the scheduled time. The recovery point is also retained for the chosen period.
 
@@ -104,21 +104,21 @@ The following steps explain how you can configure backup for individual file sha
 
 1. In the file share listing, you should see all the file shares present in the storage account. Select the file share you want to back up.
 
-   ![File shares list](./media/backup-afs/file-shares-list.png)
+   ![Screenshot shows the File shares list.](./media/backup-afs/file-shares-list.png)
 
 1. Select **Backup** under the **Operations** section of the file share pane. The **Configure backup** pane will load on the right.
 
-   ![Configure backup pane](./media/backup-afs/configure-backup.png)
+   ![Screenshot shows how to open the Configure backup pane.](./media/backup-afs/configure-backup.png)
 
 1. For the Recovery Services vault selection, do one of the following:
 
     * If you already have a vault, select the **Select existing** Recovery Services vault radio button, and choose one of the existing vaults from **Vault Name** drop down menu.
 
-       ![Select existing vault](./media/backup-afs/select-existing-vault.png)
+       ![Screenshot shows how to select an existing vault.](./media/backup-afs/select-existing-vault.png)
 
     * If you don't have a vault, select the **Create new** Recovery Services vault radio button. Specify a name for the vault. It's created in the same region as the file share. By default, the vault is created in the same resource group as the file share. If you want to choose a different resource group, select **Create New** link below the **Resource Type** drop down and specify a name for the resource group. Select **OK** to continue.
 
-       ![Create new vault](./media/backup-afs/create-new-vault.png)
+       ![Screenshot shows how to create a new vault.](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
       >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
@@ -129,7 +129,7 @@ The following steps explain how you can configure backup for individual file sha
 
     * Select an existing backup policy, if you have one, from the **Backup Policy** drop-down menu.
 
-       ![Choose backup policy](./media/backup-afs/choose-backup-policy.png)
+       ![Screenshow shows how to choose a backup policy.](./media/backup-afs/choose-backup-policy.png)
 
     * Create a new policy with daily/weekly/monthly/yearly retention according to your requirement.  
 
@@ -139,7 +139,7 @@ The following steps explain how you can configure backup for individual file sha
 
          3. After defining all attributes of the policy, select **OK**.
 
-            ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
+            ![Screenshot shows how to create a new backup policy.](./media/backup-afs/create-new-backup-policy.png)
 
 1. Select **Enable backup** to start protecting the file share.
 
@@ -147,11 +147,11 @@ The following steps explain how you can configure backup for individual file sha
 
 1. You can track the configuration progress in the portal notifications, or by monitoring the backup jobs under the vault you're using to protect the file share.
 
-   ![Portal notifications](./media/backup-afs/portal-notifications.png)
+   ![Screenshot shows the Azure portal notifications.](./media/backup-afs/portal-notifications.png)
 
 1. After the completion of the configure backup operation, select **Backup** under the **Operations** section of the file share pane. The context pane listing **Vault Essentials** will load on the right. From there, you can trigger on-demand backup and restore operations.
 
-   ![Vault essentials](./media/backup-afs/vault-essentials.png)
+   ![Screenshot shows the list of Vault Essentials.](./media/backup-afs/vault-essentials.png)
 
 ---
 
@@ -159,7 +159,7 @@ The following steps explain how you can configure backup for individual file sha
 
 Occasionally, you might want to generate a backup snapshot, or recovery point, outside of the times scheduled in the backup policy. A common reason to generate an on-demand backup is right after you've configured the backup policy. Based on the schedule in the backup policy, it might be hours or days until a snapshot is taken. To protect your data until the backup policy engages, initiate an on-demand backup. Creating an on-demand backup is often required before you make planned changes to your file shares.
 
-**Choose the navigation point**
+**Choose an entry point**
 
 # [Backup center](#tab/backup-center)
 
@@ -195,11 +195,11 @@ To run an on-demamd backup, follow these steps:
 
 1. Select **Backup** under the **Operation** section. The context pane listing **Vault Essentials** will load on the right. Select **Backup Now** to take an on-demand backup.
 
-   ![Select Backup Now](./media/backup-afs/select-backup-now.png)
+   ![Screenshot shows how to select Backup Now.](./media/backup-afs/select-backup-now.png)
 
 1. The **Backup Now** pane opens. Specify the retention for the recovery point. You can have a maximum retention of 10 years for an on-demand backup.
 
-   ![Retain backup date](./media/backup-afs/retain-backup-date.png)
+   ![Screenshot shows the option how to retain backup date.](./media/backup-afs/retain-backup-date.png)
 
 1. Select **OK** to confirm.
 
