@@ -32,7 +32,7 @@ AzAcSnap 7 is being released with the following fixes and improvements:
     - Increased validation when creating snapshots to avoid failures on snapshot creation retry.
     - Timeout when executing AzAcSnap mechanism to disable/enable backint (`autoDisableEnableBackint=true`) now aligns with other SAP HANA related operation timeout values.
     - Azure Backup now allows third party snapshot-based backups without impact to streaming backups (aka 'backint'). Therefore, AzAcSnap 'backint' detection logic has been re-ordered to allow for future deprecation of this feature.  By default this setting is disabled (`autoDisableEnableBackint=false`). For customers who have relied on this feature to take snapshots with AzAcSnap and use Azure Backup, keeping this value as true means AzAcSnap 7 will continue to disable/enable backint.  As this is no longer necessary for Azure Backup, we recommend testing AzAcSnap backups with the value of `autoDisableEnableBackint=false`, and then if successful make the same change in your production deployment.
-- Restore (`-c restore`) changes:
+  - Restore (`-c restore`) changes:
     - Ability to create a custom suffix for Volume clones created when using `-c restore --restore snaptovol` either:
       - via the command-line with `--clonesuffix <custom suffix>`.
       - interactively when running the command without the `--force` option.
