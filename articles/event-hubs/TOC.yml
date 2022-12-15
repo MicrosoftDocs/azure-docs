@@ -242,8 +242,12 @@
           href: apache-kafka-migration-guide.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
-        - name: Mirror a Kafka broker in an event hub
-          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Replicate data from a Kafka cluster to Event Hubs
+          items:
+          - name: Using Apache Kafka Mirror Maker 2
+            href: event-hubs-kafka-mirrormaker-2-tutorial.md
+          - name: Using Apache Kafka Mirror Maker 1
+            href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Connect Apache Spark to an event hub
           href: event-hubs-kafka-spark-tutorial.md
         - name: Connect Apache Flink to an event hub
