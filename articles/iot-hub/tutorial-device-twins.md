@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js, devx-track-azurecli]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
@@ -171,34 +171,6 @@ The following snippet shows how the back-end application sends a desired propert
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
-### Run the applications
-
-In this section, you run the two sample applications to observe as a back-end application sends desired property updates to a simulated device application.
-
-To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
-
-To run the simulated device application, open a shell or command prompt window and navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
-
-```cmd/sh
-npm install
-node SimulatedDevice.js "{your device connection string}"
-```
-
-To run the back-end application, open another shell or command prompt window. Then navigate to the **iot-hub/Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
-
-```cmd/sh
-npm install
-node ServiceClient.js "{your service connection string}"
-```
-
-The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
-
-![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
-
-The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
-
-![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
-
 ## Receive state information
 
 Your back-end application receives state information from a device as reported properties. A device sets the reported properties, and sends them to your hub. A back-end application can read the current values of the reported properties from the device twin stored in your hub.
@@ -219,11 +191,9 @@ A back-end application accesses the current reported property values for a devic
 
 [!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
-## Run the applications
+### Run the applications
 
-In this section, you run two sample applications to observe as a simulated device application sends reported property updates to a back-end application.
-
-You run the same two sample applications that you ran to see how desired properties are sent to a device.
+In this section, you run the two sample applications to observe as a back-end application sends desired property updates to a simulated device application.
 
 To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
@@ -241,19 +211,31 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
+#### Observe desired property updates
+
+The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
+
+![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
+
+The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
+
+![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
+
+#### Observe reported property updates
+
 The following screenshot shows the output from the simulated device application and highlights how it sends a reported property update to your hub:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice2.png)
+![Screenshot that shows the simulated device updating its twin state.](./media/tutorial-device-twins/SimulatedDevice2.png)
 
 The following screenshot shows the output from the back-end application and highlights how it receives and processes a reported property update from a device:
 
-![Back-end application](./media/tutorial-device-twins/BackEnd2.png)
+![Screenshot that shows the back-end application receiving the device reported properties.](./media/tutorial-device-twins/BackEnd2.png)
 
 ## Clean up resources
 
-If you plan to complete the next tutorial, leave the resource group and IoT hub and reuse them later.
+If you plan to complete the next tutorial, leave the resource group and the IoT hub to reuse them later.
 
-If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the **tutorial-iot-hub-rg** resource group that contains your IoT hub and click **Delete**.
+If you don't need the IoT hub any longer, delete it and the resource group in the portal. To do so, select the **tutorial-iot-hub-rg** resource group that contains your IoT hub and select **Delete**.
 
 Alternatively, use the CLI:
 
