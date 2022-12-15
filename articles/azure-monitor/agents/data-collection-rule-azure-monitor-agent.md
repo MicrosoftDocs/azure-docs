@@ -2,7 +2,7 @@
 title: Monitor data from virtual machines with Azure Monitor Agent
 description: Describes how to collect events and performance data from virtual machines by using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 12/11/2022
 author: guywild
 ms.author: guywild
 ms.reviewer: shseth
@@ -11,18 +11,23 @@ ms.reviewer: shseth
 
 # Collect data from virtual machines with Azure Monitor Agent
 
-This article describes how to collect events and performance counters from virtual machines by using Azure Monitor Agent.
+This article describes how to collect events and performance counters from virtual machines by using [Azure Monitor Agent](azure-monitor-agent-overview.md).
 
-To collect data from virtual machines by using Azure Monitor Agent, you'll:
+## Prerequisites
+To complete this procedure, you need: 
 
-1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
-1. Associate the data collection rule to specific virtual machines.
+- Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
+- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
+- [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
+- A VM, Virtual Machine Scale Set, or Arc-enabled on-premises server with the logs you want to collect. 
+    
+    - The log file must be stored on a local drive of the machine on which Azure Monitor Agent is running. 
+    - Each entry in the log file must be delineated with an end of line. 
+    - The log file must not allow circular logging, log rotation where the file is overwritten with new entries or renaming where a file is moved and a new file with the same name is opened. 
 
-    You can associate virtual machines to multiple data collection rules. Define each data collection rule to address a particular requirement. Associate one or more data collection rules to a virtual machine based on the specific data you want the machine to collect.
+## Create a data collection rule
 
-## Create data collection rule and association
-
-To send data to Log Analytics, create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
+Create the data collection rule in the *same region* as your Log Analytics workspace. You can still associate the rule to machines in other supported regions.
 
 ### [Portal](#tab/portal)
 
@@ -38,12 +43,17 @@ To send data to Log Analytics, create the data collection rule in the *same regi
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
-1. On the **Resources** tab, add the resources to which to associate the data collection rule. Resources can be virtual machines, virtual machine scale sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed.
+1. On the **Resources** tab: 
+1. 
+    1. Select **+ Add resources** and associate resources to the data collection rule. Resources can be virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers. The Azure portal installs Azure Monitor Agent on resources that don't already have it installed. 
 
-    > [!IMPORTANT]
-    > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
+        > [!IMPORTANT]
+        > The portal enables system-assigned managed identity on the target resources, along with existing user-assigned identities, if there are any. For existing applications, unless you specify the user-assigned identity in the request, the machine defaults to using system-assigned identity instead.
+    
+        If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
 
-    If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md).
+    1. Select **Enable Data Collection Endpoints**.
+    1. Select a data collection endpoint for each of the resources associate to the data collection rule.
 
     [ ![Screenshot that shows the Resources tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 

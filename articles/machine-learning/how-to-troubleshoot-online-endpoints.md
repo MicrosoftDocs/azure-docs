@@ -72,11 +72,9 @@ As a part of local deployment the following steps take place:
 
 For more, see [Deploy locally in Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md#create-local-endpoint-and-deployment).
 
-
-
 ## Conda installation
  
-Generally, issues with mlflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
+Generally, issues with MLflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
 
 To debug conda installation problems, try the following:
 
@@ -231,11 +229,11 @@ This issue happens when the memory footprint of the model is larger than the ava
 
 #### Role assignment quota
 
-Try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal in the Access Control menu.
+When creating a managed online endpoint, role assignment is required for the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to access workspace resources. If you've reached the [role assignment limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
 
 #### Endpoint quota
 
-Try to delete some unused endpoints in this subscription.
+Try to delete some unused endpoints in this subscription. Alternatively, follow [How to manage quotas](how-to-manage-quotas.md#endpoint-quota-increases) to request endpoint quota increase.
 
 #### Kubernetes quota
 
@@ -437,16 +435,24 @@ Although we do our best to provide a stable and reliable service, sometimes thin
 
 If you're having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
 
-## Bandwidth limit issues
+## Common model consumption errors
 
-Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+Below is a list of common model consumption errors resulting from the endpoint `invoke` operation status.
+
+* [Bandwidth limit issues](#bandwidth-limit-issues)
+* [HTTP status codes](#http-status-codes)
+* [Blocked by CORS policy](#blocked-by-cors-policy)
+
+### Bandwidth limit issues
+
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
 - Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
     - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
     - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.
 
-## HTTP status codes
+### HTTP status codes
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
@@ -459,10 +465,10 @@ When you access online endpoints with REST requests, the returned status codes a
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check the `Model Status Code` dimension under the `Requests Per Minute` metric on your endpoint's [Azure Monitor Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md). Or check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow maximum 2 * `max_concurrent_requests_per_instance` * `instance_count` requests in parallel at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`, respectively. If you're using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. Apart from enable auto-scaling, you could also increase the number of instances by using the below [code](#how-to-calculate-instance-count). |
 | 429 | Rate-limiting | The number of requests per second reached the [limit](./how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) of managed online endpoints.|
-| 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
+| 500 | Internal server error | AzureML-provisioned infrastructure is failing. |
 
-### How to calculate instance count
-To increase the number of instances, you could calculate the required replicas following below code.
+#### How to calculate instance count
+To increase the number of instances, you can calculate the required replicas by using the following code:
 ```python
 from math import ceil
 # target requests per second
@@ -480,6 +486,14 @@ concurrent_requests = target_rps * request_process_time / target_utilization
 instance_count = ceil(concurrent_requests / max_concurrent_requests_per_instance)
 ```
 
+### Blocked by CORS policy
+
+Online endpoints (v2) currently do not support [Cross-Origin Resource Sharing](https://developer.mozilla.org/docs/Web/HTTP/CORS) (CORS) natively. If your web application tries to invoke the endpoint without proper handling of the CORS preflight requests, you'll see the following error message: 
+
+```
+Access to fetch at 'https://{your-endpoinnt-name}.{your-region}.inference.ml.azure.com/score' from origin http://{your-url} has been blocked by CORS policy: Response to preflight request doesn't pass access control check. No 'Access-control-allow-origin' header is present on the request resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with the CORS disabled.
+```
+We recommend that you use Azure Functions, Azure Application Gateway, or any service as an interim layer to handle CORS preflight requests.
 ## Common network isolation issues
 
 [!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
