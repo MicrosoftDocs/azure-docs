@@ -12,3 +12,7 @@ items:
     href: prepare-to-deploy.md
   - name: Deploy Azure Communications Gateway
     href: deploy.md
+- name: Concepts
+  items:
+  - name: Interoperability with Microsoft Operator Connect and Microsoft Teams Phone Mobile
+    href: interoperability.md
