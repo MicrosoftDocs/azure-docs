@@ -12,6 +12,8 @@ items:
     href: prepare-to-deploy.md
   - name: Deploy Azure Communications Gateway
     href: deploy.md
+  - name: Prepare for live traffic with Azure Communications Gateway
+    href: prepare-for-live-traffic.md
 - name: Concepts
   items:
   - name: Interoperability with Microsoft Operator Connect and Microsoft Teams Phone Mobile
