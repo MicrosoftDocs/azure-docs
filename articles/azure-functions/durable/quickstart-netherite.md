@@ -26,6 +26,7 @@ In particular, this quickstart assumes that you have already:
 1. Created an Azure Functions project on your local machine.
 2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 3. Configured the project for local debugging.
+4. Learned how to deploy an Azure Functions project to Azure
 
 If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
@@ -52,16 +53,16 @@ For more information on installing Azure Functions Extensions via the Core Tools
 
 ## Configure local.settings.json for local development
 
-The Netherite backend requires a connection string to [Event Hubs](https://azure.microsoft.com/products/event-hubs/) to run on Azure. However, for local development, providing the string `"MemoryF"` bypasses the need for Event Hubs.
+The Netherite backend requires a connection string to [Event Hubs](https://azure.microsoft.com/products/event-hubs/) to run on Azure. However, for local development, providing the string `"SingleHost"` bypasses the need for Event Hubs.
 
-In `local.settings.json`, set the value of `EventHubsConnection` to `MemoryF` as shown below:
+In `local.settings.json`, set the value of `EventHubsConnection` to `SingleHost` as shown below:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "EventHubsConnection": "MemoryF",
+    "EventHubsConnection": "SingleHost",
     "FUNCTIONS_WORKER_RUNTIME": "<dependent on your programming language>"
   }
 }
@@ -103,7 +104,7 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-To run your app on Azure, you will need an Event Hubs namespace. You can create one using the Azure portal.
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in the *Create a function app* section of [these instructions](/articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app-a-function)
 
 ### Set up Event Hubs
 
@@ -157,5 +158,8 @@ Netherite requires a 64-bit architecture to work. Starting on Functions V4, this
 ## Deploy
 
 You can now deploy your code to the cloud and run your tests or workload on it. To validate that Netherite is correctly configured, you can review the metrics for Event Hubs in the portal to ensure that there's activity.
+
+> [!NOTE]
+> For guidance on deploying your project to Azure, review the deployment instructions in the article for your programming language of choice in the [prerequisites section](#prerequisites).
 
 For more information about the Netherite architecture, configuration, and workload behavior, including performance benchmarks, we recommend you take a look at the [Netherite documentation](https://microsoft.github.io/durabletask-netherite/#/).
