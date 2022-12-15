@@ -34,7 +34,7 @@ To see which virtual machines in your directory are monitored using VM insights,
 
 ## Enable VM insights for Azure Monitor Agent
 > [!NOTE]
-> As part of the Azure Monitor Agent installation process, Azure Monitor adds a [system-assigned managed identity](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity) to the machine if a managed identity doesn't already exist for the machine.
+> As part of the Azure Monitor Agent installation process, Azure assigns a [system-assigned managed identity](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity) to the machine if such an identity doesn't already exist.
 
 To enable VM insights on an unmonitored virtual machine or virtual machine scale set using Azure Monitor Agent:
 
