@@ -196,8 +196,8 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
-[azure-disk-volume]: azure-disk-volume.md
-[azure-files-pvc]: azure-files-dynamic-pv.md
+[azure-disk-volume]: azure-disk-csi.md
+[azure-files-pvc]: azure-files-csi.md
 [premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create

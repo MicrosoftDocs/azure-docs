@@ -453,7 +453,7 @@ kubectl apply -f azurefiles-mount-options-pvc.yaml
           claimName: azurefile
     ```
 
-7. Because a pod spec can't be updated in place, use `kubectl` commands to delete, and then re-create the pod:
+7. Because a pod spec can't be updated in place, use `kubectl` commands to delete and then re-create the pod:
 
     ```console
     kubectl delete pod mypod
