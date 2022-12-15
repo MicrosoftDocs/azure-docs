@@ -234,6 +234,11 @@
         "source_path_from_root": "/articles/purview/enable-disable-data-estate-insights.md",
         "redirect_url": "/azure/purview/disable-data-estate-insights",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-default-purview-account.md",
+        "redirect_url": "/azure/purview/concept-best-practices-accounts",
+        "redirect_document_id": true
       }
 ]
 }
