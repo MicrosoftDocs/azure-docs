@@ -12,7 +12,7 @@ ms.reviewer: azfuncdf
 Durable Functions offers several [storage providers](durable-functions-storage-providers.md), also called "backends", for storing orchestration and entity runtime state. By default, new projects are configured to use the [Azure Storage provider](durable-functions-storage-providers.md#azure-storage). In this article, we walk through how to configure a Durable Functions app to utilize the [Netherite storage provider](durable-functions-storage-providers.md#netherite).
 
 > [!NOTE]
-> Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios): in some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by over an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
+> Netherite was designed and developed by [Microsoft Research](https://www.microsoft.com/research) for [high throughput](https://microsoft.github.io/durabletask-netherite/#/scenarios) scenarios. In some [benchmarks](https://microsoft.github.io/durabletask-netherite/#/throughput?id=multi-node-throughput), throughput increased by over an order of magnitude compared to the default Azure Storage provider. To learn more about when to use the Netherite storage provider, see the [storage providers](durable-functions-storage-providers.md) documentation.
 
 ## Note on data migration
 
@@ -68,7 +68,7 @@ In `local.settings.json`, set the value of `EventHubsConnection` to `MemoryF` as
 ```
 
 > [!NOTE]
-> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).For example, if using C#, your local.settings.json file may look something like [this](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
+> The value of `FUNCTIONS_WORKER_RUNTIME` is dependent on your programming language of choice. For more information, please see its [reference docs](../functions-app-settings.md#functions_worker_runtime).For example, if using C#, your local.settings.json file may look something like [this example](https://github.com/microsoft/durabletask-netherite/blob/main/samples/Hello_Netherite_with_DotNetCore/local.settings.json).
 
 ## Update host.json
 
@@ -94,7 +94,7 @@ The snippet above is just a *minimal* configuration. Later, you may want to cons
 
 Your app is now ready for local development: You can start the Function app to test it. One way to do this is to run `func host start` on your application's root and executing a simple orchestrator Function.
 
-While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can test this is working as expected using the [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows). If Netherite is running correctly, the table won't be empty; see the example below.
+While the function app is running, Netherite will publish load information about its active partitions to an Azure Storage table named "DurableTaskPartitions". You can use [Azure Storage Explorer](/articles/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) to check that it's working as expected. If Netherite is running correctly, the table won't be empty; see the example below.
 
 ![Data on the "DurableTaskPartitions" table in the Azure Storage Explorer.](./media/quickstart-netherite/partition-table.png)
 
@@ -107,10 +107,10 @@ To run your app in Azure, you will need an Event Hubs namespace. You can create 
 
 ### Set up Event Hubs
 
-To run Netherite in Azure, or if you prefer to use Event Hubs during local development, you will need to set up an Event Hubs namespace in Azure.
+You will need to set up an Event Hubs namespace to run Netherite in Azure. You can also set it up if you prefer to use Event Hubs during local development.
 
 > [!NOTE]
-> An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account]((https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
+> An Event Hubs namespace incurs an ongoing cost, whether or not it is being used by Durable Functions. Microsoft offers a [12-month free Azure subscription account](https://azure.microsoft.com/free/) if you’re exploring Azure for the first time.
 
 #### Create an Event Hubs namespace
 
@@ -122,7 +122,7 @@ Follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs
 
 #### Obtain the Event Hubs connection string
 
-To obtain the connection string for your Event Hubs namespace, go to the Azure portal under the setting "Shared access policies". Then select "RootManagedSharedAccessKey", which should reveal a field named "Connection string-primary key". That field's value is the connection string.
+To obtain the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal, select "Shared access policies", and then select "RootManagedSharedAccessKey". This should reveal a field named "Connection string-primary key" and that field's value is the connection string.
 
 Below are guiding screenshots on how to find this data in the portal:
 
@@ -130,9 +130,9 @@ Below are guiding screenshots on how to find this data in the portal:
 
 ### Add connection string as an application setting
 
-You need to add your connection string as an application setting. To do this through the Azure portal, first go to your Function App view. Then go Under "Configuration", select "New application setting", and there you can assign "EventHubsConnection" to map to your connection string. Below are some guiding images.
+You need to add your connection string as an application setting in your Function App. To do this through the Azure portal, first go to your Function App view, select "Configuration" and then select "New application setting". This is where you can assign "EventHubsConnection" to map to your connection string. Below are some guiding images.
 
-![In the Function App view, go under "configuration" to select "new application setting."](./media/quickstart-netherite/add-configuration.png)
+![In the Function App view, go to "configuration" and select "new application setting."](./media/quickstart-netherite/add-configuration.png)
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
 
 
@@ -141,7 +141,7 @@ You need to add your connection string as an application setting. To do this thr
 > [!NOTE]
 > Skip this section if your app is not in the Elastic Premium plan.
 
-If your app is running on the Elastic Premium Plan, it is recommended that you enable runtime scale monitoring for better scaling. To do this, go to "Configuration", select "Function runtime settings" and toggle "Runtime Scale Monitoring" to "On".
+If your app is running on the Elastic Premium Plan, it is recommended that you enable runtime scale monitoring for better scaling. To do this, go to **Configuration**, select **Function runtime settings** and toggle **Runtime Scale Monitoring** to On.
 
 ![How to enable Runtime Scale Monitoring in the portal.](./media/quickstart-netherite/runtime-scale-monitoring.png)
 
@@ -156,6 +156,6 @@ Netherite requires a 64-bit architecture to work. Starting on Functions V4, this
 
 ## Deploy
 
-You can now deploy your code to the cloud, and then run your tests or workload on it. To validate that Netherite is correctly configured, you can review the metrics for Event Hubs in the portal to ensure that there's activity.
+You can now deploy your code to the cloud and run your tests or workload on it. To validate that Netherite is correctly configured, you can review the metrics for Event Hubs in the portal to ensure that there's activity.
 
 For more information about the Netherite architecture, configuration, and workload behavior, including performance benchmarks, we recommend you take a look at the [Netherite documentation](https://microsoft.github.io/durabletask-netherite/#/).
