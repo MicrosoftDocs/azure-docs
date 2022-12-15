@@ -65,11 +65,11 @@ For example, "Impossible" is common to both English and French and if given with
     "documents": [
         {
             "id": "1",
-            "text": "impossible"
+            "text": "communication"
         },
         {
             "id": "2",
-            "text": "impossible",
+            "text": "communication",
             "countryHint": "fr"
         }
     ]
@@ -109,7 +109,7 @@ The language detection model now has additional context to make a better judgmen
     "errors":[
         
     ],
-    "modelVersion":"2020-09-01"
+    "modelVersion":"2022-10-01"
 }
 ```
 
