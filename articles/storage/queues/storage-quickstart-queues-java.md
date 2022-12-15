@@ -314,9 +314,9 @@ System.out.println("Creating queue: " + queueName);
 // Instantiate a QueueClient which will be
 // used to create and manipulate the queue
 QueueClient queueClient = new QueueClientBuilder()
-                                .connectionString(connectStr)
-                                .queueName(queueName)
-                                .buildClient();
+        .connectionString(connectStr)
+        .queueName(queueName)
+        .buildClient();
 
 // Create the queue
 queueClient.create();
