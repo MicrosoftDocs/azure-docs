@@ -9,21 +9,13 @@ ms.date: 06/08/2022
 ---
 
 # Enable VM insights in the Azure portal
-This article describes how to enable VM insights using the Azure portal for the following :
-
-- Azure virtual machine
-- Azure virtual machine scale set
-- Hybrid virtual machine connected with Azure Arc
+This article describes how to enable VM insights using the Azure portal for Azure virtual machines, Azure virtual machine scale sets, and hybrid virtual machines connected with [Azure Arc](../../azure-arc/overview.md).
 
 ## Prerequisites
 
 - [Create a Log Analytics workspace](./vminsights-configure-workspace.md). You can create a new workspace during this process, but you should use an existing workspace if you already have one. See [Log Analytics workspace overview](../logs/log-analytics-workspace-overview.md) and [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for more information.
 - See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 - See [Manage the Azure Monitor agent](../agents/azure-monitor-agent-manage.md#prerequisites) for prerequisites related to Azure Monitor agent.
-
-
-> [!NOTE]
-> This process describes enabling VM insights from the **Monitor** menu in the Azure portal. You can perform the same process from the **Insights** menu for a particular virtual machine or virtual machine scale set.
 
 ## View monitored and unmonitored machines
 Open VM insights by selecting **Virtual Machines** from the **Monitor** menu in the Azure portal. The **Overview** page lists all of the virtual machines and virtual machine scale sets in the selected subscriptions. Machines will either be included in the **Monitored** or **Not monitored** tab depending on whether the machine is currently being monitored by VM insights. 
@@ -50,11 +42,9 @@ To enable VM insights on an unmonitored virtual machine or virtual machine scale
  
 1. Select **Enable** on the **Insights Onboarding** page. 
  
-1. Select **Azure Monitor agent** on the **Monitoring configuration** page. 
+1. On the **Monitoring configuration** page, select **Azure Monitor agent** and select a [data collection rule](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) from the **Data collection rule** dropdown. 
 
     :::image type="content" source="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" lightbox="media/vminsights-enable-portal/vm-insights-monitoring-configuration.png" alt-text="Screenshot that shows the Monitoring configuration screen for V M insights."::: 
-
-1. Select a [data collection rule](vminsights-enable-overview.md#data-collection-rule-azure-monitor-agent) from the **Data collection rule** dropdown.
 
     The dropdown lists only data collection rules configured for VM insights. If a data collection rule hasn't already been created for VM insights, Azure Monitor creates a rule with: 
 
