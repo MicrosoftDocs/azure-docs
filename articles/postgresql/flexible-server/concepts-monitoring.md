@@ -47,7 +47,7 @@ The following metrics are available for PostgreSQL flexible server:
 
 ## Enhanced Metrics
 
-Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server to enable more fine grained monitoring and alerting on databases. You can configure alerts on the metrics. In addition, some of these new Metrics also now also include ‘Dimension’ that will allow to split and filter the metrics data by using the allowed dimension such as Database Name, State etc. 
+Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server to enable more fine grained monitoring and alerting on databases. You can configure alerts on the metrics. In addition, some of these new Metrics now also include ‘Dimension’ that will allow to split and filter the metrics data by using the allowed dimension such as Database Name, State etc. 
 
 #### Enabling enhanced metrics
 
@@ -65,8 +65,8 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 |**Oldest Backend** (Preview)           |oldest_backend_time_sec     |Seconds|The age in seconds of the oldest backend (irrespective of the state)                                                                                                          |N/a            |No                |
 |**Oldest Query** (Preview)             |longest_query_time_sec      |Seconds|The age in seconds of the longest query that is currently running                                                                                                             |N/a            |No                |
 |**Oldest Transaction** (Preview)       |longest_transaction_time_sec|Seconds|The age in seconds of the longest transaction (including idle transactions)                                                                                                   |N/a            |No                |
-|**Oldest xmin** (Preivew)              |oldest_backend_xmin         |Count  |The actual value of the oldest xmin. If xmin is not increasing it indicates there are some long running transactions that can potentially hold dead tuples from being removed |N/a            |No                |
-|**Oldest xmin Age** (Preivew)          |oldest_backend_xmin_age     |Count  |Age in units of the oldest xmin. It indicated how many transactions passed since oldest xmin                                                                                  |N/a            |No                |
+|**Oldest xmin** (Preview)              |oldest_backend_xmin         |Count  |The actual value of the oldest xmin. If xmin is not increasing it indicates there are some long running transactions that can potentially hold dead tuples from being removed |N/a            |No                |
+|**Oldest xmin Age** (Preview)          |oldest_backend_xmin_age     |Count  |Age in units of the oldest xmin. It indicated how many transactions passed since oldest xmin                                                                                  |N/a            |No                |
 
 
 ##### `Database`
@@ -115,7 +115,7 @@ Introducing Enhanced Metrics for Azure Database for PostgreSQL Flexible Server t
 |-------------------|---------------|-----|---------------------------------------------------------------|---------|------------------|
 |**Max Connections^**    |max_connections|Count|Max Connections                                            |N/a      |Yes               |
 
-^ **Max Connections** here represents the configured value for _max_connections_ server parameter, and this metrics is pooled every 30 minutes.
+^ **Max Connections** here represents the configured value for _max_connections_ server parameter, and this metric is pooled every 30 minutes.
 
 
 #### Applying Filters and Splitting on enhanced metrics
@@ -127,7 +127,7 @@ In the above list of metrics, some of the metrics have dimension such as `databa
 
 Here in this example below, we have done **splitting** by `State` dimension and **filtered** on a specific `state` types.
 
-![Screenshot of sessions by state](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
+![Screenshot of sessions by state.](https://user-images.githubusercontent.com/19426853/196329577-dc1c1cc0-4fcb-4ab7-a466-025425d57844.png)
 
 For more details on setting-up charts with dimensional metrics, see [Metric chart examples](../../azure-monitor/essentials/metric-chart-samples.md)
 
@@ -136,7 +136,7 @@ For more details on setting-up charts with dimensional metrics, see [Metric char
 - There is **50 database** limit on metrics with `database name` dimension.
   * On **Burstable** SKU -  this limit is 10 `database name` dimension
 - `database name` dimension limit is applied on OiD column (in other words Order-of-Creation of the database)
-- The `database name` is metics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
+- The `database name` in metrics dimension is **case insensitive**. Therefore the metrics for same database names in varying case (_ex. foo, FoO, FOO_) will be merged, and may not show accurate data.
 
 ## Server logs
 In addition to the metrics, Azure Database for PostgreSQL also allows you to configure and access PostgreSQL standard logs. To learn more about logs, visit the [logging concepts doc](concepts-logging.md).
