@@ -72,7 +72,7 @@ Earlier versions use a legacy support model, with support dates [detailed for ea
 
 ### Security Appliance - OS
 
-The OT sensor and management console have been designed as a "locked down" security appliance with a hardened attack surface; Control and access to the appliance can only be achieved through the management port (HTTP Web console, SSH support shell). 
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the management port, via HTTP for web access and SSH for the support shell.
 
 We adhere to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/en-us/securityengineering/sdl/) throughout the entire development lifecycle including activities such as training, compliance, code reviews, threat modeling, design requirements, component governance, pen testing. . All appliances are locked down according to industry best practices and should not be modified.
 
