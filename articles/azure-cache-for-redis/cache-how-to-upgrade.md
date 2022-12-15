@@ -14,7 +14,7 @@ ms.custom: template-how-to, engagement-fy23
 # How to upgrade an existing Redis 4 cache to Redis 6
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled Redis version upgrade from the Azure portal.  We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
 
 Azure Cache for Redis supports upgrading the version of your Azure Cache for Redis from Redis 4 to Redis 6. Upgrading is similar to regular monthly maintenance. Upgrading follows the same pattern as maintenance: First, the Redis version on the replica node is updated, followed by an update to the primary node. Your client application should treat the upgrade operation exactly like a planned maintenance event.
 
@@ -47,7 +47,7 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 ## Upgrade using the Azure portal
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled Redis version upgrade from the Azure portal.  We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
 
 <!-- 
 1. In the Azure portal, select the Azure Cache for Redis instance that you want to upgrade from Redis 4 to Redis 6.
@@ -70,7 +70,7 @@ Before you upgrade, check the Redis version of a cache by selecting **Properties
 ## Upgrade using Azure CLI
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled Redis version upgrade from the Azure portal.  We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
 
 <!-- 
 To upgrade a cache from 4 to 6 using the Azure CLI, use the following command:
@@ -82,7 +82,7 @@ az redis update --name cacheName --resource-group resourceGroupName --set redisV
 ## Upgrade using PowerShell
 
 > [!IMPORTANT]
-> We are improving the upgrade experience and have temporarily disabled Redis version upgrade from the Azure portal.  We recommend that you upgrade your caches after January 20, 2023.
+> We are improving the upgrade experience and have temporarily disabled the Redis version upgrade. We recommend that you upgrade your caches after January 20, 2023.
 
 
 <!-- 
