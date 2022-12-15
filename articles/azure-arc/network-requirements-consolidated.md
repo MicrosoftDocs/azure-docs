@@ -8,6 +8,9 @@ ms.topic: reference
 # Azure Arc network requirements (Consolidated)
 
 This article lists the endpoints, ports, and protocols required for Azure Arc-enabled services and features.NET
+## Arc Kubernetes endpoints
+
+[!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
 ## Azure Arc resource bridge (preview)
 
