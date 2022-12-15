@@ -227,9 +227,39 @@ These example code snippets show you how to do the following actions with the Az
 
 ### Authorize access and create a client
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via the Azure CLI, or Azure PowerShell.
 
-You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed-in with in the previous step. 
+### [Azure CLI](#tab/sign-in-azure-cli)
+
+Sign-in to Azure through the Azure CLI using the following command:
+
+```azurecli
+az login
+```
+
+### [Visual Studio Code](#tab/sign-in-visual-studio-code)
+
+You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+
+On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
+
+Sign-in to Azure through the Azure CLI using the following command:
+
+```azurecli
+az login
+```
+
+### [PowerShell](#tab/sign-in-powershell)
+
+Sign-in to Azure using PowerShell via the following command:
+
+```azurepowershell
+Connect-AzAccount
+```
+
+---
+
+You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
 
 Make sure to add the **azure-identity** dependency in `pom.xml`, as described in [Install the packages](#install-the-packages). Also, be sure to add an import directive for `com.azure.identity` in the *App.java* file:
 
