@@ -76,7 +76,7 @@ The OT network sensor and the on-premises management console are designed as a *
 
 Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle,  including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
 
-The maintenance of the appliance (for example, performing backups, log exports, or monitoring the health of the appliance) can be performed from the graphical user interface or from the proprietary CLI command shell (this does not require any prior OS administration knowledge). 
+Maintain your sensors and on-premises management consoles, for activities like backups, log exports, or health monitoring, via the web interface, or the Defender for IoT CLI commands.  
 
 
 
