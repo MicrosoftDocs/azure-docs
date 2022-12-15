@@ -9,10 +9,10 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 12/15/2022
-# As an Azure customer, I want to better understand which offerings in Azure Integration Services work best for my integration scenarios and requirements.
+# As an Azure customer, I want to better understand which Azure Integration Services capabilities work best for my integration scenarios and requirements.
 ---
 
-# Choose the best capabilities in Azure Integration Services for enterprise integration scenarios
+# Choose the best integration services in Azure for enterprise integration scenarios
 
 Azure Integration Services offers many capabilities across this collection of integration services, but some overlapping capabilities might exist. This guide provides information to help you choose the best services for your enterprise integration scenarios and requirements. Remember also to consider the full impact of using a particular service, including performance requirements, skill set availability, operational support, and costs.
 
