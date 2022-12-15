@@ -25,17 +25,19 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 - [Come Explore the Future](https://news.sap.com/2021/01/sap-and-microsoft-expand-partnership-integrate-teams/), showing how Microsoft and SAP are partnering to meet the needs of every business.
 - [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/documents/2021/01/ca0f4c25-c87d-0010-87a3-c30de2ffd8ff.html)
 
-## Integration areas
+## Integration resources
+
+Select an area for resources about how to integrate SAP and Azure in that space.
 
 | Area | Description |
 | ---- | ----------- |
-| Integration with SAP RISE managed workloads | Learn how to [integrate your SAP RISE managed workloads](sap-rise-integration.md#sap-btp-connectivity) with Azure services. |
+| [SAP RISE managed workloads](sap-rise-integration.md#sap-btp-connectivity) | Learn how to integrate your SAP RISE managed workloads with Azure services. |
 | [Microsoft Office](#microsoft-office) | Learn about Office Add-ins in Excel, doing SAP Principal Propagation with Office 365, SAP Analytics Cloud and Data Warehouse Cloud integration and more. |
 | [Microsoft Teams](#microsoft-teams) | Discover collaboration scenarios boosting your daily productivity by interacting with your SAP applications directly from Microsoft Teams. |
 | [Microsoft Power Platform](#microsoft-power-platform) | Learn about the available [out-of-the-box SAP applications](/power-automate/sap-integration/solutions) enabling your business users to achieve more with less. |
 | [SAP Fiori](#sap-fiori) | Increase performance and security of your SAP Fiori applications by integrating them with Azure services. |
-| [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
-| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
+| [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
+| [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
 | [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
 | [Threat Monitoring with Microsoft Sentinel for SAP](#microsoft-sentinel) | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
@@ -180,6 +182,15 @@ For more information about Azure integration with SAP Business Technology Platfo
 - [Explore your Azure data sources with SAP Data Warehouse Cloud](https://discovery-center.cloud.sap/missiondetail/3656/3699/)
 - [Building Applications on SAP BTP with Microsoft Services | OpenSAP course](https://open.sap.com/courses/btpma1)
 
+## Customer resources
+
+These resources include Customer Engagement Initiatives (CEI), public BETAs, and Customer Influence programs:
+
+- [SAP S/4HANA Cloud - MS Teams Integration - Jul 2024 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+- [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
+- [SAP Private Link Service GA announcement after public Beta - Jun 2022 | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
+- [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
+
 ## Free developer accounts
 
 You can use the following free developer accounts to explore integration scenarios for Azure and SAP.
@@ -188,15 +199,6 @@ You can use the following free developer accounts to explore integration scenari
 - [Free account on SAP BTP trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html). Select Singapore for Azure.
 - [GitHub account](https://github.com/), which you can use to host your projects.
 - [Microsoft 365 developer program account](https://developer.microsoft.com/microsoft-365/dev-program)
-
-## Resources
-
-These resources include Customer Engagement Initiatives (CEI), public BETAs, and Customer Influence programs:
-
-- [SAP S/4HANA Cloud - MS Teams Integration - Jul 2024 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
-- [SAP Event Mesh integration with Microsoft Azure Event Grid - Aug 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/2836)
-- [SAP Private Link Service GA announcement after public Beta - Jun 2022 | SAP Blogs](https://blogs.sap.com/2022/06/22/sap-private-link-service-on-azure-is-now-generally-available-ga)
-- [SAP Private Link service CEI - Jul 2022 | SAP Customer Influence](https://influence.sap.com/sap/ino/#campaign/3118)
 
 ## Next steps
 
