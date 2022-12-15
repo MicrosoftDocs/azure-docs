@@ -137,13 +137,13 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 * When deploying virtual machines in a virtual network with a NAT gateway, all ingress traffic addressed to the NAT gateway egresses through the NAT gateway. When using a NAT Gateway with a standard public load balancer, all ingress traffic addressed to the NAT gateway public IP address or addresses will egress through the NAT Gateway. 
 
     > [!NOTE] 
-    > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md)
+    > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md).
 
-* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers)
+* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence. For more information, see [Design virtual networks with NAT gateway](../nat-gateway/nat-gateway-resource.md#timers).
 
 ## Caveats
 
-* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. However, NAT gateways can be deployed on a dual stack virtual network subnet with IPv6 and IPv4 prefixes. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](../nat-gateway/troubleshoot-nat#ipv6-coexistence.md)
+* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. However, NAT gateways can be deployed on a dual stack virtual network subnet with IPv6 and IPv4 prefixes. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](../nat-gateway/troubleshoot-nat.md#ipv6-coexistence).
 
 ## Next steps
 
