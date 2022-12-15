@@ -268,6 +268,9 @@
         - name: Secure training environment
           displayName: vnet, No public IP
           href: how-to-secure-training-vnet.md
+        - name: Secure inference environment
+          displayName: vnet, Managed Endpoint, AKS
+          href: how-to-secure-inferencing-vnet.md
         - name: Use studio in a virtual network
           displayName: vnet
           href: how-to-enable-studio-virtual-network.md
@@ -544,7 +547,7 @@
         - name: Online endpoints (real-time)
           items:
             - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
+              href: how-to-deploy-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
@@ -767,6 +770,14 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
+            - name: AutoML Image Classification
+              href: reference-automl-images-cli-classification.md
+            - name: AutoML Image Instance Segmentation
+              href: reference-automl-images-cli-instance-segmentation.md
+            - name: AutoML Image Multilabel Classification
+              href: reference-automl-images-cli-multilabel-classification.md
+            - name: AutoML Image Object Detection
+              href: reference-automl-images-cli-object-detection.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -795,6 +806,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+    - name: PowerShell
+      href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md
     - name: Image data schemas for AutoML

@@ -77,6 +77,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Add video calling to your Android WebView client app
+      href: quickstarts/voice-video-calling/get-started-android-webview.md
     - name: Record calls
       href: quickstarts/voice-video-calling/get-started-call-recording.md
     - name: Handle calling events
@@ -306,6 +308,8 @@ items:
             href: concepts/interop/guest/teams-client-experience.md
           - name: Teams controls
             href: concepts/interop/guest/teams-administration.md
+          - name: Logs & metrics
+            href: concepts/interop/guest/monitor-logs-metrics.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
@@ -424,6 +428,8 @@ items:
     href: samples/web-calling-sample.md
   - name: UI Library cross platform samples
     href: samples/ui-library-cross-platform.md
+  - name: Call Automation appointment reminder sample
+    href: samples/call-automation-appointment-reminder.md
 - name: References
   items:
   - name: Reference documentation overview
@@ -443,9 +449,9 @@ items:
   - name: Call Automation libraries
     items:
     - name: Call Automation (.NET)
-      href: https://azure.github.io/azure-sdk-for-net/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcallautomation
     - name: Call Automation (Java)
-      href: https://azure.github.io/azure-sdk-for-java/callautomation.html
+      href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-callautomation
   - name: Chat libraries
     items:
     - name: Chat (JavaScript)

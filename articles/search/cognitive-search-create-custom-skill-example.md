@@ -6,7 +6,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/01/2022
 ms.custom: devx-track-csharp
 ---
 

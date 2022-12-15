@@ -44,7 +44,7 @@ CEF normalizes the data, making it more immediately useful for analysis with Mic
 1. The AMA connector installed on the log forwarder collects and parses the logs. 
 1. The connector streams the events to the Microsoft Sentinel workspace to be further analyzed. 
 
-When you install a log forwarder, the originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Log Analytics agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Microsoft Sentinel.
+When you install a log forwarder, the originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Azure Monitor Agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Microsoft Sentinel.
 
 :::image type="content" source="media/connect-cef-ama/syslog-forwarder-diagram-ama.png" alt-text="Diagram showing the data flow from syslog sources to the Microsoft Sentinel workspace, where the AMA is installed on a separate log-forwarding device." border="false":::
 
@@ -160,7 +160,7 @@ You can create DCRs using the [API](/rest/api/monitor/data-collection-rules). Le
 Run this command to launch the installation script:
  
 ```python
-sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure- Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
+sudo wget -O Forwarder_AMA_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/Syslog/Forwarder_AMA_installer.py&&sudo python Forwarder_AMA_installer.py 
 ```
 The installation script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon.  
 

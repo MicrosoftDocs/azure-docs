@@ -27,9 +27,39 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 >[!NOTE]
 > With the release of the 2022-08-31 GA API, the associated preview APIs are being deprecated. If you are using the 2021-09-30-preview or the 2022-01-30-preview API versions, please update your applications to target the 2022-08-31 API version. There are a few minor changes involved, for more information, _see_ the [migration guide](v3-migration-guide.md).
 
-## October 2022
+## December 2022
+
+December 2022
+
+* [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
+
+  The December Form Recognizer Studio release includes the latest updates to Form Recognizer Studio. There are significant improvements to user experience, primarily with custom model labeling support.
+
+  * **Page range**. The Studio now supports analyzing specified pages from a document.
+
+  * **Custom model labeling**:
+
+    * **Run Layout API automatically**. You can opt to run the Layout API for all documents automatically in your blob storage during the setup process for custom model.
+
+    * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
+
+    * **Navigation**.  You can select labels to target labeled words within a document.
+
+    * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
+
+    * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
 
 ---
+
+## November 2022
+
+* **Announcing the latest stable release of Azure Form Recognizer libraries**
+  * This release includes important changes and updates for .NET, Java, JavaScript, and Python SDKs. For more information, _see_ [**Azure SDK DevBlog**](https://devblogs.microsoft.com/azure-sdk/announcing-new-stable-release-of-azure-form-recognizer-libraries/).
+  * The most significant enhancements are the introduction of two new clients, the **`DocumentAnalysisClient`** and the **`DocumentModelAdministrationClient`**.
+
+---
+
+## October 2022
 
 * **Form Recognizer versioned content**
   * Form Recognizer documentation has been updated to present a versioned experience. Now, you can choose to view content targeting the v3.0 GA experience or the v2.1 GA experience. The v3.0 experience is the default.
@@ -580,7 +610,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * ** **Bitmap Image file (.bmp) support for custom forms and training methods in the [FormContentType](/java/api/com.azure.ai.formrecognizer.models.formcontenttype?view=azure-java-preview&preserve-view=true#fields) fields**:
 
   * `image/bmp`
-  
+
   * **New property `Pages`  supported by the following classes**:
 
    **[RecognizeBusinessCardsOptions](/java/api/com.azure.ai.formrecognizer.models.recognizebusinesscardsoptions?view=azure-java-preview&preserve-view=true)**</br>
