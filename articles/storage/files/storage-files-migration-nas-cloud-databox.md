@@ -16,7 +16,7 @@ This migration article is one of several involving the keywords NAS and Azure Da
 > [!div class="checklist"]
 > * Data source: Network Attached Storage (NAS)
 > * Migration route: NAS &rArr; DataBox &rArr; Azure file share
-> * Caching files on-premises: No, the final goal is to use the Azure file shares directly in the cloud. There is no plan to use Azure File Sync.
+> * No caching files on-premises: Because the final goal is to use the Azure file shares directly in the cloud, there's no plan to use Azure File Sync.
 
 If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
