@@ -8,6 +8,8 @@
   items:
   - name: Supported scenarios
     href: sap-planning-supported-configurations.md
+  - name: SAP and Microsoft integration scenarios
+    href: integration-get-started.md
   - name: Supported SAP software for Azure deployments
     href: sap-supported-product-on-azure.md
   - name: Checklist for deploying SAP workloads on Azure
