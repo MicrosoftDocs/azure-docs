@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: conceptual
-ms.date: 12/13/2022
+ms.date: 12/15/2022
 # As a BizTalk Server customer, I want to better understand why I should migrate to Azure Integration Services in the cloud from on-premises BizTalk Server.
 ---
 
