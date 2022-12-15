@@ -59,7 +59,7 @@ cd changeanalysis-webapp-storage-sample
    | Environment variable | Description |
    | -------------------- | ----------- | 
    | `SUBSCRIPTION_ID`    | Your Azure subscription ID. |
-   | `LOCATION`           | The location of the resoure group where you'd like to deploy the sample application. |
+   | `LOCATION`           | The location of the resource group where you'd like to deploy the sample application. |
 
 1. Run the script from the `./changeanalysis-webapp-storage-sample` directory.
 
@@ -69,7 +69,7 @@ cd changeanalysis-webapp-storage-sample
 
 ## Enable Change Analysis
 
-In the Azure portal, [navigate to the Change Analysis standalone UI](./change-analysis-visualizations.md). This may take a few minutes as the `Microsoft.ChangeAnalysis` resource provider is registered. 
+In the Azure portal, [navigate to the Change Analysis standalone UI](./change-analysis-visualizations.md). Page loading may take a few minutes as the `Microsoft.ChangeAnalysis` resource provider is registered. 
 
 :::image type="content" source="./media/change-analysis/change-analysis-blade.png" alt-text="Screenshot of Change Analysis in Azure portal.":::
 
@@ -102,7 +102,7 @@ In the Azure portal, navigate to the Change Analysis overview page. Since you've
 
 :::image type="content" source="./media/change-analysis/entry-of-outage.png" alt-text="Screenshot of outage entry on the Change Analysis pane.":::
 
-Since the connection string is a secret value, we hide this on the overview page for security purposes. With sufficient permission to read the web app, you can select the change to view details around the old and new values: 
+Since the connection string is a secret value, we hide it on the overview page for security purposes. With sufficient permission to read the web app, you can select the change to view details around the old and new values: 
 
 :::image type="content" source="./media/change-analysis/view-change-details.png" alt-text="Screenshot of viewing change details for troubleshooting.":::
 
