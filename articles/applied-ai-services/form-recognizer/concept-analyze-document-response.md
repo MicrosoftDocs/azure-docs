@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer analyze document API response
+title: Form Recognizer APIs analyze document response
 titleSuffix: Azure Applied AI Services
 description: Description of the different objects returned as part of the analyze document response and how to use the document analysis response in your applications.
 author: laujan
@@ -19,7 +19,7 @@ In this article, we'll examine the different objects returned as part of the ana
 
 ## Analyze document request
 
-Form Recognizer analyzes images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
+The Form Recognizer APIs analyze images, PDFs, and other document files to extract and detect various content, layout, style, and semantic elements. The analyze operation is an async API. Submitting a document returns an **Operation-Location** header that contains the URL to poll for completion. When an analysis request completes successfully, the response contains the elements described in the [model data extraction](concept-model-overview.md#model-data-extraction).
 
 ### Response elements
 
@@ -123,7 +123,7 @@ Based on its position and styling, a cell may be classified as general content, 
 
 * A table caption specifies content that explains the table. A table may further have an associated caption and a set of footnotes. Unlike a description cell, a caption typically lies outside the grid layout.  A table footnote annotates content inside the table, often marked with a footnote symbol.  It's often found below the table grid.
 
-**Layout tables differ from document fields extracted from tabular data**.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  Extracting structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant postprocessing to map the row or column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information is exposed as document fields.  Such trained models can also handle tabular data without headers and structured data in non-tabular forms, for example the work experience section of a resume.
+**Layout tables differ from document fields extracted from tabular data**.  Layout tables are extracted from tabular visual content in the document without considering the semantics of the content.  In fact, some layout tables are designed purely for visual layout and may not always contain structured data.  The method to extract structured data from documents with diverse visual layout, like itemized details of a receipt, generally requires significant post processing. It's essential to map the row or column headers to structured fields with normalized field names.  Depending on the document type, use prebuilt models or train a custom model to extract such structured content.  The resulting information is exposed as document fields.  Such trained models can also handle tabular data without headers and structured data in non-tabular forms, for example the work experience section of a resume.
 
 :::image type="content" source="media/table.png" alt-text="Layout table":::
 
