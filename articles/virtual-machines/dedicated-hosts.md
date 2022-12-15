@@ -51,7 +51,7 @@ If you assign a host group to an availability zone, all VMs created on that host
 
 ### Use Fault Domains for fault isolation
 
-A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you are required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs do not require any fault domain assignment.
+A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you're required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs don't require any fault domain assignment.
 
 Fault domains aren't the same as colocation. Having the same fault domain for two hosts doesn't mean they are in proximity with each other.
 
@@ -61,7 +61,7 @@ VMs deployed to hosts with different fault domains, will have their underlying m
 
 ### Using Availability Zones and Fault Domains
 
-You can use both capabilities together to achieve even more fault isolation. To use both, specify the availability zone and fault domain count in for each host group, assign a fault domain to each hosts in the group, then assign an availability zone to each VM.
+You can use both capabilities together to achieve even more fault isolation. To use both, specify the availability zone and fault domain count in for each host group, assign a fault domain to each host in the group, then assign an availability zone to each VM.
 
 The [Resource Manager sample template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) uses zones and fault domains to spread hosts for maximum resiliency in a region.
 
