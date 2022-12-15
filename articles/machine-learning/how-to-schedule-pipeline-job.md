@@ -104,6 +104,8 @@ When you have a pipeline job with satisfying performance and outputs, you can se
     After you configure the basic settings, you can directly select **Review + Create**, and the schedule will automatically submit jobs according to the recurrence pattern you specified.
 
 ---
+> [!NOTE]
+> The following properties that need to be specified apply for CLI and SDK.
 
 - **(Required)** `frequency` specifies the unit of time that describes how often the schedule fires. Can be `minute`, `hour`, `day`, `week`, `month`.
   
@@ -254,6 +256,9 @@ Following properties can be changed when defining schedule:
 |outputs| A dictionary of inputs to be used when running the pipeline job. |
 |experiment_name|Experiment name of triggered job.|
 
+> [!NOTE]
+> Studio UI users can only modify input, output, and runtime settings when creating a schedule. `experiment_name` can only be changed using the CLI or SDK.
+
 ### Expressions supported in schedule
 
 When define schedule, we support following expression that will be resolved to real value during job runtime.
@@ -350,6 +355,9 @@ You can select a schedule name to show the schedule detail page. The schedule de
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/schedules/schedule.sh" ID="update_schedule":::
 
+> [!NOTE]
+> If you would like to update more than just tags/description, it is recomend to use `az ml schedule create --file update_schedule.yml`
+
 # [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
@@ -359,6 +367,7 @@ You can select a schedule name to show the schedule detail page. The schedule de
 # [studio UI](#tab/ui)
 
 #### Update a new version pipeline to existing schedule
+
 
 Once you set up a schedule to do retraining or batch inference on production regularly, you may still work on fine tuning or optimizing the model.
 
@@ -442,6 +451,9 @@ You can also apply [Azure CLI JMESPath query](/cli/azure/query-azure-cli) to que
 
 :::code language="azurecli" source="~/azureml-examples-main/CLI/schedules/schedule.sh" ID="query_triggered_jobs":::  
 
+> [!NOTE]
+> For a simpler way to find all jobs triggered by a schedule, see the *Jobs history* on the *schedule detail page* using the studio UI.
+
 ---
 
 ## Delete a schedule
@@ -468,13 +480,13 @@ You can delete a schedule from the schedule detail page or all schedules tab.
 ---
 ## RBAC (Role-based-access-control) support
 
-Since schedules are usually used for production, to reduce impact of operations, workspace admins may want to restrict access to creating and managing schedules within a workspace.
+Since schedules are usually used for production, to reduce impact of misoperation, workspace admins may want to restrict access to creating and managing schedules within a workspace.
 
 Currently there are three action rules related to schedules and you can configure in Azure portal. You can learn more details about [how to manage access to an Azure Machine Learning workspace.](how-to-assign-roles.md#create-custom-role)
 
 | Action | Description                                                                | Rule                                                          |
 |--------|----------------------------------------------------------------------------|---------------------------------------------------------------|
-| Read   | et and list schedules in Machine Learning workspace                        | Microsoft.MachineLearningServices/workspaces/schedules/read   |
+| Read   | Get and list schedules in Machine Learning workspace                        | Microsoft.MachineLearningServices/workspaces/schedules/read   |
 | Write  | Create, update, disable and enable schedules in Machine Learning workspace | Microsoft.MachineLearningServices/workspaces/schedules/write  |
 | Delete | Delete a schedule in Machine Learning workspace                            | Microsoft.MachineLearningServices/workspaces/schedules/delete |
 
@@ -489,9 +501,9 @@ Currently there are three action rules related to schedules and you can configur
 - Why my schedules don't trigger job at the time I set before?
   - By default schedules will use UTC timezone to calculate trigger time. You can specify timezone in the creation wizard, or update timezone in schedule detail page.
   - If you set the recurrence as the 31st day of every month, in months with less than 31 days, the schedule won't trigger jobs.
-  - If you are using cron expressions, MONTH isn't supported. If you pass a value, it will be ignored and treated as *. This is a known limitation.
-- Does schedule UI support event-based schedules?
-    No.
+  - If you're using cron expressions, MONTH isn't supported. If you pass a value, it will be ignored and treated as *. This is a known limitation.
+- Are event-based schedules supported?
+    No, V2 schedule does not support event-based schedules.
 
 ## Next steps
 
