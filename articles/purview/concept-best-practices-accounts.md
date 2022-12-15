@@ -55,9 +55,25 @@ Currently, Microsoft Purview doesn't support multi-tenancy. If you have Azure da
 
 An exception applies to VM-based data sources and Power BI tenants.For more information about how to scan and register a cross tenant Power BI in a single Microsoft Purview account, see, [Register and scan a cross-tenant Power BI](./register-scan-power-bi-tenant-cross-tenant.md). 
 
-:::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Microsoft Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
+:::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Screenshot that shows multiple Microsoft Purview accounts based on multi-tenancy requirements."lightbox="media/concept-best-practices/accounts-multiple-tenants.png":::
 
-### Billing model 
+## Default Microsoft Purview account
+
+Having multiple Microsoft Purview accounts in a tenant poses the challenge of which Microsoft Purview account should all other services like PBI, Synapse connect to. 
+
+This is where default Microsoft Purview account will help. An Azure global administrator (or tenant admin) can designate a Microsoft Purview account as **default** Microsoft Purview account at the tenant level. At any point in time a tenant can have only 0 or 1 default accounts. Once this is set any user in your organization has clear understanding that this account is the "right" one, when connecting to Microsoft Purview.
+
+### Manage default account for tenant
+
+* You can set default flag as 'Yes' only after the account is created. 
+
+* Setting up wrong default account can have security implications so only Azure global administrator at tenant level (Tenant Admin) can set the default account flag as 'Yes'. 
+
+* Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default Microsoft Purview account and then set the flag as 'Yes' to the new Microsoft Purview account.
+
+* Setting up default account is a control plane operation and hence the Microsoft Purview governance portal will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default Microsoft Purview account.
+
+## Billing model 
 
 Review [Microsoft Purview Pricing model](https://azure.microsoft.com/pricing/details/azure-purview) when defining budgeting model and designing an architecture for your organization. One billing is generated for a single Microsoft Purview account in the subscription where Microsoft Purview account is deployed. This model also applies to other Microsoft Purview costs such as scanning and classifying metadata inside Microsoft Purview Data Map.
 

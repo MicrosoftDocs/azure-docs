@@ -580,6 +580,8 @@
       items:
       - name: Azure CLI
         href: flexible-server/how-to-create-server-customer-managed-key-cli.md
+      - name: Azure portal
+        href: flexible-server/how-to-create-server-customer-managed-key-portal.md
     - name: Database deployment
       items:
       - name: GitHub Actions
