@@ -56,7 +56,7 @@ Select the Synapse account -> pipeline -> activity, you can view the lineage inf
 
 ## Monitor the Azure Synapse Analytics links
 
-In Microsoft Purview governance portal, you can [monitor the Azure Synapse Analytics links](how-to-monitor-data-map-population.md/monitor-links).
+In Microsoft Purview governance portal, you can [monitor the Azure Synapse Analytics links](how-to-monitor-data-map-population.md#monitor-links).
 
 ## Next steps
 

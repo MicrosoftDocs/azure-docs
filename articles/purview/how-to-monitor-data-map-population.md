@@ -1,6 +1,6 @@
 ---
 title: Monitor data map population in Microsoft Purview
-description: This guide describes how to monitor the scan runs in Microsoft Purview. 
+description: This guide describes how to monitor data map population including the scan runs and links in Microsoft Purview. 
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
@@ -104,13 +104,13 @@ To monitor the assets and relationship ingested over the links:
 
     :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links.png" alt-text="Screenshot of view link results."  lightbox="./media/how-to-monitor-scan-runs/monitor-links.png":::
 
-1. At the bottom of the graph, there's a **View more** link for you to explore further. In the **Link status** page, you can see a list of source names along with the source type, assets ingested, relationship ingested and the last run date time. The filters in the previous page will be carried over, and you can further filter the list by source types, source name and date range.
+1. At the bottom of the graph, there's a **View more** link for you to explore further. In the **Link status** page, you can see a list of source names along with the source type, assets ingested, relationship ingested and the last run date time. The filters in the previous page will be carried over, and you can further filter the list by source type, source name and date range.
 
     :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links-drilldown.png" alt-text="Screenshot of view link results by source."  lightbox="./media/how-to-monitor-scan-runs/monitor-links-drilldown.png":::
 
-1. You can drill down to each source to see the next level details by clicking the source name. For example, for Azure Data Factory, it will show how each pipeline activity reports the assets and relationship to Microsoft Purview, in the format of `<pipeline_name>/<activity_name>`.
+1. You can drill down to each source to see the next level details by clicking the source name. For example, for Azure Data Factory, it shows how each pipeline activity reports the assets and relationship to Microsoft Purview, with the name in the format of `<pipeline_name>/<activity_name>`.
 
-    :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-level.png" alt-text="Screenshot of view link results by source's sub-artifacts."  lightbox="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-level.png":::
+    :::image type="content" source="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-layer.png" alt-text="Screenshot of view link results by source's sub-artifacts."  lightbox="./media/how-to-monitor-scan-runs/monitor-links-drilldown-second-layer.png":::
 
 ### Known limitations
 
