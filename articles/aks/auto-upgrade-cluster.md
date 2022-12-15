@@ -61,6 +61,10 @@ If you’re using Planned Maintenance and Auto-Upgrade, your upgrade will start 
 
 For more information on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster][planned-maintenance].
 
+## Auto upgrade limitations
+
+If you’re using Auto-Upgrade you cannot anymore upgrade the control plane first, and then upgrade the individual node pools. Auto-Upgrade will always upgrade the control plane and the node pools together. In Auto-Upgrade there is no concept of upgrading the control plane only, and trying to run the command `az aks upgrade --control-plane-only` will raise the error: `NotAllAgentPoolOrchestratorVersionSpecifiedAndUnchanged: Using managed cluster api, all Agent pools' OrchestratorVersion must be all specified or all unspecified. If all specified, they must be stay unchanged or the same with control plane.`
+
 ## Best practices for auto-upgrade
 
 The following best practices will help maximize your success when using auto-upgrade:
