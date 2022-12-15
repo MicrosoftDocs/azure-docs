@@ -539,6 +539,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM audit event schema
+          href: normalization-schema-audit.md
         - name: ASIM authentication schema
           href: authentication-normalization-schema.md
         - name: ASIM DNS schema
