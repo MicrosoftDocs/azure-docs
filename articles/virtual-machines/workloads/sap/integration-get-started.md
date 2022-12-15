@@ -37,7 +37,7 @@ We have over thirty years of partnership between SAP and Microsoft, which is a f
 | [Azure Active Directory (Azure AD)](#azure-ad) | Ensure end-to-end SAP user authentication and authorization with Azure Active Directory. | Single sign-on (SSO) and multi-factor authentication (MFA) are the foundation for a secure and seamless user experience. |
 | [Azure Integration Services](#azure-integration-services) | Connect your SAP workloads with your end users, business partners, and their systems with world-class integration services. | Learn about co-development efforts that enable SAP Event Mesh to exchange cloud events with Azure Event Grid, understand how you can achieve high-availability for services like SAP Cloud Integration, automate your SAP invoice processing with Logic Apps and Azure Cognitive Services and more. |
 | [App Development and DevOps](#app-development-and-devops) | Apply best-in-class developer tooling to your SAP app developments and DevOps processes. |
-| Azure Data Services | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
+| [Azure Data Services](#azure-data-services) | Learn how to integrate your SAP data with Data Services like Azure Synapse Analytics, Azure Data Lake Storage, Azure Data Factory, Power BI, Data Warehouse Cloud, Analytics Cloud and more. |
 | Threat Monitoring with Microsoft Sentinel for SAP | Learn how to best secure your SAP workload with Microsoft Sentinel, prevent incidents from happening and detect and respond to threats in real-time. |
 | SAP Business Technology Platform (BTP) | Discover integration scenarios like SAP Private Link to securely and efficiently connect your BTP apps to your Azure workloads. |
 
@@ -136,6 +136,24 @@ For more information about integrating SAP with Microsoft services natively, see
 Also see the following SAP resources: 
 - [dotNET speaks OData too, how to implement Azure App Service with SAP Gateway](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/)
 - [Apply cloud native deployment practice blue-green to SAP BTP apps with Azure DevOps](https://blogs.sap.com/2019/12/20/go-blue-green-for-your-cloud-foundry-app-from-webide-with-azure-devops/)
+
+### Azure Data Services
+
+For more information about integration with Azure Data Services, see the following Microsoft and Azure resources:
+
+- [SAP knowledge center for Azure Data Factory and Synapse](../../../data-factory/industry-sap-overview.md)
+- [Track end-to-end lineage of your SAP data with Microsoft Purview](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/of-kings-amp-queens-and-sap-scans-to-identify-the-right-lineage/ba-p/3268816)
+- [Replicating SAP data using the CDC connector](../../../data-factory/sap-change-data-capture-introduction-architecture.md)
+- [Replicating SAP data using the OData connector with Synapse Pipelines](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/extracting-sap-data-using-odata-part-1-the-first-extraction/ba-p/2841635)
+- [Use SAP HANA in Power BI Desktop](/power-bi/desktop-sap-hana)
+- [DirectQuery and SAP HANA](/power-bi/desktop-directquery-sap-hana)
+- [Use the SAP BW Connector in Power BI Desktop](/power-bi/desktop-sap-bw-connector)
+- [Enable SAP Principal Propagation for live OData feeds with Power Query](expose-sap-odata-to-power-query.md)
+- [SAP HANA Connector for Power Query](/power-query/connectors/sap-hana/overview)
+
+Also see the following SAP resources:
+- [Integrate SAP Data Warehouse Cloud with Power BI and Azure Synapse Analytics](https://blogs.sap.com/2022/07/27/your-sap-on-azure-part-28-integrate-sap-data-warehouse-cloud-with-powerbi-and-azure-synapse/)
+- [Extend SAP Integrated Business Planning forecasting algorithms with Azure Machine Learning](https://blogs.sap.com/2022/10/03/microsoft-azure-machine-learning-for-supply-chain-planning/)
 
 ## Free developer accounts
 
