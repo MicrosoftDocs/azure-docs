@@ -28,7 +28,7 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 > [!WARNING]
 > By improperly editing network configuration files, you can lose network access to your VM. We recommended that you test your configuration changes on non-production systems. The instructions in this article have been tested on the latest versions of the Linux images in the Azure Marketplace. For more detailed instructions, consult the documentation for your own version of Linux.
 
-## Ubuntu
+## Ubuntu (17.10 or later)
 
 1. Edit the */etc/dhcp/dhclient6.conf* file, and add the following line:
 
@@ -36,33 +36,35 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
     timeout 10;
     ```
 
-1. Edit the network configuration for the eth0 interface with the following configuration:
+2. Create a new file in the cloud.cfg.d folder that will retain your configuration through reboots.  The information in this file will override the default [NETPLAN]( https://netplan.io) config (in YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml).
 
-   * On **Ubuntu 12.04 and 14.04**, edit the */etc/network/interfaces.d/eth0.cfg* file. 
-   * On **Ubuntu 16.04**, create a new override file in the cloud.cfg.d folder that will retain your configuration, for example a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
+For example, create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
 
     ```config
-    iface eth0 inet6 auto
-        up sleep 5
-        up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
-    
     network:
+        version: 2
         ethernets:
             eth0:
                 addresses: 172.16.0.30/24
                 dhcp4: true
                 dhcp6: true
+                match:
+                    driver: hv_netvsc
+                    macaddress: 00:00:00:00:00:00
+            set-name: eth0
     ```
+    
+Note the IP address range and MAC address would be specific to your configuraion and should be replaced with the appropriate values.
 
-1.  Save the file and reboot.
+3.  Save the file and reboot.
 
-1. Renew the IPv6 address:
+4. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
 
-Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
+On **Ubuntu 17.10**, 
 
 Include a *dhcp6:true* statement for each ethernet interface in your configuration.  For example:
 
@@ -85,7 +87,7 @@ For reference information about NETPLAN, see https://netplan.io/reference.
     timeout 10;
     ```
 
-1. Edit the */etc/network/interfaces* file, and add the following configuration:
+2. Edit the */etc/network/interfaces* file, and add the following configuration:
 
     ```config
     iface eth0 inet6 auto
@@ -93,7 +95,7 @@ For reference information about NETPLAN, see https://netplan.io/reference.
         up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
     ```
 
-1. Renew the IPv6 address:
+3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -107,14 +109,14 @@ For reference information about NETPLAN, see https://netplan.io/reference.
     NETWORKING_IPV6=yes
     ```
 
-1. Edit the */etc/sysconfig/network-scripts/ifcfg-eth0* file, and add the following two parameters:
+2. Edit the */etc/sysconfig/network-scripts/ifcfg-eth0* file, and add the following two parameters:
 
     ```config
     IPV6INIT=yes
     DHCPV6C=yes
     ```
 
-1. Renew the IPv6 address:
+3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -130,13 +132,13 @@ Recent SUSE Linux Enterprise Server (SLES) and openSUSE images in Azure have bee
     sudo zypper install dhcp-client
     ```
 
-1. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and add the following parameter:
+2. Edit the */etc/sysconfig/network/ifcfg-eth0* file, and add the following parameter:
 
     ```config
     DHCLIENT6_MODE='managed'
     
 
-1. Renew the IPv6 address:
+3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -152,13 +154,13 @@ Recent SLES and openSUSE images in Azure have been pre-configured with DHCPv6. N
     BOOTPROTO='dhcp'
     ```
 
-1. To the */etc/sysconfig/network/ifcfg-eth0* file, add the following parameter:
+2. To the */etc/sysconfig/network/ifcfg-eth0* file, add the following parameter:
 
     ```config
     DHCLIENT6_MODE='managed'
     ```
 
-1. Renew the IPv6 address:
+3. Renew the IPv6 address:
 
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
@@ -178,7 +180,7 @@ Recent CoreOS images in Azure have been pre-configured with DHCPv6. No other cha
     DHCP=ipv6
     ```
 
-1. Renew the IPv6 address:
+2. Renew the IPv6 address:
 
     ```bash
     sudo systemctl restart systemd-networkd
