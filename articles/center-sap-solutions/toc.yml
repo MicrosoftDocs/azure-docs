@@ -50,8 +50,6 @@ items:
       href: monitor/faq.yml
     - name: Providers in Azure Monitor for SAP solutions
       href: monitor/providers.md
-  - name: SAP on Azure VM workloads
-    href: ../virtual-machines/workloads/sap/index.yml
 
 - name: Quickstarts
   items:
