@@ -3,7 +3,7 @@ title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -47,38 +47,43 @@ To complete these tasks, your account should be assigned the Virtual Machine Con
 
 Images of replicated machines are held in Azure storage. Azure VMs are created from the storage when you fail over from on-premises to Azure. The storage account must be in the same region as the Recovery Services vault.
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Create a resource** > **Storage** > **Storage account**.
-2. In **Create storage account** > **Basics**, under **Project details** section, do the following:
+1. In the [Azure portal](https://portal.azure.com) portal, select **Create a resource**.
+1. Under categories, select **Storage** > **Storage account** > **Create storage account**.
+1. In the **Create storage account** page, under the **Basics** > **Project details** section, do the following:
     1. Under **Subscription**, choose the subscription in which you want to create the new storage account.
-    1. Under **Resource group**, enter a new resource group. An Azure resource group is a logical container in which Azure resources are deployed and managed. For this tutorial, use **ContosoRG**.
+    1. Under **Resource group**, enter a new resource group. An Azure resource group is a logical container in which Azure resources are deployed and managed. For example, **ContosoRG**.
         > [!Note]
-        > Use the **Create new** option under the **Resource group** field to create and use a new resource group.
-1. In **Create storage account** > **Basics**, under **Instance details** section, do the following:
-    1. Under **Storage account name**, enter a name for the account.  The name you choose must be unique within Azure- it must be from 3 to 24 characters long, and only use lowercase letters and numbers. For this tutorial, use **contosovmsacct1910171607**.
-    1. In **Region**, choose the geographic location for your storage account. For this tutorial, use **(Europe) West Europe**.
+        > You can also create a new resource group by selecting **Create new**.
+
+1. In the **Create storage account** page, under **Basics** > **Instance details** section, do the following:
+    1. Under **Storage account name**, enter a name for the account.  The name you choose must be unique within Azure. It must be 3 to 24 characters long, and only use lowercase letters and numbers. For example, **contosovmsacct1910171607**.
+    1. In **Region**, select the geographic location for your storage account. For example, **(Europe) West Europe**.
     1. In **Performance**, select **Standard**.
-    1. In **Redundancy**, select the default **Geo-redundant storage (GRS)** for storage redundancy.
-1. Select the **Review** option and check the selected settings.
-1. Select **Create** to create the storage account.
+    1. In **Redundancy**, retain the default **Geo-redundant storage (GRS)** for storage redundancy.
+1. Select **Review** and review your settings.
+1. Select **Create**.
 
 :::image type="Protection state" source="media/tutorial-prepare-azure/create-storageacct.png" alt-text="Screenshot of the Create a storage account options.":::
 
 <br>
 
-If you want to create a legacy storage account type, use the provided link under **Create storage account** > **Basics**, under **Instance details** section. This redirects you to a new page to a create legacy storage account.
-
-:::image type="Protection state" source="media/tutorial-prepare-azure/create-legacystorageacct.png" alt-text="Screenshot of the Create a legacy storage account options.":::
+> [!NOTE]
+> If you want to create a legacy storage account type, select the provided link under **Basics** > **Instance details** section. This redirects you to **Create storage account** page to a create legacy storage account.
+> :::image type="Protection state" source="media/tutorial-prepare-azure/create-legacystorageacct.png" alt-text="Screenshot of the Create a legacy storage account options.":::
 
 ## Create a recovery services vault
 
-1. In the Azure portal, select **+Create a resource**, and then search the Azure Marketplace for Recovery Services.
-2. Select **Backup and Site Recovery**. Next, select **Create**.
-1. In **Create Recovery Services vault** > **Basics**, do the following:
-    1. Under **Subscription**, choose the subscription in which you want to create the new recovery services vault.
-    1. In **Resource group**, select an existing resource group or create a new one. For this tutorial, use **contosoRG**.
-    2. In **Vault name**, enter a friendly name to identify the vault. For this tutorial, use **ContosoVMVault**.
-    3. In **Region**, select the region where the vault should be located. For this tutorial, use **(Europe) West Europe**.
-    1. Select **Review + create** > **Create** to create the storage account.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
+1. Search the Azure Marketplace for *Recovery Services*.
+1. Select **Backup and Site Recovery**. Next, select **Create**.
+1. In the **Create Recovery Services vault** page, under the **Basics** > **Project details** section, do the following: 
+    1. Under **Subscription**, select the subscription in which you want to create the new recovery services vault.
+    1. In **Resource group**, select an existing resource group or create a new one. For example, **contosoRG**.
+
+1. In the **Create Recovery Services vault** page, under **Basics** > **Instance details** section, do the following:
+    1. In **Vault name**, enter a friendly name to identify the vault. For example, **ContosoVMVault**.
+    1. In **Region**, select the region where the vault should be located. For example, **(Europe) West Europe**.
+    1. Select **Review + create** > **Create** to create the recovery vault.
     
 > [!NOTE]
 > To quickly access the vault from the dashboard, select **Pin to dashboard**.
@@ -91,20 +96,22 @@ The new vault appears on **Dashboard** > **All resources**, and on the main **Re
 
 When Azure VMs are created from storage after failover, they're joined to this network.
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**. Leave Resource Manager selected as the deployment model.
-1. In **Create storage account** > **Basics**, do the following:
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
+1. Under categories, select **Networking** > **Virtual network**. 
+1. In **Create virtual network** page, under the **Basics** tab, do the following:
     1. In **Subscription**, select the subscription in which to create the network.
-    2. In **Resource group**, specify the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
-    1. In **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For this tutorial, use **ContosoASRnet**.
+    2. In **Resource group**, select the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
+    1. In **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For example, **ContosoASRnet**.
     1.  In **Region**, choose **(Europe) West Europe**. The network must be in the same region as the Recovery Services vault.
          :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options."::: 
-1. In **Create storage account** > **IP addresses**, do the following:
-    1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...) option under available IP address range, then select **Delete address space**.
+
+1. In **Create storage account** page, under the **IP addresses** tab, do the following:
+    1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...), under available IP address range, then select **Delete address space**.
         :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the delete address space."::: 
-    1. After deleting the pre-existing address range, select **Add an IP address space** option to open a new pane.
+    1. After deleting the pre-existing address range, select **Add an IP address space**.
         :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Address space size** enter **10.0.0.**.
-    1. Under **Address space size**, select the **/24 (256 addresses)** option.
+    1. In **Starting address** enter **10.0.0.**.
+    1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
         :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
