@@ -161,6 +161,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/aks/azure-csi-blob-storage-dynamic.md",
+            "redirect_url": "/azure/aks/azure-csi-blob-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-csi-blob-storage-static.md",
+            "redirect_url": "/azure/aks/azure-csi-blob-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-csi-disk-storage-provision.md",
+            "redirect_url": "/azure/aks/azure-csi-disk-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-csi-disks-dynamic-pv.md",
+            "redirect_url": "/azure/aks/azure-csi-disk-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-disk-volume.md",
+            "redirect_url": "/azure/aks/azure-csi-disk-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-files-dynamic-pv.md",
+            "redirect_url": "/azure/aks/azure-csi-files-provision",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/azure-files-volume.md",
+            "redirect_url": "/azure/aks/azure-csi-files-provision",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
             "redirect_document_id": false
