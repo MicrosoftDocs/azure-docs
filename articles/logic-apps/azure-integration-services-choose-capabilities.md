@@ -6,7 +6,8 @@ ms.service: logic-apps
 ms.suite: integration
 author: kewear
 ms.author: kewear
-ms.reviewer: estfan, azlams.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: conceptual
 ms.date: 12/15/2022
 # As an Azure customer, I want to better understand which offerings in Azure Integration Services work best for my integration scenarios and requirements.
 ---
