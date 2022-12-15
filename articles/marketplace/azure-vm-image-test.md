@@ -111,7 +111,7 @@ $Password = "<Password>"
 $OS = "Linux"
 $PortNo = "22"
 $CompanyName = "ABCD"
-$AppID = "<Application ID>"
+$AppId = "<Application ID>"
 $TenantId = "<Tenant ID>"
 
 $body = @{
@@ -121,7 +121,7 @@ $body = @{
    "OS" = $OS
    "PortNo" = $PortNo
    "CompanyName" = $CompanyName
-   "AppID" = $AppID
+   "AppId" = $AppId
    "TenantId" = $TenantId
 } | ConvertTo-Json
 
@@ -183,7 +183,7 @@ $Body = @{
    "OS" = "Windows"
    "PortNo" = "5986"
    "CompanyName" = "ABCD"
-   "AppID" = "XXXX-XXXX-XXXX"
+   "AppId" = "XXXX-XXXX-XXXX"
    "TenantId" = "XXXX-XXXX-XXXX"
 } | ConvertTo-Json
 

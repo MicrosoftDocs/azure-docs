@@ -41,7 +41,7 @@ The following are well-known ports used by services listed in this article. If a
 | 80 | Unsecured web traffic (HTTP) |
 | 443 | Secured web traffic (HTTPS) |
 | 445 | SMB traffic used to access file shares in Azure File storage |
-| 8787 | Used when connecting to RStudio on a compute instance |
+| 8787 | Used when connecting to RStudio or Posit Workbench (formerly RStudio Workbench) on a compute instance |
 | 18881 | Used to connect to the language server to enable IntelliSense for notebooks on a compute instance. |
 
 ## Required public internet access
@@ -97,7 +97,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     | **\*.anaconda.org** | Used to get repo data. |
     | **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
-    | **ghcr.io**</br>**pkg-containers.githubusercontent.com** | Used by the Custom Applications feature on a compute instance to pull images from Github Container Repository (ghcr.io). For example, the RStudio Workbench image is hosted here. |
+    | **ghcr.io**</br>**pkg-containers.githubusercontent.com** | Used by the Custom Applications feature on a compute instance to pull images from GitHub Container Repository (ghcr.io). For example, the RStudio or Posit Workbench image is hosted here. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
     | **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
@@ -114,7 +114,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
     For more information on configuring application rules, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
-1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
+1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Secure AKS inference environment](how-to-secure-kubernetes-inferencing-environment.md) articles.
 
 ## Kubernetes Compute
 

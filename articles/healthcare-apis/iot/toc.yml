@@ -4,12 +4,14 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is MedTech service?
+  - name: What is the MedTech service?
     href: iot-connector-overview.md
+  - name: The MedTech service data flow
+    href: iot-data-flow.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with MedTech service
+  - name: Get started with the MedTech service
     href: get-started-with-iot.md
   - name: Deploy the MedTech service
     expanded: true
@@ -18,17 +20,19 @@ items:
       expanded: true
       items:
       - name: Choose a deployment method
-        href: deploy-iot-connector-in-azure.md
-      - name: Quickstart template
-        href: deploy-02-new-button.md
-      - name: Azure PowerShell and CLI
-        href: deploy-08-new-ps-cli.md
-      - name: Manual deployment - Prerequisites
-        href: deploy-03-new-manual.md
-      - name: Manual deployment - Configure
-        href: deploy-05-new-config.md
-      - name: Manual deployment - Deploy
-        href: deploy-06-new-deploy.md   
+        href: deploy-new-choose.md
+      - name: Azure Resource Manager template
+        href: deploy-new-button.md
+      - name: Azure PowerShell or Azure CLI
+        href: deploy-new-powershell-cli.md
+      - name: Azure Bicep
+        href: deploy-new-bicep-powershell-cli.md
+      - name: Azure portal - Prerequisites
+        href: deploy-new-manual.md
+      - name: Azure portal - Configure
+        href: deploy-new-config.md
+      - name: Azure portal - Deploy
+        href: deploy-new-deploy.md   
 - name: Tutorials
   expanded: true
   items:
@@ -72,23 +76,21 @@ items:
     items:
     - name: Errors and conditions
       href: iot-troubleshoot-error-messages-and-conditions.md
-    - name: Device and destination mappings
+    - name: Device and FHIR destination mappings
       href: iot-troubleshoot-mappings.md
 - name: Concepts
   expanded: false
   items:
-  - name: MedTech service data flow
-    href: iot-data-flow.md
-  - name: MedTech service and Azure Machine Learning Service
+  - name: The MedTech service and Azure Machine Learning Service
     href: iot-connector-machine-learning.md
-  - name: MedTech service and Microsoft Power BI
+  - name: The MedTech service and Microsoft Power BI
     href: iot-connector-power-bi.md
-  - name: MedTech service and Microsoft Teams notifications
+  - name: The MedTech service and Microsoft Teams notifications
     href: iot-connector-teams.md
 - name: Resources
   expanded: false
   items:
-  - name: FAQs - MedTech service
+  - name: FAQs - The MedTech service
     href: iot-connector-faqs.md
   - name: Open-source projects
     href: iot-git-projects.md     

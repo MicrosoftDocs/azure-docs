@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 
@@ -61,6 +61,7 @@ Azure IoT Edge for Linux on Windows (EFLOW) can run in Windows virtual machines.
 | ---------------- | ----- |  ----- | ----- | ----- | 
 | EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
+| EFLOW 1.4 LTS | ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) | - |  
  
 For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
@@ -77,7 +78,7 @@ The following table lists the components included in each release. Each release 
 | ------- | -------- | ----------- | ---------------- |
 | **1.1 LTS** | 1.1 | 2.0 | - |
 | **Continuous Release** | 1.3 | 2.0 | 3.12.3 | 
-| **1.4 LTS** | 1.4 | 2.0 | - |
+| **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
 
 
 ## Minimum system requirements
