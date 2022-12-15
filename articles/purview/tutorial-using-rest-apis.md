@@ -79,16 +79,30 @@ Once the new service principal is created, you need to assign the data plane rol
     > Only members of the Collection Admin role can assign data plane roles in Microsoft Purview. For more information about Microsoft Purview roles, see [Access Control in Microsoft Purview](./catalog-permissions.md).
 
 ## Get token
+
 You can send a POST request to the following URL to get access token.
 
-https://login.microsoftonline.com/{your-tenant-id}/oauth2/token
+`https://login.microsoftonline.com/{your-tenant-id}/oauth2/token`
 
-The following parameters need to be passed to the above URL.
+You can find your Tenant ID by searching for **Tenant Properties** in the Azure Portal. The ID will be available on the tenant properties page.
+
+The following parameters need to be passed to the above URL:
 
 - **client_id**:  client ID of the application registered in Azure Active directory and is assigned to a data plane role for the Microsoft Purview account.
 - **client_secret**: client secret created for the above application.
 - **grant_type**: This should be ‘client_credentials’.
 - **resource**: This should be ‘https://purview.azure.net’
+
+Here's a sample POST request in Powershell:
+
+```azurepowershell
+$tenantID = "12a345bc-67d1-ef89-abcd-efg12345abcde"
+
+$url = "https://login.microsoftonline.com/$tenantID/oauth2/token"
+$params = @{ client_id = "a1234bcd-5678-9012-abcd-abcd1234abcd"; client_secret = "abcd~a1234bcd56789012abcdabcd1234abcd"; grant_type = "client_credentials"; resource = ‘https://purview.azure.net’ }
+
+Invoke-WebRequest $url -Method Post -Body $params -UseBasicParsing | ConvertFrom-Json
+```
  
 Sample response token:
 
