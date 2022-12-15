@@ -192,12 +192,9 @@ You can't create any private endpoint for free tier Azure SignalR Service.
 
 Clients in VNets with existing private endpoints face constraints when accessing other Azure SignalR Service instances that have private endpoints. For example:
 
-- When: 
-    - VNet N1 has a private endpoint for an Azure SignalR Service instance S1
-    - and Azure SignalR Service S2 has a private endpoint in a VNet N2, 
-- then, the clients in VNet N1 must also access Azure SignalR Service S2 using a private endpoint. 
-- If Azure SignalR Service S2 doesn't have any private endpoints, 
-    - then clients in VNet N1 can access Azure SignalR Service in that account without a private endpoint.
+- When VNet N1 has a private endpoint for an Azure SignalR Service instance S1
+    - If Azure SignalR Service S2 has a private endpoint in a VNet N2,  the clients in VNet N1 must also access Azure SignalR Service S2 using a private endpoint. 
+    - If Azure SignalR Service S2 doesn't have any private endpoints, the clients in VNet N1 can access Azure SignalR Service in that account without a private endpoint.
 
 This constraint is a result of the DNS changes made when Azure SignalR Service S2 creates a private endpoint.
 
