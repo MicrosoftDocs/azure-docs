@@ -259,7 +259,8 @@ To format and create swap you have 2 options either:
 
 2. Use a cloud-init directive baked into the image that will do this every time the VM is created.
 
-Create cfg file to configure swap using Cloud-init:
+   Create cfg file to configure swap using Cloud-init:
+
            ```
            echo 'DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"' >> /etc/systemd/system.conf
            cat > /etc/cloud/cloud.cfg.d/00-azure-swap.cfg << EOF
@@ -280,7 +281,6 @@ Create cfg file to configure swap using Cloud-init:
              - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service,x-systemd.device-timeout=2", "0", "0"]
            EOF
            ```
-       ```
        
 2. Don't create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. The local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent, modify the following parameters in /etc/waagent.conf as needed.
     ```
