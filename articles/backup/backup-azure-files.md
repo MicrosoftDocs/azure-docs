@@ -163,7 +163,7 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 # [Backup center](#tab/backup-center)
 
-To run an on-de,and bacup, follow these steps:
+To run an on-demand backup, follow these steps:
 
 1. Go to **Backup center** and select **Backup Instances** from the menu.
 
@@ -189,7 +189,7 @@ To run an on-de,and bacup, follow these steps:
 
 # [File share pane](#tab/file-share-pane)
 
-To run an on=demamd backup, follow these steps:
+To run an on-demamd backup, follow these steps:
 
 1. Open the file share’s **Overview** pane for which you want to take an on-demand backup.
 
