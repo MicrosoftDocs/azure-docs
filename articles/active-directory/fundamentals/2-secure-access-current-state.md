@@ -33,7 +33,7 @@ Users seeking external collaboration know the applications needed for their work
 
 To find collaborating users:
 
-* [Microsoft 365 audit log activities, sharing and access request activities](microsoft-365/compliance/audit-log-activities?view=o365-worldwide#sharing-and-access-request-activities&preserve-view=true)
+* [Microsoft 365, audit log activities](/microsoft-365/compliance/audit-log-activities?view=o365-worldwide&preserve-view=true)
 * [Auditing and reporting a B2B collaboration user](../external-identities/auditing-and-reporting.md)
 
 ## Collaboration with external users and organizations
