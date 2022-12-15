@@ -111,11 +111,11 @@ To change the IP, you'll associate a new public IP address previously created wi
 
 8. Select **Save**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
 
 9. In **Frontend IP configuration**, verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
 
 > [!NOTE]
 > This technique can be utilized when transitioning from a non-zonal frontend to a zone-redundant frontend in regions that support availability zones.  See [Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md)
@@ -146,11 +146,11 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 9. Select **Save**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
 
 10. In **Frontend IP configuration**, verify the load balancer frontend displays the public IP prefix named **myPublicIPPrefixOutbound**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
 
 ## More information
 
