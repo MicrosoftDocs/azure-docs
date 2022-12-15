@@ -624,6 +624,8 @@
         href: cyberark-saml-authentication-tutorial.md
       - name: CyberSolutions CYBERMAILΣ
         href: cybersolutions-cybermail-tutorial.md  
+      - name: Cybozu(cybozu.com)
+        href: cybozu-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
       - name: Cytric
