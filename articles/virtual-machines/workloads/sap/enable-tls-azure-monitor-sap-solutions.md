@@ -24,7 +24,7 @@ Azure Monitor for SAP solution resource and associated manager resource group co
 
 To ensure security, Azure Monitor for SAP solutions provides encryption of monitoring telemetry data in transit using approved cryptographic protocol and algorithms. This means traffic between Azure Functions and SAP systems are encrypted with TLS 1.2 or higher. By choosing this option the customer can enable secure communication.  
 
-<img width="360" alt="tls ams" src="https://user-images.githubusercontent.com/33844181/207748570-354a6a31-af44-4f6f-9b5b-a008ba9d9021.png">
+<img width="360" alt="tls ams" src="https://user-images.githubusercontent.com/33844181/207748570-354a6a31-af44-4f6f-9b5b-a008ba9d9021.png#lighbox">
 
 > [!NOTE]
 > Enabling TLS 1.2 or higher for telemetry data in transit is an optional feature. Customer can choose to enable/disable this feature per their requirements. This option can be selected during creation of providers in Azure Monitor for SAP solutions.   
