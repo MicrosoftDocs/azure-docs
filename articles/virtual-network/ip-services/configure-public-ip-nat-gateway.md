@@ -128,7 +128,7 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 
 9. Verify **myPublicIPPrefixNAT** was added to the public IP prefixes.
 
-    :::image type="content" source="./media/configure-public-ip-nat-gateway/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
+    :::image type="content" source="./media/configure-public-ip-nat-gateway/verify-new-ip-prefix.png" alt-text="Screenshot of the NAT gateway Outbound IP configuration page showing the new public IP prefix.":::
 
 10. Select **Save**.
 
