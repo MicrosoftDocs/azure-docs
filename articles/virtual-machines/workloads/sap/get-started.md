@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 12/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 14, 2022: Fixes in recommendations of capacity for a few VM types in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - November 30, 2022: Added storage recommendations for Premium SSD v2 into [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - November 22, 2022: Release of Disaster Recovery guidelines for SAP workload on Azure - [Disaster Recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) and [Disaster Recovery recommendation for SAP workload](disaster-recovery-sap-guide.md).
 - November 22, 2022: Update of [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md) to add latest recommendations
