@@ -21,6 +21,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | January 2023 |
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
+| [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
 
 ### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
@@ -49,6 +50,14 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
 
 The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
+
+### The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed
+
+**Estimated date for change: January 2023**
+
+The secure score control `Protect your applications with Azure advanced networking solutions` will change to `Protect applications against DDoS attacks`.
+
+The updated name will be reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
 ## Next steps
 
