@@ -16,55 +16,16 @@ ms.subservice: B2C
 
 # Build a global identity solution with funnel-based approach
 
-The architecture you decide to model the solution after, requires making choices based on the trade-offs between the two models described. For example, the funnel model enables you to maintain a single instance of applications. The following section describes the capabilities, selection criteria, and performance that might impact the design you choose.
+In this article, we describe the scenarios for funnel-based design approach. Before starting to design, it's recommended that you review the [capabilities](azure-ad-b2c-global-identity-solutions.md#capabilities-and-considerations), and [performance](azure-ad-b2c-global-identity-solutions.md#performance) of both funnel and region-based design approach.
 
-## Capabilities and considerations
+The designs account for:
 
-The following table describes the capabilities provided using a regional versus funnel-based design:
-
-| Capability| Region-based| Funnel-based |
-| - | - | - |
-| Supports local account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Supports federated account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Supports authenticating local accounts for users signing in from outside their registered region| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Supports authenticating federated accounts for users signing in from outside their registered region using cross-tenant API-based look up| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Prevents sign up from multiple different regions| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Applications in each region have a set of endpoints to connect with| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
-| All applications connect to a single set of endpoints, regardless of which region they're hosted| | ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
-| Supports fine-grained Conditional Access policies.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
-| Optimized for cost.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
-
-Based on the capabilities, the following considerations must be taken into account:
-
-* When using the region-based approach, the primary consideration is that the approach requires applications spanning multiple regions to have respective configurations for each regional Azure AD B2C tenant.
-
-* When using the funnel-based approach
-
-  * There's a double-token cost
-
-  * There's an additional HTTP redirect introduced
-
-  * Custom domains will be required on many tenants
-
-  * Conditional Access is applied at the tenant level, not application level
-
-  * Single sign out through multiple IdPs might introduce challenges
-
-The approach you choose will be based on the number of applications you host and the specific requirements for access to the applications.
-
-## Performance
-
-The performance advantage of using multiple tenants, in either the regional or funnel-based configuration, will be an improvement over using a single Azure AD B2C tenant for globally operating businesses.
-
-When using the funnel-based approach, although the funnel tenant will be located in one region, but serve users globally, performance improvements will be maintained.
-
-![Screenshot shows the Azure AD B2C architecture.](./media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-architecture.png)
-
-As shown in the diagram, the Azure AD B2C tenant in the funnel-based approach will only utilize the Policy Engine to perform the redirection to regional Azure AD B2C tenants. The Azure AD B2C Policy Engine component is globally distributed. Therefore, the funnel isn't constrained from a performance perspective, regardless of where the Azure AD B2C funnel tenant is provisioned. A performance loss is encountered due to the extra redirect between funnel and regional tenants in the funnel-based approach.
-
-The regional tenants will perform directory calls into the Directory Store, which is the regionalized component.
-
-Additional latency is only encountered when the user has performed an authentication in a different region from which they had signed-up in. This is because, calls will be made across regions to reach the Directory Store where their profile lives to complete their authentication.
+* Local Account sign up and sign in
+* Federated account sign up and sign in
+* Authenticating local accounts for users signing in from outside their registered region, supported by cross tenant API based authentication.
+* Authenticating federated accounts for users signing in from outside their registered region, supported by cross tenant API based look up
+* Prevents sign up from multiple different regions
+* Applications in each region have a single endpoint to connect with
 
 ## Local account sign-in use cases
 
@@ -126,7 +87,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 ![Screenshot shows the traveling user sign-in flow.](media/azure-ad-b2c-global-identity-design-considerations/traveling-user-account-signin.png)
 
-1. User from NOAM attempts to sign in at **myapp.fr** since there's a holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+1. User from North America (NOAM) attempts to sign in at **myapp.fr** since there's a holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User reaches the global funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on Application clientId.
 
@@ -199,7 +160,7 @@ This use case demonstrates how a user can change their password after they've lo
 
 1. User reaches the global funnel Azure AD B2C tenant. This tenant is configured to redirect to a regional Azure AD B2C tenant based on some criteria using OpenId federation. This can be a lookup based on application clientId.
 
-1. The user arrives at the EMEA Azure AD B2C tenant, and the SSO cookie set allows the user to change their password immediately.
+1. The user arrives at the EMEA Azure AD B2C tenant, and the  Single-Sign On (SSO) cookie set allows the user to change their password immediately.
 
 1. New password is written to the users account in the EMEA Azure AD B2C tenant.
 
@@ -244,8 +205,9 @@ This use case demonstrates how a user from their local region signs up to the se
 1. User selects to sign in with a federated Identity Provider (IdP).
 
 1. Perform a lookup into the global lookup table.
-   1. **If account linking is in scope**: Proceed if the federated IdP identifier nor the email that came back from the federated IdP doesn't exist in the lookup table.
-   1. **If account linking is not in scope**: Proceed if the federated IdP identifier that came back from the federated IdP doesn't exist in the lookup table.
+   * **If account linking is in scope**: Proceed if the federated IdP identifier nor the email that came back from the federated IdP doesn't exist in the lookup table.
+
+   * **If account linking is not in scope**: Proceed if the federated IdP identifier that came back from the federated IdP doesn't exist in the lookup table.
 
 1. Write the users account to the EMEA Azure AD B2C tenant.
 
@@ -283,6 +245,9 @@ This use case demonstrates how a user located away from the region in which they
 
 1. User selects to sign in with a federated identity provider.
 
+    >[!NOTE]
+   >Use the same App Id from the App Registration at the Social IdP across all Azure AD B2C regional tenants. This ensures that the ID coming back from the Social IdP is always the same.
+
 1. Perform a lookup into the global lookup table and determine the user’s federated ID is registered in NOAM.
 
 1. Read the account data from the NOAM Azure AD B2C tenant using MS Graph API.
@@ -291,7 +256,7 @@ This use case demonstrates how a user located away from the region in which they
 
 1. The funnel tenant issues a token to the application.
 
-### Merge or link local accounts with matching criteria
+### Account linking with matching criteria
 
 This use case demonstrates how users are able to perform account linking when matching criteria is satisfied. The matching criteria is typically the users email address.
 
@@ -315,7 +280,7 @@ This use case demonstrates how users are able to perform account linking when ma
 
 1. The funnel tenant issues a token to the application.  
 
-### Traveling user merge/link accounts
+### Traveling user account linking with matching criteria
 
 This use case demonstrates how non-local users are able to perform account linking when matching criteria is satisfied. The matching criteria is typically the users email address.
 
