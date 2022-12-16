@@ -34,8 +34,6 @@ Check out our [What's New video archive](https://www.youtube.com/playlist?list=P
 - A new pipeline template - Load multiple objects with big amounts from SAP via SAP CDC [Learn more](solution-template-replicate-multiple-objects-sap-cdc.md?tabs=data-factory)
 
 ### Data Movement
-
-- OAuth authentication is supported in Snowflake connector regarding Copy activity [Learn more](connector-snowflake.md#oauth-authentication)
 - Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface

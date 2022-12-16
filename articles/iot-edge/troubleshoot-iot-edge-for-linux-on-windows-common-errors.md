@@ -11,7 +11,7 @@ ms.custom:  [amqp, mqtt]
 ---
 # Common issues and resolutions for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 Use this article to help resolve common issues that can occur when deploying IoT Edge for Linux on Windows solutions. 
 

@@ -354,6 +354,16 @@ groups:
     title: v1
   - id: python-mode-decorators
     title: v2
+- id: create-java-durable-options
+  title: Create option
+  prompt: Choose how to create the app
+  pivots:
+  - id: create-option-manual-setup
+    title: Manual setup
+  - id: create-option-maven-command
+    title: Maven command
+  - id: create-option-vscode
+    title: Visual Studio Code
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions

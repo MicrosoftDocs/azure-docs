@@ -47,6 +47,17 @@ const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
 const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
 ```
 
+### Join a room call
+
+To join a `room` call, you can instantiate a context object with the `roomId` property as the `room` identifier. To join the call, use the `join` method and pass the context instance.
+
+```js
+const context = { roomId: '<RoomId>' }
+const call = callAgent.join(context);
+```
+
+A `room` offers application developers better control over **who** can join a call, **when** they meet and **how** they collaborate. To learn more about `rooms`, you can read the [conceptual documentation](../../../../concepts/rooms/room-concept.md) or follow the [quick start guide](../../../../quickstarts/rooms/join-rooms-call.md).
+
 ### Join a group call
 
 > [!NOTE]
