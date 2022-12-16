@@ -656,7 +656,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
 | `WEBSITE_CONTENTSHARE` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_CONTENTOVERVNET` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_ENABLE_BROTLI_ENCODING` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
-| `WEBSITE_USE_PLACEHOLDER` | Set to `0` to disable the placeholder functions optimization on the consumption plan. The placeholder is an optimization that [improves the cold start](../azure-functions/functions-scale.md#cold-start-behavior). |
+| `WEBSITE_USE_PLACEHOLDER` | [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) |
 | `WEBSITE_PLACEHOLDER_MODE` | Read-only. Shows whether the function app is running on a placeholder host (`generalized`) or its own host (`specialized`). |
 | `WEBSITE_DISABLE_ZIP_CACHE` | When your app runs from a [ZIP package](deploy-run-package.md) ( `WEBSITE_RUN_FROM_PACKAGE=1`), the five most recently deployed ZIP packages are cached in the app's file system (D:\home\data\SitePackages). Set this variable to `1` to disable this cache. For Linux consumption apps, the ZIP package cache is disabled by default. |
 <!--

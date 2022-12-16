@@ -41,6 +41,8 @@ When using app settings, you should be aware of the following considerations:
 
 + Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unresponsive state. 
 
++ Take care when updating application settings by using REST APIs, including ARM templates. Because these APIs replace the existing application settings, you must include all existing settings when adding or modifying settings using REST APIs or ARM templates. When possible use Azure CLI or Azure PowerShell to programmatically work with application settings. For more information, see [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#work-with-application-settings).  
+
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
 The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
@@ -623,9 +625,13 @@ Allows you to set the timezone for your function app.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
-## WEBSITE_USE_PLACEHOLDER
+## WEBSITE\_USE\_PLACEHOLDER
 
+Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-start) optimization when running on the [Consumption plan](consumption-plan.md). Set to `0` to disable the cold-start optimization on the Consumption plan. 
 
+|Key|Sample value|
+|---|------------|
+|WEBSITE_USE_PLACEHOLDER|`1`|
 
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
