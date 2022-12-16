@@ -41,7 +41,7 @@ To complete this quick start, make sure that you have:
        - Microsoft 365 A3, Microsoft 365 A5
        - Microsoft 365 Business Premium
        - Microsoft 365 Education Student Use Benefit 
-- [Azure Hybrid benefit](/azure/pricing/hybrid-benefit/) allows you to use your Windows licenses on Azure with Dev Box.
+- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your Windows licenses on Azure with Dev Box.
 
 ## Create a dev center
 
