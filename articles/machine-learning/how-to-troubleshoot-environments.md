@@ -22,6 +22,23 @@ Azure Machine Learning environments are an encapsulation of the environment wher
 They specify the base docker image, Python packages, and software settings around your training and scoring scripts.
 Environments are managed and versioned assets within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across various compute targets.
 
+## Types of environments
+
+Environments can broadly be divided into three categories: curated, user-managed, and system-managed.
+
+Curated environments are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every workspace.
+
+Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
+These pre-created environments also allow for faster deployment time.
+
+In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
+Also be sure to include any dependencies needed for model deployment.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), the user brings a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the user-provided content.
+
+System-managed environments are used when you want conda to manage the Python environment for you.
+A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
+Note that environment isolation implies that Python dependencies installed in the base image won't be available in the derived image.
+
 ## Create and manage environments
 
 You can create and manage environments from clients like AzureML Python SDK, AzureML CLI, AzureML Studio UI, VS code extension. 
@@ -79,9 +96,9 @@ for your jobs or model deployments while using system-managed environments.
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
 materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
 Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
-can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure)
+can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](~/azure-docs/articles/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
 to help scan images for vulnerabilities. To
-automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/workflow-automation).
+automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](~/azure-docs/articles/defender-for-cloud/workflow-automation.md).
 
 ## **Environment definition problems**
 
