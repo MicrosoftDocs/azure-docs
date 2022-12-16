@@ -77,7 +77,7 @@ One of these identities will need **at least contributor permissions on your Eve
 
     :::image type="content" source="media/configure-event-hubs-for-kafka/select-kafka-configuration.png" alt-text="Screenshot showing the Kafka configuration option in the Microsoft Purview menu in the Azure portal.":::
 
-1. If there's a configuration already listed as type **Notification**, Event Hubs is already configured, and you can begin the steps to [receive Microsoft Purview messages](#receive-microsoft-purview-messages).
+1. If there's a configuration already listed as type **Notification**, Event Hubs is already configured, and you can begin the steps to [receive Microsoft Purview messages](manage-kafka-dotnet.md#receive-microsoft-purview-messages).
     >[!NOTE]
     > Only one *Notification* Event Hubs can be configured at a time.
 
