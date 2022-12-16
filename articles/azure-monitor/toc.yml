@@ -158,14 +158,6 @@ items:
     href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Migrate from Operations Manager
     href: azure-monitor-operations-manager.md
-  - name: System Center integration
-    items:
-    - name: Connect Operations Manager
-      href: agents/om-agents.md
-    - name: Assess Operations Manager
-      href: insights/scom-assessment.md
-    - name: Connect Configuration Manager
-      href: logs/collect-sccm.md
   - name: Forward syslog data to workspace
     href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Self-monitoring
@@ -573,6 +565,14 @@ items:
             href: logs/azure-data-explorer-query-storage.md
           - name: Send to Excel
             href: logs/log-excel.md
+  - name: System Center
+    items:
+    - name: SCOM Managed Instance (preview)
+      href: vm/scom-managed-instance-overview.md
+    - name: Connect Operations Manager
+      href: agents/om-agents.md
+    - name: Assess Operations Manager
+      href: insights/scom-assessment.md
 - name: Insights
   items:
   - name: Overview
