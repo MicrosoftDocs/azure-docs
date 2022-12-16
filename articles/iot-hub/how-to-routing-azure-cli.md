@@ -55,7 +55,7 @@ You can choose an Event Hubs resource (namespace and entity).
    az eventhubs namespace create --name my-routing-namespace --resource-group my-resource-group -l westus3
    ```
 
-1. Create your Event hubs instance. For `name`, use a unique value. For `namespace-name`, use the namespace you created in the preceding command.
+1. Create your Event Hubs instance. For `name`, use a unique value. For `namespace-name`, use the namespace you created in the preceding command.
 
    ```azurecli
    az eventhubs eventhub create --name my-event-hubs --resource-group my-resource-group --namespace-name my-routing-namespace
