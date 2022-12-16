@@ -190,7 +190,7 @@ To visualize the anomalies and change points in relation to the sample data seri
     ENDPOINT = os.environ['ANOMALY_DETECTOR_ENDPOINT']
     DATA_PATH = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH" #example: c:\\test\\request-data.csv
 
-     client = AnomalyDetectorClient(ENDPOINT, AzureKeyCredential(API_KEY))
+    client = AnomalyDetectorClient(ENDPOINT, AzureKeyCredential(API_KEY))
 
     series = []
     data_file = pd.read_csv(DATA_PATH, header=None, encoding='utf-8', date_parser=[0])
