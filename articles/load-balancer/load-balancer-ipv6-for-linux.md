@@ -38,23 +38,22 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
 
 2. Create a new file in the cloud.cfg.d folder that will retain your configuration through reboots.  The information in this file will override the default [NETPLAN]( https://netplan.io) config (in YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml).
 
-For example, create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
+   For example, create a */etc/cloud/cloud.config.d/91-azure-network.cfg* file.  Ensure that "dhcp6: true" is reflected under the required interface, as shown by the sample below:
 
-```config
-  network:
-     version: 2
-     ethernets:
-        eth0:
-           addresses: 172.16.0.30/24
-           dhcp4: true
-           dhcp6: true
-           match:
-             driver: hv_netvsc
-             macaddress: 00:00:00:00:00:00
-           set-name: eth0
-```
+   ```config
+     network:
+        version: 2
+        ethernets:
+           eth0:
+              addresses: 172.16.0.30/24
+              dhcp4: true
+              dhcp6: true
+              match:
+                driver: hv_netvsc
+                macaddress: 00:00:00:00:00:00
+              set-name: eth0
     
-Note the IP address range and MAC address would be specific to your configuraion and should be replaced with the appropriate values.
+   The IP address range and MAC address would be specific to your configuration and should be replaced with the appropriate values.
 
 3.  Save the file and reboot.
 
