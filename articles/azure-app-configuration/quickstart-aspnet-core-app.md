@@ -5,9 +5,9 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
+ms.custom: devx-track-csharp, contperf-fy21q1, mode-other, engagement-fy23
 ms.topic: quickstart
-ms.date: 9/29/2022
+ms.date: 12/16/2022
 ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -45,14 +45,17 @@ Use the [.NET Core command-line interface (CLI)](/dotnet/core/tools) to create a
 Run the following command to create an ASP.NET Core web app in a new *TestAppConfig* folder:
 
 #### [.NET 6.x](#tab/core6x)
+
 ```dotnetcli
 dotnet new webapp --output TestAppConfig --framework net6.0
 ```
 
 #### [.NET Core 3.x](#tab/core3x)
+
 ```dotnetcli
 dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 ```
+
 ---
 
 ## Connect to the App Configuration store
@@ -75,10 +78,16 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
     Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](../app-service/overview.md), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
 
-1. Open *Program.cs*, and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
+1. Open *Program.cs*, add the `using TestAppConfig;` statement and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
     #### [.NET 6.x](#tab/core6x)
+
     ```csharp
+    // Existing code in Program.cs
+    // ... ...
+
+    using TestAppConfig;
+
     var builder = WebApplication.CreateBuilder(args);
 
     // Retrieve the connection string
@@ -90,10 +99,11 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     // The rest of existing code in program.cs
     // ... ...
     ```
-    
+
     #### [.NET Core 3.x](#tab/core3x)
+
     Update the `CreateHostBuilder` method.
-    
+
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -112,6 +122,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
                 webBuilder.UseStartup<Startup>();
             });
     ```
+
     ---
 
     This code will connect to your App Configuration store using a connection string and load *all* key-values that have *no labels*. For more information on the App Configuration provider, see the [App Configuration provider API reference](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
@@ -120,7 +131,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
 In this example, you'll update a web page to display its content using the settings you configured in your App Configuration store.
 
-1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project. 
+1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project.
 
     ```csharp
     namespace TestAppConfig
@@ -138,6 +149,7 @@ In this example, you'll update a web page to display its content using the setti
 1. Bind the `TestApp:Settings` section in configuration to the `Settings` object.
 
     #### [.NET 6.x](#tab/core6x)
+
     Update *Program.cs* with the following code.
 
     ```csharp
@@ -154,10 +166,11 @@ In this example, you'll update a web page to display its content using the setti
     // The rest of existing code in program.cs
     // ... ...
     ```
-    
+
     #### [.NET Core 3.x](#tab/core3x)
+
     Open *Startup.cs* and update the `ConfigureServices` method.
-    
+
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -167,11 +180,17 @@ In this example, you'll update a web page to display its content using the setti
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
     }
     ```
+
     ---
 
-1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code. Add `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
+1. Open *Index.cshtml.cs* in the *Pages* directory. Add the [Microsoft.Extensions.Options](/dotnet/api/microsoft.extensions.options) namespace and update the `IndexModel` class with the following code.
 
     ```csharp
+    // Existing code in Index.cshtml.cs
+    // ... ...
+
+    using Microsoft.Extensions.Options;
+
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
@@ -223,7 +242,7 @@ In this example, you'll update a web page to display its content using the setti
     dotnet run
     ```
 
-1. Open a browser and navigate to the URL the app is listening on, as specified in the command output. It looks like `https://localhost:5001`. 
+1. Open a browser and navigate to the URL the app is listening on, as specified in the command output. It looks like `https://localhost:5001`.
 
     If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000*, and select *Open and browse*.
 
