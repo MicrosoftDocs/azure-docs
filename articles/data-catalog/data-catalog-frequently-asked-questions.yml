@@ -45,7 +45,7 @@ sections:
       - question: |
           Where should we migrate to?
         answer: |
-          You can migrate to [Microsoft Purview](../../purview/overview.md) service, which offers unified data governance for your entire data estate.
+          You can migrate to [Microsoft Purview](../purview/overview.md) service, which offers unified data governance for your entire data estate.
           
       - question: |
           What is its availability by region?
