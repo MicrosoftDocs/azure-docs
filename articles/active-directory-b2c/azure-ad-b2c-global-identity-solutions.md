@@ -134,8 +134,6 @@ Additional latency is only encountered when the user has performed an authentica
 
 ## Next steps
 
-- [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
-
 - [Azure AD B2C global identity proof of concept regional-based configuration](azure-ad-b2c-global-identity-proof-of-concept-regional.md)
 
 - [Azure AD B2C global identity proof of concept funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
