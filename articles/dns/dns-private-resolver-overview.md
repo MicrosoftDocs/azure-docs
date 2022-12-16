@@ -6,7 +6,7 @@ ms.custom: references_regions, ignite-2022
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 12/06/2022
+ms.date: 12/16/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -64,7 +64,7 @@ Azure DNS Private Resolver is available in the following regions:
 | South Central US | France Central   | Korea Central     |
 | North Central US | Sweden Central   | South Africa North|
 | West Central US  | Switzerland North| Australia East    |
-| West US 3        |                  |                   |
+| West US 3        |                  | Central India     |
 | Canada Central   |                  |                   |
 | Brazil South     |                  |                   |
 
@@ -92,7 +92,7 @@ Virtual network links enable name resolution for virtual networks that are linke
 
 ## DNS forwarding rulesets
 
-A DNS forwarding ruleset is a group of DNS forwarding rules (up to 25) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. For more information, see [DNS forwarding rulesets](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets).
+A DNS forwarding ruleset is a group of DNS forwarding rules 1000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. For more information, see [DNS forwarding rulesets](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets).
 
 ## DNS forwarding rules
 
@@ -120,6 +120,9 @@ Alternatively, use the **Default (Azure-provided)** setting on your VNet and lin
 
 ## Restrictions:
 
+> [!NOTE]
+> See [What are the usage limits for Azure DNS?](dns-faq.yml#what-are-the-usage-limits-for-azure-dns-) for a list of usage limits for the DNS private resolver. 
+
 ### Virtual network restrictions 
 
 The following restrictions hold with respect to virtual networks:
@@ -143,7 +146,7 @@ Outbound endpoints have the following limitations:
 
 ### Ruleset restrictions
 
-- Rulesets can have up to 25 rules.
+- Rulesets can have up to 1000 rules.
 
 ### Other restrictions
 
