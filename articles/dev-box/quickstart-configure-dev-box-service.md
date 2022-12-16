@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 12/16/2022
 ms.custom: references_regions
 ---
 <!-- 
@@ -34,17 +34,14 @@ To complete this quick start, make sure that you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
-- User licenses. Each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Endpoint Manager, and Azure Active Directory P1. 
-    - These licenses are available independently and also included in the following subscriptions:
-        - Microsoft 365 F3 
-        - Microsoft 365 E3 
-        - Microsoft 365 E5 
-        - Microsoft 365 A3 
-        - Microsoft 365 A5 
-        - Microsoft 365 Business Premium 
-        - Microsoft 365 Education Student Use Benefit
-- If you have on-premises core licenses for Windows Server with active Software Assurance, you may qualify for [Azure Hybrid Benefit](/windows-server/get-started/azure-hybrid-benefit).
-    - You can enable Hybrid Benefit when you [Create a dev box pool](quickstart-configure-dev-box-project.md#create-a-dev-box-pool).
+- User licenses. To use Windows 365 Enterprise, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Endpoint Manager, and Azure Active Directory P1. 
+    - These licenses are available independently and also included in the following subscriptions: 
+       - Microsoft 365 F3 
+       - Microsoft 365 E3, Microsoft 365 E5 
+       - Microsoft 365 A3, Microsoft 365 A5
+       - Microsoft 365 Business Premium
+       - Microsoft 365 Education Student Use Benefit 
+- [Azure Hybrid benefit](/azure/pricing/hybrid-benefit/) allows you to use your Windows licenses on Azure with Dev Box.
 
 ## Create a dev center
 
