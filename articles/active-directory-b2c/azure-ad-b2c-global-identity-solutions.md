@@ -82,6 +82,56 @@ Cross tenant communication is used to perform cross tenant authentications, or p
 
 ![Funnel tenant orchestration](media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-funnel-tenant-orchestration.png)
 
+The architecture you decide to model the solution after, requires making choices based on the trade-offs between the two models described. For example, the funnel model enables you to maintain a single instance of applications. The following section describes the capabilities, selection criteria, and performance that might impact the design you choose.
+
+## Capabilities and considerations
+
+The following table describes the capabilities provided using a regional versus funnel-based design:
+
+| Capability| Region-based| Funnel-based |
+| - | - | - |
+| Supports local account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Supports federated account sign-up and sign-in| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Supports authenticating local accounts for users signing in from outside their registered region| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Supports authenticating federated accounts for users signing in from outside their registered region using cross-tenant API-based look up| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Prevents sign up from multiple different regions| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Applications in each region have a set of endpoints to connect with| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
+| All applications connect to a single set of endpoints, regardless of which region they're hosted| | ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png) |
+| Supports fine-grained Conditional Access policies.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
+| Optimized for cost.| ![Checkbox](media/azure-ad-b2c-global-identity-design-considerations/check.png)|  |
+
+Based on the capabilities, the following considerations must be taken into account:
+
+* When using the region-based approach, the primary consideration is that the approach requires applications spanning multiple regions to have respective configurations for each regional Azure AD B2C tenant.
+
+* When using the funnel-based approach
+
+  * There's a double-token cost
+
+  * There's an additional HTTP redirect introduced
+
+  * Custom domains will be required on many tenants
+
+  * Conditional Access is applied at the tenant level, not application level
+
+  * Single sign out through multiple IdPs might introduce challenges
+
+The approach you choose will be based on the number of applications you host and the specific requirements for access to the applications.
+
+## Performance
+
+The performance advantage of using multiple tenants, in either the regional or funnel-based configuration, will be an improvement over using a single Azure AD B2C tenant for globally operating businesses.
+
+When using the funnel-based approach, although the funnel tenant will be located in one region, but serve users globally, performance improvements will be maintained.
+
+![Screenshot shows the Azure AD B2C architecture.](./media/azure-ad-b2c-global-identity-solutions/azure-ad-b2c-architecture.png)
+
+As shown in the diagram, the Azure AD B2C tenant in the funnel-based approach will only utilize the Policy Engine to perform the redirection to regional Azure AD B2C tenants. The Azure AD B2C Policy Engine component is globally distributed. Therefore, the funnel isn't constrained from a performance perspective, regardless of where the Azure AD B2C funnel tenant is provisioned. A performance loss is encountered due to the extra redirect between funnel and regional tenants in the funnel-based approach.
+
+The regional tenants will perform directory calls into the Directory Store, which is the regionalized component.
+
+Additional latency is only encountered when the user has performed an authentication in a different region from which they had signed-up in. This is because, calls will be made across regions to reach the Directory Store where their profile lives to complete their authentication.
+
 ## Next steps
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
