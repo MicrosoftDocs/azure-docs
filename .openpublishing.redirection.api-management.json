@@ -1,48 +1,43 @@
 {
   "redirections": [
     {
-      "source_path_from_root": "/articles/api-management/api-management-validation-policies.md",
-      "redirect_url": "/articles/api-management/api-management-policies.md",
-      "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/api-management/api-management-access-restriction-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#access-restriction-policies",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/api-management-advanced-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
-        "redirect_document_id": true
+        "redirect_url": "/articles/api-management/api-management-policies#advanced-policies",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/api-management-authentication-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#authentication-policies",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/api-management-caching-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#caching-policies",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/api-management-cross-domain-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#cross-domain-policies",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/api-management/api-management/api-management-dapr-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "source_path_from_root": "/articles/api-management/api-management-dapr-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#dapr-policies",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/graphql-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#graphql-policies",
         "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/api-management/api-management-transformation-policies.md",
-        "redirect_url": "/articles/api-management/api-management-policies.md",
+        "redirect_url": "/articles/api-management/api-management-policies#transformation-polcies",
         "redirect_document_id": false
     },
     {
@@ -77,7 +72,7 @@
     },
     {
         "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
-        "redirect_url": "/azure/api-management/graphql-policies",
+        "redirect_url": "/azure/api-management/api-management-policies#graphql-policies",
         "redirect_document_id": false
     },
     {
