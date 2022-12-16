@@ -284,7 +284,7 @@ Managed disk - standard | Supported in Azure regions in which Azure Site Recover
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
 Disk subscription limits | Up to 3000 protected disks per Subscription | Ensure that the Source or Target subscription does not have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
 Standard SSD | Supported |
-Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
+Redundancy | LRS, ZRS and GRS are supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
@@ -306,7 +306,7 @@ DRBD | Disks that are part of a DRBD setup are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
-ZRS | Not supported | 
+ZRS | supported | 
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
