@@ -1,160 +1,80 @@
 ---
-title: Deploy Azure Communications Gateway
-description: #Required; article description that's displayed in search results. Use 100 to 160 characters. Include the word "install," "set up," or "deploy".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
+title: Deploy Azure Communications Gateway 
+description: This article guides you through how to deploy an Azure Communications Gateway.
+author: AtiqKhan-Docs
+ms.author: khanatiq
 ms.service: #Required; the service slug assigned to your service by ACOM.
-ms.topic: how-to #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.topic: how-to 
+ms.date: 11/01/2022
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of an install, set up, or deploy pattern.
-See the [Install, set up, deploy pattern](article-install-setup-deploy.md) in the pattern
-library.
-Install, set up, deploy articles are how-to articles for customer tasks.
-
--->
-
-<!-- 1. H1 ------------------------------------------------------------------------------
-
-Required: Start with an action verb, such as "install," "set up," or "deploy".
-Write an H1 that clearly conveys the task the user will complete.
-
--->
-
-<<<<<<<< HEAD:articles/voice-bridge/deploy.md
-# Deploy Azure Voice Bridge
-========
 # Deploy Azure Communications Gateway
->>>>>>>> 5cdf1b649c61 (Use 'Azure Communications Gateway' as the name of the service):articles/azure-communications-gateway/deploy.md
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what
-the customer will do. 
-Answer the fundamental question, "Why would I want to do this?" Keep it short.
-Readers should have a clear idea of what they will do in this article after reading
-the introduction.
-
-Include a sentence that says, "In this article, you X..."
--->
-[Your introductory paragraph]
-
-TODO: Add your introductory paragraph.
-
-<!-- If you're writing a deployment guide, consider providing guidance for the process
-of rolling out the service, solution, or product.
-For example, include information or links to information about how to:
-
-- Onboard users to a pilot.
-- Monitor the pilot and gather feedback.
-- Roll out the service, solution, or product to more users.
-
-Avoid notes, tips, and important boxes. Readers tend to skip over them.
-It is better to put that info directly into the article text.--->
-
-<!-- 3. Prerequisites -------------------------------------------------------------------
-
-Optional: If there are prerequisites for the task, make **Prerequisites** your first H2
-in the guide.
-The prerequisites H2 is never numbered.
-Use clear and unambiguous language and use an unordered list format.
-If there are specific versions of software a user needs, call out those versions
-(for example: Visual Studio 2019 or later).
--->
+This article will guide you through creating an Azure Communications Gateway resource in Azure. You must configure this resource before you can deploy Azure Communications Gateway.
 
 ## Prerequisites
 
-[List of prerequisites if appropriate.]
+Carry out the steps detailed in [Prepare to deploy Azure Communications Gateway](prepare-to-deploy.md).
 
-TODO: Determine whether prerequisites are appropriate.
+## 1. Start creating the Azure Communications Gateway resource
 
-<!-- 4. Methods -------------------------------------------------------------------------
+In this step, you'll create the Azure Communications Gateway resource.
 
-Optional.
+1. Sign in to the [Azure portal](https://azure.microsoft.com/).
+1. In the search bar at the top of the page, search for Communications Gateway and select **Communications Gateways**.  
 
-If there are multiple ways to perform the steps, such as with a wizard, command line,
-and so on, include information about which method or tool to choose for which scenario,
-and link to the steps for that method.
+    :::image type="content" source="media/deploy/search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for Azure Communications Gateway.":::
 
--->
+1. Select the **Create** option.
 
-## Methods
+    :::image type="content" source="media/deploy/create.png" alt-text="Screenshot of the Azure portal. Shows the existing Azure Communications Gateway. A Create button allows you to create more Azure Communications Gateways.":::
 
-TODO: Add the methods section to specify different methods that can be used to install, setup, or deploy.
+1. Use the information you collected in [Collect Azure Communications Gateway resource values](prepare-to-deploy.md#2-collect-service-resource-values) to fill out the fields in the **Basics** configuration section and then select **Next: Service Regions**.
 
-<!-- 5. Numbered Steps (H2s) ------------------------------------------------------------
+    :::image type="content" source="media/deploy/basics.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing the **Basics** section.":::
 
-Required: Each major step in completing a task should be represented as an H2 in
-the article.
-These steps should be numbered.
-The procedure should be introduced with a brief sentence or two.
+1. Use the information you collected in [Collect Service Regions configuration values](prepare-to-deploy.md#3-collect-service-regions-configuration-values) to fill out the fields in the **Service Regions** section and then select **Next: Tags**.
+1. (Optional) Configure tags for your Azure Communications Gateway resource: enter a **Name** and **Value** for each tag you want to create.
+1. Select **Review + create**.
 
--->
+## 2. Wait for Microsoft to validate your deployment
 
-## 1. [Step]
+If you've entered your configuration correctly, you'll see a **Validation Passed** message at the top of your screen. Navigate to the **Review + create** section.
 
-TODO: Add introductory sentence(s).
+If you haven't filled in the configuration correctly, you'll see an error message in the configuration section(s) containing the invalid configuration. Correct the invalid configuration by selecting the flagged section(s) and use the information within the error messages to correct invalid configuration before returning to the **Review + create** section.
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+:::image type="content" source="media/deploy/failedvalidation.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a validation that failed due to missing information in the *Contacts* section.":::
 
-TODO: Add ordered list of procedure steps.
+## 3. Submit your Azure Communications Gateway configuration
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+Check your configuration and ensure it matches your requirements. If the configuration is correct, select **Create**.
 
-## 2. [Step]
+You now need to wait for your resource to be provisioned. Upon completion your onboarding team will reach out to you. We also recommend you check in periodically to see if your resource has been provisioned. This process can take up to two weeks as updating ACLs in the Azure and Teams environments is done on a periodic basis.
 
-TODO: Add introductory sentence(s).
+## 4. Complete the JSON onboarding file
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+Your onboarding team will require additional information to complete your Operator Connect onboarding. If you're being onboarded to Operator Connect/Teams Phone Mobile by Microsoft, the onboarding team will reach out to you.
+Wait for your onboarding team to confirm that the process is complete before testing your portal access.
 
-TODO: Add ordered list of procedure steps.
+## 5. Test your portal access
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+Navigate to the [Operator Connect homepage](https://operatorconnect.microsoft.com/) and ensure you're able to sign in.
 
-## N. [Last step]
+## 6. Register your Fully Qualified Domain Name (FQDN)
 
-TODO: Add introductory sentence(s).
+Your Azure Communications Gateway will require a custom domain name inside your tenant. Follow this step to set up the custom domain name that Teams will use to recognize an Azure Communications Gateway that belongs to you.
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+1. Navigate to your Azure Communications Gateway resource and select **Properties**. You'll see a field named **Domain name**. This name is your custom domain name.
+1. Complete the following procedure: [Add your custom domain name to Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+1. Share your DNS TXT record information with your onboarding team. Wait for your onboarding team to confirm that the DNS TXT record has been configured correctly.
+1. Complete the following procedure: [Verify your custom domain name](/azure/active-directory/fundamentals/add-custom-domain).
 
-TODO: Add ordered list of procedure steps.
+## 7. Finish deploying your Azure Communications Gateway
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+Once your resource has been provisioned, a message will appear saying **Your deployment is complete**. Select **Go to resource group**, and then check that your resource group contains the correct Azure Communications Gateway resource.
 
-<!-- 6. Troubleshooting, validation, or FAQ H2 ------------------------------------------
-
-Optional.
-
-Add information on how to address any issues that might arise during or after
-installation, setup, or deployment, or to validate that the installation was successful.
-
- -->
-
-## Troubleshooting, validation, or FAQ (Optional)
-
-TODO: Add section to address issues.
-
-<!-- 7. Next steps ----------------------------------------------------------------------
-
-Required: Provide at least one next step and no more than three.
-Include some context so the customer can determine why to follow the link.
-Add a context sentence for the following links.
--->
+:::image type="content" source="media/deploy/gotoresourcegroup.png" alt-text="Screenshot of the Create an Azure Communications Gateway portal, showing a completed deployment screen.":::
 
 ## Next steps
 
-TODO: Add your next step link(s).
-
-<!--
-Remove all the comments in this template before you sign off or merge to the main branch.
--->
+1. Prepare for live traffic with Azure Communications Gateway [link]

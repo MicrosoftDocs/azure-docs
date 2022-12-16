@@ -1,156 +1,105 @@
 ---
-title: Prepare to deploy Azure Communications Gateway
-description: #Required; article description that's displayed in search results. Use 100 to 160 characters. Include the word "install," "set up," or "deploy".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
+title: Prepare to deploy Azure Communications Gateway 
+description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway in Azure.
+author: AtiqKhan-Docs
+ms.author: khanatiq
 ms.service: #Required; the service slug assigned to your service by ACOM.
-ms.topic: how-to #Required
-ms.date: #Required; mm/dd/yyyy format.
+ms.topic: how-to 
+ms.date: 15/12/2022
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the main branch.
-
-This template provides the basic structure of an install, set up, or deploy pattern.
-See the [Install, set up, deploy pattern](article-install-setup-deploy.md) in the pattern
-library.
-Install, set up, deploy articles are how-to articles for customer tasks.
-
--->
-
-<!-- 1. H1 ------------------------------------------------------------------------------
-
-Required: Start with an action verb, such as "install," "set up," or "deploy".
-Write an H1 that clearly conveys the task the user will complete.
-
--->
 
 # Prepare to deploy Azure Communications Gateway
 
-<!-- 2. Introductory paragraph ----------------------------------------------------------
-
-Required: Lead with a light intro that describes, in customer-friendly language, what
-the customer will do. 
-Answer the fundamental question, "Why would I want to do this?" Keep it short.
-Readers should have a clear idea of what they will do in this article after reading
-the introduction.
-
-Include a sentence that says, "In this article, you X..."
--->
-[Your introductory paragraph]
-
-TODO: Add your introductory paragraph.
-
-<!-- If you're writing a deployment guide, consider providing guidance for the process
-of rolling out the service, solution, or product.
-For example, include information or links to information about how to:
-
-- Onboard users to a pilot.
-- Monitor the pilot and gather feedback.
-- Roll out the service, solution, or product to more users.
-
-Avoid notes, tips, and important boxes. Readers tend to skip over them.
-It is better to put that info directly into the article text.--->
-
-<!-- 3. Prerequisites -------------------------------------------------------------------
-
-Optional: If there are prerequisites for the task, make **Prerequisites** your first H2
-in the guide.
-The prerequisites H2 is never numbered.
-Use clear and unambiguous language and use an unordered list format.
-If there are specific versions of software a user needs, call out those versions
-(for example: Visual Studio 2019 or later).
--->
+This article will guide you through each of the tasks you need to complete before you can deploy Azure Communications Gateway. In order to be successfully deployed, the Azure Communications Gateway has dependencies on the state of your Operator Connect or Teams Phone Mobile environments.
+The following sections describe the information you'll need to collect and the decisions you'll need to make prior to deploying Azure Communications Gateway.
 
 ## Prerequisites
 
-[List of prerequisites if appropriate.]
+You must have signed an Operator Connect agreement with Microsoft. For more information, see [Operator Connect](https://cloudpartners.transform.microsoft.com/practices/microsoft-365-for-operators/connect).
 
-TODO: Determine whether prerequisites are appropriate.
+You must ensure you've got two or more numbers that you own and that are globally routable. You will need to use these numbers as test lines:
 
-<!-- 4. Methods -------------------------------------------------------------------------
+- **Manual** test lines will be used by Microsoft staff to make test calls during integration testing.
+- **Automated** test lines will be assigned to Teams test suites for validation testing.
 
-Optional.
+We strongly recommend that all operators have a support plan that includes technical support, such as a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/). 
 
-If there are multiple ways to perform the steps, such as with a wizard, command line,
-and so on, include information about which method or tool to choose for which scenario,
-and link to the steps for that method.
+## 1. Configure Azure Active Directory in your operator Azure tenancy
 
--->
+>[NOTE!]
+>This step is required to set you up as an Operator in the Teams Phone Mobile (TPM) and Operator Connect (OC) environments. Skip this step if you have already started onboarding for Teams Phone Mobile and Operator Connect.
 
-## Methods
+Operator Connect and Teams Phone Mobile inherit permissions and identities from the Azure Active Directory within the Azure tenant where the Project Synergy app is configured. Performing this step within an existing Azure tenant uses your existing identities for fully integrated authentication and is recommended. However, if you need to manage identities for Operator Connect or Teams Phone Mobile separately from the rest of your organization the following steps should be completed in a new dedicated tenant.
 
-TODO: Add the methods section to specify different methods that can be used to install, setup, or deploy.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/) as an Azure Active Directory Global Admin.
+1. Select **Azure Active Directory**.
+1. Select **Properties**.
+1. Scroll down to the Tenant ID field. Your tenant ID will be in the box. Make a note of your tenant ID.
+1. Open PowerShell.
+1. (If you don't have the Azure Active Directory module installed), run the cmdlet:
 
-<!-- 5. Numbered Steps (H2s) ------------------------------------------------------------
+```azurepowershell-interactive
+Install-Module Azure AD
+```
 
-Required: Each major step in completing a task should be represented as an H2 in
-the article.
-These steps should be numbered.
-The procedure should be introduced with a brief sentence or two.
+1. Run the following cmdlet, replacing *`<AADTenantID>`* with the tenant ID you noted down in step 4.
 
--->
+```azurepowershell-interactive
+Connect-AzureAD -TenantId "<AADTenantID>"
+New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -DisplayName "Operator Connect"
+```
 
-## 1. [Step]
+## 2. Allow the Project Synergy application
 
-TODO: Add introductory sentence(s).
+1. Sig in to your Azure portal and navigate to **Enterprise applications** using the left-hand side menu.
+1. Set the **Application type** filter to **All applications** using the drop-down menu.
+1. Select **Apply**.
+1. Search for **Project Synergy** using the search bar. The application should appear.
+1. Select your **Project Synergy** application.
+1. Select **Users and groups** from the left hand side menu.
+1. Select **Add user/group**.
+1. Specify the user you want to use for setting up Azure Communications Gateway and assign them the **Admin** role.
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+## 3. Create an app ID for Azure Communications Gateway
 
-TODO: Add ordered list of procedure steps.
+[TODO]
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+## 4. Create a network design
 
-## 2. [Step]
+Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You're required to have two Azure Regions with cross-connect functionality.
 
-TODO: Add introductory sentence(s).
+To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner) .
+    :::image type="content" source="media/prepare-to-deploy/redundancy.png" alt-text="Network diagram for an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+## 5. Collect basic information for deploying an Azure Communications Gateway
 
-TODO: Add ordered list of procedure steps.
+ Collect all of the values in the following table for the Azure Communications Gateway resource.
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+|**Value**|**Field name(s) in Azure portal**|
+ |---------|---------|
+ |The Azure subscription to use to create an Azure Communications Gateway resource. You must use the same subscription for all resources in your Azure Communications Gateway deployment. |**Project details: Subscription**|
+ |The Azure resource group in which to create the Azure Communications Gateway resource. |**Project details: Resource group**|
+ |The name for the deployment. |**Instance details: Name**|
+ |This is the region in which your monitoring and billing data is processed. We recommend that you select a region near or co-located with the two regions that will be used for handling call traffic". |**Instance details: Region**
+ |The voice codecs the Azure Communications Gateway will be able to support when communicating with your network. |**Project details: Supported Codecs**|
+ |The Unified Communications as a Service (UCaaS) platform Azure Communications Gateway will support. These platforms are Teams Phone Mobile and Operator Connect Mobile. |**Project details: Supported Voice Platforms**|
+ |Whether your Azure Communications Gateway resource should handle emergency calls as standard calls or directly route them to the Emergency Services Routing Proxy (ESRP). |**Project details: Emergency call handling**|
 
-## N. [Last step]
+## 6. Collect Service Regions configuration values
 
-TODO: Add introductory sentence(s).
+Collect all of the values in the following table for both service regions in which Azure Communications Gateway will run.
 
-[Include a sentence or two to explain only what is needed to complete the procedure.]
+ |**Value**|**Field name(s) in Azure portal**|
+ |---------|---------|
+ |The Azure regions that will handle call traffic. |**Service Region One: Region** and **Service Region Two: Region**|
+ |The IPv4 address used by Microsoft Teams to contact your network from this region. |**Service Region One: Operator IP address** and **Service Region Two: Operator IP address**|
 
-TODO: Add ordered list of procedure steps.
+## 7. Decide if you want tags
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+Resource naming and tagging is useful for resource management. It enables your organization to locate and keep track of resources associated with specific teams or workloads and also enables you to more accurately track the consumption of cloud resources by business area and team.
 
-<!-- 6. Troubleshooting, validation, or FAQ H2 ------------------------------------------
-
-Optional.
-
-Add information on how to address any issues that might arise during or after
-installation, setup, or deployment, or to validate that the installation was successful.
-
- -->
-
-## Troubleshooting, validation, or FAQ (Optional)
-
-TODO: Add section to address issues.
-
-<!-- 7. Next steps ----------------------------------------------------------------------
-
-Required: Provide at least one next step and no more than three.
-Include some context so the customer can determine why to follow the link.
-Add a context sentence for the following links.
--->
+If you believe tagging would be useful for your organization, design your naming and tagging conventions following the information in the [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/).
 
 ## Next steps
 
-TODO: Add your next step link(s).
-
-<!--
-Remove all the comments in this template before you sign off or merge to the main branch.
--->
+1. [Create an Azure Communications Gateway resource](deploy.md)
