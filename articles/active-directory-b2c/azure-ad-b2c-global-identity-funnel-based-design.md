@@ -35,7 +35,7 @@ The following use cases are typical in a global Azure AD B2C environment. The lo
 
 This use case demonstrates how a user from their home country/region performs a sign-up with an Azure AD B2C Local Account.
 
-![Screenshot shows the Local user sign-up flow](media/azure-ad-b2c-global-identity-design-considerations/local-user-account-signup.png)
+![Screenshot shows the Local user sign-up flow.](media/azure-ad-b2c-global-identity-design-considerations/local-user-account-signup.png)
 
 1. User from Europe, Middle East, and Africa (EMEA) attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
