@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 12/16/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Adobe Experience Manager
@@ -124,11 +124,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select **Settings** > **Security** > **Users**.
 
-    ![Screenshot that shows the Users tile in the Adobe Experience Manager.](./media/adobe-experience-manager-tutorial/user-1.png)
+    ![Screenshot that shows the Users tile in the Adobe Experience Manager.](./media/adobe-experience-manager-tutorial/user.png)
 
 3. Select **Administrator** or any other relevant user.
 
-    ![Screenshot that highlights the Adminisrator user.](./media/adobe-experience-manager-tutorial/tutorial-admin-6.png)
+    ![Screenshot that highlights the Adminisrator user.](./media/adobe-experience-manager-tutorial/administrator.png)
 
 4. Select **Account settings** > **Manage TrustStore**.
 
@@ -136,35 +136,35 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Under **Add Certificate from CER file**, click **Select Certificate File**. Browse to and select the certificate file, which you already downloaded from the Azure portal.
 
-    ![Screenshot that highlights the Select Certificate File button.](./media/adobe-experience-manager-tutorial/user-2.png)
+    ![Screenshot that highlights the Select Certificate File button.](./media/adobe-experience-manager-tutorial/certificate-file.png)
 
 6. The certificate is added to the TrustStore. Note the alias of the certificate.
 
-    ![Screenshot that shows that the certificate is added to the TrustStore.](./media/adobe-experience-manager-tutorial/tutorial-admin-7.png)
+    ![Screenshot that shows that the certificate is added to the TrustStore.](./media/adobe-experience-manager-tutorial/trust-store.png)
 
 7. On the **Users** page, select **authentication-service**.
 
-    ![Sreenshot that highlights authentication-service on the screen.](./media/adobe-experience-manager-tutorial/tutorial-admin-8.png)
+    ![Sreenshot that highlights authentication-service on the screen.](./media/adobe-experience-manager-tutorial/authentication-service.png)
 
 8. Select **Account settings** > **Create/Manage KeyStore**. Create KeyStore by supplying a password.
 
-    ![Screenshot that highlights Manage KeyStore.](./media/adobe-experience-manager-tutorial/tutorial-admin-9.png)
+    ![Screenshot that highlights Manage KeyStore.](./media/adobe-experience-manager-tutorial/manage-key-store.png)
 
 9. Go back to the admin screen. Then select **Settings** > **Operations** > **Web Console**.
 
-    ![Screenshot that highlights Web Console under Operations within the Settings section.](./media/adobe-experience-manager-tutorial/tutorial-admin-1.png)
+    ![Screenshot that highlights Web Console under Operations within the Settings section.](./media/adobe-experience-manager-tutorial/web-console.png)
 
     This opens the configuration page.
 
-    ![Configure the single sign-on save button](./media/adobe-experience-manager-tutorial/tutorial-admin-2.png)
+    ![Configure the single sign-on save button](./media/adobe-experience-manager-tutorial/configuration-page.png)
 
 10. Find **Adobe Granite SAML 2.0 Authentication Handler**. Then select the **Add** icon.
 
-    ![Screenshot that highlights Adobe Granite SAML 2.0 Authentication Handler.](./media/adobe-experience-manager-tutorial/tutorial-admin-3.png)
+    ![Screenshot that highlights Adobe Granite SAML 2.0 Authentication Handler.](./media/adobe-experience-manager-tutorial/saml-handler.png)
 
 11. Take the following actions on this page.
 
-    ![Configure Single Sign-On Save button](./media/adobe-experience-manager-tutorial/tutorial-admin-4.png)
+    ![Screenshot shows for Configure Single Sign-On Save button](./media/adobe-experience-manager-tutorial/adobe-configuration.png)
 
     a. In the **Path** box, enter **/**.
 
@@ -185,6 +185,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     i. In the **Logout URL** box, enter the unique **Logout URL** value that you got from the Azure portal.
 
     j. Select **Save**.
+
+1. In **Apache Sling Referrer Filter** section, perform the below steps:
+
+    ![Screenshot shows for Sling Referrer Filter](./media/adobe-experience-manager-tutorial/allow-host.png)
+
+    a. Ensure **allow.empty** value is set to true.
+
+    b. Add `login.microsoftonline.com` to the **Allow Hosts**.
+
+    c. Click **Save**.
 
 ### Create Adobe Experience Manager test user
 
