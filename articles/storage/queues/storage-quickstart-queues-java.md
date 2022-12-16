@@ -218,7 +218,7 @@ Use the following Java classes to interact with these resources:
 
 These example code snippets show you how to do the following actions with the Azure Queue Storage client library for Java:
 
-- [Authorize access and create a client](#authorize-access-and-create-a-client)
+- [Authorize access and create a client object](#authorize-access-and-create-a-client-object)
 - [Create a queue](#create-a-queue)
 - [Add messages to a queue](#add-messages-to-a-queue)
 - [Peek at messages in a queue](#peek-at-messages-in-a-queue)
