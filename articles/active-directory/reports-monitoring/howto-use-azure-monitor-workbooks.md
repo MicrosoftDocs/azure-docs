@@ -21,20 +21,22 @@ When working with workbooks, you can either start with an empty workbook, or use
 
 ## Prerequisites
 
-To use workbooks, you need an Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md).
+To use workbooks, you need:
+- An Azure Active Directory (Azure AD) tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md)
+- The appropriate roles for the Log Analytics workspace *and* Azure AD
+- A Log Analytics workspace
 
-To use workbooks, you'll need to have the appropriate roles for the Log Analytics workspace *and* Azure Active Directory. You'll also need to have a Log Analytics workspace set up before you can use workbooks.
+1. Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
+    - Access to the Log Analytics workspace is determined by the workspace settings, access to the resources sending the data to the workspace, and the method used to access the workspace.
+    - To ensure you have the right access, review the [Manage access to Log Analytics workspaces](../../azure-monitor/logs/manage-access.md) article.
 
-- Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
-- [Log Analytics Reader](../../azure-monitor/logs/manage-access.md#log-analytics-reader): Can view all monitoring data and configuration settings
-- [Log Analytics Contributor](../../azure/azure-monitor/logs/manage-access.md#azure-rbac): Adds the ability to edit configuration settings, run search jobs, and more
-- [Access](../../azure-monitor/logs/manage-access.md) to the Log Analytics workspace
-- One of the following roles in Azure AD (if you're accessing the workspace through the Azure AD portal)
+2. Ensure that you have one of the following roles in Azure AD (if you're accessing the workspace through the Azure AD portal):
     - Security Administrator
     - Security Reader
     - Reports Reader
     - Global Administrator
-- To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics workspace](../../azure-monitor/logs/manage-access.md#azure-rbac) and be assigned to one of the following roles:
+
+3. Ensure that you have the one of the following Azure subscription roles:
     - Global Reader
     - Reports Reader
     - Security Reader
@@ -42,6 +44,7 @@ To use workbooks, you'll need to have the appropriate roles for the Log Analytic
     - Cloud Application Administrator
     - Company Administrator
     - Security Administrator
+    - For more information on Azure subscription roles, see [Roles, permissions, and security in Azure Monitor](../../azure-monitor/roles-permissions-security.md).
 
 ## How to access workbooks
 
@@ -57,6 +60,19 @@ To use workbooks, you'll need to have the appropriate roles for the Log Analytic
     ![Find the Azure Monitor workbooks in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 Workbooks may take a few moments to populate. 
+
+## Create new workbooks
+
+Workbooks can be created from scratch or from a template. When creating a new workbook, you can add elements as you go or use the **Advanced Editor** option to paste in the JSON representation of a workbook, copied from the [workbooks GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json).
+
+**To add workbook elements**:
+1. Navigate to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Select **+ New**.
+1. Select an element from the **+ Add** menu.
+
+    For more information on the available elements, see [Creating an Azure Workbook](../../azure-monitor/visualize/workbooks-create-workbook.md).
+
+    ![Screenshot of the Azure Workbooks +Add menu options.](./media/howto-use-azure-monitor-workbooks/create-new-workbook-elements.png)
 
 ## Next steps
 
