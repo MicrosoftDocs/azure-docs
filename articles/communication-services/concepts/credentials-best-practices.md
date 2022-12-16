@@ -23,7 +23,7 @@ Communication Token Credential (Credential) is an authentication primitive that 
 ## Choosing the session lifetime
 
 Depending on your scenario, you may want to adjust the lifespan of tokens issued for your application. The following best practices or their combination can help you achieve the optimal solution for your scenario:
-- [Customize the token expiration time](#set-a-custom-token-expiration-time) to your specific needs.
+- [Customize the token expiration time](#setting-a-custom-token-expiration-time) to your specific needs.
 - Initialize the Credential with a [static token](#static-token) for one-off Chat messages or time-limited Calling sessions.
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
 
@@ -191,7 +191,7 @@ const tokenCredential = new AzureCommunicationTokenCredential({
         });
 ```
 
-If you want to cancel scheduled refresh tasks, [dispose](#clean-up-resources) of the Credential object.
+If you want to cancel scheduled refresh tasks, [dispose](#cleaning-up-resources) of the Credential object.
 
 ### Proactively refreshing a token for a Teams User
 
@@ -282,7 +282,7 @@ leaveChatBtn.addEventListener('click', function() {
 });
 ```
 
-If you want to cancel subsequent refresh tasks, [dispose](#clean-up-resources) of the Credential object.
+If you want to cancel subsequent refresh tasks, [dispose](#cleaning-up-resources) of the Credential object.
 
 ### Cleaning up resources
 
@@ -302,8 +302,8 @@ tokenCredential.dispose()
 
 Depending on your scenario, you may want to sign a user out from one or more services:
 
-- To sign a user out from a single service, [dispose](#clean-up-resources) of the Credential object.
-- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#clean-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
+- To sign a user out from a single service, [dispose](#cleaning-up-resources) of the Credential object.
+- To sign a user out from multiple services, implement a signaling mechanism to notify all services to [dispose](#cleaning-up-resources) of the Credential object, and additionally, [revoke all access tokens](../quickstarts/access-tokens.md?tabs=windows&pivots=programming-language-javascript#revoke-access-tokens) for a given identity.
 
 ---
 
