@@ -48,7 +48,7 @@ The [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/
 | [Create a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L54-L73) |CosmosClient.create_database|
 | [Read a database by ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L76-L85) |CosmosClient.get_database_client|
 | [Query the databases](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L38-L51) |CosmosClient.query_databases|
-| [List databases for an account](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L99-L99) |CosmosClient.list_databases|
+| [List databases for an account](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L88-L99) |CosmosClient.list_databases|
 | [Delete a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L102-L111) |CosmosClient.delete_database|
 
 ## Container examples
