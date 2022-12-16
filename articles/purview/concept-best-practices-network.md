@@ -12,7 +12,10 @@ ms.custom: fasttrack-edit
 
 # Microsoft Purview network architecture and best practices
 
-Microsoft Purview is a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+Microsoft Purview data governance solutions are a platform as a service (PaaS) solution for data governance. Microsoft Purview accounts have public endpoints that are accessible through the internet to connect to the service. However, all endpoints are secured through Azure Active Directory (Azure AD) logins and role-based access control (RBAC).
+
+>[!NOTE]
+>These best practices cover the network architecture for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
 
 For an added layer of security, you can create private endpoints for your Microsoft Purview account. You then get a private IP address from your virtual network in Azure to the Microsoft Purview account and its managed resources. This address will restrict all traffic between your virtual network and the Microsoft Purview account to a private link for user interaction with the APIs and Microsoft Purview governance portal, or for scanning and ingestion. 
 
@@ -85,7 +88,7 @@ Here are some best practices:
 
 When you're scanning a data source in Microsoft Purview, you need to provide a credential. Microsoft Purview can then read the metadata of the assets by using the Azure integration runtime in the destination data source. When you're using a public network, authentication options and requirements vary based on the following factors: 
 
-- **Data source type**. For example, if the data source is Azure SQL Database, you need to use SQL authentication with db_datareader access to each database. This can be a user-managed identity or a Microsoft Purview managed identity. Or it can be a service principal in Azure Active Directory added to SQL Database as db_datareader. 
+- **Data source type**. For example, if the data source is Azure SQL Database, you need to use a login with db_datareader access to each database. This can be a user-managed identity or a Microsoft Purview managed identity. Or it can be a service principal in Azure Active Directory added to SQL Database as db_datareader. 
 
   If the data source is Azure Blob Storage, you can use a Microsoft Purview managed identity, or a service principal in Azure Active Directory added as a Blob Storage Data Reader role on the Azure storage account. Or use the storage account's key.  
 

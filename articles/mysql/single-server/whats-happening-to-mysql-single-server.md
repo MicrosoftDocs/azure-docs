@@ -17,7 +17,9 @@ ms.date: 09/29/2022
 
 Hello! We have news to share - **Azure Database for MySQL - Single Server is on the retirement path** and Azure Database for MySQL - Single Server is scheduled for retirement by **September 16, 2024**.
 
-After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server. 
+As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023**. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md).
+
+After years of evolving the Azure Database for MySQL - Single Server service, it can no longer handle all the new features, functions, and security needs. We recommend upgrading to Azure Database for MySQL - Flexible Server.
 
 Azure Database for MySQL - Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. For more information about Flexible Server, visit **[Azure Database for MySQL - Flexible Server](../flexible-server/overview.md)**.
 
@@ -72,7 +74,11 @@ A. Unfortunately, we don't plan to support Single Server beyond the sunset date 
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
 
-A. We aren't stopping new single server creations immediately, so you can provision new single servers to meet your business needs. However, we strongly recommend that you migrate to Flexible Server at the earliest so that you can start managing your Flexible Server fleet instead.
+A. As part of this retirement, we will no longer support creating new Single Server instances from the Azure portal beginning **January 16, 2023**. If you still need to create Single Server instances to meet business continuity needs, you can leverage [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md). 
+
+**Q. After the Single Server retirement announcement, what if I still need to create a new read replica for my single server instance?**
+
+A. You will still be able to create read replicas for your existing single server instance from the **Replication blade** and this will continue to be supported till the sunset date of **September 16, 2024**.
 
 **Q. Are there additional costs associated with performing the migration?**
 
@@ -88,7 +94,7 @@ A. To limit any downtime you might incur, perform an online migration to Flexibl
 
 **Q. Will there be future updates to Single Server to support latest MySQL versions?**
 
-A. The last minor version upgrade to Single Server version 8.0 will be 8.0.28. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
+A. The last minor version upgrade to Single Server version 8.0 will be 8.0.15. Consider migrating to Flexible Server to use the benefits of the latest version upgrades.
 
 **Q. How does the flexible server’s 99.99% availability SLA differ from that of single server?**
 

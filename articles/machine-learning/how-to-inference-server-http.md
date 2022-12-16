@@ -340,5 +340,5 @@ In this section, we'll provide a basic troubleshooting tips for Azure Machine Le
 
 ## Next steps
 
-* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-managed-online-endpoints.md).
+* For more information on creating an entry script and deploying models, see [How to deploy a model using Azure Machine Learning](how-to-deploy-online-endpoints.md).
 * Learn about [Prebuilt docker images for inference](concept-prebuilt-docker-images-inference.md)

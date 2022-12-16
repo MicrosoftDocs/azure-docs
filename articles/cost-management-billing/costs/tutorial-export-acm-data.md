@@ -62,7 +62,7 @@ To create or view a data export or to schedule an export, choose a scope in the 
 1. Select **Add** and type a name for the export.
 1. For the **Metric**, make a selection:
     - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
-    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
+    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
 1. For **Export type**, make a selection:
     - **Daily export of month-to-date costs** - Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
     - **Weekly export of cost for the last seven days** - Creates a weekly export of your costs for the past seven days from the selected start date of your export.

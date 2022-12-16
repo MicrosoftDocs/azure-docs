@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 11/29/2022
 ms.author: aahi
 ---
 
@@ -28,37 +28,35 @@ By default, all API requests will use the latest Generally Available (GA) model.
 
 #### Choose the model-version used on your data
 
-We recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. 
+We strongly recommend using the `latest` model version to utilize the latest and highest quality models. As our models improve, it’s possible that some of your model results may change. Model versions may be deprecated, so don't recommend including specified versions in your implementation. 
 
 Preview models used for preview features do not maintain a minimum retirement period and may be deprecated at any time.
 
 By default, API and SDK requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used (not recommended).
 
 > [!NOTE]
-> If you are using an model version that is not listed in the table, then it was subjected to the expiration policy.
+> * If you are using an model version that is not listed in the table, then it was subjected to the expiration policy.
+> * Abstractive document and conversation summarization do not provide model versions other than the latest available.
 
 Use the table below to find which model versions are supported by each feature:
 
-| Feature                                             | Supported versions          | Model versions to be deprecated October 30, 2022|
-|-----------------------------------------------------|-----------------------------|------------------------|
-| Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01*` | `2019-10-01`, `2020-04-01`                       |
-| Language Detection                                  | `2021-11-20*`               | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`                       |
-| Entity Linking                                      | `2021-06-01*`               | `2019-10-01`, `2020-02-01`                       |
-| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`               | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2021-01-15`                       |
-| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*` | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2020-07-01`                       |
-| PII detection for conversations (Preview)           | `2022-05-15-preview**`      |    |
-| Question answering                                  | `2021-10-01*`               |                        |
-| Text Analytics for health                           | `2021-05-15`, `2022-03-01*` |                        |
-| Key phrase extraction                               | `2021-06-01`, `2022-07-01*` | `2019-10-01`, `2020-07-01`                       |
-| Document summarization (preview)                    | `2021-08-01*`               |           |
-| Conversation summarization (preview)                | `2022-05-15-preview**`      |    |
+| Feature                                             | Supported versions         |
+|-----------------------------------------------------|-----------------------------|
+| Sentiment Analysis and opinion mining               | `2021-10-01`, `2022-06-01`,`2022-10-01`,`2022-11-01*` |
+| Language Detection                                  | `2021-11-20`, `2022-10-01*` |
+| Entity Linking                                      | `2021-06-01*`               |
+| Named Entity Recognition (NER)                      | `2021-06-01*`, `2022-10-01-preview`               |
+| Personally Identifiable Information (PII) detection | `2020-07-01`, `2021-01-15*` | 
+| PII detection for conversations (Preview)           | `2022-05-15-preview**`      |  
+| Question answering                                  | `2021-10-01*`               |
+| Text Analytics for health                           | `2021-05-15`, `2022-03-01*`, `2022-08-15-preview**` |
+| Key phrase extraction                               | `2021-06-01`, `2022-07-01`,`2022-10-01*` | 
+| Document summarization - extractive only (preview)     | `2022-08-31-preview**`               |
 
 \* Latest Generally Available (GA) model version
 
 \*\* Latest preview version
 
-> [!IMPORTANT]
-> The versions listed for deprecation will be unavailable for use after October 30, 2022.
 
 ## Custom features
 
