@@ -195,7 +195,7 @@ If you assigned an IP address to your app, make sure you keep the ports open. To
 
 All the items shown in the following outbound rules are needed, except for the rule named **ASE-internal-outbound**. They enable network access to the App Service Environment dependencies that were noted earlier in this article. If you block any of them, your App Service Environment stops working. The rule named **ASE-internal-outbound** in the list enables your App Service Environment to communicate with other resources in your virtual network.
 
-![Screenshot that shows outbound security rules.][5]
+![Screenshot that shows outbound security rules.][5] 
 
 > [!NOTE]
 > The IP range in the ASE-internal-outbound rule is only an example and should be changed to match the subnet range for the App Service Environment subnet.
