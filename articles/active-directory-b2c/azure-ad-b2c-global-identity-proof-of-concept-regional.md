@@ -476,7 +476,9 @@ The **ValidationTechnicalProfiles** will perform the following logic when the us
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-- [Azure AD B2C global identity funnel-based design considerations](azure-ad-b2c-global-identity-funnel-based-design-considerations.md)
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
+
+- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-region-based-design.md)
 
 - [Azure AD B2C global identity proof of concept funnel-based configuration](azure-ad-b2c-global-identity-proof-of-concept-funnel.md)
 
