@@ -61,11 +61,11 @@ To use workbooks, you need:
 
 Workbooks may take a few moments to populate. 
 
-## Create new workbooks
+## Create a new workbook
 
 Workbooks can be created from scratch or from a template. When creating a new workbook, you can add elements as you go or use the **Advanced Editor** option to paste in the JSON representation of a workbook, copied from the [workbooks GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json).
 
-**To add workbook elements**:
+**To create a new workbook from scratch**:
 1. Navigate to **Azure AD** > **Monitoring** > **Workbooks**.
 1. Select **+ New**.
 1. Select an element from the **+ Add** menu.
@@ -73,6 +73,18 @@ Workbooks can be created from scratch or from a template. When creating a new wo
     For more information on the available elements, see [Creating an Azure Workbook](../../azure-monitor/visualize/workbooks-create-workbook.md).
 
     ![Screenshot of the Azure Workbooks +Add menu options.](./media/howto-use-azure-monitor-workbooks/create-new-workbook-elements.png)
+
+**To create a new workbook from a template**:
+1. Navigate to **Azure AD** > **Monitoring** > **Workbooks**.
+1. Select a workbook template from the Gallery.
+1. Select **Edit** from the top of the page. Each element of the workbook has its own **Edit** button. For more information on editing workbook elements, see [Azure Workbooks Templates](../../azure-monitor/visualize/workbooks-templates.md)
+    ![Screenshot of a workbook in Edit mode, with the Edit and Done Editing buttons highlighted.](./media/howto-use-azure-monitor-workbooks/edit-buttons.png)
+1. Select the **Edit** button for any element. Make your changes and select **Done editing**.
+1. When you are done editing the workbook, select the **Save As** to save your workbook with a new name.
+1. In the **Save As** window:
+    - Provide a **Title**, **Subscription**, **Resource Group** (you must have the ability to save a workbook for the selected Resource Group), and **Location**.
+    - Optionally choose to save your workbook content to an [Azure Storage Account](../../azure-monitor/visualize/workbooks-bring-your-own-storage.md).
+1. Select the **Apply** button.
 
 ## Next steps
 

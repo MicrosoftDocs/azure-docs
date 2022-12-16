@@ -20,13 +20,15 @@ ms.collection: M365-identity-device-management
 
 # What are Azure Active Directory workbooks?
 
-As an IT admin, you need may need to see your Azure Active Directory (Azure AD) tenant data as a visual representation that enables you to understand how your identity management environment is doing. This article gives you an overview of how you can use Azure Monitor workbooks for Azure AD to analyze your Azure AD tenant data.
+As an IT admin, you need may need to see your Azure Active Directory (Azure AD) tenant data as a visual representation that enables you to understand how your identity management environment is doing. This article gives you an overview of how you can use Azure Workbooks for Azure AD to analyze your Azure AD tenant data.
 
-With Azure Monitor workbooks, you can:
+With Azure Workbooks for Azure AD, you can:
 
 - Query data from multiple sources in Azure
 - Visualize data for reporting and analysis
 - Combine multiple elements into a single interactive experience
+
+Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks. Workbooks for Azure AD, however, cover only those identity management scenarios that are associated with Azure AD. Sign-ins, Conditional Access, multifactor authentication, and Identity Protection are scenarios inluded in Azure Workbook for Azure AD.
 
 For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
@@ -49,3 +51,8 @@ Because of the ability to customize workbooks, they can benefit many types of us
 - **Tenant admins**: People who use the available reports to get insight and take action.
 - **Workbook template builder**: Someone who “graduates” from the role of reporting admin by turning a workbook into a template for others with similar needs to use as a basis for creating their own workbooks.
 
+## Next steps
+
+- Learn [how to use Azure Workbooks for Azure AD](howto-use-azure-monitor-workbooks.md)
+- [Create your own workbook](../../azure-monitor/visualize/workbooks-create-workbook.md)
+- Explore the [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer.md) workbook
