@@ -141,7 +141,7 @@ The next table defines the supported classifications for Linux updates.
 >
 > Update Management uses data published by the supported distributions, specifically their released [OVAL](https://oval.mitre.org/) (Open Vulnerability and Assessment Language) files. Because internet access is restricted from these national clouds, Update Management cannot access the files.
 
-### Logic for Linux classification
+### Logic for Linux updates classification
 
 1. For assessment, Update Management classifies updates into three categories: **Security**, **Critical** or **Others**. This classification of updates is as per the data from two sources:
 
