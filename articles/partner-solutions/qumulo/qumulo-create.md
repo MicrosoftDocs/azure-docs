@@ -64,8 +64,8 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
    |**Region** | Select one of the available regions from the dropdown list. |
    |**Availability Zone** | Select an availability zone to pin the Qumulo file system resources to that zone in a region. |
    |**Password** | Create an initial password to set the Qumulo administrator access. |
-   |**Storage type** | Choose between performance or standard storage configuration, based on your workload requirements.|
-   |**Storage Size** | Specify the size of the file system that needs to be created.|
+   |**Storage** | Choose either **Standard** or **Performance** for your storage configuration, based on your workload requirements.|
+   |**Capacity (TB)** | Specify the size of the file system that needs to be created.|
    |**Pricing Plan** | A pay-as-you-go plan is selected by default. For upfront pricing plans or free trials, contact azure@qumulo.com. |
 
    :::image type="content" source="media/qumulo-create/qumulo-create.png" alt-text="Screenshot of the Basics tab for creating a Qumulo resource on the working pane."::: 
