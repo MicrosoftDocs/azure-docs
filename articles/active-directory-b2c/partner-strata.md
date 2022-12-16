@@ -14,116 +14,109 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial for extending Azure AD B2C to protect on-premises applications using Strata
+# Tutorial to configure Azure Active Directory B2C with Strata
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C with Strata's [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/).
-Maverics Identity Orchestrator extends Azure AD B2C to protect on-premises applications. It connects to any identity system, transparently migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Using Strata enterprises can quickly transition from legacy to Azure AD B2C without rewriting applications. The solution has the following benefits:
+In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 
-- **Customer Single Sign-On (SSO) to on-premises hybrid apps**: Azure AD B2C supports customer SSO with Maverics Identity Orchestrator. Users sign in with their accounts that are hosted in Azure AD B2C or social Identity provider (IdP). Maverics extends SSO to apps that have been historically secured by legacy identity systems like Symantec SiteMinder.
+The solution has the following benefits:
 
-- **Extend standards-based SSO to apps without rewriting them**: Use Azure AD B2C to manage user access and enable SSO with Maverics Identity Orchestrator SAML or OIDC Connectors.
-
-- **Easy configuration**: Azure AD B2C provides a simple step-by-step user interface for connecting Maverics Identity Orchestrator SAML or OIDC connectors to Azure AD B2C.
+- **Customer single sign-on (SSO) to on-premises hybrid apps** - Azure AD B2C supports customer SSO with Maverics Identity Orchestrator
+  - Users sign in with accounts hosted in Azure AD B2C or identity provider (IdP)
+  - Maverics proves SSO to apps historically secured by legacy identity systems like Symantec SiteMinder
+- **Extend standards SSO to apps** - Use Azure AD B2C to manage user access and enable SSO with Maverics Identity Orchestrator Security Assertion Markup Language (SAML) or OpenID Connect (OIDC) connectors
+- **Easy configuration** - Connect Maverics Identity Orchestrator SAML or OIDC connectors to Azure AD B2C
 
 ## Prerequisites
 
 To get started, you'll need:
 
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-
-- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
-
-- An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets that are used by Maverics Identity Orchestrator. It's used to connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
-
-- An instance of [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/) that is installed and running in an Azure virtual machine or the on-premises server of your choice. For information about how to get the software and access to the installation and configuration documentation, contact [Strata](https://www.strata.io/contact/)
-
-- An on-premises application that you'll transition from a legacy identity system to Azure AD B2C.
+- An Azure AD subscription
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
+- An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets used by Maverics Identity Orchestrator. Connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
+- An instance of [Maverics Identity Orchestrator](https://www.strata.io/maverics-identity-orchestrator/) running in an Azure virtual machine (VM), or an on-premises server. To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/contact/).
+- An on-premises application to transition to Azure AD B2C
 
 ## Scenario description
 
-Strata's Maverics integration includes the following components:
+Maverics Identity Orchestrator integration includes the following components:
 
-- **Azure AD B2C**: The authorization server that's responsible for verifying the user's credentials. Authenticated users may access on-premises apps using a local account stored in the Azure AD B2C directory.
-
-- **An external social or enterprise IdP**: Could be any OpenID Connect provider, Facebook, Google, or GitHub. For more information, see [Add an identity provider](./add-identity-provider.md).  
-
-- **Strata's Maverics Identity Orchestrator**: The service that orchestrates user sign-on and transparently passes identity to apps through HTTP headers.
+- **Azure AD B2C** - The authorization server that verifies user credentials
+  - Authenticated users access on-premises apps using a local account in the Azure AD B2C directory
+- **External social or enterprise identity provider (IdP)**: An OIDC provider, Facebook, Google, or GitHub
+  - See, [Add an identity provider to your Azure Active Directory B2C tenant](./add-identity-provider.md)
+- **Strata Maverics Identity Orchestrator**: The user sign-on service that passes identity to apps through HTTP headers
 
 The following architecture diagram shows the implementation.
 
-![Image show the architecture of an Azure AD B2C integration with Strata Maverics to enable access to hybrid apps](./media/partner-strata/strata-architecture-diagram.png)
+   ![Diagram of the Azure AD B2C integration architecture, with Maverics Identity Orchestrator, for access to hybrid apps.](./media/partner-strata/strata-architecture-diagram.png)
 
-| Steps | Description |
-|:-------|:---------------|
-| 1. | The user makes a request to access the on-premises hosted application. Maverics Identity Orchestrator proxies the request made by the user to the application.|
-| 2. | The Orchestrator checks the user's authentication state. If it doesn't receive a session token, or the supplied session token is invalid, then it sends the user to Azure AD B2C for authentication.|
-| 3. | Azure AD B2C sends the authentication request to the configured social IdP.|
-| 4. | The IdP challenges the user for credentials. Depending on the IdP, the user may require to do Multi-factor authentication (MFA).|
-| 5. | The IdP sends the authentication response back to Azure AD B2C. Optionally, the user may create a local account in the Azure AD B2C directory during this step.|
-| 6. | Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app's registration in the Azure AD B2C tenant.|
-| 7. | The Orchestrator evaluates access policies and calculates attribute values to be included in HTTP headers forwarded to the app. During this step, the Orchestrator may call out to additional attribute providers to retrieve the information needed to set the header values correctly. The Orchestrator sets the header values and sends the request to the app.|
-| 8. | The user is now authenticated and has access to the app.|
+1. The user requests access the on-premises hosted application. Maverics Identity Orchestrator proxies the request to the application.
+2. Orchestrator checks the user authentication state. If there's no session token, or the token is invalid, the user goes to Azure AD B2C for authentication
+3. Azure AD B2C sends the authentication request to the configured social IdP.
+4. The IdP challenges the user for credential. Multi-factor authentication (MFA) might be required.
+5. The IdP sends the authentication response to Azure AD B2C. The user can create a local account in the Azure AD B2C directory.
+6. Azure AD B2C sends the user request to the endpoint specified during the Orchestrator app registration in the Azure AD B2C tenant.
+7. The Orchestrator evaluates access policies and attribute values for HTTP headers forwarded to the app. Orchestrator might call to other attribute providers to retrieve information to set the header values. The Orchestrator sends the request to the app.
+8. The user is authenticated and has access to the app.
 
-## Get Maverics Identity Orchestrator
-To get the software you'll use to integrate your legacy on-premises app with Azure AD B2C, contact [Strata](https://www.strata.io/contact/). After you get the software, follow the steps below to determine Orchestrator-specific prerequisites and perform the required installation and configuration steps.
+## Maverics Identity Orchestrator
+
+To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/contact/). Determine Orchestrator prerequisites. Install and configure.
 
 ## Configure your Azure AD B2C tenant
 
-1. **Register your application**
+During the following instructions, document: 
 
-   a. [Register the Orchestrator as an application](./tutorial-register-applications.md?tabs=app-reg-ga) in Azure AD B2C tenant.
-   >[!Note]
-   >You'll need the tenant name and identifier, client ID, client secret, configured claims, and redirect URI later when you configure your Orchestrator instance.
+* Tenant name and identifier
+* Client ID
+* Client secret
+* Configured claims
+* Redirect URI
 
-   b. Grant Microsoft MS Graph API permissions to your applications. Your application will need the following permissions: `offline_access`, `openid`.
+1. [Register a web application in Azure Active Directory B2C](./tutorial-register-applications.md?tabs=app-reg-ga) in Azure AD B2C tenant.
+2. Grant Microsoft MS Graph API permissions to your applications. Use permissions: `offline_access`, `openid`.
+3. Add a redirect URI that matches the `oauthRedirectURL` parameter of the Orchestrator Azure AD B2C connector configuration, for example, `https://example.com/oidc-endpoint`.
+4. [Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md).
+5. [Add an identity provider to your Azure Active Directory B2C tenant](./add-identity-provider.md). Sign in your user with a local account, a social, or enterprise.
+6. Define the attributes to be collected during sign-up.
+7. Specify attributes to be returned to the application with your Orchestrator instance. 
 
-   c. Add a redirect URI for your application. This URI will match the `oauthRedirectURL` parameter of your Orchestrator's Azure AD B2C connector configuration, for example, `https://example.com/oidc-endpoint`.
-
-2. **Create a user flow**: Create a [sign-up and sign-in user flow](./tutorial-create-user-flows.md).
-
-3. **Add an IdP**: Choose to sign in your user with either a local account or a social or enterprise [IdP](./add-identity-provider.md).
-
-4. **Define user attributes**: Define the attributes to be collected during sign-up.
-
-5. **Specify application claims**: Specify the attributes to be returned to the application via your Orchestrator instance. The Orchestrator consumes attributes from claims returned by Azure AD B2C and can retrieve additional attributes from other connected identity systems such as LDAP directories and databases. Those attributes are set in HTTP headers and sent to the upstream on-premises application.
+> [!NOTE]
+> The Orchestrator consumes attributes from claims returned by Azure AD B2C and can retrieve attributes from connected identity systems such as LDAP directories and databases. Those attributes are in HTTP headers and sent to the upstream on-premises application.
 
 ## Configure Maverics Identity Orchestrator
 
-In the following sections, we'll walk you through the steps required to configure your Orchestrator instance. For additional support and documentation, contact [Strata](https://www.strata.io/contact/).
+Use the instructions in the following sections to configure an Orchestrator instance.
 
 ### Maverics Identity Orchestrator server requirements
 
 You can run your Orchestrator instance on any server, whether on-premises or in a public cloud infrastructure by provider such as Azure, AWS, or GCP.
 
-- OS: REHL 7.7 or higher, CentOS 7+
-
-- Disk: 10 GB (small)
-
-- Memory: 16 GB
-
-- Ports: 22 (SSH/SCP), 443, 80
-
-- Root access for install/administrative tasks
-
-- Maverics Identity Orchestrator runs as user `maverics` under `systemd`
-
-- Network egress from the server hosting Maverics Identity Orchestrator with the ability to reach your Azure AD tenant.
+- **Operating System**: REHL 7.7 or higher, CentOS 7+
+- **Disk**: 10 GB (small)
+- **Memory**: 16 GB
+- **Ports**: 22 (SSH/SCP), 443, 80
+- **Root access**: For install/administrative tasks
+- **Maverics Identity Orchestrator**: Runs as user `maverics` under `systemd`
+- **Network egress**: From the server hosting Maverics Identity Orchestrator that can reach your Azure AD tenant
 
 ### Install Maverics Identity Orchestrator
 
-1. Obtain the latest Maverics RPM package. Place the package on the system on which you'd like to install Maverics. If you're copying the file to a remote host, [SCP](https://www.ssh.com/ssh/scp/) is a useful tool.
-
-2. To install the Maverics package, run the following command replacing your filename in place of `maverics.rpm`.
+1. Obtain the latest Maverics RPM package. 
+2. Place the package on the system you'd like to install Maverics. If you're copying to a remote host, use SSH [scp](https://www.ssh.com/ssh/scp/).
+3. Run the following command. Use your filename to replace `maverics.rpm`.
 
    `sudo rpm -Uvf maverics.rpm`
 
-   By default, Maverics is installed in the `/usr/local/bin` directory.
+   By default, Maverics is in the `/usr/local/bin` directory.
 
-3. After installing Maverics, it will run as a service under `systemd`.  To verify Maverics service is running, run the following command:
+4. Maverics runs as a service under `systemd`.  
+5. To verify Maverics service is running, run the following command:
 
    `sudo service maverics status`
 
-  If the Orchestrator installation was successful, you should see a message similar to this:
+6. The following message (or similar) appears.
 
 ```
 Redirecting to /bin/systemctl status maverics.service
@@ -137,15 +130,18 @@ Redirecting to /bin/systemctl status maverics.service
           └─330772 /usr/local/bin/maverics --config /etc/maverics/maverics.yaml
   ```
 
-4. If the Maverics service fails to start, execute the following command to investigate the problem:
+> [!NOTE]
+> If Maverics fails to start, execute the following command:
 
    `journalctl --unit=maverics.service --reverse`
 
-   The most recent log entry will appear at the beginning of the output.
+   The most recent log entry appears in the output.
 
-After installing Maverics, the default `maverics.yaml` file is created in the `/etc/maverics` directory.
-
-Configure your Orchestrator to protect the application. Integrate with Azure AD B2C, store, and retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/?OCID=AID2100131_SEM_bf7bdd52c7b91367064882c1ce4d83a9:G:s&ef_id=bf7bdd52c7b91367064882c1ce4d83a9:G:s&msclkid=bf7bdd52c7b91367064882c1ce4d83a9). Define the location where the Orchestrator should read its configuration from.
+7. The default `maverics.yaml` file is created in the `/etc/maverics` directory.
+8. Configure your Orchestrator to protect the application. 
+9. Integrate with Azure AD B2C, and store.
+10. Retrieve secrets from [Azure Key Vault](https://azure.microsoft.com/services/key-vault/?OCID=AID2100131_SEM_bf7bdd52c7b91367064882c1ce4d83a9:G:s&ef_id=bf7bdd52c7b91367064882c1ce4d83a9:G:s&msclkid=bf7bdd52c7b91367064882c1ce4d83a9). 
+11. Define the location from where the Orchestrator reads its configuration.
 
 ### Supply configuration using environment variables
 
