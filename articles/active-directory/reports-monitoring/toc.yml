@@ -149,6 +149,8 @@ items:
         href: workbook-risk-analysis.md
       - name: Sensitive Operations Report 
         href: workbook-sensitive-operations-report.md
+      - name: Multifactor authentication gaps 
+        href: workbook-mfa-gaps.md
 
 - name: Recommendations
   items:
