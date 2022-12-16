@@ -26,7 +26,7 @@ In particular, this quickstart assumes that you have already:
 1. Created an Azure Functions project on your local machine.
 2. Added Durable Functions to your project with an [orchestrator function](durable-functions-bindings.md#orchestration-trigger) and a [client function](durable-functions-bindings.md#orchestration-client) that triggers it.
 3. Configured the project for local debugging.
-4. Learned how to deploy an Azure Functions project to Azure
+4. Learned how to deploy an Azure Functions project to Azure.
 
 If this isn't the case, we suggest you start with one of the following articles, which provides detailed instructions on how to achieve all the requirements above:
 
@@ -104,7 +104,7 @@ While the function app is running, Netherite will publish load information about
 
 ## Run your app on Azure
 
-You need to create an Azure Functions app on Azure. To do this, follow the instructions in the *Create a function app* section of [these instructions](/articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app-a-function).
+You need to create an Azure Functions app on Azure. To do this, follow the instructions in the **Create a function app** section of [these instructions](/articles/azure-functions/functions-create-function-app-portal.md#create-a-function-app-a-function).
 
 ### Set up Event Hubs
 
@@ -123,7 +123,7 @@ Follow [these steps](/articles/event-hubs/event-hubs-create#create-an-event-hubs
 
 #### Obtain the Event Hubs connection string
 
-To obtain the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal, select "Shared access policies", and then select "RootManagedSharedAccessKey". This should reveal a field named "Connection string-primary key" and that field's value is the connection string.
+To obtain the connection string for your Event Hubs namespace, go to your Event Hubs namespace in the Azure portal, select **Shared access policies**, and then select **RootManagedSharedAccessKey**. This should reveal a field named **Connection string-primary key** and that field's value is the connection string.
 
 Below are guiding screenshots on how to find this data in the portal:
 
@@ -131,7 +131,7 @@ Below are guiding screenshots on how to find this data in the portal:
 
 ### Add connection string as an application setting
 
-You need to add your connection string as an application setting in your Function App. To do this through the Azure portal, go to your Function App view, select **Configuration**, and then select **New application setting**. This is where you can assign `EventHubsConnection` to map to your connection string. Below are some guiding images.
+You need to add your connection string as an application setting in your function app. To do this through the Azure portal, go to your function app view, select **Configuration**, and then select **New application setting**. This is where you can assign `EventHubsConnection` to map to your connection string. Below are some guiding images.
 
 ![In the Function App view, go to "configuration" and select "new application setting."](./media/quickstart-netherite/add-configuration.png)
 ![Enter `EventHubsConnection` as the name, and the connection string as its value.](./media/quickstart-netherite/enter-configuration.png)
@@ -150,7 +150,7 @@ If your app is running on the Elastic Premium Plan, it is recommended that you e
 > [!NOTE]
 > Skip this section if your app is running on Linux.
 
-Netherite requires a 64-bit architecture to work. Starting on Functions V4, this should be the default. You can usually validate this in the portal: under "Configuration", select "General Settings" and then ensure the "Platform" field is set to "64 Bit". If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
+Netherite requires a 64-bit architecture to work. Starting on Functions V4, this should be the default. You can usually validate this in the portal: under **Configuration**, select **General Settings** and then ensure the **Platform** field is set to **64 Bit**. If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
 
 ![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/ensure-64bit-architecture.png)
 
