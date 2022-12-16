@@ -73,8 +73,7 @@ result. Mitigating vulnerabilities can disrupt reproducibility by changing depen
 AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
 user-managed, and system-managed.
 
-**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace.
-provisioned.
+**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace provisioned.
 
 Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
 These pre-created environments also allow for faster deployment time.
