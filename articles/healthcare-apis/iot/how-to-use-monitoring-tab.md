@@ -1,18 +1,18 @@
 ---
 title: How to display the MedTech service monitoring tab metrics - Azure Health Data Services
-description: This article explains how to display the MedTech service monitoring tab metrics.
+description: This article describes how to display the MedTech service monitoring tab metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 11/14/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
 # How to display the MedTech service monitoring tab metrics
 
-In this article, you'll learn how to use the [MedTech service](iot-connector-overview.md) monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
+In this article, you'll learn how to use the MedTech service monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 
 ## Display the MedTech service monitoring tab metrics
 
@@ -52,22 +52,24 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|**Total Error Count**|The total number of errors.|
-|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](iot-data-flow.md#persist) by the MedTech service.|
-|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
-|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](iot-data-flow.md#transform) of the MedTech service.|
+|Latency|**Average Group Stage Latency**|The average latency of the group stage. The [group stage](data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|**Average Normalize Stage Latency**|The average latency of the normalized stage. The [normalized stage](data-flow.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](data-flow.md#persist) by the MedTech service.|
+|Traffic|**Number of Incoming Messages**|The number of received raw [incoming messages](data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|**Number of Measurements**|The number of normalized value readings received by the FHIR [transformation stage](data-flow.md#transform) of the MedTech service.|
 |Traffic|**Number of Message Groups**|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|**Number of Normalized Messages**|The number of normalized messages.|
 
 ## Next steps
+
+In this article, you learned about how to use the MedTech service monitoring tab.
 
 To learn how to configure the MedTech service metrics, see
 
 > [!div class="nextstepaction"]
 > [How to configure the MedTech service metrics](how-to-configure-metrics.md)
 
-To learn how to enable the MedTech service diagnostic settings to export logs to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
+To learn how to enable the MedTech service diagnostic settings, see
 
 > [!div class="nextstepaction"]
 > [How to enable diagnostic settings for the MedTech service](how-to-enable-diagnostic-settings.md)

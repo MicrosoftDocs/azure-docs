@@ -5,14 +5,14 @@ items:
   expanded: true
   items:
   - name: What is the MedTech service?
-    href: iot-connector-overview.md
+    href: overview.md
   - name: The MedTech service data flow
-    href: iot-data-flow.md
+    href: data-flow.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Get started with the MedTech service
-    href: get-started-with-iot.md
+    href: get-started.md
   - name: Deploy the MedTech service
     expanded: true
     items:
@@ -48,7 +48,7 @@ items:
       expanded: false
       items:
       - name: Device mappings
-        href: how-to-use-device-mappings.md
+        href: how-to-configure-device-mappings.md
       - name: CalculatedContentTemplate mappings
         href: how-to-use-calculated-functions-mappings.md
       - name: IotJsonPathContentTemplate mappings
@@ -59,7 +59,7 @@ items:
       expanded: false
       items:
       - name: FHIR destination mappings
-        href: how-to-use-fhir-mappings.md
+        href: how-to-configure-fhir-mappings.md
   - name: Create copies of mappings
     href: how-to-create-mappings-copies.md
   - name: Monitor
@@ -75,23 +75,23 @@ items:
     expanded: false
     items:
     - name: Errors and conditions
-      href: iot-troubleshoot-error-messages-and-conditions.md
+      href: troubleshoot-error-messages-and-conditions.md
     - name: Device and FHIR destination mappings
-      href: iot-troubleshoot-mappings.md
+      href: troubleshoot-mappings.md
 - name: Concepts
   expanded: false
   items:
   - name: The MedTech service and Azure Machine Learning Service
-    href: iot-connector-machine-learning.md
+    href: concepts-machine-learning.md
   - name: The MedTech service and Microsoft Power BI
-    href: iot-connector-power-bi.md
+    href: concepts-power-bi.md
   - name: The MedTech service and Microsoft Teams notifications
-    href: iot-connector-teams.md
+    href: concepts-teams.md
 - name: Resources
   expanded: false
   items:
   - name: FAQs - The MedTech service
-    href: iot-connector-faqs.md
+    href: frequently-asked-questions.md
   - name: Open-source projects
-    href: iot-git-projects.md     
+    href: git-projects.md     
            
