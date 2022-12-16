@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/13/2022
+ms.date: 12/16/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -240,9 +240,11 @@ While designing models to reflect the entities in your environment, it can be us
 
 ### Upload and delete models in bulk
 
-Here are two sample projects that can simplify dealing with multiple models at once:
-* [Model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels): Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. If you have many models to upload, or if they have many interdependencies that would make ordering individual uploads complicated, you can use this model uploader sample to upload many models at once.
-* [Model deleter](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels): This sample can be used to delete all models in an Azure Digital Twins instance at once. It contains recursive logic to handle model dependencies through the deletion process. 
+Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. 
+
+You can upload many models in a single API call using the [bulk import API](concepts-apis-sdks.md#bulk-import-api). For detailed instructions and examples with this API, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets). You can also use the [Model uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels), which implements automatic reordering to resolve dependencies between many model files being uploaded at once.
+
+If you need to delete all models in an Azure Digital Twins instance at once, you can use the [Model deleter sample](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels). This is a project that contains recursive logic to handle model dependencies through the deletion process. 
 
 ### Visualize models
 

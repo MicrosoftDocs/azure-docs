@@ -87,6 +87,29 @@ Here are some details about functions and returned data:
 * You can iterate over paged results using an `await foreach` loop. For more about this process, see [Iterating with Async Enumerables in C# 8](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
 * Service methods return strongly typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
+### Bulk import API
+
+The [bulk import API]() allows you to import a set of models, twins, and/or relationships in a single API call. Bulk API operations are also included with the [CLI commands](concepts-cli.md) and [data plane SDKs](#data-plane-apis).
+
+The API accepts the information in *NDJSON* format. Here's an example of an input data file for the import API:
+
+```json
+{"Section": "Header"}
+{"fileVersion": "1.0.0", "author": "foobar", "organization": "contoso"}
+{"Section": "Models"}
+{"@id":"dtmi:com:microsoft:azure:iot:model0;1","@type":"Interface","contents":[{"@type":"Property","name":"property00","schema":"integer"},{"@type":"Property","name":"property01","schema":{"@type":"Map","mapKey":{"name":"subPropertyName","schema":"string"},"mapValue":{"name":"subPropertyValue","schema":"string"}}},{"@type":"Relationship","name":"has","target":"dtmi:com:microsoft:azure:iot:model1;1","properties":[{"@type":"Property","name":"relationshipproperty1","schema":"string"},{"@type":"Property","name":"relationshipproperty2","schema":"integer"}]}],"description":{"en":"This is the description of model"},"displayName":{"en":"This is the display name"},"@context":"dtmi:dtdl:context;2"}
+{"@id":"dtmi:com:microsoft:azure:iot:model1;1","@type":"Interface","contents":[{"@type":"Property","name":"property10","schema":"string"},{"@type":"Property","name":"property11","schema":{"@type":"Map","mapKey":{"name":"subPropertyName","schema":"string"},"mapValue":{"name":"subPropertyValue","schema":"string"}}}],"description":{"en":"This is the description of model"},"displayName":{"en":"This is the display name"},"@context":"dtmi:dtdl:context;2"}
+{"Section": "Twins"}
+{"$dtId":"twin0","$metadata":{"$model":"dtmi:com:microsoft:azure:iot:model0;1"},"property00":10,"property01":{"subProperty1":"subProperty1Value","subProperty2":"subProperty2Value"}}
+{"$dtId":"twin1","$metadata":{"$model":"dtmi:com:microsoft:azure:iot:model1;1"},"property10":"propertyValue1","property11":{"subProperty1":"subProperty1Value","subProperty2":"subProperty2Value"}}
+{"Section": "Relationships"}
+{"$dtId":"twin0","$relationshipId":"relationship","$targetId":"twin1","$relationshipName":"has","relationshipProperty1":"propertyValue1","relationshipProperty2":10}
+```
+
+For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
+
+For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships in bulk](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk).
+
 ### Serialization helpers in the .NET (C#) SDK
 
 Serialization helpers are helper functions available within the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break down the twin data further.

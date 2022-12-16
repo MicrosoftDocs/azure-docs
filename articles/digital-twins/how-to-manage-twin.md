@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 08/10/2022
+ms.date: 12/16/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -79,6 +79,14 @@ The helper class of `BasicDigitalTwin` allows you to store property fields in a 
 >```csharp
 >twin.Id = "myRoomId";
 >```
+
+### Create twins in bulk
+
+You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many twins at once in a single API call. (The bulk import API also allows models and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk).)
+
+To import twins in bulk, you'll need to structure your twins (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file and creation sample project in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api). This file can include initialization of the twin's properties.
+
+Then, the file can be used in the API call like this:
 
 ## Get data for a digital twin
 

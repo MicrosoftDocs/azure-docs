@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 12/16/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -61,17 +61,29 @@ When you're ready to upload a model, you can use the following code snippet for 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-You can also upload multiple models in a single transaction. 
+On upload, model files are validated by the service.
+
+You'll usually need to upload more than one model to the service. There are several ways that you can upload many models at once in a single transaction. To help you pick a strategy, consider the size of your model set as you continue through the rest of this section. 
+
+### Upload small model sets
+
+For smaller model sets, you can upload multiple models at once using individual API calls. 
 
 If you're using the SDK, you can upload multiple model files with the `CreateModels` method like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should be placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
-On upload, model files are validated by the service.
+### Upload large model sets
+
+For large model sets, you can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload many models at once in a single API call. (The bulk import API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk).)
+
+To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file and creation sample project in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
+
+Then, the file can be used in the API call like this:
 
 ## Retrieve models
 
