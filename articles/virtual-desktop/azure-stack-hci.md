@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021, devx-track-azurecli
 
 With Azure Virtual Desktop for Azure Stack HCI (preview), you can use Azure Virtual Desktop session hosts in your on-premises Azure Stack HCI infrastructure. For more information, see [Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci-overview.md).
 
-You can configure Azure Virtual Desktop for Azure Stack HCI manually. You can also deploy the workload directly from the **Azure Virtual Desktop** tile on your cluster's Overview page on Azure Portal, which is integrated with ARM templates for an end-to-end automated deployment.
+You can configure Azure Virtual Desktop for Azure Stack HCI manually. You can also deploy the workload directly from the **Azure Virtual Desktop** tile on your cluster's Overview page on Azure portal, which is integrated with ARM templates for an end-to-end automated deployment.
 
 > [!IMPORTANT]
 > Azure Virtual Desktop for Azure Stack HCI is currently in preview.
@@ -84,7 +84,7 @@ To create a profile container using a file share:
 
 ### Download supported OS images from Azure Marketplace
 
-You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which OSes Azure Virtual Desktop supports, see [Supported VM OS images](prerequisites.md#operating-systems-and-licenses).
+You can run any OS images that both Azure Virtual Desktop and Azure Stack HCI support on your deployment. To learn which operating systems Azure Virtual Desktop supports, see [Supported VM OS images](prerequisites.md#operating-systems-and-licenses).
 
 You have two options to download an image:
 
@@ -225,7 +225,7 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 Follow the steps below for a simplified process of setting up Azure Virtual Desktop on Azure Stack HCI. This deployment is based on an Azure Resource Manager template that automates creating the host pool and workspace, creating the session hosts on the HCI cluster, joining the domain, downloading and installing the Azure Virtual Desktop agents, and then registering them to the host pool.
 
-1. Sign into the Azure Portal.
+1. Sign into the Azure portal.
 
 1. On the Azure portal menu or from the Home page, select **Azure Stack HCI**.
 
