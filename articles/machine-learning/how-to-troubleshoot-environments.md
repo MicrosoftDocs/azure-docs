@@ -78,7 +78,7 @@ for your jobs or model deployments while using system managed environments.
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
 materialized, is pushed to the container registry, and used if experimentation or deployment is triggered for the corresponding environment. Azure
-Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate the need of an image over time. Users
+Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
 can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure)
 to help scan images for vulnerabilities. To
 automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](https://learn.microsoft.com/en-us/azure/defender-for-cloud/workflow-automation).
