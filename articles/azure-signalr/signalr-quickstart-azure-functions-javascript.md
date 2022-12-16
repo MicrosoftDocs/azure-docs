@@ -18,15 +18,16 @@ ms.custom: devx-track-js, mode-api
 
 ## Prerequisites
 
-- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
-- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 or above. Used to run Azure Function apps locally.
-- [Node.js](https://nodejs.org/en/download/), See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).
-- SignalR binding needs Azure Storage, but you can use a local storage emulator when a function is running locally. Install the open source storage emulator [Azurite](../storage/common/storage-use-azurite.md).
-
-The examples should work with other versions of Node.js, for more information, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
-
 This quickstart can be run on macOS, Windows, or Linux.
+
+| Prerequisite | Description |
+| --- | --- |
+| An Azure subsription |If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+| A code editor | You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
+| [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
+|[Node.js](https://nodejs.org/en/download/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
+| [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage.  You can use a local storage emulator when a function is running locally. |
+| [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
 
 ## Create an Azure SignalR Service instance
 
@@ -36,30 +37,28 @@ This quickstart can be run on macOS, Windows, or Linux.
 
 Make sure you have Azure Functions Core Tools installed.
 
-1. Open a command line
-1. Create an empty directory and then change to it. 
-1. Run the Azure Functions `func init` command to initialize a new project:
+1. Open a command line.
+1. Create project directory and then change to it. 
+1. Run the Azure Functions `func init` command to initialize a new project.
 
   ```bash
   # Initialize a function project
   func init --worker-runtime javascript
   ```
   
-## Create the functions
+## Create the project functions
 
-After you initialize a project, you need to create functions. In this sample, we need to create three functions: 
+After you initialize a project, you need to create functions. This project requires three functions: 
 
-- `index`: hosts a web page for a client
-- `negotiate`: allows client to get an access token
-- `broadcast`: broadcasts messages to all clients. In the app, the time trigger broadcasts messages periodically
+- `index`: Hosts a web page for a client.
+- `negotiate`: Allows a client to get an access token.
+- `broadcast`: Uses a time trigger to periodically broadcast messages to all clients.
 
 When you run the `func new` command from the root directory of the project, the Azure Functions Core Tools creates the function source files storing them in a folder with the function name.  You'll edit the files as necessary replacing the default code with the app code.
 
 ### Create the index function
 
-
-
-1. Run the following command to create an `index` function.
+1. Run the following command to create the `index` function.
 
   ```bash
   func new -n index -t HttpTrigger
@@ -112,10 +111,9 @@ When you run the `func new` command from the root directory of the project, the 
   }
   ```
 
-
 ### Create the negotiate function
 
-1. Run the following command to create an `negotiate` function.
+1. Run the following command to create the `negotiate` function.
 
   ```bash
   func new -n negotiate -t HttpTrigger
@@ -152,12 +150,10 @@ When you run the `func new` command from the root directory of the project, the 
     ]
   }
   ```
-  
-
 
 ### Create a broadcast function.
 
-1. Run the following command to create an `broadcast` function.
+1. Run the following command to create the `broadcast` function.
 
   ```bash
   func new -n broadcast -t TimerTrigger
@@ -186,7 +182,7 @@ When you run the `func new` command from the root directory of the project, the 
   }
   ```
 
-1.  Edit *broadcast/index.js* and replace the contents with the following code:
+1. Edit *broadcast/index.js* and replace the contents with the following code:
   
   ```javascript
   var https = require('https');
@@ -232,12 +228,13 @@ When you run the `func new` command from the root directory of the project, the 
   }
   ```
 
-The client interface for this app is a web page. The `index` function reads HTML content from the *content/index.html* file. 
+### Create the index.html file
+
+The client interface for this app is a web page. The `index` function reads HTML content from the *content/index.html* file.
 
 1. Create a folder called `content` in your project root folder.
-1. Create a new file *index.html* in the `content` folder.
+1. Create the file *content/index.html*.
 1. Copy the following content to the *content/index.html* file and save it:
-
 
     ```html
     <html>
@@ -267,17 +264,14 @@ The client interface for this app is a web page. The `index` function reads HTML
 
 ### Add the SignalR Service connection string to the function app settings
 
-The last step is to set the connection string of the SignalR Service in Azure Function settings.
+The last step is to set the SignalR Service connection string in Azure Function app settings.
 
-1. In the Azure portal, find the SignalR instance you deployed earlier by typing its name in the **Search** box. Select the instance to open it.
-
-  ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
-
+1. In the Azure portal, go to the SignalR instance you deployed earlier.
 1. Select **Keys** to view the connection strings for the SignalR Service instance.
 
-  ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    :::image type="content" source="media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png" alt-text="Screenshot of Azure SignalR service Keys page.":::
 
-1. Copy the primary connection string. And execute the command:
+1. Copy the primary connection string, and execute the command:
 
   ```bash
   func settings add AzureSignalRConnectionString "<signalr-connection-string>"
@@ -291,16 +285,16 @@ Start the Azurite storage emulator:
   azurite 
   ```
 
-Run the Azure Function in the local environment:
+Run the Azure Function app in the local environment:
 
   ```bash
   func start
   ```
 
 > [!NOTE]
-> If you see an error like `There was an error performing a read operation on the Blob Storage Secret Repository`. Please ensure the 'AzureWebJobsStorage' setting in the *local.settings.json* file is set to `UseDevelopmentStorage=true`.
+> If you see an errors showing read errors on the blob storage, ensure the 'AzureWebJobsStorage' setting in the *local.settings.json* file is set to `UseDevelopmentStorage=true`.
 
-After the Azure Function is running locally, go to `http://localhost:7071/api/index`. The page shows the current star count for the GitHub Azure/azure-signalr repository. When you star or unstar the repository in GitHub, you'll see the refreshed count on the page every few seconds.
+After the Azure Function is running locally, go to `http://localhost:7071/api/index`. The page displays the current star count for the GitHub Azure/azure-signalr repository. When you star or unstar the repository in GitHub, you'll see the refreshed count every few seconds.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qscsharp)
 
