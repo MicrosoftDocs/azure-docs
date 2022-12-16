@@ -181,7 +181,7 @@ Write users region to global lookup table.
 
 - [Azure AD B2C global identity solutions](azure-ad-b2c-global-identity-solutions.md)
 
-- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design-considerations.md)
+- [Build a global identity solution with funnel-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
 
-- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-funnel-based-design-considerations.md)
+- [Build a global identity solution with region-based approach](azure-ad-b2c-global-identity-funnel-based-design.md)
 
