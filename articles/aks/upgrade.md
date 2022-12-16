@@ -59,7 +59,7 @@ For more information what cluster operations may trigger specific upgrade events
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
 [operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
 [supported-k8s-versions]: ./supported-kubernetes-versions.md#kubernetes-version-support-policy
-[ts-nsg]: h/troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
+[ts-nsg]: /troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
 [ts-pod-drain]: /troubleshoot/azure/azure-kubernetes/error-code-poddrainfailure
 [ts-ip-limit]: /troubleshoot/azure/azure-kubernetes/error-code-publicipcountlimitreached
 [ts-quota-exceeded]: /troubleshoot/azure/azure-kubernetes/error-code-quotaexceeded
