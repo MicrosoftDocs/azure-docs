@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Block legacy authentication - Azure Active Directory
+title: Block legacy authentication with Conditional Access - Azure Active Directory
 description: Create a custom Conditional Access policy to block legacy authentication protocols
 
 services: active-directory
@@ -11,11 +11,11 @@ ms.date: 08/22/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
-ms.reviewer: calebb, davidspo
+ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Block legacy authentication
+# Common Conditional Access policy: Block legacy authentication
 
 Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication. For more information about why blocking legacy authentication is important, see the article [How to: Block legacy authentication to Azure AD with Conditional Access](block-legacy-authentication.md).
 
@@ -27,7 +27,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 The following steps will help create a Conditional Access policy to block legacy authentication requests. This policy is put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they'll have on existing users. When administrators are comfortable that the policy applies as they intend, they can switch to **On** or stage the deployment by adding specific groups and excluding others.
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.

@@ -4,7 +4,7 @@
   items:
   - name: About Azure VMware Solution
     href: introduction.md
-  - name: Platform updates
+  - name: What's new
     href: azure-vmware-solution-platform-updates.md
 - name: Get started
   items:
@@ -14,10 +14,12 @@
     href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install the VMware HCX Connector
+  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -214,8 +216,8 @@
       href: enable-sql-azure-hybrid-benefit.md
     - name: Enable VMware Cloud director service with Azure VMware solution (Preview)
       href: enable-vmware-cds-with-azure.md
-    - name: Upgrade the VMware HCX appliance
-      href: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html
+    - name: Upgrade HCX on Azure VMware Solution
+      href: upgrade-hcx-azure-vmware-solutions.md
 - name: Resources
   items:
   - name: Learning paths
@@ -275,31 +277,7 @@
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
-    items:
-    - name: General
-      href: ./faq.yml
-    - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
-    - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
-    - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
-    - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+    href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

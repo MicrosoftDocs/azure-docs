@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 12/05/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -140,7 +140,7 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
-* The managed Storage account and optional Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
+* The managed Storage account created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
 
 There are two firewalls to consider:
 
@@ -150,15 +150,15 @@ There are two firewalls to consider:
 Here are the domains and outbound ports that you need to allow at both **corporate and Windows/machine firewalls**.
 
 > [!TIP]
-> For domains listed with '\<managed_storage_account>' and '\<managed_Event_Hub_resource>', add the name of the managed resources associated with your Microsoft Purview account. You can find them from Azure portal -> your Microsoft Purview account -> Managed resources tab.
+> For domains listed with '\<managed_storage_account>', add the name of the managed resources associated with your Microsoft Purview account. You can find them from Azure portal -> your Microsoft Purview account -> Managed resources tab.
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Microsoft Purview service. Currently wildcard is required as there's no dedicated resource. |
 | `*.servicebus.windows.net` | 443            | Required for setting up scan in the Microsoft Purview governance portal. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
-| `<purview_account>.purview.azure.com` | 443 | Required to connect to Microsoft Purview service. |
-| `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Blob storage account. |
-| `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Queue storage account. |
+| `<purview_account>.purview.azure.com` | 443 | Required to connect to Microsoft Purview service. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *account private endpoint*.  |
+| `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Blob storage account. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *ingestion private endpoint*. |
+| `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Queue storage account. If you use Purview [Private Endpoints](catalog-private-link.md), this endpoint is covered by *ingestion private endpoint*. |
 | `download.microsoft.com` | 443           | Required to download the self-hosted integration runtime updates. If you have disabled auto-update, you can skip configuring this domain. |
 | `login.windows.net`<br>`login.microsoftonline.com` | 443 | Required to sign in to the Azure Active Directory. |
 
@@ -172,10 +172,11 @@ Depending on the sources you want to scan, you also need to allow other domains 
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |
+|  `*.powerbi.com` and `*.analysis.windows.net` | 443            | When scan Power BI tenant. |
 | `<your_ADLS_account>.azuredatalakestore.net` | 443            | When scan Azure Data Lake Store Gen 1. |
 | Various domains | Dependent | Domains and ports for any other sources the SHIR will scan. |
 
-For some cloud data stores such as Azure SQL Database and Azure Storage, you need to allow IP address of self-hosted integration runtime machine on their firewall configuration.
+For some cloud data stores such as Azure SQL Database and Azure Storage, you may need to allow IP address of self-hosted integration runtime machine on their firewall configuration, or you can create private endpoint of the service in your self-hosted integration runtime's network.
 
 > [!IMPORTANT]
 > In most environments, you will also need to make sure that your DNS is correctly configured. To confirm, you can use **nslookup** from your SHIR machine to check connectivity to each of the domains. Each nslookup should return the IP of the resource. If you are using [Private Endpoints](catalog-private-link.md), the private IP should be returned and not the Public IP. If no IP is returned, or if when using Private Endpoints the public IP is returned, you need to address your DNS/VNet association, or your Private Endpoint/VNet peering.
@@ -194,10 +195,10 @@ There are two supported configuration options by Microsoft Purview:
 
 - **Do not use proxy**: The self-hosted integration runtime doesn't explicitly use any proxy to connect to cloud services.
 - **Use system proxy**: The self-hosted integration runtime uses the proxy setting that is configured in the executable's configuration files. If no proxy is specified in these files, the self-hosted integration runtime connects to the services directly without going through a proxy.
+- **Use custom proxy**: Configure the HTTP proxy setting to use for the self-hosted integration runtime, instead of using configurations in diahost.exe.config and diawp.exe.config. **Address** and **Port** values are required. **User Name** and **Password** values are optional, depending on your proxy's authentication setting. All settings are encrypted with Windows DPAPI on the self-hosted integration runtime and stored locally on the machine.
 
-> [!IMPORTANT]
->
-> Currently, **custom proxy** is not supported in Microsoft Purview. In addition, system proxy is supported when scanning Azure data sources and SQL Server; scanning other sources doesn't support proxy.
+> [!NOTE]
+> Proxy is supported when scanning Azure data sources and SQL Server; scanning other sources doesn't support proxy.
 
 The integration runtime host service restarts automatically after you save the updated proxy settings.
 
@@ -322,7 +323,7 @@ If you see error messages like the following ones, the likely reason is improper
 
 If you scan Parquet files using the self-hosted integration runtime with Microsoft Purview, you'll need to install either the Java Runtime Environment or OpenJDK on your self-hosted IR machine.
 
-When scanning Parquet files using the self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+When scanning Parquet files using the self-hosted IR, the service locates the Java runtime by firstly checking the registry *`(HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. You can set JAVA_HOME under System Settings, Environment Variables on your machine. Create or edit the JAVA_HOME variable to point to the Java jre on your machine. For example: *`C:\Program Files\Java\jdk1.8\jre`* 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.

@@ -1,7 +1,7 @@
 ---
 title: Configure traffic mirroring with active or passive aggregation with terminal access points - Microsoft Defender for IoT
 description: This article describes traffic mirroring with active passive aggregation with terminal access points (TAP) for OT monitoring with Microsoft Defender for IoT.
-ms.date: 09/20/2022
+ms.date: 11/08/2022
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ A TAP is a hardware device that allows network traffic to flow back and forth be
 
 For example:
 
-:::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs." border="false":::
+:::image type="content" source="../media/how-to-set-up-your-network/active-passive-tap-v2.png" alt-text="Diagram of active and passive TAPs." border="false" lightbox="../media/how-to-set-up-your-network/active-passive-tap-v2.png":::
 
 Some TAPs aggregate both *Receive* and *Transmit*, depending on the switch configuration. If your switch doesn't support aggregation, each TAP uses two ports on your OT network sensor to monitor both *Receive* and *Transmit* traffic.
 
@@ -36,17 +36,15 @@ The following TAP models have been tested for compatibility with Defender for Io
 
 - **Garland P1GCCAS**
 
-    When using a Garland TAP, make sure jumpers are set as follows:
-
-    :::image type="content" source="../media/how-to-set-up-your-network/jumper-setup-v2.jpg" alt-text="Screenshot of US Robotics switch.":::
+    When using a Garland TAP, make sure to set up your network to support aggregation. For more information, refer to the **Tap Aggregation** diagram under the **Network Diagrams** tab in the [Garland installation guide](https://www.garlandtechnology.com/products/aggregator-tap-copper).
 
 - **IXIA TPA2-CU3**
 
-    :::image type="content" source="../media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot of IXIA TPA2-CU3." border="false":::
+    When using an Ixia TAP, make sure **Aggregation mode** is active. For more information, see the [Ixia install guide](https://support.ixiacom.com/sites/default/files/resources/install-guide/c_taps_zd-copper_qig_0303.pdf).
 
 - **US Robotics USR 4503**
 
-    When using a US Robotics TAP, make sure **Aggregation mode** is active.
+    When using a US Robotics TAP, make sure to toggle the aggregation mode on by setting the selectable switch to **AGG**. For more information, see the [US Robotics installation guide](https://www.usr.com/files/9814/7819/2756/4503-ig.pdf).
 
 ## Next steps
 

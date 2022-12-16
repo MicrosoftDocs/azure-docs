@@ -44,6 +44,7 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 The following versions of Windows are supported:
 
+- **Windows Server 2022**
 - **Windows Server 2019 Standard/Datacenter**
 - **Windows Server 2016 Standard/Datacenter** 
 - **Windows Server 2012 R2 Standard/Datacenter**
@@ -71,6 +72,9 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation.
 
 The list of Virtual Machine SKUs that support Accelerated Networking can be queried directly via the following Azure CLI [`az vm list-skus`](/cli/azure/vm#az-vm-list-skus) command.
+
+> [!NOTE]
+> Although NC and NV sizes will show in the command below, they do not support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs will have no effect.
 
 ```azurecli-interactive
 az vm list-skus \

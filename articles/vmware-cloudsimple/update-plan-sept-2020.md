@@ -5,7 +5,7 @@ author: dikamath
 ms.author: dikamath 
 ms.date: 09/3/2020 
 ms.topic: article 
-ms.service: azure-vmware-cloudsimple 
+ms.service: azure-vmware
 manager: dikamath
 ---
 

@@ -7,6 +7,7 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 08/24/2021
+ms.devlang: csharp
 ms.custom: "monitoring"
 ---
 
@@ -41,25 +42,25 @@ If you need to dynamically determine whether to adjust workloads to handle messa
 The following example uses the Azure Storage .NET v12 library to get the approximate message count.
 
 ```csharp
-        static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+{
+    if (await theQueue.ExistsAsync())
+    {
+        QueueProperties properties = await theQueue.GetPropertiesAsync();
+
+        if (properties.ApproximateMessagesCount > 0)
         {
-            if (await theQueue.ExistsAsync())
-            {
-                QueueProperties properties = await theQueue.GetPropertiesAsync();
-
-                if (properties.ApproximateMessagesCount > 0)
-                {
-                    QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
-                    string theMessage = retrievedMessage[0].MessageText;
-                    await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
-                    return theMessage;
-                }
-
-                return null;
-            }
-
-            return null;
+            QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
+            string theMessage = retrievedMessage[0].MessageText;
+            await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+            return theMessage;
         }
+
+        return null;
+    }
+
+    return null;
+}
 ```
 
 Also consider using Service Bus which supports message per entity. To learn more, see [Monitoring Azure Service Bus data reference](../../service-bus-messaging/monitor-service-bus-reference.md). 
@@ -131,7 +132,7 @@ StorageQueueLogs
 | project TimeGenerated, AuthenticationType, RequesterObjectId, OperationName, Uri
 ```
 
-Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md)
+Shared Key and SAS authentication provide no means of auditing individual identities. Therefore, if you want to improve your ability to audit based on identity, we recommended that you transition to Azure AD, and prevent shared key and SAS authentication. To learn how to prevent Shared Key and SAS authentication, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md?toc=/azure/storage/queues/toc.json&tabs=portal). To get started with Azure AD, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md)
 
 ## Optimize cost for infrequent queries
 

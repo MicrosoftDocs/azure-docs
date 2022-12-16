@@ -292,7 +292,7 @@ Create a file `conda_dependencies.yml` with the following contents:
 
 ```yml
 dependencies:
-- python=3.6.2
+- python=3.7
 - pip:
   - azureml-core
   - azureml-dataset-runtime
