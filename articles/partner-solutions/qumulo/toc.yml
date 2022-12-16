@@ -1,13 +1,13 @@
-- name: Azure Native Qumulo Scalable File Service Documentation 
+- name: Azure Native Qumulo Scalable File Service documentation 
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Native Qumulo Scalable File Service?
     href: qumulo-overview.md
-- name: Quickstarts
+- name: Quickstart
   expanded: true
   items:
-  - name: Create a Azure Native Qumulo Scalable File Service resource
+  - name: Create an Azure Native Qumulo Scalable File Service resource
     href: qumulo-create.md
 - name: How to
   items:
