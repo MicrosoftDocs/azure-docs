@@ -106,80 +106,54 @@ After cloning, you can also know which pipeline job it's cloned from by selectin
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
 
-## How to debug a failed job using graph comparison (preview)
+## How to debug a failed job using pipeline comparison (preview)
 
-Graph comparison identifies the differences (including topology, component properties and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
+pipeline comparison identifies the differences (including topology, component properties and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
 
-Two major scenarios where you can use graph comparison to help with debugging:
+Two major scenarios where you can use pipeline comparison to help with debugging:
 
-- Debug your failed pipeline job but comparing it to a completed one.
+- Debug your failed pipeline job by comparing it to a completed one.
 - Debug your failed node in a pipeline by comparing it to a similar completed one.
 
 ### How to debug your failed pipeline job by comparing to a completed one
 
-During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use graph comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
+During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use pipeline comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
 
 #### Compare a pipeline with its parent lineage
 
 The first thing you should check when debugging is locate the failed node and check the logs. 
 
-For example, you may get an error message showing that your pipeline failed due to out-of-memory. If your pipeline is cloned from a completed parent pipeline, you can use graph comparison to see what has changed.
+For example, you may get an error message showing that your pipeline failed due to out-of-memory. If your pipeline is cloned from a completed parent pipeline, you can use pipeline comparison to see what has changed.
 
 1. Select *Show lineage*
 1. Select the link under "Cloned From*. This will open a new browser tab with the parent pipeline.
 1. Select **Add to compare** on the failed pipeline and the parent pipeline. This will add them in the comparison candidate list.
 
-#### Compare pipelines under the same experiment
-
-If the completed and failed pipeline are under the same experiment:
-
-1. Go to the experiment detail page.
-1. Select the two pipeline jobs.
-1. Select *Compare* then *Compare Pipeline Graph*.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/pipeline-same-experiment.png" alt-text="Screenshot showing the experiment detail page." lightbox= "./media/how-to-use-pipeline-ui/pipeline-same-experiment.png":::
-
-#### Compare pipelines under different experiments
-
-If the pipelines are under different experiments:
-
-1. Go to the *All jobs* tab on the **Jobs* page.
-1. Select two pipeline jobs. You can use filters to find the jobs you want to compare.
-1. Select **Compare** then *Compare Pipeline Graph*.
-
 ### Compare topology
 
-Once the two pipelines are added to the comparison list, you'll have two options: Compare detail and Compare graph. The Compare graph is to compare pipeline topology.
+Once the two pipelines are added to the comparison list, you'll have two options: **Compare detail** and **Compare graph**. The **Compare graph** is to compare pipeline topology.
 
-Compare graph lets you can see the graph topology changes between pipeline A and B. The special nodes in pipeline A are highlighted in red and marked with "A only". The special nodes in pipeline B are in green and marked with "B only". The shared nodes are in gray. If there are differences on the shared nodes, what has been changed is shown on the top of node.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/compare-topology.png" alt-text="Screenshot of compare graph showing the red, green, and gray wries between the special nodes.  " lightbox= "./media/how-to-use-pipeline-ui/compare-topology.png":::
+**Compare graph** shows you the graph topology changes between pipeline A and B. The special nodes in pipeline A are highlighted in red and marked with "A only". The special nodes in pipeline B are in green and marked with "B only". The shared nodes are in gray. If there are differences on the shared nodes, what has been changed is shown on the top of node.
 
 Topology differences:
 
 - Input sourced changed
 
-    Double select the node to see the details. It will show the dataset properties like dataset ID, name, version, and path. You can use this information to help find the root cause of why your pipeline failed. For example, if pipeline A was using larger data than pipeline B and it failed then you might suspect that it might of failed do to the size of the data. You can select the dataset name to see the dataset detail page to preview or access the data.
+    Double select the node to see the details. It will show the dataset properties like dataset ID, name, version, and path. You can use this information to help find the root cause of why your pipeline failed. For example, if pipeline A was using larger data than pipeline B and it failed then it could be due the size of the data. You can select the dataset name to see the dataset detail page to preview or access the data.
 
-- Subgraph changed
-    
-    To compare, select the folder icon to  dig down into the subgraph. For example, after doing so you might see "Parameter changed", double select that and you might see difference values for the successful and failed nodes. Which could be the reason the pipeline failed. The string difference for the parameters is inline highlighted. You can uncheck *Show difference inline* to view the second value more clearly.
+- Pipeline component changed
 
-    :::image type="content" source="./media/how-to-use-pipeline-ui/subgraph-changed.png" alt-text="Screenshot of graph comparison showing parameter changed and component information with show differences inline highlighted. " lightbox= "./media/how-to-use-pipeline-ui/subgraph-changed.png":::
+    To compare, select the folder icon to dig down into the pipeline component. For example, after doing so you might see "Parameter changed", double select that and you might see different values for the successful and failed nodes, which could be the reason the pipeline failed. The string difference for the parameters is inline highlighted. You can uncheck *Show difference inline* to view the second value more clearly.
 
-In the following screenshot, pipeline A has a dataset node that pipeline B doesn't have. To compare the two pipelines, use CTRL and left click to multi-select two datasets. Right click then select *Add selected nodes to compare**. After the two datasets will be in the comparison list. Select compare details to check dataset properties.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/add-selected-nodes-to-compare.png" alt-text="Screenshot of graph comparison showing add selected nodes to compare. " lightbox= "./media/how-to-use-pipeline-ui/add-selected-nodes-to-compare.png":::
+ To compare the two pipelines, use CTRL and left click to multi-select two datasets. Right click then select *Add selected nodes to compare**. After the two datasets will be in the comparison list. Select **Compare details** to check dataset properties.
 
 ### Compare pipeline meta info and properties
 
 If you investigate the dataset difference and find that data or topology doesn't seem to be the root cause of failure, you can also check the pipeline details like pipeline parameter, output or run settings.
 
-*Compare graph* is used to compare pipeline topology, *Compare detail* is used to compare pipeline properties link meta info or settings.
+**Compare graph** is used to compare pipeline topology, **Compare detail** is used to compare pipeline properties link meta info or settings.
 
-To access the detail comparison, go to the comparison list, select *Compare details* or select *Show details* on the graph comparison page.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/show-details.png" alt-text="Screenshot of graph comparison showing the show details button highlighted. " lightbox= "./media/how-to-use-pipeline-ui/show-details.png":::
+To access the detail comparison, go to the comparison list, select **Compare details** or select **Show compare details** on the pipeline comparison page.
 
 You'll see *Pipeline properties* and *Run properties*.
 
@@ -188,24 +162,11 @@ You'll see *Pipeline properties* and *Run properties*.
 
 The following screenshot shows an example of using the detail comparison, where the default compute setting might have been the reason for failure.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/default-compute-setting.png" alt-text="Screenshot shows an example of using the detail comparison, where the default compute setting might have been the reason for failure. " lightbox= "./media/how-to-use-pipeline-ui/default-compute-setting.png":::
-
-To quickly check the topology comparison, select the pipeline name and select **Compare in graph view**.
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/compare-in-graph-view.png" alt-text="Screenshot detail comparison with compare in graph view and pipelines highlighted." lightbox= "./media/how-to-use-pipeline-ui/compare-in-graph-view.png":::
+To quickly check the topology comparison, select the pipeline name and select **Compare graph**.
 
 ### How to debug your failed node in a pipeline by comparing to similar completed node
 
 If you only updated node properties and changed nothing in the pipeline, then you can debug the node by comparing it with the jobs that are submitted from the same component.
-
-For example, we have a failed scope job and it says the job failed because the input extension isn't ".ss", " resolution: Change extension in structured stream name to .ss".
-
-:::image type="content" source="./media/how-to-use-pipeline-ui/failed-scope-job.png" alt-text="Screenshot showing failed scope job and the it says the job failed because the input extension isn't ss." lightbox= "./media/how-to-use-pipeline-ui/failed-scope-job.png":::
-
-
-failed-scope-job.png
-
-Since we have submitted many similar scope jobs with ran successfully, we can compare it to this failed job to figure out why it failed.
 
 #### Find the job to compare with
 
@@ -215,11 +176,7 @@ Since we have submitted many similar scope jobs with ran successfully, we can co
 1. After you found a failed and completed job to compare with, add the two jobs to the comparison candidate list
     1. For the failed node, right select and select *Add to compare*
     1. For the completed job, go to its parent pipeline and located the completed job. Then select *add to compare*
-1. Once the two jobs are in the comparison list, select *Compare detail* to show the differences.
-
-    The following screenshot shows our failed scope job example from earlier. Here we can see that the major difference is the datastore. The completed one uses ADLS and the failed one uses blob storage. This reminds use that for our scope job that the output datastore needs to be ADLS because blob isn't supported.
-
-    :::image type="content" source="./media/how-to-use-pipeline-ui/compare-detail-datastore.png" alt-text="Screenshot detail comparison showing component properties with one datastore being A D L S and the other blob. " lightbox= "./media/how-to-use-pipeline-ui/compare-detail-datastore.png":::
+1. Once the two jobs are in the comparison list, select **Compare detail** to show the differences.
     
 ### Share the comparison results
 
