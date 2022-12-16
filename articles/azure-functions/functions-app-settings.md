@@ -41,7 +41,7 @@ When using app settings, you should be aware of the following considerations:
 
 + Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unresponsive state. 
 
-+ Take care when updating application settings by using REST APIs, including ARM templates. Because these APIs replace the existing application settings, you must include all existing settings when adding or modifying settings using REST APIs or ARM templates. When possible use Azure CLI or Azure PowerShell to programmatically work with application settings. For more information, see [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#work-with-application-settings).  
++ Take care when updating application settings by using REST APIs, including ARM templates. Because these APIs replace the existing application settings, you must include all existing settings when adding or modifying settings using REST APIs or ARM templates. When possible use Azure CLI or Azure PowerShell to programmatically work with application settings. For more information, see [Work with application settings](./functions-how-to-use-azure-function-app-settings.md#settings).  
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -378,7 +378,7 @@ With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) s
 
 ## JAVA_OPTS
 
-Used to customize the Java virtual machine (JVM) used to run your Java functions. In the Consumption plan, you must also add the [`WEBSITE_USE_PLACEHOLDER`](#website-use-placeholder) setting with a value of `0`, which can impact cold start. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm). 
+Used to customize the Java virtual machine (JVM) used to run your Java functions. In the Consumption plan, you must also add the [`WEBSITE_USE_PLACEHOLDER`](#website_use_placeholder) setting with a value of `0`, which can impact cold start. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm). 
 
 ## MDMaxBackgroundUpgradePeriod
 
