@@ -205,15 +205,7 @@ az vm stop \
   --name myScaleSet_instance1
 ```
 
-Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss) to deallocate all the instance in your scale set.
-
-```azurecli-interactive
-az vmss deallocate \ 
-  --resource-group myResourceGroup \
-  --name myScaleSet
-```
-
-To deallocate an individual VM instance in a scale set, use [az vm deallocate](/cli/azure/vm) and specify the instance name.  
+Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vm deallocate](/cli/azure/vm) and specify the instance names you want deallocated. 
 
 ```azurecli-interactive
 az vm deallocate \

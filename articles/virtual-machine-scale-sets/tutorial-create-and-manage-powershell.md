@@ -135,13 +135,7 @@ myResourceGroup   myScaleSet_instance3   eastus Standard_DS1_v2 Windows       Su
 ```
 
 ## Stop and deallocate VM instances in a scale set
-To stop all the VM instances in a scale set, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). 
-
-```azurepowershell-interactive
-Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
-```
-
-To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/stop-azvm) and specify the instance name.
+To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/stop-azvm) and specify the instance names.
 
 ```azurepowershell-interactive
 Stop-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
