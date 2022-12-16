@@ -43,7 +43,7 @@ If both regions are active, the Traffic Manager will resolve an incoming request
 
 If a region reports an unhealthy status to the Traffic Manager, future requests will resolve to the other region if available. Clients caching DNS lookups may experience extended failover time. But once any client-side caches expire, future requests should route to the available region.
 
-# Azure Region Support
+## Azure Region Support
 
 The following regions are supported for the preview.
 
@@ -78,7 +78,7 @@ The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery o
 
 ### Azure CLI commands
 
-If creating a new Managed HSM pool and then extending to a secondary, please refer to [these instructions](quick-create-cli.md##create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
+If creating a new Managed HSM pool and then extending to a secondary, please refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
 
 ### Install the multi-region managed HSM replication extension
 
