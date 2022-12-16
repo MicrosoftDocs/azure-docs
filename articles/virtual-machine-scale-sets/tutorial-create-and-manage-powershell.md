@@ -25,8 +25,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-
-
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
 
@@ -34,7 +32,6 @@ An Azure resource group is a logical container into which Azure resources are de
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
-
 
 ## Create a Virtual Machine Scale Set
 First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
@@ -60,7 +57,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 To view a list of VM instances in a scale set, use [Get-AzVM](/powershell/module/az.compute/get-azvm) as follows:
 
 ```azurepowershell-interactive
-Get-AzVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVM -ResourceGroupName "myResourceGroup"
 ```
 
 The following example output shows two VM instances in the scale set:
@@ -99,7 +96,7 @@ TimeCreated            : 11/16/2022 11:02:02 PM
 
 When you created a scale set at the start of the tutorial, a default VM SKU of *Standard_D1_v2* was provided for the VM instances. You can specify a different VM instance size with the `-VMSize` parameter to specify a VM instance size of *Standard_F1*. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
@@ -108,7 +105,6 @@ New-AzVmss `
   -Location "EastUS" `
   -Credential $cred
 ```
-
 
 ## Change the capacity of a scale set
 When you created a scale set, two VM instances were deployed by default. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
@@ -188,7 +184,6 @@ When you delete a resource group, all resources contained within, such as the VM
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
-
 ## Next steps
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with Azure PowerShell:
 
@@ -202,4 +197,4 @@ In this tutorial, you learned how to perform some basic scale set creation and m
 Advance to the next tutorial to learn how to connect to your scale set instances.
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets](tutorial-use-disks-powershell.md)
+> [Use data disks with scale sets](tutorial-connect-to-instances-powershell.md)
