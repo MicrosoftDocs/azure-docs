@@ -138,7 +138,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:virtualMemoryPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureLevel | An integer between 1 and 99 that indicates how much physical memory pressure (%) will be applied to the VM. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -178,7 +178,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:diskIOPressure/1.0 |
 | Parameters (key, value) |  |
 | pressureMode | The preset mode of disk pressure to add to the primary storage of the VM. Must be one of the PressureModes in the table below. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Pressure modes
 
@@ -230,7 +230,7 @@ Known issues on Linux:
 | workerCount | Number of worker processes to run. Setting `workerCount` to 0 will generate as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -317,7 +317,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:stopService/1.0 |
 | Parameters (key, value) |  |
 | serviceName | The name of the Windows service you want to stop. You can run `sc.exe query` in command prompt to explore service names, Windows service friendly names aren't supported. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -357,7 +357,7 @@ Known issues on Linux:
 | Urn | urn:csci:microsoft:agent:timeChange/1.0 |
 | Parameters (key, value) |  |
 | dateTime | A DateTime string in [ISO8601 format](https://www.cryptosys.net/pki/manpki/pki_iso8601datetime.html). If YYYY-MM-DD values are missing, they're defaulted to the current day when the experiment runs. If Thh:mm:ss values are missing, the default value is 12:00:00 AM. If a 2-digit year is provided (YY), it's converted to a 4-digit year (YYYY) based on the current century. If \<Z\> is missing, it's defaulted to the offset of the local timezone. \<Z\> must always include a sign symbol (negative or positive). |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -398,7 +398,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | processName | Name of a process running on a VM (without the .exe) |
 | killIntervalInMilliseconds | Amount of time the fault will wait in between successive kill attempts in milliseconds. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -443,7 +443,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for.<br><br>This property accepts wildcards (`*`), but only for the first subdomain in an address and only applies to the subdomain for which they're specified. For example:<ul><li>\*.microsoft.com is supported</li><li>subdomain.\*.microsoft isn't supported</li><li>\*.microsoft.com won't account for multiple subdomains in an address such as subdomain1.subdomain2.microsoft.com.</li></ul>   |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -497,7 +497,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -545,7 +545,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -592,7 +592,7 @@ Known issues on Linux:
 | subnetMask | Subnet mask for the IP address range. |
 | portLow | (Optional) Port number of the start of the port range. |
 | portHigh | (Optional) Port number of the end of the port range. |
-| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a virtual machine scale set. Required for virtual machine scale sets. |
+| virtualMachineScaleSetInstances | An array of instance IDs when applying this fault to a Virtual Machine Scale Set. Required for Virtual Machine Scale Sets. |
 
 ### Sample JSON
 
@@ -654,7 +654,7 @@ Known issues on Linux:
 }
 ```
 
-## ARM virtual machine scale set instance shutdown
+## ARM Virtual Machine Scale Set instance shutdown
 
 This fault has two available versions that you can use, Version 1.0 and Version 2.0.
 
@@ -665,12 +665,12 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 | Capability Name | Version 1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kills a Virtual Machine Scale Set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
-| instances | A string that is a delimited array of virtual machine scale set instance IDs to which the fault will be applied. |
+| abruptShutdown | (Optional) Boolean indicating if the Virtual Machine Scale Set instance should be shut down gracefully or abruptly (destructive). |
+| instances | A string that is a delimited array of Virtual Machine Scale Set instance IDs to which the fault will be applied. |
 
 #### Version 1.0 sample JSON
 
@@ -705,12 +705,12 @@ This fault has two available versions that you can use, Version 1.0 and Version 
 | Capability Name | Shutdown-2.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kills a virtual machine scale set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
+| Description | Shuts down or kills a Virtual Machine Scale Set instance during the fault, and restarts the VM at the end of the fault duration or if the experiment is canceled. Supports [dynamic targeting](chaos-studio-tutorial-dynamic-target-cli.md). |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/2.0 |
 | [filter](/azure/templates/microsoft.chaos/experiments?pivots=deployment-language-arm-template#filter-objects-1) | (Optional) Available starting with Version 2.0. Used to filter the list of targets in a selector. Currently supports filtering on a list of zones, and the filter is only applied to VMSS resources within a zone.<ul><li>If no filter is specified, this fault will shut down all instances in the VMSS.</li><li>The experiment will target all VMSS instances in the specified zones.</li><li>If a filter results in no targets, the experiment will fail.</li></ul> |
 | Parameters (key, value) |  |
-| abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
+| abruptShutdown | (Optional) Boolean indicating if the Virtual Machine Scale Set instance should be shut down gracefully or abruptly (destructive). |
 
 #### Version 2.0 sample JSON snippets
 
