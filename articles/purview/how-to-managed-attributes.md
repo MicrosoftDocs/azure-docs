@@ -6,12 +6,10 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 07/25/2022
+ms.date: 12/16/2022
 ---
 
-# Managed attributes in the Microsoft Purview Data Catalog (preview)
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+# Managed attributes in the Microsoft Purview Data Catalog
 
 Managed attributes are user-defined attributes that provide a business or organization level context to an asset. When applied, managed attributes enable data consumers using the data catalog to gain context on the role an asset plays in a business.
 
@@ -24,7 +22,7 @@ Managed attributes are user-defined attributes that provide a business or organi
 
 In Microsoft Purview Studio, an organization's managed attributes are managed in the **Annotation management** section of the data map application. Follow the instructions below to create a managed attribute.
 
-1. Open the data map application and navigate to **Managed attributes (preview)** in the **Annotation management** section.
+1. Open the data map application and navigate to **Managed attributes** in the **Annotation management** section.
 1. Select **New**. Choose whether you wish to start by creating an attribute group or a managed attribute.
     :::image type="content" source="media/how-to-managed-attributes/create-new-managed-attribute.png" alt-text="Screenshot that shows how to create a new managed attribute or attribute group.":::
 1. To create an attribute group, enter a name and a description.

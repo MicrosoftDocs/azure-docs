@@ -4336,6 +4336,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/postgresql/concepts-audit.md",
+      "redirect_url": "/azure/cosmos-db/postgresql/howto-logging",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/troubleshoot-unauthorized.md",
       "redirect_url": "/azure/cosmos-db/sql/troubleshoot-unauthorized",
       "redirect_document_id": true

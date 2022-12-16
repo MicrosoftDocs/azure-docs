@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
 # How to configure the MedTech service metrics
 
-In this article, you'll learn how to configure the [MedTech service](iot-connector-overview.md) metrics in the Azure portal. You'll also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
+In this article, you'll learn how to configure the MedTech service metrics in the Azure portal. You'll also learn how to pin the MedTech service metrics tile to an Azure portal dashboard for later viewing.
 
 The MedTech service metrics can be used to help determine the health and performance of your MedTech service and can be useful with troubleshooting and seeing patterns and/or trends with your MedTech service. 
 
@@ -24,11 +24,11 @@ Metric category|Metric name|Metric description|
 |--------------|-----------|--------------|
 |Availability|IotConnector Health Status|The overall health of the MedTech service.|
 |Errors|Total Error Count|The total number of errors.|
-|Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](iot-data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
-|Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](iot-data-flow.md#normalize) performs normalization on raw incoming messages.|
-|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](iot-data-flow.md#persist) by the MedTech service.|
-|Traffic|Number of Incoming Messages|The number of received raw [incoming messages](iot-data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
-|Traffic|Number of Measurements|The number of normalized value readings received by the FHIR [transformation stage](iot-data-flow.md#transform) of the MedTech service.|
+|Latency|Average Group Stage Latency|The average latency of the group stage. The [group stage](data-flow.md#group) performs buffering, aggregating, and grouping on normalized messages.|
+|Latency|Average Normalize Stage Latency|The average latency of the normalized stage. The [normalized stage](data-flow.md#normalize) performs normalization on raw incoming messages.|
+|Traffic|Number of Fhir resources saved|The total number of Fast Healthcare Interoperability Resources (FHIR&#174;) resources [updated or persisted](data-flow.md#persist) by the MedTech service.|
+|Traffic|Number of Incoming Messages|The number of received raw [incoming messages](data-flow.md#ingest) (for example, the device events) from the configured source event hub.|
+|Traffic|Number of Measurements|The number of normalized value readings received by the FHIR [transformation stage](data-flow.md#transform) of the MedTech service.|
 |Traffic|Number of Message Groups|The number of groups that have messages aggregated in the designated time window.|
 |Traffic|Number of Normalized Messages|The number of normalized messages.|
 
@@ -82,6 +82,8 @@ Metric category|Metric name|Metric description|
 To learn how to create an Azure portal dashboard and pin tiles, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md)
 
 ## Next steps
+
+In this article, you learned about how to configure the MedTech service metrics.
 
 To learn how to enable the MedTech service diagnostic settings to export logs and metrics to another location (for example: an Azure storage account) for audit, backup, or troubleshooting, see
 
