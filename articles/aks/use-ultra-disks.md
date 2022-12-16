@@ -53,7 +53,7 @@ If you want to create new node pools without support for ultra disks, you can do
 
 ## Use ultra disks dynamically with a storage class
 
-To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-csi.md).
+To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning][azure-disk-volume].
 
 ### Create the storage class
 
