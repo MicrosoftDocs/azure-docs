@@ -597,7 +597,7 @@ sections:
       - question: |
           How are city, country/region, and other geo location data calculated?
         answer: |
-          We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
+          We look up the IP address (IPv4 or IPv6) of the web client.
           
           * Browser telemetry: We collect the sender's IP address.
           * Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
