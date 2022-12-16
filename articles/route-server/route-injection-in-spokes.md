@@ -89,11 +89,9 @@ To propagate routes to the spokes the NVA uses a second Azure Route Server 2, de
 
 The next hop for this `0.0.0.0/0` route will be the NVA, so the spokes still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where the new Azure Route Server 2 is deployed, otherwise it will not be able to create the BGP adjacency.
 
-This design allows automatic injection of routes in a spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment.
+If traffic from ExpressRoute to the spokes is to be sent to the NVA for inspection, a route table in the GatewaySubnet is still required, otherwise the ExpressRoute Virtual Network Gateway will send packets straight to the Virtual Machines through the routes learnt from VNet peering.
 
-> [!IMPORTANT]
-> This design requires a User-Defined Route (UDR) on the GatewaySubnet, programmed with Route Sever 2 as the next-hop for all peered Vnet traffic.
->
+This design allows automatic injection of routes in a spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment.
 
 ## Next steps
 
