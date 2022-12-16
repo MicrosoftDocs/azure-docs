@@ -5,7 +5,7 @@ titleSuffix: Azure VMware Solution by CloudSimple
 ms.date: 10/28/2020 
 ms.topic: article 
 ms.service: azure-vmware
-author: divka78  
+author: divkamath  
 ms.author: dikamath 
 ---
 
