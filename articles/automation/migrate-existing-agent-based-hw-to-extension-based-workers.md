@@ -3,7 +3,7 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/27/2022
+ms.date: 12/16/2022
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
@@ -77,6 +77,15 @@ The purpose of the Extension-based approach is to simplify the installation and 
 | Optional package | Description | Minimum version |
 | --------------------- | --------------------- | ------------------- |
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. For instructions, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) | 6.0.0 |
+
+### Permissions for Hybrid Worker credentials
+
+If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ensure that following permissions are assigned to extension-based Hybrid Worker to avoid jobs from getting suspended.
+
+| **Resource type** | **Folder permissions** |
+| --- | --- |
+|Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+|Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
 
 > [!NOTE]
 > Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
