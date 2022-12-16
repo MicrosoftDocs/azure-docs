@@ -27,7 +27,7 @@ Depending on your scenario, you may want to adjust the lifespan of tokens issued
 - Initialize the Credential with a [static token](#static-token) for one-off Chat messages or time-limited Calling sessions.
 - Use a [callback function](#callback-function) for agents using the application for longer periods of time.
 
-### Set a custom token expiration time
+### Setting a custom token expiration time
 When requesting a new token, we recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The default token expiration time is 24 hours but you can customize it by providing a value between an hour and 24 hours to the optional parameter as follows:
 
 ```javascript
@@ -169,7 +169,7 @@ const refreshAadToken = async function (abortSignal, username) {
 }
 ```
 
-## Initial token
+## Providing an initial token
 
 To further optimize your code, you can fetch the token at the application's startup and pass it to the Credential directly. Providing an initial token will skip the first call to the refresher callback function while preserving all subsequent calls to it.
 
@@ -239,7 +239,7 @@ const publicClientApplication = new PublicClientApplication({
 
 ---
 
-## Cancel refreshing
+## Canceling refreshing
 
 For the Communication clients to be able to cancel ongoing refresh tasks, it's necessary to pass a cancellation object to the refresher callback.
 *Note that this pattern applies only to JavaScript and .NET.*
@@ -284,7 +284,7 @@ leaveChatBtn.addEventListener('click', function() {
 
 If you want to cancel subsequent refresh tasks, [dispose](#clean-up-resources) of the Credential object.
 
-### Clean up resources
+### Cleaning up resources
 
 Since the Credential object can be passed to multiple Chat or Calling client instances, the SDK will make no assumptions about its lifetime and leaves the responsibility of its disposal to the developer. It's up to the Communication Services applications to dispose the Credential instance when it's no longer needed. Disposing the credential will also cancel scheduled refresh actions when the proactive refreshing is enabled.
 
@@ -298,7 +298,7 @@ const chatClient = new ChatClient("<endpoint-url>", tokenCredential);
 tokenCredential.dispose()
 ```
 
-## Handle a sign-out
+## Handling a sign-out
 
 Depending on your scenario, you may want to sign a user out from one or more services:
 
