@@ -134,7 +134,7 @@ In this section, we'll run the server locally with [sample files](https://github
     ```
 
 1. Create and activate a virtual environment with [conda](https://conda.io/projects/conda/en/latest/user-guide/getting-started.html).
-    In this example, the `azureml-inference-server-http` package is automatically installed because it is included as a dependent library of the `azureml-defaults` package in `conda.yml` below.
+    In this example, the `azureml-inference-server-http` package is automatically installed because it's included as a dependent library of the `azureml-defaults` package in `conda.yml` below.
 
     ```bash
     # Create the environment from the YAML file
@@ -166,7 +166,7 @@ In this section, we'll run the server locally with [sample files](https://github
     curl --request POST "127.0.0.1:5001/score" --header 'Content-Type: application/json' --data @sample-request.json
     ```
 
-    The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script and launch the server again to test the updated script.
+    The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.
 
 ## Server Routes
 
@@ -334,7 +334,7 @@ For example, a GET request to `/score` will be logged as follows:
 ```
 
 ## Troubleshooting guide
-In this section, we'll provide a basic troubleshooting tips for Azure Machine Learning inference HTTP server. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
+In this section, we'll provide basic troubleshooting tips for Azure Machine Learning inference HTTP server. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 
 [!INCLUDE [inference server TSGs](../../includes/machine-learning-inference-server-troubleshooting.md)]
 
