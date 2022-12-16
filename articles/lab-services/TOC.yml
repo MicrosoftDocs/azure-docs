@@ -231,7 +231,7 @@
       href: connect-virtual-machine-chromebook-remote-desktop.md
     - name: Connect to Linux VM using X2Go
       href: connect-virtual-machine-linux-x2go.md
-    - name: How to troubleshoot a VM
+    - name: Troubleshoot a lab VM
       href: how-to-reset-and-redeploy-vm.md  
     - name: Set or reset passwords for VMs 
       href: how-to-set-virtual-machine-passwords-student.md 
@@ -289,6 +289,10 @@
       href: how-to-setup-lab-gpu-1.md
     - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
+- name: Troubleshoot & debug
+  items:
+  - name: Troubleshoot lab VM Access
+    href: troubleshoot-access-lab-vm.md
 - name: Reference
   items:
   - name: .NET

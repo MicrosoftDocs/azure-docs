@@ -1,12 +1,12 @@
 ---
-title: How to migrate to the Authentication methods policy - Azure Active Directory
+title: How to migrate to the Authentication methods policy - Azure Active Directory (preview)
 description: Learn about how to centrally manage multifactor authentication (MFA) and self-service password reset (SSPR) settings in the Authentication methods policy.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/06/2022
+ms.date: 12/12/2022
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.custom: contperf-fy20q4
 
 # Customer intent: As an identity administrator, I want to understand what authentication options are available in Azure AD and how I can manage them.
 ---
-# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD
+# How to migrate MFA and SSPR policy settings to the Authentication methods policy for Azure AD (preview)
 
 You can migrate Azure Active Directory (Azure AD) [legacy policy settings](concept-authentication-methods-manage.md#legacy-mfa-and-sspr-policies) that separately control multifactor authentication (MFA) and self-service password reset (SSPR) to unified management with the [Authentication methods policy](./concept-authentication-methods-manage.md). 
 
@@ -45,9 +45,9 @@ For each method, note whether or not it's enabled for the tenant. The following 
 
 | Multifactor authentication policy | Authentication method policy |
 |-----------------------------------|------------------------------|
-| Call to phone                     | Voice calls                   |
-| Text message to phone             | SMS<br>Microsoft Authenticator      |
-| Notification through mobile app   | Microsoft Authenticator             |
+| Call to phone                     | Phone calls                  |
+| Text message to phone             | SMS                          |
+| Notification through mobile app   | Microsoft Authenticator      |
 | Verification code from mobile app or hardware token   | Third party software OATH tokens<br>Hardware OATH tokens (not yet available)<br>Microsoft Authenticator |
 
 ### Review the legacy SSPR policy

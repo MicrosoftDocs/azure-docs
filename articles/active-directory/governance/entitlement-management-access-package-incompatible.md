@@ -1,6 +1,6 @@
 ---
-title: Configure separation of duties for an access package in Microsoft Entra entitlement management
-description: Learn how to configure separation of duties enforcement for requests for an access package in Microsoft Entra entitlement management.
+title: Configure separation of duties for an access package in entitlement management
+description: Learn how to configure separation of duties enforcement for requests for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a global administrator or access package manager, I want to configure that a user cannot request an access package if they already have incompatible access.
 
 ---
-# Configure separation of duties checks for an access package in Microsoft Entra entitlement management
+# Configure separation of duties checks for an access package in entitlement management
 
-In Microsoft Entra entitlement management, you can configure multiple policies, with different settings for each user community that will need access through an access package.  For example, employees might only need manager approval to get access to certain apps, but guests coming in from other organizations may require both a sponsor and a resource team departmental manager to approve. In a policy for users already in the directory, you can specify a particular group of users for who can request access. However, you may have a requirement to avoid a user obtaining excessive access.  To meet this requirement, you'll want to further restrict who can request access, based on the access the requestor already has.
+In entitlement management, you can configure multiple policies, with different settings for each user community that will need access through an access package.  For example, employees might only need manager approval to get access to certain apps, but guests coming in from other organizations may require both a sponsor and a resource team departmental manager to approve. In a policy for users already in the directory, you can specify a particular group of users for who can request access. However, you may have a requirement to avoid a user obtaining excessive access.  To meet this requirement, you'll want to further restrict who can request access, based on the access the requestor already has.
 
 With the separation of duties settings on an access package, you can configure that a user who is a member of a group or who already has an assignment to one access package can't request an additional access package.
 
@@ -36,11 +36,11 @@ Similarly, you may have an application with two app roles - **Western Sales** an
  - the **Western Territory** access package has the **Eastern Territory** package as incompatible, and
  - the **Eastern Territory** access package has the **Western Territory** package as incompatible.
 
-If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with Microsoft Entra entitlement management as well.  If you'll be controlling access to Azure AD-integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Azure AD through Azure AD Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
+If you’ve been using Microsoft Identity Manager or other on-premises identity management systems for automating access for on-premises apps, then you can integrate these systems with entitlement management as well.  If you'll be controlling access to Azure AD-integrated apps through entitlement management, and want to prevent users from having incompatible access, you can configure that an access package is incompatible with a group. That could be a group, which your on-premises identity management system sends into Azure AD through Azure AD Connect. This check ensures a user will be unable to request an access package, if that access package would give access that's incompatible with access the user has in on-premises apps.
 
 ## Prerequisites
 
-To use Microsoft Entra entitlement management and assign users to access packages, you must have one of the following licenses:
+To use entitlement management and assign users to access packages, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
