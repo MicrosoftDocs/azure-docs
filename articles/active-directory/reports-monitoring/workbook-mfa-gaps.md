@@ -31,7 +31,7 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
 
 * **Number of users signing-in not protected by multi-factor authentication requirement by application:** This widget provides a time based bar-graph representation of the number of user sign-ins not protected by MFA requirement by applications.
 * **Percent of users signing-in not protected by multi-factor authentication requirement by application:** This widget provides a time based bar-graph representation of the percentage of user sign-ins not protected by MFA requirement by applications.
-* **Select an application and user to learn more:** This widget groups the top users signed in with out MFA requirement by application. By selecting the application, it will list the user names and the count of sign-ins without MFA.
+* **Select an application and user to learn more:** This widget groups the top users signed in without MFA requirement by application. By selecting the application, it will list the user names and the count of sign-ins without MFA.
 
 ### Sign-ins not protected by MFA requirement by users
 * **Sign-ins not protected by multi-factor auth requirement by user:** This widget shows top user and the count of sign-ins not protected by MFA requirement.
@@ -39,7 +39,7 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
 
 ### Sign-ins not protected by MFA requirement by Operating Systems
 * **Number of sign-ins not protected by multi-factor authentication requirement by operating system:** This widget provides time based bar graph of sign-in counts that are not protected by MFA by operating system of the devices.
-* **Percent of sign-ins not protected by multi-factor authentication requirement by operating system:** This widget provides time based bar graph of sign-in percentage that are not protected by MFA by operating system of the devices.
+* **Percent of sign-ins not protected by multi-factor authentication requirement by operating system:** This widget provides time based bar graph of sign-in percentages that are not protected by MFA by operating system of the devices.
 
 ### Sign-ins not protected by MFA requirement by locations
 * **Number of sign-ins not protected by multi-factor authentication requirement by location:** This widget shows the sign-ins counts that are not protected by MFA requirement in map bubble chart on the world map. 
