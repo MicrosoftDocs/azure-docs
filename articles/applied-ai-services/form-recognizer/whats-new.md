@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/17/2022
+ms.date: 12/15/2022
 ms.author: lajanuar
 monikerRange: '>=form-recog-2.1.0'
 recommendations: false
@@ -29,8 +29,6 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## December 2022
 
-December 2022
-
 * [**Form Recognizer Studio updates**](https://formrecognizer.appliedai.azure.com/studio)
 
   The December Form Recognizer Studio release includes the latest updates to Form Recognizer Studio. There are significant improvements to user experience, primarily with custom model labeling support.
@@ -48,6 +46,10 @@ December 2022
     * **Auto table labeling**. After you select the table icon within a document, you can opt to auto-label the extracted table in the labeling view.
 
     * **Label subtypes and second-level subtypes** The Studio now supports subtypes for table columns, table rows, and second-level subtypes for types such as dates and numbers.
+
+* Building custom neural models is now supported in the US Gov Virginia region.
+
+* Preview API versions ```2022-01-30-preview``` and ```2021-09-30-preview``` will be retired January 31 2023. Update to the ```2022-08-31``` API version to avoid any service disruptions.
 
 ---
 
@@ -173,7 +175,7 @@ December 2022
   * Form Recognizer SDK version 4.0.0 GA release
     * **Form Recognizer SDKs version 4.0.0 (.NET/C#, Java, JavaScript) and version 3.2.0 (Python) are generally available and ready for use in production applications!**
     * For more information on Form Recognizer SDKs, see the [**SDK overview**](sdk-overview.md).
-    * Update your applications using your programming language's **migration guide** (see above).
+    * Update your applications using your programming language's **migration guide**.
 
 ---
 
@@ -823,7 +825,7 @@ December 2022
 
 ## April 2020
 
-* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use the links below to get started with your language of choice:
+* **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0  release. Use these links to get started with your language of choice:
 * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
 * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
 * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
@@ -886,7 +888,7 @@ See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to l
 
 ## January 2020
 
-This release introduces the Form Recognizer 2.0. In the sections below, you'll find more information about new features, enhancements, and changes.
+This release introduces the Form Recognizer 2.0. In the next sections, you'll find more information about new features, enhancements, and changes.
 
 * New features
 

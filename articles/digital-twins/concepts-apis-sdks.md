@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/15/2022
+ms.date: 12/16/2022
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: engagement-fy23
@@ -66,24 +66,26 @@ You can also exercise date plane APIs by interacting with Azure Digital Twins th
 
 ## Usage notes
 
-> [!NOTE]
-> Azure Digital Twins doesn't currently support Cross-Origin Resource Sharing (CORS). For more info about the impact and resolution strategies, see the [Cross-Origin Resource Sharing (CORS)](concepts-security.md#cross-origin-resource-sharing-cors) section of *Concepts: Security for Azure Digital Twins solutions*.
+This section contains more detailed information about using the APIs and SDKs.
 
-The following list provides more detail and general guidelines for using the APIs and SDKs.
-
+Here's some general information:
+* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](/dotnet/api/azure?view=azure-dotnet&preserve-view=true) for reference on the SDK infrastructure and types.
 * You can use an HTTP REST-testing tool like Postman to make direct calls to the Azure Digital Twins APIs. For more information about this process, see [Call the Azure Digital Twins APIs with Postman](how-to-use-postman-with-digital-twins.md).
+* Azure Digital Twins doesn't currently support Cross-Origin Resource Sharing (CORS). For more info about the impact and resolution strategies, see [Cross-Origin Resource Sharing (CORS) for Azure Digital Twins](concepts-security.md#cross-origin-resource-sharing-cors).
+
+Here are some details about authentication:
 * To use the SDK, instantiate the `DigitalTwinsClient` class. The constructor requires credentials that can be obtained with different kinds of authentication methods in the `Azure.Identity` package. For more on `Azure.Identity`, see its [namespace documentation](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true). 
 * You may find the `InteractiveBrowserCredential` useful while getting started, but there are several other options, including credentials for [managed identity](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true), which you'll likely use to authenticate [Azure functions set up with MSI](../app-service/overview-managed-identity.md?tabs=dotnet) against Azure Digital Twins. For more about `InteractiveBrowserCredential`, see its [class documentation](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 * Requests to the Azure Digital Twins APIs require a user or service principal that is a part of the same [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) tenant where the Azure Digital Twins instance exists. To prevent malicious scanning of Azure Digital Twins endpoints, requests with access tokens from outside the originating tenant will be returned a "404 Sub-Domain not found" error message. This error will be returned even if the user or service principal was given an Azure Digital Twins Data Owner or Azure Digital Twins Data Reader role through [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) collaboration. For information on how to achieve access across multiple tenants, see [Write app authentication code](how-to-authenticate-client.md#authenticate-across-tenants).
+
+Here are some details about functions and returned data:
 * All service API calls are exposed as member functions on the `DigitalTwinsClient` class.
 * All service functions exist in synchronous and asynchronous versions.
 * All service functions throw an exception for any return status of 400 or above. Make sure you wrap calls into a `try` section, and catch at least `RequestFailedExceptions`. For more about this type of exception, see its [reference documentation](/dotnet/api/azure.requestfailedexception?view=azure-dotnet&preserve-view=true).
 * Most service methods return `Response<T>` or (`Task<Response<T>>` for the asynchronous calls), where `T` is the class of return object for the service call. The [Response](/dotnet/api/azure.response-1?view=azure-dotnet&preserve-view=true) class encapsulates the service return and presents return values in its `Value` field.  
 * Service methods with paged results return `Pageable<T>` or `AsyncPageable<T>` as results. For more about the `Pageable<T>` class, see its [reference documentation](/dotnet/api/azure.pageable-1?view=azure-dotnet&preserve-view=true); for more about `AsyncPageable<T>`, see its [reference documentation](/dotnet/api/azure.asyncpageable-1?view=azure-dotnet&preserve-view=true).
 * You can iterate over paged results using an `await foreach` loop. For more about this process, see [Iterating with Async Enumerables in C# 8](/archive/msdn-magazine/2019/november/csharp-iterating-with-async-enumerables-in-csharp-8).
-* The underlying SDK is `Azure.Core`. See the [Azure namespace documentation](/dotnet/api/azure?view=azure-dotnet&preserve-view=true) for reference on the SDK infrastructure and types.
-
-Service methods return strongly typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
+* Service methods return strongly typed objects wherever possible. However, because Azure Digital Twins is based on models custom-configured by the user at runtime (via DTDL models uploaded to the service), many service APIs take and return twin data in JSON format.
 
 ### Serialization helpers in the .NET (C#) SDK
 

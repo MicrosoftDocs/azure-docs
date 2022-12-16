@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/09/2022
 ---
 
 # Microsoft Purview security best practices
@@ -231,9 +231,9 @@ For more information, see [Integrate Microsoft Purview with Azure security produ
 
 ### Secure metadata extraction and storage
 
-Microsoft Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Microsoft Purview. While data source is registered and scanned in Microsoft Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Microsoft Purview Data Map, which means you don't need to move data out of the region or their original location to extract the metadata into Microsoft Purview.
+Microsoft Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multicloud environments into Microsoft Purview. While data source is registered and scanned in Microsoft Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Microsoft Purview Data Map, which means you don't need to move data out of the region or their original location to extract the metadata into Microsoft Purview.
 
-When a Microsoft Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account is deployed inside this resource group, and a managed Event Hubs Namespace can be deployed in this group if the setting is enabled under **Managed Resources** to allow for events ingestion. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Microsoft Purview they can't be accessed by any other users or principals, except the Microsoft Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Microsoft Purview account deployment, preventing any CRUD operations on these resources if they aren't initiated from Microsoft Purview.
+When a Microsoft Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account is deployed inside this resource group. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Microsoft Purview they can't be accessed by any other users or principals, except the Microsoft Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Microsoft Purview account deployment, preventing any CRUD operations on these resources if they aren't initiated from Microsoft Purview.
 
 ### Where is metadata stored? 
 
@@ -310,20 +310,21 @@ It uses encryption with Microsoft-managed keys. This practice helps make sure at
 
 For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest).
 
-### Optional Event Hubs namespace
+### Optional Event Hubs namespace configuration
 
-Each Microsoft Purview account can enable a fully managed event hub that is accessible via the Atlas Kafka endpoint found via the Azure portal > Microsoft Purview Account > Properties. This can be enabled at creation, or from the Azure portal. It's recommended to enable optional managed event hub, only if it's used to distribute events into or outside of Microsoft Purview account Data Map. To remove this information distribution point, you can disable this Event Hubs namespace.
+Each Microsoft Purview account can configure Event Hubs that are accessible via their Atlas Kafka endpoint. This can be enabled at creation under *Configuration*, or from the Azure portal under *Kafka configuration*. It's recommended to only enable optional managed event hub if it's used to distribute events into or outside of Microsoft Purview account Data Map. To remove this information distribution point, either don't configure these endpoints, or remove them.
 
-To disable the Event Hubs namespace, you can follow these steps:
+To remove configured Event Hubs namespaces, you can follow these steps:
 1. Search for and open your Microsoft Purview account in the [Azure portal](https://portal.azure.com).
-1. Select **Managed Resources** under settings on your Microsoft Purview account page in the Azure portal.
-    :::image type="content" source="media/concept-best-practices/disable-event-hubs.png" alt-text="Screenshot showing the Event Hubs namespace toggle highlighted on the Managed resources page of the Microsoft Purview account page in the Azure portal.":::
-1. Select the Enable/Disable toggle to enable your Event Hubs namespace.
-1. Select **Save** to save the choice and begin the disablement process. This can take several minutes to complete.
-    :::image type="content" source="media/concept-best-practices/disable-select-save.png" alt-text="Screenshot showing the Managed resources page of the Microsoft Purview account page in the Azure portal with the save button highlighted.":::
+1. Select **Kafka configuration** under settings on your Microsoft Purview account page in the Azure portal.
+1. Select the Event Hubs you want to disable. (Hook hubs send messages to Microsoft Purview. Notification hubs receive notifications.)
+1. Select **Remove** to save the choice and begin the disablement process. This can take several minutes to complete.
+    :::image type="content" source="media/concept-best-practices/select-remove.png" alt-text="Screenshot showing the Kafka configuration page of the Microsoft Purview account page in the Azure portal with the remove button highlighted.":::
 
 > [!NOTE]
-> If you have an ingestion private endpoint when you disable this Event Hubs namespace, after disabling the ingestion private endpoint will show as disconnected.
+> If you have an ingestion private endpoint when you disable this Event Hubs namespace, after disabling the ingestion private endpoint may show as disconnected.
+
+For more information about configuring these Event Hubs namespaces, see: [Configure Event Hubs for Atlas Kafka topics](configure-event-hubs-for-kafka.md)
 
 ## Credential management
 
@@ -349,7 +350,7 @@ As a general rule, you can use the following options to set up integration runti
 |Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
 |Data source is inside an Azure IaaS VM such as SQL Server       | Self-hosted integration runtime deployed in Azure         | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Data source is inside an on-premises system such as SQL Server or Oracle      | Self-hosted integration runtime deployed in Azure or in the on-premises network        | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
-|Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
+|Multicloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
 |Power BI tenant    | Azure Runtime          | Microsoft Purview Managed Identity         |
 
 Use [this guide](azure-purview-connector-overview.md) to read more about each source and their supported authentication options.

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/24/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -85,7 +85,9 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
 ## Next steps
 
-To view the frequently asked questions (FAQs) about the MedTech service, see
+In this article, you learned how to enable the diagnostics settings for the MedTech service.
+
+To learn about the MedTech service frequently asked questions (FAQs), see
 
 > [!div class="nextstepaction"]
-> [MedTech service FAQs](iot-connector-faqs.md)
+> [Frequently asked questions about the MedTech service](frequently-asked-questions.md)
