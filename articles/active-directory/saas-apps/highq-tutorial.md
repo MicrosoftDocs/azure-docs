@@ -22,7 +22,7 @@ In this article, you'll learn how to integrate HighQ with Azure Active Directory
 * Enable your users to be automatically signed-in to HighQ with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-You'll configure and test Azure AD single sign-on for HighQ in a test environment. HighQ supports both **SP** and **IDP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for HighQ in a test environment. HighQ supports only **SP** initiated single sign-on.
 
 ## Prerequisites
 
@@ -65,9 +65,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<CustomerName>/domain.extension/`
 
-1. If you want to configure **SP** initiated SSO, then perform the following step:  
-
-    In the **Sign on URL** textbox, type a URL using the following pattern:
+    c. In the **Sign on URL** textbox, type a URL using the following pattern:
     `https://<CustomerName>/domain.extension/`
 
    > [!NOTE]
@@ -102,17 +100,11 @@ In this section, you create a user called Britta Simon in HighQ. Work with [High
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-#### SP initiated:
+* Click on **Test this application** in Azure portal. This will redirect to HighQ Sign-on URL where you can initiate the login flow. 
 
-* Click on **Test this application** in Azure portal. This will redirect to HighQ Sign on URL where you can initiate the login flow.  
+* Go to HighQ Sign-on URL directly and initiate the login flow from there.
 
-* Go to HighQ Sign on URL directly and initiate the login flow from there.
-
-#### IDP initiated:
-
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the HighQ for which you set up the SSO. 
-
-You can also use Microsoft My Apps to test the application in any mode. When you click the HighQ tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the HighQ for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the HighQ tile in the My Apps, this will redirect to HighQ Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
