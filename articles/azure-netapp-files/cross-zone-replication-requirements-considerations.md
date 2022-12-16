@@ -39,7 +39,7 @@ This article describes requirements and considerations about [using the volume c
 * You cannot mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You cannot delete manual snapshots for the destination volume until the replication relationship is broken.
 * You can't revert a source or destination volume of cross-zone replication to a snapshot. The snapshot revert functionality is greyed out for volumes in a replication relationship. 
-* [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (large than 100 TiB) are not currently supported with cross-zone replication.
+* [Large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) (larger than 100 TiB) are not currently supported with cross-zone replication.
 
 ## Next steps
 * [Understand cross-zone replication](cross-zone-replication-introduction.md)
