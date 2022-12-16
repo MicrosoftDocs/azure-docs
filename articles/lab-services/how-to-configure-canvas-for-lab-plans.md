@@ -101,7 +101,7 @@ You add the Azure Lab Services app to a specific course in Canvas, if you didn't
 
 1. Select **View App Configurations** button at the top right of the page.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-settings-apps.png" alt-text="Screenshot that shows the App tab of the settings page for a course in Canvas.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-settings-apps.png" alt-text="Screenshot that shows the App tab of the settings page for a course in Canvas." lightbox="./media/how-to-configure-canvas-for-lab-plans/canvas-settings-apps.png":::
 
 1. Select the **+ App** button at the top right of the page.
 
@@ -156,7 +156,7 @@ Perform the following steps to link lab plans to Canvas:
 
     In the [Azure portal](https://portal.azure.com), the **LMS settings** page for the lab plan shows that you linked the lab plan successfully to Canvas.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/lab-plan-linked-canvas.png" alt-text="Screenshot of the L M S settings page for a lab plan.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/lab-plan-linked-canvas.png" alt-text="Screenshot of the L M S settings page for a lab plan." lightbox="./media/how-to-configure-canvas-for-lab-plans/lab-plan-linked-canvas.png":::
 
 ## Next steps
 
