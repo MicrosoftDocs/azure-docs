@@ -86,7 +86,7 @@ Sending a high volume of messages has a set of limitations on the number of emai
 | **Name**         | Limit  |
 |--|--|
 |Number of recipients in Email|50 |
-|Attachment size - per message |10 MB |
+|Total email request size (including attachments) |10 MB |
 
 ### Action to take
 This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
