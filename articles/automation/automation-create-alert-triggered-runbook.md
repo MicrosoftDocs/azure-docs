@@ -106,7 +106,7 @@ This example uses an alert from an Azure virtual machine (VM). It retrieves the 
 The runbook uses the Automation account [system-assigned managed identity](./automation-security-overview.md#managed-identities) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
 >[!NOTE]
-> We recommend that you use public network access as it isn't possible to use an Azure alert (metric, log, and activity log) to trigger an Automation webhook when the Automation account is using private links or configured with **Public access** and **Disable**.
+> We recommend that you use public network access as it isn't possible to use an Azure alert (metric, log, and activity log) to trigger an Automation webhook when the Automation account is using private links and configured with **Public access** set to **Disable**.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
