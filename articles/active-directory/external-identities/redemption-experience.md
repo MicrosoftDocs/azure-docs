@@ -80,13 +80,13 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 
 When a user select the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
-![Screenshot showing the redemption flow diagram.](media/redemption-experience/invitation-redemption.png)
+:::image type="content" source="media/redemption-experience/invitation-redemption.png" alt-text="Screenshot showing the redemption flow diagram.":::
 
 ***
 
 1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for redemption.) If the user’s User Principal Name ([UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
 
-2. If an admin has enabled [SAML/WS-Fed IdP federation](.../direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
 3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
 
@@ -119,7 +119,7 @@ When a guest signs in to a resource in a partner organization for the first time
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 
-   :::image type="content" source="media/redemption-experience/myapps.png" alt-text="Screenshot showing the Apps access panel.":::
+   :::image type="content" source="media/redemption-experience/myapps.png" alt-text="Screenshot showing the Apps access panel." lightbox="media/redemption-experience/myapps.png":::
 
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
