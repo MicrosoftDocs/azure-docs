@@ -5,14 +5,13 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 12/6/2022
+ms.date: 12/16/2022
 ms.author: cynthn
 ms.reviewer: mimckitt 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with Azure PowerShell
-
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -25,11 +24,9 @@ When you create a scale set, you specify an image to be used when the VM instanc
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
-
 The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create a scale set.
 
 ## Launch Azure Cloud Shell
-
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
@@ -41,18 +38,17 @@ First, create a resource group with New-AzResourceGroup, then create a VM with N
 New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
 
 New-AzVm `
-    -ResourceGroupName 'myResourceGroup' `
-    -Name 'myVM' `
-    -Location 'East US' `
-    -VirtualNetworkName 'myVnet' `
-    -SubnetName 'mySubnet' `
-    -SecurityGroupName 'myNetworkSecurityGroup' `
-    -PublicIpAddressName 'myPublicIpAddress' `
-    -OpenPorts 80,3389
+   -ResourceGroupName 'myResourceGroup' `
+   -Name 'myVM' `
+   -Location 'East US' `
+   -VirtualNetworkName 'myVnet' `
+   -SubnetName 'mySubnet' `
+   -SecurityGroupName 'myNetworkSecurityGroup' `
+   -PublicIpAddressName 'myPublicIpAddress' `
+   -OpenPorts 80,3389
 ```
 
 ## Store the VM variable
-
 You can see a list of VMs that are available in a resource group using [Get-AzVM](/powershell/module/az.compute/get-azvm). Once you know the VM name and what resource group, you can use `Get-AzVM` again to get the VM object and store it in a variable to use later. This example gets a VM named *myVM* from the "myResourceGroup" resource group and assigns it to the variable *$vm*. 
 
 ```azurepowershell-interactive
@@ -61,7 +57,6 @@ $sourceVM = Get-AzVM `
    -ResourceGroupName myResourceGroup
 ```
 ## Create an image gallery 
-
 An image gallery is the primary resource used for enabling image sharing. Allowed characters for gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
 Create an image gallery using [New-AzGallery](/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
@@ -80,7 +75,6 @@ $gallery = New-AzGallery `
 
 
 ## Create an image definition 
-
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the gallery image is named *myGalleryImage* and is created for a specialized image. 
@@ -97,7 +91,6 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
 
 ## Create an image version
 
@@ -141,10 +134,10 @@ New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
 
 # Create a configuration 
 $vmssConfig = New-AzVmssConfig `
-    -Location $location `
-    -SkuCapacity 2 `
-    -OrchestrationMode Flexible `
-    -SkuName "Standard_D2s_v3"
+   -Location $location `
+   -SkuCapacity 2 `
+   -OrchestrationMode Flexible `
+   -SkuName "Standard_D2s_v3"
 
 # Reference the image version
 Set-AzVmssStorageProfile $vmssConfig `
@@ -159,7 +152,6 @@ New-AzVmss `
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
-
 
 ## Share the gallery
 

@@ -6,13 +6,12 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 11/22/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Tutorial: Create and use disks with Virtual Machine Scale Set with Azure PowerShell
-
 Virtual Machine Scale Sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn about:
 
 > [!div class="checklist"]
@@ -36,10 +35,8 @@ When a scale set is created or scaled, two disks are automatically attached to e
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. These are high-performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
 
-
 ## Azure data disks
 Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached.
-
 
 ## VM disk types
 Azure provides two types of disk.
@@ -143,7 +140,6 @@ DataDisks[2]                            :
     StorageAccountType                  : PremiumLRS
 ```
 
-
 ## Detach a disk
 When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [Remove-AzVmssDataDisk](/powershell/module/az.compute/remove-azvmssdatadisk) and specify the LUN of the disk. The LUNs are shown in the output from [Get-AzVmss](/powershell/module/az.compute/get-azvmss)  in the previous section. The following example detaches LUN *3* from the scale set:
 
@@ -179,7 +175,6 @@ To remove your scale set and disks, delete the resource group and all its resour
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to create and use disks with scale sets with Azure PowerShell:

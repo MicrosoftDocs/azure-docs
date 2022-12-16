@@ -5,14 +5,13 @@ author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: tutorial
-ms.date: 12/6/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Create and use a custom image for Virtual Machine Scale Sets with the Azure CLI
-
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -30,14 +29,12 @@ When you create a scale set, you specify an image to be used when the VM instanc
 - This article requires version 2.4.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Overview
-
 A [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
 The Azure Compute Gallery lets you share your custom VM images with others. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. 
 
 ## Create and configure a source VM
-
-First, create a resource group with [az group create](/cli/azure/group), then create a VM with [az vm create](/cli/azure/vm). This VM is then used as the source for the image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
+First, create a resource group with [az group create](/cli/azure/group), then create a VM with [az vm create](/cli/azure/vm#az-vm-create). This VM is then used as the source for the image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -51,10 +48,9 @@ az vm create \
 ```
 
 > [!IMPORTANT]
-> The **ID** of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. Copy this someplace safe so you can use it later in this tutorial.
+> The **ID** of your VM is shown in the output of the [az vm create](/cli/azure/vm#az-vm-create) command. Copy this someplace safe so you can use it later in this tutorial.
 
 ## Create an image gallery 
-
 An image gallery is the primary resource used for enabling image sharing. 
 
 Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes.   Gallery names must be unique within your subscription. 
@@ -67,7 +63,6 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
 ## Create an image definition
-
 Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. 
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
@@ -97,7 +92,6 @@ az sig image-definition create \
 
 
 ## Create the image version
-
 Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
@@ -145,7 +139,6 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## Share the gallery
-
 You can share images across subscriptions using Azure role-based access control (Azure RBAC). You can share images at the gallery, image definition or image version. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
 We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
@@ -175,7 +168,6 @@ To remove your scale set and additional resources, delete the resource group and
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI:

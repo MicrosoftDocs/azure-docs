@@ -244,7 +244,6 @@ To remove your scale set and additional resources, delete the resource group and
 Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
 
-
 ## Next steps
 In this tutorial, you learned how to automatically scale in or out a scale set with Azure PowerShell:
 

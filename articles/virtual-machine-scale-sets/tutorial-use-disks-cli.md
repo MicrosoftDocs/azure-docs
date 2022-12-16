@@ -6,13 +6,12 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 11/22/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and use disks with Virtual Machine Scale Set with the Azure CLI
-
 Virtual Machine Scale Sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it's important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn about:
 
 > [!div class="checklist"]
@@ -34,7 +33,6 @@ When a scale set is created or scaled, two disks are automatically attached to e
 **Operating system disk** - Operating system disks can be sized up to 2 TB, and hosts the VM instance's operating system. The OS disk is labeled */dev/sda* by default. The disk caching configuration of the OS disk is optimized for OS performance. Because of this configuration, the OS disk **should not** host applications or data. For applications and data, use data disks, which are detailed later in this article.
 
 **Temporary disk** - Temporary disks use a solid-state drive that is located on the same Azure host as the VM instance. Temporary disks are high-performance disks and may be used for operations such as temporary data processing. However, if the VM instance is moved to a new host, any data stored on a temporary disk is removed. The size of the temporary disk is determined by the VM instance size. Temporary disks are labeled */dev/sdb* and have a mountpoint of */mnt*.
-
 
 ## Azure data disks
 Additional data disks can be added if you need to install applications and store data. Data disks should be used in any situation where durable and responsive data storage is desired. Each data disk has a maximum capacity of 4 TB. The size of the VM instance determines how many data disks can be attached. For each VM vCPU, two data disks can be attached up to an absolute maximum of 64 disks per virtual machine.
@@ -60,7 +58,7 @@ First, create a resource group with the [az group create](/cli/azure/group) comm
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist. Two disks are created with the `--data-disk-sizes-gb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
+Create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss#az-vmss-create) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist. Two disks are created with the `--data-disk-sizes-gb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -76,7 +74,7 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
 ### Attach a disk to existing scale set
-You can also attach additional disks to each instance in an existing scale set. Use the scale set created in the previous step to add another disk with [az vmss disk attach](/cli/azure/vmss/disk). The following example attaches an additional *128* GB disk:
+You can also attach additional disks to each instance in an existing scale set. Use the scale set created in the previous step to add another disk with [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). The following example attaches an additional *128* GB disk:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -97,7 +95,7 @@ az vm disk attach \
 ```
 
 ## List attached disks
-To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss) and query on *virtualMachineProfile.storageProfile.dataDisks*:
+To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss#az-vmss-show) and query on *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -149,9 +147,8 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
 ]
 ```
 
-
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az-vmss-show) in the previous section. The following example detaches LUN *2* from the scale set:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -160,7 +157,7 @@ az vmss disk detach \
   --lun 2
 ```
 
-You can also use [az vm disk detach](/cli/) to detach a disk from an individual instance. 
+You can also use [az vm disk detach](/cli/azure/vmss/disk#az-vmss-disk-detac) to detach a disk from an individual instance. 
 
 ```azurepowershell-interactive
 az vm disk detach \
@@ -174,7 +171,6 @@ To remove your scale set and disks, delete the resource group and all its resour
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to create and use disks with scale sets with the Azure CLI:
