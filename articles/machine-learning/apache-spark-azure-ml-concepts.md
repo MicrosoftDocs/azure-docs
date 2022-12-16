@@ -51,7 +51,7 @@ Spark jobs can use either user identity passthrough, or a managed identity, to a
 |Managed (Automatic) Spark compute|User identity and managed identity|User identity|
 |Attached Synapse Spark pool|User identity and managed identity|Managed identity - compute identity of the attached Synapse Spark pool|
 
-[This page](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs.md) has more details about accessing Spark job resources.
+[This page](./how-to-submit-spark-jobs.md#ensuring-resource-access-for-spark-jobs) has more details about accessing Spark job resources.
 
 > [!NOTE]
 > - To ensure successful Spark job execution, assign **Contributor** and **Storage Blob Data Contributor** roles, on the Azure storage account used for data input and output, to the identity used for the Spark job.
