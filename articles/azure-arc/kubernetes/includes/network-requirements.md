@@ -39,7 +39,7 @@ ms.date: 12/13/2022
 |`guestnotificationservice.azure.com`<br/>`*.guestnotificationservice.azure.com`<br/>`sts.windows.net`<br/>`https://k8sconnectcsp.azureedge.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
-| `*.arc.azure.us`| To manage connected clusters in Azure portal. | 
+
 ---
 
 > [!NOTE]
