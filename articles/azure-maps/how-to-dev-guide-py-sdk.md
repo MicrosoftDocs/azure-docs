@@ -18,7 +18,7 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 
 - [Azure Maps account][Azure Maps account].
 - [Subscription key][Subscription key] or other form of [authentication][authentication].
-- Python on 3.7 or later. It is recommended to use the [latest release][python latest release]. For additional information see [Azure SDK for Python version support policy][support policy].
+- Python on 3.7 or later. It's recommended to use the [latest release][python latest release]. For more information, see [Azure SDK for Python version support policy][support policy].
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -75,7 +75,7 @@ pip install azure-identity
 
 You'll need to register the new Azure AD application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources][Host daemon]. During this process you'll get an Application (client) ID, a Directory (tenant) ID, and a client secret. Copy these values and store them in a secure place. You'll need them in the following steps.
 
-Next you will need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details][View authentication details].
+Next you'll need to specify the Azure Maps account you intend to use by specifying the maps’ client ID. The Azure Maps account client ID can be found in the Authentication sections of the Azure Maps account. For more information, see [View authentication details][View authentication details].
 
 Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Azure AD application, and the map resource’s client ID as environment variables:
 
@@ -245,7 +245,7 @@ Results returned by the `search_address()` method are ordered by confidence scor
 
 Azure Maps Search also provides some batch query methods. These methods will return long-running operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The examples below demonstrate how to call the batched reverse search method.
 
-Since these return LRO objects, you will need the `asyncio` method included in the `aiohttp` package:
+Since these return LRO objects, you'll need the `asyncio` method included in the `aiohttp` package:
 
 ```powershell
 pip install aiohttp
@@ -279,7 +279,7 @@ if __name__ == '__main__':
     asyncio.run(begin_reverse_search_address_batch())
 ```
 
-In the above example, three queries are passed to the batched reverse search request. To get the LRO results, The request will create a batch request with a batch id as result which can be used to fetch batch response later. The LRO results will be cached on the server side for 14 days.
+In the above example, three queries are passed to the batched reverse search request. To get the LRO results, the request will create a batch request with a batch ID as result that can be used to fetch batch response later. The LRO results will be cached on the server side for 14 days.
 
 The following example demonstrates the process of calling the batch ID and retrieving the operation results of the batch request:
 
