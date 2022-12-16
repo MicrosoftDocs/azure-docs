@@ -1,16 +1,16 @@
 ---
-title: Copy a blob with .NET - Azure Storage
+title: Copy a blob with .NET
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the .NET client library.
 services: storage
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 03/28/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.devlang: csharp,
-ms.custom: "devx-track-csharp"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, devguide-csharp
 ---
 
 # Copy a blob with Azure Storage using the .NET client library
@@ -58,7 +58,7 @@ Aborting a copy operation results in a destination blob of zero length. However,
 
 Check the BlobProperties.CopyStatus property on the destination blob to get the status of the copy operation. The final blob will be committed when the copy completes.
 
-When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/microsoft.azure.storage.blob.copystatus).
+When you abort a copy operation, the destination blob's copy status is set to [CopyStatus.Aborted](/dotnet/api/azure.storage.blobs.models.copystatus).
 
 The [AbortCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuri) and [AbortCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.abortcopyfromuriasync) methods cancel an ongoing copy operation.
 

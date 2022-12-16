@@ -14,6 +14,9 @@ ms.date: 09/27/2019
 ---
 
 # Ordinal V2 prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 Ordinal V2 number expands [Ordinal](luis-reference-prebuilt-ordinal.md) to provide relative references such as `next`, `last`, and `previous`. These are not extracted using the ordinal prebuilt entity.
 
 ## Resolution for prebuilt ordinal V2 entity

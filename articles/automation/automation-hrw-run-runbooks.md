@@ -3,12 +3,16 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2021
+ms.date: 11/18/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
+
+> [!IMPORTANT]
+> Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](https://learn.microsoft.com/azure/automation/migrate-run-as-accounts-managed-identity?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+
 
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
 
@@ -203,25 +207,11 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select **Settings**.
 1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
-1. If the following permissions are not assigned for Custom users, jobs might get suspended. Add these permission to the Hybrid Runbook Worker account on the runbook worker machine, instead of adding the account to **Administrators** group because the `Filtered Token` feature of UAC would grant standard user rights to this account when logging-in. For more details, refer to - [Information about UAC on Windows Server](/troubleshoot/windows-server/windows-security/disable-user-account-control#more-information).
-Use your discretion in assigning the elevated permissions corresponding to the following registry keys/folders: 
+1. If the following permissions are not assigned for Custom users, jobs might get suspended. 
     
-**Registry path**
-
-- HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read) </br>
-- HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access) </br>
-- HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access) </br>
-- HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access) </br>
-- HKLM\Software\Microsoft\SystemCertificates (full access) </br>
-- HKLM\Software\Microsoft\EnterpriseCertificates (full access) </br>
-- HKLM\software\Microsoft\HybridRunbookWorker (full access) </br>
-- HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access) </br>
-- HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access) </br>
-- HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access) </br>
-
 **Folders**
 - C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
-- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access)
+- C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute)
 
 ## <a name="runas-script"></a>Install Run As account certificate
 

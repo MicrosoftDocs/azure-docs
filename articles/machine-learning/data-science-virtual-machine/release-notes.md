@@ -21,6 +21,84 @@ Azure portal users will always find the latest image available for provisioning 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
 
+## November 30, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version: `22.11.25`
+
+Main changes:
+
+- `Azure ML SDK V2` samples included
+- `Ray` to version `2.0.0`
+- Added `clock`, `recipes` `R` packages
+- `azureml-core` to version `1.47.0`
+- `azure-ai-ml` to version `1.1.1`
+
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: `22.11.27`
+
+Main changes:
+
+- `Azure ML SDK V2` samples included
+- `RScirpt` environment path alignment
+- `Ray` version `2.0.0` package added to `azureml_py38` and `azureml_py38_PT_TF` environments.
+- `azureml-core` to version `1.47.0`
+- `azure-ai-ml` to version `1.1.1`
+
+## September 20, 2022
+**Announcement:**
+Ubuntu 18 DSVM will **not be** available on the marketplace starting Oct 1, 2022. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Users that are using Azure Resource Manager (ARM) template/virtual machine scale set to deploy the Ubuntu DSVM machines, should configure:
+
+| Offer | SKU |
+| --------- | ------------|
+| ubuntu-2004  | 2004 for Gen1 or 2004-gen2 for Gen2 VM sizes  |
+
+Instead of:
+
+| Offer | SKU |
+| --------- | ------------|
+| ubuntu-1804  | 1804 for Gen1 or 1804-gen2 for Gen2 VM sizes  |
+
+**Note**: There is no impact to existing customers who are still on Ubuntu-18 DSVM as of our October 2022 update. However, the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
+
+## September 19, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.09.19`
+
+Main changes:
+
+- `.Net Framework` to version `3.1.423`
+- `Azure Cli` to version `2.40.0`
+- `Intelijidea` to version `2022.2.2`
+- Microsoft Edge Browser to version `107.0.1379.1`
+- `Nodejs` to version `v16.17.0`
+- `Pycharm` to version `2022.2.1`
+
+Environment Specific Updates:
+
+`azureml_py38`:
+- `azureml-core` to version `1.45.0`
+
+`py38_default`:
+- `Jupyter Lab` to version `3.4.7`
+- `azure-core` to version `1.25.1`
+- `keras` to version `2.10.0`
+- `tensorflow-gpu` to version `2.10.0`
+
+## September 12, 2022
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version `22.09.06`
+
+Main changes:
+
+- Base OS level image updates.
+
+
 ## August 16, 2022
 [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
@@ -53,10 +131,10 @@ Version `22.07.18`
 
 Main Changes:
 
-- General OS level updates
+- General OS level updates.
 
 ## July 11, 2022
-[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
 Version `22.07.08`
 
@@ -69,7 +147,7 @@ Main changes:
 
 Version `22.06.10`
 
-[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview)
 
 Version `22.06.13`
 
@@ -87,7 +165,7 @@ Main changes:
 - Upgraded `log4j(v2)` to version `2.17.2`
 
 ## April 29, 2022
-[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
 
 Version `22.04.27`
 
@@ -113,7 +191,7 @@ New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplac
 Version: `22.04.05`
 
 ## April 04, 2022
-New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview)
 
 Version: `22.04.01`
 
@@ -178,7 +256,7 @@ Main changes:
 
 ## November 4, 2021
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
 
 Version: `21.11.04`
 
@@ -215,7 +293,7 @@ Main changes:
 
 ## October 7, 2021
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
 
 Version: `21.10.07`
 
@@ -249,7 +327,7 @@ Main changes:
 
 ## July 12, 2021
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
 
 Main changes:
 
@@ -274,7 +352,7 @@ Main changes:
 
 ## June 1, 2021
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
 
 Version: `21.06.01`
 
@@ -326,13 +404,13 @@ Dark mode, changed icons on desktop, wallpaper background change.
 
 ## May 12, 2021
 
-New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview).
 
 Selected version updates are:
 - CUDA 11.3, cuDNN 8, NCCL2
 - Python 3.8
 - R 4.0.5
-- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Cosmos DB
+- Spark 3.1 incl. mmlspark, connectors to Blob Storage, Data Lake, Azure Cosmos DB
 - Java 11 (OpenJDK)
 - Jupyter Lab 3.0.14
 - PyTorch 1.8.1 incl. torchaudio torchtext torchvision, torch-tb-profiler
@@ -368,7 +446,7 @@ sudo systemctl start docker
 
 ## February 24, 2020
 
-Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview) and [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) images are now available.
+Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/tidalmediainc.ubuntu-18-04?tab=Overview) and [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) images are now available.
 
 ## October 8, 2019
 

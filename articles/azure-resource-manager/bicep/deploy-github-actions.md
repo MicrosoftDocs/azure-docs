@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 
 In this quickstart, you use the [GitHub Actions for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
-It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Learning path: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions).
+It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Deploy Azure resources by using Bicep and GitHub Actions](/training/paths/bicep-github-actions).
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Create secrets for your Azure credentials, resource group, and subscriptions.
 
 1. In [GitHub](https://github.com/), navigate to your repository.
 
-1. Select **Settings > Secrets > New secret**.
+1. Select **Security > Secrets and variables > Actions > New repository secret**. 
 
 1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`.
 

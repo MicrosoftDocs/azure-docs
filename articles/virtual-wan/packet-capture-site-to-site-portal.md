@@ -70,12 +70,12 @@ To simplify your packet captures, you may specify filters on your packet capture
 |TCPFlags|	Integer that determines which Types of TCP Packets are captured	|0 (none)|	FIN = 1, SYN = 2, RST = 4, PSH = 8, ACK = 16,URG = 32, ECE = 64, CWR = 128|
 |MaxPacketBufferSize|	Maximum size of a captured packet in bytes. Packets are truncated if larger than the provided value.	|120	|Any|
 |MaxFileSize |	Maximum capture file size in Mb. Captures are stored in a circular buffer so overflow is handled in a FIFO manner (older packets removed first)|	100|	Any|
-|SourceSubnets |	Packets from the specified CIDR ranges are captured. Specified as an array. |	[ ] (all IPv4 addresses)	|Array of comma-separated IPV4 Subnets|
-|DestinationSubnets	|Packets destined for the specified CIDR ranges are captured. Specified as an array. |	[ ] (all IPv4 addresses)|	Array of comma-separated IPV4 Subnets|
-|SourcePort|	Packets with source in the specified ranges are captured. Specified as an array.|	[ ] (all ports)|	Array of comma-separated ports|
-|DestinationPort|	Packets with destination in the specified ranges are captured. Specified as an array.	|[ ] (all ports)|	Array of comma-separated ports|
+|SourceSubnets |	Packets from the specified CIDR ranges are captured. Specified as an array. |	[ ] (all IPv4 addresses)	|An IPV4 Subnet|
+|DestinationSubnets	|Packets destined for the specified CIDR ranges are captured. Specified as an array. |	[ ] (all IPv4 addresses)|	An IPV4 Subnet|
+|SourcePort|	Packets with source in the specified ranges are captured. Specified as an array.|	[ ] (all ports)|	A port|
+|DestinationPort|	Packets with destination in the specified ranges are captured. Specified as an array.	|[ ] (all ports)|	A port|
 |CaptureSingleDirectionTrafficOnly |	If true, only one direction of a bidirectional flow will show up in the packet capture. This will capture all possible combo of IP and ports.|	True|	True, False|
-|Protocol|	An array of integers that correspond IANA protocols.|	[ ] (all protocols)|	Any protocols listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
+|Protocol|	An array of integers that correspond IANA protocols.|	[ ] (all protocols)|	A protocol listed on this [iana.org](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) page.|
 
 > [!NOTE]
 > For TracingFlags and TCPFlags, you may specify multiple protocols by adding up the numerical values for the protocols you want to capture (same as a logical OR). For example, if you want to capture only ESP and OPVN packets, specify a TracingFlag value of 8+1 = 9.

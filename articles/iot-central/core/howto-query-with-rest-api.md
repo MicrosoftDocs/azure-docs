@@ -37,7 +37,7 @@ To learn how to query devices by using the IoT Central UI, see [How to use data 
 Use the following request to run a query:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=2022-10-31-preview
 ```
 
 The query is in the request body and looks like the following example:
@@ -119,7 +119,7 @@ If your device template uses components such as the **Device information** compo
 
 You can find the component name in the device template:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-component-name.png" alt-text="Screenshot that shows how to find the component name." lightbox="media/howto-query-with-rest-api/show-component-name.png":::
 
 The following limits apply in the `SELECT` clause:
 
@@ -181,7 +181,7 @@ The `FROM` clause must contain a device template ID. The `FROM` clause specifies
 
 To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
-:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
+:::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID on the devices page." lightbox="media/howto-query-with-rest-api/show-device-template-id.png":::
 
 You can also use the [Devices - Get](/rest/api/iotcentral/2022-07-31dataplane/devices/get) REST API call to get the device template ID for a device.
 

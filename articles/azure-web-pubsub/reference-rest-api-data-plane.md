@@ -53,6 +53,8 @@ Like using `AccessKey`, a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/J
 
 [Learn how to generate Azure AD Tokens](../active-directory/develop/reference-v2-libraries.md)
 
+The credential scope used should be `https://webpubsub.azure.com/.default`.
+
 You could also use **Role Based Access Control (RBAC)** to authorize the request from your server to Azure Web PubSub Service.
 
 [Learn how to configure Role Based Access Control roles for your resource](./howto-authorize-from-application.md#add-role-assignments-on-azure-portal)

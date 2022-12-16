@@ -62,6 +62,11 @@ When you're finished, press **Esc**, and then type **:wq** to save and close the
 You also need a [parameters](../../governance/policy/concepts/definition-structure.md#parameters) file that creates a structure for you to use for passing in a list of the unauthorized extensions. 
 
 This example shows you how to create a parameter file for Linux VMs in Cloud Shell.
+
+In the bash Cloud Shell opened before type:
+
+```bash
+vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
 Copy and paste the following `.json` data into the file.

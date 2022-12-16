@@ -9,6 +9,9 @@ ms.date: 03/21/2022
 ---
 
 # Extract data from utterance text with intents and entities
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
 The hardest data to extract is the machine-learning data because it isn't an exact text match. Data extraction of the machine-learning [entities](concepts/entities.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you're confident you receive the data you expect.

@@ -1,12 +1,12 @@
 ---
 title: Block legacy authentication - Azure Active Directory
-description: Learn how to improve your security posture by blocking legacy authentication using Azure AD Conditional Access.
+description: Block legacy authentication using Azure AD Conditional Access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 09/26/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy authentication doesn't support things like multifactor authentication (MFA). MFA is a common requirement to improve security posture in organizations. 
 
 > [!NOTE]
-> Effective October 1, 2022, we will begin to permanently disable Basic Authentication for Exchange Online in all Microsoft 365 tenants regardless of usage, except for SMTP Authentication. Read more [here](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online)
+> Effective October 1, 2022, we will begin to permanently disable Basic Authentication for Exchange Online in all Microsoft 365 tenants regardless of usage, except for SMTP Authentication. For more information, see the article [Deprecation of Basic authentication in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online)
 
 Alex Weinert, Director of Identity Security at Microsoft, in his March 12, 2020 blog post [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) emphasizes why organizations should block legacy authentication and what other tools Microsoft provides to accomplish this task:
 
@@ -90,8 +90,8 @@ Before you can block legacy authentication in your directory, you need to first 
 #### Indicators from Azure AD
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
-1. Add the Client App column if it isn't shown by clicking on **Columns** > **Client App**.
-1. **Add filters** > **Client App** > select all of the legacy authentication protocols. Select outside the filtering dialog box to apply your selections and close the dialog box.
+1. Add the **Client App** column if it isn't shown by clicking on **Columns** > **Client App**.
+1. Select **Add filters** > **Client App** > choose all of the legacy authentication protocols and select **Apply**.
 1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you more details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
@@ -131,15 +131,11 @@ There are two ways to use Conditional Access policies to block legacy authentica
  
 ### Directly blocking legacy authentication
 
-The easiest way to block legacy authentication across your entire organization is by configuring a Conditional Access policy that applies specifically to legacy authentication clients and blocks access. When assigning users and applications to the policy, make sure to exclude users and service accounts that still need to sign in using legacy authentication. When choosing the cloud apps in which to apply this policy, select All cloud apps, targeted apps such as Office 365 (recommended) or at a minimum, Office 365 Exchange Online. Configure the client apps condition by selecting **Exchange ActiveSync clients** and **Other clients**. To block access for these client apps, configure the access controls to Block access.
-
-![Client apps condition configured to block legacy auth](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
+The easiest way to block legacy authentication across your entire organization is by configuring a Conditional Access policy that applies specifically to legacy authentication clients and blocks access. When assigning users and applications to the policy, make sure to exclude users and service accounts that still need to sign in using legacy authentication. When choosing the cloud apps in which to apply this policy, select All cloud apps, targeted apps such as Office 365 (recommended) or at a minimum, Office 365 Exchange Online. Organizations can use the policy available in [Conditional Access templates](concept-conditional-access-policy-common.md) or the common policy [Conditional Access: Block legacy authentication](howto-conditional-access-policy-block-legacy.md) as a reference.
 
 ### Indirectly blocking legacy authentication
 
 If your organization isn't ready to block legacy authentication across the entire organization, you should ensure that sign-ins using legacy authentication aren't bypassing policies that require grant controls such as requiring multifactor authentication or compliant/hybrid Azure AD joined devices. During authentication, legacy authentication clients don't support sending MFA, device compliance, or join state information to Azure AD. Therefore, apply policies with grant controls to all client applications so that legacy authentication based sign-ins that can’t satisfy the grant controls are blocked. With the general availability of the client apps condition in August 2020, newly created Conditional Access policies apply to all client apps by default.
-
-![Client apps condition default configuration](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## What you should know
 

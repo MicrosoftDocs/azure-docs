@@ -21,6 +21,29 @@ The following image illustrates the experience of a Teams user using Teams clien
 The following image illustrates the experience of a Teams user using Teams client interacting with another Teams user from a different organization using Azure Communication Services SDK who joined Teams meeting.
 ![A diagram that shows how Teams user on Azure Communication Services connects to Teams meetings organized by a different organization.](../media/desktop-client-external-user-joins-teams-meeting.png)
 
+## Start a call to Teams user within the organization
+The following image illustrates the experience of a Teams user using Teams client calling another Teams user from the same organization using Azure Communication Services SDK. First, the user opens a chat with the person and selects the call button.
+![A diagram shows a chat between two Teams users in the same organization.](../media/desktop-client-teams-user-calls-within-org.png)
+
+If callee accepts the call, both users are connected via a 1:1 VoIP call.
+![A diagram shows the in-call experience of Teams user using Teams client to call another Teams user in the same organization using Azure Communication Services SDKs.](../media/desktop-client-teams-user-in-call-within-org.png)
+
+## Start a call to Teams users from different organization
+The following image illustrates the experience of a Teams user using Teams client calling another Teams user from a different organization using Azure Communication Services SDK. First, the user opens a chat with the person and selects the call button.
+![A diagram shows a chat between two Teams users in a different organization.](../media/desktop-client-teams-user-calls-outside-org.png)
+
+If callee accepts the call, both users are connected via a 1:1 VoIP call.
+![A diagram shows the in-call experience of Teams user using Teams client to call another Teams user in a different organization using Azure Communication Services SDKs.](../media/desktop-client-teams-user-in-calls-outside-org.png)
+
+## Incoming call from Teams user within the organization
+The following image illustrates the experience of a Teams user using Teams client receiving a notification of an incoming call from another Teams user from the same organization. The caller is using Azure Communication Services SDK. 
+![A diagram shows incoming call notifications for Teams users using the Teams client. The caller is from the same organization.](../media/desktop-client-teams-user-incoming-call-from-within-org.png)
+
+## Incoming call from Teams user from a different organization
+The following image illustrates the experience of a Teams user using Teams client receiving a notification of an incoming call from another Teams user from a different organization. The caller is using Azure Communication Services SDK. 
+![A diagram shows incoming call notifications for Teams users using the Teams client. The caller is from a different organization.](../media/desktop-client-teams-user-incoming-call-from-external-org.png)
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]

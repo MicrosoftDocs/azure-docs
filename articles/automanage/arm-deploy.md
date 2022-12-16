@@ -14,8 +14,8 @@ ms.date: 12/10/2021
 Follow the steps to onboard a machine to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
-* You must have necessary [Role-based access control permissions](./automanage-virtual-machines.md#required-rbac-permissions)
-* You must be in a supported region and supported VM image highlighted in these [prerequisites](./automanage-virtual-machines.md#prerequisites)
+* You must have necessary [Role-based access control permissions](./overview-about.md#required-rbac-permissions)
+* You must be in a supported region and supported VM image highlighted in these [prerequisites](./overview-about.md#prerequisites)
 
 
 ## ARM template overview
@@ -35,7 +35,7 @@ The following ARM template will onboard your specified machine onto Azure Automa
     "resources": [
         {
             "type": "Microsoft.Compute/virtualMachines/providers/configurationProfileAssignments",
-            "apiVersion": "2021-04-30-preview",
+            "apiVersion": "2022-05-04",
             "name": "[concat(parameters('machineName'), '/Microsoft.Automanage/default')]",
             "properties": {
                 "configurationProfile": "[parameters('configurationProfileName')]"

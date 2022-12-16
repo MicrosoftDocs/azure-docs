@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 12/07/2022
 ms.author: cgillum
 ms.custom: devdivchpfy22
 ms.reviewer: azfuncdf
@@ -24,7 +24,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
-| Java (preview) | Functions 3.0+ | Java 8+ | 4.x bundles |
+| Java | Functions 4.0+ | Java 8+ | 4.x bundles |
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -41,7 +41,8 @@ The primary use case for Durable Functions is simplifying complex, stateful coor
 
 ### <a name="chaining"></a>Pattern #1: Function chaining
 
-In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function.
+In the function chaining pattern, a sequence of functions executes in a specific order. In this pattern, the output of one function is applied to the input of another function. The use of queues between each function ensures that the system stays durable and scalable, even though there is a flow of control from one function to the next.
+
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
@@ -134,22 +135,17 @@ You can use the `Invoke-DurableActivity` command to invoke other functions by na
 
 ```java
 @FunctionName("Chaining")
-public String helloCitiesOrchestrator(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        String input = ctx.getInput(String.class);
-        int x = ctx.callActivity("F1", input, int.class).await();
-        int y = ctx.callActivity("F2", x, int.class).await();
-        int z = ctx.callActivity("F3", y, int.class).await();
-        return  ctx.callActivity("F4", z, double.class).await();
-    });
+public double functionChaining(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    String input = ctx.getInput(String.class);
+    int x = ctx.callActivity("F1", input, int.class).await();
+    int y = ctx.callActivity("F2", x, int.class).await();
+    int z = ctx.callActivity("F3", y, int.class).await();
+    return  ctx.callActivity("F4", z, double.class).await();
 }
 ```
 
 You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
-
-> [!NOTE]
-> The orchestrator function logic must implemented as a lambda function and wrapped by a call to `OrchestrationRunner.loadAndRun(...)` as shown in the above example.
 
 ---
 
@@ -272,20 +268,19 @@ The automatic checkpointing that happens at the `Wait-ActivityFunction` call ens
 
 ```java
 @FunctionName("FanOutFanIn")
-public String fanOutFanInOrchestrator(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        List<?> batch = ctx.callActivity("F1", List.class).await();
+public Integer fanOutFanInOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // Get the list of work-items to process in parallel
+    List<?> batch = ctx.callActivity("F1", List.class).await();
 
-        // Schedule each task to run in parallel
-        List<Task<Integer>> parallelTasks = IntStream.range(0, batch.size())
-                .mapToObj(i -> ctx.callActivity("F2", i, Integer.class))
-                .collect(Collectors.toList());
+    // Schedule each task to run in parallel
+    List<Task<Integer>> parallelTasks = batch.stream()
+            .map(item -> ctx.callActivity("F2", item, Integer.class))
+            .collect(Collectors.toList());
 
-        // Wait for all tasks to complete, then return the aggregated sum of the results
-        List<Integer> results = ctx.allOf(parallelTasks).await();
-        return results.stream().reduce(0, Integer::sum);
-    });
+    // Wait for all tasks to complete, then return the aggregated sum of the results
+    List<Integer> results = ctx.allOf(parallelTasks).await();
+    return results.stream().reduce(0, Integer::sum);
 }
 ```
 
@@ -472,29 +467,27 @@ $output
 ```java
 @FunctionName("Monitor")
 public String monitorOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            JobInfo jobInfo = ctx.getInput(JobInfo.class);
-            String jobId = jobInfo.getJobId();
-            Instant expiryTime = jobInfo.getExpirationTime();
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    JobInfo jobInfo = ctx.getInput(JobInfo.class);
+    String jobId = jobInfo.getJobId();
+    Instant expiryTime = jobInfo.getExpirationTime();
 
-            while (ctx.getCurrentInstant().compareTo(expiryTime) < 0) {
-                String status = ctx.callActivity("GetJobStatus", jobId, String.class).await();
-                
-                // Perform an action when a condition is met
-                if (status.equals("Completed")) {
-                    // send an alert and exit
-                    ctx.callActivity("SendAlert", jobId).await();
-                    break;
-                } else {
-                    // wait N minutes before doing the next poll
-                    Duration pollingDelay = jobInfo.getPollingDelay();
-                    ctx.createTimer(pollingDelay).await();
-                }
-            }
+    while (ctx.getCurrentInstant().compareTo(expiryTime) < 0) {
+        String status = ctx.callActivity("GetJobStatus", jobId, String.class).await();
 
-            return "done";
-        });
+        // Perform an action when a condition is met
+        if (status.equals("Completed")) {
+            // send an alert and exit
+            ctx.callActivity("SendAlert", jobId).await();
+            break;
+        }
+
+        // wait N minutes before doing the next poll
+        Duration pollingDelay = jobInfo.getPollingDelay();
+        ctx.createTimer(pollingDelay).await();
+    }
+
+    return "done";
 }
 ```
 
@@ -629,23 +622,21 @@ To create the durable timer, call `Start-DurableTimer`. The notification is rece
 
 ```java
 @FunctionName("ApprovalWorkflow")
-public String approvalWorkflow(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            ApprovalInfo approvalInfo = ctx.getInput(ApprovalInfo.class);
-            ctx.callActivity("RequestApproval", approvalInfo).await();
+public void approvalWorkflow(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    ApprovalInfo approvalInfo = ctx.getInput(ApprovalInfo.class);
+    ctx.callActivity("RequestApproval", approvalInfo).await();
 
-            Duration timeout = Duration.ofHours(72);
-            try {
-                // Wait for an approval. A TaskCanceledException will be thrown if the timeout expires.
-                boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).await();
-                approvalInfo.setApproved(approved);
+    Duration timeout = Duration.ofHours(72);
+    try {
+        // Wait for an approval. A TaskCanceledException will be thrown if the timeout expires.
+        boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).await();
+        approvalInfo.setApproved(approved);
 
-                ctx.callActivity("ProcessApproval", approvalInfo).await();
-            } catch (TaskCanceledException timeoutEx) {
-                ctx.callActivity("Escalate", approvalInfo).await();
-            }
-        });
+        ctx.callActivity("ProcessApproval", approvalInfo).await();
+    } catch (TaskCanceledException timeoutEx) {
+        ctx.callActivity("Escalate", approvalInfo).await();
+    }
 }
 ```
 
@@ -802,9 +793,6 @@ module.exports = df.entity(function(context) {
 # [Python](#tab/python)
 
 ```python
-import logging
-import json
-
 import azure.functions as func
 import azure.durable_functions as df
 
@@ -932,11 +920,11 @@ Durable Functions is developed in collaboration with Microsoft Research. As a re
 
 The following video highlights the benefits of Durable Functions:
 
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
+> [!VIDEO https://learn.microsoft.com/Shows/Azure-Friday/Durable-Functions-in-Azure-Functions/player] 
 
 For a more in-depth discussion of Durable Functions and the underlying technology, see the following video (it's focused on .NET, but the concepts also apply to other supported languages):
 
-> [!VIDEO https://docs.microsoft.com/Events/dotnetConf/2018/S204/player]
+> [!VIDEO https://learn.microsoft.com/Events/dotnetConf/2018/S204/player]
 
 Because Durable Functions is an advanced extension for [Azure Functions](../functions-overview.md), it isn't appropriate for all applications. For a comparison with other Azure orchestration technologies, see [Compare Azure Functions and Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 

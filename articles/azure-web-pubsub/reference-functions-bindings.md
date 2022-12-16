@@ -79,13 +79,13 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 ```cs
 [FunctionName("WebPubSubTrigger")]
 public static void Run(
-    [WebPubSubTrigger("<hub>", "message", EventType.User)]
+    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")]
     UserEventRequest request,
     WebPubSubConnectionContext context,
     string data,
     WebPubSubDataType dataType)
 {
-    Console.WriteLine($"Request from: {context.userId}");
+    Console.WriteLine($"Request from: {context.UserId}");
     Console.WriteLine($"Request message data: {data}");
     Console.WriteLine($"Request message dataType: {dataType}");
 }
@@ -96,7 +96,7 @@ public static void Run(
 ```cs
 [FunctionName("WebPubSubTriggerReturnValue")]
 public static MessageResponse Run(
-    [WebPubSubTrigger("<hub>", "message", EventType.User)]
+    [WebPubSubTrigger("<hub>", WebPubSubEventType.User, "message")]
     UserEventRequest request,
     ConnectionContext context,
     string data,
@@ -162,7 +162,7 @@ Here's an `WebPubSubTrigger` attribute in a method signature:
 
 ```csharp
 [FunctionName("WebPubSubTrigger")]
-public static void Run([WebPubSubTrigger("<hub>", "<event-Name>", <WebPubSubEventType>)] 
+public static void Run([WebPubSubTrigger("<hub>", <WebPubSubEventType>, "<event-name>")] 
 WebPubSubConnectionContext context, ILogger log)
 {
     ...
@@ -181,7 +181,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | n/a | Required - must be set to `in`. |
 | **name** | n/a | Required - the variable name used in function code for the parameter that receives the event data. |
 | **hub** | Hub | Required - the value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
-| **eventType** | EventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
+| **eventType** | WebPubSubEventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnected`. </br> For user-defined subprotocols, the event name is `message`. </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. |
 | **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value will be used for signature validation. And the value will be auto resolved with app settings "WebPubSubConnectionString" by default. And `null` means the validation is not needed and will always succeed. |
 

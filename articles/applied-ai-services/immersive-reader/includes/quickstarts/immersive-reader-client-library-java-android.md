@@ -1312,7 +1312,7 @@ Licensed under the MIT License. -->
             if (!message) {
                 Android.showToast('Message is null or undefined!');
             } else {
-                // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
+                // Learn more about chunk usage and supported MIME types https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#chunk
                 var data = {
                     title: message.request.title,
                     chunks: []
@@ -1326,7 +1326,7 @@ Licensed under the MIT License. -->
                     });
                 }
 
-                // Learn more about options https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
+                // Learn more about options https://learn.microsoft.com/azure/cognitive-services/immersive-reader/reference#options
                 var options = {
                     onExit: exitCallback,
                     uiZIndex: 2000

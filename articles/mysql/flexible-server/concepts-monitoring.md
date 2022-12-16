@@ -48,7 +48,42 @@ These metrics are available for Azure Database for MySQL:
 |Total connections|total_connections|Count|The number of client connections to your Azure Database for MySQL Flexible server. Total Connections is sum of connections by clients using TCP/IP protocol over a selected period.|
 |Aborted Connections|aborted_connections|Count|Total number of failed attempts to connect to your MySQL server, for example, failed connection due to bad credentials. For more information on aborted connections, you can refer to this [documentation](https://dev.mysql.com/doc/refman/5.7/en/communication-errors.html).|
 |Queries|queries|Count|Total number of queries executed per minute on your server. Total count of queries per minute on your server from your database workload and Azure MySQL processes.|
+|Slow_queries|slow_queries|Count|The total count of slow queries on your server in the selected time range.|
 
+
+## Enhanced metrics
+
+
+### DML statistics
+
+|Metric display name|Metric|Unit|Description|
+|---|---|---|---|
+|Com_select|Com_select|Count|The total count of select statements that have been executed on your server in the selected time range.|
+|Com_update|Com_update|Count|The total count of update statements that have been executed on your server in the selected time range.|
+|Com_insert|Com_insert|Count|The total count of insert statements that have been executed on your server in the selected time range.|
+|Com_delete|Com_delete|Count|The total count of delete statements that have been executed on your server in the selected time range.|
+
+
+### DDL statistics
+
+|Metric display name|Metric|Unit|Description|
+|---|---|---|---|
+|Com_create_db|Com_create_db|Count|The total count of create database statements that have been executed on your server in the selected time range.|
+|Com_drop_db|Com_drop_db|Count|The total count of drop database statements that have been executed on your server in the selected time range.|
+|Com_create_table|Com_create_table|Count|The total count of create table statements that have been executed on your server in the selected time range.|
+|Com_drop_table|Com_drop_table|Count|The total count of drop table statements that have been executed on your server in the selected time range.|
+|Com_Alter|Com_Alter|Count|The total count of alter table statements that have been executed on your server in the selected time range.|
+
+
+### Innodb metrics
+
+|Metric display name|Metric|Unit|Description|
+|---|---|---|---|
+|Innodb_buffer_pool_reads|Innodb_buffer_pool_reads|Count|The total count of logical reads that InnoDB engine couldn't satisfy from the Innodb buffer pool, and had to be fetched from the disk.|
+|Innodb_buffer_pool_read_requests|Innodb_buffer_pool_read_requests|Count|The total count of logical read requests to read from the Innodb Buffer pool.|
+|Innodb_buffer_pool_pages_free|Innodb_buffer_pool_pages_free|Count|The total count of free pages in InnoDB buffer pool.|
+|Innodb_buffer_pool_pages_data|Innodb_buffer_pool_pages_data|Count|The total count of pages in the InnoDB buffer pool containing data. The number includes both dirty and clean pages.|
+|Innodb_buffer_pool_pages_dirty|Innodb_buffer_pool_pages_dirty|Count|The total count of pages in the InnoDB buffer pool containing dirty pages.|
 
 ## Server logs
 

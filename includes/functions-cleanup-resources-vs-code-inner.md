@@ -17,8 +17,6 @@ ms.author: glenga
 
 1. On the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
 
-4. In the **Resource group** page, review the list of included resources, and verify that they are the ones you want to delete.
-
 5. Select **Delete resource group**, and follow the instructions.
 
    Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.

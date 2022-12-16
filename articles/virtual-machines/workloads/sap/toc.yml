@@ -8,6 +8,8 @@
   items:
   - name: Supported scenarios
     href: sap-planning-supported-configurations.md
+  - name: SAP and Microsoft integration scenarios
+    href: integration-get-started.md
   - name: Supported SAP software for Azure deployments
     href: sap-supported-product-on-azure.md
   - name: Checklist for deploying SAP workloads on Azure
@@ -48,8 +50,14 @@
   items:
   - name: Azure Storage types for SAP
     href: planning-guide-storage.md
-  - name: Configure Azure VM storage
+  - name: Azure VM storage for HANA
     href: hana-vm-operations-storage.md
+  - name: Premium storage for HANA
+    href: hana-vm-premium-ssd-v1.md
+  - name: Premium SSD v2 for HANA
+    href: hana-vm-premium-ssd-v2.md
+  - name: Ultra disk for HANA
+    href: hana-vm-ultra-disk.md
   - name: SAP HANA with Azure NetApp Files
     href: hana-vm-operations-netapp.md
 - name: DBMS Guides (Azure VMs)
@@ -150,12 +158,12 @@
       href: high-availability-guide-rhel-ibm-db2-luw.md
   - name: SAP Application Layer - SLES
     items:
+    - name: Install HA SAP NetWeaver with NFS simple mount
+      href: high-availability-guide-suse-nfs-simple-mount.md
     - name: Install HA SAP NetWeaver with NFS on Azure Files
       href: high-availability-guide-suse-nfs-azure-files.md
     - name: Install HA SAP NetWeaver with Azure NetApp Files
       href: high-availability-guide-suse-netapp-files.md
-    - name: Install HA SAP NetWeaver with NFS simple mount
-      href: high-availability-guide-suse-nfs-simple-mount.md
     - name: Install HA SAP NetWeaver
       href: high-availability-guide-suse.md
     - name: Install HA NFS server
@@ -212,6 +220,12 @@
     items:
     - name: Install PAS and AAS with SAP NetWeaver HA cluster - RHEL
       href: high-availability-guide-rhel-with-dialog-instance.md
+- name: Disaster Recovery (Azure VMs)
+  items:
+  - name: DR overview and infrastructure guidelines for SAP Workload
+    href: disaster-recovery-overview-guide.md
+  - name: DR guidelines for SAP Application
+    href: disaster-recovery-sap-guide.md
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
@@ -288,7 +302,7 @@
         href: module/automation-new-saplibrary.md
       - name: Removing the control plane using PowerShell
         href: module/automation-remove-sapautomationregion.md
-      - name: Removing a SAP deployment using PowerShell
+      - name: Removing an SAP deployment using PowerShell
         href: module/automation-remove-sapsystem.md
       - name: Set the Keyvault secrets using PowerShell
         href: module/automation-set-sapsecrets.md
@@ -334,19 +348,19 @@
       href: azure-monitor-faq.yml
   - name: Concepts
     items:
-    - name: Providers in AMS
+    - name: Providers in Azure Monitor for SAP solutions
       href: azure-monitor-providers.md
   - name: Quickstarts
     items:
-    - name: Get started with AMS - Azure portal
+    - name: Get started with Azure Monitor for SAP solutions - Azure portal
       href: azure-monitor-sap-quickstart.md
-    - name: Get started with AMS - PowerShell
+    - name: Get started with Azure Monitor for SAP solutions - PowerShell
       href: azure-monitor-sap-quickstart-powershell.md
   - name: How-to guides
     items:
-    - name: Set up network for AMS
+    - name: Set up network for Azure Monitor for SAP solutions
       href: create-network-azure-monitor-sap-solutions.md
-    - name: Configure AMS alerts in Azure portal
+    - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: azure-monitor-alerts-portal.md
     - name: Provider configuration
       items:
@@ -354,7 +368,7 @@
         href: configure-netweaver-azure-monitor-sap-solutions.md
       - name: Configure SAP HANA provider
         href: configure-hana-azure-monitor-sap-solutions.md
-      - name: Configure Microsoft SQL Server pProvider
+      - name: Configure Microsoft SQL Server provider
         href: configure-sql-server-azure-monitor-sap-solutions.md
       - name: Configure High-availability cluster (Pacemaker) provider
         href: configure-ha-cluster-azure-monitor-sap-solutions.md
@@ -364,14 +378,8 @@
         href: configure-db-2-azure-monitor-sap-solutions.md
   - name: Reference
     items:
-    - name: Data reference for AMS
+    - name: Data reference for Azure Monitor for SAP solutions
       href: monitor-sap-on-azure-reference.md
-- name: Integration with Microsoft Services
-  items:
-  - name: Outbound E-Mail from SAP to Exchange Online
-    href: exchange-online-integration-sap-email-outbound.md
-  - name: Expose SAP Process Orchestration on Azure securely
-    href: expose-sap-process-orchestration-on-azure.md
 - name: SAP on Azure Large Instances
   items:
   - name: Overview
@@ -424,7 +432,7 @@
     items:
     - name: Options and considerations
       href: hana-overview-high-availability-disaster-recovery.md
-    - name: Backup and restore
+    - name: Back up and restore
       href: hana-backup-restore.md
     - name: Principles and preparation
       href: hana-concept-preparation.md
@@ -442,15 +450,15 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
-    - name: HA Setup with STONITH
-      href: ha-setup-with-stonith.md
+    - name: HA Setup with fencing device
+      href: ha-setup-with-fencing-device.md
     - name: OS Backup
       href: large-instance-os-backup.md
     - name: OS Backup HLI TYPE - 2
       href: os-backup-hli-type-ii-skus.md
     - name: Azure Large Instances high availability for SAP on RHEL
       href: large-instance-high-availability-rhel.md
-    - name: Enable Kdump for HANA Large Instances
+    - name: Enable kernel dump for HANA Large Instances
       href: hana-large-instance-enable-kdump.md
     - name: OS Upgrade for HANA Large Instances
       href: os-upgrade-hana-large-instance.md
@@ -468,66 +476,6 @@
     href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
   - name: Azure Site Recovery for SAP Disaster Recovery
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
-  - name: Azure AD integration
-    items:
-    - name: Provision users from SAP SuccessFactors to Active Directory
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md
-    - name: Provision users from SAP SuccessFactors to Azure AD
-      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
-    - name: Write-back users from Azure AD to SAP SuccessFactors
-      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md
-    - name: Provision users to SAP Cloud Platform Identity Authentication Service
-      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
-    - name: Secure access with SAP Cloud Identity Services and Azure AD
-      href: ../../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md
-    - name: SSO
-      items:
-      - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
-        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md
-      - name: Configure SSO with SAP SuccessFactors
-        href: ../../../active-directory/saas-apps/successfactors-tutorial.md
-      - name: Configure SSO with SAP Analytics Cloud
-        href: ../../../active-directory/saas-apps/sapboc-tutorial.md
-      - name: Configure SSO with SAP Fiori
-        href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md
-      - name: Configure SSO with SAP Qualtrics
-        href: ../../../active-directory/saas-apps/qualtrics-tutorial.md
-      - name: Configure SSO with SAP Ariba
-        href: ../../../active-directory/saas-apps/ariba-tutorial.md
-      - name: Configure SSO with SAP Concur Travel and Expense
-        href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md
-      - name: Configure SSO with SAP Cloud Platform
-        href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md
-      - name: Configure SSO with SAP NetWeaver
-        href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md
-      - name: Configure SSO with SAP Business ByDesign
-        href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md
-      - name: Configure SSO with SAP HANA
-        href: ../../../active-directory/saas-apps/saphana-tutorial.md
-      - name: Configure SSO with SAP Cloud for Customer
-        href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md
-      - name: Configure SSO with SAPGUI using Kerberos and Azure AD Domain Services
-        href: https://blogs.sap.com/2018/08/03/your-sap-on-azure-part-8-single-sign-on-using-azure-ad-domain-services/
-  - name: Azure Services integration
-    items:
-    - name: Use SAP HANA in Power BI Desktop
-      href: /power-bi/desktop-sap-hana
-    - name: DirectQuery and SAP HANA
-      href: /power-bi/desktop-directquery-sap-hana
-    - name: Use the SAP BW Connector in Power BI Desktop
-      href: /power-bi/desktop-sap-bw-connector
-    - name: Azure Data Factory offers SAP HANA and Business Warehouse data integration
-      href: https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration
-  - name: Microsoft Sentinel threat monitoring
-    items:
-      - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap/deploy-sap-security-content.md#deploy-sap-security-content
-      - name: Detailed requirements
-        href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-      - name: Microsoft Sentinel SAP solution data reference
-        href: ../../../sentinel/sap/sap-solution-log-reference.md
-      - name: SAP security content reference
-        href: ../../../sentinel/sap/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap

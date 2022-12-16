@@ -41,7 +41,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.classiccompute/virtualmachines
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Has the host OS booting completed?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Has the booting of the guest OS completed?</li><li>Is there ongoing planned maintenance?</li><li>Is the host hardware degraded and predicted to fail soon?</li></ul>|
+|<ul><li>Is the server hosting this virtual machine up and running?</li><li>Is the virtual machine container provisioned and powered up?</li><li>Is there network connectivity between the host and the storage account?</li><li>Is there ongoing planned maintenance?</li><li>Is there heartbeats between Guest and host agent *(if Guest extension is installed)*?</li></ul>|
 
 ## Microsoft.classiccompute/domainnames
 |Executed Checks|

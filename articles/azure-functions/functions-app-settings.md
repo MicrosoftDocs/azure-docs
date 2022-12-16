@@ -45,7 +45,7 @@ When using app settings, you should be aware of the following considerations:
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. When possible, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, you must use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 |Key|Sample value|
 |---|------------|
@@ -168,7 +168,9 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 
 |Key|Sample value|
 |---|------------|
-|AzureWebJobsFeatureFlags|`feature1,feature2`|
+|AzureWebJobsFeatureFlags|`feature1,feature2,EnableProxies`|
+
+Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). 
 
 ## AzureWebJobsKubernetesSecretName 
 
@@ -305,11 +307,20 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
+|FUNCTIONS\_EXTENSION\_VERSION|`~4`|
+
+The following major runtime version values are supported:
+
+| Value | Runtime target | Comment |
+| ------ | -------- | --- |
+| `~4` | 4.x | Recommended |
+| `~3` | 3.x | Support ends December 13, 2022 |
+| `~2` | 2.x | No longer supported |
+| `~1` | 1.x | Supported |
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
-This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues when [upgrading your function app from version 2.x to 3.x of the runtime](functions-versions.md#migrating-from-2x-to-3x).
+This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues after upgrading your function app from version 2.x to 3.x of the runtime.
 
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
@@ -349,7 +360,7 @@ Valid values:
 | Value | Language |
 |---|---|
 | `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
-| `dotnet-isolated` | [C# (isolated process)](dotnet-isolated-process-guide.md) |
+| `dotnet-isolated` | [C# (isolated worker process)](dotnet-isolated-process-guide.md) |
 | `java` | [Java](functions-reference-java.md) |
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
@@ -588,7 +599,7 @@ When performing [a slot swap](functions-deployment-slots.md#swap-slots) on Premi
 
 ## WEBSITE\_OVERRIDE\_STICKY\_EXTENSION\_VERSIONS
 
-By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Migrate using slots](functions-versions.md#migrate-using-slots). 
+By default, the version settings for function apps are specific to each slot. This setting is used when upgrading functions by using [deployment slots](functions-deployment-slots.md). This prevents unanticipated behavior due to changing versions after a swap. Set to `0` in production and in the slot to make sure that all version settings are also swapped. For more information, see [Upgrade using slots](migrate-version-3-version-4.md#upgrade-using-slots). 
 
 |Key|Sample value|
 |---|------------|
@@ -613,6 +624,14 @@ The [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](#website_contentazurefileconnecti
 |WEBSITE_SKIP_CONTENTSHARE_VALIDATION|`1`|
 
 If validation is skipped and either the connection string or content share isn't valid, the app won't be able to start properly. In this case, functions return HTTP 500 errors. For more information, see [Troubleshoot error: "Azure Functions Runtime is unreachable"](functions-recover-storage-account.md)
+
+## WEBSITE\_SLOT\_NAME
+
+Read-only. Name of the current deployment slot. The name of the production slot is `Production`.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_SLOT_NAME|`Production`|
 
 ## WEBSITE\_TIME\_ZONE
 
@@ -646,13 +665,44 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## App Service site settings
 
-Some configurations must be set at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
-| Site setting | Description |
-| --- | --- |
-| linuxFxVersion | Sets the specific base container image (language and version) used when running on Linux. For more information, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). |
-| netFrameworkVersion | Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). |
-| powerShellVersion | Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
+### linuxFxVersion 
+
+For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
+
+This value is set for you when you create your Linux function app. You may need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
+
+#### Valid linuxFxVersion values
+
+You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
+
+```azurecli-interactive
+az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table
+```
+
+The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
+
+#### Custom images
+
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+
+```
+linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
+```
+For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+
+### netFrameworkVersion
+
+Sets the specific version of .NET for C# functions. For more information, see [Upgrade your function app in Azure](migrate-version-3-version-4.md?pivots=programming-language-csharp#upgrade-your-function-app-in-azure). 
+
+### powerShellVersion 
+
+Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
+
+When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
 ## Next steps
 

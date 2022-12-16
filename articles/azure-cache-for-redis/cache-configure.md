@@ -5,9 +5,9 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.date: 11/21/2022
 ms.author: franlanglois 
-
+ms.custom: engagement-fy23
 ---
 
 # How to configure Azure Cache for Redis
@@ -36,7 +36,7 @@ You can view and configure the following settings using the **Resource Menu**. T
   - [Scale](#scale)
   - [Cluster size](#cluster-size)
   - [Data persistence](#data-persistence)
-  - [(Preview) Identity](#preview-identity)
+  - [Identity](#identity)
   - [Alerts](#alerts)
   - [Schedule updates](#schedule-updates)
   - [Geo-replication](#geo-replication)
@@ -185,12 +185,14 @@ Use the **Maxmemory policy**, **maxmemory-reserved**, and **maxfragmentationmemo
 
 **Maxmemory policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
-- `volatile-lru` - The default eviction policy.
-- `allkeys-lru`
-- `volatile-random`
-- `allkeys-random`
-- `volatile-ttl`
-- `noeviction`
+- `volatile-lru`: The default eviction policy, removes the least recently used key out of all the keys with an expiration set. 
+- `allkeys-lru`: Removes the least recently used key.
+- `volatile-random`: Removes a random key that has an expiration set.
+- `allkeys-random`: Removes a random key.
+- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
+- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
+- `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
+- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 
 For more information about `maxmemory` policies, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
 
@@ -242,11 +244,11 @@ For more information, see [How to configure persistence for a Premium Azure Cach
 > [!IMPORTANT]
 > Redis data persistence is only available for Premium caches.
 
-### (preview) Identity
+### Identity
 
-Use **(preview) Identity** to configure managed identities. Managed identities are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information.
+Use **Identity** to configure managed identities. Managed identities are a common tool used in Azure to help developers minimize the burden of managing secrets and sign-in information.
 
-Presently, you can only use managed identities for storage. For more information, see [Managed identity for storage (Preview)](cache-managed-identity.md).
+Presently, you can only use managed identities for storage. For more information, see [Managed identity for storage](cache-managed-identity.md).
 
 > [!NOTE]
 > Managed identity functionality is only available in the Premium tier for use with storage.
@@ -282,11 +284,12 @@ The **Virtual Network** section allows you to configure the virtual network sett
 
 The **Private Endpoint** section allows you to configure the private endpoint settings for your cache. Private endpoint is supported on all cache tiers Basic, Standard, Premium, and Enterprise. We recommend using private endpoint instead of VNets. Private endpoints are easy to set up or remove, are supported on all tiers, and can connect your cache to multiple different VNets at once.
 
-For more information, see [Azure Cache for Redis with Azure Private Link](./cache-private-link.md).
+For more information, see [Azure Cache for Redis with Azure Private Link](cache-private-link.md).
 
 ### Firewall
 
-Firewall rules configuration is available for all Azure Cache for Redis tiers.
+- Firewall rules configuration is available for all Basic, Standard, and Premium tiers.
+- Firewall rules configuration isn't available for Enterprise nor Enterprise Flash tiers.
 
 Select **Firewall** to view and configure firewall rules for cache.
 
@@ -527,21 +530,24 @@ For more information about databases, see [What are Redis databases?](cache-deve
 
 ## Redis commands not supported in Azure Cache for Redis
 
+Configuration and management of Azure Cache for Redis instances is managed by Microsoft, which disables the following commands. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
+
+- ACL
+- BGREWRITEAOF
+- BGSAVE
+- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
+- CONFIG
+- DEBUG
+- MIGRATE
+- PSYNC
+- REPLICAOF
+- SAVE
+- SHUTDOWN
+- SLAVEOF
+- SYNC
+
 > [!IMPORTANT]
-> Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, the following commands are disabled. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
->
->- BGREWRITEAOF
->- BGSAVE
->- CONFIG
->- DEBUG
->- MIGRATE
->- SAVE
->- SHUTDOWN
->- SLAVEOF
->- REPLICAOF
->- ACL
->- CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
->
+> Because configuration and management of Azure Cache for Redis instances is managed by Microsoft, some commands are disabled. The commands are listed above. If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
 
 For more information about Redis commands, see [https://redis.io/commands](https://redis.io/commands).
 

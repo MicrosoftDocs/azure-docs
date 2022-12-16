@@ -2,7 +2,7 @@
 title: Understand the machine configuration feature of Azure Policy
 description: Learn how Azure Policy uses the machine configuration feature to audit or configure settings inside virtual machines.
 author: timwarner-msft
-ms.date: 07/25/2022
+ms.date: 11/16/2022
 ms.topic: conceptual
 ms.author: timwarner
 ms.service: machine-configuration
@@ -32,14 +32,14 @@ utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
 [manually](machine-configuration-assignments.md#manually-creating-machine-configuration-assignments),
 or by using other Azure services such as
-[Automanage](../../automanage/automanage-virtual-machines.md).
+[Automanage](../../automanage/index.yml).
 
 Examples of each scenario are provided in the following table.
 
-| Type | Description | Example story |
-| - | - | - |
-| [Configuration management](machine-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
-| [Compliance](../policy/assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
+| Type                                                             | Description                                                                                                                                                                                                                | Example story                                                                                                                                                                                       |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Configuration management](machine-configuration-assignments.md) | You want a complete representation of a server, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website."                                                                                                                                |
+| [Compliance](../policy/assign-policy-portal.md)                  | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed.                                                                  | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
 The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../policy/how-to/determine-non-compliance.md)
@@ -110,11 +110,11 @@ The following table shows a list of the local tools used on each supported
 operating system. For built-in content, machine configuration handles loading
 these tools automatically.
 
-|Operating system|Validation tool|Notes|
-|-|-|-|
-|Windows|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[PowerShell Desired State Configuration](/powershell/dsc/overview) v3| Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
+| Operating system | Validation tool                                                       | Notes                                                                                                                                                                  |
+| ---------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows          | [PowerShell Desired State Configuration](/powershell/dsc/overview) v3 | Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.                             |
+| Linux            | [PowerShell Desired State Configuration](/powershell/dsc/overview) v3 | Side-loaded to a folder only used by Azure Policy. PowerShell Core isn't added to system path.                                                                         |
+| Linux            | [Chef InSpec](https://www.chef.io/inspec/)                            | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
@@ -142,17 +142,17 @@ systems available in Azure Marketplace are excluded if the Guest Configuration c
 compatible. The following table shows a list of supported operating systems on Azure images.
 The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
-|Publisher|Name|Versions|
-|-|-|-|
-|Amazon|Linux|2|
-|Canonical|Ubuntu Server|14.04 - 20.x|
-|Credativ|Debian|8 - 10.x|
-|Microsoft|Windows Server|2012 - 2022|
-|Microsoft|Windows Client|Windows 10|
-|Oracle|Oracle-Linux|7.x-8.x|
-|OpenLogic|CentOS|7.3 -8.x|
-|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
-|SUSE|SLES|12 SP3-SP5, 15.x|
+| Publisher | Name                       | Versions         |
+| --------- | -------------------------- | ---------------- |
+| Amazon    | Linux                      | 2                |
+| Canonical | Ubuntu Server              | 14.04 - 20.x     |
+| Credativ  | Debian                     | 8 - 10.x         |
+| Microsoft | Windows Server             | 2012 - 2022      |
+| Microsoft | Windows Client             | Windows 10       |
+| Oracle    | Oracle-Linux               | 7.x-8.x          |
+| OpenLogic | CentOS                     | 7.3 -8.x         |
+| Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 8.x        |
+| SUSE      | SLES                       | 12 SP3-SP5, 15.x |
 
 \* Red Hat CoreOS isn't supported.
 
@@ -161,11 +161,66 @@ definitions as long as they're one of the operating systems in the table above.
 
 ## Network requirements
 
-Virtual machines in Azure can use either their local network adapter or a
-private link to communicate with the machine configuration service.
+Azure virtual machines can use either their local virtual network adapter (vNIC)
+or Azure Private Link to communicate with the machine configuration service.
 
-Azure Arc machines connect using the on-premises network infrastructure to reach
+Azure Arc-enabled machines connect using the on-premises network infrastructure to reach
 Azure services and report compliance status.
+
+Following is a list of the Azure Storage endpoints required for Azure and Azure Arc-enabled
+virtual machines to communicate with the machine configuration resource provider in Azure:
+
+- oaasguestconfigac2s1.blob.core.windows.net
+- oaasguestconfigacs1.blob.core.windows.net
+- oaasguestconfigaes1.blob.core.windows.net
+- oaasguestconfigases1.blob.core.windows.net
+- oaasguestconfigbrses1.blob.core.windows.net
+- oaasguestconfigbrss1.blob.core.windows.net
+- oaasguestconfigccs1.blob.core.windows.net
+- oaasguestconfigces1.blob.core.windows.net
+- oaasguestconfigcids1.blob.core.windows.net
+- oaasguestconfigcuss1.blob.core.windows.net
+- oaasguestconfigeaps1.blob.core.windows.net
+- oaasguestconfigeas1.blob.core.windows.net
+- oaasguestconfigeus2s1.blob.core.windows.net
+- oaasguestconfigeuss1.blob.core.windows.net
+- oaasguestconfigfcs1.blob.core.windows.net
+- oaasguestconfigfss1.blob.core.windows.net
+- oaasguestconfiggewcs1.blob.core.windows.net
+- oaasguestconfiggns1.blob.core.windows.net
+- oaasguestconfiggwcs1.blob.core.windows.net
+- oaasguestconfigjiws1.blob.core.windows.net
+- oaasguestconfigjpes1.blob.core.windows.net
+- oaasguestconfigjpws1.blob.core.windows.net
+- oaasguestconfigkcs1.blob.core.windows.net
+- oaasguestconfigkss1.blob.core.windows.net
+- oaasguestconfigncuss1.blob.core.windows.net
+- oaasguestconfignes1.blob.core.windows.net
+- oaasguestconfignres1.blob.core.windows.net
+- oaasguestconfignrws1.blob.core.windows.net
+- oaasguestconfigqacs1.blob.core.windows.net
+- oaasguestconfigsans1.blob.core.windows.net
+- oaasguestconfigscuss1.blob.core.windows.net
+- oaasguestconfigseas1.blob.core.windows.net
+- oaasguestconfigsecs1.blob.core.windows.net
+- oaasguestconfigsfns1.blob.core.windows.net
+- oaasguestconfigsfws1.blob.core.windows.net
+- oaasguestconfigsids1.blob.core.windows.net
+- oaasguestconfigstzns1.blob.core.windows.net
+- oaasguestconfigswcs1.blob.core.windows.net
+- oaasguestconfigswns1.blob.core.windows.net
+- oaasguestconfigswss1.blob.core.windows.net
+- oaasguestconfigswws1.blob.core.windows.net
+- oaasguestconfiguaecs1.blob.core.windows.net
+- oaasguestconfiguaens1.blob.core.windows.net
+- oaasguestconfigukss1.blob.core.windows.net
+- oaasguestconfigukws1.blob.core.windows.net
+- oaasguestconfigwcuss1.blob.core.windows.net
+- oaasguestconfigwes1.blob.core.windows.net
+- oaasguestconfigwids1.blob.core.windows.net
+- oaasguestconfigwus2s1.blob.core.windows.net
+- oaasguestconfigwus3s1.blob.core.windows.net
+- oaasguestconfigwuss1.blob.core.windows.net
 
 ### Communicate over virtual networks in Azure
 
@@ -194,24 +249,29 @@ Traffic is routed using the Azure
 [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 to establish a secure, authenticated channel with Azure platform resources.
 
-### Azure Arc-enabled servers
+### Communicate over public endpoints outside of Azure
 
-Nodes located outside Azure that are connected by Azure Arc require connectivity
-to the machine configuration service. Details about network and proxy requirements
-provided in the
-[Azure Arc documentation](../../azure-arc/servers/overview.md).
+Servers located on-premises or in other clouds can be managed with machine configuration
+by connecting them to [Azure Arc](../../azure-arc/servers/overview.md).
 
-For Arc-enabled servers in private datacenters, allow traffic using the
-following patterns:
+For Azure Arc-enabled servers, allow traffic using the following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
 - Global URL: `*.guestconfiguration.azure.com`
+
+See the [Azure Arc-enabled servers network requirements](../../azure-arc/servers/network-requirements.md) for a full list
+of all network endpoints required by the Azure Connected Machine Agent for core Azure Arc and machine configuration scenarios.
+
+### Communicate over Private Link outside of Azure
+
+When using [private link with Arc-enabled servers](../../azure-arc/servers/private-link-security.md), built-in policy packages will automatically be downloaded over the private link.
+You do not need to set any tags on the Arc-enabled server to enable this feature.
 
 ## Assigning policies to machines outside of Azure
 
 The Audit policy definitions available for machine configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
-[Azure Arc for servers](../../azure-arc/servers/overview.md) that are in the
+[Azure Arc-enabled servers](../../azure-arc/servers/overview.md) that are in the
 scope of the policy assignment are automatically included.
 
 ## Managed identity requirements
@@ -244,7 +304,7 @@ is available, then guest assignment reports are available. If the Azure region i
 it becomes unavailable, then it isn't possible to access reports for a guest assignment until
 the region is restored.
 
-When considering an architecture for highly available applications,
+When you considering an architecture for highly available applications,
 especially where virtual machines are provisioned in
 [Availability Sets](../../virtual-machines/availability.md#availability-sets)
 behind a load balancer solution to provide high availability,
@@ -270,8 +330,8 @@ For more information about troubleshooting machine configuration, see
 
 ### Multiple assignments
 
-Machine configuration policy definitions currently only support assigning the same
-guest assignment once per machine when the policy assignment uses different
+Guest Configuration policy definitions now support assigning the same
+guest assignment to more than once per machine when the policy assignment uses different
 parameters.
 
 ### Assignments to Azure Management Groups
@@ -297,7 +357,7 @@ Linux
 
 ### Collecting logs remotely
 
-The first step in troubleshooting machine configuration configurations or modules
+The first step in troubleshooting machine configurations or modules
 should be to use the cmdlets following the steps in
 [How to test machine configuration package artifacts](./machine-configuration-create-test.md).
 If that isn't successful, collecting client logs can help diagnose issues.
@@ -350,7 +410,7 @@ locations:
 
 ## Next steps
 
-- Setup a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
+- Set up a custom machine configuration package [development environment](./machine-configuration-create-setup.md).
 - [Create a package artifact](./machine-configuration-create.md)
   for machine configuration.
 - [Test the package artifact](./machine-configuration-create-test.md)

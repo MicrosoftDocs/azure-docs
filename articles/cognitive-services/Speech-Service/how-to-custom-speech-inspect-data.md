@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 11/29/2022
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -39,9 +39,6 @@ Follow these instructions to create a test:
 1. Enter the test name and description, and then select **Next**.
 1. Review your settings, and then select **Save and close**.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -58,37 +55,34 @@ To create a test, use the `spx csr evaluation create` command. Construct the req
 Here's an example Speech CLI command that creates a test:
 
 ```azurecli-interactive
-spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
+spx csr evaluation create --api-version v3.1 --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
   },
   "transcription2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
   },
   "transcription1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
   },
   "properties": {
     "wordErrorRate2": -1.0,
@@ -129,9 +123,9 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a test, use the [Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `model1` property to the URI of a model that you want to test.
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
@@ -143,51 +137,48 @@ Make an HTTP POST request using the URI as shown in the following example. Repla
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
   },
   "displayName": "My Inspection",
   "description": "My Inspection Description",
   "locale": "en-US"
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Create-a-test" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
   },
   "transcription2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
   },
   "transcription1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
   },
   "properties": {
     "wordErrorRate2": -1.0,
@@ -216,7 +207,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) details about the evaluation's project and test results. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEvaluation) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEvaluation) the evaluation.
+The top-level `self` property in the response body is the evaluation's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) details about the evaluation's project and test results. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Delete) the evaluation.
 
 ::: zone-end
 
@@ -236,9 +227,6 @@ Follow these steps to get test results:
 
 This page lists all the utterances in your dataset and the recognition results, alongside the transcription from the submitted dataset. You can toggle various error types, including insertion, deletion, and substitution. By listening to the audio and comparing recognition results in each column, you can decide which model meets your needs and determine where additional training and improvements are required.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -250,11 +238,8 @@ To get test results, use the `spx csr evaluation status` command. Construct the 
 Here's an example Speech CLI command that gets test results:
 
 ```azurecli-interactive
-spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
+spx csr evaluation status --api-version v3.1 --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
 
@@ -262,27 +247,27 @@ You should receive a response body in the following format:
 
 ```json
 {
-	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
 	"model1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
 	},
 	"model2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 	},
 	"dataset": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
 	},
 	"transcription2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
 	},
 	"transcription1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
 	},
 	"project": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
 	},
 	"links": {
-		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
 	},
 	"properties": {
 		"wordErrorRate2": 4.62,
@@ -321,16 +306,13 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+To get test results, start by using the [Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Evaluations_Get) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Test-recognition-quality&Section=Get-test-results" target="_target">I ran into an issue</a>
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
 
@@ -338,27 +320,27 @@ You should receive a response body in the following format:
 
 ```json
 {
-	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
 	"model1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
 	},
 	"model2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
 	},
 	"dataset": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
 	},
 	"transcription2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
 	},
 	"transcription1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
 	},
 	"project": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
 	},
 	"links": {
-		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
 	},
 	"properties": {
 		"wordErrorRate2": 4.62,

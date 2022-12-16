@@ -22,7 +22,7 @@ As a prerequisite, complete the steps mentioned in [Enable Private Link on an Az
     
     | Config | Value |
     | ------ | ----- |
-    | Name | hdi-privlink-cluster-1 |
+    | Name | hdi-prilink-cluster-restproxy |
     | Resource type | Microsoft.Network/privatelinkServices |
     | Resource | kafkamanagementnode-* (This value should match the HDI deployment ID of your cluster, for example kafkamanagementnode 4eafe3a2a67e4cd88762c22a55fe4654) |
     | Virtual network | hdi-privlink-client-vnet |
@@ -34,7 +34,7 @@ As a prerequisite, complete the steps mentioned in [Enable Private Link on an Az
     
     | Config | Value |
     | ------ | ----- |
-    | Name | YourPrivatelinkClusterName-1 |
+    | Name | hdi-prilink-cluster-restproxy |
     | Type | A - Alias record to 1Pv4 address |
     | TTL | 1 |
     | TTL unit | Hours |

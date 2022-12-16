@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 05/31/2022
 ms.author: jianleishen
-ms.custom: include file
+ms.custom: include file, ignite-2022
 ---
 
 | Category | Data store |
 |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer (Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |
@@ -81,7 +81,7 @@ ms.custom: include file
 | &nbsp; |[Azure Data Explorer (Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Magento (Preview)](../connector-magento.md) |
 | &nbsp; |[Marketo (Preview)](../connector-marketo.md) |
-| &nbsp; |[Office 365](../connector-office-365.md) |
+| &nbsp; |[Microsoft 365](../connector-office-365.md) |
 | &nbsp; |[Oracle Eloqua (Preview)](../connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (Preview)](../connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud (Preview)](../connector-oracle-service-cloud.md) |

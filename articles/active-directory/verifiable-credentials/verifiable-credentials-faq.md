@@ -21,6 +21,7 @@ This page contains commonly asked questions about Verifiable Credentials and Dec
 - [Conceptual questions about decentralized identity](#conceptual-questions)
 - [Questions about using Verifiable Credentials preview](#using-the-preview)
 
+
 ## The basics
 
 ### What is a DID? 
@@ -92,7 +93,7 @@ Resetting requires that you opt out and opt back into the Entra Verified ID serv
 1. Navigate to the Verified ID in the Azure portal.  
 1. Navigate to the Organization Settings. 
 1. Copy your organization’s Decentralized Identifier (DID). 
-1. Go to the ION Explorer and paste the DID in the search box 
+1. Go to the [ION Explorer](https://identity.foundation/ion/explorer) and paste the DID in the search box 
 1. Inspect your DID document and search for the ` “#hub” ` node.
 
 ```json
@@ -127,16 +128,16 @@ Yes, after reconfiguring your service, your tenant has a new DID use to issue an
 
 No, at this point it isn't possible to keep your tenant's DID after you have opt-out of the service.
 
-### I can not use ngrok, what do I do?
+### I cannot use ngrok, what do I do?
 
-The tutorials for deploying and running the [samples](verifiable-credentials-configure-issuer.md#prerequisites) describes the use of the `ngrok` tool as an application proxy. This tool is sometimes blocked by IT admins from being used in corporate networks. An alternative is to deploy the sample to [Azure AppServices](../../app-service/overview.md) and run it in the cloud. The following links helps you deploy the respective sample to Azure AppServices. The Free pricing tier will be sufficient for hosting the sample. For each tutorial, you need to start by first creating the Azure AppService instance, then skip creating the app since you already have an app and then continue the tutorial with deploying it.
+The tutorials for deploying and running the [samples](verifiable-credentials-configure-issuer.md#prerequisites) describes the use of the `ngrok` tool as an application proxy. This tool is sometimes blocked by IT admins from being used in corporate networks. An alternative is to deploy the sample to [Azure App Service](../../app-service/overview.md) and run it in the cloud. The following links help you deploy the respective sample to Azure App Service. The Free pricing tier will be sufficient for hosting the sample. For each tutorial, you need to start by first creating the Azure App Service instance, then skip creating the app since you already have an app and then continue the tutorial with deploying it.
 
-- Dotnet - [Publish to AppServices](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs#publish-your-web-app)
-- Node - [Deploy to AppServices](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-vscode#deploy-to-azure)
-- Java - [Deploy to AppServices](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven#4---deploy-the-app). You need to add the maven plugin for Azure AppServices to the sample.
+- Dotnet - [Publish to App Service](../../app-service/quickstart-dotnetcore.md?tabs=net60&pivots=development-environment-vs#publish-your-web-app)
+- Node - [Deploy to App Service](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-vscode#deploy-to-azure)
+- Java - [Deploy to App Service](../../app-service/quickstart-java.md?tabs=javase&pivots=platform-linux-development-environment-maven#4---deploy-the-app). You need to add the maven plugin for Azure App Service to the sample.
 - Python - [Deploy using VSCode](../../app-service/quickstart-python.md?tabs=flask%2Cwindows%2Cazure-cli%2Cvscode-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#3---deploy-your-application-code-to-azure)
 
-Regardless of which language of the sample you are using, they will pickup the Azure AppService hostname (https://something.azurewebsites.net/) and use it as the public endpoint. You don't need to configure something extra to make it work. If you make changes to the code or configuration, you need to redeploy the sample to Azure AppServices. Troubleshooting/debugging will not be as easy as running the sample on your local machine, where traces to the console window shows you errors, but you can achieve almost the same by using the [Log Stream](../../app-service/troubleshoot-diagnostic-logs.md#stream-logs).
+Regardless of which language of the sample you are using, they will pickup the Azure AppService hostname `https://something.azurewebsites.net` and use it as the public endpoint. You don't need to configure something extra to make it work. If you make changes to the code or configuration, you need to redeploy the sample to Azure AppServices. Troubleshooting/debugging will not be as easy as running the sample on your local machine, where traces to the console window shows you errors, but you can achieve almost the same by using the [Log Stream](../../app-service/troubleshoot-diagnostic-logs.md#stream-logs).
  
 ## Next steps
 

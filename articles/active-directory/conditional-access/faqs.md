@@ -14,7 +14,7 @@ manager: amycolannino
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 # Azure Active Directory Conditional Access FAQs
 
@@ -48,7 +48,7 @@ Microsoft Teams relies heavily on Exchange Online and SharePoint Online for core
 
 Microsoft Teams also is supported separately as a cloud app in Conditional Access policies. Conditional Access policies that are set for a cloud app apply to Microsoft Teams when a user signs in. However, without the correct policies on other apps like Exchange Online and SharePoint Online users may still be able to access those resources directly.
 
-Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.
+Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in to Microsoft Office client applications across platforms.
 
 For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 

@@ -4,7 +4,7 @@ description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, ignite-2022
 ---
 
 # Azure Functions Java developer guide
@@ -15,7 +15,7 @@ As a Java developer, if you're new to Azure Functions, please consider first rea
 
 | Getting started | Concepts| Scenarios/samples |
 | -- | -- | -- |
-| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
+| <ul><li>[Java function using Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Java/Maven function with terminal/command prompt](./create-first-function-cli-java.md)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Java samples with different triggers](/samples/azure-samples/azure-functions-samples-java/azure-functions-java/)</li><li>[Event Hub trigger and Azure Cosmos DB output binding](/samples/azure-samples/java-functions-eventhub-cosmosdb/sample/)</li></ul> |
 
 ## Java function basics
 
@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x | 11 <br/>8 | 11 <br/>8 |
+| 4.x |17 <br/>11 <br/>8 |17 <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -162,10 +162,10 @@ You can control the version of Java targeted by the Maven archetype by using the
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
-| Element |  Java 8 value | Java 11 value | Description |
-| ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | Version of Java used by the maven-compiler-plugin. |
-| **`JavaVersion`** | 8 | 11 | Java version hosted by the function app in Azure. |
+| Element |  Java 8 value | Java 11 value | Java 17 value | Description |
+| ---- | ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | 17 | Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | 17 | Java version hosted by the function app in Azure. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
@@ -192,12 +192,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. The table below describes the new Java versions that Function apps will begin using with the January 2022 Functions platform release:
-
-| Java Version | Linux            | Windows              |
-|--------------|------------------|----------------------|
-| Java 8       | 1.8.0_302 (Adoptium) | 1.8.0_302 (Adoptium) |
-| Java 11      | 11.0.12 (MSFT)   | 11.0.12 (MSFT)       |
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), 11 (MSFT) and 17(MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. 
 
 For local development or testing, you can download the [Microsoft build of OpenJDK](/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
@@ -414,7 +409,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-You invoke this function on an HttpRequest. It writes multiple values to Queue storage.
+You invoke this function on an `HttpRequest` object. It writes multiple values to Queue storage.
 
 ## HttpRequestMessage and HttpResponseMessage
 
@@ -553,9 +548,6 @@ public class Function {
 }
 
 ```
-
-> [!NOTE]
-> The value of AppSetting FUNCTIONS_EXTENSION_VERSION should be ~2 or ~3 for an optimized cold start experience.
 
 ## Next steps
 

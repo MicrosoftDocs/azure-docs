@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 09/01/2022
 ---
 # ARM template best practices
 
@@ -18,6 +18,7 @@ You're also limited to:
 * 256 variables
 * 800 resources (including [copy count](copy-resources.md))
 * 64 output values
+* 10 unique locations per subscription/tenant/management group scope
 * 24,576 characters in a template expression
 
 You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).

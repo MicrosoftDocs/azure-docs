@@ -74,7 +74,7 @@ sections:
           * Ensure that your virtual network Network Security Group rules don't block the port 443 for ServiceTags of ServiceBus, Storage and AzureMonitor. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](../virtual-network/virtual-network-vnet-plan-design-arm.md).
           * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
           
-          For a list of all the prerequisites required to compete specific migration scenarios using Azure Database Migration Service, see the related tutorials in the Azure Database Migration Service [documentation](./dms-overview.md) on docs.microsoft.com.
+          For a list of all the prerequisites required to compete specific migration scenarios using Azure Database Migration Service, see the related tutorials in the [Azure Database Migration Service documentation](./dms-overview.md).
           
       - question: |
           How do I find the IP address for Azure Database Migration Service so that I can create an allowlist for the firewall rules used to access my source database for migration?

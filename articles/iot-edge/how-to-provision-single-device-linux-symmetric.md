@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create and provision an IoT Edge device on Linux using symmetric keys
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Linux IoT Edge device, including installing IoT Edge.
 
@@ -41,16 +41,16 @@ This article covers using symmetric keys as your authentication method. If you w
 This article covers registering your IoT Edge device and installing IoT Edge on it. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
 
 <!-- Device requirements H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](../../includes/iot-edge-prerequisites-device-requirements-linux.md)]
+[!INCLUDE [iot-edge-prerequisites-device-requirements-linux.md](includes/iot-edge-prerequisites-device-requirements-linux.md)]
 
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
+[!INCLUDE [iot-edge-register-device-symmetric.md](includes/iot-edge-register-device-symmetric.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 
@@ -175,6 +175,15 @@ Use the `check` tool to verify configuration and connection status of the device
 >[!TIP]
 >Always use `sudo` to run the check tool, even after your permissions are updated. The tool needs elevated privileges to access the config file to verify configuration status.
 
+>[!NOTE]
+>On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>
+>**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+>
+>**Could not check current state of edgeHub container**
+>
+>This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 View all the modules running on your IoT Edge device. When the service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
 
    ```bash
@@ -238,7 +247,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    2. Use the copied link in the following command to install that version of the identity service:
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian)
       ```bash
       curl -L <identity service link> -o aziot-identity-service.deb && sudo apt-get install ./aziot-identity-service.deb
       ```
@@ -253,7 +262,7 @@ Using curl commands, you can target the component files directly from the IoT Ed
 
    4. Use the copied link in the following command to install that version of IoT Edge.
 
-      # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+      # [Ubuntu / Debian](#tab/ubuntu+debian)
       ```bash
       curl -L <iotedge link> -o aziot-edge.deb && sudo apt-get install ./aziot-edge.deb
       ```
@@ -287,7 +296,7 @@ sudo apt-get autoremove iotedge
 <!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 ```bash
 sudo apt-get autoremove --purge aziot-edge
 ```
@@ -316,7 +325,7 @@ sudo docker rm -f <container name>
 
 Finally, remove the container runtime from your device.
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+# [Ubuntu / Debian](#tab/ubuntu+debian)
 ```bash
 sudo apt-get autoremove --purge moby-engine
 ```

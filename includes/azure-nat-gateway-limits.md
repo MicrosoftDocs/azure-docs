@@ -17,5 +17,6 @@ The following limits apply to NAT gateway resources managed through Azure Resour
 |---------------------|--------------------|
 | Public IP addresses | 16 per NAT gateway |
 | NAT gateways        | 1,000 per subscription per region |
-| Packets processed   | 1M - 5M packets / second |
-| Simultaneous connections | 50,000 connections to the same destination / public IP |
+| Packets processed   | 1M - 5M packets per second |
+| Connections to same destination endpoint | 50,000 connections to the same destination per public IP |
+| Connections total | 2M connections per NAT gateway |
