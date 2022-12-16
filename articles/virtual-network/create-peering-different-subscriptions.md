@@ -52,7 +52,7 @@ The following steps use different accounts for each subscription. If you're usin
 4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results.
 5. Select **Access control (IAM)** from the vertical list of options on the left side.
 6. Assign the **Network contributor** role to *UserB* using the procedure decribed in [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-7. Under **myVnetA - Access control (IAM)**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+7. Under **myVnetA**, select **Properties** from the vertical list of options on the left side. Copy the **RESOURCE ID**, which is used in a later step. The resource ID is similar to the following example: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
 8. Log out of the portal as UserA, then log in as UserB.
 9. Complete steps 2-3, entering or selecting the following values in step 3:
 
