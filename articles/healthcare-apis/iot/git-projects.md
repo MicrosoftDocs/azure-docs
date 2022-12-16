@@ -1,11 +1,11 @@
 ---
-title: Related GitHub projects for the MedTech service - Azure Health Data Services
+title: GitHub projects for the MedTech service - Azure Health Data Services
 description: MedTech service has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -46,9 +46,12 @@ Health Data Sync
 * [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift&#174; library that simplifies and automates the export of HealthKit data to an external store.
 
 ## Next steps
-Learn how to deploy the MedTech service in the Azure portal
 
->[!div class="nextstepaction"]
->[Deploy the MedTech service managed service](deploy-iot-connector-in-azure.md)
+In this article, you learned about the open-source projects for the MedTech service.
+
+Learn about the different deployment methods for the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/15/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -179,13 +179,15 @@ You can define one or more templates within the MedTech service device mapping. 
 |[IotJsonPathContentTemplate](how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.
  
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings. 
 
 ## Next steps
 
-In this article, you learned how to configure device mappings. To learn how to configure FHIR destination mappings, see
+In this article, you learned how to configure device mappings. 
+
+To learn how to configure FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

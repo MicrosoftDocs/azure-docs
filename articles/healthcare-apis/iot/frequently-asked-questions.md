@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 12/08/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -24,7 +24,7 @@ The MedTech service is available in these Azure regions: [Products available by 
 
 No. The Azure Health Data Services MedTech service currently only supports the Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service for the persistence of data. The open-source version of the MedTech service supports the use of different FHIR services. 
 
-To learn more about the MedTech service open-source projects, see [Open-source projects](iot-git-projects.md). 
+To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ### What versions of FHIR does the MedTech service support?
 
@@ -48,7 +48,7 @@ To learn more about event hub message retention, see [What is the maximum retent
 
 Yes. The MedTech service supports device messages from all these vendors through the open-source version of the MedTech service. 
 
-To learn more about the MedTech service open-source projects, see [Open-source projects](iot-git-projects.md). 
+To learn more about the MedTech service open-source projects, see [Open-source projects](git-projects.md). 
 
 ## More frequently asked questions
 
@@ -57,5 +57,14 @@ To learn more about the MedTech service open-source projects, see [Open-source p
 [FAQs about Azure Health Data Services FHIR service](../fhir/fhir-faq.md)
 
 [FAQs about Azure Health Data Services DICOM service](../dicom/dicom-services-faqs.yml)
+
+## Next steps
+
+In this article, you learned about the MedTech service frequently asked questions (FAQs)
+
+To learn about the different deployment methods for the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
