@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Communications Gateway
-summary: Learn how to securely deploy and manage Azure Communications Gateway
+title: Azure Communications Gateway documentation
+summary: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile.
 
 metadata:
   title: Azure Communications Gateway documentation
-  description: Learn how to securely deploy and manage Azure Communications Gateway.
+  description: Learn about Azure Communications Gateway. Azure Communications Gateway enables telecommunications operators to provide Operator Connect and Teams Phone Mobile.
   ms.service: communications-gateway
   ms.topic: landing-page
   author: rcdun
@@ -15,8 +15,7 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
+
   # Card
   - title: Understand Azure Communications Gateway
     linkLists:
