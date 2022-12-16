@@ -1,11 +1,11 @@
 ---
 title: Create UI definition logical functions
 description: Describes the functions to perform logical operations.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # CreateUiDefinition logical functions

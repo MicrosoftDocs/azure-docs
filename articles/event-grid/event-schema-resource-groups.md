@@ -2,7 +2,7 @@
 title: Azure resource group as an Event Grid source
 description: Describes the properties that are provided for resource group events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure resource group as an Event Grid source
@@ -353,7 +353,7 @@ The following example shows the schema for a **ResourceActionSuccess** event. Th
 ```json
 [{   
   "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
-  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
   "type": "Microsoft.Resources.ResourceActionSuccess",
   "time": "2018-10-08T22:46:22.6022559Z",
   "id": "{ID}",

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 05/08/2022
+ms.date: 11/29/2022
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -30,11 +30,15 @@ To upload your own datasets in Speech Studio, follow these steps:
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Upload data**.
 1. Select the **Training data** or **Testing data** tab.
 1. Select a dataset type, and then select **Next**.
-1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob public access URL.
+1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob URL.
+
+    > [!NOTE]
+    > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). 
+
 1. Enter the dataset name and description, and then select **Next**.
 1. Review your settings, and then select **Save and close**.
 
-After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
+After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md).
 
 ::: zone-end
 
@@ -47,27 +51,31 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 - Set the `project` parameter to the ID of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `kind` parameter. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
 - Set the required `contentUrl` parameter. This is the location of the dataset.
+
+    > [!NOTE]
+    > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism).
+
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a dataset and connects it to an existing project:
 
 ```azurecli-interactive
-spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
+spx csr dataset create --api-version v3.1 --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
   "kind": "Acoustic",
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "properties": {
     "acceptedLineCount": 0,
@@ -96,11 +104,15 @@ spx help csr dataset
 
 [!INCLUDE [Map CLI and API kind to Speech Studio options](includes/how-to/custom-speech/cli-api-kind.md)]
 
-To create a dataset and connect it to an existing project, use the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a dataset and connect it to an existing project, use the [Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Create) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Projects_List) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.
 - Set the required `contentUrl` property. This is the location of the dataset.
+
+    > [!NOTE]
+    > If you use Azure Blob URL, you can ensure maximum security of your dataset files by using trusted Azure services security mechanism. You will use the same techniques as for Batch transcription and plain Storage Account URLs for your dataset files. See details [here](batch-transcription-audio-data.md#trusted-azure-services-security-mechanism). 
+
 - Set the required `locale` property. The dataset locale must match the locale of the project. The locale can't be changed later. 
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
 
@@ -112,25 +124,25 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
   "displayName": "My Acoustic Dataset",
   "description": "My Acoustic Dataset Description",
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "locale": "en-US",
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/datasets"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/datasets"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c",
   "kind": "Acoustic",
   "contentUrl": "https://contoso.com/mydatasetlocation",
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/e0ea620b-e8c3-4a26-acb2-95fd0cbc625c/files"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/70ccbffc-cafb-4301-aa9f-ef658559d96e"
   },
   "properties": {
     "acceptedLineCount": 0,
@@ -145,7 +157,7 @@ You should receive a response body in the following format:
 }
 ```
 
-The top-level `self` property in the response body is the dataset's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDataset) details about the dataset's project and files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateDataset) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteDataset) the dataset.
+The top-level `self` property in the response body is the dataset's URI. Use this URI to [get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Get) details about the dataset's project and files. You also use this URI to [update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Update) or [delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Datasets_Delete) the dataset.
 
 ::: zone-end
 

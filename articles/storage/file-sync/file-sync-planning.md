@@ -1,5 +1,5 @@
 ---
-title: Planning for an Azure File Sync deployment | Microsoft Docs
+title: Planning for an Azure File Sync deployment
 description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares on an on-premises Windows Server or cloud VM.
 author: khdownie
 ms.service: storage
@@ -47,14 +47,14 @@ Before you can create a sync group in a Storage Sync Service, you must first reg
 A sync group contains one cloud endpoint, or Azure file share, and at least one server endpoint. The server endpoint object contains the settings that configure the **cloud tiering** capability, which provides the caching capability of Azure File Sync. In order to sync with an Azure file share, the storage account containing the Azure file share must be in the same Azure region as the Storage Sync Service.
 
 > [!Important]  
-> You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#afs-change-detection).
+> You can make changes to the namespace of any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
 ### Consider the count of Storage Sync Services needed
 A previous section discusses the core resource to configure for Azure File Sync: a *Storage Sync Service*. A Windows Server can only be registered to one Storage Sync Service. So it is often best to only deploy a single Storage Sync Service and register all servers on it. 
 
 Create multiple Storage Sync Services only if you have:
 * distinct sets of servers that must never exchange data with one another. In this case, you want to design the system to exclude certain sets of servers to sync with an Azure file share that is already in use as a cloud endpoint in a sync group in a different Storage Sync Service. Another way to look at this is that Windows Servers registered to different storage sync service cannot sync with the same Azure file share.
-* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets) for more details.
+* a need to have more registered servers or sync groups than a single Storage Sync Service can support. Review the [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets) for more details.
 
 ## Plan for balanced sync topologies
 Before you deploy any resources, it is important to plan out what you will sync on a local server, with which Azure file share. Making a plan will help you determine how many storage accounts, Azure file shares, and sync resources you will need. These considerations are still relevant, even if your data doesn't currently reside on a Windows Server or the server you want to use long term. The [migration section](#migration) can help determine appropriate migration paths for your situation.
@@ -105,7 +105,7 @@ In the following table, we have provided both the size of the namespace as well 
 | 50       | 23.3    | 16       | 64  (initial sync)/ 32 (typical churn)  |
 | 100*     | 46.6    | 32       | 128 (initial sync)/ 32 (typical churn)  |
 
-\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets).
+\*Syncing more than 100 million files & directories is not recommended at this time. This is a soft limit based on our tested thresholds. For more information, see [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets).
 
 > [!TIP]
 > Initial synchronization of a namespace is an intensive operation and we recommend allocating more memory until initial synchronization is complete. This isn't required but, may speed up initial sync. 
@@ -242,7 +242,7 @@ Azure File Sync does not support Data Deduplication and cloud tiering on the sam
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
 
-**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported on DFS-N servers. You can install the Azure File Sync agent on one or more DFS-N members to sync data between the server endpoints and the cloud endpoint. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync is fully supported with DFS-N implementation. You can install the Azure File Sync agent on one or more file servers to sync data between the server endpoints and the cloud endpoint, and then use DFS-N to provide namespace service. For more information, see [DFS Namespaces overview](/windows-server/storage/dfs-namespaces/dfs-overview) and [DFS Namespaces with Azure Files](../files/files-manage-namespaces.md).
  
 **DFS Replication (DFS-R)**: Since DFS-R and Azure File Sync are both replication solutions, in most cases, we recommend replacing DFS-R with Azure File Sync. There are however several scenarios where you would want to use DFS-R and Azure File Sync together:
 
@@ -278,28 +278,31 @@ Changes made to the Azure file share by using the Azure portal or SMB are not im
 
 To detect changes to the Azure file share, Azure File Sync has a scheduled job called a change detection job. A change detection job enumerates every file in the file share, and then compares it to the sync version for that file. When the change detection job determines that files have changed, Azure File Sync initiates a sync session. The change detection job is initiated every 24 hours. Because the change detection job works by enumerating every file in the Azure file share, change detection takes longer in larger namespaces than in smaller namespaces. For large namespaces, it might take longer than once every 24 hours to determine which files have changed.
 
-For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json#azure-file-sync-scale-targets)
+For more information, see [Azure File Sync performance metrics](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-performance-metrics) and [Azure File Sync scale targets](../files/storage-files-scale-targets.md?toc=/azure/storage/filesync/toc.json#azure-file-sync-scale-targets)
 
 ## Identity
 Azure File Sync works with your standard AD-based identity without any special setup beyond setting up sync. When you are using Azure File Sync, the general expectation is that most accesses go through the Azure File Sync caching servers, rather than through the Azure file share. Since the server endpoints are located on Windows Server, and Windows Server has supported AD and Windows-style ACLs for a long time, nothing is needed beyond ensuring the Windows file servers registered with the Storage Sync Service are domain joined. Azure File Sync will store ACLs on the files in the Azure file share, and will replicate them to all server endpoints.
 
-Even though changes made directly to the Azure file share will take longer to sync to the server endpoints in the sync group, you may also want to ensure that you can enforce your AD permissions on your file share directly in the cloud as well. To do this, you must domain join your storage account to your on-premises AD, just like how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](../files/storage-files-active-directory-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
+Even though changes made directly to the Azure file share will take longer to sync to the server endpoints in the sync group, you may also want to ensure that you can enforce your AD permissions on your file share directly in the cloud as well. To do this, you must domain join your storage account to your on-premises AD, just like how your Windows file servers are domain joined. To learn more about domain joining your storage account to a customer-owned Active Directory, see [Azure Files Active Directory overview](../files/storage-files-active-directory-overview.md?toc=/azure/storage/filesync/toc.json).
 
-> [!Important]  
+> [!Important]
 > Domain joining your storage account to Active Directory is not required to successfully deploy Azure File Sync. This is a strictly optional step that allows the Azure file share to enforce on-premises ACLs when users mount the Azure file share directly.
 
 ## Networking
 The Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. SMB is never used to upload or download data between your Windows Server and the Azure file share. Because most organizations allow HTTPS traffic over port 443, as a requirement for visiting most websites, special networking configuration is usually not required to deploy Azure File Sync.
 
+> [!Important]
+> Azure File Sync does not support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
+
 Based on your organization's policy or unique regulatory requirements, you may require more restrictive communication with Azure, and therefore Azure File Sync provides several mechanisms for you configure networking. Based on your requirements, you can:
 
-- Tunnel sync and file upload/download traffic over your ExpressRoute or Azure VPN. 
+- Tunnel sync and file upload/download traffic over your ExpressRoute or Azure VPN.
 - Make use of Azure Files and Azure Networking features such as service endpoints and private endpoints.
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-> [!Important]  
-> Azure File Sync does not support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
+> [!Tip]
+> If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC, which offers zero-config "SMB VPN" for SMB access to your Azure file shares using the QUIC transport protocol over port 443. Although Azure Files does not directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](../files/storage-files-networking-overview.md#smb-over-quic).
 
 To learn more about Azure File Sync and networking, see [Azure File Sync networking considerations](file-sync-networking-overview.md).
 
@@ -320,7 +323,7 @@ Azure File Sync does not interoperate with NTFS Encrypted File System (NTFS EFS)
 ### Encryption in transit
 
 > [!NOTE]
-> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](file-sync-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> Azure File Sync service will remove support for TLS1.0 and 1.1 on August 1st, 2020. All supported Azure File Sync agent versions already use TLS1.2 by default. Using an earlier version of TLS could occur if TLS1.2 was disabled on your server or a proxy is used. If you are using a proxy, we recommend you check the proxy configuration. Azure File Sync service regions added after 5/1/2020 will only support TLS1.2 and support for TLS1.0 and 1.1 will be removed from existing regions on August 1st, 2020.  For more information, see the [troubleshooting guide](file-sync-troubleshoot-cloud-tiering.md#tls-12-required-for-azure-file-sync).
 
 Azure File Sync agent communicates with your Storage Sync Service and Azure file share using the Azure File Sync REST protocol and the FileREST protocol, both of which always use HTTPS over port 443. Azure File Sync does not send unencrypted requests over HTTP. 
 
@@ -330,7 +333,7 @@ The primary reason to disable encryption in transit for the storage account is t
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
-For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
 
 ### Azure file share encryption at rest
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
@@ -362,7 +365,7 @@ To request access for these regions, follow the process in [this document](/trou
 ## Migration
 If you have an existing Windows file server 2012R2 or newer, Azure File Sync can be directly installed in place, without the need to move data over to a new server. If you are planning to migrate to a new Windows file server as a part of adopting Azure File Sync, or if your data is currently located on Network Attached Storage (NAS)  there are several possible migration approaches to use Azure File Sync with this data. Which migration approach you should choose, depends on where your data currently resides. 
 
-Check out the [Azure File Sync and Azure file share migration overview](../files/storage-files-migration-overview.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json) article where you can find detailed guidance for your scenario.
+Check out the [Azure File Sync and Azure file share migration overview](../files/storage-files-migration-overview.md?toc=/azure/storage/filesync/toc.json) article where you can find detailed guidance for your scenario.
 
 ## Antivirus
 Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files, resulting in high egress charges. Tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set and we recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically). 
@@ -373,7 +376,7 @@ Microsoft's in-house antivirus solutions, Windows Defender and System Center End
 > Antivirus vendors can check compatibility between their product and Azure File Sync using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), which is available for download on the Microsoft Download Center.
 
 ## Backup 
-If cloud tiering is enabled, solutions that directly back up the server endpoint or a VM on which the server endpoint is located should not be used. Cloud tiering causes only a subset of your data to be stored on the server endpoint, with the full dataset residing in your Azure file share. Depending on the backup solution used, tiered files will either be skipped and not backed up (because they have the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set), or they will be recalled to disk, resulting in high egress charges. We recommend using a cloud backup solution to back up the Azure file share directly. For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) or contact your backup provider to see if they support backing up Azure file shares.
+If cloud tiering is enabled, solutions that directly back up the server endpoint or a VM on which the server endpoint is located should not be used. Cloud tiering causes only a subset of your data to be stored on the server endpoint, with the full dataset residing in your Azure file share. Depending on the backup solution used, tiered files will either be skipped and not backed up (because they have the FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attribute set), or they will be recalled to disk, resulting in high egress charges. We recommend using a cloud backup solution to back up the Azure file share directly. For more information, see [About Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) or contact your backup provider to see if they support backing up Azure file shares.
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
@@ -397,6 +400,6 @@ These increases in both the number of recalls and the amount of data being recal
 
 ## Next steps
 * [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
-* [Deploy Azure Files](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json)
+* [Deploy Azure Files](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
 * [Deploy Azure File Sync](file-sync-deployment-guide.md)
 * [Monitor Azure File Sync](file-sync-monitoring.md)

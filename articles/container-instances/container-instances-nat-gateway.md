@@ -1,11 +1,11 @@
 ---
 title: Configure Container Group Egress with NAT Gateway
 description: Configure NAT gateway for Azure Container Instances workloads that use the NAT gateway's public IP address for static egress
-author: macolso
-ms.topic: conceptual
+author: tomvcassidy
+ms.topic: how-to
 ms.service: container-instances
 services: container-instances
-ms.author: macolso
+ms.author: tomcassidy
 ms.date: 05/03/2022
 ---
 

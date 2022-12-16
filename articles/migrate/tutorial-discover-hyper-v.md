@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/27/2022
+ms.date: 11/13/2022
 ms.custom: mvc, subject-rbac-steps
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -117,13 +117,13 @@ SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ### Create an account to access servers
 
-The user account on your servers must have the required permissions to initiate discovery of installed applications and enable agentless dependency analysis. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
+The user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
 
-* For Windows servers, create an account (local or domain) that has administrator permissions on the servers.
-* For Linux servers, provide the root user account details or create an account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files.
+* For **Windows servers**, create an account (local or domain) that has administrator permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
+* For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
 
 > [!NOTE]
->  You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications and enable agentless dependency analysis. You can add multiple domain, Windows (non-domain) or Linux (non-domain)credentials. Learn how to [add server credentials](add-server-credentials.md).
+> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
@@ -136,6 +136,9 @@ Set up a new project.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
+
+   > [!Note]
+   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -164,14 +167,14 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover Servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
-3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you will set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
-1. Click on **Generate key** to start the creation of the required Azure resources. Do not close the Discover server page during the creation of resources.
+3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
+1. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover server page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
-1. Copy the key as you will need it to complete the registration of the appliance during its configuration.
+1. Copy the key as you'll need it to complete the registration of the appliance during its configuration.
 
 ### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
+In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.
 
 ### Verify security
 
@@ -284,26 +287,26 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
 
 ### Provide Hyper-V host/cluster details
 
-1. In **Step 1: Provide Hyper-V host credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover servers. Click on **Save**.
-1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers in Hyper-V environment.
-1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
-1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide Hyper-V host/cluster details through **Import CSV**.
+1. In **Step 1: Provide Hyper-V host credentials**, select **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover servers. select **Save**.
+1. If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers in Hyper-V environment.
+1. In **Step 2: Provide Hyper-V host/cluster details**, select **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
+1. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide Hyper-V host/cluster details through **Import CSV**.
 
-    - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and click on **Save**.
-    - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and click on **Save**.
-    - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and click on **Save**.
+    - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN**, and select **Save**.
+    - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
+    - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
 1. On clicking Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
     - For successfully validated hosts/clusters, you can view more details by clicking on their IP address/FQDN.
     - If validation fails for a host, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
-    - To remove hosts or clusters, click on **Delete**.
+    - To remove hosts or clusters, select **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 1. You can **revalidate** the connectivity to hosts/clusters anytime before starting the discovery.
 
 ### Provide server credentials
 
-In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can disable the slider and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
+In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases in your Microsoft HyperV environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features,  you can disable the slider and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
 
@@ -314,7 +317,7 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
     
-    You can provide domain/, Windows(non-domain)/, Linux(non-domain) credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
     * A username.
@@ -322,28 +325,34 @@ To add server credentials:
     Select **Save**.
 
     If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
-1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications and agentless dependency analysis.
+1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications, agentless dependency analysis, and discovery SQL Server instances and databases.
 1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
-    When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as during discovery, the appliance iterates to map credentials to respective servers.
+    When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
 
 To check validation of the domain credentials:
 
 In the configuration manager, in the credentials table, see the **Validation status** for domain credentials. Only domain credentials are validated.
 
-If validation fails, you can select the **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+If validation fails, you can select a **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
 :::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
 
 ### Start discovery
 
-Click on **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
+Select **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
 ## How discovery works
 
 * It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
 * If you have provided server credentials, [software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers running on Hyper-V host(s)/cluster(s) is finished.
+* [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
+* Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
 * The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
+* SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
+* By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses SSL to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/sql-connection-properties.png" alt-text="Screenshot that shows how to edit SQL Server connection properties.":::
 
 ## Verify servers in the portal
 

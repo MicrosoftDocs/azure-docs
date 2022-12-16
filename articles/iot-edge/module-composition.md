@@ -12,7 +12,7 @@ services: iot-edge
 
 # Learn how to deploy modules and establish routes in IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Each IoT Edge device runs at least two modules: $edgeAgent and $edgeHub, which are part of the IoT Edge runtime. IoT Edge device can run multiple additional modules for any number of processes. Use a deployment manifest to tell your device which modules to install and how to configure them to work together.
 
@@ -82,7 +82,7 @@ The $edgeAgent properties follow this structure:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": {
           "settings":{
             "registryCredentials":{
@@ -115,7 +115,7 @@ The $edgeAgent properties follow this structure:
 }
 ```
 
-The IoT Edge agent schema version 1.1 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge agent schema version 1.4 was released along with IoT Edge version 1.0.10, and enables module startup order. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 ### Module configuration and management
 
@@ -130,7 +130,7 @@ For example:
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": { ... },
         "systemModules": {
           "edgeAgent": { ... },
@@ -171,9 +171,21 @@ The edgeHub module and custom modules also have three properties that tell the I
 
   Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
 
+  > [!NOTE]
+  > Changes to a module's properties will result in that module restarting. For example, a restart will happen if you change properties for the:
+  >    * module image
+  >    * Docker create options
+  >    * environment variables
+  >    * restart policy
+  >    * image pull policy
+  >    * version
+  >    * startup order
+  >
+  > If no module property is changed, the module will **not** restart.
+
 ## Declare routes
 
-The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
+The IoT Edge hub manages communication between modules, IoT Hub, and any downstream devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
 
 Routes are declared in the **$edgeHub** desired properties with the following syntax:
 
@@ -183,7 +195,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
     "$edgeAgent": { ... },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "routes": {
           "route1": "FROM <source> WHERE <condition> INTO <sink>",
           "route2": {
@@ -203,7 +215,7 @@ Routes are declared in the **$edgeHub** desired properties with the following sy
 }
 ```
 
-The IoT Edge hub schema version 1.1 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.1 is recommended for any IoT Edge deployment running version 1.0.10 or later.
+The IoT Edge hub schema version 1.4 was released along with IoT Edge version 1.0.10, and enables route prioritization and time to live. Schema version 1.4 is recommended for any IoT Edge deployment running version 1.0.10 or later.
 
 Every route needs a *source* where the messages come from and a *sink* where the messages go. The *condition* is an optional piece that you can use to filter messages.
 
@@ -211,17 +223,17 @@ You can assign *priority* to routes that you want to make sure process their mes
 
 ### Source
 
-The source specifies where the messages come from. IoT Edge can route messages from modules or leaf devices.
+The source specifies where the messages come from. IoT Edge can route messages from modules or downstream devices.
 
-Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Leaf devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
+Using the IoT SDKs, modules can declare specific output queues for their messages using the ModuleClient class. Output queues aren't necessary, but are helpful for managing multiple routes. Downstream devices can use the DeviceClient class of the IoT SDKs to send messages to IoT Edge gateway devices in the same way that they would send messages to IoT Hub. For more information, see [Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md).
 
 The source property can be any of the following values:
 
 | Source | Description |
 | ------ | ----------- |
-| `/*` | All device-to-cloud messages or twin change notifications from any module or leaf device |
-| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or leaf device |
-| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a leaf device |
+| `/*` | All device-to-cloud messages or twin change notifications from any module or downstream device |
+| `/twinChangeNotifications` | Any twin change (reported properties) coming from any module or downstream device |
+| `/messages/*` | Any device-to-cloud message sent by a module through some or no output, or by a downstream  device |
 | `/messages/modules/*` | Any device-to-cloud message sent by a module through some or no output |
 | `/messages/modules/<moduleId>/*` | Any device-to-cloud message sent by a specific module through some or no output |
 | `/messages/modules/<moduleId>/outputs/*` | Any device-to-cloud message sent by a specific module through some output |
@@ -241,7 +253,7 @@ You can build queries around any of the three parameters with the following synt
 
 For examples about how to create queries for message properties, see [Device-to-cloud message routes query expressions](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a leaf device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from leaf devices directly to IoT Hub, use the following route to exclude module messages:
+An example that is specific to IoT Edge is when you want to filter for messages that arrived at a gateway device from a downstream device. Messages that come from modules include a system property called **connectionModuleId**. So if you want to route messages from downstream devices directly to IoT Hub, use the following route to exclude module messages:
 
 ```query
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
@@ -272,7 +284,7 @@ Option 1:
    "route1": "FROM <source> WHERE <condition> INTO <sink>",
    ```
 
-Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.1:
+Option 2, introduced in IoT Edge version 1.0.10 with IoT Edge hub schema version 1.4:
 
    ```json
    "route2": {
@@ -305,7 +317,7 @@ The following example shows what a valid deployment manifest document may look l
   "modulesContent": {
     "$edgeAgent": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "runtime": {
           "type": "docker",
           "settings": {
@@ -324,7 +336,7 @@ The following example shows what a valid deployment manifest document may look l
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.4",
               "createOptions": "{}"
             }
           },
@@ -334,7 +346,7 @@ The following example shows what a valid deployment manifest document may look l
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
@@ -370,7 +382,7 @@ The following example shows what a valid deployment manifest document may look l
     },
     "$edgeHub": {
       "properties.desired": {
-        "schemaVersion": "1.1",
+        "schemaVersion": "1.4",
         "routes": {
           "sensorToFilter": {
             "route": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",

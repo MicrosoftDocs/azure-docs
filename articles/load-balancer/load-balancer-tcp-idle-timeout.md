@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure Azure Load Balancer TCP idle timeout and reset.
 services: load-balancer
 documentationcenter: na
-author: greg-lindsay
+author: mbender-ms
 ms.custom: seodec18, devx-track-azurepowershell
 ms.service: load-balancer
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2020
-ms.author: greglin
+ms.date: 12/05/2022
+ms.author: mbender
 ---
 
 # Configure TCP reset and idle timeout for Azure Load Balancer
@@ -41,7 +41,7 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
 
 5. In **Settings**, select **Load balancing rules**.
 
-     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edit load balancer rules." border="true":::
+     :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edit load balancer rules." border="true" lightbox="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png":::
 
 6. Select your load-balancing rule. In this example, the load-balancing rule is named **myLBrule**.
 
@@ -49,7 +49,7 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
 
 8. Under **TCP reset**, select **Enabled**.
 
-   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Set idle timeout and tcp reset." border="true":::
+   :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png" alt-text="Set idle timeout and tcp reset." border="true" lightbox="./media/load-balancer-tcp-idle-timeout/portal-lb-rules-tcp-reset.png":::
 
 9. Select **Save**.
 

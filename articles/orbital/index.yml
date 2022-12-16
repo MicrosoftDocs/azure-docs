@@ -10,8 +10,8 @@ metadata:
   ms.topic: landing-page
   author: wamota
   ms.author: wamota
-  ms.date: 11/16/2021
-  ms.custom: public-preview
+  ms.date: 07/12/2022
+  ms.custom: ga
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,21 +25,19 @@ landingContent:
         links:
           - text: Why use Azure Orbital?
             url: overview.md
+          - text: What is the Space Partner Community?
+            url: space-partner-program-overview.md
 
   # Card
   - title: Get started with Earth Observation
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Onboard to the Azure Orbital Preview
-            url: orbital-preview.md
       - linkListType: quickstart
         links:
-          - text: Register Spacecraft 
+          - text: Register a spacecraft 
             url: register-spacecraft.md
-          - text: Configure a Contact Profile
+          - text: Configure a contact profile
             url: contact-profile.md
-          - text: Schedule a Contact
+          - text: Schedule a contact
             url: schedule-contact.md
 
   # Card
@@ -47,31 +45,51 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Update the Spacecraft TLE
-            url: update-tle.md
-          - text: Cancel a Contact
-            url: delete-contact.md
+          - text: Prepare network to receive and send data
+            url: prepare-network.md
+          - text: License your spacecraft
+            url: license-spacecraft.md
+          - text: Integrate partner network ground stations
+            url: partner-network-integration.md
+          - text: Receive real-time telemetry
+            url: receive-real-time-telemetry.md
+          - text: Update the spacecraft TLE
+            url: update-tle.md 
+          - text: Cancel a contact
+            url: delete-contact.md     
 
   # Card
-  - title: Azure Space Partner Program
+  - title: Azure Orbital Analytics
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Space Partner Program?
-            url: space-partner-program-overview.md
-            
-  # Card
-  - title: Learn how to downlink from a public satellite
-    linkLists:
-      - linkListType: how-to-guide
+          - text: What is Azure Orbital Analytics?
+            url: overview-analytics.md
+      - linkListType: concept
+        links:
+          - text: Geospatial reference architecture
+            url: geospatial-reference-architecture.md
+          - text: Spaceborne data analysis with Azure Synapse Analytics
+            url: /azure/architecture/industries/aerospace/geospatial-processing-analytics 
+          - text: Organize spaceborne geospatial data with STAC
+            url: organize-stac-data.md
+          - text: Process Synthetic Aperture Radar (SAR) data
+            url: sar-reference-architecture.md   
+      - linkListType: tutorial
         links:
           - text: Schedule a contact with NASA's AQUA public satellite
-            url: howto-downlink-aqua.md
+            url: downlink-aqua.md
+          - text: Collect and process AQUA satellite payload
+            url: satellite-imagery-with-orbital-ground-station.md 
 
   # Card
   - title: Concepts
     linkLists:
       - linkListType: concept
         links:
-          - text: Geospatial Reference Architecture
-            url: geospatial-reference-architecture.md
+          - text: Contact
+            url: concepts-contact.md
+          - text: Contact profile
+            url: concepts-contact-profile.md
+          - text: Spacecraft object
+            url: spacecraft-object.md

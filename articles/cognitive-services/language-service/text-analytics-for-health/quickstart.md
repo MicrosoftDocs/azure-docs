@@ -3,25 +3,23 @@ title: "Quickstart: Use the Text Analytics for health REST API and client librar
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to start using Text Analytics for health.
 services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 06/06/2022
-ms.author: aahi
+ms.date: 12/12/2022
+ms.author: jboback
 ms.devlang: csharp, java, javascript, python
 ms.custom: language-service-health, ignite-fall-2021, mode-api
 keywords: text mining, health, text analytics for health
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
-# Quickstart: using Text Analytics for health client library and REST API
-
-Use this article to get started with Text Analytics for health using the client library and REST API. Follow these steps to try out examples code for mining text:
+# Quickstart: Using Text Analytics for health client library and REST API
 
 > [!IMPORTANT]
-> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported.
+> Fast Healthcare Interoperability Resources (FHIR) structuring is available for preview using the Language REST API. The client libraries are not currently supported. [Learn more](./how-to/call-api.md) on how to use FHIR structuring in your API call.
 
 ::: zone pivot="programming-language-csharp"
 

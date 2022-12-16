@@ -63,8 +63,6 @@ Use the following JSON in your request. Replace the placeholder values below wit
 | multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../../language-support.md#multi-lingual-option) to learn more about multilingual support.  | `true`|
 | storageInputContainerName | `{CONTAINER-NAME}` | The name of your Azure storage container where you have uploaded your documents.   | `myContainer` |
 
----
-
 # [Single label classification](#tab/single-classification)
 
 ```json

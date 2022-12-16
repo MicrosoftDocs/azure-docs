@@ -3,7 +3,7 @@ title: Assign Azure AD roles to users - Azure Active Directory
 description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

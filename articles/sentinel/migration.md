@@ -3,6 +3,7 @@ title: Plan your migration to Microsoft Sentinel | Microsoft Docs
 description: Discover the reasons for migrating from a legacy SIEM, and learn how to plan out the different phases of your migration.
 author: limwainstein
 ms.author: lwainstein
+ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 05/03/2022
 ---
@@ -16,6 +17,9 @@ This article discusses the reasons for migrating from a legacy SIEM, and describ
 ## Migration steps
 
 In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. Follow your migration process through this series of articles, in which you'll learn how to navigate different steps in the process.
+
+> [!NOTE]
+> For a guided migration process, join the Microsoft Sentinel Migration and Modernization Program. The program allows you to simplify and accelerate the migration, including best practice guidance, resources, and expert help at every stage. To learn more, reach out to your account team.
 
 |Step  |Article  |
 |---------|---------|
@@ -81,7 +85,7 @@ Before you begin migration, identify key use cases, detection rules, data, and a
 When planning the discover phase, use the following guidance to identify your use cases.
 - Identify and analyze your current use cases by threat, operating system, product, and so on.
 - What’s the scope? Do you want to migrate all use cases, or use some prioritization criteria?
-- Conduct a [Crown Jewel Analysis](https://www.mitre.org/research/technology-transfer/technology-licensing/crown-jewels-analysis).
+- Identify which security assets are most critical to your migration.
 - What use cases are effective? A good starting place is to look at which detections have produced results within the last year (false positive versus positive rate). 
 - What are the business priorities that affect use case migration? What are the biggest risks to your business? What type of issues put your business most at risk?
 - Prioritize by use case characteristics.

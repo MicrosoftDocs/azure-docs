@@ -3,7 +3,7 @@ title: 'Prerequisites for Azure AD Connect cloud sync in Azure AD'
 description: This article describes the prerequisites and hardware requirements you need for cloud sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -165,7 +165,7 @@ If there's a firewall between your servers and Azure AD, configure the following
  |-----|-----|
  |&#42;.msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|The agent uses these URLs to communicate with the Azure AD cloud service. |
  |`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| The agent uses these URLs to verify certificates.|
- |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80| The agent uses these URLs during the registration process.
+ |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;.microsoftonline.us </br>&#42;.microsoftonline-p.us </br>&#42;.msauth.net </br>&#42;.msauthimages.net </br>&#42;.msecnd.net</br>&#42;.msftauth.net </br>&#42;.msftauthimages.net</br>&#42;.phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctldl.windowsupdate.us:80 </br>aadcdn.msftauthimages.us </br>*.microsoft.us </br>msauthimages.us </br>mfstauthimages.us| The agent uses these URLs during the registration process.
 
 
 
@@ -195,7 +195,7 @@ The following are known limitations:
 
 ### Scoping filter
 When using OU scoping filter
-- You can only sync up to 59 separate OUs for a given configuration. 
+- You can only sync up to 59 separate OUs or Security Groups for a given configuration. 
 - Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
 
 ### Password Hash Sync

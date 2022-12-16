@@ -3,13 +3,13 @@ title: Insights for Azure Load Balancer
 description: Use the load balancer insights to achieve rapid fault localization and informed design decisions
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
-ms.author: kumud
+ms.author: mbender
 ---
 
 # Using Insights to monitor and configure your Azure Load Balancer

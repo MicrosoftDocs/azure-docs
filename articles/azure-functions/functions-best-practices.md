@@ -187,7 +187,7 @@ Premium plan is the recommended plan for reducing colds starts while maintaining
 
 ## Monitor effectively
 
-Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. To learn more, see [Monitor Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
 
 You should be aware of the following considerations when using Application Insights integration to monitor your functions:
 

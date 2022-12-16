@@ -1,20 +1,17 @@
 ---
-title: Create a profile app with Node.js using the Cassandra API
-description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with Node.js.
+title: Create a profile app with Node.js using the API for Cassandra
+description: This quickstart shows how to use the Azure Cosmos DB for Apache Cassandra to create a profile application with Node.js.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-cassandra
+ms.subservice: apache-cassandra
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 02/10/2021
-ms.custom:
-- devx-track-js
-- mode-api
-- kr2b-contr-experiment
+ms.custom: devx-track-js, mode-api, kr2b-contr-experiment, ignite-2022
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
-[!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+[!INCLUDE[Cassandra](../includes/appliesto-cassandra.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](manage-data-dotnet.md)
@@ -26,11 +23,11 @@ ms.custom:
 > * [Golang](manage-data-go.md)
 >    
 
-In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use a Cassandra Node.js app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create an Azure Cosmos DB for Apache Cassandra account, and use a Cassandra Node.js app cloned from GitHub to create a Cassandra database and container. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](/azure/cosmos-db/try-free) without an Azure subscription, free of charge and commitments.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](../try-free.md) without an Azure subscription, free of charge and commitments.
 
 In addition, you need:
 
@@ -45,7 +42,7 @@ Before you can create a document database, you need to create a Cassandra accoun
 
 ## Clone the sample application
 
-Clone a Cassandra API app from GitHub, set the connection string, and run it.
+Clone a API for Cassandra app from GitHub, set the connection string, and run it.
 
 1. Open a Command Prompt window. Create a new folder named `git-samples`. Then, close the window.
 
@@ -97,7 +94,7 @@ This step is optional. If you're interested to learn how the code creates the da
     });
     ```
 
-* The `client` connects to the Azure Cosmos DB Cassandra API.
+* The `client` connects to the Azure Cosmos DB for Apache Cassandra.
 
     ```javascript
     client.connect();
@@ -246,7 +243,7 @@ Go to the Azure portal to get your connection string information and copy it int
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account with Cassandra API, and run a Cassandra Node.js app that creates a Cassandra database and container. You can now import more data into your Azure Cosmos DB account.
+In this quickstart, you learned how to create an Azure Cosmos DB account with API for Cassandra, and run a Cassandra Node.js app that creates a Cassandra database and container. You can now import more data into your Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](migrate-data.md)

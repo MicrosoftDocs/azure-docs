@@ -92,7 +92,7 @@ You can change the customer-managed key used to encrypt data from the **Encrypti
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
 
 > [!NOTE]
-> Azure Synapse Analytics is actively working on adding functionality to automatically re-encrypt data when new key versions are created. Until this functionality is available, to ensure consistency in your workspace, force the re-encryption of data using the process detailed above.
+> Azure Synapse Analytics does not automatically re-encrypt data when new key versions are created. To ensure consistency in your workspace, force the re-encryption of data using the process detailed above.
 
 #### SQL Transparent Data Encryption with service-managed keys
 

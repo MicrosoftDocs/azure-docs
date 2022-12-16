@@ -6,12 +6,13 @@ services: service-bus
 author: EldertGrootenboer
 
 ms.service: service-bus-messaging
+ms.custom: ignite-2022
 ms.topic: article
-ms.date: 04/22/2022
+ms.date: 09/26/2022
 ms.author: egrootenboer
 ---
 
-# Configure Transport Layer Security (TLS) for a Service Bus client application (Preview)
+# Configure Transport Layer Security (TLS) for a Service Bus client application
 
 For security purposes, an Azure Service Bus namespace may require that clients use a minimum version of Transport Layer Security (TLS) to send requests. Calls to Azure Service Bus will fail if the client is using a version of TLS that is lower than the minimum required version. For example, if a namespace requires TLS 1.2, then a request sent by a client who is using TLS 1.1 will fail.
 
@@ -47,6 +48,16 @@ The following sample shows how to enable TLS 1.2 in a .NET client using the Azur
     // Use the producer client to send a message to the Service Bus queue
     await sender.SendMessagesAsync(new ServiceBusMessage($"Message for TLS check")));
 }
+```
+# [Java](#tab/java)
+The minimum Java version for messaging SDKs is Java 8. For Java 8 installations, the default TLS version is 1.2. For Java 11 and later, the default is TLS 1.3. 
+
+Java Messaging SDKs use the default `SSLContext` from JDK. That's, if you configure JDK TLS using the system properties documented by the JVM, then Java messaging libraries implicitly use it. For example, For OpenJDK-based JVMs, you can use the system property `jdk.tls.client.protocols`. Example: `-Djdk.tls.client.protocols=TLSv1.2`. 
+
+There are a few other ways to enable TLS 1.2 include the following one:
+
+```java
+sslSocket.setEnabledProtocols(new String[] {"TLSv1. 2"});
 ```
 
 ---

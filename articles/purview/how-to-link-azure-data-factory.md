@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure Data Factory 
 description: This article describes how to connect Azure Data Factory and Microsoft Purview to track data lineage.
-author: chanuengg
-ms.author: csugunan
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 12/14/2022
 ---
 # How to connect Azure Data Factory and Microsoft Purview
 
@@ -14,7 +14,7 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Microsoft Purview to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Microsoft Purview management center. To show the list of Data Factory accounts connected to your Microsoft Purview account, do the following:
+Multiple Azure Data Factories can connect to a single Microsoft Purview to push lineage information. The current limit allows you to connect up to 10 Data Factory accounts at a time from the Microsoft Purview management center. To show the list of Data Factory accounts connected to your Microsoft Purview account, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -39,6 +39,8 @@ Multiple Azure Data Factories can connect to a single Microsoft Purview to push 
 >**Collection admins** role on the root collection.
 >
 > Also, it requires the users to be the data factory's "Owner" or "Contributor".
+>
+> Your data factory needs to have system assigned managed identity enabled.
 
 Follow the steps below to connect an existing data factory to your Microsoft Purview account. You can also [connect Data Factory to Microsoft Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -50,20 +52,20 @@ Follow the steps below to connect an existing data factory to your Microsoft Pur
 
     Some Data Factory instances might be disabled if the data factory is already connected to the current Microsoft Purview account, or the data factory doesn't have a managed identity.
 
-    A warning message will be displayed if any of the selected Data Factories are already connected to other Microsoft Purview account. By selecting OK, the Data Factory connection with the other Microsoft Purview account will be disconnected. No additional confirmations are required.
+    A warning message will be displayed if any of the selected Data Factories are already connected to other Microsoft Purview account. When you select OK, the Data Factory connection with the other Microsoft Purview account will be disconnected. No other confirmations are required.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 >[!Note]
->We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
+>We support adding up to 10 Azure Data Factory accounts at once. If you want to add more than 10 data factory accounts, do so in multiple batches.
 
 ### How authentication works
 
-Data factory's managed identity is used to authenticate lineage push operations from data factory to Microsoft Purview. When connecting data factory to Microsoft Purview on UI, it adds the role assignment automatically.
+Data factory's managed identity is used to authenticate lineage push operations from data factory to Microsoft Purview. When you connect your data factory to Microsoft Purview on UI, it adds the role assignment automatically.
 
 Grant the data factory's managed identity **Data Curator** role on Microsoft Purview **root collection**. Learn more about [Access control in Microsoft Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-### Remove data factory connections
+### Remove Data Factory connections
 
 To remove a data factory connection, do the following:
 
@@ -71,6 +73,10 @@ To remove a data factory connection, do the following:
 2. Select **Confirm** in the popup to delete the selected data factory connections.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
+
+## Monitor the Data Factory links
+
+In Microsoft Purview governance portal, you can [monitor the Data Factory links](how-to-monitor-data-map-population.md#monitor-links).
 
 ## Supported Azure Data Factory activities
 
@@ -125,7 +131,7 @@ An example of this pattern would be the following:
 
 ### Data movement with 1:1 lineage and wildcard support
 
-Another common scenario for capturing lineage, is using a wildcard to copy files from a single input dataset to a single output dataset. The wildcard allows the copy activity to match multiple files for copying using a common portion of the file name. Microsoft Purview captures file-level lineage for each individual file copied by the corresponding copy activity.
+Another common scenario for capturing lineage is using a wildcard to copy files from a single input dataset to a single output dataset. The wildcard allows the copy activity to match multiple files for copying using a common portion of the file name. Microsoft Purview captures file-level lineage for each individual file copied by the corresponding copy activity.
 
 An example of this pattern would be the following:
 

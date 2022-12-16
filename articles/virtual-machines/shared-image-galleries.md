@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 04/24/2022
+ms.date: 07/18/2022
 ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
@@ -111,15 +111,14 @@ Image version:
 
 ## Sharing
 
-> [!IMPORTANT]
-> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant.
+There are three main ways to share an Azure Compute Gallery, depending on who you want to share with:
 
-You can [share images](share-gallery.md) to users and groups using the standard role-based access control (RBAC) or you can share an entire gallery of images to the public, using a [community gallery (preview)](azure-compute-gallery.md#community).
+| Share with\: | Option |
+|----|----|
+|[Specific people, groups, or service principals](./share-gallery.md) | Role-based access control (RBAC) lets you share resources to specific people, groups, or service principals on a granular level. |
+| [Subscriptions or tenants](./share-gallery-direct.md) | A direct shared gallery (preview) lets you share to everyone in a subscription or tenant. |
+| [Everyone](./share-gallery-community.md) | Community gallery (preview) lets you share your entire gallery publicly, to all Azure users. |
 
-> [!IMPORTANT]
-> Azure Compute Gallery – community gallery is currently in PREVIEW and subject to the [Preview Terms for Azure Compute Gallery - community gallery](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-> To share images in the community gallery, you need to register for the preview at [https://aka.ms/communitygallery-preview](https://aka.ms/communitygallery-preview). Creating VMs and scale sets from images shared the community gallery is open to all Azure users.
 
 
 ## Shallow replication 

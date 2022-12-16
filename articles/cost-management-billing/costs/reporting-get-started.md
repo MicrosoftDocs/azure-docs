@@ -3,7 +3,7 @@ title: Get started with Cost Management + Billing reporting - Azure
 description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/13/2022
+ms.date: 10/18/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -41,13 +41,13 @@ While cost analysis offers a rich, interactive experience for analyzing and surf
 
 Need to go beyond the basics with Power BI? The Cost Management connector for Power BI lets you choose the data you need to help you seamlessly integrate costs with your own datasets or easily build out more complete dashboards and reports to meet your organization's needs. For more information about the connector, see [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
-## Usage details and exports
+## Cost details and exports
 
 If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, weekly, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-export-acm-data.md).
 
-If you need more fine-grained control over your data requests, the Usage Details API offers a bit more flexibility to pull raw data the way you need it. For more information, see the [Usage Details REST API](/rest/api/consumption/usage-details/list).
-
 :::image type="content" source="./media/reporting-get-started/exports.png" alt-text="Screenshot showing the list of exports." lightbox="./media/reporting-get-started/exports.png" :::
+
+If you need more fine-grained control over your data requests, the Cost Details API offers a bit more flexibility to pull raw data the way you need it. For more information, see [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
 
 ## Invoices and credits
 
@@ -60,6 +60,16 @@ Here's an example that shows credits on the Credits tab on the Credits + Commitm
 For more information about your invoice, see [View and download your Microsoft Azure invoice](../understand/download-azure-invoice.md)
 
 For more information about credits, see [Track Microsoft Customer Agreement Azure credit balance](../manage/mca-check-azure-credits-balance.md).
+
+## Microsoft Azure mobile app
+
+With the Azure app, you can keep track of the status of your Azure resources, such as virtual machines (VMs) and web apps, from your mobile device. The app also sends alerts about your environment.
+
+You can also use the Azure app to track the status of subscription or resource group cost. You can see your current cost, last month’s cost, forecasted cost, and view your budget usage.
+
+The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/id1219013620?ls=1&mt=8) and [Android](https://play.google.com/store/apps/details?id=com.microsoft.azure).
+
+:::image type="content" source="./media/reporting-get-started/azure-app-screenshot.png" alt-text="Example screenshot showing the iOS version of the Azure app with Cost Management subscription information." lightbox="./media//reporting-get-started/azure-app-screenshot.png" :::
 
 ## Next steps
 

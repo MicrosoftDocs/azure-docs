@@ -52,7 +52,7 @@ This image is cropped by creating an `ImageInfo` object from the crop area, and 
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+string imageURL = "https://learn.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);

@@ -1,12 +1,12 @@
 ---
 title: Store profiles in FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Store profiles in FHIR service
@@ -53,14 +53,12 @@ When a resource conforms to a profile, the profile is specified inside the `prof
 > [!NOTE]
 > Profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the profile cannot make it optional.
 
-Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. You can go to the specific IG site to learn more about the IG and the profiles defined within it.
+Profiles are also specified by various Implementation Guides (IGs). Some common IGs are listed below. For more information, visit the specific IG site to learn more about the IG and the profiles defined within it:
 
-|Name |URL
-|---- |----
-Us Core |<https://www.hl7.org/fhir/us/core/>
-CARIN Blue Button |<http://hl7.org/fhir/us/carin-bb/>
-Da Vinci Payer Data Exchange |<http://hl7.org/fhir/us/davinci-pdex/>
-Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
+- [US Core](https://www.hl7.org/fhir/us/core/)
+- [CARIN Blue Button](https://hl7.org/fhir/us/carin-bb)
+- [Da Vinci Payer Data Exchange](https://hl7.org/fhir/us/davinci-pdex)
+- [Argonaut](https://www.fhir.org/guides/argonaut/pd/)
 
 > [!NOTE]
 > The FHIR service does not store any profiles from implementation guides by default. You will need to load them into the FHIR service.
@@ -69,15 +67,19 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ### Storing profiles
 
-To store profiles to the FHIR server, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
+To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. A standard `PUT` or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
 
+Standard `PUT`: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
 
-`POST http://<your FHIR service base URL>/StructureDefinition`
+**or**
+
+Conditional update: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition?url=http://sample-profile-url`
 
 ```
 { 
 "resourceType" : "StructureDefinition",
 "id" : "profile-id",
+"url": "http://sample-profile-url"
 	…
 }
 ```
@@ -85,7 +87,7 @@ To store profiles to the FHIR server, you can `POST` the `StructureDefinition` w
 For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
 
 ```rest
-POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+PUT https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 ```json

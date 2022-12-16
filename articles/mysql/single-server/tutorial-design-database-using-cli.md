@@ -1,19 +1,21 @@
 ---
 title: 'Tutorial: Design a server - Azure CLI - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure CLI from the command line.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/02/2019
+author: savjani
+ms.author: pariks
+ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
+ms.date: 06/20/2022
 ---
 
 # Tutorial: Design an Azure Database for MySQL using Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL Community Edition database engine. In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 

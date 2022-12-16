@@ -2,14 +2,14 @@
 title: Configuring multi-tenant user management in Azure Active Directory
 description: Learn about the different patterns used to configure user access across Azure Active Directory tenants with guest accounts 
 services: active-directory
-author: BarbaraSelden
+author: janicericketts
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/25/2021
-ms.author: baselden
+ms.author: jricketts
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
@@ -58,7 +58,7 @@ These terms are used throughout this content:
 
 * **Home tenant**: The Azure AD tenant containing users requiring access to the resources in the resource tenant.
 
-* **User lifecycle management**: the process of provisioning, managing, and deprovisioning user access to resources.
+* **User lifecycle management**: The process of provisioning, managing, and deprovisioning user access to resources.
 
 * **Unified GAL**: Each user in each tenant can see users from each organization in their Global Address List (GAL).
 
@@ -98,7 +98,7 @@ There are several mechanisms available for creating and managing the lifecycle o
 
 | Mechanism |  Description | Best when |
 | - | - | - |
-| [End-user-initiated](multi-tenant-user-management-scenarios.md#end-user-initiated-scenario) | Resource tenant admins delegate the ability to invite guest users to the tenant, an app, or a resource to users within the resource tenant. Users from the home tenant are invited or sign up individually. |  <li>Users need improvised access to resources. <li>No automatic synchronization of user attributes is necessary.<li>Unified GAL is not needed.a |
+| [End-user-initiated](multi-tenant-user-management-scenarios.md#end-user-initiated-scenario) | Resource tenant admins delegate the ability to invite guest users to the tenant, an app, or a resource to users within the resource tenant. Users from the home tenant are invited or sign up individually. |  <li>Users need improvised access to resources. <li>No automatic synchronization of user attributes is necessary.<li>Unified GAL is not needed. |
 |[Scripted](multi-tenant-user-management-scenarios.md#scripted-scenario) | Resource tenant administrators deploy a scripted “pull” process to automate discovery and provisioning of guest users to support sharing scenarios. |  <li>No more than two tenants.<li>No automatic synchronization of user attributes is necessary.<li>Users need pre-configured (not improvised) access to resources.|
 |[Automated](multi-tenant-user-management-scenarios.md#automated-scenario)|Resource tenant admins use an identity provisioning system to automate the provisioning and deprovisioning processes. |  <li>Full identity lifecycle management with provisioning and deprovisioning must be automated.<li>Attribute syncing is required to populate the GAL details and support dynamic entitlement scenarios.<li>Users need pre-configured (not ad hoc) access to resources on “Day One”.|
 

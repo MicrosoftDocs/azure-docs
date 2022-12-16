@@ -13,7 +13,7 @@ services: iot-edge
 
 # How to configure container create options for IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 
@@ -66,6 +66,7 @@ Container create options enable many scenarios, but here are some that come up m
 * [Give modules access to host storage](how-to-access-host-storage-from-module.md)
 * [Map host port to module port](#map-host-port-to-module-port)
 * [Restrict module memory and CPU usage](#restrict-module-memory-and-cpu-usage)
+* [GPU-optimize an IoT Edge module](#gpu-optimize-an-iot-edge-module)
 
 ### Map host port to module port
 
@@ -123,6 +124,22 @@ Once stringified for the final deployment manifest, these values would look like
 ```json
 "createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"CpuPeriod\":25000}}"
 ```
+
+### GPU-optimize an IoT Edge module
+
+If you're running your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this with an existing module, add some specifications to your `createOptions`:
+
+```json
+{"HostConfig": {"DeviceRequests": [{"Count": -1,"Capabilities": [["gpu"]]}]}}
+```
+
+To confirm these settings were successfully added, use the Docker inspect command to see the new setting in a JSON printout.
+
+```bash
+sudo docker inspect <YOUR-MODULE-NAME>
+```
+
+To learn more about how your device and virtual machine connect to a GPU, see [Configure, connect, and verify an IoT Edge module for a GPU](configure-connect-verify-gpu.md).
 
 ## Next steps
 

@@ -1,11 +1,14 @@
 ---
 title:  Azure Service Fabric Java Client APIs 
 description: Generate and use Service Fabric Java client APIs using Service Fabric client REST API specification
-
-ms.topic: conceptual
-ms.date: 11/27/2017
-ms.custom: devx-track-java
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Azure Service Fabric Java Client APIs
 
 Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premises, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs

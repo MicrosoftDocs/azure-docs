@@ -1,11 +1,11 @@
 ---
 title: StorageAccountSelector UI element
 description: Describes the Microsoft.Storage.StorageAccountSelector UI element for Azure portal.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 06/28/2018
-ms.author: tomfitz
+ms.author: davidsmatlak
 
 ---
 # Microsoft.Storage.StorageAccountSelector UI element

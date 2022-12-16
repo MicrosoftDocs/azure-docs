@@ -1,17 +1,19 @@
 ---
 title: Private Link - Azure Database for MySQL
 description: Learn how Private link works for Azure Database for MySQL.
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 03/10/2020
+author: mksuni
+ms.author: sumuth
+ms.date: 06/20/2022
 ---
 
 # Private Link for Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
 

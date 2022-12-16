@@ -11,6 +11,13 @@ Monitoring sensor health is possible through the Simple Network Management Proto
 
 Supported SNMP versions are SNMP version 2 and version 3. The SNMP protocol utilizes UDP as its transport protocol with port 161.
 
+## Download the SNMP MIB file
+
+Download the SNMP MIB file from Defender for IoT in the Azure portal. Select **Sites and sensors > More actions > Download SNMP MIB file**.
+
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+
 ## Sensor OIDs
 
 | Management console and sensor | OID | Format | Description |

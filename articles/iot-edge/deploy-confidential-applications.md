@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Confidential computing at the edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge supports confidential applications that run within secure enclaves on the device. Encryption provides security for data while in transit or at rest, but enclaves provide security for data and workloads while in use. IoT Edge supports Open Enclave as a standard for developing confidential applications.
 
@@ -44,7 +44,7 @@ The Open Enclave repository also includes samples to help developers get started
 
 ## Hardware
 
-Currently, [TrustBox by Scalys](https://scalys.com/trustbox-industrial/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come pre-loaded with the Open Enclave SDK and Azure IoT Edge.
+Currently, [TrustBox by Scalys](https://scalys.com/) is the only device supported with manufacturer service agreements for deploying confidential applications as IoT Edge modules. The TrustBox is built on  The TrustBox Edge and TrustBox EdgeXL devices both come pre-loaded with the Open Enclave SDK and Azure IoT Edge.
 
 For more information, see [Getting started with Open Enclave for the Scalys TrustBox](https://aka.ms/scalys-trustbox-edge-get-started).
 

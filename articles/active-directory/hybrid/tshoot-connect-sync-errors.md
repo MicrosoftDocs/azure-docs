@@ -4,7 +4,7 @@ description: This article explains how to troubleshoot errors that occur during 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
 ms.service: active-directory
 ms.workload: identity
@@ -289,7 +289,7 @@ To resolve this issue:
 
 1. Remove the Azure AD account (owner) from all admin roles.
 1. Hard delete the quarantined object in the cloud.
-1. The next sync cycle will take care of soft-matching the on-premises user to the cloud account because the cloud user is now no longer a global admin.
+1. The next sync cycle will take care of soft-matching the on-premises user to the cloud account because the cloud user is now no longer a Hybrid Identity Administrator.
 1. Restore the role memberships for the owner.
 
 >[!NOTE]

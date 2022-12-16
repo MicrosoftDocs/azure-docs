@@ -1,17 +1,20 @@
 ---
-title: Create SAS tokens for containers and blobs with the Azure portal
-description: Learn how to create shared access signature (SAS) tokens for containers using Azure portal, or Azure Explorer
+title: Create shared access signature (SAS) tokens for your storage containers and blobs
+description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
 ms.topic: how-to
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 05/27/2022
+ms.date: 10/26/2022
 ms.author: lajanuar
+monikerRange: '>=form-recog-2.1.0'
 recommendations: false
 ---
 
 # Create SAS tokens for storage containers
+
+[!INCLUDE [applies to v3.0 and v2.1](includes/applies-to-v3-0-and-v2-1.md)]
 
  In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
@@ -159,19 +162,13 @@ The SAS URL includes a special set of [query parameters](/rest/api/storageservic
 
 ### REST API
 
-To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/BuildDocumentModel), add the SAS URL to the request body:
+To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/BuildDocumentModel), add the SAS URL to the request body:
 
   ```json
   {
       "source":"<BLOB SAS URL>"
   }
   ```
-
-### Sample Labeling Tool
-
-To use your SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** → **Azure blob container** → **SAS URI** field:
-
-  :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="Screenshot that shows the SAS URI field.":::
 
 That's it! You've learned how to create SAS tokens to authorize how clients access your data.
 

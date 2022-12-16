@@ -1,9 +1,9 @@
 ---
 title: Use the REST API to add device templates in Azure IoT Central
 description: How to use the IoT Central REST API to add device templates in an application
-author: v-krishnag
-ms.author: v-krishnag
-ms.date: 12/17/2021
+author: dominicbetts
+ms.author: dobett
+ms.date: 06/17/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -20,11 +20,13 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 [!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
+To learn how to manage device templates by using the IoT Central UI, see [How to set up device templates](../core/howto-set-up-template.md) and [How to edit device templates](../core/howto-edit-device-template.md)
+
 ## Device templates
 
-A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.
+A device template contains a device model, cloud property definitions, and view definitions. The REST API lets you manage the device model and cloud property definitions. Use the UI to create and manage views.
 
-The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 ## Device templates REST API
 
@@ -41,13 +43,13 @@ The IoT Central REST API lets you:
 Use the following request to create and publish a new device template. Default views are automatically generated for device templates created this way.
 
 ```http
-PUT https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PUT https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
 >Device template IDs follow the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#digital-twin-model-identifier) naming convention, for example: `dtmi:contoso:mythermostattemplate;1`
 
-The following example shows a request body that adds a device template for a thermostat device. The `capabilityModel` includes temperature telemetry, two properties, and a command. The device template defines the `CustomerName` cloud property and customizes the `targetTemperature` property with `decimalPlaces`, `displayUnit`, `maxValue`, and `minValue`. The value of the device template `@id` must match the `deviceTemplateId` value in the URL. The value of the device template `@id` is not the same as the value of the `capabilityModel` `@id` value.
+The following example shows a request body that adds a device template for a thermostat device. The `capabilityModel` includes temperature telemetry, two properties, and a command. The device template defines the `CustomerName` cloud property and customizes the `targetTemperature` property with `decimalPlaces`, `displayUnit`, `maxValue`, and `minValue`. The value of the device template `@id` must match the `deviceTemplateId` value in the URL. The value of the device template `@id` isn't the same as the value of the `capabilityModel` `@id` value.
 
 ```json
 {
@@ -178,7 +180,7 @@ The request body has some required fields:
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
-> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API, the CLI, and the UI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
@@ -187,7 +189,7 @@ Each entry in the list of interfaces in the implements section has a:
 * `name`: the programming name of the interface.
 * `schema`: the interface the capability model implements.
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -316,7 +318,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve details of a device template from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+GET https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
@@ -448,13 +450,13 @@ The response to this request looks like the following example:
 ## Update a device template
 
 ```http
-PATCH https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+PATCH https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which adds a the `LastMaintenanceDate` cloud property to the device template:
+The sample request body looks like the following example that adds a `LastMaintenanceDate` cloud property to the device template:
 
 ```json
 {
@@ -724,7 +726,7 @@ The response to this request looks like the following example:
 Use the following request to delete a device template:
 
 ```http
-DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-05-31
+DELETE https://{your app subdomain}/api/deviceTemplates/{deviceTemplateId}?api-version=2022-07-31
 ```
 
 ## List device templates
@@ -732,10 +734,10 @@ DELETE https://{subdomain}.{baseDomain}/api/deviceTemplates/{deviceTemplateId}?a
 Use the following request to retrieve a list of device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=2022-05-31
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31
 ```
 
-The response to this request looks like the following example: 
+The response to this request looks like the following example:
 
 ```json
 {
@@ -984,9 +986,6 @@ The response to this request looks like the following example:
 
 You can use ODATA filters to filter the results returned by the list device templates API.
 
-> [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.2-preview`.
-
 ### $top
 
 Use the **$top** filter to set the result size. The maximum returned result size is 100, and the default size is 25.
@@ -994,7 +993,7 @@ Use the **$top** filter to set the result size. The maximum returned result size
 Use the following request to retrieve the top 10 device templates from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$top=10
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -1048,7 +1047,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=1.2-preview&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=2022-07-31&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
 }
 ```
 
@@ -1058,36 +1057,35 @@ The response includes a **nextLink** value that you can use to retrieve the next
 
 Use **$filter** to create expressions that filter the list of device templates. The following table shows the comparison operators you can use:
 
-
 | Comparison Operator | Symbol | Example                        |
 | -------------------- | ------ | ------------------------------ |
-| Equals               | eq     | '@id' eq 'dtmi:example:test;1' |
-| Not Equals           | ne     | displayName ne 'template 1'    |
-| Less than or equals       | le     | displayName le 'template A'    |
-| Less than            | lt     | displayName lt 'template B'    |
-| Greater than or equals      | ge     | displayName ge 'template A'    |
-| Greater than           | gt     | displayName gt 'template B'    |
+| Equals               | eq     | `'@id' eq 'dtmi:example:test;1'` |
+| Not Equals           | ne     | `displayName ne 'template 1'`    |
+| Less than or equals       | le     | `displayName le 'template A'`    |
+| Less than            | lt     | `displayName lt 'template B'`    |
+| Greater than or equals      | ge     | `displayName ge 'template A'`    |
+| Greater than           | gt     | `displayName gt 'template B'`    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
 | Logic Operator | Symbol | Example                                                                              |
 | -------------- | ------ | ------------------------------------------------------------------------------------ |
-| AND            | and    | '@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1' |
-| OR             | or     | '@id' eq 'dtmi:example:test;1' or displayName ge 'template'                          |
+| AND            | and    | `'@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1'` |
+| OR             | or     | `'@id' eq 'dtmi:example:test;1' or displayName ge 'template'`                          |
 
 Currently, *$filter* works with the following device template fields:
 
 | FieldName         | Type   | Description                         |
 | ----------------- | ------ | ----------------------------------- |
-| @id               | string | Device template ID                  |
-| displayName       | string | Device template display name        |
-| capabilityModelId | string | Device template capability model ID |
+| `@id`               | string | Device template ID                  |
+| `displayName`       | string | Device template display name        |
+| `capabilityModelId` | string | Device template capability model ID |
 
 **$filter supported functions:**
 
 Currently, the only supported filter function for device template lists is the `contains` function:
 
-```
+```txt
 $filter=contains(displayName, 'template1')
 $filter=contains(displayName, 'template1) eq false
 ```
@@ -1095,7 +1093,7 @@ $filter=contains(displayName, 'template1) eq false
 The following example shows how to retrieve all the device templates where the display name contains the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -1177,15 +1175,15 @@ The response to this request looks like the following example:
 
 Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
-```
+```txt
 $orderby=displayName
 $orderby=displayName desc
 ```
 
-The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
+The following example shows how to retrieve all the device templates where the result is sorted by `displayName`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$orderby=displayName
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -1265,10 +1263,10 @@ The response to this request looks like the following example:
 
 You can also combine two or more filters.
 
-The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
+The following example shows how to retrieve the top two device templates where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{your app subdomain}/api/deviceTemplates?api-version=2022-07-31&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:
@@ -1326,4 +1324,4 @@ The response to this request looks like the following example:
 
 ## Next steps
 
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
+Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI](howto-set-up-template.md#create-a-device-template).

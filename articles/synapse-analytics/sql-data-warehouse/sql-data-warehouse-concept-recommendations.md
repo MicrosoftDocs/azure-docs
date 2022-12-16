@@ -24,7 +24,7 @@ You can [check your recommendations](https://aka.ms/Azureadvisor) today!
 
 Data skew can cause additional data movement or resource bottlenecks when running your workload. The following documentation describes show to identify data skew and prevent it from happening by selecting an optimal distribution key.
 
-- [Identify and remove skew](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice)
+- [Identify and remove skew](sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice)
 
 ## No or outdated statistics
 

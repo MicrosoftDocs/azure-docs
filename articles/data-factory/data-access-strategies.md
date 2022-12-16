@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 08/03/2022
 ---
 
 # Data access strategies
@@ -31,7 +31,7 @@ This should work in many scenarios, and we do understand that a unique Static IP
 
 ## Data access strategies through Azure Data Factory
 
-* **[Private Link](../private-link/private-link-overview.md)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it will leverage private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and are not exposure to public network.
+* **[Private Link](../private-link/private-link-overview.md)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it will leverage private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and is not exposed to the public network.
 * **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) supports firewall configuration that enables select trusted Azure platform services to access the storage account securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. You can find more details in **[this blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Hence, this is extremely secure and recommended.
 * **Unique Static IP** - You will need to set up a self-hosted integration runtime to get a Static IP for Data Factory connectors. This mechanism ensures you can block access from all other IP addresses.
 * **[Static IP range](./azure-integration-runtime-ip-addresses.md)** - You can use Azure Integration Runtime's IP addresses to allow list it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
@@ -41,7 +41,7 @@ This should work in many scenarios, and we do understand that a unique Static IP
 For more information about supported network security mechanisms on data stores in Azure Integration Runtime and Self-hosted Integration Runtime, see below two tables.
 * **Azure Integration Runtime**
 
-    | Data Stores                  | Supported Network Security Mechanism on Data Stores | Private Link     | Trusted Service     | Static IP range | Service Tags | Allow Azure Services |
+   | Data Stores                  | Supported Network Security Mechanism on Data Stores | Private Link     | Trusted Service     | Static IP range | Service Tags | Allow Azure Services |
     |------------------------------|-------------------------------------------------------------|---------------------|-----------------|--------------|----------------------|-----------------|
     | Azure PaaS Data stores       | Azure Cosmos DB                                     | Yes              | -                   | Yes             | -            | Yes                  |
     |                              | Azure Data Explorer                                 | -                | -                   | Yes*            | Yes*         | -                    |
@@ -52,9 +52,11 @@ For more information about supported network security mechanisms on data stores 
     |                              | Azure SQL DB,  Azure Synapse Analytics), SQL   Ml  | Yes (only Azure SQL DB/DW)        | -                   | Yes             | -            | Yes                  |
     |                              | Azure Key Vault (for fetching secrets/   connection string) | yes      | Yes                 | Yes             | -            | -                    |
     | Other PaaS/ SaaS Data stores | AWS   S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Yes             | -            | -                    |
+    |                               | Snowflake                                         |   Yes             |   -                 | Yes             | -         | -                         |
     | Azure IaaS                   | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | Yes          | -                    |
-    | On-premises IaaS              | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | -            | -                    |
-
+    | On-premises IaaS              | SQL Server, Oracle,   etc.                          | -                | -                   | Yes             | -            | - 
+    
+    
     **Applicable only when Azure Data Explorer is virtual network injected, and IP range can be applied on NSG/ Firewall.*
 
 * **Self-hosted Integration Runtime (in VNet/on-premises)**

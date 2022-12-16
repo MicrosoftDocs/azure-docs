@@ -51,7 +51,7 @@ To figure out the size and the number of VMs that you can deploy on your device,
 
 For the usable compute and memory on your device, see the [Compute and memory specifications](azure-stack-edge-gpu-technical-specifications-compliance.md#compute-and-memory-specifications) for your device model. 
 
-For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+For a GPU virtual machine, you must use a [VM size from the NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#n-series-gpu-optimized).
 
 
 ### VM limits

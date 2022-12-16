@@ -1,11 +1,14 @@
 ---
 title: Create infrastructure for a cluster on Azure VMs
 description: In this tutorial, you learn how to set up the Azure VM infrastructure to run a Service Fabric cluster.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create Azure VM infrastructure to host a Service Fabric cluster
 
 Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on Azure VMs and install an application onto it.

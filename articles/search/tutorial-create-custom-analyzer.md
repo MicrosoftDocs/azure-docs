@@ -244,7 +244,7 @@ All of search comes down to searching for the terms stored in the inverted index
 
 1. The query is parsed and the query terms are analyzed.
 1. The inverted index is then scanned for documents with matching terms.
-1. Finally, the retrieved documents are ranked by the [similarity algorithm](index-ranking-similarity.md).
+1. Finally, the retrieved documents are ranked by the [scoring algorithm](index-ranking-similarity.md).
 
   :::image type="content" source="media/tutorial-create-custom-analyzer/query-architecture-explained.png" alt-text="Diagram of Analyzer process ranking similarity":::
 

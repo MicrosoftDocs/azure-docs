@@ -1,10 +1,14 @@
 ---
 title: Create chaos and failover tests for Azure Service Fabric 
 description: Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services.
-ms.topic: conceptual
-ms.date: 10/1/2019
-ms.custom: devx-track-csharp
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Testability scenarios
 Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
 

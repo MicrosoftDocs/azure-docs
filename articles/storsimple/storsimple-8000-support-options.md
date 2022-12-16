@@ -4,11 +4,13 @@ description: Describes support options for StorSimple 8000 series enterprise sto
 author: GabiSocoteanu
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # StorSimple solution support
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## StorSimple support
 

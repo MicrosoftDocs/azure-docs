@@ -6,12 +6,14 @@ ms.author: jtoland
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 06/20/2022
 ---
 
 # Azure Database for MySQL migration partners
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 To broadly support your Azure Database for MySQL solution, you can choose from a wide variety of industry-leading partners and tools. This article highlights Microsoft partners with migration solutions that support Azure Database for MySQL.
 

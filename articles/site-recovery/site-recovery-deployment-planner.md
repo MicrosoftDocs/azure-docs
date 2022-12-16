@@ -1,11 +1,11 @@
 ---
 title: Azure Site Recovery Deployment Planner for VMware disaster recovery 
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
-author: Sharmistha-Rai
+author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: ankitadutta
 ms.date: 04/06/2022
 ---
 

@@ -3,6 +3,7 @@ title: IT Service Management Connector - Secure Webhook in Azure Monitor - Azure
 description: This article shows you how to configure Azure in order to connect your ITSM products/services with Secure Webhook in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
 ms.date: 04/28/2022
+ms.reviewer: nolavime
 
 ---
 
@@ -35,7 +36,11 @@ Action groups provide a modular and reusable way of triggering actions for Azure
 To learn more about action groups, see [Create and manage action groups in the Azure portal](../alerts/action-groups.md).
 
 > [!NOTE]
-> If you are using a log alert, the query results must include a “Computer” column containing the configuration items list.
+> To map the configuration items to the ITSM payload when you define a Log Search alerts query, the query result must be included in the **Configuration items**, with one of these labels:
+> - "Computer"
+> - "Resource"
+> - "_ResourceId"
+> - "ResourceId”
 
 To add a webhook to an action, follow these instructions for Secure Webhook:
 

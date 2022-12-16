@@ -2,8 +2,8 @@
 title: Export an Azure Stream Analytics job Azure Resource Manager template 
 description: This article describes how to export an Azure Resource Manager template for your Azure Stream Analytics job.
 services: stream-analytics
-author: sidramadoss
-ms.author: sidram
+author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020

@@ -125,6 +125,8 @@ landingContent:
         url: partner-center-portal/pc-saas-fulfillment-apis.md
       - text: Marketplace metering service APIs
         url: marketplace-metering-service-apis-faq.yml
+      - text: Product Ingestion API
+        url: product-ingestion-api.md  
       - text: Reporting API (PDF)
         url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 

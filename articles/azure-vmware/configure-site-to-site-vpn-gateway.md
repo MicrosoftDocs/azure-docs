@@ -28,7 +28,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create a VPN gateway 
 

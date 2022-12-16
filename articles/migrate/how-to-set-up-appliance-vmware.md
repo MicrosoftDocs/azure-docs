@@ -5,7 +5,8 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Set up an appliance for servers in a VMware environment
@@ -123,9 +124,9 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, the default path is *C:\Program Files\VMware\VMware Virtual Disk Development Kit* as indicated in the *Installation instructions*.
 
-    Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure.
+    The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
@@ -184,6 +185,19 @@ In the configuration manager, in the credentials table, see the **Validation sta
 If validation fails, you can select a **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
 
 :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+
+> [!NOTE]
+> Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
+>  - Non-ASCII characters. [Learn more](https://en.wikipedia.org/wiki/ASCII).
+>  - Ampersand (&)
+>  - Semicolon (;)
+>  - Double quotation mark (")
+>  - Single quotation mark (')
+>  - Circumflex (^)
+>  - Backslash (\\)
+>  - Percentage (%)
+>  - Angle brackets (<,>)
+>  - Pound (£)
 
 ### Start discovery
 

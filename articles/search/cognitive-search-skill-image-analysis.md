@@ -8,7 +8,7 @@ ms.author: chalton
 
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 05/06/2022
+ms.date: 06/24/2022
 ---
 
 # Image Analysis cognitive skill
@@ -17,7 +17,7 @@ The **Image Analysis** skill extracts a rich set of visual features based on the
 
 This skill uses the machine learning models provided by [Computer Vision](../cognitive-services/computer-vision/overview.md) in Cognitive Services. **Image Analysis** works on images that meet the following requirements:
 
-+ The image must be presented in JPEG, PNG, GIF, or BMP format
++ The image must be presented in JPEG, PNG, GIF or BMP format
 + The file size of the image must be less than 4 megabytes (MB)
 + The dimensions of the image must be greater than 50 x 50 pixels
 
@@ -37,8 +37,8 @@ Parameters are case-sensitive.
 
 | Parameter name | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter isn't specified, the default value is "en". <br/><br/>Supported languages are: <br/>`en` - English (default) <br/>`es` - Spanish <br/>`ja` - Japanese <br/>`pt` - Portuguese <br/>`zh` - Simplified Chinese|
-| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. The *brands* visual feature is only available in English.</li><li> *categories* - categorizes image content according to a [taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) defined by Cognitive Services. </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age. </li><li>*objects* - detects various objects within an image, including the approximate location. The *objects* visual feature is only available in English.</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Both *color* and *imageType* visual features have been deprecated, but you can access this functionality through a [custom skill](./cognitive-search-custom-skill-interface.md).|
+| `defaultLanguageCode` | A string indicating the language to return. The service returns recognition results in a specified language. If this parameter isn't specified, the default value is "en". <br/><br/>Supported languages include all of the [generally available languages](../cognitive-services/computer-vision/language-support.md#image-analysis) of Cognitive Services Computer Vision. |
+| `visualFeatures` | An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li>*adult* - detects if the image is pornographic (depicts nudity or a sex act), gory (depicts extreme violence or blood) or suggestive (also known as racy content). </li><li>*brands* - detects various brands within an image, including the approximate location. </li><li> *categories* - categorizes image content according to a [taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) defined by Cognitive Services. </li><li>*description* - describes the image content with a complete sentence in supported languages.</li><li>*faces* - detects if faces are present. If present, generates coordinates, gender and age. </li><li>*objects* - detects various objects within an image, including the approximate location. </li><li> *tags* - tags the image with a detailed list of words related to the image content.</li></ul> Names of visual features are case-sensitive. Both *color* and *imageType* visual features have been deprecated, but you can access this functionality through a [custom skill](./cognitive-search-custom-skill-interface.md). Refer to the [Computer Vision Image Analysis documentation](../cognitive-services/computer-vision/language-support.md#image-analysis) on which visual features are supported with each `defaultLanguageCode`.|
 | `details`	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*celebrities* - identifies celebrities if detected in the image.</li><li>*landmarks* - identifies landmarks if detected in the image. </li></ul> |
 
 ## Skill inputs
@@ -56,8 +56,9 @@ Parameters are case-sensitive.
 | `categories` | Output is an array of [category](../cognitive-services/computer-vision/concept-categorizing-images.md) objects, where each category object is a complex type consisting of a `name` (string), `score` (double), and optional `detail` that contains celebrity or landmark details. See the [category taxonomy](../cognitive-services/Computer-vision/Category-Taxonomy.md) for the full list of category names. A detail is a nested complex type. A celebrity detail consists of a name, confidence score, and face bounding box. A landmark detail consists of a name and confidence score.|
 | `description` | Output is a single [description](../cognitive-services/computer-vision/concept-describing-images.md) object of a complex type, consisting of lists of `tags` and `caption` (an array consisting of `Text` (string) and `confidence` (double)). |
 | `faces` | Complex type consisting of `age`, `gender`, and `faceBoundingBox` having four bounding box coordinates (in pixels) indicating placement inside the image. Coordinates are `top`, `left`, `width`, `height`.|
-| `objects` | Output is an array of [visual feature objects](../cognitive-services/computer-vision/concept-object-detection.md) Each object is a complex type, consisting of `object` (string), `confidence` (double), `rectangle` (with four bounding box coordinates indicating placement inside the image), and a `parent` that contains an object name and confidence . | 
+| `objects` | Output is an array of [visual feature objects](../cognitive-services/computer-vision/concept-object-detection.md). Each object is a complex type, consisting of `object` (string), `confidence` (double), `rectangle` (with four bounding box coordinates indicating placement inside the image), and a `parent` that contains an object name and confidence . | 
 | `tags` | Output is an array of [imageTag](../cognitive-services/computer-vision/concept-detecting-image-types.md) objects, where a tag object is a complex type consisting of `name` (string), `hint` (string), and `confidence` (double). The addition of a hint is rare. It's only generated if a tag is ambiguous. For example, an image tagged as "curling" might have a hint of "sports" to better indicate its content. |
+
 
 ## Sample skill definition
 

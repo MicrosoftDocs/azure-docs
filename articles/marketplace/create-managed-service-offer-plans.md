@@ -1,13 +1,12 @@
 ---
 title: Create plans for a Managed Service offer on Azure Marketplace
 description: Create plans for a Managed Service offer on Azure Marketplace.
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: brwrigh
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 11/28/2022
 ---
 
 # Create plans for a Managed Service offer
@@ -103,7 +102,7 @@ Provide the following information for each **Authorization**. Select **+ Add aut
 - **Principal ID**: The Azure AD identifier of a user, user group, or service principal that will be granted certain permissions (as defined by the **Role** you specify) to your customers' resources.
 - **Access type**:
   - **Active** authorizations have the privileges assigned to the role at all times. Each plan must have at least one Active authorization.
-  - **Eligible** authorizations are time-limited and require activation by the user.  If you select **Eligible**, you must select a maximum duration that defines the total length of time for which the user will have the eligible role after it's activated. The minimum value is 30 minutes and the maximum is 8 hours. You can also select whether to require multifactor authentication in order to activate the role. Note that eligible authorizations are currently in public preview and have specific licensing requirements. For more information, see [Create eligible authorizations](../lighthouse/how-to/create-eligible-authorizations.md).
+  - **Eligible** authorizations are time-limited and require activation by the user.  If you select **Eligible**, you must select a maximum duration that defines the total length of time for which the user will have the eligible role after it's activated. The minimum value is 30 minutes and the maximum is 8 hours. You can also select whether to require multifactor authentication in order to activate the role. This feature has specific licensing requirements. For more information, see [Create eligible authorizations](../lighthouse/how-to/create-eligible-authorizations.md).
 - **Role**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Principal ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.

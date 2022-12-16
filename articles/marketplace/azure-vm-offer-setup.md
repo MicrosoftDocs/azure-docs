@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 03/28/2022
+ms.date: 07/20/2022
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -16,6 +16,8 @@ This article describes how to create an Azure virtual machine offer for [Azure M
 Before you start, [create a commercial marketplace account in Partner Center](create-account.md). Ensure that your account is enrolled in the commercial marketplace program.
 
 ## Before you begin
+
+Before you can publish an Azure Container offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer.
 
@@ -59,13 +61,40 @@ For VM offers, Azure Resource Manager (ARM) deployment is the only test drive op
 
 To enable a test drive, select the **Enable a test drive** check box; this will enable a Test drive tab in the left-nav menu. You will configure and create the listing of your test drive using that tab later in [Configure a VM test drive](azure-vm-test-drive.md).
 
-With test drive, configuring a CRM for customer leads is required (see next section). To remove test drive from your offer, clear this check box.
+When a customer activates a test drive, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
+
+You can also connect the offer to your customer relationship management (CRM) system to manage leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
 
 ## Customer leads
 
-[!INCLUDE [Customer leads](includes/customer-leads.md)]
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
+
+> [!NOTE]
+> Connecting to a CRM system is optional.
+
+To configure the lead management in Partner Center:
+
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+   - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate** link.
+1. Select **Connect**.
+
+    For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+1. Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 

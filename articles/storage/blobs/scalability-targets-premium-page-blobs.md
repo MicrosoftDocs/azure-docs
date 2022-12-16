@@ -3,12 +3,12 @@ title: Scalability targets for premium page blob storage accounts
 titleSuffix: Azure Storage
 description: A premium performance page blob storage account is optimized for read/write operations. This type of storage account backs an unmanaged disk for an Azure virtual machine.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.author: tamram
+ms.author: jammart
 ms.subservice: common
 ---
 

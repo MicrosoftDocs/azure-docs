@@ -93,21 +93,18 @@ Use the following steps to guide you through the process to onboard in Arc for A
     - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
     - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server that should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
     - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You may choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields then you must use /28 address space for `networkCIDRForApplianceVM`
 
     **Json example**
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
       "resourceGroup": "test-rg", 
-      "applianceControlPlaneIpAddress": "10.14.10.10", 
       "privateCloud": "test-pc", 
       "isStatic": true, 
       "staticIpNetworkDetails": { 
        "networkForApplianceVM": "arc-segment", 
-       "networkCIDRForApplianceVM": "10.14.10.1/24", 
-       "k8sNodeIPPoolStart": "10.14.10.20", 
-       "k8sNodeIPPoolEnd": "10.14.10.30", 
-       "gatewayIPAddress": "10.14.10.1" 
+       "networkCIDRForApplianceVM": "10.14.10.1/28" 
       } 
     } 
     ```
@@ -159,7 +156,6 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
     - Log analytics
-    - Update management
     - Azure policy guest configuration
 
  **Azure VMware Solution private cloud with Azure Arc**
@@ -237,7 +233,7 @@ This section shows users how to create a virtual machine (VM) on VMware vCenter 
 
 ### Create VM flow
 
-- Open the [Azure portal](https://ms.portal.azure.com/)
+- Open the [Azure portal](https://portal.azure.com/)
 - On the **Home** page, search for **virtual machines**. Once you've navigated to **Virtual machines**, select the **+ Create** drop down and select **Azure VMware Solution virtual machine**.
     :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png"::: 
 
@@ -275,7 +271,7 @@ The guest management must be enabled on the VMware vSphere virtual machine (VM) 
 
 **Prerequisite**
 
-1. Navigate to [Azure portal](https://ms.portal.azure.com/).
+1. Navigate to [Azure portal](https://portal.azure.com/).
 1. Locate the VMware vSphere VM you want to check for guest management and install extensions on, select the name of the VM.
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** has been checked.
@@ -310,9 +306,7 @@ When the extension installation steps are completed, they trigger deployment and
 
 ## Change Arc appliance credential
 
-Use the following guide to change your Arc appliance credential once you've changed your SDDC credentials.
-
-Use the **`Set Credential`** command to update the provider credentials for appliance resource. When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
+When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
 1. Log into the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
@@ -320,9 +314,11 @@ Use the **`Set Credential`** command to update the provider credentials for appl
     `./.temp/.env/Scripts/activate`
 1. Run the following command.
 
-    `az arcappliance setcredential vmware --kubeconfig kubeconfig`
+    `az arcappliance update-infracredentials vmware --kubeconfig <kubeconfig file>`
 
-1. Run the onboard command again. See step 3 in the [Process to onboard]() in Arc for Azure VMware Preview. 
+1. Run the following command
+
+`az connectedvmware vcenter connect --debug --resource-group {resource-group} --name {vcenter-name-in-azure} --location {vcenter-location-in-azure} --custom-location {custom-location-name} --fqdn {vcenter-ip} --port {vcenter-port} --username cloudadmin@vsphere.local --password {vcenter-password}`
     
 > [!NOTE]
 > Customers need to ensure kubeconfig and SSH keys remain available as they will be required for log collection, appliance Upgrade, and credential rotation. These parameters will be required at the time of upgrade, log collection, and credential update scenarios. 

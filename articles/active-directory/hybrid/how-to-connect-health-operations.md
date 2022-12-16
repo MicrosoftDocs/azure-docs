@@ -4,7 +4,7 @@ description: This article describes additional operations that can be performed 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.subservice: hybrid
@@ -33,7 +33,7 @@ You can configure the Azure AD Connect Health service to send email notification
 2. Select **Sync errors**
 3. Select **Notification Settings**.
 5. At the email notification switch, select **ON**.
-6. Select the check box if you want all global administrators to receive email notifications.
+6. Select the check box if you want all Hybrid Identity Administrators to receive email notifications.
 7. If you want to receive email notifications at any other email addresses, specify them in the **Additional Email Recipients** box. To remove an email address from this list, right-click the entry and select **Delete**.
 8. To finalize the changes, click **Save**. Changes take effect only after you save.
 
@@ -97,14 +97,14 @@ When you're deleting a service instance, be aware of the following:
 
 [//]: # (Start of RBAC section)
 ## Manage access with Azure RBAC
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than global administrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the global administrators within your directory.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) for Azure AD Connect Health provides access to users and groups other than Hybrid Identity Administrators. Azure RBAC assigns roles to the intended users and groups, and provides a mechanism to limit the Hybrid Identity Administrators within your directory.
 
 ### Roles
 Azure AD Connect Health supports the following built-in roles:
 
 | Role | Permissions |
 | --- | --- |
-| Owner |Owners can *manage access* (for example, assign a role to a user or group), *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. <br>By default, Azure AD global administrators are assigned this role, and this cannot be changed. |
+| Owner |Owners can *manage access* (for example, assign a role to a user or group), *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. <br>By default, Azure AD Hybrid Identity Administrators are assigned this role, and this cannot be changed. |
 | Contributor |Contributors can *view all information* (for example, view alerts) from the portal, and *change settings* (for example, email notifications) within Azure AD Connect Health. |
 | Reader |Readers can *view all information* (for example, view alerts) from the portal within Azure AD Connect Health. |
 

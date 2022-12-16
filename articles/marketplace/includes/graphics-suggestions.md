@@ -4,7 +4,7 @@ description: file
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/24/2020
 ---

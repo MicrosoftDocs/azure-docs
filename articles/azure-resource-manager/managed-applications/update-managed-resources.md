@@ -1,11 +1,11 @@
 ---
 title: Update managed resources
 description: Describes how to work on resources in the managed resource group for an Azure managed application.
-author: tfitzmac
+author: davidsmatlak
 
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: tomfitz
+ms.author: davidsmatlak
 ---
 
 # Work with resources in the managed resource group for Azure managed application

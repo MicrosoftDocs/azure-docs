@@ -2,7 +2,11 @@
 title: Azure Service Fabric Monitoring and Diagnostics Overview 
 description: Learn about monitoring and diagnostics for Azure Service Fabric clusters, applications, and services.
 ms.topic: conceptual
-ms.date: 1/17/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Monitoring and diagnostics for Azure Service Fabric
@@ -19,7 +23,7 @@ Application monitoring tracks how features and components of your application ar
 * Is my application throwing unhandled exceptions? 
 * What is happening within the services running inside my containers?
 
-The great thing about application monitoring is that developers can use whatever tools and framework they'd like since it lives within the context of your application! You can learn more about the Azure solution for application monitoring with Azure Monitor - Application Insights in [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
+The great thing about application monitoring is that developers can use whatever tools and framework they'd like since it lives within the context of your application! You can learn more about the Azure solution for application monitoring with Azure Monitor Application Insights in [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 We also have a tutorial with how to [set this up for .NET Applications](service-fabric-tutorial-monitoring-aspnet.md). This tutorial goes over how to install the right tools, an example to write custom telemetry in your application, and viewing the application diagnostics and telemetry in the Azure portal. 
 
 

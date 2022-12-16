@@ -1,11 +1,11 @@
 ---
-title: Defender for IoT micro agent troubleshooting (Preview)
+title: Defender for IoT micro agent troubleshooting 
 description: Learn how to handle unexpected or unexplained errors.
 ms.date: 11/09/2021
 ms.topic: reference
 ---
 
-# Defender for IoT micro agent troubleshooting (Preview)
+# Defender for IoT micro agent troubleshooting
 
 If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
@@ -38,6 +38,7 @@ Use the following command to verify that the Defender for IoT micro agent servic
 ```bash
 ps -aux | grep " defender-iot-micro-agent"
 ```
+The following sample result shows that the folder 'defender_iot_micro_agent' has root privileges due to the word 'root' appearing as shown by the red box.
 
 :::image type="content" source="media/troubleshooting/root-privileges.png" alt-text="Verify the Defender for IoT micro agent service is running with root privileges.":::
 ## Review the logs 

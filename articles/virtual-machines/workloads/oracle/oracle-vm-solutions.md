@@ -112,7 +112,7 @@ When migrating Oracle software and workloads from on-premises to Microsoft Azure
 
 When using Oracle databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime.
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without relying on Oracle RAC) can be achieved on Azure using [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), with two databases on two separate virtual machines. Both virtual machines should be in the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. Should you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway.
+High availability and disaster recovery for Oracle Database Enterprise Edition (without relying on Oracle RAC) can be achieved on Azure using [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), with two databases on two separate virtual machines. Both virtual machines should be in the same [virtual network](../../../virtual-network/index.yml) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. Should you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway.
 
 The tutorial [Implement Oracle Data Guard on Azure](configure-oracle-dataguard.md) walks you through the basic setup procedure on Azure.  
 
@@ -124,7 +124,7 @@ In addition to having an HA and DR solution architected in Azure, you should hav
 
 ## Support for JD Edwards
 
-According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility.
+According to Oracle Support note [Doc ID 2178595.1](https://support.oracle.com/knowledge/JD%20Edwards%20EnterpriseOne/2178595_1.html), JD Edwards EnterpriseOne versions 9.2 and above are supported on **any public cloud offering** that meets their specific `Minimum Technical Requirements` (MTR).  You need to create custom images that meet their MTR specifications for OS and software application compatibility.
 
 ## Oracle WebLogic Server virtual machine offers
 
@@ -153,7 +153,7 @@ Oracle and Microsoft are collaborating to bring WebLogic Server to the Azure Mar
    -Dweblogic.rjvm.enableprotocolswitch=true
 ```
 
-For related information, see KB article **860340.1** at <https://support.oracle.com>.
+For related information, see KB article **860340.1** at [support.oracle.com](https://support.oracle.com).
 
 - **Dynamic clustering and load balancing limitations.** Suppose you want to use a dynamic cluster in Oracle WebLogic Server and expose it through a single, public load-balanced endpoint in Azure. This can be done as long as you use a fixed port number for each of the managed servers (not dynamically assigned from a range) and do not start more managed servers than there are machines the administrator is tracking. That is, there is no more than one managed server per virtual machine). If your configuration results in more Oracle WebLogic Servers being started than there are virtual machines (that is, where multiple Oracle WebLogic Server instances share the same virtual machine), then it is not possible for more than one of those instances of Oracle WebLogic Servers to bind to a given port number. The others on that virtual machine fail.
 

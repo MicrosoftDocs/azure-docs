@@ -1,6 +1,6 @@
 ---
 title: Dell PowerEdge R340 XL for OT monitoring (legacy) - Microsoft Defender for IoT
-description: Learn about the Dell PowerEdge R340 XL appliance in its legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
+description: Learn about the Dell PowerEdge R340 XL appliance's legacy configuration when used for OT monitoring with Microsoft Defender for IoT in enterprise deployments.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
@@ -9,12 +9,12 @@ ms.topic: reference
 
 This article describes the Dell PowerEdge R340 XL appliance, supported for OT sensors and on-premises management consoles.
 
-Legacy appliances are certified but aren't currently offered as pre-configured appliances.
+Legacy appliances are certified but aren't currently offered as preconfigured appliances.
 
 
 |Appliance characteristic  | Description|
 |---------|---------|
-|**Hardware profile** | Enterprise|
+|**Hardware profile** | E1800|
 |**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000 |
 |**Physical Specifications** | Mounting: 1U<br>Ports: 8x RJ45 or 6x SFP (OPT)|
 |**Status** | Supported, not available as a preconfigured appliance|
@@ -93,7 +93,7 @@ To install the Dell PowerEdge R340XL appliance, you need:
 
 ### Configure the Dell BIOS
 
-The Dell appliance is managed by an integrated iDRAC with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances.
+ An integrated iDRAC manages the Dell appliance with Lifecycle Controller (LC). The LC is embedded in every Dell PowerEdge server and provides functionality that helps you deploy, update, monitor, and maintain your Dell PowerEdge appliances. 
 
 To establish the communication between the Dell appliance and the management computer, you need to define the iDRAC IP address and the management computer's IP address on the same subnet.
 
@@ -124,11 +124,11 @@ When the connection is established, the BIOS is configurable.
 
 This procedure describes how to update the Dell PowerEdge R340 XL configuration for your OT deployment.
 
-Configure the appliance BIOS only if you didn't purchase your appliance from Arrow, or if you have an appliance, but don't have access to the XML configuration file.
+Configure the appliance BIOS only if you didn't purchase your appliance from Arrow or if you have an appliance, but don't have access to the XML configuration file.
 
 1. Access the appliance's BIOS directly by using a keyboard and screen, or use iDRAC.
 
-   - If the appliance isn't a Defender for IoT appliance, open a browser and go to the IP address that was configured before. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
+   - If the appliance isn't a Defender for IoT appliance, open a browser and go to the IP address configured beforehand. Sign in with the Dell default administrator privileges. Use **root** for the username and **calvin** for the password.
 
    - If the appliance is a Defender for IoT appliance, sign in by using **XXX** for the username and **XXX** for the password.
 
@@ -164,7 +164,7 @@ Configure the appliance BIOS only if you didn't purchase your appliance from Arr
 
 This procedure describes how to install Defender for IoT software on the HPE DL360.
 
-The installation process takes about 20 minutes. After the installation, the system is restarted several times.
+The installation process takes about 20 minutes. After the installation, the system restarts several times.
 
 **To install the software**:
 
@@ -194,6 +194,6 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](../how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](../how-to-install-software.md)

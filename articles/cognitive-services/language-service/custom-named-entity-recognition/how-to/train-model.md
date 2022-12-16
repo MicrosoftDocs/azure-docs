@@ -15,7 +15,7 @@ ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 
 # Train your custom named entity recognition model
 
-Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you'll be able to [view model performance](view-model-evaluation.md) to determine if you need to [improve your model](improve-model.md).
+Training is the process where the model learns from your [labeled data](tag-data.md). After training is completed, you'll be able to view the [model's performance](view-model-evaluation.md) to determine if you need to improve your model.
 
 To train a model, you start a training job and only successfully completed jobs create a model. Training jobs expire after seven days, which means you won't be able to retrieve the job details after this time. If your training job completed successfully and a model was created, the model won't be affected. You can only have one training job running at a time, and you can't start other jobs in the same project. 
 
@@ -81,4 +81,4 @@ Training could take sometime depending on the size of your training data and com
 
 ## Next steps
 
-After training is completed, you'll be able to [view model performance](view-model-evaluation.md) to optionally [improve your model](improve-model.md) if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.
+After training is completed, you'll be able to view [model performance](view-model-evaluation.md) to optionally improve your model if needed. Once you're satisfied with your model, you can deploy it, making it available to use for [extracting entities](call-api.md) from text.

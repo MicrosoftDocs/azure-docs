@@ -14,7 +14,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 # Tutorial: Deploy Azure Functions as IoT Edge modules
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure Function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:
 
@@ -26,7 +26,6 @@ You can use Azure Functions to deploy code that implements your business logic d
 > * View filtered data.
 
 <center>
-
 ![Diagram - Tutorial architecture: stage and deploy function module](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
@@ -42,12 +41,12 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine. Configure it to run Linux containers.
 
 To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [The .NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+* [The .NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## Create a function project
 
@@ -234,7 +233,7 @@ If you plan to continue to the next recommended article, you can keep the resour
 
 Otherwise, you can delete the local configurations and the Azure resources that you created in this article to avoid charges.
 
-[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
+[!INCLUDE [iot-edge-clean-up-cloud-resources](includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory

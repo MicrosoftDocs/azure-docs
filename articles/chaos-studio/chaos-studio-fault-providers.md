@@ -2,10 +2,10 @@
 title: Supported resource types and role assignments for Chaos Studio
 description: Understand the list of supported resource types and which role assignment is needed to enable an experiment to run a fault against that resource type.
 services: chaos-studio
-author: johnkemnetz
+author: prasha-microsoft 
 ms.topic: article
 ms.date: 11/01/2021
-ms.author: johnkem
+ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
 ---
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 The following are the supported resource types for faults, the target types, and suggested roles to use when giving an experiment permission to a resource of that type.
 
-| Resource Type | Target name | Suggested role assignment |
+| Resource Type | Target name/type | Suggested role assignment |
 | - | - | - |
 | Microsoft.Cache/Redis (service-direct) | Microsoft-AzureCacheForRedis | Redis Cache Contributor |
 | Microsoft.ClassicCompute/domainNames (service-direct) | Microsoft-DomainNames | Classic Virtual Machine Contributor |

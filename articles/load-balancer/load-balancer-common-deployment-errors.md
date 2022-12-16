@@ -5,11 +5,11 @@ description: Describes how to resolve common errors when you deploy Azure Load B
 services: load-balancer
 documentationcenter: na
 tags: top-support-issue
-author: anavinahar
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 11/22/2021
-ms.author: anavin
+ms.author: mbender
 ---
 
 # Troubleshoot common Azure deployment errors with Azure Load Balancer

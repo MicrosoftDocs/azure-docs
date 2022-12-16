@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1, event-tier1-build-2022, ignite-2022
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
@@ -29,9 +29,9 @@ For a low-code or no-code experience, see [Create your automated machine learnin
 
 For this article you need,
 
-* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
+* Familiarity with setting up an automated machine learning experiment with the Azure Machine Learning SDK. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the fundamental automated machine learning experiment design patterns.
 
 * An understanding of train/validation data splits and cross-validation as machine learning concepts. For a high-level explanation,
 
@@ -212,7 +212,7 @@ You can also provide test data to evaluate the recommended model that automated 
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
@@ -251,5 +251,5 @@ Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, autom
 ## Next steps
 
 * [Prevent imbalanced data and overfitting](concept-manage-ml-pitfalls.md).
-* [Tutorial: Use automated machine learning to predict taxi fares - Split data section](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).
+
 * How to [Auto-train a time-series forecast model](how-to-auto-train-forecast.md).

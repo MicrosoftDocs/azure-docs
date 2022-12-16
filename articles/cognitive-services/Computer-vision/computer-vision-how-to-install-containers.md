@@ -1,7 +1,7 @@
 ---
-title: Install Read OCR Docker containers from Computer Vision
+title: Computer Vision 3.2 GA Read OCR container
 titleSuffix: Azure Cognitive Services
-description: Use the Read OCR Docker containers from Computer Vision to extract text from images and documents, on-premises.
+description: Use the Read 3.2 OCR containers from Computer Vision to extract text from images and documents, on-premises.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: on-premises, OCR, Docker, container
 ---
 
-# Install Read OCR Docker containers
+# Install Computer Vision 3.2 GA Read OCR container
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
@@ -87,22 +87,13 @@ Container images for Read are available.
 | Container | Container Registry / Repository / Image Name | Tags |
 |-----------|------------|-----------------------------------------|
 | Read 3.2 GA | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30` | 	latest, 3.2, 3.2-model-2022-04-30 |
-| Read 2.0-preview | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |2.0.019300020-amd64-preview |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
 
 ### Docker pull for the Read OCR container
 
-# [Version 3.2 GA](#tab/version-3-2)
-
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
-```
-
-# [Version 2.0 preview](#tab/version-2)
-
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -121,8 +112,6 @@ Once the container is on the [host computer](#host-computer-requirements), use t
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gather required parameters](#gather-required-parameters) for details on how to get the `{ENDPOINT_URI}` and `{API_KEY}` values.
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
-
-# [Version 3.2](#tab/version-3-2)
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -148,34 +137,6 @@ docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 --env ApiKey={API_KEY} \
 mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30
 ```
-
-# [Version 2.0-preview](#tab/version-2)
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs the Read OCR container from the container image.
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-You can alternatively run the container using environment variables:
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
-```
----
 
 
 More [examples](./computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
@@ -205,14 +166,9 @@ The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/`.
 
----
-
 ### Asynchronous Read
 
-# [Version 3.2](#tab/version-3-2)
-
 You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
-
 
 From the swagger UI, select the `Analyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
 
@@ -335,68 +291,6 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 }
 ```
 
-# [Version 2.0-preview](#tab/version-2)
-
-You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
-
-From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
-
-![tabs vs spaces](media/tabs-vs-spaces.png)
-
-When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
-
-```http
- content-length: 0
- date: Fri, 13 Sep 2019 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
-
-```json
-{
-  "status": "Succeeded",
-  "recognitionResults": [
-    {
-      "page": 1,
-      "clockwiseOrientation": 2.42,
-      "width": 502,
-      "height": 252,
-      "unit": "pixel",
-      "lines": [
-        {
-          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
-          "text": "Tabs VS",
-          "words": [
-            {
-              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
-              "text": "Tabs",
-              "confidence": "Low"
-            },
-            {
-              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
-              "text": "VS"
-            }
-          ]
-        },
-        {
-          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
-          "text": "Spaces",
-          "words": [
-            {
-              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
-              "text": "Spaces"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
----
 
 > [!IMPORTANT]
 > If you deploy multiple Read OCR containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
@@ -405,15 +299,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 
 You can use the following operation to synchronously read an image. 
 
-# [Version 3.2](#tab/version-3-2)
-
 `POST /vision/v3.2/read/syncAnalyze` 
-
-# [Version 2.0-preview](#tab/version-2)
-
-`POST /vision/v2.0/read/core/Analyze`
-
----
 
 When the image is read in its entirety, then and only then does the API return a JSON response. The only exception to this is if an error occurs. When an error occurs the following JSON is returned:
 

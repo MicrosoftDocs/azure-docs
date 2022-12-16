@@ -2,20 +2,17 @@
 title: Add an account /subscription/ project to Permissions Management after onboarding is complete
 description: How to add an account/ subscription/ project to Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Add an account/ subscription/ project after onboarding is complete
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how to add an Amazon Web Services (AWS) account, Microsoft Azure subscription, or Google Cloud Platform (GCP) project in Microsoft Permissions Management after you've completed the onboarding process.
 
