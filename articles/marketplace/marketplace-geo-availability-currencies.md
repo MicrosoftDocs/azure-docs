@@ -198,18 +198,20 @@ The following illustration shows the currency conversion flow:
 Once a plan is created and saved, the prices in all local currencies are static and are not updated automatically, for example when there are foreign exchange fluctuations.
 
 As an ISV, you have several options available to minimize impact of foreign exchange fluctuations:
--	Stop selling in a specific market or markets
--	Update the prices of a published offer, to set specific local currency prices, using 1 of 2 options:
-> 1. You can review the local market prices, using the Export capability in Pricing & Availability, and then update any local market prices (using Import), and then republish the plan – don’t forget to update all the plans in an offer.
-> 2. Modify the USD base price of a plan, save and republish the plan. This will update the local market prices using the most recent available foreign exchange rate. It takes at least 90 days for price increases to be visible to customers.
-
+- [Stop selling in a specific market or markets](/azure/marketplace/update-existing-offer)
+- [Update the prices of a published offer, to set specific local currency prices, using 1 of 2 options](/azure/marketplace/price-changes-faq):
+   
+> 
+> -  You can review the local market prices, using the Export capability in Pricing & Availability, and then update any local market prices (using Import), and then republish the plan – don’t forget to update all the plans in an offer.
+> - Modify the USD base price of a plan, save and republish the plan. This will update the local market prices using the most recent available foreign exchange rate. It takes at least 90 days for price increases to be visible to customers.
 
 > [!Note]
 > If an offer has hidden plans, or has plans targeting government clouds, prices can’t be updated. The only option is to stop selling that plan in those markets, and then create a new plan for that market with the new prices.
 -	Use Private Offers to customize the local price to be paid by the customer
-> 3.	If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
-> 4.	If possible, have the customer billing profile to be set in USD
-> 5.	For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
-
+> 
+> - 3.	If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
+> - 4.	If possible, have the customer billing profile to be set in USD
+> - For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
+>    
 
 
