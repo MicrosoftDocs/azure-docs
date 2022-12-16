@@ -1,0 +1,44 @@
+### YamlMime:Landing
+
+title: Azure Communications Gateway
+summary: Learn how to securely deploy and manage Azure Communications Gateway
+
+metadata:
+  title: Azure Private 5G Core documentation
+  description: Learn how to securely deploy and manage Azure Communications Gateway.
+  ms.service: communications-gateway
+  ms.topic: landing-page
+  author: rcdun
+  ms.author: rdunstan
+  ms.date: 12/16/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Understand Azure Communications Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Communications Gateway?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Interoperability of Operator Connect and Teams Phone Mobile with Azure Communications Gateway
+            url: interoperability.md
+
+  # Card            
+  - title: Learn how to deploy Azure Communications Gateway
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare to deploy
+            url: prepare-to-deploy.md
+          - text: Deploy
+            url: deploy.md
+          - text: Prepare for live traffic
+            url: prepare-for-live-traffic.md
+
+            
