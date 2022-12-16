@@ -106,7 +106,7 @@ items:
       href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
-  expanded: true
+  expanded: false
   items:
   - name: Azure Active Directory SLA performance
     href: reference-azure-ad-sla-performance.md
@@ -135,7 +135,7 @@ items:
     - name: How to use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
     - name: Workbook descriptions
-      expanded: false
+      expanded: true
       items:
       - name: Authentication prompts analysis
         href: workbook-authentication-prompts-analysis.md

@@ -25,9 +25,9 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What are Azure Active Directory reports?
+          - text: What are Azure AD reports?
             url: overview-reports.md
-          - text: What is Azure Active Directory monitoring?
+          - text: What is Azure AD monitoring?
             url: overview-monitoring.md
       - linkListType: concept
         links:
@@ -35,10 +35,6 @@ landingContent:
            url: concept-audit-logs.md
          - text: Sign-in logs
            url: concept-sign-ins.md
-         - text: Risky sign-in logs
-           url: ../identity-protection/overview-identity-protection.md
-         - text: Users flagged for risk logs
-           url: ../identity-protection/overview-identity-protection.md
          - text: Provisioning logs
            url: concept-provisioning-logs.md
   # Card
@@ -46,12 +42,12 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Find activity reports
-            url: howto-find-activity-reports.md
-          - text: Remediate users flagged for risk
-            url: howto-remediate-users-flagged-for-risk.md
-          - text: Use Azure AD workbooks
-            url: howto-use-azure-monitor-workbooks.md
+          - text: Access activity logs
+            url: howto-access-activity-logs.md
+          - text: Download activity logs
+            url: howto-download-logs.md
+          - text: How to manage inactive user accounts
+            url: howto-manage-inactive-user-accounts.md
   # Card
   - title: Use monitoring in Azure AD
     linkLists:
@@ -59,8 +55,7 @@ landingContent:
         links:
           - text: Analyze activity logs in Azure Monitor logs
             url: howto-analyze-activity-logs-log-analytics.md
-          - text: Install and use the log analytics views for Azure AD
-            url: howto-install-use-log-analytics-views.md
+
   # Card
   - title: Use workbooks in Azure AD
     linkLists:
@@ -86,3 +81,11 @@ landingContent:
             url: recommendation-turn-off-per-user-mfa.md
           - text: Migrate to Microsoft Authenticator
             url: recommendation-migrate-to-authenticator.md           
+
+  # Card
+  - title: Common scenarios for using reports and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Send Azure AD log to Azure Monitor
+            url: concept-activity-logs-azure-monitor.md
