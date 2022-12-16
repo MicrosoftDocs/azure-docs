@@ -16,7 +16,7 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 - Specific days of the week
 - Session limits per session host
 
-To learn for about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
+To learn more about autoscale, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md).
 
 >[!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
