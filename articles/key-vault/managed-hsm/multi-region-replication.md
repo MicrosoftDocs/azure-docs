@@ -21,7 +21,7 @@ When multi-region replication is enabled on a managed HSM, a second managed HSM 
 
 ## Replication latency
 
-Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to six mins before both regions are fully replicated. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to six minutes before both regions are fully replicated. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
 
 ## Failover behavior
 
