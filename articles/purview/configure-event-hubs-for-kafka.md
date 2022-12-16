@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 # Configure Event Hubs with Microsoft Purview to send and receive Atlas Kafka topics messages
 
-This article will show you you how to configure Microsoft Purview to be able to send and receive *Atlas Kafka* topics events with Azure Event Hubs.
+This article will show you how to configure Microsoft Purview to be able to send and receive *Atlas Kafka* topics events with Azure Event Hubs.
 
 If you have already configured your environment, you can follow [our guide to get started with the **Azure.Messaging.EventHubs** .NET library to send and receive messages.](manage-kafka-dotnet.md)
 
