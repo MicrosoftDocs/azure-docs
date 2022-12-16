@@ -30,6 +30,8 @@ _These offers are Bring-Your-Own-License_. They assume you have already got the 
 
 The offers support a range of operating system, Java, and WLS versions through base images (such as WebLogic Server 14 and Java 11 on Oracle Linux 7.6). These base images are also available on Azure on their own. The base images are suitable for customers that require complex, customized Azure deployments. The current set of base images is available in the [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
+If you prefer step-by-step guidance for going from zero to a full three-node WLS cluster with database and message queue on Windows or GNU/Linux Azure Virtual machines, see [Install Oracle WebLogic Server on Azure Virtual Machines manually](/azure/developer/java/migration/migrate-weblogic-to-azure-vm-manually?toc=/azure/virtual-machines/workloads/oracle/toc.json&bc=/azure/virtual-machines/workloads/oracle/breadcrumb/toc.json).
+
 _If you are interested in working closely on your migration scenarios with the engineering team developing these offers, select the [CONTACT ME](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview) button_ on the [marketplace offer overview page](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oraclelinux-wls-cluster?tab=Overview). Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
 
 ## Oracle WebLogic Server Single Node

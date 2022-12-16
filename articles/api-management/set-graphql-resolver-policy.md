@@ -19,7 +19,7 @@ The `set-graphql-resolver` policy retrieves or sets data for a GraphQL field in 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
-### Policy statement
+## Policy statement
 
 ```xml
 <set-graphql-resolver parent-type="type" field="field"> 

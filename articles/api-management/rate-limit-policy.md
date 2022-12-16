@@ -48,7 +48,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | total-calls-header-name    | The name of a response header whose value is the value specified in `calls`. |  No | N/A  |
 
 
-### Elements
+## Elements
 
 | Element       | Description                                                                                                                                                                                                                                                                                              | Required |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -61,7 +61,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The id of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| id           | The ID of the API for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 
@@ -71,7 +71,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The id of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     | 
+| id           | The ID of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     | 
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 
@@ -85,6 +85,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 * This policy can be used only once per policy definition.
 * Except where noted, [policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
+* This policy is only applied when an API is accessed using a subscription key.
 
 ## Example
 

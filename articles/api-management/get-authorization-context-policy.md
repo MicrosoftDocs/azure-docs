@@ -68,7 +68,7 @@ class Authorization
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated
 
-### Examples
+## Examples
 
 ### Get token back
 
