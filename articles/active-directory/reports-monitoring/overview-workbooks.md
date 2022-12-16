@@ -55,12 +55,11 @@ Because of the ability to customize workbooks, they can benefit many types of us
 
 Public workbook templates are built, updated, and deprecated to reflect the needs of customers and the current Azure AD services. Detailed guidance is available for several Azure AD public workbook templates. 
 
-- [Authentication prompts analysis](workbook-authentication-prompts-analysis)
-- [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer)
-- [Cross-tenant access activity](workbook-cross-tenant-access-activity)
-- [Sign-ins using legacy authentication](workbook-legacy%20authentication)
-- [Risk analysis](workbook-risk-analysis)
-- [Sensitive Operations Report](workbook-sensitive-operations-report)
+- [Authentication prompts analysis](workbook-authentication-prompts-analysis.md)
+- [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer.md)
+- [Cross-tenant access activity](workbook-cross-tenant-access-activity.md)
+- [Risk analysis](workbook-risk-analysis.md)
+- [Sensitive Operations Report](workbook-sensitive-operations-report.md)
 
 ## Next steps
 
