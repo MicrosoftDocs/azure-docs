@@ -337,7 +337,7 @@ In the last step of the SQL connection settings, configure how attributes are su
  The **Attribute** dropdown list shows any attribute that was discovered in the target database and *wasn't* chosen on the previous **Select Attributes** page. Once all the relevant attributes have been added, select **Next**.
  
  
-   :::image type="content" source="media/active-directory-app-provisioning-sql/attribute-1.png" alt-text="Screenshot of attribute mapping" lightbox="media/active-directory-app-provisioning-sql/attribute-1.png":::
+   :::image type="content" source="media/active-directory-app-provisioning-sql/attribute-1.png" alt-text="Screenshot of attribute dropdown list" lightbox="media/active-directory-app-provisioning-sql/attribute-1.png":::
 
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
@@ -405,14 +405,14 @@ You'll use the Azure portal to configure the mapping between the Azure AD user's
  1. To confirm that the schema of the database is available in Azure AD, select the **Show advanced options** checkbox and select **Edit attribute list for ScimOnPremises**. Ensure that all the attributes selected in the configuration wizard are listed.  If not, then wait several minutes for the schema to refresh, and then reload the page.  Once you see the attributes listed, then cancel from this page to return to the mappings list.
  2. Now, on the click on the **userPrincipalName** PLACEHOLDER mapping.  This mapping is added by default when you first configure on-premises provisioning.  
  
-   :::image type="content" source="media/active-directory-app-provisioning-sql/configure-11.png" alt-text="Screenshot of attribute mapping" lightbox="media/active-directory-app-provisioning-sql/configure-11.png":::
+   :::image type="content" source="media/active-directory-app-provisioning-sql/configure-11.png" alt-text="Screenshot of placeholder" lightbox="media/active-directory-app-provisioning-sql/configure-11.png":::
  Change the value to match the following:
  
  |Mapping type|Source attribute|Target attribute|
  |-----|-----|-----|
  |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:ContosoLogin|
  
-:::image type="content" source="media/active-directory-app-provisioning-sql/attribute-2.png" alt-text="Screenshot of attribute mapping" lightbox="media/active-directory-app-provisioning-sql/attribute-2.png":::
+:::image type="content" source="media/active-directory-app-provisioning-sql/attribute-2.png" alt-text="Screenshot of changing value" lightbox="media/active-directory-app-provisioning-sql/attribute-2.png":::
  
 
  4. Now select **Add New Mapping**, and repeat the next step for each mapping.
