@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Monitor IoT Edge devices
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Use Azure Monitor workbooks to monitor the health and performance of your Azure IoT Edge deployments.
 
