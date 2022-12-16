@@ -106,10 +106,10 @@ When you select `ManagedIdentity`, you must first enable a managed identity in A
 1. Select **Settings**.
 1. Switch **Service Mode** to **Serverless**.
 1. Add URLs under **Upstream URL Pattern**.
-    :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Screenshot of AzureSignalR ServiceUpstream settings":::
+  :::image type="content" source="media/concept-upstream/upstream-portal.png" alt-text="Screenshot of AzureSignalR Service Upstream settings.":::
 1. Select **Hub Rules** to open **Upstream Settings**.
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Upstream setting details":::
-1  Change **Hub Rules**, **Event Rules** and **Category Rules** by entering rule value in the corresponding field.
+  :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Screenshot of Azure SignalR Upstream setting details.":::
+1.  Change **Hub Rules**, **Event Rules** and **Category Rules** by entering rule value in the corresponding field.
 1. Under **Upstream Authentication** select 
 1. **Use Managed Identity**. (Ensure that you've enabled managed identity)
 1. Choose any options under **Audience in the issued token**. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
