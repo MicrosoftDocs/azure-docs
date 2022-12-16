@@ -4,17 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about our best practices for security updates for your Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: conceptual
-ms.date: 12/07/2022
+ms.date: 12/16/2022
  
 ---
 
 # Security Update Management for Azure Kubernetes Service (AKS)
 
 This article describes how Microsoft manages security vulnerabilities and security updates (also referred to as patches), for Azure Kubernetes Service (AKS) clusters.
-
-## Responsibilities
-
-Managing security updates is a shared responsibility between Microsoft and you, the customer.
 
 ## How we discover vulnerabilities
 
@@ -28,7 +24,7 @@ Microsoft identifies and fixes vulnerabilities and missing security updates in t
 
 - Ubuntu: Canonical provides Microsoft with OS builds that have all available security updates applied.
 
-Microsoft scans containers using <What tool or method is used> to discover vulnerabilities and missing updates in Kubernetes and Microsoft-managed containers. If fixes are available, the scanner automatically begins the updating and release process.
+Microsoft scans containers using to discover vulnerabilities and missing updates in Kubernetes and Microsoft-managed containers. If fixes are available, the scanner automatically begins the updating and release process.
 
 In addition to automated scanning, Microsoft discovers and updates vulnerabilities unknown to scanners in the following ways.
 
@@ -36,7 +32,7 @@ In addition to automated scanning, Microsoft discovers and updates vulnerabiliti
 
 * Microsoft actively engages with the security research community through multiple vulnerability reward programs. A dedicated [Microsoft Azure Bounty program][azure-bounty-program-overview] provides significant bounties for the best cloud vulnerability found each year.
 
-* Microsoft collaborates with other industry and open source software partners who share vulnerabilities, security research, and updates before the public release of the vulnerability. The goal of this collaboration is to update large pieces of Internet infrastructure before the vulnerability is announced to the public. In some cases, Microsoft contributes vulnerabilities found to this community <Is this acurate or should we rephrase>.
+* Microsoft collaborates with other industry and open source software partners who share vulnerabilities, security research, and updates before the public release of the vulnerability. The goal of this collaboration is to update large pieces of Internet infrastructure before the vulnerability is announced to the public. In some cases, Microsoft contributes vulnerabilities found to this community.
 
 * Microsoft's security collaboration happens on many levels. Sometimes it occurs formally through programs where organizations sign up to receive pre-release notifications about software vulnerabilities for products such as Kubernetes and Docker. Collaboration also happens informally due to our engagement with many open source projects such as the Linux kernel, container runtimes, virtualization technology, and others.
 
@@ -61,7 +57,7 @@ The following table describes vulnerability severity categories:
 
 ## How vulnerabilities are updated
 
-AKS patches CVE's that have a *vendor fix* every week. CVE's without a fix are waiting on a *vendor fix* before it can be remediated. The fixed container images are cached in the next corresponding VHD build, which also contains the updated Ubuntu/Mariner/Windows patched CVE's.  As long as you are running the updated VHD, you should not be running any container image CVE's with a vendor fix that is over 30 days old.  
+AKS patches CVE's that have a *vendor fix* every week. CVE's without a fix are waiting on a *vendor fix* before it can be remediated. The fixed container images are cached in the next corresponding VHD build, which also contains the updated Ubuntu/Mariner/Windows patched CVE's. As long as you are running the updated VHD, you should not be running any container image CVE's with a vendor fix that is over 30 days old.  
 
 For the OS-based vulnerabilities in the VHD, AKS uses **Unattended Update** by default, so any security updates should be applied to the existing VHD's daily. If **Unattended Update** is disabled, then it is a recommended best practice that you apply a Node Image update on a regular cadence to ensure the latest OS and Image security updates are applied.
 
