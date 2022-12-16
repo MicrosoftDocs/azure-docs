@@ -110,7 +110,7 @@ This use case demonstrates how a user can reset their password when they are wit
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. The user arrives at the EMEA Azure AD B2C tenant and selects **forgot password**. The user enters and verifies their email.
 
@@ -130,7 +130,7 @@ This use case demonstrates how a user can reset their password when they're trav
 
 1. User from NOAM attempts to sign in at **myapp.fr**, since they are on holiday in France.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. The user arrives at the EMEA Azure AD B2C tenant and selects **forgot password**. The user enters and verifies their email.
 
@@ -206,7 +206,7 @@ This use case demonstrates how a user from their local region signs into the ser
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
@@ -224,7 +224,7 @@ This scenario demonstrates how a user located away from the region in which they
 
 1. User from NOAM attempts to sign in at **myapp.fr**.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
@@ -247,7 +247,7 @@ This scenario demonstrates how users will be able to perform account linking whe
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
@@ -271,7 +271,7 @@ This scenario demonstrates how users will be able to perform  account linking wh
 
 1. User from NOAM attempts to sign in at **myapp.fr**.
 
-If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
+   If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
 1. User lands at the EMEA tenant.
 
