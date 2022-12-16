@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/08/2022
+ms.date: 12/16/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -22,11 +22,11 @@ This article helps direct and indirect Azure Enterprise Agreement (Azure EA) cus
 - Cost analysis in the Azure Enterprise portal and the Azure portal.
 
 > [!NOTE]
-> We recommend that direct EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with the Azure portal for direct Enterprise Agreement customers](ea-direct-portal-get-started.md).
+> We recommend that both direct and indirect EA Azure customers use Cost Management + Billing in the Azure portal to manage their enrollment and billing instead of using the EA portal. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
 >
-> As of October 10, 2022 direct EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
+> As of February 20, 2023 indirect EA customers won’t be able to manage their billing account in the EA portal. Instead, they must use the Azure portal. 
 > 
-> This change doesn’t affect direct Azure Government EA enrollments or indirect EA (an indirect EA is one where a customer signs an agreement with a Microsoft partner) enrollments. Both continue using the EA portal to manage their enrollment.
+> This change doesn’t affect Azure Government EA enrollments. They continue using the EA portal to manage their enrollment.
 
 ## Get started with EA onboarding
 
