@@ -3,13 +3,13 @@ title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
 author: vicancy
 ms.author: lianwei
-ms.date: 04/19/2022
+ms.date: 12/15/2022
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
 ---
-# Quickstart: Create a serverless app with Azure Functions, SignalR Service, and Python
+# Quickstart: Create a serverless app with Azure Functions and Azure SignalR Service in Python
 
 Get started with Azure SignalR Service by using Azure Functions and Python to build a serverless application that broadcasts messages to clients. You'll run the function in the local environment, connecting to an Azure SignalR Service instance in the cloud. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure Account.
 
