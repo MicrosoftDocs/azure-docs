@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/13/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Device message flow
 
-The following diagram demonstrates the IoT device message flow when you use an IoT hub in Azure IoT Hub with the MedTech service in Azure Health Data Services. Devices send messages to your IoT hub. Your IoT hub routes the device messages to the device message event hub in Azure Event Hubs for the MedTech service to pick up. The MedTech service transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. For more information, see [MedTech service data flow](iot-data-flow.md).
+The following diagram demonstrates the IoT device message flow when you use an IoT hub in Azure IoT Hub with the MedTech service in Azure Health Data Services. Devices send messages to your IoT hub. Your IoT hub routes the device messages to the device message event hub in Azure Event Hubs for the MedTech service to pick up. The MedTech service transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. For more information, see [MedTech service data flow](data-flow.md).
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png":::
 
@@ -135,7 +135,7 @@ When deployment is completed, the following resources and access roles are creat
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
-- Conforming and valid MedTech service [device](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md).
+- Conforming and valid MedTech service [device](how-to-configure-device-mappings.md) and [FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
@@ -235,7 +235,7 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn more about other methods of deploying the MedTech service, see
+To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

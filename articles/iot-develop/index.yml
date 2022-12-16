@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
-  ms.date: 12/14/22
+  ms.date: 12/15/22
   ms.custom: engagement-fy23
 
 landingContent:
@@ -21,12 +21,10 @@ landingContent:
       links:
         - text: What is Azure IoT device development?
           url: about-iot-develop.md
-        - text: Overview of device types
-          url: concepts-iot-device-types.md
+        - text: Get started with Azure IoT device development
+          url: about-getting-started-device-development.md
         - text: Overview of Azure IoT Device SDKs
           url: about-iot-sdks.md
-        - text: Connection options for Azure IoT device developers
-          url: concepts-overview-connection-options.md
   - title: Get started with device application development
     linkLists:
     - linkListType: quickstart
@@ -45,8 +43,6 @@ landingContent:
           url: quickstart-devkit-stm-b-l475e-iot-hub.md
         - text: Connect an STMicroelectronics L4S5I-IOT01A to IoT Central
           url: quickstart-devkit-stm-b-l4s5i.md
-        - text: Connect an MXCHIP AZ3166 to Azure IoT Hub
-          url: quickstart-devkit-mxchip-az3166-iot-hub.md
   - title: Build device solutions
     linkLists:
     - linkListType: tutorial
