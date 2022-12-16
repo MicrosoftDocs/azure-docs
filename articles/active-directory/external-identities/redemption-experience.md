@@ -106,20 +106,20 @@ When a guest signs in to a resource in a partner organization for the first time
 
 1. The guest reviews the **Review permissions** page describing the inviting organization's privacy statement. A user must **Accept** the use of their information in accordance to the inviting organization's privacy policies to continue.
 
-   ![Screenshot showing the Review permissions page.](media/redemption-experience/new-review-permissions.png) 
+   :::image type="content" source="media/redemption-experience/new-review-permissions.png" alt-text="Screenshot showing the Review permissions page.":::
 
    > [!NOTE]
    > For information about how you as a tenant administrator can link to your organization's privacy statement, see [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md).
 
 2. If terms of use are configured, the guest opens and reviews the terms of use, and then selects **Accept**. 
 
-   ![Screenshot showing new terms of use.](media/redemption-experience/terms-of-use-accept.png) 
+   :::image type="content" source="media/redemption-experience/terms-of-use-accept.png" alt-text="Screenshot showing new terms of use."::: 
 
    You can configure [terms of use](../conditional-access/terms-of-use.md) in **External Identities** > **Terms of use**.
 
 3. Unless otherwise specified, the guest is redirected to the Apps access panel, which lists the applications the guest can access.
 
-   ![Screenshot showing the Apps access panel.](media/redemption-experience/myapps.png) 
+   :::image type="content" source="media/redemption-experience/myapps.png" alt-text="Screenshot showing the Apps access panel.":::
 
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
 If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
