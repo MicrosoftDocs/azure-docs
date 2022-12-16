@@ -1,22 +1,17 @@
 ---
 title: Move Azure SQL resources between regions with Azure Resource Mover
 description: Learn how to move Azure SQL resources to another region with Azure Resource Mover
-author: rayne-wiselman
+author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 12/06/2022
-ms.author: raynew
-ms.custom: mvc
+ms.date: 12/16/2022
+ms.author: ankitadutta
+ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
 ---
 
 # Tutorial: Move Azure SQL Database resources to another region
-
-> [!IMPORTANT]
-> Azure Resource Mover is currently GA.
-
-Azure Resource Mover helps you move Azure resources between Azure regions. You might move your resources to another region for many reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 In this tutorial, you learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
 
@@ -107,7 +102,7 @@ To select the resources you want to move, follow these steps:
 
 ## Resolve dependencies
 
-To resolve the resources you want to move, follow these steps:
+To resolve the dependent resources you want to move, follow these steps:
 
 1. On **Across regions** page, if resources show a *Validate dependencies* message in the **Issues** column, select the **Validate dependencies** button. This starts the validation process.
 2. If dependencies are found, select **Add dependencies**.
@@ -124,7 +119,7 @@ To resolve the resources you want to move, follow these steps:
 
 ## Move SQL server
 
-Azure Resource Mover currently doesn't move SQL server across regions. To commit the move, you must first assign a target SQL server in the target region.
+Azure Resource Mover currently doesn't move SQL server across regions. You must first assign a target SQL Server in the target region, and then commit the move.
 
 To assign the destination resources manually, follow these steps:
 
@@ -231,7 +226,7 @@ To move the databases, follow these steps:
 > [!NOTE]
 > Databases are now in a *Commit move pending* state.
 
-## Manage the move
+## Commit or discard the move
 
 After the initial move, you can decide whether you want to commit the move, or to discard it. 
 
