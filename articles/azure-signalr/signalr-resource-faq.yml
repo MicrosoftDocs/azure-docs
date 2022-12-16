@@ -56,13 +56,12 @@ sections:
         answer: |
           You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
           
-          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. If you go to the metrics pane, you can
-          take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+          On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. You can use [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
           
       - question: |
           What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
         answer: |
-          For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (i.e. use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
+          For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (for example, use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
           
           Classic mode is designed for backward compatibility for existing applications so shouldn't be used for new applications.
           
@@ -105,7 +104,10 @@ sections:
           
           - You're already using ASP.NET or ASP.NET Core SignalR, primarily using .NET or need to integrate with .NET ecosystem (like Blazor).
           - There's a SignalR client available for your platform. 
-          - You need an established protocol that supports a wide variety of calling patterns (RPC and streaming), transports (WebSocket, server sent events, and long polling) and with a client that manages the connection lifetime on your behalf. 
+          - You need an established protocol that supports a wide variety of:
+            - calling patterns (RPC and streaming) 
+            - transports (WebSocket, server sent events, and long polling) 
+          - You need a client that manages the connection lifetime on your behalf. 
 
           Azure Web PubSub service is more suitable for situations where:  
 
