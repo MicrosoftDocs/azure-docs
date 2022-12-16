@@ -101,6 +101,9 @@ Console.WriteLine("Azure Queue Storage client library - .NET quickstart sample")
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+
 ---
 
 ## Object model
@@ -136,19 +139,19 @@ These example code snippets show you how to perform the following actions with t
 
 ## [Passwordless (Recommended)](#tab/passwordless)
 
-### Authorize access and create a client
+### Authorize access and create a client object
 
 [!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
 
-You can authorize a `QueueClient` instance to access queue data using `DefaultAzureCredential`. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step. 
+Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` will automatically discover and use the account you signed in with in the previous step.
 
-Make sure to add the **Azure.Identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add a using directive for the `Azure.Identity` namespace in the *Program.cs* file:
+To authorize using `DefaultAzureCredential`, make sure you've added the **Azure.Identity** package, as described in [Install the packages](#install-the-packages). Also, be sure to add a using directive for the `Azure.Identity` namespace in the *Program.cs* file:
 
 ```csharp
 using Azure.Identity;
 ```
 
-Decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
+Next, decide on a name for the queue and create an instance of the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, using `DefaultAzureCredential` for authorization. We'll use this client object to create and interact with the queue resource in the storage account.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information, see [Naming queues and metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -199,9 +202,6 @@ string queueName = "quickstartqueues-" + Guid.NewGuid().ToString();
 // Instantiate a QueueClient to create and interact with the queue
 QueueClient queueClient = new QueueClient(connectionString, queueName);
 ```
-
-> [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services
 
 ---
 
