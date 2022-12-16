@@ -37,16 +37,6 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
-  - If you plan to use a [private endpoint with Batch accounts](private-connectivity.md), you must disable private endpoint network policies. Run the following Azure CLI command:
-
-```azurecli-interactive
-az network vnet subnet update \
-  --vnet-name <vnetname> \
-  -n <subnetname> \
-  --resource-group <resourcegroup> \
-  --disable-private-endpoint-network-policies
-```
-
 - Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. Choose one of the following options to allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)):
 
   - Use [**nodeManagement**](private-connectivity.md) private endpoint with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
