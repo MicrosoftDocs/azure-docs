@@ -3,7 +3,7 @@ title: Prepare for live traffic with Azure Communications Gateway
 description: After deploying Azure Communications Gateway, you and your onboarding team must carry out further integration work before you can launch your service.
 author: rcdun
 ms.author: rdunstan
-ms.service: #Required; the service slug assigned to your service by ACOM.
+ms.service: communications-gateway
 ms.topic: how-to
 ms.date: 12/14/2022
 ---

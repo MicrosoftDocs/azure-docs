@@ -3,7 +3,7 @@ title: Deploy Azure Communications Gateway
 description: This article guides you through how to deploy an Azure Communications Gateway.
 author: AtiqKhan-Docs
 ms.author: khanatiq
-ms.service: #Required; the service slug assigned to your service by ACOM.
+ms.service: communications-gateway
 ms.topic: how-to 
 ms.date: 11/01/2022
 ---

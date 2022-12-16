@@ -3,7 +3,7 @@ title: Prepare to deploy Azure Communications Gateway
 description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway in Azure.
 author: AtiqKhan-Docs
 ms.author: khanatiq
-ms.service: #Required; the service slug assigned to your service by ACOM.
+ms.service: communications-gateway
 ms.topic: how-to 
 ms.date: 15/12/2022
 ---

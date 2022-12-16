@@ -3,7 +3,7 @@ title: Interoperability with Microsoft Operator Connect and Microsoft Teams Phon
 description: #Required; article description that is displayed in search results. 
 author: rcdun
 ms.author: rdunstan
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: communications-gateway
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.custom: template-concept

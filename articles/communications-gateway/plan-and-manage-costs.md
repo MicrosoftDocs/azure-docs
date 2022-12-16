@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Communications Gat
 author: rcdun
 ms.author: rdunstan
 ms.custom: subject-cost-optimization
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+ms.service: communications-gateway
 ms.topic: how-to
 ms.date: 12/06/2022
 ms.custom: template-how-to
