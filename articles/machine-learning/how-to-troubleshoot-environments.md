@@ -50,7 +50,7 @@ There are some ways to decrease the impact of vulnerabilities:
 
 ### Vulnerabilities vs Reproducibility
 
-Reproducibility is a one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
+Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
 
 `AzureML Environment`'s primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
