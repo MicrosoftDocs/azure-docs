@@ -20,7 +20,7 @@ The following filters require that the user manually enters the value with which
 
 |       Filter name  |     Description                                 |     Value format    |     Applicable operators                                                                                                                                                                                                                              |
 |--------------------|-------------------------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     Whois Email    |   The primary contact email in a Whois record.  |   name@domain.com   |   Equals, Not Equals, Starts with, Does not start with, Matches, Does Not Match, In, Not in, Starts with in, Does not start with in, Matches in, Does not match in, Contains, Does Not Contain, Contains In, Does Not Contain In, Empty, Not Empty    |
+|     Whois Email    |   The primary contact email in a Whois record.  |   name@domain.com   |   `Equals` `Not Equals` `Starts with` `Does not start with` `Matches` `Does Not Match` `In` `Not in` `Starts with in` `Does not start with in` `Matches in` `Does not match in` `Contains` `Does Not Contain` `Contains In` `Does Not Contain In` `Empty` `Not Empty`    |
 
 
 
