@@ -10,9 +10,9 @@ ms.date: 12/31/2022
 
 # What is Azure Native Qumulo Scalable File Service?
 
-Qumulo is an industry leader in distributed file system and object storage. Qumulo provides a highly scalable, highly performant, and simple-to-use cloud-native file system that can support a wide variety of data workloads. The file system uses standard file-sharing protocols, such as NFS, SMB, FTP, and S3.
+Qumulo is an industry leader in distributed file system and object storage. Qumulo provides a scalable, performant, and simple-to-use cloud-native file system that can support a wide variety of data workloads. The file system uses standard file-sharing protocols, such as NFS, SMB, FTP, and S3.
 
-The Azure Native Qumulo Scalable File Service offering in Azure Marketplace enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while providing you full admin rights to configure details like the file system shares, exports, quotas, snapshots, and Active Directory users.
+The Azure Native Qumulo Scalable File Service offering in Azure Marketplace enables you to create and manage a Qumulo file system by using the Azure portal with a seamlessly integrated experience. You can also create and manage Qumulo resources by using the Azure portal through the resource provider `Qumulo.Storage/fileSystem`. Qumulo manages the service while giving you full admin rights to configure details like file system shares, exports, quotas, snapshots, and Active Directory users.
 
 > [!NOTE]
 > Azure Native Qumulo Scalable File Service stores and processes data only in the region where the service was deployed. No data is stored outside that region.
