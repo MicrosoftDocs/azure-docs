@@ -2,11 +2,11 @@
 title: Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
 description: Learn how you can save on your Azure Synapse Analytics costs when you prepurchase Azure Synapse commit units (SCU) for one year.
 author: bandersmsft
-ms.reviewer: primittal
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 12/06/2022
 ms.author: banders
 ---
 

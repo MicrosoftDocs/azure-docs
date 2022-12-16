@@ -1,5 +1,5 @@
 ---
-title: API for NoSQL Python examples for Azure Cosmos DB
+title: Examples for Azure Cosmos DB for NoSQL SDK for Python
 description: Find Python examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
 author: seesharprun
 ms.author: sidandrews
@@ -9,22 +9,14 @@ ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
 ms.date: 10/18/2021
-ms.custom: devx-track-python, ignite-2022
+ms.custom: devx-track-python, ignite-2022, devguide-python, py-fresh-zinc
 ---
 
-# Azure Cosmos DB Python examples
+# Examples for Azure Cosmos DB for NoSQL SDK for Python
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-> [!div class="op_single_selector"]
->
-> - [.NET SDK Examples](samples-dotnet.md)
-> - [Java V4 SDK Examples](samples-java.md)
-> - [Spring Data V3 SDK Examples](samples-java-spring-data.md)
-> - [Node.js Examples](samples-nodejs.md)
-> - [Python Examples](samples-python.md)
-> - [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
->
+[!INCLUDE[Samples selector](includes/samples-selector.md)]
 
 Sample solutions that do CRUD operations and other common operations on Azure Cosmos DB resources are included in the `main/sdk/cosmos` folder of the [azure/azure-sdk-for-python](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/cosmos) GitHub repository. This article provides:
 

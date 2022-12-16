@@ -15,6 +15,18 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory External Identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the External Identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## November 2022
+
+### Updated articles
+
+- [Tutorial: Use PowerShell to bulk invite Azure AD B2B collaboration users](bulk-invite-powershell.md)
+- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
+- [Reset redemption status for a guest user](reset-redemption-status.md)
+- [Language customization in Azure Active Directory](user-flow-customize-language.md)
+- [B2B collaboration overview](what-is-b2b.md)
+- [Azure Active Directory External Identities: What's new](whats-new-docs.md)
+- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
+
 ## October 2022
 
 ### Updated articles
@@ -52,21 +64,3 @@ Welcome to what's new in Azure Active Directory External Identities documentatio
 - [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md)
 - [Leave an organization as an external user](leave-the-organization.md)
 - [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
-
-## August 2022
-
-### Updated articles
-
-- [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md)
-- [Azure Active Directory B2B best practices](b2b-fundamentals.md)
-- [Azure Active Directory B2B collaboration FAQs](faq.yml)
-- [Email one-time passcode authentication](one-time-passcode.md)
-- [Azure Active Directory B2B collaboration invitation redemption](redemption-experience.md)
-- [Troubleshooting Azure Active Directory B2B collaboration](troubleshoot.md)
-- [Properties of an Azure Active Directory B2B collaboration user](user-properties.md)
-- [B2B collaboration overview](what-is-b2b.md)
-- [Configure external collaboration settings](external-collaboration-settings-configure.md)
-- [Leave an organization as an external user](leave-the-organization.md)
-- [Overview: Cross-tenant access with Azure AD External Identities](cross-tenant-access-overview.md)
-- [Configure cross-tenant access settings for B2B direct connect](cross-tenant-access-settings-b2b-direct-connect.md)
-- [Azure Active Directory External Identities: What's new](whats-new-docs.md)

@@ -5,7 +5,7 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/12/2020
+ ms.date: 12/12/2022
  ms.author: albecker1
  ms.custom: include file
 ---
@@ -81,7 +81,7 @@ Let’s continue with our Standard_D8s_v3 virtual machine. Except this time, we'
 
 ![Diagram showing a host caching example.](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
-The application uses a Standard_D8s_v3 virtual machine with caching enabled. It makes a request for 15,000 IOPS. The requests are broken down as 5,000 IOPS to each underlying disk attached. No performance capping occurs.
+The application uses a Standard_D8s_v3 virtual machine with caching enabled. It makes a request for 16,000 IOPS. The requests are completed as soon as they are read or written to the cache. Writes are then lazily written to the attached Disks.
 
 ## Combined uncached and cached limits
 

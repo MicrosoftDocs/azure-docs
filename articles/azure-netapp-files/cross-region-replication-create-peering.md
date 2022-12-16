@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/16/2022
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
@@ -24,6 +24,9 @@ Setting up replication peering enables you to asynchronously replicate data from
 Azure NetApp Files replication does not currently support multiple subscriptions; all replications must be performed under a single subscription.
 
 Before you begin, ensure that you have reviewed the [requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md).  
+
+>[!IMPORTANT]
+>Additional configuration is required before creating a cross-region replication relationship with a large volume. For more information, refer to [Large volume configuration for cross-region replication](cross-region-replication-requirements-considerations.md#large-volume-configuration).
 
 ## Locate the source volume resource ID  
 

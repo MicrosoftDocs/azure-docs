@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 10/03/2022
+ms.date: 12/15/2022
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -118,7 +118,8 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * You cannot create a backup from a large volume.
 * You cannot use Standard storage with cool access with large volumes.
 * You cannot create a large volume with application volume groups.
-    
+* Large volumes are not currently supported with [cross-zone replication](cross-zone-replication-introduction.md).
+* Large volumes in a cross-region replication require additional configuration.   
 * Throughput ceilings for the three performance tiers (Standard, Premium, and Ultra) of large volumes are based on the existing 100-TiB maximum capacity targets. You'll be able to grow to 500 TiB with the throughput ceiling as per the table below. 
 
 | Capacity tier | Volume size (TiB) | Throughput (MiB/s) |
@@ -129,7 +130,10 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ### Configure large volumes 
 
-Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
+>[!IMPORTANT]
+>Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
+>
+>When creating the request, you should note if you intend to use large volumes in a cross-region replication relationship. <!-- need more info here -->
 
 Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as regular volumes. 
 

@@ -41,7 +41,7 @@ You have several options to create device templates:
 - When the device connects to IoT Central, have it send the model ID of the model it implements. IoT Central uses the model ID to retrieve the model from the model repository and to create a device template. Add any cloud properties and views your IoT Central application needs to the device template.
 - When the device connects to IoT Central, let IoT Central [autogenerate a device template](#autogenerate-a-device-template) definition from the data the device sends.
 - Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Manually import the device model into your IoT Central application. Then add the cloud properties and views your IoT Central application needs.
-- You can also add device templates to an IoT Central application using the [REST API](/training/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
+- You can also add device templates to an IoT Central application using the [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 > [!NOTE]
 > In each case, the device code must implement the capabilities defined in the model. The device code implementation isn't affected by the cloud properties and views sections of the device template.
@@ -97,7 +97,7 @@ To create a device model, you can:
 
 1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
-    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
+    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model ID for device template root interface.":::
 
 1. To view the component ID, select **Edit Identity** on any of the component interfaces in the model.
 
@@ -178,7 +178,7 @@ The following table shows the configuration settings for a property capability:
 
 You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds as shown in the following screenshot:
 
-:::image type="content" source="media/howto-set-up-template/command.png" alt-text="Screenshot that shows how to add commands" lightbox="media/howto-set-up-template/command.png":::
+:::image type="content" source="media/howto-set-up-template/command.png" alt-text="Screenshot that shows how to add commands." lightbox="media/howto-set-up-template/command.png":::
 
 The following table shows the configuration settings for a command capability:
 
@@ -215,7 +215,7 @@ Cloud-to-device messages:
 
 Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you can use cloud properties to store the name of the customer who has installed the device, or the device's last service date.
 
-:::image type="content" source="media/howto-set-up-template/cloud-properties.png" alt-text="Screenshot that shows how to add cloud properties":::
+:::image type="content" source="media/howto-set-up-template/cloud-properties.png" alt-text="Screenshot that shows how to add cloud properties.":::
 
 > [!TIP]
 > You can only add cloud properties to the **Root** component in the model.

@@ -1,7 +1,7 @@
 ---
 title: OCR for documents - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Extract print and handwritten text from scanned and digital documents with Form Recognizer’s Read OCR model.
+description: Extract print and handwritten text from scanned and digital documents with Form Recognizer's Read OCR model.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -13,22 +13,22 @@ monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 
-# OCR for documents
+# Form Recognizer read (OCR) model
 
 **This article applies to:** ![Form Recognizer v3.0 checkmark](media/yes-icon.png) **Form Recognizer v3.0**.
 
 > [!NOTE]
 >
 > For extracting text from in-the-wild images like labels, street signs, and posters, use the [Computer Vision v4.0 preview Read](../../cognitive-services/Computer-vision/concept-ocr.md) feature optimized for general, non-document images with a performance-enhanced synchronous API that makes it easier to embed OCR in your user experience scenarios.
-> 
+>
 
 ## What is OCR for documents?
 
-Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It should include features like higher-resolution scanning of document images for better handling of smaller and dense text, paragraphs detection, handling fillable forms, and advanced forms and document scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
+Optical Character Recognition (OCR) for documents is optimized for large text-heavy documents in multiple file formats and global languages. It includes features like higher-resolution scanning of document images for better handling of smaller and dense text; paragraph detection; and fillable form management. OCR capabilities also include advanced scenarios like single character boxes and accurate extraction of key fields commonly found in invoices, receipts, and other prebuilt scenarios.
 
 ## OCR in Form Recognizer - Read model
 
-Form Recognizer v3.0’s Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages, and is the underlying OCR engine for other Form Recognizer models like Layout, General Document, Invoice, Receipt, Identity (ID) document, and other prebuilt models, as well as custom models.
+Form Recognizer v3.0's Read Optical Character Recognition (OCR) model runs at a higher resolution than Computer Vision Read and extracts print and handwritten text from PDF documents and scanned images. It also includes preview support for extracting text from Microsoft Word, Excel, PowerPoint, and HTML documents. It detects paragraphs, text lines, words, locations, and languages. The read model is the underlying OCR engine for other Form Recognizer prebuilt models like Layout, General Document, Invoice, Receipt, Identity (ID) document, in addition to custom models.
 
 ## OCR supported document types
 
@@ -95,8 +95,9 @@ Form Recognizer v3.0 version supports several languages for the read OCR model. 
 
 ## Data detection and extraction
 
-### Microsoft Office and HTML text extraction (preview) <sup>🆕</sup>
-Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text as well as text from the images embedded in the Word document by running OCR on the images.
+### Microsoft Office and HTML text extraction
+
+Use the parameter `api-version=2022-06-30-preview` when using the REST API or the corresponding SDKs of that API version to preview text extraction from Microsoft Word, Excel, PowerPoint, and HTML files. The following illustration shows extraction of the digital text and text from the images embedded in the Word document by running OCR on the images.
 
 :::image type="content" source="media/office-to-ocr.png" alt-text="Screenshot of a Microsoft Word document extracted by Form Recognizer Read OCR.":::
 
@@ -104,12 +105,12 @@ The page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
 | --- | --- | --- |
-|Word (preview) | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
-|Excel (preview) | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
-|PowerPoint (preview)|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML (preview)| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
+|Word  | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
+|Excel  | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint |  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
-### Paragraphs extraction <sup>🆕</sup>
+### Paragraphs extraction
 
 The Read OCR model in Form Recognizer extracts all identified blocks of text in the `paragraphs` collection as a top level object under `analyzeResults`. Each entry in this collection represents a text block and includes the extracted text as`content`and the bounding `polygon` coordinates. The `span` information points to the text fragment within the top-level `content` property that contains the full text from the document.
 
@@ -122,7 +123,8 @@ The Read OCR model in Form Recognizer extracts all identified blocks of text in 
     }
 ]
 ```
-### Language detection <sup>🆕</sup>
+
+### Language detection 
 
 The Read OCR model in Form Recognizer adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the detected primary language for each text line along with the `confidence` in the `languages` collection under `analyzeResult`.
 
@@ -190,6 +192,7 @@ For the preview of Microsoft Word, Excel, PowerPoint, and HTML file support, Rea
     }
 ]
 ```
+
 ### Select page (s) for text extraction
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
@@ -204,14 +207,14 @@ The response includes classifying whether each text line is of handwriting style
 ```json
 "styles": [
 {
-	"confidence": 0.95,
-	"spans": [
-	{
-		"offset": 509,
-		"length": 24
-	}
-	"isHandwritten": true
-	]
+    "confidence": 0.95,
+    "spans": [
+    {
+        "offset": 509,
+        "length": 24
+    }
+    "isHandwritten": true
+    ]
 }
 ```
 

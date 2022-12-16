@@ -1,22 +1,18 @@
 ---
-title: Configure Azure Synapse Link for SQL Server 2022 with network security (preview)
-description: Learn how to configure Azure Synapse Link for SQL Server 2022 with network security (preview).
+title: Configure Azure Synapse Link for SQL Server 2022 with network security
+description: Learn how to configure Azure Synapse Link for SQL Server 2022 with network security.
 author: yexu
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 09/28/2022
+ms.date: 11/16/2022
 ms.author: yexu
 ms.reviewer: sngun, wiassaf
 ---
 
-# Configure Azure Synapse Link for SQL Server 2022 with network security (preview)
+# Configure Azure Synapse Link for SQL Server 2022 with network security
 
 This article is a guide for configuring Azure Synapse Link for SQL Server 2022 with network security. Before you begin this process, you should know how to create and start Azure Synapse Link for SQL Server 2022. For information, see [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md). 
-
-> [!IMPORTANT]
-> Azure Synapse Link for SQL is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Create a managed workspace virtual network without data exfiltration
 
@@ -67,11 +63,11 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
 1. Create a linked service that connects to your SQL Server 2022 instance. 
 
-   To learn how, see the "Create a linked service for your source SQL Server 2022 database" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-a-linked-service-for-your-source-sql-server-2022-database).
+   To learn how, see the "Create a linked service for your source SQL Server 2022 database" section of [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md#create-a-linked-service-for-your-source-sql-server-2022-database).
 
 1. Add a role assignment to ensure that you've granted your Azure Synapse workspace managed identity permissions to your Azure Data Lake Storage Gen2 storage account that's used as the landing zone. 
 
-   To learn how, see the "Create a linked service to connect to your landing zone on Azure Data Lake Storage Gen2" section of [Get started with Azure Synapse Link for SQL Server 2022 (preview)](connect-synapse-link-sql-server-2022.md#create-a-linked-service-to-connect-to-your-landing-zone-on-azure-data-lake-storage-gen2).
+   To learn how, see the "Create a linked service to connect to your landing zone on Azure Data Lake Storage Gen2" section of [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md#create-a-linked-service-to-connect-to-your-landing-zone-on-azure-data-lake-storage-gen2).
 
 1. Create a linked service that connects to your Azure Data Lake Storage Gen2 storage (landing zone) with managed private endpoint enabled.
 
@@ -90,7 +86,7 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
    d. Complete the creation of the linked service for Azure Data Lake Storage Gen2 storage.
    
      :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe4.png" alt-text="Screenshot of new sql db linked service pe4.":::
-		 
+         
 1. Now you can create a link connection from the **Integrate** pane to replicate data from your SQL Server 2022 instance to an Azure Synapse SQL pool.
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot that shows how to create a link.":::

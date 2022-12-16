@@ -68,8 +68,12 @@ The native cloud connector requires:
         > [!NOTE]
         > To enable the Azure Arc auto-provisioning, you'll need **Owner** permission on the relevant Azure subscription.
         
-    - More extensions should be enabled on the Arc-connected machines.
-    - Log Analytics (LA) agent on Arc machines, and ensure the selected workspace has security solution installed. The LA agent is currently configured in the subscription level. All of your multicloud AWS accounts and GCP projects under the same subscription will inherit the subscription settings.
+    - Other extensions should be enabled on the Arc-connected machines:
+        - Microsoft Defender for Endpoint
+        - VA solution (TVM/Qualys)
+        - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
+
+            Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
         
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -93,9 +97,9 @@ The native cloud connector requires:
     - Other extensions should be enabled on the Arc-connected machines:
         - Microsoft Defender for Endpoint
         - VA solution (TVM/Qualys)
-        - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+        - Log Analytics (LA) agent on Arc machines or Azure Monitor agent (AMA)
 
-        The LA agent is currently configured in the subscription level, such that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings regarding the LA agent.
+            Make sure the selected LA workspace has security solution installed. The LA agent and AMA are currently configured in the subscription level. All of your AWS accounts and GCP projects under the same subscription will inherit the subscription settings for the LA agent and AMA.
 
         Learn more about [monitoring components](monitoring-components.md) for Defender for Cloud.
 
@@ -250,7 +254,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Microsoft Defender for Servers Plan 2](defender-for-servers-introduction.md#defender-for-servers-plans)|
+|Pricing:|Requires [Microsoft Defender for Servers Plan 2](plan-defender-for-servers-select-plan.md#plan-features)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 
@@ -453,7 +457,6 @@ The following IAM permissions are needed to discover AWS resources:
 You can check out the following blogs:
 
 - [Ignite 2021: Microsoft Defender for Cloud news](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/ignite-2021-microsoft-defender-for-cloud-news/ba-p/2882807).
-- [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575).
 - [Security posture management and server protection for AWS and GCP](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
 
 ## Next steps

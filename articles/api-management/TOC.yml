@@ -120,7 +120,7 @@
               href: front-door-api-management.md
             - name: Enable zone redundancy
               displayName: Availability zones
-              href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+              href: ../reliability/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
             - name: Compute platform
               href: compute-infrastructure.md
             - name: Set up DR using backup/restore
@@ -431,6 +431,8 @@
         href: virtual-network-reference.md
       - name: Self-hosted gateway configuration
         href: self-hosted-gateway-settings-reference.md  
+      - name: Diagnostic logs settings
+        href: diagnostic-logs-reference.md
 - name: Resources
   items:
       - name: FAQ

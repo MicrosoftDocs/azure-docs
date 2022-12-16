@@ -10,14 +10,12 @@ ms.custom: ignite-fall-2021
 
 # Create custom analytics rules to detect threats
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 After [connecting your data sources](quickstart-onboard.md) to Microsoft Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 
 Analytics rules search for specific events or sets of events across your environment, alert you when certain event thresholds or conditions are reached, generate incidents for your SOC to triage and investigate, and respond to threats with automated tracking and remediation processes.
 
 > [!TIP]
-> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any changes needed.
+> When creating custom rules, use existing rules as templates or references. Using existing rules as a baseline helps by building out most of the logic before you make any needed changes.
 
 > [!div class="checklist"]
 > - Create analytics rules
@@ -94,7 +92,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
     Learn more about surfacing custom details in alerts, and see the [complete instructions](surface-custom-details-in-alerts.md).
 
-- Use the **Alert details** configuration section to tailor the alert's presentation details to its actual content. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
+- Use the **Alert details** configuration section to override default values of the alert's properties with details from the underlying query results. Alert details allow you to display, for example, an attacker's IP address or account name in the title of the alert itself, so it will appear in your incidents queue, giving you a much richer and clearer picture of your threat landscape.
 
     See complete instructions on [customizing your alert details](customize-alert-details.md).
 

@@ -7,10 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 12/12/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: common
+ms.custom: engagement-fy23
 ---
 
 # Configure an expiration policy for shared access signatures
@@ -35,23 +36,34 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 
 When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS that is signed with the account key. The types of shared access signatures that are signed with the account key are the service SAS and the account SAS.
 
-> [!NOTE]
-> Before you can configure a SAS expiration policy, you may need to rotate each of your account access keys at least once.
+### Do I need to rotate the account access keys first?
 
-### [Azure portal](#tab/azure-portal)
+Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys (key1 and key2), you will need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated first, the operation will fail.
+
+### How to configure a SAS expiration policy
+
+You can configure a SAS expiration policy using the Azure portal, PowerShell, or Azure CLI.
+
+#### [Azure portal](#tab/azure-portal)
 
 To configure a SAS expiration policy in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
 1. Under **Settings**, select **Configuration**.
-1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**. If the setting appears disabled, then you need to rotate both account access keys before you can set a recommended upper limit for SAS expiry interval.
-1. Specify the recommended interval for any new shared access signatures that are created on resources in this storage account.
+1. Locate the setting for **Allow recommended upper limit for shared access signature (SAS) expiry interval**, and set it to **Enabled**.
 
-    :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal":::
+    > [!NOTE]
+    > If the setting is grayed out and you see the message shown in the image below, then [you will need to rotate both account access keys](#do-i-need-to-rotate-the-account-access-keys-first) before you can set the **Recommended upper limit for SAS expiry interval** values:
+    >
+    > :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png" alt-text="Screenshot showing the option to configure a SAS expiration policy is grayed out in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal-grayed-out.png":::
 
-1. Select the **Save** button to save your changes.
+1. Specify the time values under **Recommended upper limit for SAS expiry interval** for the recommended interval for any new shared access signatures that are created on resources in this storage account.
 
-### [PowerShell](#tab/azure-powershell)
+    :::image type="content" source="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png" alt-text="Screenshot showing how to configure a SAS expiration policy in the Azure portal." lightbox="media/sas-expiration-policy/configure-sas-expiration-policy-portal.png":::
+
+1. Select **Save** to save your changes.
+
+#### [PowerShell](#tab/azure-powershell)
 
 To configure a SAS expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, and then set the `-SasExpirationPeriod` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `-SasExpirationPeriod` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
 
@@ -64,7 +76,10 @@ $account = Set-AzStorageAccount -ResourceGroupName <resource-group> `
 > [!TIP]
 > You can also set the SAS expiration policy as you create a storage account by setting the `-SasExpirationPeriod` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
-To verify that the policy has been applied, use the `SasPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command. 
+> [!NOTE]
+> If you get an error message indicating that the creation time for a key has not been set, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
+
+To verify that the policy has been applied, check the storage account's SasPolicy property.
   
 ```powershell
 $account.SasPolicy
@@ -75,7 +90,7 @@ The SAS expiration period appears in the console output.
 > [!div class="mx-imgBorder"]
 > ![SAS expiration period](./media/storage-sas-expiration-policy/sas-policy-console-output.png)
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To configure a SAS expiration policy, use the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command, and then set the `--key-exp-days` parameter to the number of days, hours, minutes, and seconds that a SAS token can be active from the time that a SAS is signed. The string that you provide the `--key-exp-days` parameter uses the following format: `<days>.<hours>:<minutes>:<seconds>`. For example, if you wanted the SAS to expire 1 day, 12 hours, 5 minutes, and 6 seconds after it is signed, then you would use the string `1.12:05:06`.
 
@@ -88,6 +103,9 @@ az storage account update \
 
 > [!TIP]
 > You can also set the SAS expiration policy as you create a storage account by setting the `--key-exp-days` parameter of the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command.
+
+> [!NOTE]
+> If you get an error message indicating that the creation time for a key has not been set, [rotate the account access keys](#do-i-need-to-rotate-the-account-access-keys-first) and try again.
 
 To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, and use the string `{SasPolicy:sasPolicy}` for the `-query` parameter.
   
