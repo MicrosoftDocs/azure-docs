@@ -19,7 +19,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
 
 ## Prerequisites
 
-1. Make sure that you have owner or contributor access to the Azure subscription. For custom roles, you also need write access to:
+1. Make sure that you have **Owner** or **Contributor** access to the Azure subscription. For custom roles, you also need write access to:
 
    - The resource group where your delegated subnet is created.
    - The resource group where your Qumulo file system namespace is created.
@@ -58,7 +58,7 @@ In this quickstart, you create an instance of Azure Native Qumulo Scalable File 
   
    | **Property** | **Description** |
    |--|--|
-   |**Subscription** | From the dropdown list, select the Azure subscription where you have owner access. |
+   |**Subscription** | From the dropdown list, select the Azure subscription where you have **Owner** access. |
    |**Resource group** | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure resource group overview](/azure/azure-resource-manager/management/overview). |
    |**Resource name** | Enter the name of the Qumulo file system. The resource name should have fewer than 15 characters, and it can contain only alphanumeric characters and the hyphen symbol.|
    |**Region** | Select one of the available regions from the dropdown list. |
