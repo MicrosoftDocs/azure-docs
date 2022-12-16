@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM (Preview)
 
-Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to an other Azure region (called a secondary). Once configured, both regions are active, able to serve requests, and with automated replication will share the same key material, roles, and permissions. The closest available region to the application will receive and fulfill the request thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication will enhance the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to another Azure region (called a secondary). Once configured, both regions are active, able to serve requests, and with automated replication will share the same key material, roles, and permissions. The closest available region to the application will receive and fulfill the request thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication will enhance the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
