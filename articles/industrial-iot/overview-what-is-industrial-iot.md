@@ -1,8 +1,8 @@
 ---
 title: Azure Industrial IoT Overview
 description: This article provides an overview of Industrial IoT. It explains the shop floor connectivity and security components in IIoT.
-author: jehona-m
-ms.author: jemorina
+author: hansgschossmann
+ms.author: johanng
 ms.service: industrial-iot
 ms.topic: overview
 ms.date: 3/22/2021

@@ -32,7 +32,7 @@ Use the Speech SDK when:
 
 * **Speech recognition**: Convert speech to text either from audio files or directly from a microphone, or transcribe a recorded conversation.
 
-* **Speech synthesis**: Convert text to speech either by using input from text files or by inputting directly from the command line. Customize speech output characteristics by using [Speech Synthesis Markup Language (SSML) configurations](speech-synthesis-markup.md), and [neural voices](speech-synthesis-markup.md#prebuilt-neural-voices-and-custom-neural-voices).
+* **Speech synthesis**: Convert text to speech either by using input from text files or by inputting directly from the command line. Customize speech output characteristics by using [Speech Synthesis Markup Language (SSML) configurations](speech-synthesis-markup.md).
 
 * **Speech translation**: Translate audio in a source language to text or audio in a target language.
 

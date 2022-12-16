@@ -1,11 +1,11 @@
 ---
-title: Micro agent security alerts (Preview)
+title: Micro agent security alerts
 description: Learn about security alerts and recommended remediation using Defender for IoT device's features, and services.
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
 
-# Micro agent security alerts (Preview)
+# Micro agent security alerts
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.

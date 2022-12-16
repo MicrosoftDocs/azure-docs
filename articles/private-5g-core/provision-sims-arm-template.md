@@ -68,7 +68,7 @@ Use the information you collected in [Collect the required information for your 
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/mobilenetwork-provision-proxy-sims).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/mobilenetwork-provision-proxy-sims).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.mobilenetwork/mobilenetwork-provision-proxy-sims/azuredeploy.json":::
 

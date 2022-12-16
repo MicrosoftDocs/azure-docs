@@ -18,6 +18,10 @@ ms.date: 10/19/2022
 
 Known issues and limitations associated with the Azure SQL Migration extension for Azure Data Studio.
 
+> [!NOTE]
+> When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
+
+
 ### Error code: 2007 - CutoverFailedOrCancelled 
 - **Message**: `Cutover failed or cancelled for database <DatabaseName>. Error details: The restore plan is broken because firstLsn <First LSN> of log backup <URL of backup in Azure Storage container>' is not <= lastLsn <last LSN> of Full backup <URL of backup in Azure Storage container>'. Restore to point in time.`  
 
@@ -79,7 +83,7 @@ Known issues and limitations associated with the Azure SQL Migration extension f
 
 - **Cause**: Azure Storage firewall isn't configured to allow access to Azure SQL target.
 
-- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](/azure/storage/common/storage-network-security) for more information on Azure Storage firewall setup.  
+- **Recommendation**: See [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md) for more information on Azure Storage firewall setup.  
 
 - **Message**: `Migration for Database <Database Name> failed with error 'There are backups from multiple databases in the container folder. Please make sure the container folder has backups from a single database.`
 

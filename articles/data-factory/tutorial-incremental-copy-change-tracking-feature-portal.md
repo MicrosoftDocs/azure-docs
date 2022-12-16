@@ -145,7 +145,7 @@ In this tutorial, you create two pipelines that perform the following operations
 1. For **Region**, select the region for the data factory. 
 
    The dropdown list displays only locations that are supported. The data stores (for example, Azure Storage and Azure SQL Database) and computes (for example, Azure HDInsight) that a data factory uses can be in other regions.
-1. Select **Next: Git configuration**. Set up the repository by following the instructions in [Configuration method 4: During factory creation](/azure/data-factory/source-control#configuration-method-4-during-factory-creation), or select the **Configure Git later** checkbox.
+1. Select **Next: Git configuration**. Set up the repository by following the instructions in [Configuration method 4: During factory creation](./source-control.md#configuration-method-4-during-factory-creation), or select the **Configure Git later** checkbox.
     ![Screenshot that shows options for Git configuration in creating a data factory.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu-git-configuration.png)
 1. Select **Review + create**.     
 1. Select **Create**.      
