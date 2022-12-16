@@ -24,12 +24,12 @@ In this article, you learn about the steps you and your onboarding team must tak
 ## Prerequisites
 
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
-- You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites)
+- You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites).
 - You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
 - You must have access to the:
-  - [Operator Connect portal](https://operatorconnect.microsoft.com/)
-  - Teams Admin Center for your test tenant
-- You must be able to manage users in your test tenant
+  - [Operator Connect portal](https://operatorconnect.microsoft.com/).
+  - Teams Admin Center for your test tenant.
+- You must be able to manage users in your test tenant.
 
 ## Methods
 
@@ -118,7 +118,7 @@ Before you can launch, Microsoft Teams requires proof that your service can conn
 
 1. Provide your onboarding team with proof that BFD is enabled. You enabled BFD in [1. Connect Azure Communications Gateway to your networks](#1-connect-azure-communications-gateway-to-your-networks).
 
-    ``` output
+    ```text
     interface TenGigabitEthernet2/0/0.150
        description private peering to Azure
        encapsulation dot1Q 15 second-dot1q 150

@@ -7,7 +7,6 @@ ms.custom: subject-cost-optimization
 ms.service: communications-gateway
 ms.topic: how-to
 ms.date: 12/06/2022
-ms.custom: template-how-to
 ---
 
 # Plan and manage costs for Azure Communications Gateway

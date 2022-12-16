@@ -62,7 +62,7 @@ Azure Communications Gateway includes SIP trunks to your own networks. These tru
 
 - SIP over TLS
 - X-MS-SBC header (describing the SBC function)
-- Strict rules on a= lines in SDP bodies
+- Strict rules on a= attribute lines in SDP bodies
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
@@ -109,4 +109,4 @@ Azure Communications Gateway provides service health dashboards that you can use
 ## Next steps
 
 > [!WARNING]
-> TODO: Find links here e.g. raising a ticket for more information. monitoring AzCoG
+> TODO: Find links here e.g. raising a ticket for more information. monitoring

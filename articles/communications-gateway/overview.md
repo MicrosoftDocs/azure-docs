@@ -1,6 +1,6 @@
 ---
 title: What is Azure Communications Gateway?
-description: Azure Communications Gateway provides Telecoms Operators the capabilities and network functions required to connect their network to Microsoft Teams through the Operator Connect program.
+description: Azure Communications Gateway provides telecoms operators with the capabilities and network functions required to connect their network to Microsoft Teams through the Operator Connect program.
 author: nslack
 ms.author: nickslack
 ms.service: communications-gateway
@@ -45,7 +45,7 @@ Azure Communications Gateway supports the SIP and RTP requirements for Teams Cer
   - Downstream call forking with codec changes
   - Custom SIP header and SDP manipulation
   - DTMF (Dual-Tone Multi-Frequency tones) interworking between inband tones, RFC2833 telephone event and SIP INFO/NOTIFY signaling
-  - Payload-type inter-working
+  - Payload type interworking
   - Media transcoding
   - Ringback injection
 
