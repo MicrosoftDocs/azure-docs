@@ -11,21 +11,20 @@ ms.author: mbaldwin
 ---
 # Enable multi-region replication on Azure Managed HSM (Preview)
 
-Multi-region replication allows you to extend a managed HSM instance from one region (called a primary) to a second region (called a secondary). Once configured, both regions are active, able to serve requests, and will share the same key material, roles, and permissions. Should one region become unavailable due to a regional outage, the other region can still handle requests
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to an other Azure region (called a secondary). Once configured, both regions are active, able to serve requests, and with automated replication will share the same key material, roles, and permissions. The closest available region to the application will receive and fulfill the request thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication will enhance the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
 :::image type="content" source="../media/multi-region-replication.png" alt-text="Architecture diagram of managed HSM Multi-Region Replication":::
-
-When you enable multi-region replication on a managed HSM, a second managed HSM instance, with three load-balanced HSM partitions, will be created in the secondary region. Similar to the primary region, these partitions will be spread across two availability zones where possible. When requests are issued to the global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region will receive and fulfill the request. While each region individually maintains regional high-availability due to the distribution of HSMs across availability zones, the global traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the secondary instance.
+When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions will be created in the secondary region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region will receive and fulfill the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the secondary managed HSM pool.
 
 ## Replication latency
 
-Any write operation to managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, will be made available in both regions after no more than six minutes. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is safest to wait at least six minutes between creating or updating the key and using the key, to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to six mins before both regions are fully replicated. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
 
 ## Behavior during failover
 
-Failover occurs when one of the regions in a multi-region managed HSM becomes unavailable due to an outage and the other region begins to service all requests. The outage may be limited to your instance only, the entire Azure Managed HSM service, or the entire Azure region. During failover, you may notice a change in behavior depending on the affected region.
+Failover occurs when one of the regions in a multi-region Managed HSM becomes unavailable due to an outage and the other region begins to service all requests. The outage may be limited to your HSM pool only, the entire Managed HSM service, or the entire Azure region. During failover, you may notice a change in behavior depending on the affected region.
 
 | Affected Region | Reads Allowed | Writes Allowed |
 |--|--|--|
@@ -44,15 +43,42 @@ If both regions are active, the Traffic Manager will resolve an incoming request
 
 If a region reports an unhealthy status to the Traffic Manager, future requests will resolve to the other region if available. Clients caching DNS lookups may experience extended failover time. But once any client-side caches expire, future requests should route to the available region.
 
+# Azure Region Support
+
+The following regions are supported for the preview.
+
+- UK South
+- US West
+- US Central *
+- US West Central
+- US East
+- US East 2 *
+- Europe Nortn
+- Europe West*
+- Switzerland West
+- Switzerland North
+- Asia SouthEast
+- India Central
+- Australia East
+
+> [!NOTE]
+> * US Central, US East 2, and Europe West cannot be extended as a secondary region at this time.
+
 ## Global versus regional endpoints
 
 The underlying regional managed HSM instances can be addressed via their respective region-specific DNS endpoints: `<primary-region>.<hsm-name>.managedhsm.azure.net` and `<secondary-region>.<hsm-name>.managedhsm.azure.net`. For most applications, though, it is sufficient to allow the traffic manager to automatically resolve the right regional endpoint by simply querying the global endpoint `<hsm-name>.managedhsm.azure.net`.
 
 ## Billing
 
-Each Azure Managed HSM pool in each region incurs additional billing. For more information, see [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
+Multi-region replication into secondary region incurs additional billing (x2) as a new HSM pool will be consumed in the secondary region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
+
+## Soft-delete feature
+
+The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery of deleted HSMs and keys however in a multi-region replication enabled scenario, there are subtle differences where the secondary HSM must be deleted before soft-delete can be executed on the primary HSM. Additionally, when a secondary is deleted, it is purged immediately and does not go into a soft-delete state that stops all billing for the secondary.  You can always extend to a new region as the secondary from the primary if needed. 
 
 ### Azure CLI commands
+
+If creating a new Managed HSM pool and then extending to a secondary, please refer to [these instructions](quick-create-cli.md##create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
 
 ### Install the multi-region managed HSM replication extension
 
@@ -62,21 +88,21 @@ az extension add --source https://yssa.blob.core.windows.net/ext/keyvault_previe
 
 ### Add a secondary region
 
-In order to extend a managed HSM instance, it must be activated. Activate the managed HSM by downloading its security domain.
-
-> [!NOTE]
-> During private preview, only East US 2 EUAP can be used as a primary region, and only Central US EUAP can be used as a secondary
+To extend a managed HSM pool to another region, run the following command that will automatically create a second HSM. 
 
 ```azurecli-interactive
-az keyvault region add --hsm-name ContosoMHSM --region centraluseuap
+az keyvault region add --hsm-name "ContosoMHSM" --region "centraluseuap"
 ```
+
+> [!NOTE]
+> "ContosoMHSM" in this example is the primary HSM pool name and "centraluseuap" is the secondary region into which you are extending it.
 
 ### Remove a secondary region
 
-Once you remove a secondary region, the instance underpinning that region will be purged. All secondaries must be deleted before a managed HSM can be soft-deleted or purged. Only secondaries can be deleted using this command. The primary can only be deleted using the soft-delete and purge commands
+Once you remove a secondary HSM, the HSM partitions in the other region will be purged. All secondaries must be deleted before a primary managed HSM can be soft-deleted or purged. Only secondaries can be deleted using this command. The primary can only be deleted using the [soft-delete](soft-delete-overview.md#soft-delete-behavior) and [purge](soft-delete-overview.md#purge-protection) commands
 
 ```azurecli-interactive
-az keyvault region remove --hsm-name ContosoMHSM --region centraluseuap
+az keyvault region remove --hsm-name ContosoMHSM --region australiaeast
 ```
 
 ### List all regions
