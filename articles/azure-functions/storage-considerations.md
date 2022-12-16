@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 04/21/2022
+ms.date: 12/13/2022
 ---
 
 # Storage considerations for Azure Functions

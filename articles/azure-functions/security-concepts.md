@@ -1,7 +1,7 @@
 ---
 title: Securing Azure Functions
 description: Learn about how to make your function code running in Azure more secure from common attacks.
-ms.date: 4/13/2020
+ms.date: 12/13/2022
 ms.topic: conceptual
 
 #Customer intent: As a developer, I want to understand the security features and principles of Azure Functions so that I can make my cloud-based function code as secure as possible.
