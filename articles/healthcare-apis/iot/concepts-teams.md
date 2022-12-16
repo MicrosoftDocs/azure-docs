@@ -1,19 +1,19 @@
 ---
-title: MedTech service and Teams notifications - Azure Health Data Services
+title: The MedTech service and Teams notifications - Azure Health Data Services
 description: In this article, you'll learn how to use the MedTech service and Teams notifications
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/16/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
-# MedTech service and Microsoft Teams notifications
+# The MedTech service and Microsoft Teams notifications
 
 In this article, we'll explore using the MedTech service and Microsoft Teams for notifications.
 
-## MedTech service and Teams notifications reference architecture
+## The MedTech service and Teams notifications reference architecture
 
 When combining the MedTech service, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, you can enable multiple care solutions.
 
@@ -37,9 +37,11 @@ Azure IoT Edge can be used in with IoT Hub to create an on-premises end point fo
 
 ## Next steps
 
-In this article, you've learned about the MedTech service and Teams notifications integration. For an overview of the MedTech service, see
+In this article, you've learned about the MedTech service and Teams notifications integration. 
 
->[!div class="nextstepaction"]
->[MedTech service overview](iot-connector-overview.md)
+For an overview of the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [The MedTech service overview](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
