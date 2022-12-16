@@ -63,7 +63,7 @@ The Operator Connect specifications require the Call Duration Records produced b
 
 ### Swivel-chair portal
 
-Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and marked as generally available (GA), you must not use the Operator Connect portal for provisioning. You can use Azure Communication Gateway's swivel-chair portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
+Operator Connect and Teams Phone Mobile require API integration between your IT systems and Microsoft Teams for flow-through provisioning and automation. After your deployment has been certified and launched, you must not use the Operator Connect portal for provisioning. You can use Azure Communication Gateway's swivel-chair portal instead. This portal enables you to pass the certification process and sell Operator Connect or Teams Phone Mobile services while you carry out a custom API integration project
 
 The swivel-chair portal is available as part of the optional API Bridge feature.
 
