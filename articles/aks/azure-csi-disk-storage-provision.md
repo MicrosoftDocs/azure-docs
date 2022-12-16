@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static or dynamic persistent volume with Azure Disks for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 11/28/2022
+ms.date: 12/16/2022
 ---
 
 # Create and use a volume with Azure Disks in Azure Kubernetes Service (AKS)
@@ -43,20 +43,20 @@ This section provides guidance for cluster administrators who want to provision 
 |--- | --- | --- | --- | ---
 |skuName | Azure Disks storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `PremiumV2_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
-|cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
+|cachingMode | [Azure Data Disk Host Cache Setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |location | Specify Azure region where Azure Disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
 |resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver will use the same resource group name as current AKS cluster|
-|DiskIOPSReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
-|DiskMBpsReadWrite | [UltraSSD disk](../virtual-machines/linux/disks-ultra-ssd.md) Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
+|DiskIOPSReadWrite | [UltraSSD disk][ultra-ssd-disks] IOPS Capability (minimum: 2 IOPS/GiB ) | 100~160000 | No | `500`|
+|DiskMBpsReadWrite | [UltraSSD disk][ultra-ssd-disks] Throughput Capability(minimum: 0.032/GiB) | 1~2000 | No | `100`|
 |LogicalSectorSize | Logical sector size in bytes for Ultra disk. Supported values are 512 ad 4096. 4096 is the default. | `512`, `4096` | No | `4096`|
-|tags | Azure Disk [tags](../azure-resource-manager/management/tag-resources.md) | Tag format: `key1=val1,key2=val2` | No | ""|
-|diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest](../virtual-machines/windows/disk-encryption.md) | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
+|tags | Azure Disk [tags][azure-tags] | Tag format: `key1=val1,key2=val2` | No | ""|
+|diskEncryptionSetID | ResourceId of the disk encryption set to use for [enabling encryption at rest][disk-encryption] | format: `/subscriptions/{subs-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSet-name}` | No | ""|
 |diskEncryptionType | Encryption type of the disk encryption set. | `EncryptionAtRestWithCustomerKey`(by default), `EncryptionAtRestWithPlatformAndCustomerKeys` | No | ""|
-|writeAcceleratorEnabled | [Write Accelerator on Azure Disks](../virtual-machines/windows/how-to-enable-write-accelerator.md) | `true`, `false` | No | ""|
+|writeAcceleratorEnabled | [Write Accelerator on Azure Disks][azure-disk-write-accelerator] | `true`, `false` | No | ""|
 |networkAccessPolicy | NetworkAccessPolicy property to prevent generation of the SAS URI for a disk or a snapshot | `AllowAll`, `DenyAll`, `AllowPrivate` | No | `AllowAll`|
 |diskAccessID | Azure Resource ID of the DiskAccess resource to use private endpoints on disks | | No  | ``|
-|enableBursting | [Enable on-demand bursting](../virtual-machines/disk-bursting.md) beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
-|useragent | User agent used for [customer usage attribution](../marketplace/azure-partner-customer-usage-attribution.md)| | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
+|enableBursting | [Enable on-demand bursting][on-demand-bursting] beyond the provisioned performance target of the disk. On-demand bursting should only be applied to Premium disk and when the disk size > 512 GB. Ultra and shared disk isn't supported. Bursting is disabled by default. | `true`, `false` | No | `false`|
+|useragent | User agent used for [customer usage attribution][customer-usage-attribution] | | No  | Generated Useragent formatted `driverName/driverVersion compiler/version (OS-ARCH)`|
 |enableAsyncAttach | Allow multiple disk attach operations (in batch) on one node in parallel.<br> While this parameter can speed up disk attachment, you may encounter Azure API throttling limit when there are large number of volume attachments. | `true`, `false` | No | `false`|
 |subscriptionID | Specify Azure subscription ID where the Azure Disks is created.  | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
 |--- | **Following parameters are only for v2** | --- | --- | --- |
@@ -77,7 +77,7 @@ Each AKS cluster includes four pre-created storage classes, two of them configur
     
 If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create your own custom storage class. It's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command.
 
-For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/premium-storage-performance.md#disk-caching).
+For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger][disk-host-cache-setting].
 
 For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 
@@ -203,7 +203,7 @@ Events:
 
 ### Use Ultra Disks
 
-To use ultra disk, see [Use Ultra Disks on Azure Kubernetes Service (AKS)](use-ultra-disks.md).
+To use ultra disk, see [Use Ultra Disks on Azure Kubernetes Service (AKS)][use-ultra-disks].
 
 ### Back up a persistent volume
 
@@ -329,7 +329,7 @@ This section provides guidance for cluster administrators who want to create one
 |volumeHandle| Azure disk URI | `/subscriptions/{sub-id}/resourcegroups/{group-name}/providers/microsoft.compute/disks/{disk-id}` | Yes | N/A|
 |volumeAttributes.fsType | File system type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows |
 |volumeAttributes.partition | Partition number of the existing disk (only supported on Linux) | `1`, `2`, `3` | No | Empty (no partition) </br>- Make sure partition format is like `-part1` |
-|volumeAttributes.cachingMode | [Disk host cache setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching)| `None`, `ReadOnly`, `ReadWrite` | No  | `ReadOnly`|
+|volumeAttributes.cachingMode | [Disk host cache setting][disk-host-cache-setting] | `None`, `ReadOnly`, `ReadWrite` | No  | `ReadOnly`|
 
 ### Create an Azure disk
 
@@ -472,27 +472,23 @@ configuration file created in the previous steps:
 <!-- LINKS - internal -->
 [azure-storage-account]: ../storage/common/storage-introduction.md
 [azure-disks-storage-csi]: azure-disk-csi.md
-[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-disk-show]: /cli/azure/disk#az_disk_show
-[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
-[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
 [use-tags]: use-tags.md
 [share-azure-managed-disk]: ../virtual-machines/disks-shared.md
+[disk-host-cache-setting]: ../virtual-machines/windows/premium-storage-performance.md#disk-caching
+[use-ultra-disks]: use-ultra-disks.md
+[ultra-ssd-disks]: ../virtual-machines/linux/disks-ultra-ssd.md
+[azure-tags]: ../azure-resource-manager/management/tag-resources.md
+[disk-encryption]: ../virtual-machines/windows/disk-encryption.md
+[azure-disk-write-accelerator]: ../virtual-machines/windows/how-to-enable-write-accelerator.md
+[on-demand-bursting]: (../virtual-machines/disk-bursting.md
+[customer-usage-attribution]: ../marketplace/azure-partner-customer-usage-attribution.md
