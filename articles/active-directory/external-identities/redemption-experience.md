@@ -50,7 +50,7 @@ As an alternative to the invitation email or an application's common URL, you ca
 There are some cases where the invitation email is recommended over a direct link. If these special cases are important to your organization, we recommend that you invite users by using methods that still send the invitation email:
 
 - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must select the redemption URL in the invitation email.
-- The user may sign in with an alias of the email address that was invited. (An alias is an other email address associated with an email account.) In this case, the user must select the redemption URL in the invitation email.
+- The user may sign in with an alias of the email address that was invited. (An alias is another email address associated with an email account.) In this case, the user must select the redemption URL in the invitation email.
 
 ## Redemption through the invitation email
 
@@ -78,7 +78,7 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 
 ## Invitation redemption flow
 
-When a user select the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
+When a user selects the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
 :::image type="content" source="media/redemption-experience/invitation-redemption.png" alt-text="Screenshot showing the redemption flow diagram.":::
 
