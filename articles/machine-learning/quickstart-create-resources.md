@@ -21,14 +21,13 @@ In this quickstart, you'll create a workspace and then add compute resources to 
 
 The workspace is the top-level resource for your machine learning activities, providing a centralized place to view and manage the artifacts you create when you use Azure Machine Learning. The compute resources provide a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
 
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create the workspace
 
-If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-compute-instance).
+If you  already have a workspace, skip this section and continue to [Create a new notebook](#create-a-new-notebook).
 
 If you don't yet have a workspace, create one now: 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
@@ -46,62 +45,91 @@ If you don't yet have a workspace, create one now:
 > [!NOTE]
 > This creates a workspace along with all required resources. If you would like to reuse resources, such as Storage Account, Azure Container Registry, Azure KeyVault, or Application Insights, use the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.MachineLearningServices) instead.
 
-## Create compute instance
+## Create a new notebook
 
-You could install Azure Machine Learning on your own computer.  But in this quickstart, you'll create an online compute resource that has a development environment already installed and ready to go.  You'll use this online machine, a *compute instance*, for your development environment to write and run code in Python scripts and Jupyter notebooks.
+A Jupyter notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  Sample notebooks are also included in the workspace, to give you examples that you can modify for your own needs.  
 
-Create a *compute instance* to use this development environment for the rest of the tutorials and quickstarts.
+After your workspace is ready, create a new notebook:
 
-1. If you didn't just create a workspace in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace.
-1. On the left side, select **Compute**.
+1. On the left, select **Notebooks**.
+1. Select **Create new file**.
+    
+    :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
 
-    :::image type="content" source="media/quickstart-create-resources/compute-section.png" alt-text="Screenshot: shows Compute section on left hand side of screen.":::
-
-1. Select **+New** to create a new compute instance.
-1. Supply a name, Keep all the defaults on the first page.
-1. Select **Create**.
+1. Name your new notebook **my-new-notebook.ipynb**.
  
-In about two minutes, you'll see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
+    > [!TIP]
+    > Make sure you keep the `.ipynb` extension in the name.
 
-## Create compute clusters
+1. Create a new cell with code:
 
-Next you'll create a compute cluster.  You'll submit code to this cluster to distribute your training or batch inference processes across a cluster of CPU or GPU compute nodes in the cloud.  
+    ```python
+    print("Hello, world")
+    ```
 
-Create a compute cluster that will autoscale between zero and four nodes:
+You didn't need any type of compute resource to edit a notebook.  But you will need one to actually run the code.  A *compute instance* is your cloud development environment, attached to your workspace.  
 
-1. Still in the **Compute** section, in the top tab, select **Compute clusters**.
-1. Select **+New** to create a new compute cluster.
-1. Keep all the defaults on the first page, select **Next**. If you don't see any available compute, you'll need to request a quota increase. Learn more about [managing and increasing quotas](how-to-manage-quotas.md).
-1. Name the cluster **cpu-cluster**.  If this name already exists, add your initials to the name to make it unique.
-1. Leave the **Minimum number of nodes** at 0.
-1. Change the **Maximum number of nodes** to 4 if possible.  Depending on your settings, you may have a smaller limit.
-1. Change the **Idle seconds before scale down** to 2400.
-1. Leave the rest of the defaults, and select **Create**.
+Create a compute instance now.  You'll also use this as your development environment for the rest of the tutorials and quickstarts, as well as for your own development work.
 
-In less than a minute, the **State** of the cluster will change from *Creating* to *Succeeded*.  The list shows the provisioned compute cluster, along with the number of idle nodes, busy nodes, and unprovisioned nodes.  Since you haven't used the cluster yet, all the nodes are currently unprovisioned. 
+1. On the toolbar above the notebook, select the **+** to create the compute.
 
-> [!NOTE]
-> When the cluster is created, it will have 0 nodes provisioned. The cluster *does not* incur costs until you submit a job. This cluster will scale down when it has been idle for 2,400 seconds (40 minutes).  This will give you time to use it in a few tutorials if you wish without waiting for it to scale back up.
+    :::image type="content" source="media/quickstart-create-resources/create-compute-instance.png" alt-text="Screenshot: Create a compute instance.":::
+1. Use the default required settings filled in on the form, or change any that you wish.
+1. Select **Create** at the bottom.
+1. Wait until the dot next to the **Compute instance** turns green, and the tooltip says "Compute Running".
 
-## Quick tour of the studio
+    :::image type="content" source="media/quickstart-create-resources/compute-running.png" alt-text="Screenshot: Compute instance is running."::: 
 
-The studio is your web portal for Azure Machine Learning. This portal combines no-code and code-first experiences for an inclusive data science platform.
+1. If you see an alert to authenticate, select **Authenticate**.
+1. Now run the code cell, either by using **Shift + Enter** or by selecting the **Run cell** tool to the right of the cell. 
 
-Review the parts of the studio on the left-hand navigation bar:
+1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You also see the output of the cell, `Hello, world!`.
 
-* The **Author** section of the studio contains multiple ways to get started in creating machine learning models.  You can:
+1. Run the cell again.  You'll see the same output (since you didn't change the code), but now the brackets contain `[2]`. As your notebook gets larger, these numbers help you understand what code was run, and in what order.
+1. Create new code cell with the following code:
 
-    * **Notebooks** section allows you to create Jupyter Notebooks, copy sample notebooks, and run notebooks and Python scripts.
-    * **Automated ML** steps you through creating a machine learning model without writing code.
-    * **Designer** gives you a drag-and-drop way to build models using prebuilt components.
+    ```python
+    one = 1
+    two = 2
+    hello = 'Hello, world'
+    ```
+1. Run the new cell.  You'll see the bracket change to `[3]`.  There is no output produced from this cell.
 
-* The **Assets** section of the studio helps you keep track of the assets you create as you run your jobs.  If you have a new workspace, there's nothing in any of these sections yet.
+## See your variables
 
-* You already used the **Manage** section of the studio to create your compute resources.  This section also lets you create and manage  data and external services you link to your workspace.  
+Use the **Variable explorer** to see the variables that are defined in your session.  
 
-### Workspace diagnostics
+1. Select the **"..."** in the notebook toolbar.
+1. Select **Variable explorer**.
+    
+    :::image type="content" source="media/quickstart-run-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::":::
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+    The explorer appears at the bottom.  You'll see your current variables, `one`, `two`, and `hello`.  The variable explorer is tool that will help you understand the current state of variables in your notebook session.
+
+## Learn from sample notebooks
+
+Use the sample notebooks available in studio to help you learn about how to train ad deploy models.  To find these samples:
+
+1. Still in the **Notebooks** section, select **Samples** at the top.
+
+    :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
+
+1. The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
+1. Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
+1. Select the notebook **SDK v2/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb**.  You'll see a read-only version of the notebook.  
+1. To get your own copy, you can select **Clone this notebook**.  This action will also copy the rest of the folder's content for that notebook.  No need to do that now, though, as you're going to instead clone the whole folder.
+
+## Clone tutorials folder
+
+You can also clone an entire folder.  The **tutorials** folder is a good place to start learning more about how Azure Machine Learning works.
+
+1. Open the **SDK v2** folder.
+1. Select the **"..."** at the right of **tutorials** folder to get the menu, then select **Clone**.
+    
+    :::image type="content" source="media/quickstart-run-notebooks/clone-folder.png" alt-text="Screenshot: clone v2 tutorials folder.":::
+
+1. Your new folder is now displayed in the **Files** section.  
+1. Run the notebooks in this folder to learn more about using the Python SDK v2 to train and deploy models.
 
 ## Clean up resources
 
@@ -122,13 +150,20 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-You now have an Azure Machine Learning workspace that contains:
+You now have an Azure Machine Learning workspace, and a compute instance to use as your cloud workstation. 
 
-- A compute instance to use for your development environment.
-- A compute cluster to use for submitting training runs.
+Use these resources with the following tutorials to learn more about Azure Machine Learning and train a model with Python scripts.
 
-Use these resources to learn more about Azure Machine Learning and train a model with Python scripts.
+|Tutorial  |Description  |
+|---------|---------|
+| [Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)     |  Basic end-to-end train and deploy a model      |
+| [Set up your cloud workstation]()      |  Upload files, install packages, run code     |
+| [Access and explore your data]()     |  Store data in the cloud and retrieve it from notebooks and scripts |
+| [Train a model]()   |    Dive in to the details of training a model     |
+| [Deploy a model]()  |   Dive in to the details of deploying a model      |
+
+Start with the basic end-to-end workflow:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Run Jupyter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md)
+> [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)
 >
