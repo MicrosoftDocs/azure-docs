@@ -23,9 +23,6 @@ When you create a scale set, you specify an image to be used when the VM instanc
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Before you begin
-The steps below detail how to take an existing VM and turn it into a re-usable custom image that you can use to create a scale set.
-
 ## Launch Azure Cloud Shell
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 

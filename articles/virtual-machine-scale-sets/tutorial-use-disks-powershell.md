@@ -114,7 +114,7 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
 
 Under the *VirtualMachineProfile.StorageProfile* property, the list of *DataDisks* is shown. Information on the disk size, storage tier, and LUN (Logical Unit Number) is shown. The following example output details the three data disks attached to the scale set:
 
-```powershell
+```output
 DataDisks[0]                            :
   Lun                                   : 0
   Caching                               : None

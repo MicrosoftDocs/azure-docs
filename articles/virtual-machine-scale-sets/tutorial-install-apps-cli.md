@@ -44,7 +44,7 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 }
 ```
 
-> [!CAUTION]
+> [!NOTE]
 > You may need to invert the use of the single (') and double quotes (") within the JSON block if you decide to reference the JSON directly (instead of referencing the *customConfig.json* file) in the *--settings* parameter below. 
 
 
