@@ -78,6 +78,8 @@ items:
       href: upgrade-packet-core-azure-portal.md
     - name: Upgrade a packet core instance - ARM template
       href: upgrade-packet-core-arm-template.md
+    - name: Reinstall a packet core instance
+      href: reinstall-packet-core.md
   - name: Policy control
     items:
     - name: Collect the required information for a service
@@ -106,8 +108,10 @@ items:
       href: enable-log-analytics-for-private-5g-core.md
     - name: Create an overview Log Analytics dashboard - ARM template
       href: create-overview-dashboard.md
-  - name: Distributed tracing
+  - name: Local monitoring tools
     items:
+    - name: Modify a packet core instance's local access configuration
+      href: modify-local-access-configuration.md
     - name: Export, upload and share traces
       href: distributed-tracing-share-traces.md
 - name: Reference
