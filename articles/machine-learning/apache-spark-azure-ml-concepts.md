@@ -32,7 +32,6 @@ Managed (Automatic) Spark compute is a suitable option for most user scenarios t
 
 |Advantages|Disadvantages|
 |----------|-------------|
-
 |<ul><li>Friction-free Synapse workspace and Spark pool creation</li><li>Friction-free Synapse workspace and Spark pool configuration and attachment</li><li>No permissions required in the subscription to create Synapse-related resources</li><li>No SQL pool quota limitations</li></ul>|<ul><li>Only in-memory Spark SQL support due to missing Hive Metastore<ul><li>No available tables or databases</li><li>Missing Purview integration</li></ul><li>Linked Services not available</li><li>Fewer Data sources/connectors</li><li>Missing pool-level configuration</li><li>Missing pool-level library management</li><li>Partial support for `mssparkutils`</li><li>Missing managed VNET support</li><li>Private endpoint creation to Azure Synapse not available</li><li>Missing configuration knobs around certain features (for example, intelligent cache)</li></ul>|
 
 ### Inactivity periods and tear down mechanism
