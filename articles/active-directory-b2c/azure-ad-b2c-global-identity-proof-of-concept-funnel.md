@@ -21,7 +21,7 @@ The following section describes how to create proof of concept implementations f
 
 The following block diagram shows the proof of concept. The guidance will show how to configure the Azure AD B2C tenants. The External API layer and Geo distributed lookup table isn't included as part of this guide.
 
-![Screenshot shows the funnel-based approach block diagram](media/azure-ad-b2c-global-identity-proof-of-concept/funnel-based-poc-block-diagram.png)
+![Screenshot shows the funnel-based approach block diagram](media/azure-ad-b2c-global-identity-proof-of-concept/funnel-based-block-diagram.png)
 
 
 ## Funnel tenant
