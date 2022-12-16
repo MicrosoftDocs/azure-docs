@@ -52,7 +52,8 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
                 driver: hv_netvsc
                 macaddress: 00:00:00:00:00:00
               set-name: eth0
-    
+    ```
+
    The IP address range and MAC address would be specific to your configuration and should be replaced with the appropriate values.
 
 3.  Save the file and reboot.
