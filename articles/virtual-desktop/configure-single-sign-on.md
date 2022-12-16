@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 1/5/2023
 ms.author: helohr
 ---
 # Configure single sign-on for Azure Virtual Desktop using Azure AD Authentication
@@ -17,9 +17,9 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article will walk you through the process of configuring single sign-on (SSO) using Azure Active Directory (Azure AD) authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your Azure Virtual Desktop and Remote Applications.  
+This article will walk you through the process of configuring single sign-on (SSO) using Azure Active Directory (Azure AD) authentication for Azure Virtual Desktop (preview). When you enable SSO, you can use passwordless authentication and third-party Identity Providers that federate with Azure AD to sign in to your Azure Virtual Desktop and Remote Applications. When enabled, this feature provides a single sign-on experience when authenticating to the session host and configures the session to provide single sign-on to Azure AD based resources inside the session.
 
-For additional passwordless functionality within the session, see the [**Next Steps**](#next-steps) section for configuring in-session passwordless authentication below.
+For information on using passwordless authentication within the session, see [In-session passwordless authentication (preview)](authentication.md#in-session-passwordless-authentication-preview).
 
 > [!NOTE]
 > Azure Virtual Desktop (classic) doesn't support this feature.
@@ -57,6 +57,12 @@ To enable SSO on your host pool, you must [customize an RDP property](customize-
 ### Allow remote desktop connection dialog
 
 When enabling single sign-on, you'll currently be prompted to authenticate to Azure AD and allow the Remote Desktop connection when launching a connection to a new host. Azure AD remembers up to 15 hosts for 30 days before prompting again. If you see this dialogue, select **Yes** to connect.
+
+### Disconnection when the session is locked
+
+When SSO is enabled, the Windows sign-in is done using an Azure AD authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Azure AD authentication tokens or passwordless authentication methods like FIDO keys. This would prevent users from being able to unlock their session. For this reason, when the session is locked, either through user action or system policy, the session is disconnected and an informational message is provided to the user.
+
+Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, the applicable conditional access policies are evaluated.
 
 ## Next steps
 
