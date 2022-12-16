@@ -11,7 +11,7 @@ ms.date: 12/13/2022
 |--|--|--|--|--|
 | Helm chart (direct connected mode) | 443 | `arcdataservicesrow1.azurecr.io` | Outbound |Provisions the Azure Arc data controller bootstrapper and cluster level objects, such as custom resource definitions, cluster roles, and cluster role bindings, is pulled from an Azure Container Registry. | 
 | Azure monitor APIs | 443 |`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com` | Outbound<br/> Inbound | Azure Data Studio and Azure CLI connect to the Azure Resource Manager APIs to send and retrieve data to and from Azure for some features. See [Azure Monitor APIs](#azure-monitor-apis).
-| Azure Arc data processing service | 443 |`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net` | Outbound<br/> Inbound |
+| Azure Arc data processing service | 443 |`san-af-<region>-prod.azurewebsites.net` | Outbound<br/> Inbound |
 
 
 All HTTPS connections to Azure and the Microsoft Container Registry are encrypted using SSL/TLS using officially signed and verifiable certificates.
