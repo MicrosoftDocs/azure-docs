@@ -92,7 +92,7 @@ Virtual network links enable name resolution for virtual networks that are linke
 
 ## DNS forwarding rulesets
 
-A DNS forwarding ruleset is a group of DNS forwarding rules 1000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. For more information, see [DNS forwarding rulesets](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets).
+A DNS forwarding ruleset is a group of DNS forwarding rules (up to 1000) that can be applied to one or more outbound endpoints, or linked to one or more virtual networks. This is a 1:N relationship. Rulesets are associated with a specific outbound endpoint. For more information, see [DNS forwarding rulesets](private-resolver-endpoints-rulesets.md#dns-forwarding-rulesets).
 
 ## DNS forwarding rules
 
