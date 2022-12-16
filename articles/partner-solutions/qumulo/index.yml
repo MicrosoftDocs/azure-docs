@@ -5,7 +5,7 @@ summary: Azure Native Qumulo Scalable File Service provides a native integrated 
 
 metadata:
   title: Azure Native Qumulo Scalable File Service documentation
-  description: Azure Native Qumulo Scalable File Service offers a monitoring solution for your Azure workloads using a streamlined workflow.
+  description: Azure Native Qumulo Scalable File Service offers a monitoring solution for your Azure workloads that uses a streamlined workflow.
   ms.topic: landing-page
   ms.date: 12/31/2022
 
@@ -21,7 +21,7 @@ landingContent:
             url: qumulo-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Azure Native Qumulo Scalable File Service with the portal
+          - text: Manage the Azure Native Qumulo Scalable File Service by using the portal
             url: qumulo-how-to-manage.md
 
   # Card
@@ -35,7 +35,7 @@ landingContent:
             # url: qumulo-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Azure Native Qumulo Scalable File Service
+          - text: Troubleshoot Azure Native Qumulo Scalable File Service
             url: qumulo-troubleshoot.md
 
   # Card
