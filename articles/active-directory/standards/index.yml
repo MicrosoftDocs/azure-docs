@@ -30,6 +30,8 @@ landingContent:
             url: nist-overview.md
           - text: FedRAMP High impact overview
             url: configure-azure-active-directory-for-fedramp-high-impact.md
+          - text: Configure Azure Active Directory for CMMC compliance
+            url: configure-azure-active-directory-for-cmmc-compliance.md
 
   # Card 
   - title: Understand NIST AALs
