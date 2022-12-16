@@ -122,7 +122,7 @@ There are two options for shared disk in a windows failover cluster in Azure:
 - [Azure shared disks](../../disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
 - Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage. 
 
-When selecting the technology for for shared disk, keep in mind the following considerations:
+When selecting the technology for shared disk, keep in mind the following considerations:
 
 **Azure shared disk for SAP workloads**
 
