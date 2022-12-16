@@ -5,6 +5,7 @@ author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: reference
+ms.custom: references_regions
 ms.date: 11/17/2022
 ---
 
