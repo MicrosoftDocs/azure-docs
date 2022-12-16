@@ -60,6 +60,8 @@ For more information on the objects returned by each API, see [model data extrac
 
 Spans specify the logical position of each element in the overall reading order, with each span specifying a character offset and length into the top-level content string property. By default, character offsets and lengths are returned in units of user-perceived characters (also known as [`grapheme clusters`](/dotnet/standard/base-types/character-encoding-introduction) or text elements).  To accommodate different development environments that use different character units, user can specify the `stringIndexIndex` query parameter to return span offsets and lengths in Unicode code points (Python 3) or UTF16 code units (Java, JavaScript, .NET) as well.  For more information, *see* [multilingual/emoji support](../../cognitive-services/language-service/concepts/multilingual-emoji-support.md).
 
+:::image type="content" source="media/span.png" alt-text="Screenshot of detected span example.":::
+
 ### Bounding Region
 
 Bounding regions describe the visual position of each element in the file. Since elements may not be visually contiguous (entities) or may cross pages (tables), the positions of most elements are described via an array of bounding regions. Each region specifies the page number (`1`-indexed) and bounding polygon.  The bounding polygon is described as a sequence of points, clockwise from the left relative to the natural orientation of the element.  For quadrilaterals, plot points are top-left, top-right, bottom-right, and bottom-left corners.  Each point is represented by its x, y coordinate in the page unit specified by the unit property.  In general, unit of measure for images is pixels while PDFs use inches.
@@ -81,7 +83,7 @@ A word is a content element composed of a sequence of characters.  In Form Recog
 
 A selection mark is a content element that represents a visual glyph indicating the state of a selection.  Checkbox is a common form of selection marks.  However, they may also be represented via radio buttons or a boxed cell in a visual form.  The state of a selection mark may be selected or unselected, with different visual representation to indicate the state.
 
-:::image type="content" source="media/selection-marks.png" alt-text="Screenshot of detected selection marks example":::
+:::image type="content" source="media/selection-marks.png" alt-text="Screenshot of detected selection marks example.":::
 
 ### Layout elements
 

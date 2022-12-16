@@ -67,7 +67,7 @@ Use the following guidelines to define the fields:
 
 ## Model capabilities
 
-Custom neural models currently only support key-value pairs, structured fields (tables), and selection marks. Future releases will include support for signatures.
+Custom neural models currently only support key-value pairs, structured fields (tables), and selection marks. 
 
 | Model type | Form fields | Selection marks | Tabular fields | Signature | Region |
 |--|--|--|--|--|--|
