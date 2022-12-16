@@ -79,7 +79,8 @@ The role of the device fields is different for different schemas and event types
 | <a name="dvcaction"></a>**DvcAction** | Recommended | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="dvcinterface"></a>**DvcInterface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
-| <a name="dvcsubscriptionid"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="dvcscopeid"></a>**DvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **DvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="dvcscope"></a>**DvcScope** | Optional | String | The cloud platform scope the device belongs to. **DvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 
 ### Other fields
 

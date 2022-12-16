@@ -443,7 +443,9 @@ items:
             - name: Configure TLS version for a client application
               href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Configure network routing preference
-            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+          - name: Restrict scope of copy operations
+            href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
         - name: Enable threat protection with Microsoft Defender for Storage
           href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Protect blob data
@@ -550,7 +552,7 @@ items:
           href: ../common/storage-use-azcopy-troubleshoot.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: BlobFuse
         items:
-        - name: What is BlobFuse2 (preview)?
+        - name: What is BlobFuse2?
           href: blobfuse2-what-is.md
         - name: Deploy BlobFuse2 on Linux
           href: blobfuse2-how-to-deploy.md
@@ -618,6 +620,8 @@ items:
               href: storage-blob-append.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download.md
         - name: JavaScript
           items:
           - name: Get started

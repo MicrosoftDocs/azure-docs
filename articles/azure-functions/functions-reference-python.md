@@ -34,8 +34,27 @@ As a Python developer, you might also be interested in one of the following arti
 
 ::: zone-end
 
-> [!NOTE]
-> Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
+## Development options
+
+Both Python Functions programming models support local development in one of the following environments:
+
+Python v2 programming model:
+
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)
+
+Python v1 programming model:
+
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)
+
+You can also create Python v1 functions in the Azure portal.
+
+The following considerations apply for local Python development:
+
++ Although you can develop your Python-based Azure functions locally on Windows, Python is supported only on a Linux-based hosting plan when it's running in Azure. For more information, see the [list of supported operating system/runtime combinations](functions-scale.md#operating-systemruntime).
+
++ Functions doesn't currently support local Python function development on ARM64 devices, including on a Mac with an M1 chip. To learn more, see [x86 emulation on ARM64](functions-run-local.md#x86-emulation-on-arm64).
 
 ## Programming model
 
@@ -921,9 +940,9 @@ Azure Functions supports the following Python versions:
 
 | Functions version | Python\* versions |
 | ----- | :-----: |
-| 4.x | 3.9<br/> 3.8<br/>3.7 |
-| 3.x | 3.9<br/> 3.8<br/>3.7<br/>3.6 |
-| 2.x | 3.7<br/>3.6 |
+| 4.x | 3.10 (Preview)<br/>3.9<br/> 3.8<br/>3.7 |
+| 3.x | 3.9<br/> 3.8<br/>3.7 |
+| 2.x | 3.7 |
 
 \* Official Python distributions
 
@@ -1228,10 +1247,11 @@ The Python standard library contains a list of built-in Python modules that are 
 
 To view the library for your Python version, go to:
 
-* [Python 3.6 standard library](https://docs.python.org/3.6/library/)
+
 * [Python 3.7 standard library](https://docs.python.org/3.7/library/)
 * [Python 3.8 standard library](https://docs.python.org/3.8/library/)
 * [Python 3.9 standard library](https://docs.python.org/3.9/library/)
+* [Python 3.10 standard library](https://docs.python.org/3.10/library/)
 
 ### Azure Functions Python worker dependencies
 

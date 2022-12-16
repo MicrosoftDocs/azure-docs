@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, devx-track-azurepowershell"
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
-The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
+The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in several ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
 
 ## Disable a function
 
@@ -97,6 +97,8 @@ To learn more, see [Azure Functions Deployment slots](functions-deployment-slots
 
 You can still cause a disabled function to run by supplying the [master key](functions-bindings-http-webhook-trigger.md#master-key-admin-level) in a REST request to the endpoint URL of the disabled function. In this way, you can develop and validate functions in Azure in a disabled state while preventing them from being accessed by others. Using any other type of key in the request returns an HTTP 404 response. 
 
+[!INCLUDE [functions-master-key-caution](../../includes/functions-master-key-caution.md)]
+
 To learn more about the master key, see [Obtaining keys](functions-bindings-http-webhook-trigger.md#obtaining-keys). To learn more about calling non-HTTP triggered functions, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
 
 ## local.settings.json
@@ -167,7 +169,7 @@ or
     "disabled": "IS_DISABLED"
 ```
 
-In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
+In the second example, the function is disabled when there's an app setting that is named IS_DISABLED and is set to `true` or 1.
 
 >[!IMPORTANT]  
 >The portal uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 

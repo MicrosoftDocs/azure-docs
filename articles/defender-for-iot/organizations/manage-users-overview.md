@@ -15,7 +15,7 @@ In the Azure portal, users are managed at the subscription level with [Azure Act
 
 Use the [portal](/azure/role-based-access-control/quickstart-assign-role-user-portal) or [PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell) to assign your Azure subscription users with the specific roles they'll need to view data and take action, such as whether they'll be viewing alert or device data, or managing pricing plans and sensors.
 
-For more information, see [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
+For more information, see [Manage users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
 
 ## On-premises users for Defender for IoT
 

@@ -354,6 +354,16 @@ groups:
     title: v1
   - id: python-mode-decorators
     title: v2
+- id: create-java-durable-options
+  title: Create option
+  prompt: Choose how to create the app
+  pivots:
+  - id: create-option-manual-setup
+    title: Manual setup
+  - id: create-option-maven-command
+    title: Maven command
+  - id: create-option-vscode
+    title: Visual Studio Code
 ### end azure-functions
 #Owner: shinardi
 - id: bring-third-party-dependency-programming-functions
@@ -1844,6 +1854,15 @@ groups:
     title: Azure CLI
   - id: admin-consent-url
     title: Admin consent URL
+## Create service principal with appId
+- id: enterprise-apps-ms-graph-ms-powershell
+  title: Enterprise apps
+  prompt: Choose an option
+  pivots:
+  - id: msgraph-powershell
+    title: Microsoft graph PowerShell
+  - id: ms-graph
+    title: Microsoft Graph  
 # Owner: juliakm
 - id: pipelines-version
   title: Pipelines version

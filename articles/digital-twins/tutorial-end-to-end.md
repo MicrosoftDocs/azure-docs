@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/26/2022
 ms.topic: tutorial
 ms.service: digital-twins
+ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -48,7 +49,7 @@ To work through the scenario, you'll interact with components of the pre-written
 
 Here are the components implemented by the building scenario AdtSampleApp sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
 * SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
@@ -111,7 +112,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet --runtime-version 6 --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
