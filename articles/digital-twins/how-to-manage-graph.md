@@ -58,7 +58,7 @@ This custom function can now be called to create a _contains_ relationship in th
 
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+For more information on the helper class `BasicRelationship`, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers-in-the-net-c-sdk).
 
 ### Create multiple relationships between twins
 

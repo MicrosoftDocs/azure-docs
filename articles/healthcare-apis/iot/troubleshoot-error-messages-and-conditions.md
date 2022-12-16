@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/25/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -33,7 +33,7 @@ This article provides steps for troubleshooting and fixing MedTech service error
 This property represents the operation being performed by the MedTech service when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
 
 > [!NOTE]
-> For information about the different stages of data flow in the MedTech service, see [MedTech service data flow](iot-data-flow.md).
+> For information about the different stages of data flow in the MedTech service, see [The MedTech service data flow](data-flow.md).
 
 |Data flow stage|Description|
 |---------------|-----------|
@@ -83,7 +83,7 @@ This property provides the name for a specific error. Below is the list of all e
 |`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the device mapping or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
 |`NotSupportedException`|Error occurred when device message with unsupported format is received.|`DeviceMessageError`|Error|Normalization|
 
-### MedTech service resource
+### The MedTech service resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
@@ -102,7 +102,7 @@ This property provides the name for a specific error. Below is the list of all e
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent workspace or the parent MedTech service is still provisioning.|Wait until the parent workspace or the parent MedTech service provisioning completes, and then submit the provisioning request again.
 |`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent MedTech service `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent MedTech service `location` property.
 
-## Why is MedTech service data not showing up in the FHIR service?
+## Why is the MedTech service data not showing up in the FHIR service?
 
 |Potential issues|Fixes|
 |----------------|-----|
@@ -114,13 +114,15 @@ This property provides the name for a specific error. Below is the list of all e
 |A Patient Resource hasn't been created in the FHIR service (Resolution Type: Look up only)*.|Create a valid Patient Resource in the FHIR service.|
 |The `Device.patient` reference isn't set, or the reference is invalid (Resolution Type: Look up only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
-*Reference [Quickstart: Deploy MedTech service using Azure portal](deploy-05-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (For example: Create or Lookup).
+*Reference [Quickstart: Part 2: Configure the MedTech service for manual deployment using the Azure portal](deploy-new-config.md#destination-properties) for a functional description of the MedTech service resolution types (For example: Create or Lookup).
 
 ## Next steps
 
-In this article, you learned how to troubleshoot MedTech service error messages and conditions. To learn how to troubleshoot a MedTech service Device and FHIR destination mappings, see
+In this article, you learned how to troubleshoot MedTech service error messages and conditions. 
+
+To learn how to troubleshoot the MedTech service device and FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md)
+> [Troubleshoot the MedTech service device and FHIR destination mappings](troubleshoot-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
