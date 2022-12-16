@@ -14,6 +14,9 @@ ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
+>[!Note]
+>Enabling infrastructure encryption might result in a slight performance impact as there is an additional layer of encryption occurring.
+
 # Enable infrastructure encryption for double encryption of data
 
 Azure Storage automatically encrypts all data in a storage account at the service level using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Customers who require higher levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level for double encryption. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
