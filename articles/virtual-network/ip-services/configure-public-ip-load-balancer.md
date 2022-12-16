@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.custom: template-how-to, engagement-fy23
 ---
 
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create a load balancer with an existing public IP address in your subscription. 
 > * Change the current public IP associated to a load balancer. 
-> * Change the frontend configuration of a load balancer to a public IP prefix.  
+> * Change the frontend configuration of a load balancer from a public IP address to a public IP prefix.  
 
 Finally, the article reviews unique aspects of using public IPs and public IP prefixes with a load balancer. 
 
@@ -42,7 +42,7 @@ Finally, the article reviews unique aspects of using public IPs and public IP pr
 - A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
     - For the purposes of the example in this article, name the new public IP prefix **myPublicIPPrefixOutbound**.
 
-## Create load balancer with existing public IP
+## Create load balancer using existing public IP
 
 In this section, you'll create a standard SKU load balancer. You'll select the IP address you created in the prerequisites as the frontend IP of the load balancer.
 
@@ -111,11 +111,11 @@ To change the IP, you'll associate a new public IP address previously created wi
 
 8. Select **Save**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
 
 9. In **Frontend IP configuration**, verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
 
 > [!NOTE]
 > This technique can be utilized when transitioning from a non-zonal frontend to a zone-redundant frontend in regions that support availability zones.  See [Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md)
@@ -146,33 +146,33 @@ In this section, you'll change the frontend configuration used for outbound conn
 
 9. Select **Save**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
 
 10. In **Frontend IP configuration**, verify the load balancer frontend displays the public IP prefix named **myPublicIPPrefixOutbound**.
 
-:::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
+    :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
 
 ## More information
 
 * Cross-region load balancers are a special type of standard public load balancer that can span multiple regions. The frontend of a cross-region load balancer can only be used with the global tier option of standard SKU public IPs. Traffic sent to the frontend IP of a cross-region load balancer is distributed across the regional public load balancers. The regional frontend IPs are contained in the backend pool of the cross-region load balancer. For more information, see [Cross-region load balancer](../../load-balancer/cross-region-overview.md).
 
-* By default, a public load balancer won't allow you to use multiple load-balancing rules with the same backend port. If a multiple rule configuration to the same backend port is required, then enable the floating IP option for a load-balancing rule. This setting overwrites the destination IP address of the traffic sent to the backend pool. Without floating IP enabled, the destination will be the backend pool private IP. With floating IP enabled, the destination IP will be the load balancer frontend public IP. The backend instance must have this public IP configured in its network configuration to correctly receive this traffic. A loopback interface with the frontend IP address must be configured in the instance. For more information, see [Azure Load Balancer Floating IP configuration](../../load-balancer/load-balancer-floating-ip.md)
+* By default, a public load balancer won't allow you to use multiple load-balancing rules with the same backend port. If a multiple rule configuration to the same backend port is required, then enable the floating IP option for a load-balancing rule. This setting overwrites the destination IP address of the traffic sent to the backend pool. Without floating IP enabled, the destination will be the backend pool private IP. With floating IP enabled, the destination IP will be the load balancer frontend public IP. The backend instance must have this public IP configured in its network configuration to correctly receive this traffic. A loopback interface with the frontend IP address must be configured in the instance. For more information, see [Azure Load Balancer Floating IP configuration](../../load-balancer/load-balancer-floating-ip.md).
 
 * With a load balancer setup, members of backend pool can often also be assigned instance-level public IPs. With this architecture, sending traffic directly to these IPs bypasses the load balancer. 
 
-* Both standard public load balancers and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned as a load balancer frontend, the timeout value on the IP takes precedence. This setting applies only to inbound connections to the load balancer. For more information, see [Load Balancer TCP Reset and Idle Timeout](../../load-balancer/load-balancer-tcp-reset.md)
+* Both standard public load balancers and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives. If a public IP is assigned as a load balancer frontend, the timeout value on the IP takes precedence. This setting applies only to inbound connections to the load balancer. For more information, see [Load Balancer TCP Reset and Idle Timeout](../../load-balancer/load-balancer-tcp-reset.md).
 
 ## Caveats
 
-* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.)
+* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.).
 
-* When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP.  For more information, see [Multiple frontends for Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md)
+* When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP.  For more information, see [Multiple frontends for Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md).
 
 ## Next steps
 
 In this article, you:
 
-- Created a load balancer with an existing public IP. 
+- Created a load balancer using an existing public IP. 
 
 - Replaced the IP address in a load balancer frontend configuration. 
 
