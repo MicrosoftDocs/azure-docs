@@ -85,7 +85,7 @@ You can use this sample function as a template for your own functions.
       {
         "type": "http",
         "direction": "out",
-        "name": "res"
+        "name": "$result"
       }
     ]
   }
@@ -275,10 +275,10 @@ Start the Azurite storage emulator:
   ```
 
 Run the Azure Function in the local environment:
-
-    ```bash
-    func start
-    ```
+  
+  ```bash
+  func start
+  ```
 
 > [!NOTE]
 > If you see an error like `There was an error performing a read operation on the Blob Storage Secret Repository`. Please ensure the 'AzureWebJobsStorage' setting in the *local.settings.json* file is set to `UseDevelopmentStorage=true`.

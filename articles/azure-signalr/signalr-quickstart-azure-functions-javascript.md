@@ -21,7 +21,7 @@ ms.custom: devx-track-js, mode-api
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 or above. Used to run Azure Function apps locally.
-- [Node.js](https://nodejs.org/en/download/), See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node#node-version).
+- [Node.js](https://nodejs.org/en/download/), See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).
 - SignalR binding needs Azure Storage, but you can use a local storage emulator when a function is running locally. Install the open source storage emulator [Azurite](../storage/common/storage-use-azurite.md).
 
 The examples should work with other versions of Node.js, for more information, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
