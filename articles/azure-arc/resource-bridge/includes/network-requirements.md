@@ -14,7 +14,6 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 
 |**Service**|**Port**|**URL**|**Direction**|**Notes**|
 |--|--|--|--|--|
-|Cluster connect service | 443 | `https://*.servicebus.windows.net` | Appliance VM IP and Control Plane IP need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
 |SFS API endpoint | 443 | `msk8s.api.cdp.microsoft.com` | Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
 |Resource bridge (appliance) Dataplane service| 443 | `https://*.dp.prod.appliances.azure.com`| Appliance VM IP and Control Plane IP need outbound connection. | Communicate with resource provider in Azure.|
 |Resource bridge (appliance) container image download| 443 | `*.blob.core.windows.net, https://ecpacr.azurecr.io`| Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
@@ -22,7 +21,7 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Resource bridge (appliance) image download| 443 | `msk8s.sf.tlu.dl.delivery.mp.microsoft.com`| Deployment machine,  Appliance VM IP and Control Plane IP need outbound connection. |  Download the Arc Resource Bridge OS images.  |
 |Azure Arc for Kubernetes container image download| 443 | `https://azurearcfork8sdev.azurecr.io`|  Appliance VM IP and Control Plane IP need outbound connection. | Required to pull container images. |
 |ADHS telemetry service | 443 | `adhs.events.data.microsoft.com`| Appliance VM IP and Control Plane IP need outbound connection. | Runs inside the appliance/mariner OS. Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any Kubernetes control plane. |
-|Microsoft events data service | 443 |`v20.events.data.microsoft.co`m| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
+|Microsoft events data service | 443 |`v20.events.data.microsoft.com`| Appliance VM IP and Control Plane IP need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
 
 ### SSL proxy configuration
 

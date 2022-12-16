@@ -43,9 +43,14 @@ Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
 
 #### [Azure China](#tab/azure-china)
 
-Not currently available in this cloud.
+Azure Arc Kubernetes is not available in Azure China at this time.
 
 ---
 
-> [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:
+
+```rest
+GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. 
+```
+
+Replace `<location>` with the region.
