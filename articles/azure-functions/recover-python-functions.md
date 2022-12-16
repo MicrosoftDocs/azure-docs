@@ -250,7 +250,7 @@ Example error logs:
 
 You can mitigate this issue in either of two ways:
 
-* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
+* Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies) to a value of `1`. 
 
 * Pin Protobuf to a non-4.x.x. version, as in the following example:
 
