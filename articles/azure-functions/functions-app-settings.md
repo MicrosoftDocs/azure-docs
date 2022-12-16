@@ -33,9 +33,11 @@ When using app settings, you should be aware of the following considerations:
 
 + There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
++ Some scenarios also require you to work with [App Service site settings](#app-service-site-settings). 
+
 + You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). 
 
-+ This article docuements the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings may also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
++ This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings may also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -351,6 +353,10 @@ This setting enables the Python worker to use shared memory to improve throughpu
 
 With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
 
+## JAVA_OPTS
+
+Used to customize the Java virtual machine (JVM) used to run your Java functions. In the Consumption plan, you must also add the [`WEBSITE_USE_PLACEHOLDER`](#website-use-placeholder) setting with a value of `0`, which can impact cold start. For more information, see [Customize JVM](functions-reference-java.md#customize-jvm). 
+
 ## MDMaxBackgroundUpgradePeriod
 
 Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly).
@@ -591,6 +597,10 @@ Allows you to set the timezone for your function app.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
+## WEBSITE_USE_PLACEHOLDER
+
+
+
 ## WEBSITE\_VNET\_ROUTE\_ALL
 
 > [!IMPORTANT]
@@ -601,6 +611,16 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
+
+## App Service site settings
+
+Some configurations must be set at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+
+| Site setting | Description |
+| --- | --- |
+| linuxFxVersion | Sets the specific base container image (language and version) used when running on Linux. For more information, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). |
+| netFrameworkVersion | Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). |
+| powerShellVersion | Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
 
 ## Next steps
 
