@@ -1,17 +1,21 @@
 ---
-title: Log compaction
+title: Log compaction in Azure Event Hubs
 description: This article describes how the log compaction feature works in Event Hubs.
 ms.topic: article
 ms.date: 10/7/2022
 ms.custom: ignite-2022
 ---
 
-# Log compaction
+# Log compaction in Azure Event Hubs (Preview)
 
 Log compaction is a way of retaining data in Event Hubs using event key based retention. By default, each event hub/Kafka topic is created with time-based retention or *delete* cleanup policy, where events are purged upon the expiration of the retention time. Rather using coarser-grained time based retention, you can use event key-based retention mechanism where Event Hubs retrains the last known value for each event key of an event hub or a Kafka topic. 
 
 > [!NOTE] 
-> Log compaction feature is available only in **premium** and **dedicated** tiers. 
+> - This feature is currently in Preview.
+> - Log compaction feature is available only in **premium** and **dedicated** tiers. 
+
+> [!WARNING]
+> Use of the Log Compaction feature is **not eligible for product support through Microsoft Azure**.
 
 As shown below, an event log (of an event hub partition) may have multiple events with the same key. If you're using a compacted event hub, then Event Hubs service will take care of purging old events and only keeping the latest events of a given event key. 
 

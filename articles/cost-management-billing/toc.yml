@@ -497,6 +497,8 @@
       href: manage/billing-troubleshoot-azure-payment-issues.md
     - name: Declined card
       href: manage/troubleshoot-declined-card.md
+    - name: Troubleshoot threshold billing
+      href: manage/troubleshoot-threshold-billing.md
     - name: Azure account sign-up issues
       href: manage/troubleshoot-azure-sign-up.md
     - name: Subscription sign-in issues
@@ -517,8 +519,6 @@
     href: /cli/azure/billing
   - name: Cost Management REST API
     href: /rest/api/cost-management
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Consumption REST API ARM budget template
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
@@ -531,10 +531,6 @@
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
   - name: Azure Billing REST API
     href: /rest/api/billing
-  - name: Azure Consumption API overview
-    href: manage/consumption-api-overview.md
-  - name: Azure Consumption REST API
-    href: /rest/api/consumption
   - name: Enterprise reporting REST API overview
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST APIs

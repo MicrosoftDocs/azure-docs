@@ -102,12 +102,11 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 
 ## Enable network isolation for Azure Monitor Agent
 
-By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for your agents, you can create [data collection endpoints](../essentials/data-collection-endpoint-overview.md) and add them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
+By default, Azure Monitor Agent connects to a public endpoint to connect to your Azure Monitor environment. To enable network isolation for your agents, create [data collection endpoints](../essentials/data-collection-endpoint-overview.md) and add them to your [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-configure.md#connect-azure-monitor-resources).
 
 ### Create a data collection endpoint
 
-To use network isolation, you must create a data collection endpoint for each of your regions so that agents can connect instead of using the public endpoint. For information on how to create a DCE, see [Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
-
+[Create a data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint) for each of your regions so that agents can connect instead of using the public endpoint. An agent can only connect to a DCE in the same region. If you have agents in multiple regions, you must create a DCE in each one.
 ### Create a private link
 
 With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. An Azure Monitor private link connects a private endpoint to a set of Azure Monitor resources that define the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope. For information on how to create and configure your AMPLS, see [Configure your private link](../logs/private-link-configure.md).
@@ -130,5 +129,5 @@ Associate the data collection endpoints to the target resources by editing the d
 
 ## Next steps
 
-- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association)
-- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources)
+- [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+- [Add endpoint to AMPLS resource](../logs/private-link-configure.md#connect-azure-monitor-resources).
