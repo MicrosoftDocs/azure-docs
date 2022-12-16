@@ -35,8 +35,6 @@ The first step to let users access their labs and lab plans through Canvas is to
 
 The Canvas developer key for the Azure Lab Services app is an *inherited key*, also referred to as a *global developer key*. Learn more about [developer keys in the Canvas Community Hub](https://community.canvaslms.com/t5/Canvas-Admin-Blog/Administrative-guidelines-for-managing-Inherited-Developer-Keys/ba-p/269029).
 
-To enable the Azure Lab Services app, your Canvas account needs Canvas administrator permissions.
-
 To enable the developer key for the Azure Lab Services app:
 
 1. In Canvas, select the **Admin** page.
