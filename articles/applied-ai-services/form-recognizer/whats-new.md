@@ -39,7 +39,7 @@ December 2022
 
   * **Custom model labeling**:
 
-    * **Batch OCR**. You can opt to run batch OCR in the setup wizard for custom model on all documents in your blob storage.
+    * **Run Layout API automatically**. You can opt to run the Layout API for all documents automatically in your blob storage during the setup process for custom model.
 
     * **Search**. The Studio now includes search functionality to locate words within a document. This improvement allows for easier navigation while labeling.
 

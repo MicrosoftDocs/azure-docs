@@ -11,7 +11,7 @@ ms.author: patricka
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 

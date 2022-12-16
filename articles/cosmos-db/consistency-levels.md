@@ -65,23 +65,28 @@ Strong consistency offers a linearizability guarantee. Linearizability refers to
 
 ### Bounded staleness consistency
 
-In bounded staleness consistency, the reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most *"K"* versions (that is, "updates") of an item or by *"T"* time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
+For single-region write accounts with two or more regions, data is replicated from the primary region to all secondary (read-only) regions. For multi-region write accounts with two or more regions, data is replicated from the region it was originally written in to all other writable regions. In both scenarios, while not common, there may occasionally be a replication lag from one region to another.
+
+In bounded staleness consistency, data between any two regions will not lag by more than "K" versions (that is, "updates") of an item or by "T" time intervals, whichever is reached first. In other words, when you choose bounded staleness, the maximum "staleness" of the data in any region can be configured in two ways:
 
 - The number of versions (*K*) of the item
 - The time interval (*T*) reads might lag behind the writes
 
-For a single region account, the minimum value of *K* and *T* is 10 write operations or 5 seconds. For multi-region accounts the minimum value of *K* and *T* is 100,000 write operations or 300 seconds.
+Bounded Staleness is beneficial primarily to single-region write accounts with two or more regions. If the data lag in a region (determined per physical partition) exceeds the configured staleness value, writes for that partition will be throttled until staleness is back within the configured upper bound.
 
-Bounded staleness offers total global order outside of the "staleness window." When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency. As the staleness window approaches for either time or updates, whichever is closer, the service will throttle new writes to allow replication to catch up and honor the consistency guarantee.
+For a single-region account, Bounded Staleness provides the same write consistency guarantees as Session and Eventual Consistency with data being replicated to a local majority (three replicas in a four replica set) in the single region. 
 
-Inside the staleness window, Bounded Staleness provides the following consistency guarantees:
+> [!IMPORTANT]
+> With Bounded Staleness consistency, staleness checks are made only across regions and not within a region. Within a given region, data is always replicated to a local majority (three replicas in a four replica set) regardless of the consistency level.
 
-- Consistency for clients in the same region for an account with single write region = [Strong](#strong-consistency)
-- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
-- Consistency for clients writing to different regions for an account with multiple write regions = [Eventual](#eventual-consistency)
+Reads when using Bounded Staleness will return the latest data available in that region by reading from two available replicas in that region. Since writes within a region always replicate to a local majority (3 out of 4 replicas), consulting two replicas will return the most up to date data available in that region.
 
-  Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
+> [!IMPORTANT]
+> With Bounded Staleness consistency, reads issued against a non-primary region may not necessarily return the most recent version of the data globally, but are guaranteed to return the most recent version of the data in that region, which will be within the maximum staleness boundary globally.
+
+Bounded Staleness works best for globally distributed applications using a single-region write accounts with two or more regions, where near strong consistency across regions is desired. For multi-region write accounts with two or more regions, application servers should direct reads and writes to the same region in which the application servers are hosted. Thus, Bounded Staleness in a multi-write account is an anti-pattern as it would require a dependency on replication lag between regions, which should not matter if data is read from the same region it was written to.
+
+The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Illustration of bounded staleness consistency level":::
 

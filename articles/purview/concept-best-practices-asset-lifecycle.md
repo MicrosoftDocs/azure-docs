@@ -1,6 +1,6 @@
 ---
 title: Microsoft Purview asset management processes 
-description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview catalog
+description: This article provides process and best practice guidance to effectively manage the lifecycle of assets in the Microsoft Purview data catalog.
 author: Jubairp
 ms.author: jubairpatel
 ms.service: purview
@@ -14,9 +14,9 @@ As data and content has a lifecycle that requires active management (for example
  
 To manage data assets, responsible people in the organization must understand how and when to apply data governance processes and manage workflows. 
 
-## Why do you need business processes for managing assets in Microsoft Purview?
+## Why do you need business processes for managing assets in Microsoft Purview data governance?
 
-An organization employing Microsoft Purview should define processes and people structure to manage the lifecycle of assets and ensure data is valuable to users of the catalog. Metadata in the catalog must be maintained to be able to manage data at scale for discovery, quality, security and privacy. 
+An organization employing [Microsoft Purview data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions) should define processes and people structure to manage the lifecycle of assets and ensure data is valuable to users of the catalog. Metadata in the catalog must be maintained to be able to manage data at scale for discovery, quality, security and privacy. 
 
 ### Benefits
 
