@@ -86,9 +86,9 @@ When a user select the **Accept invitation** link in an [invitation email](invit
 
 1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for redemption.) If the user’s User Principal Name ([UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
 
-2. If an admin has enabled [SAML/WS-Fed IdP federation](.../direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
-3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
+3. If an admin has enabled [Google federation](google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
 
 4. The redemption process checks if the user has an existing personal [MSA](/microsoft-account.md). If the user already has an existing MSA, they'll sign in with their existing MSA.
 
