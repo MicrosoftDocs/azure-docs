@@ -33,7 +33,7 @@ Once you enter in your search, Microsoft Purview returns a list of data assets a
 
 Your keyword will be highlighted in the return results, so you can see where the term was found in the asset. In the example below, the search term was 'Sales'.
 
-:::image type="content" source="./media/how-to-search-catalog/highlighted-results.png" alt-text="Screenshot a search return for Sales, with all the instances of the term highlighted in the returned results." border="true":::
+:::image type="content" source="./media/how-to-search-catalog/highlighted-results.png" alt-text="Screenshot showing a search return for Sales, with all the instances of the term highlighted in the returned results." border="true":::
 
 > [!NOTE]
 > Search will only return items in collections you're a data reader or curator for. For more information, see [create and manage Collections](how-to-create-and-manage-collections.md).
@@ -61,6 +61,7 @@ For certain annotations, you can select the ellipses to choose between an AND co
 
 >[!NOTE]
 >The *Filter by keyword* option at the top of the facet menu is to filter facets by keyword, not the search results.
+>
 > :::image type="content" source="./media/how-to-search-catalog/filter-facets.png" alt-text="Screenshot showing the facet filter at the top of the menu, with a search parameter entered, and the facets filtered below." border="true":::
 
 ### Use the filters
