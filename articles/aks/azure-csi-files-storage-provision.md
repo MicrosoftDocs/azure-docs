@@ -286,7 +286,7 @@ Before you can use an Azure Files file share as a Kubernetes volume, you must cr
     export AZURE_STORAGE_CONNECTION_STRING=$(az storage account show-connection-string -n storageAccountName -g resourceGroupName -o tsv)
     ```
 
-4. Create the file share using the [Az storage create][az-storage-create] command. Replace the placeholder `shareName` with a name you want to use for the share.
+4. Create the file share using the [Az storage share create][az-storage-share-create] command. Replace the placeholder `shareName` with a name you want to use for the share.
 
     ```azurecli
     az storage share create -n shareName --connection-string $AZURE_STORAGE_CONNECTION_STRING
@@ -471,11 +471,20 @@ For associated best practices, see [Best practices for storage and backups in AK
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [CSI driver parameters]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share
+[kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
+[kubernetes-persistent-volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
+[azure-storage-account]: ../storage/common/storage-introduction.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [persistent-volume-example]: #mount-file-share-as-a-persistent-volume
 [use-tags]: use-tags.md
-[zrs-account-type]: ../storage/common/storage-redundancy.md#zone-redundant-storage)
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[storage-skus]: ../storage/common/storage-redundancy.md
+[mount-options]: #mount-options
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create

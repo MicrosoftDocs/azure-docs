@@ -98,7 +98,7 @@ parameters:
   storageAccountType: Premium_LRS
 ```
 
-The CSI storage system supports the same features as the In-tree drivers, so the only change needed would be the provisioner.
+The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the provisioner.
 
 ## Migrate in-tree persistent volumes
 
@@ -123,7 +123,7 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 - To use the CSI driver for Azure Files, see [Use Azure Files with CSI drivers][azure-files-csi].
 - To use the CSI driver for Azure Blob storage, see [Use Azure Blob storage with CSI drivers][azure-blob-csi]
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
-- For more information on CSI migration, see [Kubernetes In-Tree to CSI Volume Migration][csi-migration-community].
+- For more information on CSI migration, see [Kubernetes in-tree to CSI Volume Migration][csi-migration-community].
 
 <!-- LINKS - external -->
 [csi-migration-community]: https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta
