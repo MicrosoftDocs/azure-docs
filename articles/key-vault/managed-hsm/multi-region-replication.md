@@ -53,7 +53,7 @@ The following regions are supported for the preview.
 - US West Central
 - US East
 - US East 2 *
-- Europe Nortn
+- Europe North
 - Europe West*
 - Switzerland West
 - Switzerland North
