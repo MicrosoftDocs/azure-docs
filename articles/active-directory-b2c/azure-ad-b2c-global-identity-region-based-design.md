@@ -35,7 +35,7 @@ The following use cases are typical in a global Azure AD B2C environment. The lo
 
 This use case demonstrates how a user from their home country/region performs a sign-up with an Azure AD B2C Local Account.
 
-![Screenshot shows the local user sign-up flow.](media/)
+![Screenshot shows the local user sign-up flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-sign-up.png)
 
 1. User from Europe, Middle East, and Africa (EMEA) attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -51,7 +51,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 This use case demonstrates how a user re-registering the same email from their own country, or a different region, is blocked.
 
-![Screenshot shows the existing local user sign up attempt flow.](media/)
+![Screenshot shows the existing local user sign up attempt flow.](media/azure-ad-b2c-global-identity-regional-design/existing-local-user-sign-up.png)
 
 1. User from EMEA attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -67,7 +67,7 @@ This use case demonstrates how a user re-registering the same email from their o
 
 This use case demonstrates how a user from their home country/region performs a sign-in with an Azure AD B2C local account.
 
-![Screenshot shows the local user sign in flow.](media/)
+![Screenshot shows the local user sign in flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-sing-in.png)
 
 1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -83,7 +83,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 This use case demonstrates how a user can travel across regions and maintain their user profile and credentials stored in their regional tenant respective to their sign-up.
 
-![Screenshot shows the traveling user sign-in flow.](media/)
+![Screenshot shows the traveling user sign-in flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-sing-in.png)
 
 1. User from North America (NOAM) attempts to sign in at **myapp.fr**, since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -106,7 +106,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 This use case demonstrates how a user can reset their password when they are within their home country.
 
-![Screenshot shows the local user forgot password flow.](media/)
+![Screenshot shows the local user forgot password flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-forgot-password.png)
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
@@ -126,7 +126,7 @@ If the user isn't being sent to their local hostname, the traffic manager will e
 
 This use case demonstrates how a user can reset their password when they're traveling away from the region in which they registered their account.
 
-![Screenshot shows the traveling user forgot password flow.](media/)
+![Screenshot shows the traveling user forgot password flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-forgot-password.png)
 
 1. User from NOAM attempts to sign in at **myapp.fr**, since they are on holiday in France.
 
@@ -146,7 +146,7 @@ If the user isn't being sent to their local hostname, the traffic manager will e
 
 This use case demonstrates how a user can change their password after they've logged into the region in which they registered their account.
 
-![Screenshot shows the traveling user change password flow.](media/)
+![Screenshot shows the local user change password flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-change-password.png)
 
 1. User from EMEA attempts selects **change password** after logging into **myapp.fr**.
 
@@ -160,7 +160,7 @@ This use case demonstrates how a user can change their password after they've lo
 
 This use case demonstrates how a user can change their password after they've logged in, away from the region in which they registered their account.
 
-![Screenshot shows the traveling user change password flow.](media/)
+![Screenshot shows the traveling user change password flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-change-password)
 
 1. Users from NOAM attempts select **change password** after logging into **myapp.fr**.
 
@@ -180,7 +180,7 @@ The following use cases show examples of using federated identities to sign up o
 
 This use case demonstrates how a user from their local region signs up to the service using a federated ID.
 
-![Screenshot shows the sign up flow.](media/)
+![Screenshot shows the sign up flow.](media/azure-ad-b2c-global-identity-regional-design/social-account-sign-up.png)
 
 1. User from EMEA attempts to sign up at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -202,7 +202,7 @@ This use case demonstrates how a user from their local region signs up to the se
 
 This use case demonstrates how a user from their local region signs into the service using a federated ID.
 
-![Screenshot shows the sign in flow.](media/)
+![Screenshot shows the sign in flow.](media/azure-ad-b2c-global-identity-regional-design/social-account-sign-in.png)
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
@@ -220,7 +220,7 @@ If the user isn't being sent to their local hostname, the traffic manager will e
 
 This scenario demonstrates how a user located away from the region in which they signed up from, performs a sign-in to the service using a federated IdP.
 
-![Screenshot shows the sign in for traveling user flow.](media/)
+![Screenshot shows the sign in for traveling user flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-social-account-sign-in.png)
 
 1. User from NOAM attempts to sign in at **myapp.fr**.
 
@@ -243,7 +243,7 @@ If the user isn't being sent to their local hostname, the traffic manager will e
 
 This scenario demonstrates how users will be able to perform account linking when a matching criterion is satisfied (usually email address).
 
-![Screenshot shows the merge/link accounts flow.](media/)
+![Screenshot shows the merge/link accounts flow.](media/azure-ad-b2c-global-identity-regional-design/merge-link-account.png)
 
 1. User from EMEA attempts to sign in at **myapp.fr**.
 
@@ -267,7 +267,7 @@ If the user isn't being sent to their local hostname, the traffic manager will e
 
 This scenario demonstrates how users will be able to perform  account linking when they're away from the region.
 
-![Screenshot shows the traveling user merge/link accounts flow.](media/)
+![Screenshot shows the traveling user merge/link accounts flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-merge-link-account.png)
 
 1. User from NOAM attempts to sign in at **myapp.fr**.
 
