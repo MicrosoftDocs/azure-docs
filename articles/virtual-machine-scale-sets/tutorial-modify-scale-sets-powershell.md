@@ -5,12 +5,11 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using PowerShell
-
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using PowerShell.
 
 ## Update the scale set model
@@ -75,7 +74,6 @@ You can also use [Update-AzVmss](/powershell/module/az.compute/update-azvmss) to
 
 ```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
-
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet -LicenseType Windows_Server
 ```
 
@@ -169,16 +167,12 @@ These properties describe the configuration of a VM instance within a scale set,
 You can perform updates to individual VM instances in a scale set just like you would a standalone VM. For example, attaching a new data disk to instance 1:
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myScaleSet_Instance1"
-
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myScaleSet_Instance1".
 Add-AzVMDataDisk -VM $VirtualMachine -Name "disk1" -LUN 0 -Caching ReadOnly -DiskSizeinGB 128 -CreateOption Empty
-
 Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
-
 ## Add an Instance to your scale set
-
 There are times where you might want to add a new VM to your scale set but want different configuration options than then listed in the scale set model. VMs can be added to a scale set during creation by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) command and specifying the scale set name you want the instance added to. 
 
 ```azurepowershell-interactive
@@ -217,6 +211,9 @@ myResourceGroup     myScaleSet_Instance2   eastus     Standard_DS1_v2   Windows 
 
 
 ## Bring VMs up-to-date with the latest scale set model
+> [!NOTE]
+> Upgrade modes are not currently supported on Virtual Machine Scale Sets using Flexible orchestration mode. 
+
 Scale sets have an "upgrade policy" that determine how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
 
 - **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
@@ -227,16 +224,13 @@ If your scale set is set to manual upgrades, you can trigger a manual upgrade us
 
 ```azurepowershell-interactive
 $myVmss = Get-AzVmss -ResourceGroupName myResourceGroup -Name myScaleSet
-
 Update-AzVmss -ResourceGroupName myResourceGroup -VirtualMachineScaleSet $myVMss -VMScaleSetName myScaleSet
 ```
 
 >[!NOTE]
 > Service Fabric clusters can only use *Automatic* mode, but the update is handled differently. For more information, see [Service Fabric application upgrades](../service-fabric/service-fabric-application-upgrade.md).
 
-
 ## Reimage a scale set
-
 Virtual Machine Scale Sets will generate a unique name for each VM in the scale set. The naming convention differs by orchestration mode:
 
 - Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
@@ -278,8 +272,6 @@ If you use Azure platform images, you can update the image by modifying the *ima
 
 If you use custom images, you can update the image by updating the *imageReference* ID (more information, see the [REST API documentation](/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
-
-
 ## Next steps
 In this tutorial, you learned how to modify various aspects of your scale set and individual instances using PowerShell.
 
@@ -290,7 +282,6 @@ In this tutorial, you learned how to modify various aspects of your scale set an
 > * Bring VMs up-to-date with the latest scale set model
 > * Reimage a scale set
 > * Update the OS image for your scale set
-
 
 > [!div class="nextstepaction"]
 > [Use data disks with scale sets](tutorial-use-disks-powershell.md)

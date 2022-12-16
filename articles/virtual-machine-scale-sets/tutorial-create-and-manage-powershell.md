@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -21,11 +21,7 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
 
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. In this example, a resource group named *myResourceGroup* is created in the *EastUS* region. 
@@ -34,7 +30,6 @@ An Azure resource group is a logical container into which Azure resources are de
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
-
 
 ## Create a Virtual Machine Scale Set
 First, set an administrator username and password for the VM instances with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
@@ -60,12 +55,12 @@ It takes a few minutes to create and configure all the scale set resources and V
 To view a list of VM instances in a scale set, use [Get-AzVM](/powershell/module/az.compute/get-azvm) as follows:
 
 ```azurepowershell-interactive
-Get-AzVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+Get-AzVM -ResourceGroupName "myResourceGroup"
 ```
 
 The following example output shows two VM instances in the scale set:
 
-```powershell
+```output
 ResourceGroupName                Name Location          VmSize  OsType      ProvisioningState 
 -----------------                ---- --------          ------  ------       ----------------- 
 myResourceGroup   myScaleSet_instance1   eastus Standard_DS1_v2 Windows         Succeeded     
@@ -99,7 +94,7 @@ TimeCreated            : 11/16/2022 11:02:02 PM
 
 When you created a scale set at the start of the tutorial, a default VM SKU of *Standard_D1_v2* was provided for the VM instances. You can specify a different VM instance size with the `-VMSize` parameter to specify a VM instance size of *Standard_F1*. 
 
-```azurecli-interactive
+```azurepowershell-interactive
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
@@ -108,7 +103,6 @@ New-AzVmss `
   -Location "EastUS" `
   -Credential $cred
 ```
-
 
 ## Change the capacity of a scale set
 When you created a scale set, two VM instances were deployed by default. To increase or decrease the number of VM instances in the scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
@@ -132,7 +126,7 @@ Get-AzVm -ResourceGroupName "myResourceGroup"
 
 The following example output shows that the capacity of the scale set is now *3*:
 
-```powershell
+```output
 ResourceGroupName                Name Location          VmSize  OsType    ProvisioningState 
 -----------------                ---- --------          ------  ------    ----------------- 
 myResourceGroup   myScaleSet_instance1   eastus Standard_DS1_v2 Windows       Succeeded     
@@ -140,17 +134,10 @@ myResourceGroup   myScaleSet_instance2   eastus Standard_DS1_v2 Windows       Su
 myResourceGroup   myScaleSet_instance3   eastus Standard_DS1_v2 Windows       Succeeded   
 ```
 
-
 ## Stop and deallocate VM instances in a scale set
-To stop all the VM instances in a scale set, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). 
+To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/stop-azvm) and specify the instance names.
 
 ```azurepowershell-interactive
-Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
-```
-
-To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/stop-azvm) and specify the instance name.
-
-```powershell-interactive
 Stop-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
@@ -165,7 +152,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 To start an individual VM instance in a scale set, use [Start-AzVM](/powershell/module/az.compute/start-azvm) and specify the instance name.
 
-```powershell-interactive
+```azurepowershell-interactive
 Start-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
@@ -177,7 +164,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 To restart an individual instance, use [Restart-AzVM] and specify the instance name.
 
-```powershell-interactive
+```azurepowershell-interactive
 Restart-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
@@ -187,7 +174,6 @@ When you delete a resource group, all resources contained within, such as the VM
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "myResourceGroup" -Force -AsJob
 ```
-
 
 ## Next steps
 In this tutorial, you learned how to perform some basic scale set creation and management tasks with Azure PowerShell:
@@ -202,4 +188,4 @@ In this tutorial, you learned how to perform some basic scale set creation and m
 Advance to the next tutorial to learn how to connect to your scale set instances.
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets](tutorial-use-disks-powershell.md)
+> [Use data disks with scale sets](tutorial-connect-to-instances-powershell.md)

@@ -5,14 +5,13 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 11/29/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 
 # Tutorial: Connect to Virtual Machine Scale Set instances using Azure PowerShell
-
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -21,13 +20,9 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-
 ## List instances in a scale set
-
 If you don't have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with Azure PowerShell](tutorial-create-and-manage-powershell.md).
 
 List all the instances in your Virtual Machine Scale Set using [Get-AzVM](/powershell/module/az.compute/get-azvm).
@@ -43,11 +38,8 @@ myResourceGroup   myScaleSet_Instance1   eastus     Standard_DS1_v2    Windows  
 myResourceGroup   myScaleSet_Instance2   eastus     Standard_DS1_v2    Windows    myScaleSet-instance2-nic    
 ```
 
-
 ## Get NIC information
-
-
-Using the NIC name, get the private IP address of the NIC, the backend address pool name and load balancer name using [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
+Using the NIC name, get the private IP address of the NIC, the backend address pool name and load balancer name with [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface).
 
 ```azurepowershell-interactive
 Get-AzNetworkInterface -Name myScaleSet-instance1-nic
@@ -97,10 +89,10 @@ Using the backend pool name, load balancer name and private IP address, get the 
 
 ```azurepowershell-interactive
 Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping `
-    -ResourceGroupName myResourceGroup `
-    -LoadBalancerName myScaleSet `
-    -Name myScaleSet `
-    -IpAddress 192.168.1.5
+  -ResourceGroupName myResourceGroup `
+  -LoadBalancerName myScaleSet `
+  -Name myScaleSet `
+  -IpAddress 192.168.1.5
 ```
 
 If you run the above command and find your load balancer doesn't have any inbound NAT rules, you can add inbound NAT rules using [Add-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig). Once complete, run [Get-AzLoadBalancerBackendAddressInboundNatRulePortMapping](/powershell/module/az.network/add-azloadbalancerinboundnatruleconfig) again.
@@ -111,7 +103,6 @@ $slb | Add-AzLoadBalancerInboundNatRuleConfig -Name "myNatRule" -FrontendIPConfi
 $slb | Set-AzLoadBalancer
 ```
 
-    
 ```output
 InboundNatRuleName : myNatRule
 Protocol           : Tcp
@@ -120,7 +111,6 @@ BackendPort        : 3389
 ```
 
 ## Get public IP of load balancer
-
 Get the public IP of the load balancer using [GetAzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress).
 
 ```azurepowershell-interactive
@@ -152,7 +142,6 @@ Sku                      : {
 ```
 
 ## Connect to your instance
-
 Remote Desktop to your machine using the Public IP address of the load balancer and the Port mapping to the machine instance you want to connect to.
 
 :::image type="content" source="media/virtual-machine-scale-sets-connect-to-instances/tutorial-connect-to-instances-powershell-rdp.png" alt-text="Screenshot of remote desktop application from Windows machine.":::
@@ -167,4 +156,4 @@ In this tutorial, you learned how to list the instances in your scale set and co
 
 
 > [!div class="nextstepaction"]
-> [Modify a scale set](tutorial-modify-scale-sets-cli.md)
+> [Modify a scale set](tutorial-modify-scale-sets-powershell.md)

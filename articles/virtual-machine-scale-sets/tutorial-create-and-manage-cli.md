@@ -5,13 +5,12 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.date: 12/16/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI
-
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -26,7 +25,6 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
@@ -35,7 +33,6 @@ az group create --name myResourceGroup --location eastus
 ```
 
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
-
 
 ## Create a scale set
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
@@ -51,7 +48,6 @@ az vmss create \
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances. To distribute traffic to the individual VM instances, a load balancer is also created.
-
 
 ## View information about the VM instances in your scale set
 To view a list of VM instances in a scale set, use [az vm list](/cli/azure/vm) as follows:
@@ -166,7 +162,6 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-
 ## Change the capacity of a scale set
 When you created a scale set at the start of the tutorial, two VM instances were deployed by default. You can specify the `--instance-count` parameter with [az vmss create](/cli/azure/vmss) to change the number of instances created with a scale set. To increase or decrease the number of VM instances in your existing scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.
 
@@ -174,20 +169,20 @@ To manually increase or decrease the number of VM instances in the scale set, us
 
 ```azurecli-interactive
 az vmss scale \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
-    --new-capacity 3
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --new-capacity 3
 ```
 
-It takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vm list](/cli/azure/vmss) and query on *sku.capacity*:
+It takes a few minutes to update the capacity of your scale set. To see the number of instances you now have in the scale set, use [az vm list](/cli/azure/vmss) and query on the associated resource group.
 
 ```azurecli-interactive
 az vm list --resource-group myResourceGroup --output table
 ```
 
 ```output
-Name                 ResourceGroup    Location    
--------------------  ---------------  ----------  
+Name                 ResourceGroup    Location    Zones
+-------------------  ---------------  ----------  -------
 myScaleSet_instance1  myResourceGroup  eastus
 myScaleSet_instance2  myResourceGroup  eastus
 myScaleSet_instance3  myResourceGroup  eastus
@@ -210,19 +205,11 @@ az vm stop \
   --name myScaleSet_instance1
 ```
 
-Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vmss deallocate](/cli/azure/vmss) to deallocate all the instance in your scale set.
-
-```azurecli-interactive
-az vmss deallocate \ 
-  --resource-group myResourceGroup 
-  --name myScaleSet
-```
-
-To deallocate an individual VM instance in a scale set, use [az vm deallocate](/cli/azure/vm) and specify the instance name.  
+Stopped VM instances remain allocated and continue to incur compute charges. If you instead wish the VM instances to be deallocated and only incur storage charges, use [az vm deallocate](/cli/azure/vm) and specify the instance names you want deallocated. 
 
 ```azurecli-interactive
 az vm deallocate \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
   --name myScaleSet_instance1
 ```
 
@@ -231,7 +218,7 @@ To start all the VM instances in a scale set, use [az vmss start](/cli/azure/vms
 
 ```azurecli-interactive
 az vmss start \
-  --resource-group myResourceGroup 
+  --resource-group myResourceGroup \
   --name myScaleSet 
 ```
 
@@ -239,7 +226,7 @@ To start individual VM instances in a scale set, use [az vm start](/cli/azure/vm
 
 ```azurecli-interactive
 az vm start \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
   --name myScaleSet_instance1
 ```
 
@@ -248,7 +235,7 @@ To restart all the VM instances in a scale set, use [az vmss restart](/cli/azure
 
 ```azurecli-interactive
 az vmss restart \
-  --resource-group myResourceGroup 
+  --resource-group myResourceGroup \
   --name myScaleSet 
 ```
 
@@ -256,7 +243,7 @@ To restart individual VM instances in a scale set, use [az vm restart](/cli/azur
 
 ```azurecli-interactive
 az vm restart \
-  --resource-group myResourceGroup
+  --resource-group myResourceGroup \
   --name myScaleSet_instance1
 ```
 
@@ -281,4 +268,4 @@ In this tutorial, you learned how to perform some basic scale set creation and m
 Advance to the next tutorial to learn how to connect to your scale set instances.
 
 > [!div class="nextstepaction"]
-> [Use data disks with scale sets](tutorial-use-disks-cli.md)
+> [Use data disks with scale sets](tutorial-connect-to-instances-cli.md)

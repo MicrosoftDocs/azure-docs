@@ -11,7 +11,6 @@ ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Tutorial: Modify a Virtual Machine Scale Set using Azure CLI
-
 Throughout the lifecycle of your applications, you may need to modify or update your Virtual Machine Scale Set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set using the Azure CLI.
 
 ## Update the scale set model
@@ -120,7 +119,6 @@ az vmss update --name MyScaleSet --resource-group MyResourceGroup --license-type
 az vmss update --name MyScaleSet --resource-group MyResourceGroup --instance-id 4 --protect-from-scale-set-actions False --protect-from-scale-in
 ```
 
-
 Additionally, if you previously deployed the scale set with the `az vmss create` command, you can run the `az vmss create` command again to update the scale set. Make sure that all properties in the `az vmss create` command are the same as before, except for the properties that you wish to modify. For example, below we're updating the upgrade policy and increasing the instance count to five.
 
 ```azurecli-interactive
@@ -134,7 +132,6 @@ az vmss create \
   --upgrade-policy Rolling \
   --instance-count 5
 ```
-
 
 ## Updating individual VM instances in a scale set
 Similar to how a scale set has a model view, each VM instance in the scale set has its own model view. To query the model view for a particular VM instance in a scale set, you can use [az vm show](/cli/azure/vm#az-vm-show).
@@ -218,7 +215,7 @@ You can perform updates to individual VM instances in a scale set just like you 
 az vm disk attach --resource-group myResourceGroup --vm-name myScaleSet_Instance1 --name disk_name1 --new
 ```
 
-Running [az vm show](/cli) again, we now will see that the VM instance has the new disk attached.
+Running [az vm show](/cli/azure/vm#az-vm-show) again, we now will see that the VM instance has the new disk attached.
 
 ```output
   "storageProfile": {
@@ -250,7 +247,6 @@ az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScal
 ```
 
 ```output
-
 {
   "fqdns": "",
   "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myNewInstance",
@@ -278,6 +274,10 @@ myScaleSet_Instance1  myResourceGroup  eastus
 ``` 
 
 ## Bring VMs up-to-date with the latest scale set model
+
+> [!NOTE]
+> Upgrade modes are not currently supported on Virtual Machine Scale Sets using Flexible orchestration mode. 
+
 Scale sets have an "upgrade policy" that determine how VMs are brought up-to-date with the latest scale set model. The three modes for the upgrade policy are:
 
 - **Automatic** - In this mode, the scale set makes no guarantees about the order of VMs being brought down. The scale set may take down all VMs at the same time. 
