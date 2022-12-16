@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 08/06/2021
-ms.custom: template-tutorial
+ms.date: 12/16/2022
+ms.custom: FY23 content-maintenance
 ---
 
 # Tutorial: Create a public load balancer with an IP-based backend using the Azure portal
