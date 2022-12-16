@@ -68,7 +68,7 @@ compute target and for model deployment. These types of environments are represe
 - BYOC (bring your own container): the user provides a Docker image to AzureML
 - Docker build context: AzureML materializes the image from the user provided content
 
-Once you install more dependencies on top of the Microsoft-provided images, or bring your own base images, vulnerability
+Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
 management becomes your responsibility.
 
 You use **system-managed environments** when you want conda to manage the Python environment for you. A new isolated conda environment is materialized
