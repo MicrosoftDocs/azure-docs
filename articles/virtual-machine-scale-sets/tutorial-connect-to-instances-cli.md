@@ -12,7 +12,6 @@ ms.custom: mimckitt, devx-track-azurecli
 ---
 
 # Tutorial: Connect to Virtual Machine Scale Set instances using the Azure CLI
-
 A Virtual Machine Scale Set allows you to deploy and manage a set of virtual machines. Throughout the lifecycle of a Virtual Machine Scale Set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -25,9 +24,7 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-
 ## List instances in a scale set
-
 If you do not have a scale set already created, see [Tutorial: Create and manage a Virtual Machine Scale Set with the Azure CLI](tutorial-create-and-manage-cli.md)
 
 List all the instances in your Virtual Machine Scale Set. 
@@ -46,10 +43,8 @@ eastus      myScaleSet_0e7d4d21  myResourceGroup
 eastus      myScaleSet_39379fc3  myResourceGroup
 ```
 
-
 ## Get NIC information
-
-Using the VM name of the instance you want to connect to, use [az vm nic list](/cli/) to find the NIC name.
+Use [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) and the name of the individual VM instance to find the NIC name.
 
 ```azurecli-interactive
 az vm nic list \
@@ -68,7 +63,7 @@ az vm nic list \
 ]
 ```
 
-Using the VM name and NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [az vm nic show](/cli).
+Using the VM name and NIC name, get the private IP address of the NIC, the Inbound NAT rule name and load balancer name using [az vm nic show](/cli/azure/vm/nic#az-vm-nic-show).
 
 
 ```azurecli-interactive
@@ -114,16 +109,14 @@ az vm nic show --resource-group myResourceGroup --vm-name myScaleSet_0e7d4d21 --
   "tapConfigurations": [],
   "type": "Microsoft.Network/networkInterfaces",
   "virtualMachine": {
-    "id": "/subscriptions/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/myScaleSet_0e7d4d21",
-    "resourceGroup": "MYRESOURCEGROUP"
+    "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myScaleSet_0e7d4d21",
+    "resourceGroup": "myResourceGroup"
   },
 }
 ```
 
-
 ## Get backend pool details
-Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to.
-
+Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to with [az network lb list-mapping](/cli/azure/network/lb#az-network-lb-list-mapping)
 
 ```azurecli-interactive
 az network lb list-mapping --backend-pool-name myScaleSetLBBEPool --resource-group myResourceGroup --name myScaleSetLB --request ip=10.0.0.5
@@ -143,8 +136,7 @@ az network lb list-mapping --backend-pool-name myScaleSetLBBEPool --resource-gro
 ```
 
 ## Get public IP of load balancer
-
-Get the public IP of the load balancer
+Get the public IP of the load balancer using [az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list)
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup
