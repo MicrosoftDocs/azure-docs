@@ -50,6 +50,7 @@ The summary widget provides a detailed look at sign-ins related to multifactor a
 1. Select the **Advanced Editor** button from the top of the page. A JSON editor opens.
     ![Screenshot of the Advanced Editor button on the new workbook page.](./media/workbook-mfa-gaps/advanced-editor-button.png)
 
-5. Copy the Multi-Factor Authentication Gaps workbook JSON from the GitHub repository and paste to replace all the contents in the JSON editor.
-
-6. Use Save As option to save the workbook as a new version and provide a new title name and select appropriate Subscription, Resource Groups and Location and Hit Apply.
+1. Navigate to the GitHub repository using the link provided in the JSON editor.
+1. Copy the JSON schema from the GitHub repository.
+1. Return Advanced Editor window on the Azure AD portal and paste the JSON schema over the exiting text.
+1. Select the **Save As** button to save the workbook as a new version and provide a new title name and select appropriate Subscription, Resource Groups and Location and Hit Apply.

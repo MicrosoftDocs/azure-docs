@@ -23,9 +23,9 @@ When working with workbooks, you can either start with an empty workbook, or use
 
 To use workbooks, you need an Azure Active Directory tenant with a premium (P1 or P2) license. Learn how to [get a premium license](../fundamentals/active-directory-get-started-premium.md).
 
-To use workbooks, you'll need to have the appropriate roles for the Log Analytics workspace *and* Azure Active Directory. You'll need to have a Log Analytics workspace set up before you can use workbooks.
+To use workbooks, you'll need to have the appropriate roles for the Log Analytics workspace *and* Azure Active Directory. You'll also need to have a Log Analytics workspace set up before you can use workbooks.
 
-- [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
+- Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
 - [Log Analytics Reader](../../azure-monitor/logs/manage-access.md#log-analytics-reader): Can view all monitoring data and configuration settings
 - [Log Analytics Contributor](../../azure/azure-monitor/logs/manage-access.md#azure-rbac): Adds the ability to edit configuration settings, run search jobs, and more
 - [Access](../../azure-monitor/logs/manage-access.md) to the Log Analytics workspace
