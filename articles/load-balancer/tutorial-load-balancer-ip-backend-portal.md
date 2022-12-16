@@ -346,7 +346,7 @@ the virtual network, virtual machine, and NAT gateway with the following steps:
 
 ## Next steps
 
-In this tutorial you:
+In this tutorial, you:
 
 * Created a virtual network
 * Created a NAT gateway
