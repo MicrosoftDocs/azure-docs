@@ -1,6 +1,6 @@
 ---
 title: Interoperability with Microsoft Operator Connect and Microsoft Teams Phone Mobile
-description: #Required; article description that is displayed in search results. 
+description: Understand how Azure Communications Gateway fits into your existing fixed and mobile networks and into Microsoft Teams
 author: rcdun
 ms.author: rdunstan
 ms.service: communications-gateway
@@ -19,7 +19,7 @@ Azure Communications Gateway sits at the edge of your fixed line and mobile netw
 
 :::image type="content" source="media/azure-communications-gateway-architecture.png" alt-text="Architecture diagram showing Azure Communications Gateway connecting to the Microsoft Phone System, a softswitch in a fixed line deployment and a mobile I M S core. The mobile network also contains an application server for anchoring calls in the Microsoft Phone System." :::
 
-Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients. 
+Calls flow from endpoints in your networks through Azure Communications Gateway and the Microsoft Phone System into Microsoft Teams clients.
 
 Azure Communications Gateway provides all the features of a traditional session border controller (SBC). These features include:
 
@@ -42,10 +42,11 @@ Azure Communications Gateway supports the Microsoft specifications for Certified
 Teams Phone Mobile allows you to offer Microsoft Teams call services for calls made from the native dialer on mobile handsets, for example presence and call history. These features require anchoring the calls in Microsoft's Intelligent Conversation and Communications Cloud (IC3), part of the Microsoft Phone System.
 
 The Microsoft Phone System relies on information in SIP signaling to determine whether a call is:
+
 - To a Teams Mobile Phone subscriber.
 - From a Teams Mobile Phone subscriber or between two Teams Phone Mobile subscribers.
 
-Your core mobile network must supply this information to Azure Communications Gateway, by using unique trunks or by correctly populating an `X-MS-FMC` header as defined by the Teams Phone Mobile SIP specifications. 
+Your core mobile network must supply this information to Azure Communications Gateway, by using unique trunks or by correctly populating an `X-MS-FMC` header as defined by the Teams Phone Mobile SIP specifications.
 
 Your core mobile network must also be able to anchor and divert calls into the Microsoft Phone System. You can choose from the following options.
 
@@ -72,7 +73,7 @@ You can arrange more interworking function as part of your initial network desig
 
 ## RTP and SRTP media
 
-The Microsoft Phone System typically requires SRTP for media. Azure Communications Gateway supports both RTP and SRTP, and can interwork between them. Azure Communications Gateway offers further media manipulation features to allow your networks to interoperate with the Microsoft Phone System. 
+The Microsoft Phone System typically requires SRTP for media. Azure Communications Gateway supports both RTP and SRTP, and can interwork between them. Azure Communications Gateway offers further media manipulation features to allow your networks to interoperate with the Microsoft Phone System.
 
 ### Media handling for calls
 
@@ -109,8 +110,3 @@ Azure Communications Gateway provides service health dashboards that you can use
 
 > [!WARNING]
 > TODO: Find links here e.g. raising a ticket for more information. monitoring AzCoG
-
-<!-- Add a context sentence for the following links -->
-- [Write concepts](contribute-how-to-write-concept.md)
-- [Links](links-how-to.md)
-

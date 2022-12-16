@@ -22,7 +22,7 @@ You must ensure you've got two or more numbers that you own and that are globall
 - **Manual** test lines will be used by Microsoft staff to make test calls during integration testing.
 - **Automated** test lines will be assigned to Teams test suites for validation testing.
 
-We strongly recommend that all operators have a support plan that includes technical support, such as a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/). 
+We strongly recommend that all operators have a support plan that includes technical support, such as a **Microsoft Unified** or **Premier** support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans/).
 
 ## 1. Configure Azure Active Directory in your operator Azure tenancy
 
@@ -62,14 +62,16 @@ New-AzureADServicePrincipal -AppId eb63d611-525e-4a31-abd7-0cb33f679599 -Display
 
 ## 3. Create an app ID for Azure Communications Gateway
 
-[TODO]
+> [!WARNING]
+> TODO
 
 ## 4. Create a network design
 
 Ensure your network is set up as shown in the following diagram and has been configured in accordance with the *Network Connectivity Specification* you've been issued. You're required to have two Azure Regions with cross-connect functionality.
 
-To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner) .
-    :::image type="content" source="media/prepare-to-deploy/redundancy.png" alt-text="Network diagram for an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
+To configure MAPS, follow the instructions in [Azure Internet peering for Communications Services walkthrough](/azure/internet-peering/walkthrough-Communicationss-services-partner).
+
+:::image type="content" source="media/azure-communications-gateway-redundancy.png" alt-text="Network diagram for an Azure Communications Gateway that uses MAPS as its peering service between Azure and an operators network.":::
 
 ## 5. Collect basic information for deploying an Azure Communications Gateway
 

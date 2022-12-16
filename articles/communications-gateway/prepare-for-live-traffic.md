@@ -24,15 +24,12 @@ In this article, you learn about the steps you and your onboarding team must tak
 ## Prerequisites
 
 - You must have [deployed Azure Communications Gateway](deploy.md) using the Microsoft Azure portal.
-- You must have chosen some test numbers.
+- You must have [chosen some test numbers](prepare-to-deploy.md#prerequisites)
 - You must have a tenant you can use for testing (representing an enterprise customer), and some users in that tenant to whom you can assign the test numbers.
 - You must have access to the:
   - [Operator Connect portal](https://operatorconnect.microsoft.com/)
   - Teams Admin Center for your test tenant
 - You must be able to manage users in your test tenant
-
-> [!WARNING]
-> TODO: link back to prepare to deploy here for test numbers
 
 ## Methods
 
@@ -153,7 +150,7 @@ Before you can go live, you must get your customer-facing materials approved by 
 ## 7. Test raising a ticket
 
 > [!WARNING]
-> TODO: Link to Azure Communications Gateway monitoring docs
+> TODO: Link to Azure Communications Gateway docs on making a support request
 
 You must test that you can raise tickets in the Azure portal to report problems with Azure Communications Gateway.
 
@@ -196,4 +193,4 @@ Your service can be launched on specific dates each month. Your onboarding team 
 ## Next steps
 
 > [!WARNING]
-> TODO: Add your next step link(s).
+> TODO: Add your next step link(s). Something about learning how to monitor / request support

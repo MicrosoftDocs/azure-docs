@@ -77,4 +77,4 @@ Once your resource has been provisioned, a message will appear saying **Your dep
 
 ## Next steps
 
-1. Prepare for live traffic with Azure Communications Gateway [link]
+- [Prepare for live traffic with Azure Communications Gateway](prepare-for-live-traffic.md)

@@ -37,7 +37,7 @@ If you choose to deploy the API Bridge (for API mediation or the swivel chair po
 
 > [!NOTE]
 > A user is any telephone number that meets all the following criteria.
-> 
+>
 > - You have provisioned the number within your Operator Connect or Teams Phone Mobile environment.
 > - The number is configured for connectivity through Azure Communications Gateway.
 > - The number's status is "assigned" in the Operator Connect environment. This includes (but is not limited to) assignment to users, Conferencing bridges, Voice Applications and Third Party applications.
@@ -81,13 +81,13 @@ To view Azure Communications Gateway costs in cost analysis:
 2. Open the scope in the Azure portal and select **Cost analysis** in the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select  **Cost analysis** in the menu. Select **Scope** to switch to a different scope in cost analysis.
 3. By default, cost for services are shown in the first donut chart. Select the area in the chart labeled Azure Communications Gateway.
 
-Actual monthly costs are shown when you initially open cost analysis. 
+Actual monthly costs are shown when you initially open cost analysis.
 
 To narrow costs for a single service, like Azure Communications Gateway, select **Add filter** and then select **Service name**. Then, select **Azure Communications Gateway**. From here, you can explore costs on your own.
 
 ## Create budgets
 
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
+You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
 
 Budgets can be created with filters for specific resources or services in Azure if you want more granularity present in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you additional money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
