@@ -74,3 +74,7 @@ Some Azure-attached services are only available when they can be directly reache
 ## Details on internet addresses, ports, encryption, and proxy server support
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
+
+## Additional network requirements
+
+In addition, resource bridge (preview) requires [Arc Kubernetes endpoints](../network-requirements-consolidated.md#arc-kubernetes-endpoints).
