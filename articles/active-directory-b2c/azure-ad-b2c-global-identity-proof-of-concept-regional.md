@@ -260,25 +260,7 @@ Modify the `SelfAsserted-LocalAccountSignin-Email` technical profile in the Azur
           <Action>SkipThisValidationTechnicalProfile</Action>
         </Precondition>
       </Preconditions>
-    <ValidationTechnicalProfile ReferenceId="REST-login-NonInteractive-NOAM">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
-          <Value>user_region</Value>
-          <Value>NOAM</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-        </Precondition>
-      </Preconditions>
-    </ValidationTechnicalProfile>
-    <ValidationTechnicalProfile ReferenceId="REST-fetchUserProfile-NOAM">
-      <Preconditions>
-        <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
-          <Value>user_region</Value>
-          <Value>NOAM</Value>
-          <Action>SkipThisValidationTechnicalProfile</Action>
-        </Precondition>
-      </Preconditions>
-    </ValidationTechnicalProfile>
-    <ValidationTechnicalProfile ReferenceId="REST-login-NonInteractive-APAC">
+     <ValidationTechnicalProfile ReferenceId="REST-login-NonInteractive-APAC">
       <Preconditions>
         <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
           <Value>user_region</Value>
@@ -447,15 +429,6 @@ Modify the `LocalAccountWritePasswordUsingObjectId` technical profile to write t
           <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
             <Value>user_region</Value>
             <Value>EMEA</Value>
-            <Action>SkipThisValidationTechnicalProfile</Action>
-          </Precondition>
-        </Preconditions>
-      </ValidationTechnicalProfile>
-    <ValidationTechnicalProfile ReferenceId="REST-UserWritePasswordUsingObjectId-NOAM">
-        <Preconditions>
-          <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
-            <Value>user_region</Value>
-            <Value>NOAM</Value>
             <Action>SkipThisValidationTechnicalProfile</Action>
           </Precondition>
         </Preconditions>
