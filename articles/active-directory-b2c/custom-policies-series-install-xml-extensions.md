@@ -35,6 +35,7 @@ In this article, you'll learn how to:
 
 - A custom policy file such as the one we used in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md).         
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
 
 ## Use TrustFrameworkPolicy schema
 

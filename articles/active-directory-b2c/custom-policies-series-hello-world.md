@@ -29,6 +29,8 @@ While you can use pre-made custom policy *starter pack* to write custom policies
 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
+
 ## Step 1 - Configure the signing and encryption keys
 
 1. Use the steps in [Add signing and encryption keys for Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) to create the signing key. 

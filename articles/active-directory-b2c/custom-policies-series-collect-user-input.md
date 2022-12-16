@@ -42,6 +42,7 @@ In this article, you'll learn how to write a custom policy that collects user in
 
 - Complete the steps in [Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
 
 ## Step 1 - Declare Claims
 

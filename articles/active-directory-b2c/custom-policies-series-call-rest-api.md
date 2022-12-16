@@ -46,6 +46,8 @@ In [Create branching in user journey by using Azure AD B2C custom policies](cust
 
 - Complete the steps in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
+
 ## Step 1 - Create and deploy a Node.js app
 
 You need to deploy an app, which will serve as your external app. Your custom policy then makes an HTTP call to this app. 

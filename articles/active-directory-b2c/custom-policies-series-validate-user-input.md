@@ -37,6 +37,8 @@ Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to m
 
 - Complete the steps in [Collect and manipulate user inputs by using Azure AD B2C custom policy](custom-policies-series-collect-user-input.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
+
 ## Step 1 - Validate user input by limiting user input options 
 
 If you know all the possible values that a user can enter for a given input, you can provide a finite set of values that a user must select from. You can use *DropdownSinglSelect*, *CheckboxMultiSelect*, and *RadioSingleSelect* [UserInputType](claimsschema.md#userinputtype) for this purpose. In this article, you'll use a *RadioSingleSelect* input type:

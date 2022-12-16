@@ -25,6 +25,13 @@ Refer to [Create a user account by using Azure Active Directory B2C custom polic
 in this tutorial, Create a new user or update an existing one
 
 
+## Prerequisites
+
+- 
+
+
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
+
 
 ## Step 1 - Create Azure AD Technical Profiles 
 

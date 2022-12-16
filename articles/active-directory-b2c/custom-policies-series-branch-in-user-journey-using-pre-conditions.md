@@ -39,6 +39,7 @@ In this article, you'll learn how to use `EnabledForUserJourneys` element inside
 
 - Complete the steps in [Validate user inputs by using Azure AD B2C custom policy](custom-policies-series-validate-user-input.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
 
 ## Step 1 - Declare Claims 
 
@@ -145,7 +146,7 @@ We now need a self-asserted technical profile to collect the access code from th
         </TechnicalProfile>
     ```
 
-    We've configured two technical profile, *AccessCodeInputCollector* and *CheckAccessCodeViaClaimsTransformationChecker*. We call the *CheckAccessCodeViaClaimsTransformationChecker* technical profile as a validation technical profile the *AccessCodeInputCollector* technical profile. The *CheckAccessCodeViaClaimsTransformationChecker* itself is of type Claims Transformation technical Profile that execute the Claims Transformations we defined in [step 2](#step-2---define-claims-transformations). 
+    We've configured two technical profiles, *AccessCodeInputCollector* and *CheckAccessCodeViaClaimsTransformationChecker*. We call the *CheckAccessCodeViaClaimsTransformationChecker* technical profile as a validation technical profile from within the *AccessCodeInputCollector* technical profile. The *CheckAccessCodeViaClaimsTransformationChecker* itself is of type Claims Transformation technical Profile, which executes the Claims Transformations we defined in [step 2](#step-2---define-claims-transformations). 
 
     *AccessCodeInputCollector* is a Self-Asserted Technical Profile used to collect an access code from the user. It includes `EnabledForUserJourneys` element that's set to *OnClaimsExistence*. It's `Metadata` element includes a claim (*accountType*) and it's value (*personal*) that activates this technical profile.    
 

@@ -39,6 +39,8 @@ In [Call a REST API by using Azure Active Directory B2C custom policy](custom-po
 
 - Complete the steps in [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
 
+[!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-common-note-custom-policy-how-to-series.md)]
+
 ## Step 1 - Declare and update claims 
 
 You need to update the `objectId` claim, and declare two more claims, `userPrincipalName`, `passwordText`, and `passwordPolicies`:
