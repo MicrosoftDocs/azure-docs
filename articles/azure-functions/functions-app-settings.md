@@ -33,11 +33,13 @@ When using app settings, you should be aware of the following considerations:
 
 + There are other function app configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
-+ Some scenarios also require you to work with [App Service site settings](#app-service-site-settings). 
-
 + You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). 
 
 + This article documents the settings that are most relevant to your function apps. Because Azure Functions runs on App Service, other application settings may also be supported. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
+
++ Some scenarios also require you to work with settings documented in [App Service site settings](#app-service-site-settings). 
+
++ Changing any _read-only_ [App Service application settings](../app-service/reference-app-settings.md#app-environment) can put your function app into an unresponsive state. 
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
