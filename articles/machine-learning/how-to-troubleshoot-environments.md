@@ -70,7 +70,7 @@ There are some ways to decrease the impact of vulnerabilities:
 Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
 result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
 
-`AzureML Environment`'s primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
+AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
 user-managed, and system-managed.
 
 **Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every `Workspace`
