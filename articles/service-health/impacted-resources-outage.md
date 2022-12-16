@@ -2,7 +2,7 @@
 title: Impacted resources support for outages
 description: This article details what is communicated to users and where they can view information about their impacted resources.
 ms.topic: conceptual
-ms.date: 11/9/2022
+ms.date: 12/16/2022
 ---
 
 # Impacted Resources for Azure Outages
@@ -81,7 +81,7 @@ The list of impacted resources can be exported to an excel file by clicking on t
 
 ## Accessing Impacted Resources programmatically via an API
 
-Outage impacted resource information can be retrieved programmatically using the Events API. The API documentation [here](https://learn.microsoft.com/en-us/rest/api/resourcehealth/impacted-resources/list-by-subscription-id-and-event-id?tabs=HTTP) provides the details around how customers can access this data. 
+Outage impacted resource information can be retrieved programmatically using the Events API. The API documentation [here](https://learn.microsoft.com/rest/api/resourcehealth/impacted-resources/list-by-subscription-id-and-event-id?tabs=HTTP) provides the details around how customers can access this data. 
 
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them.
