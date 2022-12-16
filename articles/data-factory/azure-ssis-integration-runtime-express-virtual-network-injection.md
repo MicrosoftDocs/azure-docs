@@ -10,7 +10,7 @@ ms.author: chugu
 ms.custom: devx-track-azurepowershell
 ---
 
-# Express virtual network injection method (Preview)
+# Express virtual network injection method
 
 [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 > [!NOTE]
