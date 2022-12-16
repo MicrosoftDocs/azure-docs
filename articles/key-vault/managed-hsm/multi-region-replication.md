@@ -1,5 +1,5 @@
 ---
-title: Enable Multi-Region Replication on Azure Managed HSM (Preview)
+title: Enable multi-region replication on Azure Managed HSM (Preview)
 description: Enable Multi-Region Replication on Azure Managed HSM (Preview)
 services: key-vault
 author: msmbaldwin
@@ -8,6 +8,7 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 11/25/2022
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM (Preview)
 
@@ -15,12 +16,16 @@ Multi-region replication allows you to extend a managed HSM pool from one Azure 
 
 ## Architecture
 
-:::image type="content" source="../media/multi-region-replication.png" alt-text="Architecture diagram of managed HSM Multi-Region Replication":::
+:::image type="content" source="../media/multi-region-replication.png" alt-text="Architecture diagram of managed HSM Multi-Region Replication." lightbox="../media/multi-region-replication.png":::
 When multi-region replication is enabled on a managed HSM, a second managed HSM pool, with three load-balanced HSM partitions will be created in the secondary region. When requests are issued to the Traffic Manager global DNS endpoint `<hsm-name>.managedhsm.azure.net`, the closest available region will receive and fulfill the request. While each region individually maintains regional high-availability due to the distribution of HSMs across the region, the traffic manager ensures that even if all partitions of a managed HSM in one region are unavailable due to a catastrophe, requests can still be served by the secondary managed HSM pool.
 
 ## Replication latency
 
+<<<<<<< HEAD
 Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to 6 minutes before both regions are fully replicated. Within this window, it isn't guaranteed that the written material has replicated between the regions. Therefore, it's best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+=======
+Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to six minutes before both regions are fully replicated. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+>>>>>>> c1fc809756f48a3b92e3fac9bbbe563a71b4f503
 
 ## Failover behavior
 
