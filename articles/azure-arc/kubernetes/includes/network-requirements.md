@@ -41,6 +41,10 @@ Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings.
 |`*.servicebus.windows.net` | For [Cluster Connect](../cluster-connect.md) and for [Custom Location](../custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured |
 
+#### [Azure China](#tab/azure-china)
+
+Not currently available in this cloud.
+
 ---
 
 > [!NOTE]
