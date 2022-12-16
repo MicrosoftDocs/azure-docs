@@ -17,7 +17,7 @@ This article outlines the filter functionality available in Microsoft Defender E
 
 Inventory filters allow users to access a specific subset of data that meets their search parameters. A user can apply as many filters as they need to obtain the desired results.  
 
-By default, the Inventory screen displays only Approved Inventory assets, hiding those in an alternative state. This filter can be removed if a user wishes to view assets in a different state (e.g. Candidate, Dependency, Requires Investigation). This is useful when a user needs to review potential new assets, investigate a third-party dependency issue or simply needs a complete view of all potential owned assets when conducting a search.  
+By default, the Inventory screen displays only Approved Inventory assets, hiding any assets in an alternative state. This filter can be removed if a user wishes to view assets in a different state (for instance: Candidate, Dependency, Requires Investigation). Removing the Approved Inventory filter is useful when a user needs to review potential new assets, investigate a third-party dependency issue or simply needs a complete view of all potential owned assets when conducting a search.  
 
 Defender EASM offers a wide variety of filters to obtain results of differing levels of granularity.  Some filters will allow you to select value options from a dropdown, whereas others require the manual entry of the desired value.  
 
@@ -26,7 +26,7 @@ Defender EASM offers a wide variety of filters to obtain results of differing le
 
 ## Operators
 
-Inventory filters can be used with the following operators. Please note that some operators are not available for every filter; some operators will be hidden if they are not logically applicable to the specific filter. 
+Inventory filters can be used with the following operators. Note that some operators are not available for every filter; some operators will be hidden if they are not logically applicable to the specific filter. 
 
 |       Operator                 |                                                                                                                               Description                                                                                                                           |
 |--------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -45,7 +45,7 @@ Inventory filters can be used with the following operators. Please note that som
 |      `Contains`                   |   Returns results where the field content contains the search value.                                                                                                                                                                                                |
 |     `Does Not Contain`           |   Returns results where the field content does not contain the search value.                                                                                                                                                                                        |
 |     `Contains in`                |   Returns results where the field content contains one of the search values.                                                                                                                                                                                        |
-|     `Does Not Contain In`        |   Returns results where a tokenized term in the field content does not contain the any of the search values.                                                                                                                                                        |
+|     `Does Not Contain In`        |   Returns results where a tokenized term in the field content does not contain any of the search values.                                                                                                                                                        |
 |     `Empty`                      |   Returns assets that do not return any value for the specified filter.                                                                                                                                                                                             |
 |     `Not Empty`                  |   Returns all assets that return a value for the specified filter, regardless of the value.                                                                                                                                                                         |
 |     `Greater Than or Equal To`   |   Returns results that are greater than or equal to a numerical value. This includes dates.                                                                                                                                                                         |
@@ -55,7 +55,7 @@ Inventory filters can be used with the following operators. Please note that som
 
 ## Common filters
 
-These filters apply to all kinds of assets within inventory. These filters can be used when searching for a wider range of assets.  For a list of filters for specific kinds of assets, please see the “Next steps” section below.  
+These filters apply to all kinds of assets within inventory. These filters can be used when searching for a wider range of assets.  For a list of filters for specific kinds of assets, please see the “Next steps” section.  
 
 
  ### Defined value filters 
@@ -67,15 +67,15 @@ These filters apply to all kinds of assets within inventory. These filters can b
 |     State                   |   The state assigned to assets to distinguish their relevance to your organization and how Defender EASM monitors them.       |   Approved, Candidate, Dependency, Monitor only, Requires investigation   |                                                              |
 |     Removed from Inventory  |   The method with which an asset was removed from inventory.                                                                  |   Archived, Dismissed                                                     |                                                              |
 |     Created At              |   Filters by the date that an asset was created in your inventory.                                                            |   Date range via calendar dropdown                                        |   `Greater Than or Equal To` `Less Than or Equal To` `Between`   |
-|     First Seen              |   Filters by the date than an asset was first observed by the Defender EASM detection system.                                 |                                                                           |                                                              |
-|     Last Seen               |   Filters by the date than an asset was last observed by the Defender EASM detection system.                                  |                                                                           |                                                              |
-|     Updated At              |   Filters by the date than asset data was last updated in inventory.                                                          |                                                                           |                                                              |
+|     First Seen              |   Filters by the date that an asset was first observed by the Defender EASM detection system.                                 |                                                                           |                                                              |
+|     Last Seen               |   Filters by the date that an asset was last observed by the Defender EASM detection system.                                  |                                                                           |                                                              |
+|     Updated At              |   Filters by the date that asset data was last updated in inventory.                                                          |                                                                           |                                                              |
 |     Wildcard                |   A wildcard DNS record answers DNS requests for subdomains that have not already been defined. For example:  *.contoso.com   |   True, False                                                             |   `Equals` `Not Equals`                                         |
 
 
 ### Free form filters 
 
-The following filters require that the user manually enters the value with which they want to search. Please note that many of these values are case-sensitive.  
+The following filters require that the user manually enters the value with which they want to search. Note that many of these values are case-sensitive.  
 
 |       Filter name  |     Description                                                      |     Value format                                                                                                                                           |     Applicable operators                                                                                                                                                                                                                            |
 |--------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
