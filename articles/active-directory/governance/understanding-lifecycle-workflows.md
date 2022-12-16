@@ -2,7 +2,7 @@
 title: 'Understanding lifecycle workflows'
 description: Describes an overview of Lifecycle workflows and the various parts.
 services: active-directory
-author: owinfrey
+author: owinfreyATL
 manager: billmath
 ms.service: active-directory
 ms.workload: identity
@@ -14,7 +14,7 @@ ms.collection: M365-identity-device-management
 ---
 # Understanding lifecycle workflows 
 
-The following reference document provides an overview of a workflow created using Lifecycle Workflows. Lifecycle Workflows allow you to automate common tasks associated with user lifecycle in organizations. Workflows automate tasks based on the joiner-mover-leaver(JML) cycle of lifecycle management, and splits tasks for users into categories of where they fall in the lifecycle of an organization. These categories extend into templates, where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
+The following document provides an overview of a workflow created using Lifecycle Workflows. Workflows automate tasks based on the joiner-mover-leaver(JML) cycle of lifecycle management, and split tasks for users into categories of where they fall in the lifecycle of an organization. These categories extend into templates, where they can be quickly customized to suit the needs of users in your organization. For more information, see: [What are Lifecycle Workflows?](what-are-lifecycle-workflows.md).
 
   [![Diagram of a lifecycle workflow](media/understanding-lifecycle-workflows/workflow-2.png)](media/understanding-lifecycle-workflows/workflow-2.png#lightbox)
 
@@ -34,38 +34,30 @@ The following permissions are required for Lifecycle Workflows:
 
 ## Parts of a workflow 
 
-A workflow can be broken down in to the following three main parts.
+A workflow can be broken down into the following three main parts:
 
 |Workflow part|Description|
 |-----|-----|
 |General information|This portion of a workflow covers basic information such as display name, and a description of what the workflow does.|
 |Tasks|Tasks are the actions that will be taken when a workflow is executed.|
-|Execution conditions| The execution condition section of a workflow sets up<br><br> Who(scope)- The workflow runs against  <br><br> When(trigger)- the workflow runs|
+|Execution conditions| Defines when(trigger), and for who(scope), a scheduled workflow will run. For more information on these two parameters, see  [Trigger details](understanding-lifecycle-workflows.md#trigger-details) and [Configure Scope](understanding-lifecycle-workflows.md#configure-scope).|
 
 ## Templates
 
-Creating a workflow via the portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for pre-defined tasks and helps automate the creation of a workflow.  
+Creating a workflow via the Azure portal requires the use of a template. A Lifecycle Workflow template is a framework that is used for pre-defined tasks, and helps automate the creation of a workflow.  
 
   [![Understanding workflow template diagram.](media/understanding-lifecycle-workflows/workflow-3.png)](media/understanding-lifecycle-workflows/workflow-3.png#lightbox)
 
-The template will define the task that is to be used and then guide you through the creation of the workflow.   The template provides input for description information and execution condition information.  
+The template, depending on its category, will define which tasks are available to be used, and then guide you through the creation of the workflow. The template provides input for basic description, execution conditions, and task information.  
 
 >[!NOTE]
->Depending on the template you select, the options that will be available may vary.  This document uses the [**Onboarding pre-hire employee**](lifecycle-workflow-templates.md#onboard-pre-hire-employee) template to illustrate the parts of a workflow.
+>Depending on the template you select, the options that will be available may vary. The images in this document uses the [**Onboarding pre-hire employee**](lifecycle-workflow-templates.md#onboard-pre-hire-employee) template to illustrate the parts of a workflow.
 
 For more information, see [Lifecycle workflow templates.](lifecycle-workflow-templates.md)
 
-## Workflow basics
-
-After selecting a template, on the basics screen:
- - Provide the information that will be used in the description portion of the workflow.
- - The trigger, defines when of the execution condition.
-
- [![Basics of a workflow.](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
-
 ## Workflow overview
 
-Every workflow created has its own overview section, which provides the following:
+Every workflow has its own overview section, where you can either take quick actions with the workflow, or view its details. This overview section is split into the three following parts:
 
 - Basic Information
 - My Feed
@@ -75,6 +67,8 @@ In this section you'll learn what each section tells you, and what actions you'l
 
 ### Basic Information
 
+When selecting a workflow, the overview provides you a list of basic details in the **Basic Information** section. These basic details provide you information such as the workflow category, its ID, when it was modified, and when it's scheduled to run again. This information is important in providing quick details surrounding its current usage for administrative purposes. Basic information is also live data, meaning any quick change action that you take place on the overview page, is shown immediately within this section.
+
 Within the **Basic Information** you can view the following information:
 
  |Name|Description|
@@ -83,14 +77,14 @@ Within the **Basic Information** you can view the following information:
  |Description|A brief description that describes the workflow.|
  |Category|A string identifying the category of the workflow.|
  |Date Created|The date and time the workflow was created.|
- |Workflow ID|A unique string identifier for the workflow.|
+ |Workflow ID|A unique identifier for the workflow.|
  |Schedule|Defines if the workflow is currently scheduled to run.|
  |Last run date|The last date and time the workflow ran.|
  |Last Modified|The last date and time the workflow was modified.|
 
 ### My Feed
 
-The **My Feed** section of the workflow overview contains a quick peak into when and how the workflow ran. The following information is provided:
+The **My Feed** section of the workflow overview contains a quick peek into when and how the workflow ran. This section also allows you to quickly jump to the target areas for more information. The following information is provided:
 
 - Next target run: The date and time of the next scheduled workflow run.
 - Total processed users: The total number of users processed by the workflow.
@@ -100,70 +94,60 @@ The **My Feed** section of the workflow overview contains a quick peak into when
 - Current version: How many new versions of the workflow have been created.
 
 
+### Quick Action
+
+The **Quick Action** section allows you to quickly take action with your workflow. These quick actions can either be making the workflow do something, or used for history or editing purposes. The following actions you can take are:
+
+- Run on Demand: Allows you to quickly run the workflow on demand. For more information on this process, see: [Run a workflow on-demand](on-demand-workflow.md)
+- Edit tasks: Allows you to add, delete, edit, or reorder tasks within the workflow. For more information on this process, see: [Edit the tasks of a workflow using the Azure portal](manage-workflow-tasks.md#edit-the-tasks-of-a-workflow-using-the-azure-portal)
+- View Workflow History: Allows you to view the history of the workflow. For more information on the three history perspectives, see: [Lifecycle Workflows history](lifecycle-workflow-history.md)
+
+Actions taken from the overview of a workflow allow you to quickly complete tasks, which can normally be done via the manage section of a workflow.
+
+[![Update manage workflow section review.](media/understanding-lifecycle-workflows/workflow-11.png)](media/understanding-lifecycle-workflows/workflow-11.png#lightbox)
+
+## Workflow basics
+
+After selecting a template, on the basics screen:
+ - Provide the information that will be used in the description portion of the workflow.
+ - The trigger, defines when of the execution condition.
+
+ [![Basics of a workflow.](media/understanding-lifecycle-workflows/workflow-4.png)](media/understanding-lifecycle-workflows/workflow-4.png#lightbox)
+
 ## Trigger details
 
-Under the trigger details section, you can provide the following information.
+The trigger of a workflow defines when a scheduled workflow will run for users in scope for the workflow. The trigger is a combination of a time-based attribute, and an offset value.  For example, if the attribute is employeeHireDate and offsetInDays is -1, then the workflow should trigger one day before the employee hire date. The value can range between -60 and 60 days. 
 
- |Name|Description|
- |-----|-----|
- |Days for event|The number of days before or after the date specified in the **Event user attribute**.|
+The time-based attribute can be either one of two values, which are automatically chosen based on the template in which you select during the creation of your workflow. The two values can be:
 
-This section defines **when** the workflow will run.  Currently, there are two supported types of triggers:
-  
-- Trigger and scope based: Runs the task on all users in scope once the workflow is triggered.
-- On-demand: Can be run immediately. Typically used for real-time employee terminations.
+- employeeHireDate: If the template is a joiner workflow.
+- employeeLeaveDateTime: If the template is a leaver workflow.
+
+These two values must be set within Azure AD for users. For more information on this process, see [How to synchronize attributes for Lifecycle workflows](how-to-lifecycle-workflow-sync-attributes.md)
+
+The offset determines how many days before or after the time-based attribute the workflow should be triggered. For example, if the attribute is employeeHireDate and offsetInDays is 7, then the workflow should trigger one week(7 days) before the employee hire date. The offsetInDays value can be as far ahead, or behind, as 60.
+
 
 ## Configure scope
 
-After you define the basics tab, on the configure scope screen:
- - Provide the information that will be used in the execution condition, to determine who the workflow will run against.  
- - Add more expressions to create more complex filtering.
+[![Screenshot showing the rule section](media/understanding-lifecycle-workflows/workflow-5.png)](media/understanding-lifecycle-workflows/workflow-5.png#lightbox)
 
-The configure scope section determines **who** the workflow will run against.
+The scope defines for who the scheduled workflow will run. Configuring this parameter allows you to further narrow down the users for whom the workflow is to be executed.
 
- [![Screenshot showing the rule section](media/understanding-lifecycle-workflows/workflow-5.png)](media/understanding-lifecycle-workflows/workflow-5.png#lightbox)
+The scope is made up of the following two parts:
 
-You can add extra expressions using **And/Or** to create complex conditionals, and apply the workflow more granularly across your organization.
+- Scope type: Always preset as Rule based.
+- Rule: Where you can set expressions on user properties that define for whom the scheduled workflow will run. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties]((/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)) for configuring the scope.
 
- [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
+[![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
-> [!NOTE]
-> For a full list of user properties supported by Lifecycle Workflows, see [Supported user properties and query parameters](/graph/api/resources/identitygovernance-rulebasedsubjectset?view=graph-rest-beta&preserve-view=true#supported-user-properties-and-query-parameters)
-
-For detailed information on creating a workflow, see: [Create a lifecycle workflow.](create-lifecycle-workflow.md)
-
-
-## Review tasks
-After defining the scope the review tasks screen will allow you to:
- - Verify that the correct template was selected, and the tasks associated with the workflow are correct.  
- - Add more tasks other than the ones in the template.
-
-[![Screenshot showing the review tasks screen.](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
-
-You can use the **Add task** button to add extra tasks for the workflow. Select the additional tasks from the list provided.
-
- [![Screenshot showing additional tasks section.](media/understanding-lifecycle-workflows/workflow-6.png)](media/understanding-lifecycle-workflows/workflow-6.png#lightbox)
-
-For more information, see: [Lifecycle workflow tasks](lifecycle-workflow-tasks.md)
-
-## Review and create
-
-After reviewing the tasks on the review and create screen, you:
- - Verify all of the information is correct, and create the workflow.
-
- Based on what was defined in the previous sections our workflow will now show:
-- It's named **on-board pre-hire employee**.
-- Based on the date in the **EmployeeHireDate** attribute, it will trigger **seven** (7) days prior to the date.
-- It will run against users who have **marketing** for the **department** attribute value.
-- It will generate a **TAP (Temporary Access Pass)**, and send an email to the user in the **manager** attribute of the pre-hire employee.
-
- [![Review and create workflow template.](media/understanding-lifecycle-workflows/workflow-7.png)](media/understanding-lifecycle-workflows/workflow-7.png#lightbox)
+For a detailed guide on setting the execution conditions for a workflow, see: [Create a lifecycle workflow.](create-lifecycle-workflow.md)
 
 ## Scheduling
 
 While newly created workflows are enabled by default, scheduling is an option that must be enabled manually. To verify whether the workflow is scheduled, you can view the **Scheduled** column. 
 
-Once scheduling is enabled, the workflow will be evaluated every 3 hours to determine whether or not it should run based on the execution conditions.
+Once scheduling is enabled, the workflow will be evaluated every three hours to determine whether or not it should run based on the execution conditions.
 
  [![Workflow template schedule.](media/understanding-lifecycle-workflows/workflow-10.png)](media/understanding-lifecycle-workflows/workflow-10.png#lightbox)
 
@@ -176,23 +160,13 @@ A workflow can be run on-demand for testing or in situations where it's required
 Use the **Run on demand** feature to execute the workflow immediately. The workflow must be enabled before you can run it on demand.
 
 >[!NOTE]
-> A workflow that is run on demand for any user does not take into account whether or not a user meets the workflow's execution. It will apply the task regardless of whether the execution conditions are met or not.
+> A workflow that is run on demand for a user does not take into account whether or not a user meets the workflow's execution conditions. It will apply the tasks regardless of whether the execution conditions are met by the user or not.
 
 For more information, see: [Run a workflow on-demand](on-demand-workflow.md)
 
-## Managing the workflow
-
-By selecting on a workflow you created, you can manage the workflow.
-
-You can select which portion of the workflow you wish to update or change using the left navigation bar. Select the section you wish to update.
-
-[![Update manage workflow section review.](media/understanding-lifecycle-workflows/workflow-11.png)](media/understanding-lifecycle-workflows/workflow-11.png#lightbox)
-
-For more information, see: [Manage lifecycle workflow properties](manage-workflow-properties.md)
-
 ##  History
 
-When you have selected a workflow, you can view it's historical information through the lens of its users, runs, and tasks. Being able to view information specifically from these viewpoints allows you to quickly narrow down specific information about how a workflow was processed. 
+When you've selected a workflow, you can view its historical information through the lens of its users, runs, and tasks. Being able to view information specifically from these viewpoints allows you to quickly narrow down specific information about how a workflow was processed. 
 
 For more information, see: [Lifecycle Workflows history](lifecycle-workflow-history.md)
 
@@ -201,11 +175,9 @@ For more information, see: [Lifecycle Workflows history](lifecycle-workflow-hist
 
 Workflow versions are separate workflows built using the same information of an original workflow, but with either the tasks or scope updated, so that they're reported differently within logs. Workflow versions can change the actions or even scope of an existing workflow.
 
-You can view versioning information by selecting **Versions** under **Manage** from the left.
-
 [![Manage workflow versioning selection.](media/understanding-lifecycle-workflows/workflow-12.png)](media/understanding-lifecycle-workflows/workflow-12.png#lightbox)
 
-For more information, see: [Lifecycle Workflow versioning](lifecycle-workflow-versioning.md)
+For more information, see: [Lifecycle Workflows Versioning](lifecycle-workflow-versioning.md)
 
 
 ## Next steps
