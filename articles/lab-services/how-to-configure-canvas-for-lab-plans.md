@@ -45,7 +45,7 @@ To enable the developer key for the Azure Lab Services app:
 
 1. In the list, change the state of the **Azure Lab Services** entry to **On**.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-enable-lab-services-app.png" alt-text="Screenshot that shows how to turn on the inherited Azure Lab Services app in the Canvas Admin settings.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-enable-lab-services-app.png" alt-text="Screenshot that shows how to turn on the inherited Azure Lab Services app in the Canvas Admin settings." lightbox="./media/how-to-configure-canvas-for-lab-plans/canvas-enable-lab-services-app.png":::
 
 ## Add Azure Lab Services app to an account (optional)
 
@@ -69,7 +69,7 @@ To add the app at the Canvas account level:
 
 1. Select **View App Configurations** button at the top right of the page.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-admin-settings.png" alt-text="Screenshot that shows the App tab of the admin settings page in Canvas.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-admin-settings.png" alt-text="Screenshot that shows the App tab of the admin settings page in Canvas." lightbox="./media/how-to-configure-canvas-for-lab-plans/canvas-admin-settings.png":::
 
 1. Select the **+ App** button at the top right of the page.
 
@@ -150,7 +150,7 @@ Perform the following steps to link lab plans to Canvas:
 
 1. Choose the lab plans you want to link to Canvas from the list.
 
-    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-select-lab-plans.png" alt-text="Screenshot that shows the list of lab plans that can be linked to Canvas.":::
+    :::image type="content" source="./media/how-to-configure-canvas-for-lab-plans/canvas-select-lab-plans.png" alt-text="Screenshot that shows the list of lab plans that can be linked to Canvas." lightbox="./media/how-to-configure-canvas-for-lab-plans/canvas-select-lab-plans.png":::
 
 1. Select **Save**.
 
