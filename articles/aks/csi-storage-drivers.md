@@ -130,8 +130,8 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 [snapshot-controller]: https://kubernetes-csi.github.io/docs/snapshot-controller.html
 
 <!-- LINKS - internal -->
-[azure-disk-static-mount]: azure-csi-disk-provision.md#mount-disk-as-a-volume
-[azure-file-static-mount]: azure-csi-files-provision.md#mount-file-share-as-a-persistent-volume
+[azure-disk-static-mount]: azure-csi-disk-storage-provision.md#mount-disk-as-a-volume
+[azure-file-static-mount]: azure-csi-files-storage-provision.md#mount-file-share-as-a-persistent-volume
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [azure-blob-csi]: azure-blob-csi.md

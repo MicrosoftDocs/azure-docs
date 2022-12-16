@@ -131,8 +131,8 @@ Stateless application migration is the most straightforward case:
 
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
-* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-a-persistent-volume).
-* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-a-volume).
+* If you use Azure Files, you can mount the file share as a volume into the new cluster. See [Mount Static Azure Files as a Volume](./azure-csi-files-provision.md#mount-file-share-as-a-persistent-volume).
+* If you use Azure Managed Disks, you can only mount the disk if unattached to any VM. See [Mount Static Azure Disk as a Volume](./azure-csi-disk-provision.md#mount-disk-as-a-volume).
 * If neither of those approaches work, you can use a backup and restore options. See [Velero on Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md).
 
 #### Azure Files
@@ -159,7 +159,7 @@ If you're migrating existing persistent volumes to AKS, you'll generally follow 
 1. Take snapshots of the disks.
 1. Create new managed disks from the snapshots.
 1. Create persistent volumes in AKS.
-1. Update pod specifications to [use existing volumes](./azure-disk-volume.md) rather than PersistentVolumeClaims (static provisioning).
+1. Update pod specifications to [use existing volumes](./azure-disk-csi.md) rather than PersistentVolumeClaims (static provisioning).
 1. Deploy your application to AKS.
 1. Validate your application is working correctly.
 1. Point your live traffic to your new AKS cluster.

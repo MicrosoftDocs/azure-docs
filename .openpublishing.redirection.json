@@ -171,12 +171,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/aks/azure-csi-disk-storage-provision.md",
-            "redirect_url": "/azure/aks/azure-csi-disk-provision",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/aks/azure-csi-disks-dynamic-pv.md",
+            "source_path_from_root": "/articles/aks/azure-disks-dynamic-pv.md",
             "redirect_url": "/azure/aks/azure-csi-disk-provision",
             "redirect_document_id": false
         },

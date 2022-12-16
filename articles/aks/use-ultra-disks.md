@@ -19,6 +19,7 @@ This feature can only be set at cluster creation or node pool creation time.
 > Azure ultra disks require nodepools deployed in availability zones and regions that support these disks as well as only specific VM series. See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
 ### Limitations
+
 - See the [**Ultra disks GA scope and limitations**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - The supported size range for a Ultra disks is between 100 and 1500
 
@@ -29,15 +30,13 @@ Create an AKS cluster that is able to leverage Ultra Disks by using the followin
 Create an Azure resource group:
 
 ```azurecli-interactive
-# Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-Create the AKS cluster with support for Ultra Disks.
+Create an AKS-managed Azure AD cluster with support for Ultra Disks.
 
 ```azurecli-interactive
-# Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
+az aks create -g MyResourceGroup -n myAKSCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 2 --node-count 2 --enable-ultra-ssd
 ```
 
 If you want to create clusters without ultra disk support, you can do so by omitting the `--enable-ultra-ssd` parameter.
@@ -54,7 +53,7 @@ If you want to create new node pools without support for ultra disks, you can do
 
 ## Use ultra disks dynamically with a storage class
 
-To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-dynamic-pv.md).
+To use ultra disks in our deployments or stateful sets you can use a [storage class for dynamic provisioning](azure-disks-csi.md).
 
 ### Create the storage class
 
@@ -80,9 +79,12 @@ parameters:
 Create the storage class with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-sc.yaml* file:
 
 ```console
-$ kubectl apply -f azure-ultra-disk-sc.yaml
+kubectl apply -f azure-ultra-disk-sc.yaml
+```
 
+The output from the command resembles the following example:
 
+```console
 storageclass.storage.k8s.io/ultra-disk-sc created
 ```
 
@@ -109,8 +111,12 @@ spec:
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-pvc.yaml* file:
 
 ```console
-$ kubectl apply -f azure-ultra-disk-pvc.yaml
+kubectl apply -f azure-ultra-disk-pvc.yaml
+```
 
+The output from the command resembles the following example:
+
+```console
 persistentvolumeclaim/ultra-disk created
 ```
 
@@ -148,15 +154,19 @@ spec:
 Create the pod with the [kubectl apply][kubectl-apply] command, as shown in the following example:
 
 ```console
-$ kubectl apply -f nginx-ultra.yaml
+kubectl apply -f nginx-ultra.yaml
+```
 
+The output from the command resembles the following example:
+
+```console
 pod/nginx-ultra created
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod nginx-ultra`, as shown in the following condensed example:
 
 ```console
-$ kubectl describe pod nginx-ultra
+kubectl describe pod nginx-ultra
 
 [...]
 Volumes:
