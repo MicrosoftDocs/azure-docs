@@ -12,7 +12,9 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
+
+# Customer intent: As a tenant administrator, I want to make sure that guest users can access resources and the consent process.
 ---
 
 # Azure Active Directory B2B collaboration invitation redemption
@@ -47,8 +49,8 @@ As an alternative to the invitation email or an application's common URL, you ca
 
 There are some cases where the invitation email is recommended over a direct link. If these special cases are important to your organization, we recommend that you invite users by using methods that still send the invitation email:
 
-- Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
-- The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
+- Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must select the redemption URL in the invitation email.
+- The user may sign in with an alias of the email address that was invited. (An alias is an other email address associated with an email account.) In this case, the user must select the redemption URL in the invitation email.
 
 ## Redemption through the invitation email
 
@@ -56,7 +58,7 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 
 1. The guest receives an [invitation email](./invitation-email-elements.md) that's sent from **Microsoft Invitations**.
 2. The guest selects **Accept invitation** in the email.
-3. The guest will use their own credentials to sign in to your directory. If the guest does not have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature is not enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
+3. The guest will use their own credentials to sign in to your directory. If the guest doesn't have an account that can be federated to your directory and the [email one-time passcode (OTP)](./one-time-passcode.md) feature isn't enabled; the guest is prompted to create a personal [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create). Refer to the [invitation redemption flow](#invitation-redemption-flow) for details.
 4. The guest is guided through the [consent experience](#consent-experience-for-the-guest) described below.
 
 ## Redemption limitation with conflicting Contact object
@@ -69,32 +71,32 @@ However, the following scenarios should continue to work:
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact), follow these steps:
 1.	Delete the conflicting Contact object.
 2.	Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
-3.	Re-invite the guest user.
+3.	Reinvite the guest user.
 4.	Wait for the user to redeem invitation.
 5.	Add the user's Contact email back into Exchange and any DLs they should be a part of.
 
 
 ## Invitation redemption flow
 
-When a user clicks the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
+When a user select the **Accept invitation** link in an [invitation email](invitation-email-elements.md), Azure AD automatically redeems the invitation based on the redemption flow as shown below:
 
 ![Screenshot showing the redemption flow diagram.](media/redemption-experience/invitation-redemption.png)
 
 ***
 
-1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for redemption.) If the user’s User Principal Name (UPN) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
+1. Azure AD performs user-based discovery to determine if the user already exists in a managed Azure AD tenant. (Unmanaged Azure AD accounts can no longer be used for redemption.) If the user’s User Principal Name ([UPN](../hybrid/plan-connect-userprincipalname.md#what-is-userprincipalname)) matches both an existing Azure AD account and a personal MSA, the user is prompted to choose which account they want to redeem with.
 
-2. If an admin has enabled [SAML/WS-Fed IdP federation](./direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
+2. If an admin has enabled [SAML/WS-Fed IdP federation](.../direct-federation.md), Azure AD checks if the user’s domain suffix matches the domain of a configured SAML/WS-Fed identity provider and redirects the user to the pre-configured identity provider.
 
-3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com or googlemail.com and redirects the user to Google.
+3. If an admin has enabled [Google federation](./google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
 
-4. The redemption process checks if the user has an existing personal MSA. If the user already has an existing MSA, they'll sign in with their existing MSA.
+4. The redemption process checks if the user has an existing personal [MSA](/microsoft-account.md). If the user already has an existing MSA, they'll sign in with their existing MSA.
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
 6. If no home directory is found and the email one-time passcode feature is *enabled* for guests, a [passcode is sent](./one-time-passcode.md#when-does-a-guest-user-get-a-one-time-passcode) to the user through the invited email. The user retrieves and enters this passcode in the Azure AD sign-in page.
 
-7. If no home directory is found and email one-time passcode for guests is *disabled*, the user is prompted to create a consumer MSA with the invited email. We support creating an MSA with work emails in domains that are not verified in Azure AD.
+7. If no home directory is found and email one-time passcode for guests is *disabled*, the user is prompted to create a consumer MSA with the invited email. We support creating an MSA with work emails in domains that aren't verified in Azure AD.
 
 8. After authenticating to the right identity provider, the user is redirected to Azure AD to complete the [consent experience](#consent-experience-for-the-guest).  
 
@@ -125,7 +127,5 @@ If you see an error that requires admin consent while accessing an application, 
 ## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
-- [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md)
-- [How do information workers add B2B collaboration users to Azure Active Directory?](add-users-information-worker.md)
-- [Add Azure Active Directory B2B collaboration users by using PowerShell](customize-invitation-api.md#powershell)
-- [Leave an organization as a guest user](leave-the-organization.md)
+- [B2B collaboration user properties](user-properties.md)
+- [Invitation email](invitation-email-elements.md)
