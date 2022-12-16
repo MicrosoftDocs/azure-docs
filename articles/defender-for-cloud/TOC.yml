@@ -10,9 +10,6 @@
   - name: What are the enhanced security features?
     displayName: azure defender
     href: enhanced-security-features-overview.md
-  - name: Security posture at-a-glance with the Overview dashboard
-    displayName: overview, compliance, inventory
-    href: overview-page.md
   - name: What's new?
     displayName: changelog, news, release notes
     href: release-notes.md
@@ -76,7 +73,7 @@
   items:
   - name: Planning and operations guide
     displayName: guide, planning, roles, policies, recommendations
-    href: security-center-planning-and-operations-guide.md
+    href: defender-for-cloud-planning-and-operations-guide.md
   - name: Protect your resources
     displayName: manage, access, harden
     href: tutorial-protect-resources.md
@@ -201,6 +198,9 @@
   items:
   - name: Cloud security posture
     items:
+    - name: Security posture at-a-glance with the Overview dashboard
+      displayName: overview, compliance, inventory
+      href: overview-page.md
     - name: See all of your workloads in the workload protections dashboard
       displayName: workloads, dashboard, protections
       href: workload-protections-dashboard.md
@@ -653,8 +653,6 @@
     href: ../defender-for-iot/index.yml
   - name: Azure security documentation
     href: ../security/index.yml
-  - name: Readiness Roadmap
-    href: security-center-readiness-roadmap.md
   - name: Microsoft Defender for Cloud tech community blogs
     href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow

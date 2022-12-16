@@ -6,11 +6,10 @@ ms.topic: include
 ms.date: 12/7/2022
 ---
 
-<!---
 
 At this time, a test or preview build is not available for the next release.
 
--->
+<!---
 December 2022 preview release is now available.
 
 |Component|Value|
@@ -28,3 +27,4 @@ New for this release:
 - Arc-enabled PostgreSQL server
   - Switch to Ubuntu based images
 
+--->

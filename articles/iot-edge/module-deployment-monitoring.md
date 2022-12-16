@@ -12,7 +12,7 @@ services: iot-edge
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices.
 
