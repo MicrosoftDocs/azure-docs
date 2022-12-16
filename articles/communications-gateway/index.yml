@@ -51,6 +51,10 @@ landingContent:
   # Card
   - title: Manage Azure Communications Gateway
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Monitoring Azure Communications Gateway
+            url: monitor-azure-communications-gateway.md
       - linkListType: how-to-guide
         links:
           - text: Get support or request changes

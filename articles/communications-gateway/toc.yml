@@ -26,8 +26,8 @@ items:
     href: security.md
   - name: Emergency calling
     href: emergency-calling.md
-  - name: Limits, quotas and restrictions
-    href: limits.md
+  - name: Monitoring
+    href: monitor-azure-communications-gateway.md
 - name: How-to guides
   items:
   - name: Set up user roles
@@ -38,6 +38,12 @@ items:
     href: rotate-secrets.md
   - name: Get support or request changes
     href: request-changes.md
+- name: Reference
+  items:
+  - name: Monitoring data reference
+    href: monitoring-azure-communications-gateway-data-reference.md
+  - name: Limits, quotas and restrictions
+    href: limits.md
 - name: Resources
   items:
   - name: Overview of Operator Connect
