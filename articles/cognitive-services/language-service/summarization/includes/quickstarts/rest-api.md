@@ -392,8 +392,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
-
-## Next steps
-
-* [How to call document summarization](./how-to/document-summarization.md)
-* [How to call conversation summarization](./how-to/conversation-summarization.md)
