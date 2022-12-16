@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Create a user account by using Azure Active Directory B2C custom policy
 
-Azure Active Directory B2C (Azure AD B2C) is built on Azure Active Directory (Azure AD), and so it uses Azure AD storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can extend the user profile with your own custom attributes without requiring an external data store. 
+Azure Active Directory B2C (Azure AD B2C) is built on Azure Active Directory (Azure AD), and so it uses Azure AD storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can [extend the user profile with your own custom attributes](user-flow-custom-attributes.md) without requiring an external data store. 
 
 Your custom policies can access Azure AD storage by using Azure AD Technical Profile to store, update or delete user information. In this article, you'll learn how to configure the Azure AD Technical Profile to persist a user information before a JWT token is returned. 
 
@@ -235,7 +235,7 @@ After the policy finishes execution, and you receive your ID token, check that t
 
 In our *AAD-UserWrite* Azure AD Technical Profile, we specify that if the user already exists, we raise an error.
 
-Test your custom policy again by using the same *Email Address*. Instead of an ID token, you should see an error similar to the screenshot below.
+Test your custom policy again by using the same **Email Address**. Instead of an ID token, you should see an error similar to the screenshot below.
 
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-error-account-already-exists.png" alt-text="A screenshot of error as account already exists.":::  
 
@@ -250,4 +250,4 @@ Test your custom policy again by using the same *Email Address*. Instead of an I
  
 - Learn how to [add password expiration to custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-after-90-days).
 
-- Learn more [about Azure AD Technical Profile](active-directory-technical-profile.md). 
+- Learn more about [Azure AD Technical Profile](active-directory-technical-profile.md). 

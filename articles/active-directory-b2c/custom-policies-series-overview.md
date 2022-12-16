@@ -41,6 +41,7 @@ This how-to guide series consists of multiple articles. We recommend that you st
 |[Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md)| Learn how to write a custom policy that integrates with your own RESTful service.|
 |[Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md)| Learn how to store user details into Azure AD storage by using Azure AD B2C custom policy. You use the Azure Active Directory Technical profile.|
 |[Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md)| Learn how to read or update user details in Azure AD storage by using Azure AD B2C custom policy. You use the Azure Active Directory Technical profile.|
+| [Reuse Technical Profile in Azure Active Directory B2C custom policy](custom-policies-series-reuse-custom-policy.md) | Learn how to reuse technical profiles in Azure AD B2C custom policy. |
 
 
 ## Next steps 
