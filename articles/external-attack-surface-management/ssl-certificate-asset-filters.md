@@ -1,7 +1,7 @@
 ---
 title: SSL certificate asset filters
 titleSuffix: Defender EASM SSL certificate asset filters 
-description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for SSL certificate assets specifically, includiung operators and applicable field values.
+description: This article outlines the filter functionality available in Microsoft Defender External Attack Surface Management for SSL certificate assets specifically, including operators and applicable field values.
 author: danielledennis
 ms.author: dandennis
 ms.service: security
