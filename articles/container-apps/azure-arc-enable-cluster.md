@@ -5,7 +5,7 @@ services: container-apps
 author: cebundy
 ms.service: container-apps
 ms.topic: tutorial
-ms.date: 11/29/2022
+ms.date: 12/16/2022
 ms.author: v-bcatherine
 
 ---
@@ -468,7 +468,7 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     # [bash](#tab/bash)
 
     ```azurecli
-    az containerapps connected-env create \
+    az containerapp connected-env create \
         --resource-group $GROUP_NAME \
         --name $CONNECTED_ENVIRONMENT_NAME \
         --custom-location $CUSTOM_LOCATION_ID 
@@ -477,7 +477,7 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     # [PowerShell](#tab/azure-powershell)
 
     ```azurecli
-    az containerapps connected-env create `
+    az containerapp connected-env create `
         --resource-group $GROUP_NAME `
         --name $CONNECTED_ENVIRONMENT_NAME `
         --custom-location $CUSTOM_LOCATION_ID       
@@ -488,7 +488,7 @@ Before you can start creating apps in the custom location, you need an [Azure Co
 1. Validate that the Container Apps connected environment is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.
 
     ```azurecli
-    az containerapps connected-env show --resource-group $GROUP_NAME --name $CONNECTED_ENVIRONMENT_NAME
+    az containerapp connected-env show --resource-group $GROUP_NAME --name $CONNECTED_ENVIRONMENT_NAME
     ```
 
 ## Next steps
