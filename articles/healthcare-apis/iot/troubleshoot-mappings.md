@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/25/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -44,9 +44,9 @@ The validation process validates the device and FHIR destination mappings before
 > [!NOTE]
 > `Values[].ValueName and Values[].ValueExpression` elements are only required if you have a value entry in the array. It's valid to have no values mapped. This is used when the telemetry being sent is an event. 
 >
->For example:
+> For example:
 > 
->Some IoMT scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
+> Some IoMT scenarios may require creating an Observation Resource in the FHIR service that does not contain a value.
 
 **FHIR destination mappings**
 
@@ -59,9 +59,11 @@ The validation process validates the device and FHIR destination mappings before
 
 ## Next steps
 
-In this article, you learned the validation process that the MedTech service performs on the Device and FHIR destination mappings. To learn how to troubleshoot MedTech service errors and conditions, see
+In this article, you learned the validation process that the MedTech service performs on the device and FHIR destination mappings. 
+
+To learn how to troubleshoot MedTech service errors and conditions, see
 
 > [!div class="nextstepaction"]
-> [Troubleshoot MedTech service error messages and conditions](iot-troubleshoot-error-messages-and-conditions.md)
+> [Troubleshoot the MedTech service error messages and conditions](troubleshoot-error-messages-and-conditions.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
