@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Enable multi-region replication on Azure Managed HSM (Preview)
 
-Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to an other Azure region (called a secondary). Once configured, both regions are active, able to serve requests, and with automated replication will share the same key material, roles, and permissions. The closest available region to the application will receive and fulfill the request thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication will enhance the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
+Multi-region replication allows you to extend a managed HSM pool from one Azure region (called a primary) to another Azure region (called a secondary). Once configured, both regions are active, able to serve requests, and with automated replication will share the same key material, roles, and permissions. The closest available region to the application will receive and fulfill the request thereby maximizing read throughput and latency. While regional outages are rare, multi-region replication will enhance the availability of mission critical cryptographic keys should one region become unavailable.  For more information on SLA, visit [SLA for Azure Key Vault Managed HSM](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/).
 
 ## Architecture
 
@@ -20,7 +20,7 @@ When multi-region replication is enabled on a managed HSM, a second managed HSM 
 
 ## Replication latency
 
-Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to six mins before both regions are fully replicated. Within this window, it is not guaranteed that the written material has replicated between the regions. Therefore, it is best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
+Any write operation to the Managed HSM, such as creating or updating a key, creating or updating a role definition, or creating or updating a role assignment, may take up to 6 minutes before both regions are fully replicated. Within this window, it isn't guaranteed that the written material has replicated between the regions. Therefore, it's best to wait six minutes between creating or updating the key and using the key to ensure that the key material has fully replicated between regions. The same applies for role assignments and role definitions.
 
 ## Failover behavior
 
@@ -33,7 +33,7 @@ Failover occurs when one of the regions in a multi-region Managed HSM becomes un
 
 If the secondary region becomes unavailable, read operations (get key, list keys, all crypto operations, list role assignments) will be available if the primary region is alive. Write operations (create and update keys, create and update role assignments, create and update role definitions) will also be available.
 
-If the primary region is unavailable, read operations will be available, but write operations may not depending on the scope of the outage.
+If the primary region is unavailable, read operations will be available, but write operations may not, depending on the scope of the outage.
 
 ## Time to failover
 
@@ -53,8 +53,8 @@ The following regions are supported for the preview.
 - US West Central
 - US East
 - US East 2 *
-- Europe Nortn
-- Europe West*
+- Europe North
+- Europe West *
 - Switzerland West
 - Switzerland North
 - Asia SouthEast
@@ -66,15 +66,15 @@ The following regions are supported for the preview.
 
 ## Billing
 
-Multi-region replication into secondary region incurs additional billing (x2) as a new HSM pool will be consumed in the secondary region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
+Multi-region replication into secondary region incurs extra billing (x2) as a new HSM pool will be consumed in the secondary region. For more information, see  [Azure Managed HSM pricing](https://azure.microsoft.com/pricing/details/key-vault).
 
 ## Soft-delete behavior
 
-The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery of deleted HSMs and keys however in a multi-region replication enabled scenario, there are subtle differences where the secondary HSM must be deleted before soft-delete can be executed on the primary HSM. Additionally, when a secondary is deleted, it is purged immediately and does not go into a soft-delete state that stops all billing for the secondary.  You can always extend to a new region as the secondary from the primary if needed. 
+The [Managed HSM soft-delete feature](soft-delete-overview.md) allows recovery of deleted HSMs and keys however in a multi-region replication enabled scenario, there are subtle differences where the secondary HSM must be deleted before soft-delete can be executed on the primary HSM. Additionally, when a secondary is deleted, it's purged immediately and doesn't go into a soft-delete state that stops all billing for the secondary.  You can always extend to a new region as the secondary from the primary if needed. 
 
 ### Azure CLI commands
 
-If creating a new Managed HSM pool and then extending to a secondary, please refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
+If creating a new Managed HSM pool and then extending to a secondary, refer to [these instructions](quick-create-cli.md#create-a-managed-hsm) prior to extending.  If extending from an already existing Managed HSM pool, then use the following instructions to create a secondary HSM into  another region.  
 
 ### Install the multi-region managed HSM replication extension
 
@@ -91,7 +91,7 @@ az keyvault region add --hsm-name "ContosoMHSM" --region "australiaeast"
 ```
 
 > [!NOTE]
-> "ContosoMHSM" in this example is the primary HSM pool name and "australiaeast" is the secondary region into which you are extending it.
+> "ContosoMHSM" in this example is the primary HSM pool name; "australiaeast" is the secondary region into which you are extending it.
 
 ### Remove a secondary HSM in another region
 
