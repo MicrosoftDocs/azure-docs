@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -184,9 +184,9 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+ - To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
 
- - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+ - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ## Clean up Azure PowerShell resources
 
@@ -215,7 +215,7 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 In this quickstart, you learned how to use Azure PowerShell or Azure CLI to deploy an instance of the MedTech service using an ARM template. 
 
-To learn more about other methods of deploying the MedTech service, see
+To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-iot-connector-in-azure.md)
