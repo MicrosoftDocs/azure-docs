@@ -13,9 +13,6 @@ ms.custom: avverma, devx-track-azurecli
 ---
 # Tutorial: Automatically scale a Virtual Machine Scale Set with the Azure CLI
 
-> [!NOTE]
-> This tutorial uses Uniform Orchestration mode. We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
-
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -38,14 +35,14 @@ Create a resource group with [az group create](/cli/azure/group) as follows:
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys if they do not exist:
+Now create a Virtual Machine Scale Set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys if they don't exist:
 
 ```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroup \
   --name myScaleSet \
   --image UbuntuLTS \
-  --upgrade-policy-mode automatic \
+  --orchestration-mode Flexible \
   --instance-count 2 \
   --admin-username azureuser \
   --generate-ssh-keys
@@ -68,9 +65,9 @@ az monitor autoscale create \
 
 ## Create a rule to autoscale out
 
-If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
+If your application demand increases, the load on the VM instances in your scale set increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
 
-Let's create a rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by three.
+Create a rule with [az monitor autoscale rule create](/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 5-minute period. When the rule triggers, the number of VM instances is increased by three.
 
 ```azurecli-interactive
 az monitor autoscale rule create \
@@ -98,28 +95,7 @@ az monitor autoscale rule create \
 
 To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU load causes the autoscales to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
-First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss):
-
-```azurecli-interactive
-az vmss list-instance-connection-info \
-  --resource-group myResourceGroup \
-  --name myScaleSet
-```
-
-The following example output shows the instance name, public IP address of the load balancer, and port number that the Network Address Translation (NAT) rules forward traffic to:
-
-```json
-{
-  "instance 1": "13.92.224.66:50001",
-  "instance 3": "13.92.224.66:50003"
-}
-```
-
-SSH to your first VM instance. Specify your own public IP address and port number with the `-p` parameter, as shown from the preceding command:
-
-```console
-ssh azureuser@13.92.224.66 -p 50001
-```
+To connect to an individual instance, see [Tutorial: Connect to Virtual Machine Scale Set instances](tutorial-connect-to-instances-cli.md)
 
 Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
