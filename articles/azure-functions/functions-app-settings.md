@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.date: 08/27/2022
+ms.date: 12/15/2022
 ---
 
 # App settings reference for Azure Functions
@@ -279,7 +279,15 @@ Sets the shared memory size (in bytes) when the Python worker is using shared me
 
 The value above sets a shared memory size of ~256 MB. 
 
-Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+Requires that [`FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED`](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+
+## ENABLE\_ENABLE\_ORYX\_BUILD
+
+Indicates whether the [Oryx build system](https://github.com/microsoft/Oryx) is used during deployment. `ENABLE_ORYX_BUILD` must be set to `true` when doing remote build deployments to Linux. For more information, see [Remote build on Linux](functions-deployment-technologies.md#remote-build-on-linux).
+
+|Key|Sample value|
+|---|------------|
+|ENABLE_ORYX_BUILD|`true`|
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
@@ -463,6 +471,14 @@ This setting controls logging from the Azure Functions scale controller. For mor
 The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+## SCM\_DO\_BUILD\_DURING\_DEPLOYMENT
+
+Controls remote build behavior during deployment. When `SCM_DO_BUILD_DURING_DEPLOYMENT` is set to `true`, the project is built remotely during deployment.
+
+|Key|Sample value|
+|-|-|
+|SCM_DO_BUILD_DURING_DEPLOYMENT|`true`|
 
 ## SCM\_LOGSTREAM\_TIMEOUT
 
