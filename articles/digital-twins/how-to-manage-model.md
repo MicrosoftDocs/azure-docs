@@ -79,7 +79,7 @@ If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/c
 
 ### Upload large model sets
 
-For large model sets, you can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload many models at once in a single API call. (The bulk import API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk).)
+For large model sets, you can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload many models at once in a single API call. (The bulk import API also allows twins and relationships to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).)
 
 To import models in bulk, you'll need to structure your models (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file and creation sample project in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api).
 

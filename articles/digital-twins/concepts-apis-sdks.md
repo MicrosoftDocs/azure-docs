@@ -108,7 +108,7 @@ The API accepts the information in *NDJSON* format. Here's an example of an inpu
 
 For a sample project that converts JSON into the NDJSON supported by the import API, see [ADT Bulk Import Converter on GitHub](https://github.com/abhinav-ghai/ADTBulkImport). The sample project is written for .NET and can be downloaded or adapted to help you create your own import files.
 
-For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships in bulk](how-to-manage-graph.md#upload-models-twins-and-relationships-in-bulk).
+For detailed instructions and SDK examples that use the bulk import API for each resource type, see [bulk import instructions for models](how-to-manage-model.md#upload-large-model-sets), [twins](how-to-manage-twin.md#create-twins-in-bulk), and [relationships](how-to-manage-graph.md#create-relationships-in-bulk). You can also upload all of these resources at once to create a full graph in one API call. For more about that process, see [Upload models, twins, and relationships with bulk import API](how-to-manage-graph.md#upload-models-twins-and-relationships-with-bulk-import-api).
 
 ### Serialization helpers in the .NET (C#) SDK
 

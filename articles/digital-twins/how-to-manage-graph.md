@@ -78,7 +78,7 @@ You can even create multiple instances of the same type of relationship between 
 
 ### Create relationships in bulk
 
-You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many relationships at once in a single API call. (The bulk import API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships in bulk](#upload-models-twins-and-relationships-in-bulk).)
+You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to create many relationships at once in a single API call. (The bulk import API also allows models and twins to be imported in the same call, to create all parts of a graph at once. For more about this process, see [Upload models, twins, and relationships with bulk import API](#upload-models-twins-and-relationships-with-bulk-import-api).)
 
 To import relationships in bulk, you'll need to structure your relationships (and any other resources included in the bulk import) as an *NDJSON* file. You can view an example file in the [Bulk import API introduction](concepts-apis-sdks.md#bulk-import-api). This file can include initialization of any properties that the relationships have.
 
@@ -167,11 +167,11 @@ You can now call this custom method to delete a relationship like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## Create full graph at once
+## Create multiple graph elements at once
 
 This section describes strategies for creating a graph with multiple elements at the same time, rather than using individual API calls to upload models, twins, and relationships to upload them one by one.
 
-### Upload models, twins, and relationships in bulk
+### Upload models, twins, and relationships with bulk import API
 
 You can use the [bulk import API](concepts-apis-sdks.md#bulk-import-api) to upload multiple models, twins, and relationships to your instance in a single API call, effectively creating the graph all at once.
 
@@ -179,11 +179,17 @@ To import resources in bulk, start by creating an *NDJSON* file containing the d
 
 Then, the file can be used in the API call like this:
 
-### Create graph from a CSV file
+### Import graph with Azure Digital Twins Explorer
 
-In practical use cases, twin hierarchies will often be created from data stored in a different database, or perhaps in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
+[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) is a visual tool for viewing and interacting with your twin graph. It contains a feature for importing a graph file in either JSON or Excel format that can contain multiple models, twins, and relationships.
 
-Consider the following data table, describing a set of digital twins and relationships.
+For detailed information about using this feature, see [Import graph](how-to-use-azure-digital-twins-explorer.md#import-graph) in the Azure Digital Twins Explorer documentation.
+
+### Create twins and relationships from a CSV file
+
+Sometimes, you might need to create twin hierarchies out of data stored in a different database, or in a spreadsheet or a CSV file. This section illustrates how to read data from a CSV file and create a twin graph out of it.
+
+Consider the following data table, describing a set of digital twins and relationships. The models referenced in this file must already exist in the Azure Digital Twins instance.
 
 |  Model ID    | Twin ID (must be unique) | Relationship name  | Target twin ID  | Twin init data |
 | --- | --- | --- | --- | --- |
