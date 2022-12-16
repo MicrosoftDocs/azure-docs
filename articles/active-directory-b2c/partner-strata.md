@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with whoIam for user verification 
 services: active-directory-b2c
 author: gargi-sinha
-manager: CelesteDG
+manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 12/16/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
