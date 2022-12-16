@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 07/21/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -52,9 +52,11 @@ This article provides steps for creating copies of your MedTech service's device
 
 ## Next steps
 
-In this article, you learned how to make copies of your MedTech service device and FHIR destination mappings. To learn how to troubleshoot device and FHIR destination mappings, see
+In this article, you learned about how to make copies of your MedTech service device and FHIR destination mappings. 
 
->[!div class="nextstepaction"]
->[Troubleshoot the MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md)
+To learn how to troubleshoot device and FHIR destination mappings, see
+
+> [!div class="nextstepaction"]
+> [Troubleshoot the MedTech service device and FHIR destination mappings](troubleshoot-mappings.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
