@@ -32,7 +32,7 @@ To create an application inventory:
 
     ![Screenshot of the Name entry under Create Token.](media/migrate-applications-from-okta-to-azure-active-directory/token-created.png)
 
-4. Record the token value and save it. After you select **OK, got it**, it is not accessable.
+4. Record the token value and save it. After you select **OK, got it**, it is not accessible.
 
     ![Screenshot of the Token Value field and the OK got it option.](media/migrate-applications-from-okta-to-azure-active-directory/record-created.png)
 
