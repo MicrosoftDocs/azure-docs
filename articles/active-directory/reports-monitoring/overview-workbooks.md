@@ -28,9 +28,9 @@ With Azure Workbooks for Azure AD, you can:
 - Visualize data for reporting and analysis
 - Combine multiple elements into a single interactive experience
 
-Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks. Workbooks for Azure AD, however, cover only those identity management scenarios that are associated with Azure AD. Sign-ins, Conditional Access, multifactor authentication, and Identity Protection are scenarios inluded in Azure Workbook for Azure AD.
+Workbooks are found in Azure AD and in Azure Monitor. The concepts, processes, and best practices are the same for both types of workbooks. Workbooks for Azure AD, however, cover only those identity management scenarios that are associated with Azure AD. Sign-ins, Conditional Access, multifactor authentication, and Identity Protection are scenarios included in Azure Workbook for Azure AD.
 
-For more information, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+For more information on workbooks for other Azure services, see [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
 
 ## How does it help me?
 
@@ -51,8 +51,19 @@ Because of the ability to customize workbooks, they can benefit many types of us
 - **Tenant admins**: People who use the available reports to get insight and take action.
 - **Workbook template builder**: Someone who “graduates” from the role of reporting admin by turning a workbook into a template for others with similar needs to use as a basis for creating their own workbooks.
 
+## Public workbook templates
+
+Public workbook templates are built, updated, and deprecated to reflect the needs of customers and the current Azure AD services. Detailed guidance is available for several Azure AD public workbook templates. 
+
+- [Authentication prompts analysis](workbook-authentication-prompts-analysis)
+- [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer)
+- [Cross-tenant access activity](workbook-cross-tenant-access-activity)
+- [Sign-ins using legacy authentication](workbook-legacy%20authentication)
+- [Risk analysis](workbook-risk-analysis)
+- [Sensitive Operations Report](workbook-sensitive-operations-report)
+
 ## Next steps
 
 - Learn [how to use Azure Workbooks for Azure AD](howto-use-azure-monitor-workbooks.md)
 - [Create your own workbook](../../azure-monitor/visualize/workbooks-create-workbook.md)
-- Explore the [Conditional Access gap analyzer](workbook-conditional-access-gap-analyzer.md) workbook
+- Create a [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)

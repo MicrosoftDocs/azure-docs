@@ -87,5 +87,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Send Azure AD log to Azure Monitor
+          - text: Send Azure AD logs to Azure Monitor
             url: concept-activity-logs-azure-monitor.md
+          - text: Explore basic info on the sign-in logs
+            url: reference-basic-info-sign-in-logs.md
+          - text: Troubleshoot sign-in errors
+            url: howto-troubleshoot-sign-in-errors.md
