@@ -1,6 +1,6 @@
 ---
 title: Overview of upgrading Azure Kubernetes Service (AKS) clusters and components
-description: Learn about the various upgradeable components of anAzure Kubernetes Service (AKS) cluster and how to maintain them.
+description: Learn about the various upgradeable components of an Azure Kubernetes Service (AKS) cluster and how to maintain them.
 author: nickomang
 ms.author: nickoman
 ms.service: container-service
@@ -12,10 +12,10 @@ ms.date: 11/11/2022
 
 An Azure Kubernetes Service (AKS) cluster will periodically need to be updated to ensure security and compatibility with the latest features. There are two components of an AKS cluster that are necessary to maintain:
 
-- *Cluster Kubernetes version*: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important you upgrade to apply the latest security releases and to get access to the latest Kubernetes features.
+- *Cluster Kubernetes version*: Part of the AKS cluster lifecycle involves performing upgrades to the latest Kubernetes version. It’s important you upgrade to apply the latest security releases and to get access to the latest Kubernetes features, as well as to stay within the [AKS support window][supported-k8s-versions].
 - *Node image version*: AKS regularly provides new node images with the latest OS and runtime updates. It's beneficial to upgrade your nodes' images regularly to ensure support for the latest AKS features and to apply essential security patches and hot fixes.
 
-The following table lists summarizes details on updating each component:
+The following table summarizes the details of updating each component:
 
 |Component name|Frequency of upgrade|Planned Maintenance supported|Supported operation methods|Documentation link|
 |--|--|--|--|--|
@@ -32,6 +32,20 @@ Automatic upgrades can be performed through [auto upgrade channels][auto-upgrade
 
  [Planned maintenance][planned-maintenance] allows you to schedule weekly maintenance windows that will update your control plane as well as your kube-system pods, helping to minimize workload impact.
 
+## Troubleshooting
+
+To find details and solutions to specific issues, view the following troubleshooting guides:
+
+- [Upgrade fails because of NSG rules][ts-nsg]
+
+- [PodDrainFailure error][ts-pod-drain]
+
+- [PublicIPCountLimitReached error][ts-ip-limit]
+
+- [QuotaExceeded error][ts-quota-exceeded]
+
+- [SubnetIsFull error][ts-subnet-full]
+
 ## Next steps
 
 For more information what cluster operations may trigger specific upgrade events, see the [AKS operator's guide on patching][operator-guide-patching].
@@ -43,5 +57,10 @@ For more information what cluster operations may trigger specific upgrade events
 [release-tracker]: ./release-tracker.md
 [node-image-upgrade]: ./node-image-upgrade.md
 [gh-actions-upgrade]: ./node-upgrade-github-actions.md 
-[upgrade-patch]: ./supported-kubernetes-versions,md#kubernetes-version-support-policy
 [operator-guide-patching]: /azure/architecture/operator-guides/aks/aks-upgrade-practices.md#considerations
+[supported-k8s-versions]: ./supported-kubernetes-versions.md#kubernetes-version-support-policy
+[ts-nsg]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/upgrade-fails-because-of-nsg-rules
+[ts-pod-drain]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/error-code-poddrainfailure
+[ts-ip-limit]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/error-code-publicipcountlimitreached
+[ts-quota-exceeded]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/error-code-quotaexceeded
+[ts-subnet-full]: https://learn.microsoft.com/troubleshoot/azure/azure-kubernetes/error-code-subnetisfull-upgrade
