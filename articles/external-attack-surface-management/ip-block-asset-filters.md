@@ -20,8 +20,8 @@ The following filters provide a drop-down list of options to select. The availab
 
 |       Filter name  |     Description                                                                                                         |     Value format  |     Applicable operators  |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------|-------------------|---------------------------|
-|     IPv4           |   Indicates that the host resolves to a 32-bit number notated in four octets (e.g. 192.168.92.73).                      |   true / false    |   `Equals` `Not Equals`      |
-|     IPv6           |   Indicates that the host resolves to an IP comprised of 128-bit hexadecimal digits noted in eight four-digit groups.   |   true / false    |                           |
+|     IPv4           |   Indicates that the host resolves to a 32-bit number notated in four octets (example: 192.168.92.73).                      |   true / false    |   `Equals` `Not Equals`      |
+|     IPv6           |   Indicates that the host resolves to an IP comprised of 128-bit hexadecimal digits noted in 4-digit groups.   |   true / false    |                           |
 
 
  
