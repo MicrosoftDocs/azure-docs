@@ -209,14 +209,14 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Select the credential and click **Save**.
 1. If the following permissions are not assigned for Custom users, jobs might get suspended. 
 
-    | **Resource type** | **Folder permissions** |
-    | --- | --- |
-    |Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
-    |Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
-
-    >[!NOTE]
-    >Linux Hybrid Worker doesn't support Hybrid Worker credentials.
-
+| **Resource type** | **Folder permissions** |
+| --- | --- |
+|Azure VM | C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+|Arc-enabled Server | C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)</br> C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows (read and execute) |
+        
+>[!NOTE]
+>Linux Hybrid Worker doesn't support Hybrid Worker credentials.
+    
 ## <a name="runas-script"></a>Install Run As account certificate
 
 As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
