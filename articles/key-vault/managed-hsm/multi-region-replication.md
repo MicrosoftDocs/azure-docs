@@ -8,6 +8,7 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 11/25/2022
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 # Enable multi-region replication on Azure Managed HSM (Preview)
 
