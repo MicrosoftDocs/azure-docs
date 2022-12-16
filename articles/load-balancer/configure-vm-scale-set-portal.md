@@ -44,10 +44,10 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
     | Subscription                   | Select your Azure subscription                                                                        |
     | Resource Group                 | Select  Create new, enter **myResourceGroup**, then select OK, or select an existing  resource group. |
     | **Scale set details**          |                                                                                                       |
-    | Virtual machine scale set name | Enter **myVMSS**                                                                                      |
-    | Region                         | Select **East US 2**                                                                                    |
+    | Virtual Machine Scale Set name | Enter **myVMSS**                                                                                      |
+    | Region                         | Select **East US 2**                                                                                  |
     | Availability zone              | Select **None**                                                                                       |
-    | **Orchestration** |                    |        |
+    | **Orchestration** |                    |
     | Orchestration mode | Select **Uniform** |
     | Security type | Select **Standard** |
     | **Instance details**           |                                                                                                       |
@@ -60,7 +60,7 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
     | Password                       | Enter your admin password    |
     | Confirm password               | Reenter your admin password |
 
-    :::image type="content" source="media/vm-scale-sets/create-virtual-machine-scale-set-thumb.png" alt-text="Screenshot of Create a virtual machine scale set page" lightbox="media/vm-scale-sets/create-virtual-machine-scale-set.png":::
+    :::image type="content" source="media/vm-scale-sets/create-virtual-machine-scale-set-thumb.png" alt-text="Screenshot of Create a Virtual Machine Scale Set page." lightbox="media/vm-scale-sets/create-virtual-machine-scale-set.png":::
 
 4. Select the **Networking** tab.
 
