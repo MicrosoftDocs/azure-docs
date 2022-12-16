@@ -90,7 +90,7 @@ When a user select the **Accept invitation** link in an [invitation email](invit
 
 3. If an admin has enabled [Google federation](google-federation.md), Azure AD checks if the user’s domain suffix is gmail.com, or googlemail.com and redirects the user to Google.
 
-4. The redemption process checks if the user has an existing personal [MSA](/microsoft-account.md). If the user already has an existing MSA, they'll sign in with their existing MSA.
+4. The redemption process checks if the user has an existing personal [MSA](microsoft-account.md). If the user already has an existing MSA, they'll sign in with their existing MSA.
 
 5. Once the user’s **home directory** is identified, the user is sent to the corresponding identity provider to sign in.  
 
