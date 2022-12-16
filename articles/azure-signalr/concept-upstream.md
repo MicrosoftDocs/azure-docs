@@ -1,6 +1,6 @@
 ---
 title: Upstream endpoints in Azure SignalR Service
-description: Introduction to upstream endpoints settings and upstream message  protocols.
+description: Introduction to upstream endpoints settings and upstream message protocols.
 author: vicancy
 ms.service: signalr
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 12/09/2022
 ms.author: lianwei
 ---
 
-# Upstream endpoints (preview)
+# Upstream endpoints
 
 The upstream endpoints feature allows Azure SignalR Service to send messages and connection events to a set of endpoints in serverless mode. You can use upstream endpoints to invoke a hub method from clients in serverless mode to notify endpoints when client connections are connected or disconnected.
 
@@ -21,7 +21,7 @@ An upstream endpoint's settings consist of a list of order-sensitive items:
 
 * A URL template, which specifies where messages send to.
 * A set of rules.
-* Authentication configurations. 
+* Authentication configurations.
 
 When an event is fired, an item's rules are checked one by one in order. Messages will be sent to the first matching item's upstream endpoint URL.
 
@@ -32,7 +32,7 @@ You can parameterize the upstream endpoint URL to support various patterns. Ther
 |Predefined parameter|Description|
 |---------|---------|
 |{hub}| A hub is a concept of Azure SignalR Service. A hub is a unit of isolation. The scope of users and message delivery is constrained to a hub.|
-|{category}| A category can be one of the following values: <ul><li>**connections**: Connection lifetime events. It's fired when a client connection is connected or disconnected. It includes connected and disconnected events.</li><li>**messages**: Fired when clients invoke a hub method. It includes all other events, except those in the **connections** category.</li></ul>|
+|{category}| A category can be one of the following values: <ul><li>**connections**: Connection lifetime events. It's fired when a client connection is connected or disconnected. It includes connected and disconnected events.</li><li>**messages**: Fired when clients invoke a hub method. It includes all other events, except events in the **connections** category.</li></ul>|
 |{event}| For the **messages** category, an event is the target in an [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For the **connections** category, only *connected* and *disconnected* are used.|
 
 These predefined parameters can be used in the URL pattern. Parameters will be replaced with a specified value when you're evaluating the upstream endpoint URL. For example: 
@@ -50,11 +50,11 @@ http://host.com/chat/api/messages/broadcast
 
 ### Key Vault secret reference in URL template settings
 
-The upstream endpoint URL is not encrypted. You can secure sensitive upstream endpoints using Key Vault and access them with a managed identity. 
+The upstream endpoint URL isn't encrypted. You can secure sensitive upstream endpoints using Key Vault and access them with a managed identity. 
 
 To enable managed identity in your SignalR service instance and grant it Key Vault access:
 
-1. Add a system-assigned identity or user-assigned identity. See [How to add managed identity in Azure Portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
+1. Add a system-assigned identity or user-assigned identity. See [How to add managed identity in Azure portal](./howto-use-managed-identity.md#add-a-system-assigned-identity)
 t
 2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
 
@@ -95,7 +95,7 @@ You can configure authentication for each upstream endpoint setting separately. 
 - `None`
 - `ManagedIdentity`
 
-When you select `ManagedIdentity`, you must enable a managed identity in Azure SignalR Service in advance and optionally specify a resource. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
+When you select `ManagedIdentity`, you must first enable a managed identity in Azure SignalR Service and optionally, specify a resource. See [Managed identities for Azure SignalR Service](howto-use-managed-identity.md) for details.
 
 ## Configure upstream endpoint settings via the Azure portal
 
