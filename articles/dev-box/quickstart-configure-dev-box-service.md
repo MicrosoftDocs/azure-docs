@@ -19,15 +19,6 @@ ms.custom: references_regions
 
 This quickstart describes how to configure the Microsoft Dev Box service by using the Azure portal to enable development teams to self-serve dev boxes.
 
-In this quickstart, you'll perform the following tasks:
-
-* [Create a dev center](#create-a-dev-center)
-* [Create a network connection](#create-a-network-connection)
-* [Attach a network connection to a dev center](#attach-network-connection-to-dev-center)
-* [Create a dev box definition](#create-a-dev-box-definition)
-* [Create a project](#create-a-project)
-
-
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
