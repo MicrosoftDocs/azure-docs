@@ -73,7 +73,7 @@ management becomes your responsibility.
 
 You use **system-managed environments** when you want conda to manage the Python environment for you. A new isolated conda environment is materialized
 from your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
-latest image may be tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
+latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
 for your jobs or model deployments while using system-managed environments.
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
