@@ -67,7 +67,7 @@ This use case demonstrates how a user re-registering the same email from their o
 
 This use case demonstrates how a user from their home country/region performs a sign-in with an Azure AD B2C local account.
 
-![Screenshot shows the local user sign in flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-sing-in.png)
+![Screenshot shows the local user sign in flow.](media/azure-ad-b2c-global-identity-regional-design/local-user-sign-in.png)
 
 1. User from EMEA attempts to sign in at **myapp.fr**. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -83,7 +83,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 This use case demonstrates how a user can travel across regions and maintain their user profile and credentials stored in their regional tenant respective to their sign-up.
 
-![Screenshot shows the traveling user sign-in flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-sing-in.png)
+![Screenshot shows the traveling user sign-in flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-sign-in.png)
 
 1. User from North America (NOAM) attempts to sign in at **myapp.fr**, since they are on holiday in France. If the user isn't being sent to their local hostname, the traffic manager will enforce a redirect.
 
@@ -160,7 +160,7 @@ This use case demonstrates how a user can change their password after they've lo
 
 This use case demonstrates how a user can change their password after they've logged in, away from the region in which they registered their account.
 
-![Screenshot shows the traveling user change password flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-change-password)
+![Screenshot shows the traveling user change password flow.](media/azure-ad-b2c-global-identity-regional-design/travelling-user-change-password.png)
 
 1. Users from NOAM attempts select **change password** after logging into **myapp.fr**.
 
