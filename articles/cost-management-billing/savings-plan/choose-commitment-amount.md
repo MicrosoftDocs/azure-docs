@@ -22,6 +22,8 @@ Savings plan purchase recommendations are calculated by analyzing your hourly us
 
 For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a savings plan commitment that is sufficient to cover 500 VMs and the recommendation is provided for that commitment.
 
+:::image type="content" source="./media/choose-commitment-amount/savings-plan-usage-spikes.png" alt-text="Graphic showing spikes above savings plan consuming PAYG pricing." lightbox="./media/choose-commitment-amount/savings-plan-usage-spikes.png" :::
+
 Note the following points:
 
 - Savings plan recommendations are calculated using the on-demand usage rates that apply to you.
