@@ -41,8 +41,6 @@ When you require HTTPS, you should also Require the latest TLS version. To learn
 
 For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
-### Secure 
-
 ### Function access keys
 
 [!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
