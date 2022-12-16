@@ -62,8 +62,8 @@ Now, apply the Custom Script Extension with [Add-AzVmssExtension](/powershell/mo
 ```azurepowershell-interactive
 # Get information about the scale set
 $vmss = Get-AzVmss `
-          -ResourceGroupName "myResourceGroup" `
-          -VMScaleSetName "myScaleSet"
+  -ResourceGroupName "myResourceGroup" `
+  -VMScaleSetName "myScaleSet"
 
 # Add the Custom Script Extension to install IIS and configure basic website
 $vmss = Add-AzVmssExtension `

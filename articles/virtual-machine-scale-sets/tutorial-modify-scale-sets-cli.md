@@ -247,7 +247,6 @@ az vm create --name myNewInstance --resource-group myResourceGroup --vmss myScal
 ```
 
 ```output
-
 {
   "fqdns": "",
   "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myNewInstance",

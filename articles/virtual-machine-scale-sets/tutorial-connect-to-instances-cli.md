@@ -116,7 +116,7 @@ az vm nic show --resource-group myResourceGroup --vm-name myScaleSet_0e7d4d21 --
 ```
 
 ## Get backend pool details
-Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to with [az network lb list-mapping](/cli/azure/network/lb#az-network-lb-list-mapping)
+Using the backend pool name and load balancer name, get the port for the private IP address of the instance you want to connect to with [az network lb list-mapping](/cli/azure/network/lb#az-network-lb-list-mapping).
 
 ```azurecli-interactive
 az network lb list-mapping --backend-pool-name myScaleSetLBBEPool --resource-group myResourceGroup --name myScaleSetLB --request ip=10.0.0.5
@@ -136,7 +136,7 @@ az network lb list-mapping --backend-pool-name myScaleSetLBBEPool --resource-gro
 ```
 
 ## Get public IP of load balancer
-Get the public IP of the load balancer using [az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list)
+Get the public IP of the load balancer using [az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list).
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup

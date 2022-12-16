@@ -25,7 +25,6 @@ A Virtual Machine Scale Set allows you to deploy and manage a set of virtual mac
 
 This article requires version 2.0.29 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
 
-
 ## Create a resource group
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a Virtual Machine Scale Set. Create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region. 
 
@@ -34,7 +33,6 @@ az group create --name myResourceGroup --location eastus
 ```
 
 The resource group name is specified when you create or modify a scale set throughout this tutorial.
-
 
 ## Create a scale set
 You create a Virtual Machine Scale Set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they don't exist:
@@ -50,7 +48,6 @@ az vmss create \
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VM instances. To distribute traffic to the individual VM instances, a load balancer is also created.
-
 
 ## View information about the VM instances in your scale set
 To view a list of VM instances in a scale set, use [az vm list](/cli/azure/vm) as follows:
@@ -164,7 +161,6 @@ az vmss create \
   --admin-user azureuser \
   --generate-ssh-keys
 ```
-
 
 ## Change the capacity of a scale set
 When you created a scale set at the start of the tutorial, two VM instances were deployed by default. You can specify the `--instance-count` parameter with [az vmss create](/cli/azure/vmss) to change the number of instances created with a scale set. To increase or decrease the number of VM instances in your existing scale set, you can manually change the capacity. The scale set creates or removes the required number of VM instances, then configures the load balancer to distribute traffic.

@@ -21,7 +21,6 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a scale set from a specialized image
 > * Share an image gallery
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
@@ -89,7 +88,6 @@ az sig image-definition create \
 
 > [!IMPORTANT]
 > The **ID** of your image definition is shown in the output of the command. Copy this someplace safe so you can use it later in this tutorial.
-
 
 ## Create the image version
 Create an image version from the VM using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  

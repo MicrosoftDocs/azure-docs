@@ -60,7 +60,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup"
 
 The following example output shows two VM instances in the scale set:
 
-```powershell
+```output
 ResourceGroupName                Name Location          VmSize  OsType      ProvisioningState 
 -----------------                ---- --------          ------  ------       ----------------- 
 myResourceGroup   myScaleSet_instance1   eastus Standard_DS1_v2 Windows         Succeeded     
@@ -126,14 +126,13 @@ Get-AzVm -ResourceGroupName "myResourceGroup"
 
 The following example output shows that the capacity of the scale set is now *3*:
 
-```powershell
+```output
 ResourceGroupName                Name Location          VmSize  OsType    ProvisioningState 
 -----------------                ---- --------          ------  ------    ----------------- 
 myResourceGroup   myScaleSet_instance1   eastus Standard_DS1_v2 Windows       Succeeded     
 myResourceGroup   myScaleSet_instance2   eastus Standard_DS1_v2 Windows       Succeeded     
 myResourceGroup   myScaleSet_instance3   eastus Standard_DS1_v2 Windows       Succeeded   
 ```
-
 
 ## Stop and deallocate VM instances in a scale set
 To stop all the VM instances in a scale set, use [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). 
@@ -144,7 +143,7 @@ Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 To stop individual VM instances, use [Stop-AzVm](/powershell/module/az.compute/stop-azvm) and specify the instance name.
 
-```powershell-interactive
+```azurepowershell-interactive
 Stop-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
@@ -159,7 +158,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 To start an individual VM instance in a scale set, use [Start-AzVM](/powershell/module/az.compute/start-azvm) and specify the instance name.
 
-```powershell-interactive
+```azurepowershell-interactive
 Start-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
@@ -171,7 +170,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 To restart an individual instance, use [Restart-AzVM] and specify the instance name.
 
-```powershell-interactive
+```azurepowershell-interactive
 Restart-AzVM -ResourceGroupName "myResourceGroup" -name "myScaleSet_instance1"
 ```
 
