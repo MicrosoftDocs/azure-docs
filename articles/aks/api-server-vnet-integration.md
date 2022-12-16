@@ -29,7 +29,7 @@ API Server VNet Integration is available in all Public Azure regions except the 
 * Azure CLI with aks-preview extension 0.5.97 or later.
 * If using ARM or the REST API, the AKS API version must be 2022-04-02-preview or later.
 
-### Install the aks-preview CLI extension
+## Install the aks-preview Azure CLI extension
 
 [!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
@@ -45,7 +45,7 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
-### Register the `EnableAPIServerVnetIntegrationPreview` feature flag
+## Register the 'EnableAPIServerVnetIntegrationPreview' feature flag
 
 Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
@@ -53,13 +53,13 @@ Register the `EnableAPIServerVnetIntegrationPreview` feature flag by using the [
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAPIServerVnetIntegrationPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "EnableAPIServerVnetIntegrationPreview"
 ```
 
-When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -225,11 +225,12 @@ az aks update -n <cluster-name> \
 * [Private Link Service][private-link-service] will not work if deployed against the API Server injected addresses at this time, so the API server cannot be exposed to other virtual networks via private link. To access the API server from outside the cluster network, utilize either [VNet peering][virtual-network-peering] or [AKS run command][command-invoke].
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider#az_provider_register
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-extension-add]: /cli/azure/extension#az_extension_add
-[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [private-endpoint-service]: ../private-link/private-endpoint-overview.md
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md

@@ -19,8 +19,6 @@ By making use of eBPF programs loaded into the Linux kernel and a more efficient
 - Better observability of cluster traffic
 - Support for larger clusters (more nodes, pods, and services)
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## IP Address Management (IPAM) with Azure CNI Powered by Cilium
 
 Azure CNI Powered by Cilium can be deployed using two different methods for assigning pod IPs: 
@@ -55,33 +53,37 @@ Azure CNI powered by Cilium currently has the following limitations:
 * Azure CLI with aks-preview extension 0.5.109 or later.
 * If using ARM templates or the REST API, the AKS API version must be 2022-09-02-preview or later.
 
-### Install the aks-preview CLI extension
+## Install the aks-preview Azure CLI extension
 
-```azurecli-interactive
-# Install the aks-preview extension
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
+
+```azurecli
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Register the `CiliumDataplanePreview` preview feature
+## Register the 'CiliumDataplanePreview' feature flag
 
-To create an AKS cluster with Azure CNI powered by Cilium, you must enable the `CiliumDataplanePreview` feature flag on your subscription.
-
-Register the `CiliumDataplanePreview` feature flag by using the `az feature register` command, as shown in the following example:
+Register the `CiliumDataplanePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CiliumDataplanePreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "CiliumDataplanePreview"
 ```
 
-When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -174,3 +176,6 @@ Learn more about networking in AKS in the following articles:
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show

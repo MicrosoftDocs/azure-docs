@@ -107,18 +107,47 @@ az aks create \
 
 In this section, we'll work on creating a cluster with Windows node pools and Azure NPM enabled.
 
-Please execute the following commands prior to creating a cluster:
+> [!NOTE]
+> Azure NPM with Windows nodes is available on Windows Server 2022 only.
+>
+
+#### Install the aks-preview Azure CLI extension
+
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
- az extension add --name aks-preview
- az extension update --name aks-preview
- az feature register --namespace Microsoft.ContainerService --name WindowsNetworkPolicyPreview
- az provider register -n Microsoft.ContainerService
+az extension add --name aks-preview
 ```
 
-> [!NOTE]
-> At this time, Azure NPM with Windows nodes is available on Windows Server 2022 only
->
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+#### Register the 'WindowsNetworkPolicyPreview' feature flag
+
+Register the `WindowsNetworkPolicyPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "WindowsNetworkPolicyPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Create the AKS cluster
 
 Now, you should replace the values for *$RESOURCE_GROUP_NAME*, *$CLUSTER_NAME* and *$WINDOWS_USERNAME* variables.
 
@@ -157,8 +186,6 @@ az aks nodepool add \
     --name npwin \
     --node-count 1
 ```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Create an AKS cluster for Calico network policies
 
@@ -333,9 +360,9 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [use-advanced-networking]: configure-azure-cni.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [concepts-network]: concepts-network.md
-[az-feature-register]: /cli/azure/feature#az_feature_register
-[az-feature-list]: /cli/azure/feature#az_feature_list
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

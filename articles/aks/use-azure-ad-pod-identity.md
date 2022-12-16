@@ -19,43 +19,54 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 >
 > The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, the AKS Managed add-on is still supported at this time.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Before you begin
 
-You must have the following resource installed:
+You must have the Azure CLI version 2.20.0 or later installed.
 
-* The Azure CLI, version 2.20.0 or later
-* The `aks-preview` extension version 0.5.5 or later
-
-### Limitations
+## Limitations
 
 * A maximum of 200 pod-managed identities are allowed for a cluster.
 * A maximum of 200 pod-managed identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
 * This feature is only supported for Virtual Machine Scale Sets backed clusters.
 
-### Register the `EnablePodIdentityPreview`
+## Install the aks-preview Azure CLI extension
 
-Register the `EnablePodIdentityPreview` feature:
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --name EnablePodIdentityPreview --namespace Microsoft.ContainerService
+az extension add --name aks-preview
 ```
 
-### Install the `aks-preview` Azure CLI
+Run the following command to update to the latest version of the extension released:
 
-You also need the *aks-preview* Azure CLI extension version 0.5.5 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
+```azurecli
 az extension update --name aks-preview
 ```
 
-### Operation mode options
+## Register the 'EnablePodIdentityPreview' feature flag
+
+Register the `EnablePodIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "EnablePodIdentityPreview"
+```
+
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+## Operation mode options
 
 Azure AD pod-managed identity supports two modes of operation:
 
@@ -319,6 +330,9 @@ For more information on managed identities, see [Managed identities for Azure re
 [az-group-create]: /cli/azure/group#az_group_create
 [az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-show]: /cli/azure/feature#az-feature-show
 
 <!-- LINKS - external -->
 [RFC 1123]: https://tools.ietf.org/html/rfc1123

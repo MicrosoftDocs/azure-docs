@@ -26,19 +26,31 @@ It's common to use pipelines to build and deploy images on Azure Kubernetes Serv
 
 ### [Azure CLI](#tab/azure-cli)
 
-Register the `EnableImageCleanerPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+First, install the aks-preview extension by running the following command:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+Then register the `EnableImageCleanerPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
 ```
 
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature show][az-feature-show] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableImageCleanerPreview')].{Name:name,State:properties.state}"
+az feature show --namespace "Microsoft.ContainerService" --name "EnableImageCleanerPreview"
 ```
 
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+When the status reflects *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -164,11 +176,11 @@ The deletion logs are stored in the `image-cleaner-kind-worker` pods. You can ch
 
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-update]: /cli/azure/aks#az_aks_update
-[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-register]: /cli/azure/feature#az-feature-register
 [register-azproviderpreviewfeature]: /powershell/module/az.resources/register-azproviderpreviewfeature
-[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-show]: /cli/azure/feature#az-feature-show
 [get-azproviderpreviewfeature]: /powershell/module/az.resources/get-azproviderpreviewfeature
-[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-provider-register]: /cli/azure/provider#az-provider-register
 [register-azresourceprovider]: /powershell/module/az.resources/register-azresourceprovider
 
 [arm-vms]: https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/
