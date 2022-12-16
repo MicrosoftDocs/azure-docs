@@ -12,14 +12,15 @@ ms.date: 12/31/2022
 
 This article describes how to manage Azure Native Qumulo Scalable File Service.
 
-## Resource overview
+## How to manage the Qumulo resource 
 
-To see the details of you of your Qumulo resource, select **Overview** in the Resource menu on the left.
+1. In the Azure portal, browse to your instance of the Azure Native Qumulo Scalable File Service.
+. 
+1. Select **Overview** in the Resource menu on the left, to see some of the settings for your Qumulo resource.
 
-   :::image type="content" source="media/qumulo-how-to-manage/image5.png" alt-text="Screenshot of a Qumulo instance with overview selected in the Resource menu.":::
-   Screenshot
+   :::image type="content" source="media/qumulo-how-to-manage/qumulo-overview.png" alt-text="Screenshot of a Qumulo instance with overview selected in the Resource menu.":::
 
-These details include the following: 
+1. In the Resource menu, you can additional settings that you can examine and change. One of those is **IP addresses**.
 
 <!-- This doesn't match the screenshot. I would rather not mention these as it creates a doc maintenance problem. -->
 
@@ -32,7 +33,7 @@ These details include the following:
 - Pricing plan
 - Storage type
 
-Selecting the **IP addresses** in the Resource menu displays the IP addresses associated with the filesystem that can be used to use and manage the file system.
+1. Selecting the **IP addresses** in the Resource menu displays the IP addresses associated with the filesystem that can be used to use and manage the file system.
 
   Screenshot
 :::image type="content" source="media/qumulo-how-to-manage/qumulo-ip-addresses.png" alt-text="Screenshot showing IP Addresses selected in the Resource menu.":::
