@@ -20,7 +20,6 @@ More information about policies:
 > [!IMPORTANT]
 >  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when using other policies.
 
-
 ## Access restriction policies
 -   [Check HTTP header](check-header-policy.md) - Enforces existence and/or value of an HTTP Header.
 - [Get authorization context](get-authorization-context-policy.md) - Gets the authorization context of a specified [authorization](authorizations-overview.md) configured in the API Management instance.
