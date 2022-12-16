@@ -83,12 +83,12 @@ myConnectedEnvironment = az containerapp connected-env list --custom-location cu
 The following example creates a Node.js app.
 
 ```azurecli-interactive
- az container app create \
+ az containerapp create \
     --resource-group myResourceGroup \
     --name myContainerApp \
     --environment myConnectedEnvironment \
     --environment-type connected \
-    --image mcr.microsoft.com/azuredocs/container-apps-helloworld:latest \
+    --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
     --target-port 80 \
     --ingress 'external'
 
