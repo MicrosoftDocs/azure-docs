@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/21/2022
+ms.date: 10/31/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-[Reference documentation](/rest/api/language/text-analysis-runtime/analyze-text)
+[Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)
 
+Use this quickstart to send entity linking requests using the REST API. In the following example, you will use cURL to identify and disambiguate entities found in text.
+
+[!INCLUDE [Use Language Studio](../../../includes/use-language-studio.md)]
 
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!NOTE]
 > * The following BASH examples use the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
@@ -143,3 +146,14 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/:analyze-text
 	}
 }
 ```
+
+[!INCLUDE [clean up resources](../../../includes/clean-up-resources.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Entity-linking&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>
+
+## Next steps
+
+* [Entity linking language support](../../language-support.md)
+* [How to call the entity linking API](../../how-to/call-api.md)  
+* [Reference documentation](/rest/api/language/2022-05-01/text-analysis-runtime/analyze-text)

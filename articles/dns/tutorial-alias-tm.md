@@ -3,11 +3,11 @@ title: 'Tutorial: Create an alias record to support apex domain name with Traffi
 titleSuffix: Azure DNS
 description: In this tutorial, you learn how to create and configure an Azure DNS alias record to support using your apex domain name with Traffic Manager.
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: tutorial
-ms.date: 06/20/2022
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my apex domain name with Traffic Manager.
 ---
@@ -223,7 +223,7 @@ Create an alias record that points to the Traffic Manager profile.
 
 1. From a web browser, browse to `contoso.com` or your apex domain name. You see the IIS default page with `Hello World from Web-01`. The Traffic Manager directed traffic to **Web-01** IIS web server because it has the highest priority. Close the web browser and shut down **Web-01** virtual machine. Wait a few minutes for the virtual machine to completely shut down.
 1. Open a new web browser, and browse again to `contoso.com` or your apex domain name.
-1. You should see the IIS default page with `Hello World from Web-01`. The Traffic Manager handled the situation and directed traffic to the second IIS server after shutting down the first server that has the highest priority.
+1. You should see the IIS default page with `Hello World from Web-02`. The Traffic Manager handled the situation and directed traffic to the second IIS server after shutting down the first server that has the highest priority.
 
 ## Clean up resources
 

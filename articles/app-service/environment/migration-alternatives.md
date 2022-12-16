@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3
 description: How to migrate your applications to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 5/4/2022
+ms.date: 10/20/2022
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3
@@ -39,9 +39,14 @@ App Service Environment v3 uses Isolated v2 App Service plans that are priced an
 
 The [back up and restore](../manage-backup.md) feature allows you to keep your app configuration, file content, and database connected to your app when migrating to your new environment. Make sure you review the [details](../manage-backup.md#automatic-vs-custom-backups) of this feature.
 
-The step-by-step instructions in the current documentation for [backup and restore](../manage-backup.md) should be sufficient to allow you to use this feature. When restoring, the **Storage** option lets you select any backup ZIP file from any existing Azure Storage account container in your subscription. A sample of a restore configuration is given in the following screenshot.
+> [!IMPORTANT]
+> You must configure custom backups for your apps in order to restore them to an App Service Environment v3. Automatic backup doesn't support restoration on different App Service Environment versions. For more information on custom backups, see [Automatic vs custom backups](../manage-backup.md#automatic-vs-custom-backups).
+:::image type="content" source="./media/migration/configure-custom-backup.png" alt-text="Screenshot that shows how to configure custom backup for an App Service app.":::
+>
 
-![back up and restore sample](./media/migration/back-up-restore-sample.png)
+You can select a custom backup and restore it to an App Service in your App Service Environment v3. You must create the App Service you will restore to before restoring the app. You can choose to restore the backup to the production slot, an existing slot, or a newly created slot that you can create during the restoration process.
+
+:::image type="content" source="./media/migration/back-up-restore-sample.png" alt-text="Screenshot that shows how to use backup to restore App Service app in App Service Environment v3.":::
 
 |Benefits     |Limitations    |
 |---------|---------|
@@ -50,7 +55,7 @@ The step-by-step instructions in the current documentation for [backup and resto
 |In-app MySQL databases are automatically backed up without any configuration        |Backups can be up to 10 GB of app and database content, up to 4 GB of which can be the database backup. If the backup size exceeds this limit, you get an error.        |
 |Can restore the app to a snapshot of a previous state         |Using a [firewall enabled storage account](../../storage/common/storage-network-security.md) as the destination for your backups isn't supported   |
 |Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new environments          |Using a [private endpoint enabled storage account](../../storage/common/storage-private-endpoints.md) for backup and restore isn't supported  |
-|Can create empty web apps to restore to in your new environment before you start restoring to speed up the process   |        |
+|Can create empty web apps to restore to in your new environment before you start restoring to speed up the process   | Only supports custom backups        |
 
 ## Clone your app to an App Service Environment v3
 
@@ -71,7 +76,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 1. You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new App Service Environment v3, if any, will be listed in the dropdown.
 1. Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note App Service Environment v3 uses Isolated v2 plans, which have more memory and CPU per corresponding instance size compared to the Isolated plan. For more information, see [App Service Environment v3 SKU details](overview.md#pricing).
 
-![clone sample](./media/migration/portal-clone-sample.png)
+:::image type="content" source="./media/migration/portal-clone-sample.png" alt-text="Screenshot that shows how to clone an app to App Service Environment v3 using the portal.":::
 
 |Benefits     |Limitations     |
 |---------|---------|
@@ -81,19 +86,19 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 
 ## Manually create your apps on an App Service Environment v3
 
-If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your existing App Service Environment. You don't need to make updates when you deploy your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features.
+If the above feature doesn't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your existing App Service Environment. You don't need to make updates when you deploy your apps to your new environment.
 
-You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**.
+You can export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them in or with your new environment. To export a template for just your app, navigate to your App Service and go to **Export template** under **Automation**.
 
-![export from toc](./media/migration/export-toc.png)
+:::image type="content" source="./media/migration/export-toc.png" alt-text="Screenshot of how to export App Service template from TOC.":::
 
 You can also export templates for multiple resources directly from your resource group by going to your resource group, selecting the resources you want a template for, and then selecting **Export template**.
 
-![export template sample](./media/migration/export-template-sample.png)
+:::image type="content" source="./media/migration/export-template-sample.png" alt-text="Screenshot of how to export template for resources from a resource group.":::
 
 The following initial changes to your Azure Resource Manager templates are required to get your apps onto your App Service Environment v3:
 
-- Update SKU parameters for App Service plan to an Isolated v2 plan as shown below
+- Update SKU parameters for App Service plan to an Isolated v2 plan:
 
     ```json
     "type": "Microsoft.Web/serverfarms",
@@ -151,11 +156,13 @@ Once your migration and any testing with your new environment is complete, delet
 - **Do I need to change anything about my apps to get them to run on App Service Environment v3?**  
   No, apps that run on App Service Environment v1 and v2 shouldn't need any modifications to run on App Service Environment v3.
 - **What if my App Service Environment has a custom domain suffix?**  
-  App Service Environment v3 doesn't support custom domain suffixes at this time. You won't be able to migrate until it's supported if you want to continue using this feature.
+  The migration feature supports this [migration scenario](./migrate.md#supported-scenarios). You can migrate using a manual method if you don't want to use the migration feature. You can configure your [custom domain suffix](./how-to-custom-domain-suffix.md) when creating your App Service Environment v3 or any time after that. 
 - **What if my App Service Environment is zone pinned?**  
-  Zone pinning isn't a supported feature on App Service Environment v3. Use [zone redundancy](overview-zone-redundancy.md) instead.
+  Zone pinning isn't a supported feature on App Service Environment v3.
 - **What properties of my App Service Environment will change?**  
   You'll now be on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB App Service Environment, you'll keep the same ILB IP address. For internet facing App Service Environment, the public IP address and the outbound IP address will change. Note for internet facing App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses).
+- **Is backup and restore supported for moving apps from App Service Environment v2 to v3?**
+  The [back up and restore](../manage-backup.md) feature supports restoring apps between App Service Environment versions as long as a custom backup is used for the restoration. Automatic backup doesn't support restoration to different App Service Environment versions.
 - **What will happen to my App Service Environment v1/v2 resources after 31 August 2024?**  
   After 31 August 2024, if you haven't migrated to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, [App Service Environment v1/v2 will no longer be available after that date](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
 
@@ -171,4 +178,7 @@ Once your migration and any testing with your new environment is complete, delet
 > [Integrate your ILB App Service Environment with the Azure Application Gateway](integrate-with-application-gateway.md)
 
 > [!div class="nextstepaction"]
-> [Migrate to App Service Environment v3 by using the migration feature](migrate.md)
+> [Migrate to App Service Environment v3 using the migration feature](migrate.md)
+
+> [!div class="nextstepaction"]
+> [Custom domain suffix](./how-to-custom-domain-suffix.md)

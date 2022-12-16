@@ -45,7 +45,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](../vpn-gateway/vpn-gateway-certificates-point-to-site.md).
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
 
@@ -67,7 +67,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
-In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. For information about the contents of the client profile files, see [Point-to-site configuration - certificates](../vpn-gateway/point-to-site-vpn-client-cert-windows.md#generate).
+In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer.
 
 [!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
 
@@ -130,6 +130,10 @@ In this section, you need to ensure that the traffic is routed through Azure Fir
 1. Under **Private traffic**, select **Send via Azure Firewall**.
 1. Verify that the VNet connection and the Branch connection private traffic is secured by Azure Firewall.
 1. Select **Save**.
+
+> [!NOTE]
+> If you want to inspect traffic destined to private endpoints using Azure Firewall in a secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+You need to add /32 prefix for each private endpoint in the **Private traffic prefixes** under Security configuration of your Azure Firewall manager for them to be inspected via Azure Firewall in secured virtual hub. If these /32 prefixes are not configured, traffic destined to private endpoints will bypass Azure Firewall.
 
 ## <a name="validate"></a>Validate
 

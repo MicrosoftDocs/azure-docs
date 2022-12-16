@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/17/2022
+ms.date: 08/26/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
@@ -61,10 +61,10 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
  
 |Azure Storage types  | Data Box shares            |
 |-------------------|--------------------------------------------------------------------------------|
-| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
-| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
-| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
-| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_BlockBlobArchive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
+| Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
+| Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
+| Azure Files       |<li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_AzFile>\<ShareName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.file.core.windows.net/<ShareName>/files/a.txt`</li>        | 
+| Azure Block blobs (Archive)   | <li>UNC path to shares: `\\<DeviceIPAddress>\<storageaccountname_BlockBlobArchive>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<storageaccountname>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>      |     
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
@@ -81,10 +81,10 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
-    - Azure Block blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
-    - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
-    - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
-    - Azure Blob blob (Archive) - `\\10.126.76.138\utSAC0_202202241054_BlockBlobArchive`
+    - Azure Block blob - `\\10.126.76.138\utsac1_BlockBlob`
+    - Azure Page blob - `\\10.126.76.138\utsac1_PageBlob`
+    - Azure Files - `\\10.126.76.138\utsac1_AzFile`
+    - Azure Blob blob (Archive) - `\\10.126.76.138\utsac0_BlockBlobArchive`
 
 4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
@@ -107,7 +107,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
 ```console
-sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
+sudo mount -t nfs -o vers=2.1 10.126.76.138:/utsac1_BlockBlob /home/databoxubuntuhost/databox
 ```
 
 ## Copy data to Data Box

@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ---
 # Quickstart: Configure a hybrid cluster with Azure Managed Instance for Apache Cassandra
 
-Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
+Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance. 
 
 This quickstart demonstrates how to use the Azure CLI commands to configure a hybrid cluster. If you have existing datacenters in an on-premises or self-hosted environment, you can use Azure Managed Instance for Apache Cassandra to add other datacenters to that cluster and maintain them.
 
@@ -21,7 +21,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 * [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with connectivity to your self-hosted or on-premises environment. For more information on connecting on premises environments to Azure, see the [Connect an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article.
 
-## <a id="create-account"></a>Configure a hybrid cluster
+## <a id="configure-hybrid"></a>Configure a hybrid cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your Virtual Network resource.
 
@@ -195,32 +195,77 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    > [!IMPORTANT]
    > If your existing Apache Cassandra cluster only has a single data center, and this is the first time a data center is being added, ensure that the `endpoint_snitch` parameter in `cassandra.yaml` is set to `GossipingPropertyFileSnitch`.
 
+   > [!IMPORTANT]
+   > If your existing application code is using QUORUM for consistency, you should ensure that **prior to changing the replication settings in the step below**, your existing application code is using **LOCAL_QUORUM** to connect to your existing cluster (otherwise live updates will fail after you change replication settings in the below step). Once the replication strategy has been changed, you can revert to QUORUM if preferred. 
+   
+
 1. Finally, use the following CQL query to update the replication strategy in each keyspace to include all datacenters across the cluster:
 
    ```bash
    ALTER KEYSPACE "ks" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3};
    ```
 
-   You also need to update the password tables:
+   You also need to update several system tables:
 
    ```bash
    ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
+   ALTER KEYSPACE "system_distributed" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
+   ALTER KEYSPACE "system_traces" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'on-premise-dc': 3, 'managed-instance-dc': 3}
    ```
 
    > [!IMPORTANT]
-   > If you are using hybrid cluster as a method of migrating historic data into the new Azure Managed Instance Cassandra data centers, ensure that you disable automatic repairs:
-   > ```azurecli-interactive
-   >     az managed-cassandra cluster update --cluster-name --resource-group--repair-enabled false
-   > ```
-   > Then run `nodetool repair --full` on all the nodes in your existing cluster's data center. You should run this only after all of the above steps have been taken. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. If you have a very large amount of data in your existing cluster, it may be necessary to run the repairs at the keyspace or even table level - see [here](https://cassandra.apache.org/doc/latest/cassandra/operating/repair.html) for more details on running repairs in Cassandra. Prior to changing the replication settings, you should also make sure that any application code that connects to your existing Cassandra cluster is using LOCAL_QUORUM. You should leave it at this setting during the migration (it can be switched back afterwards if required). After everyhting is done and the old datacenter decommissioned you can enable automatic repair again).
+   > If the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), and you intend for your application code to connect directly to Cassandra Managed Instance, you will also need to enable SSL in your application code. 
 
-   > [!NOTE]
-   > To speed up repairs we advise (if system load permits it) to increase both stream throughput and compaction throughput as in the example below:
-   >```azure-cli
-   >   az managed-cassandra cluster invoke-command --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments "setstreamthroughput"="" "7000"=""
-   >    
-   >   az managed-cassandra cluster invoke-command --resource-group $resourceGroupName --cluster-name $clusterName --host $host --command-name nodetool --arguments "setcompactionthroughput"="" "960"=""   
-   >```
+
+## <a id="hybrid-real-time-migration"></a>Use hybrid cluster for real-time migration
+
+The above instructions provide guidance for configuring a hybrid cluster. However, this is also a great way of achieving a seamless zero-downtime migration. If you have an on-premises or other Cassandra environment that you want to decommission with zero downtime, in favour of running your workload in Azure Managed Instance for Apache Cassandra, the following steps must be completed in this order:
+
+1. Configure hybrid cluster - follow the instructions above.
+1. Temporarily disable automatic repairs in Azure Managed Instance for Apache Cassandra for the duration of the migration:
+
+    ```azurecli-interactive
+    az managed-cassandra cluster update \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName --repair-enabled false
+    ```
+
+1. In Azure CLI, run the below command to execute `nodetool rebuild` on each node in your new Azure Managed Instance for Apache Cassandra data center, replacing `<ip address>` with the IP address of the node, and `<sourcedc>` with the name of your existing data center (the one you are migrating from):
+
+    ```azurecli-interactive
+    az managed-cassandra cluster invoke-command \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName \
+      --host <ip address> \
+      --command-name nodetool --arguments rebuild="" "<sourcedc>"=""
+    ```
+
+    You should run this **only after all of the prior steps have been taken**. This should ensure that all historical data is replicated to your new data centers in Azure Managed Instance for Apache Cassandra. You can run rebuild on one or more nodes at the same time. Run on one node at a time to reduce the impact on the existing cluster. Run on multiple nodes when the cluster can handle the extra I/O and network pressure. For most installations you can only run one or two in parallel to not overload the cluster.  
+
+   > [!WARNING]
+   > You must specify the source *data center* when running `nodetool rebuild`. If you provide the data center incorrectly on the first attempt, this will result in token ranges being copied, without data being copied for your non-system tables. Subsequent attempts will fail even if you provide the data center correctly. You can resolve this by deleting entries for each non-system keyspace in `system.available_ranges` via the `cqlsh` query tool in your target Cassandra MI data center:
+   > ```shell
+   > delete from system.available_ranges where keyspace_name = 'myKeyspace';
+   > ```
+
+1. Cut over your application code to point to the seed nodes in your new Azure Managed Instance for Apache Cassandra data center(s).
+
+    > [!IMPORTANT]
+    > As also mentioned in the hybrid setup instructions, if the data center(s) in your existing cluster do not enforce [client-to-node encryption (SSL)](https://cassandra.apache.org/doc/3.11/cassandra/operating/security.html#client-to-node-encryption), you will need to enable this in your application code, as Cassandra Managed Instance enforces this. 
+
+1. Run ALTER KEYSPACE for each keyspace, in the same manner as done earlier, but now removing your old data center(s).
+
+1. Run [nodetool decommission](https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/decommission.html) for each old data center node.
+
+1. Switch your application code back to quorum (if required/preferred).
+
+1. Re-enable automatic repairs:
+
+    ```azurecli-interactive
+    az managed-cassandra cluster update \
+      --resource-group $resourceGroupName \
+      --cluster-name $clusterName --repair-enabled true
+    ```
 
 ## Troubleshooting
 

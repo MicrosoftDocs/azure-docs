@@ -5,9 +5,10 @@ description: Use a template to create an Azure Machine Learning workspace and re
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: jhirono
-ms.author: larryfr
-author: blackmist
+ms.custom: ignite-2022
+ms.reviewer: larryfr
+ms.author: jhirono
+author: jhirono
 ms.date: 12/02/2021
 ms.topic: tutorial
 ---
@@ -88,10 +89,21 @@ The Bicep template is made up of the [main.bicep](https://github.com/Azure/azure
 | [keyvault.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/keyvault.bicep) | Defines the Azure Key Vault used by the workspace. |
 | [containerregistry.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/containerregistry.bicep) | Defines the Azure Container Registry used by the workspace. |
 | [applicationinsights.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/applicationinsights.bicep) | Defines the Azure Application Insights instance used by the workspace. |
-| [machinelearningnetworking.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningnetworking.bicep) | Defines te private endpoints and DNS zones for the Azure Machine Learning workspace. |
+| [machinelearningnetworking.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningnetworking.bicep) | Defines the private endpoints and DNS zones for the Azure Machine Learning workspace. |
 | [Machinelearning.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearning.bicep) | Defines the Azure Machine Learning workspace. |
 | [machinelearningcompute.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/machinelearningcompute.bicep) | Defines an Azure Machine Learning compute cluster and compute instance. |
 | [privateaks.bicep](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-end-to-end-secure/modules/privateaks.bicep) | Defines an Azure Kubernetes Services cluster instance. |
+
+> [!IMPORTANT]
+> The example templates may not always use the latest API version for Azure Machine Learning. Before using the template, we recommend modifying it to use the latest API versions. For information on the latest API versions for Azure Machine Learning, see the [Azure Machine Learning REST API](/rest/api/azureml/).
+>
+> Each Azure service has its own set of API versions. For information on the API for a specific service, check the service information in the [Azure REST API reference](/rest/api/azure/).
+>
+> To update the API version, find the `Microsoft.MachineLearningServices/<resource>` entry for the resource type and update it to the latest version. The following example is an entry for the Azure Machine Learning workspace that uses an API version of `2022-05-01`:
+>
+>```json
+>resource machineLearning 'Microsoft.MachineLearningServices/workspaces@2022-05-01' = {
+>```
 
 # [Terraform](#tab/terraform)
 
@@ -140,6 +152,9 @@ To run the Bicep template, use the following commands from the `machine-learning
 
     # [Azure CLI](#tab/cli)
 
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
+
     ```azurecli
     az deployment group create \
         --resource-group exampleRG \
@@ -150,6 +165,9 @@ To run the Bicep template, use the following commands from the `machine-learning
         dsvmJumpboxPassword=securepassword
     ```
     # [Azure PowerShell](#tab/ps1)
+
+    > [!TIP]
+    > The `prefix` must be 5 or less characters.
 
     ```azurepowershell
     $dsvmPassword = ConvertTo-SecureString "mysecurepassword" -AsPlainText -Force
@@ -227,6 +245,6 @@ After the template completes, use the following steps to connect to the DSVM:
 > * [Create/manage VMs (Windows)](../virtual-machines/windows/tutorial-manage-vm.md).
 > * [Create/manage compute instance](how-to-create-manage-compute-instance.md).
 
-To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Get started with a Python script in Azure Machine Learning](tutorial-1st-experiment-hello-world.md).
+To continue learning how to use the secured workspace from the DSVM, see [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md).
 
 To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).

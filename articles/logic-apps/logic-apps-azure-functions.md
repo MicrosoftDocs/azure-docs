@@ -11,6 +11,8 @@ ms.custom: devx-track-js
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
@@ -45,7 +47,7 @@ This article shows how to call an Azure function from a logic app workflow. To r
 
   * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these later steps](#function-swagger).
 
-* Either a [Consumption or Standard](logic-apps-overview.md#resource-type-and-host-environment-differences) logic app resource and workflow where you want to use the function.
+* Either a [Consumption or Standard](logic-apps-overview.md#resource-environment-differences) logic app resource and workflow where you want to use the function.
 
   Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
 
@@ -370,7 +372,7 @@ After you find the object ID for your logic app's managed identity and tenant ID
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*object-ID*> | The unique identifier to use for this app registration. For this scenario, use the object ID from your logic app's managed identity. |
-   | **Client secret** | <*client-secret*> | Recommended | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
+   | **Client secret** | Optional, but recommended | <*client-secret*> | The secret value that the app uses to prove its identity when requesting a token. The client secret is created and stored in your app's configuration as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). <br><br>- If you provide a client secret value, sign-in operations use the hybrid flow, returning both access and refresh tokens. <br><br>- If you don't provide a client secret, sign-in operations use the OAuth 2.0 implicit grant flow, returning only an ID token. <br><br>These tokens are sent by the provider and stored in the EasyAuth token store. |
    | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Azure-AD-tenant-ID*>/v2.0** | This URL redirects users to the correct Azure AD tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Azure-AD-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **`https://management.azure.com`**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Azure AD expects, including any required trailing slashes. |
    |||||

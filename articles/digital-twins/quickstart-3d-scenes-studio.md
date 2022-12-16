@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use 3D Scenes Studio (preview) for Azure Digital Twins by following this demo, where you'll create a sample scene with elements and behaviors.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/04/2022
+ms.date: 11/07/2022
 ms.topic: quickstart
 ms.service: digital-twins
 ms.custom: event-tier1-build-2022
@@ -61,12 +61,12 @@ In this section, you'll use the *Azure Digital Twins data simulator* tool to gen
 
 This sample scenario represents a package distribution center that contains six robotic arms. Each arm has a digital twin with properties to track how many boxes the arm fails to pick up, along with the IDs of the missed boxes.
 
-1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher). 
+1. Navigate to the [data simulator](https://explorer.digitaltwins.azure.net/tools/data-pusher) in your web browser. 
 1. In the **Instance URL** space, enter the *host name* of your Azure Digital Twins instance from the [previous section](#collect-host-name). Set the **Simulation Type** to *Robot Arms*.
 1. Use the **Generate environment** button to create a sample environment with models and twins. (If you already have models and twins in your instance, this will not delete them, it will just add more.)
 
     :::image type="content"  source="media/quickstart-3d-scenes-studio/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The Generate environment button is highlighted." lightbox="media/quickstart-3d-scenes-studio/data-simulator.png":::
-1. Select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
+1. Scroll down and select **Start simulation** to start sending simulated data to your Azure Digital Twins instance. The simulation will only run while this window is open and the **Start simulation** option is active.
 
 You can view the models and graph that have been created by using the Azure Digital Twins Explorer **Graph** tool. To switch to that tool, select the **Graph** icon from the left menu.
 
@@ -145,7 +145,9 @@ Now that all your resources are set up, you can use them to create an environmen
 
     1. For the **Azure Digital Twins instance URL**, fill the *host name* of your instance from the [Collect host name](#collect-host-name) step into this URL: `https://<your-instance-host-name>`.
     
-    1. For the **Azure Storage container URL**, fill the names of your storage account and container from the [Create storage resources](#create-storage-resources) step into this URL: `https://<your-storage-account>.blob.core.windows.net/<your-container>`.
+    1. For the **Azure Storage account URL**, fill the name of your storage account from the [Create storage resources](#create-storage-resources) step into this URL: `https://<your-storage-account>.blob.core.windows.net`.
+
+    1. For the **Azure Storage container name**, enter the name of your storage container from the [Create storage resources](#create-storage-resources) step.
     
     1. Select **Save**.
     
@@ -198,21 +200,21 @@ Next, you'll create a *behavior* for the element. These behaviors allow you to c
 
     :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-elements.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Elements options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-elements.png":::
 
-1. Skip the **Twins** tab, which isn't used in this quickstart. Switch to the **Status** tab. *States* are data-driven overlays on your elements to indicate the health or status of the element. Here, you'll set value ranges for a property on the element and associate certain colors with each range.
+1. Skip the **Twins** tab, which isn't used in this quickstart. 
 
-    1. Keep the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *FailedPickupsLastHr*.
- 
-    1. In this sample scenario, you want to flag that an arm that misses three or more pickups in an hour requires maintenance, and an arm that misses one or two pickups may require maintenance in the future. Set two value ranges so that values *1-3* appear in one color, and values *3-Infinity* appear in another (the min range value is inclusive, and the max value is exclusive).
+1. Switch to the **Visual rules** tab. *Visual rules* are data-driven overlays on your elements that you can configure to indicate the health or status of the element. Here, you'll identify a problematic value range for a property on the element, and associate values in this range with the color red in the visual.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Status options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-status.png":::
+    1. Select **Add Rule**.
 
-1. Switch to the **Alerts** tab. *Alerts* help grab your attention to quickly understand that some situation is active for the associated element. Here, you'll create an alert badge that will appear when an arm fails to pick up a package. The primary arm twin has a property *PickupFailedAlert* that we will use to create a visual alert in the scene.
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Visual rules options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules.png":::
 
-    1. For the **Trigger expression**, enter *PrimaryTwin.PickupFailedAlert*. `PickupFailedAlert` is a property on the primary twin that is set to True when a pickup was failed. Using it as the trigger expression means this alert will appear whenever the property value is True.
- 
-    1. Set the badge **Icon** and **Color**. For **Scenario description**, enter *${PrimaryTwin.PickupFailedBoxID} was missed, please track down this box and remediate.* This will use the primary twin's property `PickupFailedBoxID` to display a message about which box the arm failed to pick up.
+    1. Enter a **Display name** of *Failed pickups*. Leave the **Property expression** on **Single property** and open the property dropdown list. It contains names of all the properties on the primary twin for the *Arm1* element. Select *FailedPickupsLastHr*.Then, select **Add condition**.
 
-    :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the Alerts options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-alerts.png":::
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio, showing the New visual rule options." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-2.png":::
+
+    1. In this sample scenario, let's flag that when an arm misses three or more pickups in an hour, it requires maintenance. Define a value range between *3* and *Infinity* (the min range value is inclusive, and the max value is exclusive), and assign an **Element coloring** of red. Select **Save**.
+
+        :::image type="content" source="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the Add condition options in 3D Scenes Studio creating the described condition." lightbox="media/quickstart-3d-scenes-studio/new-behavior-visual-rules-3.png":::
 
 1. Switch to the **Widgets** tab. Widgets are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Here, you'll add two visual widgets to display property information for the arm element.
 

@@ -1,9 +1,14 @@
 ---
 title: Secure a cluster on Windows by using certificates 
 description: Secure communication within an Azure Service Fabric standalone or on-premises cluster, as well as between clients and the cluster.
-ms.topic: conceptual
-ms.date: 10/15/2017
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Secure a standalone cluster on Windows by using X.509 certificates
 This article describes how to secure communication between the various nodes of your standalone Windows cluster. It also describes how to authenticate clients that connect to this cluster by using X.509 certificates. Authentication ensures that only authorized users can access the cluster and the deployed applications and perform management tasks. Certificate security should be enabled on the cluster when the cluster is created.  
 

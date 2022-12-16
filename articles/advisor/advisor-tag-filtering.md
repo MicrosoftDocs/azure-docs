@@ -14,7 +14,7 @@ You can now get Advisor recommendations and scores scoped to a workload, environ
 * Compare scores for workloads to optimize the critical ones first
 
 > [!TIP]
-> For more information on how to use resource tags to organize and govern your Azure resources, please see the [Cloud Adoption Framework’s guidance](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) and [Build a cloud governance strategy on Azure](/learn/modules/build-cloud-governance-strategy-azure/).
+> For more information on how to use resource tags to organize and govern your Azure resources, please see the [Cloud Adoption Framework’s guidance](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) and [Build a cloud governance strategy on Azure](/training/modules/build-cloud-governance-strategy-azure/).
 
 ## How to filter recommendations using tags
 

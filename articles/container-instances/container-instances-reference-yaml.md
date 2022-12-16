@@ -107,6 +107,7 @@ properties: # Properties of container group
     type: string
     ip: string
     dnsNameLabel: string
+    dnsNameLabelReusePolicy: string
   osType: string
   volumes: # Array of volumes available to the instances
   - name: string

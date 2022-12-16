@@ -42,25 +42,23 @@ This section provides details specifically for HA-related fields. You can follow
 
 4.  If you chose the Availability zone in step 2 and if you chose zone-redundant HA, then you can choose the standby zone.
     :::image type="content" source="./media/how-to-manage-high-availability-portal/choose-standby-availability-zone.png" alt-text="Screenshot of Standby AZ selection.":::
+ 
 
->[!NOTE]
-> See the [HA limitation section](concepts-high-availability.md#high-availability---limitations) for a current restriction with same-zone HA deployment.  
-
-1.  If you want to change the default compute and storage, click  **Configure server**.
+5.  If you want to change the default compute and storage, click  **Configure server**.
  
     :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Screenshot of configure compute and storage screen.":::  
 
-2.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
+6.  If high availability option is checked, the burstable tier will not be available to choose. You can choose either
     **General purpose** or **Memory Optimized** compute tiers. Then you can select **compute size** for your choice from the dropdown.
 
     :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Compute tier selection screen.":::  
 
 
-3.  Select **storage size** in GiB using the sliding bar and select the **backup retention period** between 7 days and 35 days.
+7.  Select **storage size** in GiB using the sliding bar and select the **backup retention period** between 7 days and 35 days.
    
     :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Screenshot of Storage Backup."::: 
 
-4. Click **Save**. 
+8. Click **Save**. 
 
 ## Enable high availability post server creation
 
@@ -147,7 +145,7 @@ Follow these steps to perform a planned failover from your primary to the standb
 
 There are Azure regions that do not support availability zones. If you have already deployed non-HA servers, you cannot directly enable zone redundant HA on the server, but you can perform restore and enable HA in that server.  Following steps shows how to enable Zone redundant HA for that server.
 
-1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restoring-to-the-latest-restore-point). Choose **Latest restore point**. 
+1. From the overview page of the server, click **Restore** to [perform a PITR](how-to-restore-server-portal.md#restore-to-the-latest-restore-point). Choose **Latest restore point**. 
 2. Choose a server name, availability zone.
 3. Click **Review+Create**".
 4. A new Flexible server will be created from the backup. 

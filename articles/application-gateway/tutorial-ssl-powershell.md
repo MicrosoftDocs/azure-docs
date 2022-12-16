@@ -166,7 +166,8 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -RuleType Basic `
   -HttpListener $defaultlistener `
   -BackendAddressPool $defaultPool `
-  -BackendHttpSettings $poolSettings
+  -BackendHttpSettings $poolSettings `
+  -priority 100
 ```
 
 ### Create the application gateway with the certificate

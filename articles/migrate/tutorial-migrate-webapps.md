@@ -1,15 +1,15 @@
 ---
-title: Migrate ASP.NET web apps to Azure App Service using Azure Migrate
+title: Modernize ASP.NET web apps to Azure App Service code
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
 author: vineetvikram
 ms.author: vivikram
-ms.service: azure
+ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/21/2022
+ms.date: 08/09/2022
 ms.custom: template-tutorial
 ---
 
-# Migrate ASP.NET web apps to Azure App Service with Azure Migrate
+# Modernize ASP.NET web apps to Azure App Service code
 
 This article shows you how to migrate ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate.
 
@@ -101,17 +101,17 @@ Once the migration is initiated, you can track the status using the Azure Resour
 
 Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s): 
 
-- [Map existing custom DNS name](/azure/app-service/app-service-web-tutorial-custom-domain.md).
-- [Secure a custom DNS with a TLS/SSL binding](/azure/app-service/configure-ssl-bindings.md).
-- [Securely connect to Azure resources](/azure/app-service/tutorial-connect-overview)
-- [Deployment best practices](/azure/app-service/deploy-best-practices).
-- [Security recommendations](/azure/app-service/security-recommendations).
-- [Networking features](/azure/app-service/networking-features).
-- [Monitor App Service with Azure Monitor](/azure/app-service/monitor-app-service).
-- [Configure Azure AD authentication](/azure/app-service/configure-authentication-provider-aad).
+- [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
+- [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
+- [Securely connect to Azure resources](../app-service/tutorial-connect-overview.md)
+- [Deployment best practices](../app-service/deploy-best-practices.md).
+- [Security recommendations](../app-service/security-recommendations.md).
+- [Networking features](../app-service/networking-features.md).
+- [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
+- [Configure Azure AD authentication](../app-service/configure-authentication-provider-aad.md).
 
 
 ## Next steps
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-- [Review best practices](/azure/app-service/deploy-best-practices.md) for deploying to Azure App service.
+- [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.

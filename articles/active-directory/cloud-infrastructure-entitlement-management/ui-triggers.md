@@ -2,20 +2,17 @@
 title: View information about activity triggers in Permissions Management
 description: How to view information about activity triggers in the Activity triggers dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View information about activity triggers
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how to use the **Activity triggers** dashboard in Permissions Management to view information about activity alerts and triggers.
 

@@ -16,7 +16,7 @@ author: msmbaldwin
 ---
 # What is Azure Key Vault Managed HSM?
 
-Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.
+Azure Key Vault Managed HSM (Hardware Security Module) is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs. It is one of several [key management solutions in Azure](../../security/fundamentals/key-management.md).
 
 For pricing information, please see Managed HSM Pools section on [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/). For supported key types, see [About keys](../keys/about-keys.md).
 
@@ -28,7 +28,7 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 ### Fully managed, highly available, single-tenant HSM as a service
 
 - **Fully managed**: HSM provisioning, configuration, patching, and maintenance is handled by the service.
-- **Highly available and zone resilient** (where Availability zones are supported): Each HSM cluster consists of multiple HSM partitions that span across at least two availability zones. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes.
+- **Highly available**: Each HSM cluster consists of multiple HSM partitions. If the hardware fails, member partitions for your HSM cluster will be automatically migrated to healthy nodes. For more information, see [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - **Single-tenant**: Each Managed HSM instance is dedicated to a single customer and consists of a cluster of multiple HSM partitions. Each HSM cluster uses a separate customer-specific security domain that cryptographically isolates each customer's HSM cluster.
 
 
@@ -52,11 +52,12 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 
 ### Import keys from your on-premises HSMs
 
-- Generate HSM-protected keys in your on-premise HSM and import them securely into Managed HSM.
+- Generate HSM-protected keys in your on-premises HSM and import them securely into Managed HSM.
 
 ## Next steps
+- [Key management in Azure](../../security/fundamentals/key-management.md)
 - See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to create and activate a managed HSM
 - See [Best Practices using Azure Key Vault Managed HSM](best-practices.md)
-- [Managed HSM Status](https://status.azure.com)
+- [Managed HSM Status](https://azure.status.microsoft)
 - [Managed HSM Service Level Agreement](https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/)
 - [Managed HSM region availability](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault)

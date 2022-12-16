@@ -44,7 +44,7 @@ A computer that's running either of the following:
 
 # [Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019), with the ASP.NET and web development workload
+* [Visual Studio 2022 17.0 or later](https://visualstudio.microsoft.com/downloads), with the ASP.NET and web development workload
 * [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
 # [Visual Studio Code](#tab/visual-studio-code)
@@ -75,6 +75,7 @@ To create the web app registration, use the following steps:
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
 1. Under **Redirect URI**, select **Web** and then, in the URL box, enter `https://localhost:44316/signin-oidc`.
+1. Under **Implicit grant and hybrid flows**, select the **ID tokens (used for implicit and hybrid flows)** checkbox.
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 1. Select **Overview**.

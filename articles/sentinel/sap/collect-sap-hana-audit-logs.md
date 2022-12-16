@@ -9,12 +9,10 @@ ms.date: 03/02/2022
 
 # Collect SAP HANA audit logs in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article explains how to collect audit logs from your SAP HANA database.
 
 > [!IMPORTANT]
-> The Microsoft Sentinel Threat Monitoring for SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 If you have SAP HANA database audit logs configured with Syslog, you'll also need to configure your Log Analytics agent to collect the Syslog files.
 
@@ -22,7 +20,7 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 1. Make sure that the SAP HANA audit log trail is configured to use Syslog, as described in *SAP Note 0002624117*, which is accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
 
-    - [SAP HANA Audit Trail - Best Practice](https://archive.sap.com/documents/docs/DOC-51098)
+    - [SAP HANA Audit Trail - Best Practice](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/35eb4e567d53456088755b8131b7ed1d.html?version=2.0.03)
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
 
 1. Check your operating system Syslog files for any relevant HANA database events.
@@ -51,25 +49,25 @@ If you have SAP HANA database audit logs configured with Syslog, you'll also nee
 
 ## Next steps
 
-Learn more about the Microsoft Sentinel Threat Monitoring for SAP solutions:
+Learn more about the Microsoft Sentinel Solution for SAP:
 
-- [Deploy Threat Monitoring for SAP](deployment-overview.md)
-- [Prerequisites for deploying Threat Monitoring for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy Microsoft Sentinel Solution for SAP](deployment-overview.md)
+- [Prerequisites for deploying Microsoft Sentinel Solution for SAP](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Deploy SAP Change Requests (CRs) and configure authorization](preparing-sap.md)
-- [Deploy and configure the SAP data connector agent container](deploy-data-connector-agent-container.md)
+- [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md)
 - [Deploy SAP security content](deploy-sap-security-content.md)
-- [Deploy the Microsoft Sentinel Threat Monitoring for SAP data connector with SNC](configure-snc.md)
+- [Deploy the SAP data connector with SNC](configure-snc.md)
 - [Enable and configure SAP auditing](configure-audit.md)
 
 Troubleshooting:
 
-- [Troubleshoot your Microsoft Sentinel Threat Monitoring for SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Troubleshoot your Microsoft Sentinel Solution for SAP deployment](sap-deploy-troubleshoot.md)
 - [Configure SAP Transport Management System](configure-transport.md)
 
 Reference files:
 
-- [Microsoft Sentinel Threat Monitoring for SAP solution data reference](sap-solution-log-reference.md)
-- [Microsoft Sentinel Threat Monitoring for SAP solution: security content reference](sap-solution-security-content.md)
+- [Microsoft Sentinel Solution for SAP data reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel Solution for SAP: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
 - [Systemconfig.ini file reference](reference-systemconfig.md)

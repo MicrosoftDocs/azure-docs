@@ -105,7 +105,7 @@ BGP communities are groupings of IP prefixes tagged with a community value. This
     ```
 
 > [!IMPORTANT]
->  If your virtual network is peered with other virtual networks, you'll need to delete and recreate each vnet peering after applying the custom BGP community value. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
+>  If your virtual network is peered with other virtual networks, you'll need to delete all peerings before applying the custom BGP community value. Then re-create the peerings. See [Connect virtual networks with virtual network peering](../virtual-network/tutorial-connect-virtual-networks-portal.md), to learn how.
 >
 
 ## Next steps

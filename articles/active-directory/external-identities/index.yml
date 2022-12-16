@@ -10,7 +10,7 @@ metadata:
    ms.subservice: B2B
    ms.workload: identity
    ms.topic: landing-page
-   ms.date: 05/19/2020
+   ms.date: 08/31/2022
    author: msmimart
    ms.author: mimart
    manager: celested
@@ -24,15 +24,15 @@ landingContent:
             url: external-identities-overview.md
           - text: What is Azure AD B2B collaboration?
             url: what-is-b2b.md
-          - text: What is Azure AD B2B direct connect? (preview)
+          - text: What is Azure AD B2B direct connect?
             url: b2b-direct-connect-overview.md
           - text: What is Azure AD B2C (business-to-consumer) identity?
             url: ../../active-directory-b2c/overview.md
-  - title: Collaborate with users outside your org (B2B collaboration)
+  - title: Collaborate with users outside your org (B2B)
     linkLists:
       - linkListType: concept
         links:
-          - text: Cross-tenant access settings (preview)
+          - text: Overview of cross-tenant access settings
             url: cross-tenant-access-overview.md
           - text: B2B collaboration user properties
             url: user-properties.md
@@ -42,14 +42,14 @@ landingContent:
         links:
           - text: Configure your external collaboration settings
             url: external-collaboration-settings-configure.md
+          - text: Configure cross-tenant access for B2B collaboration
+            url: cross-tenant-access-settings-b2b-collaboration.md
           - text: Set up SAML/WS-Fed IdP federation
             url: direct-federation.md
           - text: Set up One-time passcodes
             url: one-time-passcode.md
           - text: Add and invite guest users
             url: add-users-administrator.md
-          - text: Leave an organization as a guest user
-            url: leave-the-organization.md
   - title: Scale apps to consumers and customers (Azure AD B2C)
     linkLists:
       - linkListType: overview

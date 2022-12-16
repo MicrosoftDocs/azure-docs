@@ -3,15 +3,15 @@ title: Create or edit a dynamic group and get status - Azure AD | Microsoft Docs
 description: How to create or update a group membership rule in the Azure portal, and check its processing status.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/23/2022
-ms.author: curtand
+ms.date: 11/14/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -90,6 +90,9 @@ The following status messages can be shown for **Dynamic rule processing** statu
 - **Update complete**: Processing has completed and all applicable updates have been made.
 - **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **Update paused**: Dynamic membership rule updates have been paused by the administrator. MembershipRuleProcessingState is set to “Paused”.
+
+>[!NOTE]
+>In this screen you now may also choose to **Pause processing**. Previously, this option was only available through the modification of the membershipRuleProcessingState property. Global admins, group admins, user admins, and Intune admins can manage this setting and can pause and resume dynamic group processing. Group owners without the correct roles do not have the rights needed to edit this setting.
 
 The following status messages can be shown for **Last membership change** status:
 

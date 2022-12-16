@@ -1,10 +1,10 @@
 ---
-title: Contact support for Confluent Cloud - Azure partner solutions
+title: Contact support for Confluent Cloud
 description: This article describes how to contact support for Confluent Cloud on the Azure portal.
 ms.topic: conceptual
 ms.date: 06/07/2021
-author: davidsmatlak
-ms.author: davidsmatlak
+author: flang-msft
+ms.author: franlanglois
 ---
 
 # Get support for Confluent Cloud resource

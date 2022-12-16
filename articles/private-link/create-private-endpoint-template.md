@@ -6,7 +6,7 @@ author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 05/26/2020
+ms.date: 07/18/2022
 ms.author: allensu
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint by using an ARM template.
 ---

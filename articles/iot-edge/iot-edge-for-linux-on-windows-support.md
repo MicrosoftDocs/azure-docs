@@ -11,7 +11,7 @@ services: iot-edge
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides details about which systems are supported by IoT Edge for Linux on Windows, whether generally available or in preview. 
 
@@ -49,6 +49,7 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 | ---------------- | ----- |  ----- |
 | EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+| EFLOW 1.4 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
 
 For more information about Windows ARM64 supported processors, see [Windows Processor Requirements](/windows-hardware/design/minimum/windows-processor-requirements).
 
@@ -60,6 +61,7 @@ Azure IoT Edge for Linux on Windows (EFLOW) can run in Windows virtual machines.
 | ---------------- | ----- |  ----- | ----- | ----- | 
 | EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
 | EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
+| EFLOW 1.4 LTS | ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) | - |  
  
 For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
@@ -74,8 +76,9 @@ The following table lists the components included in each release. Each release 
 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
-| **1.1 LTS** | 1.1 | 1.0 | - |
-| **Continuous Release** | 1.2 | 1.0 | 3.12.3 | 
+| **1.1 LTS** | 1.1 | 2.0 | - |
+| **Continuous Release** | 1.3 | 2.0 | 3.12.3 | 
+| **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
 
 
 ## Minimum system requirements

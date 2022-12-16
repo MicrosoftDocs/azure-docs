@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 10/12/2022
 
 ms.author: mimart
 author: msmimart
@@ -61,9 +61,10 @@ Next, you'll create the user flow for self-service sign-up and add it to an appl
 
    ![Add a new user flow button](media/self-service-sign-up-user-flow/new-user-flow.png)
 
-5. On the **Create** page, enter a **Name** for the user flow. Note that the name is automatically prefixed with **B2X_1_**.
-6. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
-7. Under **User attributes**, choose the attributes you want to collect from the user. For additional attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
+5. Select the user flow type (for example, **Sign up and sign in**), and then select the version (**Recommended** or **Preview**).
+6. On the **Create** page, enter a **Name** for the user flow. Note that the name is automatically prefixed with **B2X_1_**.
+7. In the **Identity providers** list, select one or more identity providers that your external users can use to log into your application. **Azure Active Directory Sign up** is selected by default. (See [Before you begin](#before-you-begin) earlier in this article to learn how to add identity providers.)
+8. Under **User attributes**, choose the attributes you want to collect from the user. For additional attributes, select **Show more**. For example, select **Show more**, and then choose attributes and claims for **Country/Region**, **Display Name**, and **Postal Code**. Select **OK**.
 
    ![Create a new user flow page](media/self-service-sign-up-user-flow/create-user-flow.png)
 
@@ -86,7 +87,7 @@ You can choose order in which the attributes are displayed on the sign-up page.
 
 ## Add applications to the self-service sign-up user flow
 
-Now you can associate applications with the user flow.
+Now you'll associate applications with the user flow to enable sign-up for those applications. New users who access the associated applications will be presented with your new self-service sign-up experience.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -107,3 +108,4 @@ Now you can associate applications with the user flow.
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
 - [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)
+- [Learn more about initiating an OAuth 2.0 authorization code flow](../develop/v2-oauth2-auth-code-flow.md#request-an-authorization-code)

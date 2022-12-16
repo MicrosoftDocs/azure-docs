@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Ziflow | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Ziflow'
 description: Learn how to configure single sign-on between Azure Active Directory and Ziflow.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/15/2021
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Ziflow
+# Tutorial: Azure AD SSO integration with Ziflow
 
 In this tutorial, you'll learn how to integrate Ziflow with Azure Active Directory (Azure AD). When you integrate Ziflow with Azure AD, you can:
 
@@ -43,6 +43,8 @@ To configure the integration of Ziflow into Azure AD, you need to add Ziflow fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Ziflow** in the search box.
 1. Select **Ziflow** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Ziflow
 
@@ -75,8 +77,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://ziflow-production.auth0.com/login/callback?connection=<UNIQUE_ID>`
 
+	c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://ziflow-production.auth0.com/login/callback?connection=<UNIQUE_ID>`
+
 	> [!NOTE]
-	> The preceding values are not real. You will update the unique ID value in the Identifier and Sign on URL with actual value, which is explained later in the tutorial.
+	> The preceding values are not real. You will update the unique ID value in the Identifier, Sign on URL and Reply URL with actual value, which is explained later in the tutorial.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -116,15 +121,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on Avatar in the top right corner, and then click **Manage account**.
 
-	![Ziflow Configuration Manage](./media/ziflow-tutorial/manage-account.png)
+	![Screenshot for Ziflow Configuration Manage](./media/ziflow-tutorial/manage-account.png)
 
 3. In the top left, click **Single Sign-On**.
 
-	![Ziflow Configuration Sign](./media/ziflow-tutorial/configuration.png)
+	![Screenshot for Ziflow Configuration Sign](./media/ziflow-tutorial/configuration.png)
 
 4. On the **Single Sign-On** page, perform the following steps:
 
-	![Ziflow Configuration Single](./media/ziflow-tutorial/page.png)
+	![Screenshot for Ziflow Configuration Single](./media/ziflow-tutorial/page.png)
 
 	a. Select **Type** as **SAML2.0**.
 
@@ -146,7 +151,7 @@ To provision a user account, perform the following steps:
 
 2. Navigate to **People** on the top.
 
-	![Ziflow Configuration people](./media/ziflow-tutorial/people.png)
+	![Screenshot for Ziflow Configuration people](./media/ziflow-tutorial/people.png)
 
 3. Click **Add** and then click **Add user**.
 

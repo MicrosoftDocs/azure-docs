@@ -22,7 +22,7 @@ In this article, you'll learn how to integrate Azure Digital Twins with [Azure T
 The solution described in this article uses Time Series Insights to collect and analyze historical data about your IoT solution. Azure Digital Twins is a good fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights.
 
 >[!TIP]
->The simplest way to analyze historical twin data over time is to use the [data history (preview)](concepts-data-history.md) feature to connect an Azure Digital Twins instance to an Azure Data Explorer cluster, so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md). If you don't need to use Time Series Insights specifically, you might consider this alternative for a simpler integration experience.
+>The simplest way to analyze historical twin data over time is to use the [data history](concepts-data-history.md) feature to connect an Azure Digital Twins instance to an Azure Data Explorer cluster, so that digital twin property updates are automatically historized to Azure Data Explorer. You can then query this data in Azure Data Explorer using the [Azure Digital Twins query plugin for Azure Data Explorer](concepts-data-explorer-plugin.md). If you don't need to use Time Series Insights specifically, you might consider this alternative for a simpler integration experience.
 
 ## Prerequisites
 
@@ -40,13 +40,7 @@ Before you can set up a relationship with Time Series Insights, you'll need to s
 
 You'll be attaching Time Series Insights to Azure Digital Twins through the following path.
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-integrate-time-series-insights/diagram-simple.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting Time Series Insights." lightbox="media/how-to-integrate-time-series-insights/diagram-simple.png":::
 
 ## Create Event Hubs namespace
 
@@ -165,7 +159,7 @@ In this section, you'll create an Azure function that will convert twin update e
 
 2. Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger." lightbox="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png":::
 
 3. Add the following packages to your project (you can use the Visual Studio NuGet package manager, or the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in a command-line tool).
     * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
@@ -280,11 +274,4 @@ If you allow a simulation to run for much longer, your visualization will look s
 
 ## Next steps
 
-The digital twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this process, read: 
-
-* [Define and apply a model](../time-series-insights/tutorial-set-up-environment.md#define-and-apply-a-model) 
-
-You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
-
-* [Manage a digital twin](./how-to-manage-twin.md)
-* [Query the twin graph](./how-to-query-graph.md)
+After establishing a data pipeline to send time series data from Azure Digital Twins to Time Series Insights, you might want to think about how to translate asset models designed for Azure Digital Twins into asset models for Time Series Insights. For a tutorial on this next step in the integration process, see [Model synchronization between Azure Digital Twins and Time Series Insights Gen2](../time-series-insights/tutorials-model-sync.md).

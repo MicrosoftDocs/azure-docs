@@ -2,9 +2,9 @@
 title: Add users to your data labeling project
 title.suffix: Azure Machine Learning
 description: Add users to your data labeling project so that they can label data, but not see the rest of your workspace.
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: vkann
+author: kvijaykannan 
+ms.author: vkann 
+ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
@@ -18,7 +18,7 @@ This article shows how to add users to your data labeling project so that they c
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md).
 
 You'll need certain permission levels to follow the steps in this article. If you can't follow one of the steps, contact your administrator to get the appropriate permissions.
 
@@ -32,11 +32,11 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
-1. Select the **Subscription** link in the middle of the page.
+1. Select the **Resource group** link in the middle of the page.
 1. On the left, select **Access control (IAM)**.
 1. At the top, select **+ Add > Add custom role**.
-1. For the **Custom role name**, type **Labeler**.
-1. In the **Description** box, add **Labeler access for data labeling projects**.
+1. For the **Custom role name**, type the name you want to use.  For example, **Labeler**.
+1. In the **Description** box, add a description.  For example, **Labeler access for data labeling projects**.
 1. Select **Start from JSON**.
 1. At the bottom of the page, select **Next**.
 1. Don't do anything for the **Permissions** tab, you'll add permissions in a later step.  Select **Next**.
@@ -46,19 +46,7 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
     :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
 
-1. Replace these two lines with:
-    
-    ```json
-                        "actions": [
-                            "Microsoft.MachineLearningServices/workspaces/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-                            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"   
-                        ],
-                        "notActions": [        
-                        ],
-    ```
+1. Replace these two lines with the `Actions` and `NotActions` from the appropriate role listed at [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md#data-labeling).  Make sure to copy from `Actions` through the closing bracket, `],`
 
 1. Select **Save** at the top of the edit box to save your changes.
 
@@ -69,27 +57,6 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. Select **Create** to create the custom role.
 1. Select **OK**.
 
-### Labeling team lead
-
-You may want to create a second role for a labeling team lead.  A labeling team lead can reject the labeled dataset and view labeling insights. In addition, this role also allows you to perform the role of a labeler. 
-
-To add this custom role, repeat the above steps. Use the name **Labeling Team Lead** and replace the two lines with:
-
-```json
-                "actions": [
-                    "Microsoft.MachineLearningServices/workspaces/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
-                ],
-                "notActions": [
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
-                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
-                ],
-```
 
 ## Add guest user
 

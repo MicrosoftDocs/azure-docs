@@ -3,12 +3,12 @@ title: Authorize access to queue data with a managed identity
 titleSuffix: Azure Storage
 description: Use managed identities for Azure resources to authorize queue data access from applications running in Azure VMs, function apps, and others.
 services: storage
-author: tamram
+author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 10/11/2021
-ms.author: tamram
+ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-csharp

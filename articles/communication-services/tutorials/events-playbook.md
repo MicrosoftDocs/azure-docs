@@ -64,7 +64,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
 
 1.	Authorize application to use Graph APIs on behalf of service account. This authorization is required in order to have the application use credentials to interact with your tenant to schedule events and register attendees. 
 
-    1. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will receive notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of remainders.
+    1. Create an account that will own the meetings and is branded appropriately. This is the account that will create the events and which will receive notifications for it. We recommend to not user a personal production account given the overhead it might incur in the form of reminders.
 
     1. As part of the application setup, the service account is used to login into the solution once. With this permission the application can retrieve and store an access token on behalf of the service account that will own the meetings. Your application will need to store the tokens generated from the login and place them in a secure location such as a key vault. The application will need to store both the access token and the refresh token. Learn more about [auth tokens](../../active-directory/develop/access-tokens.md). and [refresh tokens](../../active-directory/develop/refresh-tokens.md).
 
@@ -75,7 +75,7 @@ Microsoft Graph enables event management platforms to empower organizers to sche
   >[!NOTE]
   >Authorization is required by both developers for testing and organizers who will be using your event platform to set up their events.
 
-2.	Organizer logins to Contoso platform to create an event and generate a registration URL. To enable these capabilities developers should use:
+2.	Organizer logs in to Contoso platform to create an event and generate a registration URL. To enable these capabilities developers should use:
 
       1.	The [Create Calendar Event API](/graph/api/user-post-events?tabs=http&view=graph-rest-1.0) to POST the new event to be created. The Event object returned will contain the join URL required for the next step. Need to set the following parameter: `isonlinemeeting: true` and `onlineMeetingProvider: "teamsForBusiness"`. Set a time zone for the event, using the `Prefer` header.
 
@@ -94,7 +94,7 @@ Event management platforms can use a custom registration flow to register attend
 
 ### Communicate with your attendees using Azure Communication Services
 
-Through Azure Communication Services, developers can use SMS and Email capabilities to send remainders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
+Through Azure Communication Services, developers can use SMS and Email capabilities to send reminders to attendees for the event they have registered. Communication can also include confirmation for the event as well as information for joining and participating. 
 - [SMS capabilities](../quickstarts/sms/send.md) enable you to send text messages to your attendees. 
 - [Email capabilities](../quickstarts/email/send-email.md) support direct communication to your attendees using custom domains.
 

@@ -6,21 +6,19 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage erwin Mart servers in Microsoft Purview (Preview)
+# Connect to and manage erwin Mart servers in Microsoft Purview
 
 This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage)| No |
 
 The supported erwin Mart versions are 9.x to 2021.
 

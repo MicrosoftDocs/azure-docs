@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, references_regions
 ms.date: 10/25/2021
 ---
 
-# Connect Data Factory to Microsoft Purview (Preview)
+# Connect Data Factory to Microsoft Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -24,7 +24,7 @@ You have two options to connect data factory to Microsoft Purview:
 
 ### Connect to Microsoft Purview account in Data Factory
 
-You need to have **Owner** or **Contributor** role on your data factory to connect to a Microsoft Purview account.
+You need to have **Owner** or **Contributor** role on your data factory to connect to a Microsoft Purview account. Your data factory needs to have system assigned managed identity enabled.
 
 To establish the connection on Data Factory authoring UI:
 

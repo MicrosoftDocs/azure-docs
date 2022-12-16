@@ -122,13 +122,13 @@ Nodes reboot periodically. From the region server logs you may see entries simil
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
 ```
 
-### Cause
+### Cause: zookeeper session timeout
 
 Long `regionserver` JVM GC pause. The pause will cause `regionserver` to be unresponsive and not able to send heart beat to HMaster within the zk session timeout 40s. HMaster will believe `regionserver` is dead and will abort the `regionserver` and restart.
 
-### Resolution
 
-Change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.session.timeout` but also Zookeeper `zoo.cfg` setting `maxSessionTimeout` need to be changed.
+
+To mitigate, change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.session.timeout` but also Zookeeper `zoo.cfg` setting `maxSessionTimeout` need to be changed.
 
 1. Access Ambari UI, go to **HBase -> Configs -> Settings**, in Timeouts section, change the value of Zookeeper Session Timeout.
 
@@ -139,6 +139,16 @@ Change the Zookeeper session timeout, not only `hbase-site` setting `zookeeper.s
     ```
 
 1. Restart required services.
+
+
+### Cause: overloaded RegionServer
+
+Follow [Number of regions per RS - upper bound](https://hbase.apache.org/book.html#ops.capacity.regions.count) to calculate upper bound.
+For example: `8000 (Region server Heap -- Xmx in MB) * 0.4 (hbase.regionserver.global.memstore.size) /64 (hbase.regionserver.hlog.blocksize/2) = 50`
+
+To mitigate, scale up your HBase cluster.
+
+
 
 ---
 

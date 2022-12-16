@@ -5,7 +5,8 @@ ms.topic: conceptual
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
-ms.date: 03/18/2021
+ms.date: 12/12/2022
+ms.custom: engagement-fy23
 ---
 
 # Dependency analysis
@@ -18,7 +19,7 @@ Dependency analysis identifies dependencies between discovered on-premises serve
 - You can identify servers that must be migrated together. This is especially useful if you're not sure which servers are part of an app deployment that you want to migrate to Azure.
 - You can identify whether servers are in use, and which servers can be decommissioned instead of migrated.
 - Analyzing dependencies helps ensure that nothing is left behind, and thus avoids surprise outages after migration.
-- [Review](common-questions-discovery-assessment.md#what-is-dependency-visualization) common questions about dependency analysis.
+- [Review](common-questions-discovery-dependency-analysis.md#what-is-dependency-visualization) common questions about dependency analysis.
 
 ## Analysis types
 
@@ -26,7 +27,7 @@ There are two options for deploying dependency analysis
 
 **Option** | **Details** | **Public cloud** | **Azure Government**
 ----  |---- | ----
-**Agentless** | For VMware VMs, dependency data is gathered from servers by connecting via the vCenter Server using the vSphere APIs.<br/><br/> For Hyper-V VMs and physical servers, dependency data is gathered by directly connecting to Windows servers using PowerShell remoting and to Linux servers using SSH connection.<br/><br/>No agents need to be installed on target servers.| Supported | Supported
+**Agentless** | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | Supported | Supported
 **Agent-based analysis** | Uses the [Service Map solution](../azure-monitor/vm/service-map.md) in Azure Monitor, to enable dependency visualization and analysis.<br/><br/> You need to install agents on each on-premises server that you want to analyze. | Supported | Not supported.
 
 ## Agentless analysis
@@ -38,19 +39,18 @@ Agentless dependency analysis works by capturing TCP connection data from server
 After discovery of dependency data begins, polling begins:
 
 - The Azure Migrate appliance polls TCP connection data from servers every five minutes to gather data.
-- Data is collected from guest servers via vCenter Server, using vSphere APIs.
 - Polling gathers this data:
 
     - Name of processes that have active connections.
     - Name of application that run processes that have active connections.
     - Destination port on the active connections.
 
-- The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hour
+- The gathered data is processed on the Azure Migrate appliance, to deduce identity information, and is sent to Azure Migrate every six hours.
 
 
 ## Agent-based analysis
 
-For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](../azure-monitor/vm/service-map.md) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/agents/agents-overview.md#log-analytics-agent) and the [Dependency agent](../azure-monitor/agents/agents-overview.md#dependency-agent), on each server you want to analyze.
+For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](../azure-monitor/vm/service-map.md) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) and the [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md), on each server you want to analyze.
 
 ### Dependency data
 
@@ -80,4 +80,4 @@ Data export | Last 30 days data can be downloaded in a CSV format. | Data can be
 
 - [Set up](how-to-create-group-machine-dependencies.md) agent-based dependency visualization.
 - [Try out](how-to-create-group-machine-dependencies-agentless.md) agentless dependency visualization for servers on VMware.
-- Review [common questions](common-questions-discovery-assessment.md#what-is-dependency-visualization) about dependency visualization.
+- Review [common questions](common-questions-discovery-dependency-analysis.md#what-is-dependency-visualization) about dependency visualization.

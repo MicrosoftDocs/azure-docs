@@ -2,7 +2,7 @@
 title: Handling errors in Durable Functions - Azure
 description: Learn how to handle errors in the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, javascript, powershell, python, java
 ---
@@ -122,8 +122,16 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
+By default, cmdlets in PowerShell do not raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+
+1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
+2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
+
 ```powershell
 param($Context)
+
+$ErrorActionPreference = "Stop"
+
 $transferDetails = $Context.Input
 
 Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
@@ -135,28 +143,28 @@ try {
 }
 ```
 
+For more information on error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
+
 # [Java](#tab/java)
 
 ```java
 @FunctionName("TransferFunds")
-public String transferFunds(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            TransferOperation transfer = ctx.getInput(TransferOperation.class);
-            ctx.callActivity(
-                "DebitAccount", 
-                new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
-            try {
-                ctx.callActivity(
-                    "CreditAccount", 
-                    new OperationArgs(transfer.destinationAccount, transfer.amount)).await();
-            } catch (TaskFailedException ex) {
-                // Refund the source account on failure
-                ctx.callActivity(
-                    "CreditAccount", 
-                    new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
-            }
-        });
+public void transferFunds(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    TransferOperation transfer = ctx.getInput(TransferOperation.class);
+    ctx.callActivity(
+        "DebitAccount", 
+        new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
+    try {
+        ctx.callActivity(
+            "CreditAccount", 
+            new OperationArgs(transfer.destinationAccount, transfer.amount)).await();
+    } catch (TaskFailedException ex) {
+        // Refund the source account on failure
+        ctx.callActivity(
+            "CreditAccount", 
+            new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
+    }
 }
 ```
 
@@ -238,15 +246,14 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 
 ```java
 @FunctionName("TimerOrchestratorWithRetry")
-public String timerOrchestratorWithRetry(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            final int maxAttempts = 3;
-            final Duration firstRetryInterval = Duration.ofSeconds(5);
-            RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
-            ctx.callActivity("FlakeyFunction", new TaskOptions(policy)).await();
-            // ...
-        });
+public void timerOrchestratorWithRetry(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    final int maxAttempts = 3;
+    final Duration firstRetryInterval = Duration.ofSeconds(5);
+    RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
+    TaskOptions options = new TaskOptions(policy);
+    ctx.callActivity("FlakeyFunction", options).await();
+    // ...
 }
 ```
 
@@ -433,21 +440,19 @@ else {
 
 ```java
 @FunctionName("TimerOrchestrator")
-public String timerOrchestrator(
-    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            Task<Void> activityTask = ctx.callActivity("SlowFunction");
-            Task<Void> timeoutTask = ctx.createTimer(Duration.ofMinutes(30));
+public boolean timerOrchestrator(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    Task<Void> activityTask = ctx.callActivity("SlowFunction");
+    Task<Void> timeoutTask = ctx.createTimer(Duration.ofMinutes(30));
 
-            Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
-            if (winner == activityTask) {
-                // success case
-                return true;
-            } else {
-                // timeout case
-                return false;
-            }
-        });
+    Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
+    if (winner == activityTask) {
+        // success case
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
 }
 ```
 

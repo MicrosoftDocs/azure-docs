@@ -3,7 +3,8 @@ title: About recovery plans in Azure Site Recovery
 description: Learn about recovery plans in Azure Site Recovery. 
 ms.topic: conceptual
 ms.date: 01/23/2020
-
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # About recovery plans
 
@@ -80,7 +81,7 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 ## Watch a recovery plan video
 
-Watch a quick example video showing an on-click failover for a recovery plan for a two-tier WordPress app.
+Watch a quick example [video](https://youtu.be/1KUVdtvGqw8) showing an on-click failover for a recovery plan for a two-tier WordPress app.
     
 ## Next steps
 

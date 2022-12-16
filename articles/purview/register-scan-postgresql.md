@@ -6,21 +6,20 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 05/04/2022
+ms.date: 10/21/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Connect to and manage PostgreSQL in Microsoft Purview (Preview)
+# Connect to and manage PostgreSQL in Microsoft Purview
 
 This article outlines how to register PostgreSQL, and how to authenticate and interact with PostgreSQL in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Sharing**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | [Yes](#scan) | No | No| [Yes](#lineage) | No |
+
 
 The supported PostgreSQL server versions are 8.4 to 12.x.
 

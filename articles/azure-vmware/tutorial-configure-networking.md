@@ -43,7 +43,7 @@ Before selecting an existing vNet, there are specific requirements that must be 
 1. In the same region as Azure VMware Solution private cloud.
 1. In the same resource group as Azure VMware Solution private cloud.
 1. vNet must contain an address space that doesn't overlap with Azure VMware Solution.
-1. Validate solution design is within Azure VMware Solution limits (https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+1. Validate solution design is within Azure VMware Solution limits (Microsoft technical documentation/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Select an existing vNet
 

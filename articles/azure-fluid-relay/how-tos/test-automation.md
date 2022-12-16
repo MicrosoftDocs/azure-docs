@@ -12,12 +12,9 @@ fluid.url: https://fluidframework.com/docs/testing/testing/
 
 # How to: Use test automation with Azure Fluid Relay
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
 Testing and automation are crucial to maintaining the quality and longevity of your code. Internally, Fluid uses a range of unit and integration tests powered by [Mocha](https://mochajs.org/), [Jest](https://jestjs.io/), [Puppeteer](https://github.com/puppeteer/puppeteer), and [Webpack](https://webpack.js.org/).
 
-You can run tests using the local **@fluidframework/azure-local-service** or using a test tenant in Azure Fluid Relay service. **AzureClient** can be configured to connect to both a remote service and a local service, which enables you to use a single client type between tests against live and local service instances. The only difference is the configuration used to create the client.
+You can run tests using the local [@fluidframework/azure-local-service](https://www.npmjs.com/package/@fluidframework/azure-local-service) or using a test tenant in Azure Fluid Relay service. [AzureClient](https://fluidframework.com/docs/apis/azure-client/azureclient-class) can be configured to connect to both a remote service and a local service, which enables you to use a single client type between tests against live and local service instances. The only difference is the configuration used to create the client.
 
 ## Automation against Azure Fluid Relay
 

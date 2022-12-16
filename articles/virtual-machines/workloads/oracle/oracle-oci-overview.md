@@ -51,6 +51,7 @@ Cross-cloud connectivity is limited to the following regions:
 * Azure West US 3 & OCI US West ((Phoenix)
 * Azure Korea Central region & OCI South Korea Central (Seoul)
 * Azure Southeast Asia region & OCI Singapore (Singapore)
+* Azure Brazil South (BrazilSouth) & OCI Vinhedo (Brazil Southeast)
 
 
 ## Networking

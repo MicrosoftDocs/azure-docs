@@ -106,4 +106,4 @@ For example, if the policy in this document is updating the managed identities o
 
 ## Next steps
 
-- [Deploy Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-manage.md#using-azure-policy)
+- [Deploy Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-manage.md#use-azure-policy)

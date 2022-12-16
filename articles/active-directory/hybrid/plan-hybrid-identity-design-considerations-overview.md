@@ -4,7 +4,7 @@ description: Overview and content map of Hybrid Identity design considerations g
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7

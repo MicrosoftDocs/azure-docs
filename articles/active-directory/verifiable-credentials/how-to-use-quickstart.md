@@ -1,51 +1,37 @@
 ---
-title: How to create verifiable credentials for ID token hint
-description: Learn how to use the QuickStart to create custom verifiable credential for ID token hint
+title: Create verifiable credentials for an ID token hint
+description: In this article, you learn how to use a quickstart to create a custom verifiable credential for an ID token hint.
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/16/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
-#Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for the ID token hint scenario 
+#Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for the ID token hint scenario. 
 ---
 
-# How to create verifiable credentials for ID token hint
+# Create verifiable credentials for ID token hint
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [idTokenHint attestation](rules-and-display-definitions-model.md#idtokenhintattestation-type) produces an issuance flow where the relying party application passes claim values in the [issuance request payload](issuance-request-api.md#issuance-request-payload). It is the relying party application's responsibility to ensure that required claim values are passed in the request. How the claim values are gathered is up to the application. 
 
-## Prerequisites
+## Create a custom credential
 
-To use the Microsoft Entra Verified ID QuickStart, you only need to complete verifiable credentials onboarding.
+In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-## What is the QuickStart?
+![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
-Azure AD verifiable Credentials now come with a QuickStart in the portal for creating custom credentials. When using the QuickStart, you don't need to edit and upload of display and rules files to Azure Storage. Instead you enter all details in the portal and create the credential in one page. 
+On the **Create a new credential** page, enter the JSON code for the rules and display definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
->[!NOTE]
->When working with custom credentials, you provide display and rules definitions in JSON documents. These definitions are now stored together with the credential's details.
+![Screenshot of the "Create a new credential" page, displaying JSON samples for the rules and display files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
-## Create a Custom credential
+## Sample JSON display definitions
 
-When you select + Add credential in the portal, you get the option to launch two Quickstarts. Select [x] Custom credential and select Next. 
-
-![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
-
-In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
-
-![screenshot of create new credential section with JSON sample](media/how-to-use-quickstart/quickstart-create-new.png)
-
-## Sample JSON Display definitions
-
-The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator.
+The expected JSON for the display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries, with a comma as a separator.
 
 ```json
 {
@@ -80,9 +66,9 @@ The expected JSON for the Display definitions is the inner content of the displa
 }
 ```
 
-## Sample JSON Rules definitions
+## Sample JSON rules definitions
 
-The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute.
+The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute.
 
 ```json
 {
@@ -106,27 +92,30 @@ The expected JSON for the Rules definitions is the inner content of the rules at
             "required": false
           }
         ]
+      },
+      "validityInterval":  2592000,
+      "vc": {
+        "type": [
+          "VerifiedCredentialExpert"
+        ]
       }
 }
 ```
 
-## Configure the samples to issue and verify your Custom credential
 
-To configure your sample code to issue and verify using custom credentials, you need:
+## Configure the samples to issue and verify your custom credential
 
-- Your tenant's issuer DID
+To configure your sample code to issue and verify by using custom credentials, you need:
+
+- Your tenant's issuer decentralized identifier (DID)
 - The credential type
-- The manifest url to your credential. 
+- The manifest URL to your credential 
 
-The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. There you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
-![Screenshot of QuickStart issue credential screen.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
-
-After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
-
-![Screenshot of Quickstart custom issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
 ## Next steps
 
-- Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
-- Reference for creating a credential using the [idToken] attestation (idtoken-reference.md)
+For more information, see:
+- [Rules and display definitions reference](rules-and-display-definitions-model.md)

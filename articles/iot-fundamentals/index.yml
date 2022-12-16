@@ -40,9 +40,9 @@ highlightedContent:
       itemType: architecture
       url: /azure/architecture/reference-architectures/iot/
     # Card
-    - title: Azure IoT on Microsoft Learn
+    - title: Learn modules for Azure IoT
       itemType: learn
-      url: /learn/browse/?products=azure&term=iot
+      url: /training/browse/?products=azure&term=iot
     # Card
     - title: Support and help options
       itemType: how-to-guide
@@ -51,10 +51,10 @@ highlightedContent:
 # conceptualContent section
 conceptualContent:
   title: Get started building your IoT solution
-  summary: Azure IoT offers you cloud and edge IoT platforms as well as fully-managed IoT solutions
+  summary: Azure IoT offers you cloud and edge IoT platforms as well as fully managed IoT solutions
   items:
     # Card
-    - title: Start with a solution development environment (aPaaS)
+    - title: Evaluate your IoT cloud solution (aPaaS)
       links:
         - url: ../iot-central/core/overview-iot-central.md
           itemType: overview
@@ -62,9 +62,6 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Use your smartphone as a device to connect to IoT Central
-        - url: iot-solution-apaas-paas.md
-          itemType: concept
-          text: What's the difference between PaaS and aPaaS?
       # footerLink
       footerLink:
         url: ../iot-central/index.yml
@@ -204,7 +201,7 @@ tools:
     # Card
     - title: Azure IoT SDK for C reference
       imageSrc: /media/logos/logo_c.svg
-      url: /azure/iot-hub/iot-c-sdk-ref/
+      url: https://github.com/Azure/azure-iot-sdk-c/
     # Card
     - title: Azure IoT SDK for Python
       imageSrc: /media/logos/logo_python.svg

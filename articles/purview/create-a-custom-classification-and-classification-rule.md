@@ -1,8 +1,8 @@
 ---
 title: Create a custom classification and classification rule
 description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Microsoft Purview.
-author: viseshag
-ms.author: viseshag
+author: ankitscribbles
+ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
@@ -54,7 +54,7 @@ the following logic:
 
 - All underscores (\_) are replaced with spaces.
 
-As an example, if you named your classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
+As an example, if you named your classification **contoso.hr.employee\_ID**, the friendly name is stored
 in the system as **Hr.Employee ID**.
 
 :::image type="content" source="media/create-a-custom-classification-and-classification-rule/contoso-hr-employee-id.png" alt-text="Contoso.hr.employee_id" border="true":::

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 11/21/2022
 ms.author: thwimmer
 ---
 
@@ -174,9 +174,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |emails.[type eq "work"].address|String|
    |organizations.[type eq "work"].department|String|
    |organizations.[type eq "work"].title|String|
-   |phoneNumbers.[type eq "work"].value|String|
-   |phoneNumbers.[type eq "mobile"].value|String|
-   |phoneNumbers.[type eq "work_fax"].value|String|
    |addresses.[type eq "home"].country|String|
    |addresses.[type eq "home"].formatted|String|
    |addresses.[type eq "home"].locality|String|

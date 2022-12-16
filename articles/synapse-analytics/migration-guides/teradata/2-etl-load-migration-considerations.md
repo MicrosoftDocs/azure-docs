@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/31/2022
+ms.date: 06/01/2022
 ---
 
 # Data migration, ETL, and load for Teradata migrations
 
-This article is part two of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for ETL and load migration.
+This article is part two of a seven-part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. The focus of this article is best practices for ETL and load migration.
 
 ## Data migration considerations
 
@@ -52,14 +52,14 @@ If logging is enabled and the log history is accessible, other information, such
 
 #### What is the best migration approach to minimize risk and impact on users?
 
-> [!TIP]
-> Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
+This question comes up frequently because companies may want to lower the impact of changes on the data warehouse data model to improve agility. Companies often see an opportunity to further modernize or transform their data during an ETL migration. This approach carries a higher risk because it changes multiple factors simultaneously, making it difficult to compare the outcomes of the old system versus the new. Making data model changes here could also affect upstream or downstream ETL jobs to other systems. Because of that risk, it's better to redesign on this scale after the data warehouse migration.
 
-This question comes up often since companies often want to lower the impact of changes on the data warehouse data model to improve agility. Companies see an opportunity to do so during a migration to modernize their data model. This approach carries a higher risk because it could impact ETL jobs populating the data warehouse from a data warehouse to feed dependent data marts. Because of that risk, it's usually better to redesign on this scale after the data warehouse migration.
+Even if a data model is intentionally changed as part of the overall migration, it's good practice to migrate the existing model as-is to Azure Synapse, rather than do any re-engineering on the new platform. This approach minimizes the effect on existing production systems, while benefiting from the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
 
-Even if a data model change is an intended part of the overall migration, it's good practice to migrate the existing model as-is to the new environment (Azure Synapse Analytics in this case), rather than do any re-engineering on the new platform during migration. This approach has the advantage of minimizing the impact on existing production systems, while also leveraging the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
+When migrating from Teradata, consider creating a Teradata environment in a VM within Azure as a stepping-stone in the migration process.
 
-When migrating from Teradata, consider creating a Teradata environment in a VM within Azure as a stepping stone in the migration process.
+>[!TIP]
+>Migrate the existing model as-is initially, even if a change to the data model is planned in the future.
 
 #### Use a VM Teradata instance as part of a migration
 

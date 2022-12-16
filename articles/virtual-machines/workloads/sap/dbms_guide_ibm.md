@@ -1,16 +1,14 @@
 ---
-title: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload |Microsoft Docs
+title: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload | Microsoft Docs
 description: IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload
-services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
 keywords: 'Azure, Db2, SAP, IBM'
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2022
+ms.date: 08/24/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
@@ -215,6 +213,10 @@ To increase the number of targets to write to, two options can be used/combined 
 
 #### Linux Pacemaker
 
+>[!IMPORTANT]
+>For Db2 versions 11.5.6 and higher we highly recommend Integrated solution using Pacemaker from IBM.
+>* [Integrated solution using Pacemaker](https://www.ibm.com/docs/en/db2/11.5?topic=feature-integrated-solution-using-pacemaker)
+>* [Alternate or additional configurations available on Microsoft Azure](https://www.ibm.com/support/pages/alternate-or-additional-configurations-available-microsoft-azure)
 Db2 high availability disaster recovery (HADR) with pacemaker is supported. Both SLES and RHEL operating systems are supported. This configuration enables high availability of IBM Db2 for SAP. Deployment guides:
 * SLES: [High availability of IBM Db2 LUW on Azure VMs on SUSE Linux Enterprise Server with Pacemaker](dbms-guide-ha-ibm.md) 
 * RHEL: [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](high-availability-guide-rhel-ibm-db2-luw.md)

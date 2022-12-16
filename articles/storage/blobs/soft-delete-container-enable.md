@@ -3,12 +3,12 @@ title: Enable and manage soft delete for containers
 titleSuffix: Azure Storage
 description: Enable container soft delete to more easily recover your data when it is erroneously modified or deleted.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/06/2021
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs
 ---
 

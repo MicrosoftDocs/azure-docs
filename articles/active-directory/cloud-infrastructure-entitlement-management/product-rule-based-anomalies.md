@@ -2,20 +2,17 @@
 title: Create and view rule-based anomalies and anomaly triggers in Permissions Management
 description: How to create and view rule-based anomalies and anomaly triggers in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Create and view rule-based anomaly alerts and anomaly triggers
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 Rule-based anomalies identify recent activity in Permissions Management that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 

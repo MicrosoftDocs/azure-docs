@@ -7,8 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/25/2022
+ms.date: 09/09/2022
 ms.author: alkohli
+ms.custom: references_regions
+zone_pivot_groups: data-box-shipping
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -39,19 +41,26 @@ Before you begin, make sure you've completed the [Tutorial: Copy data to Azure D
 
 ::: zone-end
 
-1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
+1. Once the data validation is complete, follow these steps to unplug the disks and remove the connecting cables:
+    - For Windows systems, safely remove the disks prior to unplugging them.
+    - For Linux systems, use the following command to safely remove the disks prior to unplugging them: 
+
+        `sudo DataBoxDiskUnlock /Unmount`.
+
 2. Wrap all the disks and the connecting cables with a bubble wrap and place them into the shipping box. Charges may apply if the accessories are missing.
     - Reuse the packaging from the initial shipment.  
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
 
-The next steps are determined by where you are returning the device. In many countries/regions, you can use [Microsoft managed shipping](#microsoft-managed-shipping) or [self-managed shipping](#self-managed-shipping).
+The next steps are determined by where you are returning the device. In many countries/regions, you can use Microsoft managed shipping or [self-managed shipping](#self-managed-shipping).
 
-### Microsoft managed shipping
+::: zone pivot="americas" 
 
-Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
+If using Microsoft managed shipping, follow these steps. 
 
-### [US & Canada](#tab/in-us-canada)
+## Shipping in Americas
+
+### US & Canada
 
 Take the following steps if returning the device in US or Canada.
 
@@ -67,7 +76,15 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number isn't quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-### [EU & UK](#tab/in-europe-uk)
+::: zone-end
+
+::: zone pivot="europe" 
+
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Europe
+
+### EU & UK
 
 Take the following steps if returning the device in Europe or the UK.
 
@@ -79,13 +96,29 @@ Take the following steps if returning the device in Europe or the UK.
 3. Go to the country/region DHL Express website and select **Schedule a Pickup**. Under **Do you need a shipping label**, select **No** > **I have a DHL Waybill Number**.
 4. Specify the waybill number, and click **Schedule Pickup** to arrange for pickup.
 
-### [Australia](#tab/in-australia)
+::: zone-end
+
+::: zone pivot="australia" 
+
+If using Microsoft managed shipping, follow these steps.
+
+## Shipping in Australia
+
+### Australia
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
 1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue.
 2. Affix the label on the box.
 3. Book a pickup online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
+
+::: zone-end
+
+::: zone pivot="asia" 
+
+If using Microsoft managed shipping, follow these steps.
+
+## Shipping in Asia
 
 ### [Japan](#tab/in-japan)
 
@@ -196,6 +229,13 @@ Take the following steps if returning the device in China.
 |Phone:      | 400.889.6066 ext. 3603 |
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
+::: zone-end
+
+::: zone pivot="africa" 
+
+If using Microsoft managed shipping, follow these steps. 
+
+## Shipping in Africa
 
 ### [S Africa](#tab/in-sa)
 
@@ -228,15 +268,24 @@ Take the following steps if returning the device in South Africa.
 
 5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
----
+::: zone-end
 
-### Self-managed shipping
+## Self-managed shipping
 
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+ Self-managed shipping is available as an option when you [Order Azure Data Box](data-box-disk-deploy-ordered.md). For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
+
+Self-managed shipping is available in the following regions:
+
+| Region        | Region         | Region         | Region    | Region    |
+|---------------|----------------|----------------|-----------|-----------|
+| US Government | United Kingdom | West Europe    | Japan     | Singapore |
+| Korea         | India          | South Africa   | Australia | Brazil    |
+
+If you are using Data Box Disk and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
-2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device.
+2. Send an email to the Azure Data Box Operations team using the following template when you're ready to return the device. 
 
    ```
    To: adbops@microsoft.com
@@ -246,14 +295,23 @@ If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United
    2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
    ```
 
-   > [!NOTE]
-   > - Required information for return may vary by region. 
-   > - If you're returning a Data Box Disk in Brazil, see [Use self-managed shipping for Azure Data Box Disk](data-box-disk-portal-customer-managed-shipping.md) for detailed instructions.
-  
-
 3. Azure Data Box Operations team will work with you to arrange the drop-off to the Azure datacenter.
 
----
+::: zone pivot="americas"
+
+### Shipping in Brazil
+
+To schedule a device return in Brazil, send an email to [adbops@microsoft.com](mailto:adbops@microsoft.com) with the following information:
+
+```
+Subject: Request Azure Data Box Disk drop-off for order: <ordername>
+
+- Order name
+- Contact name of the person who will drop off the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.) 
+- Inbound Nota Fiscal (A copy of the inbound Nota Fiscal will be required at drop-off.)   
+```
+  
+::: zone-end    
 
 ::: zone target="docs"
 

@@ -48,7 +48,7 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 **Fix**: You'll need to reassign users to app groups.
 
-### I only see US when setting the location for my service objects
+### I don't see the Azure region I want to use when selecting the location for my service objects
 
 **Cause**: Azure doesn't currently support that region for the Azure Virtual Desktop service. To learn about which geographies we support, check out [Data locations](data-locations.md). If Azure Virtual Desktop supports the location but it still doesn't appear when you're trying to select a location, that means your resource provider hasn't updated yet.
 
@@ -278,7 +278,7 @@ the VM.\\\"
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).

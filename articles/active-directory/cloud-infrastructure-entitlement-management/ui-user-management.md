@@ -2,20 +2,17 @@
 title: Manage users and groups with the User management dashboard in Permissions Management
 description: How to manage users and groups in the User management dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Manage users and groups with the User management dashboard
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how to use the Permissions Management **User management** dashboard to view and manage users and groups.
 

@@ -1,42 +1,38 @@
 ---
-title: How to create verifiable credentials for self-asserted claims
-description: Learn how to use the QuickStart to create custom credentials for self-issued
+title: Create verifiable credentials for self-asserted claims
+description: Learn how to use a quickstart to create custom credentials for self-issued claims
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 06/22/2022
+ms.date: 07/06/2022
 ms.author: barclayn
 
-#Customer intent: As a verifiable credentials Administrator, I want to create a verifiable credential for self-asserted claims scenario
+#Customer intent: As a verifiable credentials administrator, I want to create a verifiable credential for self-asserted claims scenario. 
 ---
 
-# How to create verifiable credentials for self-asserted claims
+# Create verifiable credentials for self-asserted claims
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) using the [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) will produce an issuance flow where the user will be required to manually enter values for the claims in the Authenticator.  
+A [rules definition](rules-and-display-definitions-model.md#rulesmodel-type) that uses the [selfIssued attestation](rules-and-display-definitions-model.md#selfissuedattestation-type) type produces an issuance flow where you're required to manually enter values for the claims in Microsoft Authenticator.  
 
-## Create a Custom credential with the selfIssued attestation type
+## Create a custom credential with the selfIssued attestation type
 
-When you select + Add credential in the portal, you get the option to launch two QuickStarts. Select [x] Custom credential and select Next. 
+In the Azure portal, when you select **Add credential**, you get the option to launch two quickstarts. Select **custom credential**, and then select **Next**. 
 
-![Screenshot of VC quickstart](media/how-to-use-quickstart/quickstart-startscreen.png)
+![Screenshot of the "Issue credentials" quickstart for creating a custom credential.](media/how-to-use-quickstart/quickstart-startscreen.png)
 
-In the next screen, you enter JSON for the Display and the Rules definitions and give the credential a type name. Select Create to create the credential.
+On the **Create a new credential** page, enter the JSON code for the display and the rules definitions. In the **Credential name** box, give the credential a type name. To create the credential, select **Create**.
 
-![screenshot of create new credential section with JSON sample](media/how-to-use-quickstart/quickstart-create-new.png)
+![Screenshot of the "Create a new credential" page, displaying JSON samples for the display and rules files.](media/how-to-use-quickstart/quickstart-create-new.png)
 
-## Sample JSON Display definitions
+## Sample JSON display definitions
 
-The Display JSON definition is very much the same regardless of attestation type. You just have to adjust the labels depending on what claims your VC have. The expected JSON for the Display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, you add multiple entries with a comma as separator. 
+The JSON display definition is nearly the same, regardless of attestation type. You only have to adjust the labels according to the claims that your verifiable credential has. The expected JSON for the display definitions is the inner content of the displays collection. The JSON is a collection, so if you want to support multiple locales, add multiple entries with a comma as separator. 
 
 ```json
 {
@@ -71,9 +67,9 @@ The Display JSON definition is very much the same regardless of attestation type
 }
 ```
 
-## Sample JSON Rules definitions
+## Sample JSON rules definitions
 
-The JSON attestation definition should contain the **selfIssued** name and the claims mapping section. Since the claims are selfIssued, the value will be the same for the **outputClaim** and the **inputClaim**. The expected JSON for the Rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. 
+The JSON attestation definition should contain the **selfIssued** name and the claims mapping section. Because the claims are self issued, the value is the same for **outputClaim** and **inputClaim**. The expected JSON for the rules definitions is the inner content of the rules attribute, which starts with the attestation attribute. 
 
 ```json
 {
@@ -95,32 +91,34 @@ The JSON attestation definition should contain the **selfIssued** name and the c
       ],
       "required": false
     }
+  },
+  "validityInterval": 2592000,
+  "vc": {
+    "type": [
+      "VerifiedCredentialExpert"
+    ]
   }
 }
 ```
 
 ## Claims input during issuance
 
-During issuance, the Microsoft Authenticator will prompt the user to enter values for the specified claims. There's no validation of user input.
+During issuance, Authenticator prompts you to enter values for the specified claims. User input isn't validated.
 
-![selfIssued claims input](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
+![Screenshot of selfIssued claims input.](media/how-to-use-quickstart-selfissued\selfIssued-claims-input.png)
 
-## Configure the samples to issue and verify your Custom credential
+## Configure the samples to issue and verify your custom credential
 
-To configure your sample code to issue and verify using custom credentials, you need:
+To configure your sample code to issue and verify your custom credential, you need:
 
-- Your tenant's issuer DID
+- Your tenant's issuer decentralized identifier (DID)
 - The credential type
-- The manifest url to your credential. 
+- The manifest URL to your credential 
 
-The easiest way to find this information for a Custom Credential is to go to your credential in the portal, select **Issue credential** and switch to Custom issue.
+The easiest way to find this information for a custom credential is to go to your credential in the Azure portal. Select **Issue credential**. Then you have access to a text box with a JSON payload for the Request Service API. Replace the placeholder values with your environment's information. The issuer’s DID is the authority value.
 
-![Screenshot of QuickStart issue credential screen.](media/how-to-use-quickstart/quickstart-config-sample-1.png)
-
-After switching to custom issue, you have access to a textbox with a JSON payload for the Request Service API. Replace the place holder values with your environment's information. The issuer’s DID is the authority value.
-
-![Screenshot of Quickstart custom issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
+![Screenshot of the quickstart custom credential issue.](media/how-to-use-quickstart/quickstart-config-sample-2.png)
 
 ## Next steps
 
-- Reference for [Rules and Display definitions model](rules-and-display-definitions-model.md)
+See the [Rules and display definitions reference](rules-and-display-definitions-model.md).

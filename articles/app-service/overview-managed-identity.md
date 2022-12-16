@@ -287,7 +287,7 @@ Content-Type: application/json
 }
 ```
 
-This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response). To access Key Vault, you will then add the value of `access_token` to a client connection with the vault.
+This response is the same as the [response for the Azure AD service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, you will then add the value of `access_token` to a client connection with the vault.
 
 # [.NET](#tab/dotnet)
 

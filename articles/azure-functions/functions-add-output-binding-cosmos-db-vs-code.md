@@ -1,13 +1,11 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-author: ThomasWeiss
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp, javascript
-ms.custom: mode-ui
+ms.custom: mode-ui, vscode-azure-extension-update-completed, ignite-2022
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
@@ -32,17 +30,13 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 > [!IMPORTANT]
 > [Azure Cosmos DB serverless](../cosmos-db/serverless.md) is now generally available. This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. To use Azure Cosmos DB in serverless mode, choose **Serverless** as the **Capacity mode** when creating your account.
 
-1. In Visual Studio Code, choose the Azure icon in the Activity bar.
-
-1. In the **Azure: Databases** area, right-click (Ctrl+click on macOS) on the Azure subscription where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md), and select **Create Server...**
-
-    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-account.png" alt-text="Creating a new Azure Cosmos DB account from Visual Studio code" border="true":::
+1. In Visual Studio Code, select **View** > **Command Pallete...** then in the command pallete search for `Azure Databases: Create Server...`
 
 1. Provide the following information at the prompts:
 
     |Prompt| Selection|
     |--|--|
-    |**Select an Azure Database Server**| Choose `Core (SQL)` to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB SQL API](../cosmos-db/introduction.md). |
+    |**Select an Azure Database Server**| Choose **Azure Cosmos DB for NoSQL** to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB for NoSQL](../cosmos-db/introduction.md). |
     |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
     |**Select a capacity model**| Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. 
     |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
@@ -52,7 +46,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 ## Create an Azure Cosmos DB database and container
 
-1. Right-click your account and select **Create database...**.
+1. Select the Azure icon in the Activity bar, expand **Resources** > **Azure Cosmos DB**, right-click (Ctrl+click on macOS) your account, and select **Create database...**.
 
 1. Provide the following information at the prompts:
 
@@ -81,7 +75,7 @@ In the [previous quickstart article](./create-first-function-vs-code-csharp.md),
     |**Enter new app setting name**| Type `CosmosDbConnectionString`.|
     |**Enter value for "CosmosDbConnectionString"**| Paste the connection string of your Azure Cosmos DB account you just copied.|
 
-    This creates a application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
+    This creates an application setting named connection `CosmosDbConnectionString` in your function app in Azure. Now, you can download this setting to your local.settings.json file.
 
 1. Press <kbd>F1</kbd> again to open the command palette, then search for and run the command `Azure Functions: Download Remote Settings...`. 
 
@@ -164,9 +158,9 @@ To create a binding, right-click (Ctrl+click on macOS) the `function.json` file 
 | **Select binding direction** | `out` | The binding is an output binding. |
 | **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
 | **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
-| **The Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
+| **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
 | **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
-| **If true, creates the Cosmos DB database and collection** | `false` | The target database and container already exist. |
+| **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
 | **Select setting from "local.setting.json"** | `CosmosDbConnectionString` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
 | **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
 | **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
@@ -265,7 +259,7 @@ Add code that uses the `outputDocument` output binding object on `context.bindin
 if (name) {
     context.bindings.outputDocument = JSON.stringify({
         // create a random ID
-        id: new Date().toISOString() + Math.random().toString().substr(2,8),
+        id: new Date().toISOString() + Math.random().toString().substring(2, 10),
         name: name
     });
 }
@@ -285,7 +279,7 @@ module.exports = async function (context, req) {
     if (name) {
         context.bindings.outputDocument = JSON.stringify({
             // create a random ID
-            id: new Date().toISOString() + Math.random().toString().substr(2,8),
+            id: new Date().toISOString() + Math.random().toString().substring(2, 10),
             name: name
         });
     }

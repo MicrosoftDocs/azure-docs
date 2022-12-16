@@ -1,11 +1,11 @@
 ---
 title: Azure Communication Services - known issues
 description: Learn more about Azure Communication Services
-author: rinarish
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -21,6 +21,24 @@ This article provides information about limitations and known issues related to 
 ## JavaScript SDK
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
+
+### Firefox Known Issues
+Firefox desktop browser support is now available in public preview. Known issues currently known when using Firefox are:
+- Enumerating speakers is not available: If you're using Firefox, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. 
+- Virtual cameras are not currently supported when making Firefox desktop audio\video calls. 
+
+
+### iOS 16 introduced bugs when putting browser in the background during a call
+The iOS 16 release has introduced a bug that can stop the ACS audio\video call when using Safari mobile browser. Apple is aware of this issue and are looking for a fix on their side. The impact could be that an ACS call might stop working during a call and the only resolution to get it working again is to have the end customer restart their phone. 
+
+To reproduce this bug:
+-	Have a user using an iPhone running iOS 16
+-	Join ACS call (with audio only or with audio and video) using Safari iOS mobile browser
+-	If during a call someone puts the Safari browser in the background and views YouTube OR receives a FaceTime\phone call while connected via a Bluetooth device
+
+Results:
+- After a few minutes of this situation, the incoming and outgoing video may stop working.
+- The only way to get ACS calling to work again is to have the end user restart their phone.
 
 ### Chrome M98 - regression 
 

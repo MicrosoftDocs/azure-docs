@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 12/09/2022
 ---
 
 # String functions for Bicep
@@ -184,9 +184,9 @@ The following example shows how to use contains with different types:
 ```bicep
 param stringToTest string = 'OneTwoThree'
 param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
+  one: 'a'
+  two: 'b'
+  three: 'c'
 }
 param arrayToTest array = [
   'one'
@@ -553,6 +553,49 @@ The output from the preceding example with the default values is:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
+## join
+
+`join(inputArray, delimiter)`
+
+Joins a string array into a single string, separated using a delimiter.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray | Yes |An array of string. |An array of strings to join. |
+| delimiter | Yes |The delimiter to use for splitting the string. |
+
+### Return value
+
+A string.
+
+### Examples
+
+The following example joins the input string array into strings delimited by either a comma or a semi-colon.
+
+```bicep
+var arrayString = [
+  'one'
+  'two'
+  'three'
+]
+
+output firstOutput string = join(arrayString, ',')
+output secondOutput string = join(arrayString, ';')
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | String | "one,two,three" |
+| secondOutput | String | "one;two;three" |
+
+This function requires **Bicep version 0.8.2 or later**.
+
 <a id="json"></a>
 
 ## json
@@ -674,10 +717,10 @@ param arrayToTest array = [
 ]
 param stringToTest string = 'One Two Three'
 param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
+  propA: 'one'
+  propB: 'two'
+  propC: 'three'
+  propD: {
     'propD-1': 'sub'
     'propD-2': 'sub'
   }
@@ -996,8 +1039,8 @@ The following example shows how to convert different types of values to strings:
 
 ```bicep
 param testObject object = {
-  'valueA': 10
-  'valueB': 'Example Text'
+  valueA: 10
+  valueB: 'Example Text'
 }
 param testArray array = [
   'a'

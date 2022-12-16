@@ -3,11 +3,11 @@ title: Develop with AutoML & Azure Databricks
 titleSuffix: Azure Machine Learning
 description: Learn to set up a development environment in Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with AutoML.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: manashgoswami 
+ms.author: magoswam
+ms.reviewer: ssalgado
 ms.service: machine-learning
 ms.subservice: automl
-ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
@@ -24,7 +24,7 @@ For information on other machine learning development environments, see [Set up 
 
 ## Prerequisite
 
-Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
+Azure Machine Learning workspace. To create one, use the steps in the [Create workspace resources](quickstart-create-resources.md) article.
 
 
 ## Azure Databricks with Azure Machine Learning and AutoML
@@ -108,13 +108,13 @@ In AutoML config, when using Azure Databricks add the following parameters:
 ## ML notebooks that work with Azure Databricks
 
 Try it out:
-+ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
++ While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/azureml-examples/tree/main/v1/python-sdk/tutorials/automl-with-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
 ![Select Import](./media/how-to-configure-environment/azure-db-screenshot.png)
 ![Import Panel](./media/how-to-configure-environment/azure-db-import.png)
 
-+ Learn how to [create a pipeline with Databricks as the training compute](./how-to-create-machine-learning-pipelines.md).
++ Learn how to [create a pipeline with Databricks as the training compute](v1/how-to-create-machine-learning-pipelines.md).
 
 ## Troubleshooting
 

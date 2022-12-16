@@ -1,13 +1,12 @@
 ---
-title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS) (Preview)
+title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/11/2021
-
+ms.date: 12/01/2022
 ---
 
-# Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster (Preview)
+# Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
 
 Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
@@ -16,45 +15,10 @@ Using Azure Dedicated Hosts for nodes with your AKS cluster has the following be
 * Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
 * Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Before you begin
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
-
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.54 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `DedicatedHostGroupPreview` preview feature
-
-To use the feature, you must also enable the `DedicatedHostGroupPreview` feature flag on your subscription.
-
-Register the `DedicatedHostGroupPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "DedicatedHostGroupPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/DedicatedHostGroupPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* Before you start, ensure that your version of the Azure CLI is 2.39.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Limitations
 
@@ -63,6 +27,26 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It isn't supported to update agent pool from host group A to host group B.
 * Using ADH across subscriptions.
+
+## Planning for ADH Capacity on AKS
+
+Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
+
+```azurecli-interactive
+az vm list-skus -l eastus  -r hostGroups/hosts  -o table
+```
+
+> [!NOTE]
+> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
+> Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
+
+[Determine how many hosts you would need based on the expected VM Utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-host-general-purpose-skus).
+
+Evaluate [host utilization](https://learn.microsoft.com/azure/virtual-machines/dedicated-hosts-how-to?tabs=cli#check-the-status-of-the-host) to determine the number of allocatable VMs by size before you deploy.
+
+```azurecli-interactive
+az vm host get-instance-view -g myDHResourceGroup --host-group MyHostGroup --name MyHost
+```
 
 ## Add a Dedicated Host Group to an AKS cluster
 
@@ -74,16 +58,6 @@ A host group is a resource that represents a collection of dedicated hosts. You 
 In either case, you need to provide the fault domain count for your host group. If you don't want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
-
-Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
-
-```azurecli-interactive
-az vm list-skus -l eastus  -r hostGroups/hosts  -o table
-```
-
-> [!NOTE]
-> First, when using host group, the nodepool fault domain count is always the same as the host group fault domain count. In order to use cluster auto-scaling to work with ADH and AKS, please make sure your host group fault domain count and capacity is enough.
-> Secondly, only change fault domain count from the default of 1 to any other number if you know what they are doing as a misconfiguration could lead to a unscalable configuration.
 
 ## Create a Host Group
 
@@ -99,8 +73,8 @@ In this example, we'll use [az vm host group create][az-vm-host-group-create] to
 az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
--z 1\
---platform-fault-domain-count 5
+-z 1 \
+--platform-fault-domain-count 1 \
 --automatic-placement true
 ```
 
@@ -115,7 +89,7 @@ az vm host create \
 --host-group myHostGroup \
 --name myHost \
 --sku DSv3-Type1 \
---platform-fault-domain 0 \
+--platform-fault-domain 1 \
 -g myDHResourceGroup
 ```
 
@@ -142,7 +116,7 @@ az role assignment create --assignee <id> --role "Contributor" --scope <Resource
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyManagedCluster --location eastus --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
+az aks create -g MyResourceGroup -n MyManagedCluster --location eastus --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
 ## Add a Dedicated Host Node Pool to an existing AKS cluster

@@ -10,7 +10,7 @@ ms.date: 08/27/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
@@ -25,11 +25,11 @@ To enable the insights and reporting workbook, your tenant must have a Log Analy
 
 The following roles can access insights and reporting:  
 
-- Conditional Access administrator 
+- Conditional Access Administrator 
 - Security reader 
 - Security administrator 
-- Global reader 
-- Global administrator 
+- Global Reader 
+- Global Administrator 
 
 Users also need one of the following Log Analytics workspace roles:  
 
@@ -101,7 +101,7 @@ You can also investigate the sign-ins of a specific user by searching for sign-i
 
 To configure a Conditional Access policy in report-only mode:
 
-1. Sign into the **Azure portal** as a Conditional Access administrator, security administrator, or global administrator.
+1. Sign into the **Azure portal** as a Conditional Access Administrator, security administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select an existing policy or create a new policy.
 1. Under **Enable policy** set the toggle to **Report-only** mode.

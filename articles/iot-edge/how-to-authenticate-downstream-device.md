@@ -1,6 +1,6 @@
 ---
 title: Authenticate downstream devices - Azure IoT Edge | Microsoft Docs
-description: How to authenticate downstream devices or leaf devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
+description: How to authenticate downstream devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
 author: PatAltimore
 
 ms.author: patricka
@@ -12,9 +12,12 @@ services: iot-edge
 
 # Authenticate a downstream device to Azure IoT Hub
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-In a transparent gateway scenario, downstream devices (sometimes called leaf devices or child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
+In a transparent gateway scenario, downstream devices (sometimes called child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection. 
+
+>[!NOTE]
+>A downstream device emits data directly to the Internet or to gateway devices (IoT Edge-enabled or not). A child device can be a downstream device or a gateway device in a nested topology.
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
 
@@ -127,7 +130,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/send-event-x509)
-   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
+   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/send_message_x509.py)
 
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with X.509 self-signed authentication and assigns a parent device:
 
@@ -174,7 +177,7 @@ This section is based on the IoT Hub X.509 certificate tutorial series. See [Und
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/send-event-x509)
-   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
+   * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/send_message_x509.py)
 
 You also can use the [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to complete the same device creation operation. The following example uses the [az iot hub device-identity](/cli/azure/iot/hub/device-identity) command to create a new IoT device with X.509 CA signed authentication and assigns a parent device:
 

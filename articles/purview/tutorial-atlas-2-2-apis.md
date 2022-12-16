@@ -27,6 +27,16 @@ In this tutorial, learn to programmatically interact with new Atlas 2.2 APIs wit
 
 Business metadata is a template that contains custom attributes (key values). You can create these attributes globally and then apply them across multiple typedefs.
 
+### Atlas endpoint
+
+For all the requests, you'll need the Atlas endpoint for your Microsoft Purview account.
+
+1. Find your Microsoft Purview account in the [Azure portal](https://portal.azure.com)
+1. Select the **Properties** page on the left side menu
+1. Copy the **Atlas endpoint** value
+
+:::image type="content" source="media/tutorial-atlas-2-2-apis/endpoint.png" alt-text="Screenshot of the properties page for Microsoft Purview with the Atlas endpoint box highlighted." border="true":::
+
 ### Create business metadata with attributes
 
 You can send a `POST` request to the following endpoint:
@@ -34,6 +44,9 @@ You can send a `POST` request to the following endpoint:
 ```
 POST {{endpoint}}/api/atlas/v2/types/typedefs
 ```
+
+>[!TIP]
+> The **applicableEntityTypes** property tells which data types the metadata will be applied to.
 
 Sample JSON:
 

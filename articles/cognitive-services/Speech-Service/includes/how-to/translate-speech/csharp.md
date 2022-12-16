@@ -28,7 +28,7 @@ public class Program
 }
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
@@ -80,7 +80,7 @@ static async Task TranslateSpeechAsync()
 }
 ```
 
-The `SpeechRecognitionLanguage` property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The `SpeechRecognitionLanguage` property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Add a translation language
 
@@ -327,7 +327,7 @@ public static async Task MultiLingualTranslation()
     var endpointString = $"wss://{region}.stt.speech.microsoft.com/speech/universal/v2";
     var endpointUrl = new Uri(endpointString);
     
-    var config = SpeechConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
+    var config = SpeechTranslationConfig.FromEndpoint(endpointUrl, "<paste-your-subscription-key>");
 
     // Source language is required, but is currently NoOp 
     string fromLanguage = "en-US";

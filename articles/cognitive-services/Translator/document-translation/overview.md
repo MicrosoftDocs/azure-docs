@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 07/13/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -59,10 +59,10 @@ The following document file types are supported by Document Translation:
 
 | File type| File extension|Description|
 |---|---|--|
-|Adobe PDF|pdf|Portable document file format.|
+|Adobe PDF|pdf|Portable document file format. Document Translation uses optical character recognition (OCR) technology to extract and translate text in scanned PDF document while retaining the original layout.|
 |Comma-Separated Values |csv| A comma-delimited raw-data file used by spreadsheet programs.|
 |HTML|html, htm|Hyper Text Markup Language.|
-|Localization Interchange File Format|xlf. , xliff| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
+|Localization Interchange File Format|xlf| A parallel document format, export of Translation Memory systems. The languages used are defined inside the file.|
 |Markdown| markdown, mdown, mkdn, md, mkd, mdwn, mdtxt, mdtext, rmd| A lightweight markup language for creating formatted text.|
 |MHTML|mthml, mht| A web page archive format used to combine HTML code and its companion resources.|
 |Microsoft Excel|xls, xlsx|A spreadsheet file for data analysis and documentation.|

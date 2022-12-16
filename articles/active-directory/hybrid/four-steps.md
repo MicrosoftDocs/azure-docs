@@ -3,12 +3,12 @@ title: Four steps to a strong identity foundation - Azure AD
 description: This topic describes four steps hybrid identity customers can take to build a strong identity foundation.
 services: active-directory
 author: martincoetzer
-manager: karenhoran
+manager: travisgr
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 08/17/2022
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
@@ -164,7 +164,7 @@ Security logs and reports provide you with an electronic record of suspicious ac
 
 ### Assign least privileged admin roles for operations
 
-As you think about your approach to operations, there are a couple levels of administration to consider. The first level places the burden of administration on your global administrator(s). Always using the global administrator role, might be appropriate for smaller companies. But for larger organizations with help desk personnel and administrators responsible for specific tasks, assigning the role of global administrator can be a security risk since it provides those individuals with the ability to manage tasks that are above and beyond what they should be capable of doing.
+As you think about your approach to operations, there are a couple levels of administration to consider. The first level places the burden of administration on your Hybrid Identity Administrator(s). Always using the Hybrid Identity Administrator role, might be appropriate for smaller companies. But for larger organizations with help desk personnel and administrators responsible for specific tasks, assigning the role of Hybrid Identity Administrator can be a security risk since it provides those individuals with the ability to manage tasks that are above and beyond what they should be capable of doing.
 
 In this case, you should consider the next level of administration. Using Azure AD, you can designate end users as "limited administrators" who can manage tasks in less-privileged roles. For example, you might assign your help desk personnel the [security reader](../roles/permissions-reference.md#security-reader) role to provide them with the ability to manage security-related features with read-only access. Or perhaps it makes sense to assign the [authentication administrator](../roles/permissions-reference.md#authentication-administrator) role to individuals to give them the ability to reset non-password credentials or read and configure Azure Service Health.
 

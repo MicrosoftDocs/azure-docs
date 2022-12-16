@@ -3,8 +3,8 @@ title: Azure Lab Services Quickstart - Create a lab plan by using Azure Resource
 description: In this quickstart, you'll learn how to create an Azure Lab Services lab plan by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 05/04/2022
+ms.custom: mode-arm
+ms.date: 06/04/2022
 ---
 
 # Quickstart: Create a lab plan using an ARM template
@@ -50,7 +50,7 @@ The Azure portal is used here to deploy the template. You can also use Azure Pow
 
 You can either use the Azure portal to check the lab plan, or use the Azure PowerShell script to list the lab plan created.
 
-To use Azure PowerShell, first verify the Az.LabServices (preview) module is installed.  Then use the **Get-AzLabServicesLabPlan** cmdlet.
+To use Azure PowerShell, first verify the Az.LabServices module is installed.  Then use the **Get-AzLabServicesLabPlan** cmdlet.
 
 ```azurepowershell-interactive
 Import-Module Az.LabServices
