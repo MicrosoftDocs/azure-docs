@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
-ms.date: 10/18/2021
+ms.date: 12/16/2022
 ms.custom: devx-track-python, ignite-2022, devguide-python, py-fresh-zinc
 ---
 
@@ -33,9 +33,9 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
     - Without an Azure active subscription:
       - [Try Azure Cosmos DB for free](../try-free.md), a tests environment that lasts for 30 days.
       - [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator)
-- [Python 2.7 or 3.6+](https://www.python.org/downloads/), with the `python` executable in your `PATH`.
+- [Python 3.7+](https://www.python.org/downloads/), with the `python` executable in your `PATH`. (For more information, see the [Azure SDKs Python version support policy](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-SDKs-Python-version-support-policy).)
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
+- [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview).
 - [Git](https://www.git-scm.com/downloads).
 - [Azure Cosmos DB for NoSQL SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
 
@@ -45,11 +45,11 @@ The [database_management.py](https://github.com/Azure/azure-sdk-for-python/blob/
 
 | Task | API reference |
 | --- | --- |
-| [Create a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L53-L62) |CosmosClient.create_database|
-| [Read a database by ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L64-L73) |CosmosClient.get_database_client|
-| [Query the databases](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L37-L50) |CosmosClient.query_databases|
-| [List databases for an account](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L76-L87) |CosmosClient.list_databases|
-| [Delete a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L90-L99) |CosmosClient.delete_database|
+| [Create a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L54-L73) |CosmosClient.create_database|
+| [Read a database by ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L76-L85) |CosmosClient.get_database_client|
+| [Query the databases](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L38-L51) |CosmosClient.query_databases|
+| [List databases for an account](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L99-L99) |CosmosClient.list_databases|
+| [Delete a database](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py#L102-L111) |CosmosClient.delete_database|
 
 ## Container examples
 
