@@ -1,11 +1,11 @@
 ---
-title: CalculatedContentTemplate mappings in MedTech service Device mappings - Azure Health Data Services
-description: This article describes how to use CalculatedContentTemplate mappings with MedTech service Device mappings templates. 
+title: How to use CalculatedContentTemplate mappings with the MedTech service device mappings - Azure Health Data Services
+description: This article describes how to use CalculatedContentTemplate mappings with the MedTech service device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -538,13 +538,15 @@ In the below example, height data arrives in either inches or meters. We want al
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to the MedTech service mappings.
 
 ## Next steps
 
-In this article, you learned how to use Device mappings. To learn how to use FHIR destination mappings, see
+In this article, you learned how to configure the MedTech service device mappings. 
+
+To learn how to configure FHIR destination mappings, see
 
 > [!div class="nextstepaction"]
-> [How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
 (FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
