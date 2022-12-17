@@ -39,12 +39,12 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 - Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. Choose one of the following options to allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)):
 
-  - Use [**nodeManagement**](private-connectivity.md) private endpoint with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
+  - Use [**nodeManagement private endpoint**](private-connectivity.md) with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
 
   - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
 > [!IMPORTANT]
-> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses.
+> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses. For more details please check [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 
 ## Current limitations
 
