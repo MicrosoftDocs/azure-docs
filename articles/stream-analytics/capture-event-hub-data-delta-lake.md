@@ -1,6 +1,6 @@
 ---
-title: Capture data from Azure Data Lake Storage Gen2 in Parquet format
-description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Parquet format.
+title: Capture data from Azure Data Lake Storage Gen2 in Delta Lake format
+description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
