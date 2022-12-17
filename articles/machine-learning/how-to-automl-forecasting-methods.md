@@ -3,7 +3,7 @@ title: Overview of forecasting methods in AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML uses machine learning to build forecasting models
 services: machine-learning
-author: erwright
+author: ericwrightatwork
 ms.author: erwright
 ms.reviewer: ssalgado 
 ms.service: machine-learning
@@ -46,7 +46,10 @@ The models in each category are listed roughly in order of the complexity of pat
 
 Importantly, AutoML also includes **ensemble** models which create weighted combinations of the best performing models from the table above to further improve accuracy. For forecasting, we use a [soft voting ensemble](https://scikit-learn.org/stable/modules/ensemble.html#voting-regressor) where composition and weights are found via the [Caruana Ensemble Selection Algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf).
 
-There are two important caveats to mention in regard to forecast model ensembles. The first is that the TCN cannot currently be included in ensembles. Second, AutoML by default disables another method, the **stack ensemble**, which is included with default regression and classification tasks in AutoML. The stack ensemble fits a meta-model on the best model forecasts to find ensemble weights. We've found in internal benchmarking that this strategy has an increased tendency to over fit time series data. This can result in poor generalization, so the stack ensemble is disabled by default. However, it can be enabled if desired in the AutoML configuration.
+> [!NOTE]
+> There are two important caveats to mention in regard to forecast model ensembles:
+> 1.  The TCN cannot currently be included in ensembles.
+> 2. AutoML by default disables another ensemble method, the **stack ensemble**, which is included with default regression and classification tasks in AutoML. The stack ensemble fits a meta-model on the best model forecasts to find ensemble weights. We've found in internal benchmarking that this strategy has an increased tendency to over fit time series data. This can result in poor generalization, so the stack ensemble is disabled by default. However, it can be enabled if desired in the AutoML configuration.
 
 ## How AutoML Uses Your Data
 
@@ -75,7 +78,6 @@ timestamp | SKU | price | advertised | quantity
 In this example, there is a SKU, a retail price, and a flag indicating whether an item was advertised in addition to the timestamp and target quantity. There are evidently two series in this dataset - one for the JUICE1 SKU and one for the BREAD3 SKU; the `SKU` column is a **time series ID column** since grouping by gives two groups containing a single series each. AutoML can build a variety of time series and regression models from this information! Before sweeping over models, AutoML does basic validation of the input configuration and data as well as augmentation of the data with engineered features.
 
 ### Missing Data Handling
-
 AutoML's time series models generally require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Before feeding data to models, then, the data must be full (i.e., no missing values) _and_ regular. This leads to two potential missing data cases:
 
 * A value is missing for some cell in the tabular data
@@ -105,7 +107,6 @@ Numeric Feature     | Median value
 Missing values for categorical features are handled during numerical encoding by including an additional category corresponding to a missing value, so imputation is implicit in this case.
 
 ### Automated Feature Engineering
-
 AutoML generally adds new columns to user data in an effort to increase modeling accuracy. Engineered feature can include the following:
 
 Feature Group | Default/Optional
@@ -118,11 +119,10 @@ Lags of feature columns | Optional
 Rolling window aggregations (e.g. rolling average) of target quantity | Optional
 Seasonal decomposition (STL) | Optional
 
-The user can configure featurization from the AutoML SDK or from the AzureML web interface.
+The user can configure featurization from the AutoML SDK with the [ForecastingParameters](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class or from the [AzureML Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### Model Sweeping
-
-After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See [Model Sweeping and Selection](./model_sweeping_and_selection.md) for more details.
+After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See [Model Sweeping and Selection](./how-to-automl-forecasting-sweeping.md) for more details.
 
 
 ### Model Grouping
@@ -132,6 +132,4 @@ Each Series in Own Group (1:1) | All Series in Single Group (N:1)
 -------------------| -----------------
 Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, Temporal Convolutional Network
 
-More general model groupings are possible via AutoML's [Many Models Solution](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/forecasting-many-models) and [Hierarchical Time Series Solution](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries).
-
-### Prediction
+More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) and [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb).
