@@ -12,6 +12,7 @@ ms.date: 11/30/2022
 
 ms.subservice: blobs
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js
+
 ---
 
 
@@ -180,7 +181,7 @@ Create the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient
 
 #### [SAS token](#tab/sas-token)
 
-:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="20, 25":::
+:::code language="javascript" source="~/azure_storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container-client-with-sas-token.js" highlight="19, 24":::
 
 
 -----------------

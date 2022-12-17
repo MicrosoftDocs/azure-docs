@@ -1,5 +1,6 @@
 ---
-title: Migrate devices from Azure IoT Central to Azure IoT Hub | Microsoft Docs
+title: Migrate devices from Azure IoT Central to Azure IoT Hub
+titleSuffix: IoT Central
 description: Describes how to use the migration tool to migrate devices that currently connect to an Azure IoT Central application to an Azure IoT hub.
 author: dominicbetts
 ms.author: dobett
@@ -7,6 +8,7 @@ ms.date: 09/12/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
+
 # Migrate devices to Azure IoT Hub
 
 If you decide to migrate from an IoT Central-based solution to an IoT Hub-based solution, you need to change the configuration of all the devices currently connected to your application. The **IoTC Migrator** tool automates this device migration process.
@@ -36,6 +38,10 @@ You need the following prerequisites to complete the device migration steps:
 ## Device requirements
 
 The devices that you want to migrate must implement the **DeviceMove** command in a component called **migration**. The command payload contains the *ID scope* of the destination DPS instance. The migrator tool repository includes an example [DTDL component model](https://raw.githubusercontent.com/Azure/iotc-migrator/main/assets/deviceMigrationComponent.json) that that defines the **DeviceMove** command. You can add this component to your existing device templates.
+
+The tool assumes that the component name is `migration` and that the interface ID is `dtmi:azureiot:DeviceMigration;1`:
+
+:::image type="content" source="media/howto-migrate-to-iot-hub/component-name.png" alt-text="Screenshot that highlights the component name and interface ID.":::
 
 The tool repository also includes [sample code](https://github.com/Azure/iotc-migrator/tree/main/device_samples) that shows you how a device should implement the **DeviceMove** command.
 
@@ -99,7 +105,7 @@ The migrator tool requires an Azure Active Directory application registration to
     ]
     ```
 
-    1. Save the changes.
+1. Save the changes.
 
 ### Add the device keys to DPS
 
@@ -164,13 +170,15 @@ Use the tool to migrate your devices in batches. Enter the migration details on 
 1. Select the DPS instance linked to your target IoT hub.
 1. Select **Migrate**. The tool prompts you to copy the keys from your IoT Central application to the DPS enrollment group. You previously completed this step in the [Add the device keys to DPS](#add-the-device-keys-to-dps) step.
 
-:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool." lightbox="media/howto-migrate-to-iot-hub/migrator-tool.png":::
+:::image type="content" source="media/howto-migrate-to-iot-hub/migrator-tool.png" alt-text="Screenshot of migration tool that shows the migration definition." lightbox="media/howto-migrate-to-iot-hub/migrator-tool.png":::
 
 The tool now registers all the connected devices that matched the target device filter in the destination IoT hub. The tool then creates a job in your IoT Central application to call the **DeviceMove** method on all those devices. The command payload contains the ID scope of the destination DPS instance.
 
 ## Verify migration
 
-Use the **Migration status** page in the migrator tool to monitor the progress.
+Use the **Migration status** page in the migrator tool to monitor the progress:
+
+:::image type="content" source="media/howto-migrate-to-iot-hub/migration-status.png" alt-text="Screenshot that shows the migration status page in the tool.":::
 
 Select a job on the **Migration status** page to view the [job status](howto-manage-devices-in-bulk.md#view-job-status) in your IoT Central application. Use this page to view the status of the individual devices in the job:
 
