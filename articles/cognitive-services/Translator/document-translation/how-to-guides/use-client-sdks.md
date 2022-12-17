@@ -15,7 +15,7 @@ ms.author: lajanuar
 # Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
+[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To get started, you'll need:
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation isn't supported for the free tier).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -103,7 +103,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -118,7 +118,7 @@ private static readonly string key = "<your key>";
 
 * **sourceUri**. The SAS URI for the source container containing documents to be translated.
 * **targetUri** The SAS URI for the target container to which the translated documents will be written.
-* **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../language-support.md) page.
+* **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
 
 ```csharp
 
@@ -186,7 +186,7 @@ from azure.ai.translation.document import DocumentTranslationClient
 ```
 
 Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
+more information, *see*  [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
 
 ```python
 key = "<your-key>"
@@ -230,4 +230,4 @@ That's it! You've created a program to translate documents in a storage containe
 ### Next step
 
 > [!div class="nextstepaction"]
- > [**Try the REST API quickstart**](get-started-with-document-translation.md)
+ > [**Try the REST API quickstart**](../quickstarts/get-started-with-rest-api.md)
