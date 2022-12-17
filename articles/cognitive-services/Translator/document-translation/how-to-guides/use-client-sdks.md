@@ -15,7 +15,7 @@ ms.author: lajanuar
 # Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
+[Document Translation](../overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 
 ### [C#/.NET v1.0.0 (GA)](#tab/csharp)
 
-| [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Translation.Document)| [Client library](/dotnet/api/overview/azure/AI.Translation.Document-readme) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples) |
+| [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Translation.Document)| [Client library](/dotnet/api/overview/azure/AI.Translation.Document-readme) |  [REST API](../reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples) |
 
 ### Set up your project
 
@@ -163,7 +163,7 @@ That's it! You've created a program to translate documents in a storage containe
 
 ### [Python v1.0.0 (GA)](#tab/python)
 
-| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
+| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true) |  [REST API](../reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
 
 ### Set up your project
 

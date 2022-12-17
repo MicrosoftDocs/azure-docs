@@ -34,23 +34,23 @@ If you don't have cURL installed, here are links for your platform:
 
     `**Request sample**`
 
-        ```json
-       {
-         "inputs":[
-           {
-             "source":{
-               "sourceUrl":"{your-source-container-SAS-URL}"
-             },
-             "targets":[
-               {
-                 "targetUrl":"{your-target-container-SAS-URL}",
-                 "language":"fr"
-               }
-             ]
-           }
-         ]
-       }
-        ```
+    ```json
+    {
+      "inputs":[
+        {
+          "source":{
+            "sourceUrl":"{your-source-container-SAS-URL}"
+          },
+          "targets":[
+            {
+              "targetUrl":"{your-target-container-SAS-URL}",
+              "language":"fr"
+            }
+          ]
+        }
+      ]
+    }
+    ```
 
 1. Before you run the [**post request**](#post-request), replace `{your-source-container-SAS-URL}` and `{your-key}` with the endpoint value from your Azure portal Form Recognizer instance.
 
@@ -61,14 +61,14 @@ If you don't have cURL installed, here are links for your platform:
 
 ***PowerShell***
 
-    ```powershell
-       cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
-    ```
+```powershell
+    cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
 
 ***command prompt / terminal***
 
-    ```curl
-       curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
-    ```
+```curl
+    curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+```
 
 The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

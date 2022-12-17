@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 # Get started with Document Translation
 
-   Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, you'll learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
+   Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, you'll learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ To get started, you'll need:
 
   1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](managed-identity.md) for authentication, choose a **non-global** region.
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](../how-to-guides/create-use-managed-identities.md) for authentication, choose a **non-global** region.
 
   1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -75,7 +75,7 @@ Requests to the Translator service require a read-only key and custom endpoint t
 1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
 1. You'll paste it into the code sample to authenticate your request to the Document Translation service.
 
-:::image type="content" source="../../media/document-translation-key.png" alt-text="Image of the get your key field in Azure portal.":::
+:::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Image of the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
@@ -163,5 +163,5 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 Learn more about Document Translation APIs
 
-* [Document Translation REST API guide](reference/rest-api-guide)
+* [Document Translation REST API guide](../reference/rest-api-guide)
 * [Language support](../../language-support.md)

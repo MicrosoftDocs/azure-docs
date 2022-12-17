@@ -24,7 +24,7 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
-* To grant access to an Azure resource, you'll assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, you'll assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
@@ -237,7 +237,7 @@ The following headers are included with each Document Translation API request:
 **Quickstart**
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](get-started-with-document-translation.md)
+> [Get started with Document Translation](../quickstarts/get-started-with-rest-api.md)
 
 **Tutorial**
 
