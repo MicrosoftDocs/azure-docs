@@ -31,7 +31,7 @@ You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [
 
     :::image type="content" source="./media/remove-public-ip-address-vm/vm-public-ip.png" alt-text="Screenshot of the Overview page of a virtual machine showing of the public IP.":::
 
-4. In the public IP address page, select **Overview**, and then select **Dissociate**, as shown in the following picture:
+4. In the public IP address page, select **Overview**, and then select **Dissociate**.
 
 5. In **Dissociate public IP address**, select **Yes**.
 
