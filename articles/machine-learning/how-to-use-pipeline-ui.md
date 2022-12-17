@@ -184,6 +184,66 @@ To share your comparison results select **Share** and copying the link. For exam
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/share.png" alt-text="Screenshot showing the share button and the link you should copy. " lightbox= "./media/how-to-use-pipeline-ui/share.png":::
 
+## How to debug pipeline runtime related issues
+
+Profiling (preview) can help you debug pipeline runtime related issues such as hang, long pole etc. It list duration information of each step in a pipeline, and provide a Gantt chart for visualization.
+
+Profiling enables you to:
+
+- Quickly find which node takes longer time than expected.
+- Identify the time spent of job on each status
+
+### How to find the node that runs totally the longest
+
+1. On the Jobs page, select the job name and enter the job detail page.
+1. In the action bar, select **View profiling**. Profiling only works at the root level, you won't see this button you're viewing a subgraph. It will take a few minutes to load the next page.
+1. After the profiler loads, you'll see a Gantt chart. By Default the critical path of a pipeline is shown. A critical path is a subsequence of steps that determine a pipeline job's total duration.
+1. To find the step that takes the longest, you can either view the Gantt chart or the table below it.
+    
+    In the Gantt chart, the length of each bar shows how long the step takes, steps with a longer bar length take more time. You can also filter the table below by "total duration". When you select a row in the table, it will show you the node in the Gantt chart too. When you select a bar on the Gantt chart it will also highlight it in the table.
+
+    In the table reuse is denoted with the recycling icon.
+
+    If you select the eye icon next the node name it will open the detail page, which shoes parameter, snapshot, outputs, logs etc.
+
+    If you're trying to make the queue time shorter for a node, you can modify job priority, change compute node number, kill other unimportant jobs to get more compute resources on this one.
+
+### How to find the node that runs the longest in each status
+
+Besides the total duration, you can also sort by durations for each status. For example, you can sort by  *Preparing* duration to see which step spends the most time on image building. Then you can open the detail page to find that image building fails because of timeout issue. 
+
+#### Status and definitions
+
+| Status | Definition |
+|------|-------|
+| Total duration | From when the job is submitted from client side, until it turns to a final state (canceled, completed or failed). |
+| Not started |  Job is submitted from client side and accepted in Azure Machine Learning services. Time spent in this stage is mainly in Azure Machine Learning service scheduling and preprocessing. |
+| Preparing |  In this status, job is pending for some preparation on job dependencies, for example, environment image building. |
+| Inqueue | Job is pending for compute resource allocation. Time spent in this stage is dependent on the status of your compute cluster or job yield policy for scope job. |
+| Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: </br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. |
+| Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up. |
+
+### What do I do if a duration issue identified
+
+Along with the profiling, you can also use the *Output + logs* (on the details page), the Common Runtime enabled monitoring metric for PRS/MPI jobs, and the local debug to do further debug.
+
+### Different view of Gantt chart
+
+By default the critical path of a pipeline job is shown, other views include:
+
+- Flatten view
+  - In flatten view, the whole graph is flattened. You see only the leaf nodes and no subgraph at all.
+  - In this view, you'll see more nodes than in critical path.
+- Compact view
+  - The compact view filters out nodes with total duration less than 30s. 
+  - Nodes that are taking very short time usually aren't worth investigating, so we can filter them out by this compact view.
+- Hierarchical view.
+  - When selecting this view, you'll see the hierarchy of subgraph grouping.
+
+### Download the duration table
+
+To export the table, select **Export CSV**.
+
 ## Next steps
 
 In this article, you learned the key features in how to create, explore, and debug a pipeline in UI. To learn more about how you can use the pipeline, see the following articles:
