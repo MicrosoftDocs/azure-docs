@@ -62,7 +62,7 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `document-translation` directory.
 
-1. Copy and paste the the document translation [code sample](#code-sample) into your `index.js` file. 
+1. Copy and paste the document translation [code sample](#code-sample) into your `index.js` file. 
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -131,4 +131,4 @@ Once you've added the code sample to your application, run your program:
     node index.js
     ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

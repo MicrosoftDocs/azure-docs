@@ -6012,7 +6012,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/get-started-with-document-translation.md",
-            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/get-started-rest-api",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/quickstarts/get-started-with-rest-api",
             "redirect_document_id": true
         },
         {
@@ -6023,11 +6023,6 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/create-sas-tokens.md",
             "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/create-sas-tokens",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/managed-identity.md",
-            "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/create-use-managed-identities",
             "redirect_document_id": true
         },
         {

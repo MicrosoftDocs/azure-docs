@@ -127,4 +127,4 @@ Once you've added a code sample to your application, choose the green **Start** 
 
   :::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

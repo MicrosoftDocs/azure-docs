@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 11/16/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->

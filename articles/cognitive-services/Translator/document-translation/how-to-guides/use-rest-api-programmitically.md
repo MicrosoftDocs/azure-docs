@@ -1,5 +1,5 @@
 ---
-title: Get started with Document Translation
+title: Use Document Translation programmatically
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and the REST API"
 services: cognitive-services
 author: laujan
@@ -17,39 +17,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 # Use Document Translation programmatically
 
- Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [languages](../language-support.md) and a variety of [file formats](../overview.md#supported-document-formats) while preserving source document structure and text formatting. In this how-to guide, you'll learn to use Document Translation APIs with a programming language of your choice and the HTTP REST API.
-
-::: zone pivot="programming-language-csharp"
-
-[!INCLUDE [C# programming](includes/csharp.md)]
-::: zone-end
-
-:::zone pivot="programming-language-go"
-
-[!INCLUDE [Go programming](includes/go.md)]
-::: zone-end
-
-:: zone pivot="programming-language-rest-api"
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java programming](includes/java.md)]
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [NodeJS programming](includes/javascript.md)]
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python programming](includes/python.md)]
-::: zone-end
-
-::: zone pivot="programming-language-rest-api"
-
-[!INCLUDE [REST API](includes/rest-api.md)]
-::: zone-end
+ Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can use the Document Translation API to asynchronously translate whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats) while preserving source document structure and text formatting. In this how-to guide, you'll learn to use Document Translation APIs with a programming language of your choice and the HTTP REST API.
 
 ## Prerequisites
 
@@ -74,7 +42,7 @@ To get started, you'll need:
 
   1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](managed-identity.md) for authentication, choose a **non-global** region.
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](create-use-managed-identities.md) for authentication, choose a **non-global** region.
 
   1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -117,7 +85,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your key in a convenient location, such as *Microsoft Notepad*.
-1. You'll paste it into the code below to authenticate your request to the Document Translation service.
+1. You'll paste it into the code ample to authenticate your request to the Document Translation service.
 
 :::image type="content" source="../../media/translator-keys.png" alt-text="Image of the get your key field in Azure portal.":::
 
@@ -194,9 +162,9 @@ The following headers are included with each Document Translation API request:
 ### Translate a specific document in a container
 
 * Specify `"storageType": "File"`
-* If you aren't using a [**system-assigned managed identity**](../how-to-guides/create-use-managed-identities.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
+* If you aren't using a [**system-assigned managed identity**](create-use-managed-identities.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
 * Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
-* Sample request below shows a single document getting translated into two target languages
+* This sample request returns a single document translated into two target languages
 
 ```json
 {
@@ -254,7 +222,7 @@ The following headers are included with each Document Translation API request:
 ### [C#](#tab/csharp)
 
 * Create a new project.
-* Replace Program.cs with the C# code shown below.
+* Replace Program.cs with the C# code sample.
 * Set your endpoint, key, and container URL values in Program.cs.
 * To process JSON data, add [Newtonsoft.Json package using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory.
@@ -263,7 +231,7 @@ The following headers are included with each Document Translation API request:
 
 * Create a new Node.js project.
 * Install the Axios library with `npm i axios`.
-* Copy/paste the code below into your project.
+* Copy/paste the JavaScript sample code into your project.
 * Set your endpoint, key, and container URL values.
 * Run the program.
 
@@ -332,7 +300,7 @@ gradle run
 ### [Go](#tab/go)
 
 * Create a new Go project.
-* Add the code provided below.
+* Add the provided Go code sample.
 * Set your endpoint, key, and container URL values.
 * Save the file with a '.go' extension.
 * Open a command prompt on a computer with Go installed.
@@ -343,8 +311,8 @@ gradle run
 
 > [!IMPORTANT]
 >
-> For the code samples below, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](managed-identity.md). See the Azure Storage [security](../../../storage/common/authorize-data-access.md) article for more information.
->
+> For the code samples, you'll hard-code your Shared Access Signature (SAS) URL where indicated. Remember to remove the SAS URL from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Managed Identity](create-use-managed-identities.md). For more information, _see_ Azure Storage [security](../../../storage/common/authorize-data-access.md).
+
 > You may need to update the following fields, depending upon the operation:
 >>>
 >> * `endpoint`
@@ -1311,7 +1279,7 @@ func main() {
 
 ## Content limits
 
-The table below lists the limits for data that you send to Document Translation.
+This table lists the limits for data that you send to Document Translation:
 
 |Attribute | Limit|
 |---|---|
@@ -1337,13 +1305,12 @@ Document Translation can't be used to translate secured documents such as those 
 
 ## Learn more
 
-* [Translator v3 API reference](../reference/v3-0-reference.md)
-* [Language support](../language-support.md)
-* [Subscriptions in Azure API Management](../../../api-management/api-management-subscriptions.md).
+* [Translator v3 API reference](../../reference/v3-0-reference.md)
+* [Language support](../../language-support.md)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a customized language system using Custom Translator](../custom-translator/overview.md)
+> [Create a customized language system using Custom Translator](../../custom-translator/overview.md)
 >
 >

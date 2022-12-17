@@ -35,7 +35,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. Create a new GO file named **document-translation.go** from the **document-translation-qs** directory.
 
-1. Copy and paste the the document translation [code sample](#code-sample) into your **document-translation.go** file.
+1. Copy and paste the document translation [code sample](#code-sample) into your **document-translation.go** file.
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -108,4 +108,4 @@ Once you've added a code sample to your application, your Go program can be exec
  go run document-translation.go
 ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

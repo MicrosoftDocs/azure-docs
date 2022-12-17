@@ -32,9 +32,9 @@ recommendations: false
 
 1. Using your preferred editor or IDE, create a new directory for your app named `document-translation`.
 
-1. Create a new Python file called **document-translation.py** in your **document-translation** directory .
+1. Create a new Python file called **document-translation.py** in your **document-translation** directory.
 
-1. Copy and paste the the document translation [code sample](#code-sample) into your `document-translation.py` file. 
+1. Copy and paste the document translation [code sample](#code-sample) into your `document-translation.py` file. 
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -104,4 +104,4 @@ Once you've added a code sample to your application, build and run your program:
 
    ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

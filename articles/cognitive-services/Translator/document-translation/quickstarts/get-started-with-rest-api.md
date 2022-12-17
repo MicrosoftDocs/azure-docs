@@ -17,7 +17,7 @@ zone_pivot_groups: programming-languages-set-translator
 
 # Get started with Document Translation
 
-  Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [languages](../language-support.md) and a variety of [file formats](../overview.md#supported-document-formats) supported by Translator service. In this quickstart, you'll learn to use Document Translation with a programming language of your choice and the HTTP REST API to translate a source document into a target language while preserving the source document structure and text formatting.
+   Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service that asynchronously translates whole documents in [supported languages](../language-support.md) and various [file formats](../overview.md#supported-document-formats). In this quickstart, you'll learn to use Document Translation with a programming language of your choice to translate a source document into a target language while preserving structure and text formatting.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Requests to the Translator service require a read-only key and custom endpoint t
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
 1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
-1. You'll paste it into the code below to authenticate your request to the Document Translation service.
+1. You'll paste it into the code sample to authenticate your request to the Document Translation service.
 
 :::image type="content" source="../../media/document-translation-key.png" alt-text="Image of the get your key field in Azure portal.":::
 
@@ -100,7 +100,7 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 ### Sample document
 
-> * For this project, you'll need a **source document** uploaded to you **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
+> * For this project, you'll need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
 ## HTTP requests
 
@@ -136,8 +136,6 @@ The following headers are included with each Document Translation API request:
 
 [!INCLUDE [Go programming](includes/go.md)]
 ::: zone-end
-
-:: zone pivot="programming-language-rest-api"
 
 ::: zone pivot="programming-language-java"
 
