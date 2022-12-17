@@ -163,5 +163,5 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 Learn more about Document Translation APIs
 
-* [Document Translation REST API guide](../reference/rest-api-guide)
+* [Document Translation REST API guide](../reference/rest-api-guide.md)
 * [Language support](../../language-support.md)
