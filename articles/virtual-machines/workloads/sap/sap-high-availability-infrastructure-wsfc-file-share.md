@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ---
@@ -42,7 +42,6 @@ ms.custom: H1Hack27Feb2017
 
 [getting-started]:get-started.md
 
-[ha-guide]:sap-high-availability-guide.md
 [sap-high-availability-architecture-scenarios]:sap-high-availability-architecture-scenarios.md
 [sap-high-availability-guide-wsfc-shared-disk]:sap-high-availability-guide-wsfc-shared-disk.md
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
@@ -70,7 +69,6 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
 
-[sap-ha-guide]:sap-high-availability-guide.md
 [sap-ha-guide-2]:#42b8f600-7ba3-4606-b8a5-53c4f026da08
 [sap-ha-guide-4]:#8ecf3ba0-67c0-4495-9c14-feec1a2255b7
 [sap-ha-guide-8]:#78092dbe-165b-454c-92f5-4972bdbef9bf
