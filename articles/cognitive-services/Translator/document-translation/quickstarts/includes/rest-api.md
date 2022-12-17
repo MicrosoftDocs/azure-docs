@@ -13,34 +13,63 @@ recommendations: false
 
 In this quickstart we'll, use the curl command line tool to make Document Translation REST API calls.
 
-## Set up your environment
-
-You'll need the following tools:
-
-* curl command line tool installed.
-
 > [!NOTE]
 > The curl package is pre-installed on most Windows 10 and Windows 11 and most macOS and Linux distributions. You can check the curl package version with the following commands:
 > Windows: `curl.exe -V`.
 > macOS `curl -V`
 > Linux: `curl --version`
 
-  * [Windows](https://curl.haxx.se/windows/); type curl.exe -V to see which version of cURL is installed
-  * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows); type curl -V to see which version of cURL is installed
+If you don't have cURL installed, here are links for your platform:
+
+* [Windows](https://curl.haxx.se/windows/).
+* [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows).
 
 ## Translate documents (POST Request)
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will be listed in your target container.
+1. Using your preferred editor or IDE, create a new directory for your app named `document-translation`.
 
-Before you run the cURL command, make the following changes to the [post request](#post-request):
+1. Create a new json file called **document-translation.json** in your **document-translation** directory .
 
-1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+1. Copy and paste the the document translation **request sample** into your `document-translation.json` file. Replace **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
 
-1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
+    `**Request sample**`
+
+        ```json
+        {
+    "inputs": [
+        {
+
+            "source": {
+                "sourceUrl": "{your-source-container-SAS-URL}"
+            },
+            "targets": [
+                {
+                    "targetUrl": "{your-target-container-SAS-URL}",
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+        ```
+
+1. Before you run the [**post request**](#post-request), replace `{your-source-container-SAS-URL}` and `{your-key}` with the endpoint value from your Azure portal Form Recognizer instance.
 
 ### POST request
 
-```cmd
-  cmd /c curl "{endpoint}}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {key}" --data "@document-translation.json"
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
-```
+***PowerShell***
+
+    ```powershell
+       cmd /c curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+    ```
+
+***command prompt / terminal***
+
+    ```curl
+       curl "{your-source-container-SAS-URL}/translator/text/batch/v1.0/batches" -i -X POST --header "Content-Type: application/json" --header "Ocp-Apim-Subscription-Key: {your-key}" --data "@document-translation.json"
+    ```
+
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 12/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -29,19 +29,83 @@ You can use any text editor to write Go applications. We recommend using the lat
           go version
         ```
 
-## Build your Go application
+## Translate all documents in a storage container
 
-1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **document-translation**, and navigate to it.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **document-translation-qs**, and navigate to it.
 
-1. Create a new GO file named **document-translation.go** from the **document-translation** directory.
+1. Create a new GO file named **document-translation.go** from the **document-translation-qs** directory.
 
-1. Copy and paste the provided code sample into your **document-translation.go** file. Make sure you update the key variable with the value from your Azure portal Translator instance:
+1. Copy and paste the the document translation [code sample](#code-sample) into your **document-translation.go** file.
 
+    * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
+
+    * Update the **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+## Code sample
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
+```go
+
+package main
+
+import (
+    "bytes"
+  "encoding/json"
+    "fmt"
+    "net/http"
+)
+
+func main() {
+
+    httpposturl := "{your-document-translation-endpoint}/translator/text/batch/v1.0/batches"
+    fmt.Println("Response", httpposturl)
+
+    var jsonData = []byte(`{
+    "inputs": [
+        {
+            "source": {
+                "sourceUrl": "{your-source-container-SAS-URL}"
+            },
+            "targets": [
+                {
+                    "{your-target-container-SAS-URL}",
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}`)
+
+    request, error := http.NewRequest("POST", httpposturl, bytes.NewBuffer(jsonData))
+    request.Header.Set("Content-Type", "application/json")
+    request.Header.Set("Ocp-Apim-Subscription-Key", "{your-key}")
+
+    client := &http.Client{}
+    response, error := client.Do(request)
+    if error != nil {
+        panic(error)
+    }
+    defer response.Body.Close()
+
+    fmt.Println("response Status:", response.Status)
+    //fmt.Println("response Headers:", response.Header)
+  var printHeader = (response.Header)
+    //body, _ := ioutil.ReadAll(response.body)
+    prettyJSON, _ := json.MarshalIndent(printHeader, "", "  ")
+    fmt.Printf("%s\n", prettyJSON)
+  }
+
+
+```
 
 ## Run your Go application
 
-Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **document-translation** folder and use the following command:
+Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **document-translation-qs** folder and use the following command:
 
 ```console
  go run document-translation.go
 ```
+
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

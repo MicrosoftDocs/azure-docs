@@ -11,6 +11,8 @@ ms.author: lajanuar
 recommendations: false
 ---
 
+## Set up your C#/.NET environment
+
 For this quickstart, we'll use the latest version of [Visual Studio](https://visualstudio.microsoft.com/vs/) IDE to build and run the application.
 
 1. Start Visual Studio.
@@ -45,4 +47,84 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
     :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected nuget package window":::
 
-## Translate all documents in a container
+## Translate all documents in a storage container
+
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
+1. Open the **Program.cs** file.
+
+1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`.
+
+1. Copy and paste the document translation [code sample](#code-sample) into the Program.cs file.
+
+    * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
+
+    * Update **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+## Code sample
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
+```csharp
+
+using System.Text;
+
+class Program
+{
+    private static readonly string endpoint = "{your-document-translator-endpoint}/translator/text/batch/v1.0";
+
+    private static readonly string key = "{your-key}";
+
+    static readonly string route = "/batches";
+    static readonly string sourceURL = "\" {your-source-container-SAS-URL}\"";
+    static readonly string targetURL = " \"{your-target-container-SAS-URL}\"";
+
+
+    static readonly string json = ("{\"inputs\": [{\"source\": {\"sourceUrl\":"+sourceURL+" ,\"storageSource\": \"AzureBlob\",\"language\": \"en\"}, \"targets\": [{\"targetUrl\":"+targetURL+",\"storageSource\": \"AzureBlob\",\"category\": \"general\",\"language\": \"es\"}]}]}");
+
+    static async Task Main(string[] args)
+    {
+        using HttpClient client = new HttpClient();
+        using HttpRequestMessage request = new HttpRequestMessage();
+        {
+
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            request.Method = HttpMethod.Post;
+            request.RequestUri = new Uri(endpoint + route);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", key);
+            request.Content = content;
+
+            HttpResponseMessage response = await client.SendAsync(request);
+            string result = response.Content.ReadAsStringAsync().Result;
+            if (response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Status code: {response.StatusCode}");
+                Console.WriteLine();
+                Console.WriteLine($"Response Headers:");
+                Console.WriteLine(response.Headers);
+            }
+            else
+                Console.Write("Error");
+
+        }
+
+    }
+
+}
+
+```
+
+*Run your application**
+
+Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+
+  :::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+
+The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

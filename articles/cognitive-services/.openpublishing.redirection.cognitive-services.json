@@ -6017,12 +6017,17 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-sdks.md",
-            "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/use-rest-api-sdks",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/use-client-sdks",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/create-sas-tokens.md",
             "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/create-sas-tokens",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/managed-identity.md",
+            "redirect_url": "/azure/cognitive-services/Translator/document-translation/how-to-guides/create-use-managed-identities",
             "redirect_document_id": true
         },
         {

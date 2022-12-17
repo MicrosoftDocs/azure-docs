@@ -72,7 +72,7 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
   }
   ```
 
-## Create your Java Application
+## Translate all documents in a storage container
 
 1. From the document-translation directory, run the following command:
 
@@ -94,11 +94,66 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
     >
     > * You can also create a new file in your IDE named `DocumentTranslation.java`  and save it to the `java` directory.
 
-1. Open the `DocumentTranslation.java` file in your IDE and copy then paste the following code sample into your application. **Make sure you update the key with one of the key values from your Azure portal Translator instance:**
+1. Copy and paste the the document translation [code sample](#code-sample) into your **document-translation.go** file.
+
+    * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
+
+    * Update the **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+## Code sample
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
+```java
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import okhttp3.*;
+
+public class DocumentTranslation {
+    String key = "{your-key}";
+
+    String endpoint = "{your-document-translation-endpoint}/translator/text/batch/v1.0";
+
+    String path = endpoint + "/batches";
+
+    String sourceSASUrl = "{your-source-container-SAS-URL}";
+
+    String targetSASUrl = "{your-target-container-SAS-URL}";
+
+    String jsonInputString = (String.format("{\"inputs\":[{\"source\":{\"sourceUrl\":\"%s\"},\"targets\":[{\"targetUrl\":\"%s\",\"language\":\"fr\"}]}]}", sourceSASUrl, targetSASUrl));
+
+    OkHttpClient client = new OkHttpClient();
+
+    public void post() throws IOException {
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType,  jsonInputString);
+        Request request = new Request.Builder()
+                .url(path).post(body)
+                .addHeader("Ocp-Apim-Subscription-Key", key)
+                .addHeader("Content-type", "application/json")
+                .build();
+        Response response = client.newCall(request).execute();
+        System.out.println(response.code());
+        System.out.println(response.headers());
+    }
+
+  public static void main(String[] args) {
+        try {
+            DocumentTranslation sampleRequest = new DocumentTranslation();
+            sampleRequest.post();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+```
 
 ## Build and run your Java application
 
-Once you've added a code sample to your application, navigate back to your main project directory—**document-translation**, open a console window, and enter the following commands:
+Once you've added a code sample to your application, navigate back to your main project directory, **document-translation**, open a console window, and enter the following commands:
 
 1. Build your application with the `build` command:
 
@@ -111,3 +166,4 @@ Once you've added a code sample to your application, navigate back to your main 
     ```console
     gradle run
     ```
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: include
-ms.date: 12/08/2022
+ms.date: 12/16/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -50,6 +50,8 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
        npm install axios uuid
     ```
 
+## Translate all documents in a storage container
+
 1. Create the `index.js` file in the app directory.
 
      > [!TIP]
@@ -60,9 +62,62 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
     >
     > * You can also create a new file named `index.js` in your IDE and save it to the `document-translation` directory.
 
-## Build your JavaScript application
+1. Copy and paste the the document translation [code sample](#code-sample) into your `index.js` file. 
 
-Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
+    * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
+
+    * Update the **`{your-source-container-SAS-URL}`** and **`{your-target-container-SAS-URL}`** with values from your Azure portal Storage account containers instance.
+
+## Code sample
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
+```javascript
+const axios = require('axios').default;
+
+let endpoint = '{your-document-translation-endpoint}/translator/text/batch/v1.0';
+let route = '/batches';
+let key = '{your-key}';
+let sourceSASUrl = "https://januaristorage.blob.core.windows.net/source-doc-translator?sp=rwl&st=2022-12-16T21:02:29Z&se=2022-12-17T05:02:29Z&spr=https&sv=2021-06-08&sr=c&sig=iL%2BAFVloS4cchKs0SCoq54umv7V2UnDJd8g7URhfmpA%3D";
+let targetSASUrl = "https://januaristorage.blob.core.windows.net/target-doc-translator?sp=rwl&st=2022-12-16T21:03:34Z&se=2022-12-17T05:03:34Z&spr=https&sv=2021-06-08&sr=c&sig=B2MOzqQxHf64AEOy4mk%2F3XVx43zG3p5VICvFXV335qY%3D"
+
+let data = JSON.stringify({"inputs": [
+  {
+      "source": {
+          "sourceUrl": sourceSASUrl,
+          "storageSource": "AzureBlob",
+          "language": "en"
+      },
+      "targets": [
+          {
+              "targetUrl": targetSASUrl,
+              "storageSource": "AzureBlob",
+              "category": "general",
+              "language": "es"}]}]});
+
+let config = {
+  method: 'post',
+  baseURL: endpoint,
+  url: route,
+  headers: {
+    'Ocp-Apim-Subscription-Key': key,
+    'Content-Type': 'application/json'
+  },
+  data: data
+};
+
+axios(config)
+.then(function (response) {
+  let result = { statusText: response.statusText, statusCode: response.status, headers: response.headers };
+  console.log()
+  console.log(JSON.stringify(result, null, 2));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+```
 
 ## Run your JavaScript application
 
@@ -75,3 +130,5 @@ Once you've added the code sample to your application, run your program:
     ```console
     node index.js
     ```
+
+The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response Headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
