@@ -66,18 +66,18 @@ When you create the configuration for the connector to interact with a directory
 
 Before deploying the connector to an existing directory server, you'll need to discuss with the directory server operator in your organization how to integrate with their directory server.  The information you'll gather includes the network information of how to connect to the directory server, how the connector should authenticate itself to the directory server, what schema the directory server has selected to model users, the naming context's base distinguished name and directory hierarchy rules, how to associate users in the directory server with users in Azure AD, and what should happen when a user goes out of scope in Azure AD.  Deploying this connector may require changes to the configuration of the directory server as well as configuration changes to Azure AD. For deployments involving integrating Azure AD with a third-party directory server in a production environment, we recommend customers work with their directory server vendor, or a deployment partner for help, guidance, and support for this integration.  This article uses the following sample values for two directories, for AD LDS and for OpenLDAP.
 
- |Configuration setting|Where the value is set| Example value for AD LDS | Example value for OpenLDAP|
- |-----|-----|-----|----|
- | hostname of the directory server | Configuration wizard **Connectivity** page | `APP3` | `APP3` |
- | port number of the directory server| Configuration wizard **Connectivity** page | 636. For LDAP over SSL or TLS (LDAPS), use port 636.  For `Start TLS`, use port 389. | `389` |
- | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`| `cn=admin,dc=contoso,dc=lab` |
- | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | | |
- | structural object class for a user in the directory server | Configuration wizard **Object Types** page | `User` | `inetOrgPerson` |
- | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | No auxiliary classes are used in this example |No auxiliary classes are used in this example  |
- | attributes to populate on a new user | Configuration wizard  **Select Attributes** page and Azure portal **Provisioning** page attribute mappings | `msDS-UserAccountDisabled`, `userPrincipalName`, `displayName` | `cn`, `sn`, `mail`|
- | naming hierarchy required by the directory server | Azure portal **Provisioning** page attribute mappings | Set the DN of a newly created user to be immediately below `CN=CloudUsers,CN=App,DC=Contoso,DC=lab` | Set the DN of a newly created user to be immediately below `DC=Contoso,DC=lab` |
- | attributes for correlating users across Azure AD and the directory server | Azure portal **Provisioning** page attribute mappings | not configured as this example is for an initially empty directory | not configured as this example is for an initially empty directory |
- | deprovisioning behavior when a user goes out of scope in Azure AD |Configuration wizard **Deprovisioning** page | Delete the user from the directory server | Delete the user from the directory server |
+ |Configuration setting|Where the value is set| Example value|
+ |-----|-----|-----|
+ | hostname of the directory server | Configuration wizard **Connectivity** page | `APP3` |
+ | port number of the directory server| Configuration wizard **Connectivity** page | 636. For LDAP over SSL or TLS (LDAPS), use port 636.  For `Start TLS`, use port 389. |
+ | account for the connector to identify itself to the directory server |Configuration wizard **Connectivity** page | For AD LDS, `CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab` and for OpenLDAP, `cn=admin,dc=contoso,dc=lab` |
+ | password for the connector to authenticate itself to the directory server |Configuration wizard **Connectivity** page | |
+ | structural object class for a user in the directory server | Configuration wizard **Object Types** page | For AD LDS `User` and for OpenLDAP `inetOrgPerson` |
+ | auxiliary object classes for a user in the directory server | Azure portal **Provisioning** page attribute mappings | No  auxiliary classes are used in this example |
+ | attributes to populate on a new user | Configuration wizard  **Select Attributes** page and Azure portal **Provisioning** page attribute mappings | For AD LDS `msDS-UserAccountDisabled`, `userPrincipalName`, `displayName` and for OpenLDAP `cn`, `sn`, `mail` |
+ | naming hierarchy required by the directory server | Azure portal **Provisioning** page attribute mappings | Set the DN of a newly created user to be immediately below `CN=CloudUsers,CN=App,DC=Contoso,DC=lab` for AD LDS and `DC=Contoso,DC=lab` for OpenLDAP |
+ | attributes for correlating users across Azure AD and the directory server | Azure portal **Provisioning** page attribute mappings | not configured as this example is for an initially empty directory |
+ | deprovisioning behavior when a user goes out of scope in Azure AD |Configuration wizard **Deprovisioning** page | Delete the user from the directory server |
 
 The network address of a directory server is a hostname and a TCP port number, typically port 389 or 636. Except where the directory server is co-located with the connector on the same Windows Server, or you're using network level security, the network connections from the connector to a directory server need to be protected using SSL or TLS.  The connector supports connecting to a directory server on port 389, and using Start TLS to enable TLS within the session.  The connector also supports connecting to a directory server on port 636 for LDAPS - LDAP over TLS.
 
@@ -267,8 +267,11 @@ Depending on the options you select, some of the wizard screens might not be ava
 
      Once all the relevant attributes have been added, select **Next**.
  
- 16. On the **Deprovisioning** page, you can specify if you wish to have Azure AD remove users from the directory when they go out of scope of the application.  If so, under **Disable flow**, select **Delete**, and under **Delete flow** select **Delete**. If `Set attribute value` is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
- 17. Select **Finish**.
+
+ 16. On the **Deprovisioning** page, you can specify if you wish to have Azure AD remove users from the directory when they go out of scope of the application.  If so, under **Disable flow**, select **Delete**, and under **Delete flow**, select **Delete**. If `Set attribute value` is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
+ >[!NOTE]
+ >If you use the **Set attribute value** be aware that only boolean values are allowed.
+ 15. Select **Finish**.
 
 ## Ensure ECMA2Host service is running
  1. On the server running the Azure AD ECMA Connector Host, select **Start**.
