@@ -32,7 +32,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 |Azure resource name |Role to be assigned|Description|
 |--|--|--|
 |Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
-|Azure Arc-enabled Kubernetes or AKS|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
+|Kubernetes - Azure Arc or Azure Kubernetes Service|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
 
 Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
 
@@ -68,10 +68,10 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 1. Under **Manage**, select **Compute**.
-1. Select the **Attached computes** tab.
+1. Select the **Kubernetes clusters** tab.
 1. Select **+New > Kubernetes**
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
+   :::image type="content" source="media/how-to-attach-arc-kubernetes/kubernetes-attach.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
@@ -83,9 +83,9 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
 1. Select **Attach**
 
-    In the Attached compute tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
+    In the Kubernetes clusters tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
+    :::image type="content" source="media/how-to-attach-arc-kubernetes/kubernetes-creating.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
    
 ---
 
