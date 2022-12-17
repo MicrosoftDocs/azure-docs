@@ -27,7 +27,7 @@ You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Browse to, or search for the virtual machine that you want to disassociate the public IP address from and then select it.
-3. In the VM page, select **Overview**, select the public IP address as shown in the following picture:
+3. In the VM page, select **Overview**, and then select the public IP address.
 
     :::image type="content" source="./media/remove-public-ip-address-vm/vm-public-ip.png" alt-text="Screenshot of the Overview page of a virtual machine showing of the public IP.":::
 
@@ -121,7 +121,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     $vm.NetworkProfile
     ```
 
-    The output includes one or more lines that are similar to the example that follows. In the example output, *myVMNic* is the name of the network interface.
+    The output includes one or more lines that are similar to the following example:
 
     ```
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic",
@@ -136,7 +136,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     $nic.IPConfigurations.Id
     ```
 
-    The output includes one or more lines that are similar to the example that follows. In the example output, *ipconfigmyVM* is the name of an IP configuration.
+    The output includes one or more lines that are similar to the following example:
 
     ```
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic/ipConfigurations/ipconfigmyVM"
@@ -151,7 +151,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
     $nic.IPConfigurations.PublicIpAddress.Id
     ```
 
-    The output includes one or more lines that are similar to the example that follows. In the example output, *ipconfigmyVM* is the name of an IP configuration.
+    The output includes one or more lines that are similar to the following example:
 
     ```
     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP"
@@ -163,9 +163,9 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 In this article, you learned how to dissociate a public IP address from a virtual machine.
 
-- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure.
+- Learn more about [public IP addresses](./public-ip-addresses.md) in Azure.
 
-- Learn how to [associate a public IP address to a VM](associate-public-ip-address-vm.md).
+- Learn how to [associate a public IP address to a VM](./associate-public-ip-address-vm.md).
 
-- Learn how to [Configure IP addresses for an Azure network interface](./virtual-network-network-interface-addresses.md).
+- Learn how to [configure IP addresses for an Azure network interface](./virtual-network-network-interface-addresses.md).
 
