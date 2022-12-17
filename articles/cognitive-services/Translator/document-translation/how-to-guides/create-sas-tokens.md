@@ -18,7 +18,7 @@ At a high level, here's how SAS tokens work:
 
 * If the storage service verifies that the SAS is valid, the request is authorized.
 
-* If the SAS token is deemed invalid, the request is declined and the error code 403 (Forbidden) is returned.
+* If the SAS token is deemed invalid, the request is declined, and the error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -49,7 +49,7 @@ To get started, you'll need the following resources:
 
 <!-- markdownlint-disable MD024 -->
 
-Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or a specific file as follows and continue with the steps below:
+Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or a specific file as follows and continue with these steps:
 
 | Create SAS token for a container| Create SAS token for a specific file|
 |:-----:|:-----:|
@@ -89,7 +89,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 * You'll need the [**Azure Storage Explorer**](../../../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-* After the Azure Storage Explorer app is installed, [connect it to the storage account](../../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation. Follow the steps below to create tokens for a storage container or specific blob file:
+* After the Azure Storage Explorer app is installed, [connect it to the storage account](../../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation. Follow these steps to create tokens for a storage container or specific blob file:
 
 ### [SAS tokens for storage containers](#tab/Containers)
 
@@ -141,7 +141,7 @@ You can include your SAS URL with REST API requests in two ways:
 
 * Append the **SAS query string** to your existing sourceURL and targetURL values.
 
-Here is a sample REST API request:
+Here's a sample REST API request:
 
 ```json
 {

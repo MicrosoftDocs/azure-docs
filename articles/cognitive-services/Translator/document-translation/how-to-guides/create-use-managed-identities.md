@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 
@@ -24,7 +24,7 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
-* To grant access to an Azure resource, you'll assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, you'll assign an Azure role to a managed identity using [Azure role-based access control (`Azure RBAC`)](../../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
@@ -41,7 +41,7 @@ To get started, you'll need:
 
 * A [**single-service Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (not a multi-service Cognitive Services) resource assigned to a **non-global** region. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* A brief understanding of [**Azure role-based access control (Azure RBAC)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
+* A brief understanding of [**Azure role-based access control (`Azure RBAC`)**](../../../role-based-access-control/role-assignments-portal.md) using the Azure portal.
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Translator resource. You'll create containers to store and organize your blob data within your storage account.
 
@@ -85,7 +85,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 ## Grant access to your storage account
 
-You need to grant Translator access to your storage account before it can create, read, or delete blobs. Once you've enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Translator access to your Azure storage containers.
+You need to grant Translator access to your storage account before it can create, read, or delete blobs. Once you've enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (`Azure RBAC`), to give Translator access to your Azure storage containers.
 
 The **Storage Blob Data Contributor** role gives Translator (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
 
@@ -124,7 +124,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
 * A batch Document Translation request is submitted to your Translator service endpoint via a POST request.
 
-* With managed identity and Azure RBAC, you'll no longer need to include SAS URLs.
+* With managed identity and `Azure RBAC`, you'll no longer need to include SAS URLs.
 
 * If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. 
 
@@ -176,7 +176,7 @@ The following headers are included with each Document Translation API request:
 ### Translate a specific document in a container
 
 * **Required**: "storageType": "File"
-* The sample request below shows a single document getting translated into two target languages
+* This sample request returns a single document translated into two target languages:
 
 ```json
 {
@@ -230,7 +230,7 @@ The following headers are included with each Document Translation API request:
 }
 ```
 
- Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and Azure RBAC, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
+ Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and `Azure RBAC`, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
 
 ## Next steps
 

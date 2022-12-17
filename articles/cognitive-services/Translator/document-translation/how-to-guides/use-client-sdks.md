@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/13/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 
@@ -23,7 +23,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation is not supported for the free tier).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation isn't supported for the free tier).
 
 * An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
@@ -169,7 +169,7 @@ That's it! You've created a program to translate documents in a storage containe
 
 ### Install the client library
 
-If you haven't done so, install [Python](https://www.python.org/downloads/) and then install the latest version of the Translator client library:
+If you haven't done so, install [Python](https://www.python.org/downloads/), and then install the latest version of the Translator client library:
 
 ```console
 pip install azure-ai-translation-document==1.0.0
