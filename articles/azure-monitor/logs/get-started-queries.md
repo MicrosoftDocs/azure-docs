@@ -35,7 +35,7 @@ Here's a video version of this tutorial:
 
 ## Write a new query
 
-Queries can start with either a table name or the *search* command. It's a good idea to start with a table name because it defines a clear scope for the query. It also improves query performance and the relevance of the results.
+Queries can start with either a table name or the `search` command. It's a good idea to start with a table name because it defines a clear scope for the query. It also improves query performance and the relevance of the results.
 
 > [!NOTE]
 > KQL, which is used by Azure Monitor, is case sensitive. Language keywords are usually written in lowercase. When you use names of tables or columns in a query, be sure to use the correct case, as shown on the schema pane.
@@ -49,11 +49,11 @@ SecurityEvent
 | take 10
 ```
 
-The preceding query returns 10 results from the *SecurityEvent* table, in no specific order. This common way to get a glance at a table helps you to understand its structure and content. Let's examine how it's built:
+The preceding query returns 10 results from the `SecurityEvent` table, in no specific order. This common way to get a glance at a table helps you to understand its structure and content. Let's examine how it's built:
 
-* The query starts with the table name *SecurityEvent*, which defines the scope of the query.
+* The query starts with the table name `SecurityEvent`, which defines the scope of the query.
 * The pipe (|) character separates commands, so the output of the first command is the input of the next. You can add any number of piped elements.
-* Following the pipe is the **take** command, which returns a specific number of arbitrary records from the table.
+* Following the pipe is the `take` command, which returns a specific number of arbitrary records from the table.
 
 We could run the query even without adding `| take 10`. The command would still be valid, but it could return up to 10,000 results.
 
@@ -66,36 +66,36 @@ search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-This query searches the *SecurityEvent* table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
+This query searches the `SecurityEvent` table for records that contain the phrase "Cryptographic." Of those records, 10 records will be returned and displayed. If you omit the `in (SecurityEvent)` part and run only `search "Cryptographic"`, the search will go over *all* tables. The process would then take longer and be less efficient.
 
 > [!IMPORTANT]
 > Search queries are ordinarily slower than table-based queries because they have to process more data.
 
 ## Sort and top
-Although **take** is useful for getting a few records, the results are selected and displayed in no particular order. To get an ordered view, you could **sort** by the preferred column:
+Although `take` is useful for getting a few records, the results are selected and displayed in no particular order. To get an ordered view, you could `sort` by the preferred column:
 
 ```Kusto
 SecurityEvent	
 | sort by TimeGenerated desc
 ```
 
-The preceding query could return too many results though, and it might also take some time. The query sorts the entire *SecurityEvent* table by the *TimeGenerated* column. The Analytics portal then limits the display to only 10,000 records. This approach isn't optimal.
+The preceding query could return too many results though, and it might also take some time. The query sorts the entire `SecurityEvent` table by the `TimeGenerated` column. The Analytics portal then limits the display to only 10,000 records. This approach isn't optimal.
 
-The best way to get only the latest 10 records is to use **top**, which sorts the entire table on the server side and then returns the top records:
+The best way to get only the latest 10 records is to use `top`, which sorts the entire table on the server side and then returns the top records:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descending is the default sorting order, so you would usually omit the **desc** argument. The output looks like this example.
+Descending is the default sorting order, so you would usually omit the `desc` argument. The output looks like this example.
 
 ![Screenshot that shows the top 10 records sorted in descending order.](media/get-started-queries/top10.png)
 
 ## The where operator: Filter on a condition
 Filters, as indicated by their name, filter the data by a specific condition. Filtering is the most common way to limit query results to relevant information.
 
-To add a filter to a query, use the **where** operator followed by one or more conditions. For example, the following query returns only *SecurityEvent* records where _Level_ equals _8_:
+To add a filter to a query, use the `where` operator followed by one or more conditions. For example, the following query returns only `SecurityEvent` records where `Level equals _8`:
 
 ```Kusto
 SecurityEvent
@@ -109,27 +109,27 @@ When you write filter conditions, you can use the following expressions:
 | == | Check equality<br>(case-sensitive) | `Level == 8` |
 | =~ | Check equality<br>(case-insensitive) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | Check inequality<br>(both expressions are identical) | `Level != 4` |
-| *and*, *or* | Required between conditions| `Level == 16 or CommandLine != ""` |
+| `and`, `or` | Required between conditions| `Level == 16 or CommandLine != ""` |
 
 To filter by multiple conditions, you can use either of the following approaches:
 
-Use **and**, as shown here:
+Use `and`, as shown here:
 
 ```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-Pipe multiple **where** elements, one after the other, as shown here:
+Pipe multiple `where` elements, one after the other, as shown here:
 
 ```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
 ```
-	
+
 > [!NOTE]
-> Values can have different types, so you might need to cast them to perform comparisons on the correct type. For example, the *SecurityEvent Level* column is of type String, so you must cast it to a numerical type, such as *int* or *long*, before you can use numerical operators on it, as shown here:
+> Values can have different types, so you might need to cast them to perform comparisons on the correct type. For example, the `SecurityEvent Level` column is of type String, so you must cast it to a numerical type, such as `int` or `long`, before you can use numerical operators on it, as shown here:
 > `SecurityEvent | where toint(Level) >= 10`
 
 ## Specify a time range
@@ -156,7 +156,7 @@ In the preceding time filter, `ago(30m)` means "30 minutes ago." This query retu
 
 ## Use project and extend to select and compute columns
 
-Use **project** to select specific columns to include in the results:
+Use `project` to select specific columns to include in the results:
 
 ```Kusto
 SecurityEvent 
@@ -168,11 +168,11 @@ The preceding example generates the following output:
 
 ![Screenshot that shows the query "project" results list.](media/get-started-queries/project.png)
 
-You can also use **project** to rename columns and define new ones. The next example uses **project** to do the following:
+You can also use `project` to rename columns and define new ones. The next example uses `project` to do the following:
 
-* Select only the *Computer* and *TimeGenerated* original columns.
-* Display the *Activity* column as *EventDetails*.
-* Create a new column named *EventCode*. The **substring()** function is used to get only the first four characters from the **Activity** field.
+* Select only the `Computer` and `TimeGenerated` original columns.
+* Display the `Activity` column as `EventDetails`.
+* Create a new column named `EventCode`. The `substring()` function is used to get only the first four characters from the `Activity` field.
 
 ```Kusto
 SecurityEvent
@@ -180,7 +180,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-You can use **extend** to keep all original columns in the result set and define other ones. The following query uses **extend** to add the *EventCode* column. This column might not be displayed at the end of the table results. You would need to expand the details of a record to view it.
+You can use `extend` to keep all original columns in the result set and define other ones. The following query uses `extend` to add the `EventCode` column. This column might not be displayed at the end of the table results. You would need to expand the details of a record to view it.
 
 ```Kusto
 SecurityEvent
@@ -189,9 +189,9 @@ SecurityEvent
 ```
 
 ## Use summarize to aggregate groups of rows
-Use **summarize** to identify groups of records according to one or more columns and apply aggregations to them. The most common use of **summarize** is *count*, which returns the number of results in each group.
+Use `summarize` to identify groups of records according to one or more columns and apply aggregations to them. The most common use of `summarize` is `count`, which returns the number of results in each group.
 
-The following query reviews all *Perf* records from the last hour, groups them by *ObjectName*, and counts the records in each group:
+The following query reviews all `Perf` records from the last hour, groups them by `ObjectName`, and counts the records in each group:
 
 ```Kusto
 Perf
@@ -207,7 +207,7 @@ Perf
 | summarize count() by ObjectName, CounterName
 ```
 
-Another common use is to perform mathematical or statistical calculations on each group. The following example calculates the average *CounterValue* for each computer:
+Another common use is to perform mathematical or statistical calculations on each group. The following example calculates the average `CounterValue` for each computer:
 
 ```Kusto
 Perf
@@ -215,7 +215,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Unfortunately, the results of this query are meaningless because we mixed together different performance counters. To make the results more meaningful, calculate the average separately for each combination of *CounterName* and *Computer*:
+Unfortunately, the results of this query are meaningless because we mixed together different performance counters. To make the results more meaningful, calculate the average separately for each combination of `CounterName` and `Computer`:
 
 ```Kusto
 Perf
@@ -226,7 +226,7 @@ Perf
 ### Summarize by a time column
 Grouping results can also be based on a time column or another continuous value. Simply summarizing `by TimeGenerated`, though, would create groups for every single millisecond over the time range because these values are unique.
 
-To create groups based on continuous values, it's best to break the range into manageable units by using **bin**. The following query analyzes *Perf* records that measure free memory (*Available MBytes*) on a specific computer. It calculates the average value of each 1-hour period over the last 7 days:
+To create groups based on continuous values, it's best to break the range into manageable units by using `bin`. The following query analyzes `Perf` records that measure free memory (`Available MBytes`) on a specific computer. It calculates the average value of each 1-hour period over the last 7 days:
 
 ```Kusto
 Perf 

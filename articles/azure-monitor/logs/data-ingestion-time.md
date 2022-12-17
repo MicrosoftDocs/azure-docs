@@ -35,8 +35,8 @@ Agents and management solutions use different strategies to collect data from a 
 | Windows events, Syslog events, and performance metrics | Collected immediately| |
 | Linux performance counters | Polled at 30-second intervals| |
 | IIS logs and text logs | Collected after their timestamp changes | For IIS logs, this schedule is influenced by the [rollover schedule configured on IIS](../agents/data-sources-iis-logs.md). |
-| Active Directory Replication solution | Assessment every five days | The agent collects these logs only when assessment is complete.|
-| Active Directory Assessment solution | Weekly assessment of your Active Directory infrastructure | The agent collects these logs only when assessment is complete.|
+| Active Directory Replication solution | Assessment every five days | The agent collects the logs only when assessment is complete.|
+| Active Directory Assessment solution | Weekly assessment of your Active Directory infrastructure | The agent collects the logs only when assessment is complete.|
 
 ### Agent upload frequency
 
@@ -85,7 +85,7 @@ Another process that adds latency is the process that handles custom logs. In so
 
 ### New custom data types provisioning
 
-When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This is a one-time overhead that occurs only on the first appearance of this data type.
+When a new type of custom data is created from a [custom log](../agents/data-sources-custom-logs.md) or the [Data Collector API](../logs/data-collector-api.md), the system creates a dedicated storage container. This one-time overhead occurs only on the first appearance of this data type.
 
 ### Surge protection
 
@@ -108,7 +108,7 @@ Ingestion time might vary for different resources under different circumstances.
 |:---|:---|:---|
 | Record created at data source | [TimeGenerated](./log-standard-columns.md#timegenerated) <br>If the data source doesn't set this value, it will be set to the same time as _TimeReceived. | If at processing time the Time Generated value is older than 3 days, the row will be dropped. |
 | Record received by Azure Monitor ingestion endpoint | [_TimeReceived](./log-standard-columns.md#_timereceived) | This field isn't optimized for mass processing and shouldn't be used to filter large datasets. |
-| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using ingestion_time() if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
+| Record stored in workspace and available for queries | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | We recommend using `ingestion_time()` if there's a need to filter only records that were ingested in a certain time window. In such cases, we recommend also adding a `TimeGenerated` filter with a larger range. |
 
 ### Ingestion latency delays
 You can measure the latency of a specific record by comparing the result of the [ingestion_time()](/azure/kusto/query/ingestiontimefunction) function to the `TimeGenerated` property. This data can be used with various aggregations to discover how ingestion latency behaves. Examine some percentile of the ingestion time to get insights for large amounts of data.
@@ -137,7 +137,7 @@ Heartbeat
 | render timechart
 ```
 
-Use the following query to show computer ingestion time by the country/region they're located in, which is based on their IP address:
+Use the following query to show computer ingestion time by the country/region where they're located, which is based on their IP address:
 
 ``` Kusto
 Heartbeat 
@@ -160,7 +160,7 @@ AzureDiagnostics
 ### Resources that stop responding
 In some cases, a resource could stop sending data. To understand if a resource is sending data or not, look at its most recent record, which can be identified by the standard `TimeGenerated` field.
 
-Use the _Heartbeat_ table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently:
+Use the `Heartbeat` table to check the availability of a VM because a heartbeat is sent once a minute by the agent. Use the following query to list the active computers that haven’t reported heartbeat recently:
 
 ``` Kusto
 Heartbeat  
