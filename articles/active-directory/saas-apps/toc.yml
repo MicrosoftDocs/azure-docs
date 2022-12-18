@@ -921,6 +921,8 @@
         href: flatter-files-tutorial.md
       - name: Flexera One
         href: flexera-one-tutorial.md  
+      - name: Flipsnack SAML
+        href: flipsnack-saml-tutorial.md
       - name: Float
         href: float-tutorial.md
       - name: Flock
