@@ -171,7 +171,7 @@ items:
     - name: Custom labels
       displayName: structure, selection, labels, tables, tabular, train
       href: concept-custom-label.md
-    - name: Custom label tutorial-logic-apps.md
+    - name: Custom labeling tips
       displayName: structure, selection, labels, tables, tabular, train, tips
       href: concept-custom-label-tips.md
     - name: Composed models

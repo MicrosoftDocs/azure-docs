@@ -59,6 +59,24 @@ Managed attributes can be applied in the [asset details page](catalog-asset-deta
 
 Managed attributes can be programmatically created and applied using the business metadata APIs in Apache Atlas 2.2. For more information, see the [Use Atlas 2.2 APIs](tutorial-atlas-2-2-apis.md) tutorial.
 
+## Searching by managed attributes
+
+Once you have created managed attributes, you can refine your [data catalog searches](how-to-search-catalog.md) using these attributes.
+
+1. In a data catalog search, to refine by a managed attribute, first select **Add filter** at the top of the search.
+
+    :::image type="content" source="media/how-to-managed-attributes/add-filter.png" alt-text="Screenshot showing the add filter button highlighted on a search in the Data Catalog.":::
+
+1. Select the drop-down, scroll to your list of managed attributes, and select one.
+
+    :::image type="content" source="media/how-to-managed-attributes/select-managed-attributes.png" alt-text="Screenshot showing the filter dropdown with the list of added managed attributes highlighted.":::
+
+1. Select your operator, which will be different based on the kinds of values allowed by the attribute. In this example, we've selected Cost Center, which is a text value, so we can compare Cost Center with the text we'll enter.
+
+    :::image type="content" source="media/how-to-managed-attributes/select-operator.png" alt-text="Screenshot showing the filter operator dropdown with the available operators highlighted.":::
+
+1. Enter your values and the search will run with your new filter.
+
 ## Known limitations
 
 Below are the known limitations of the managed attribute feature as it currently exists in Microsoft Purview.
