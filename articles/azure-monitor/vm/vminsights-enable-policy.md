@@ -103,24 +103,24 @@ To create remediation tasks from the Azure portal:
     
     [![Policy compliance for Azure VMs](./media/vminsights-enable-policy/policy-view-compliance.png)](./media/vminsights-enable-policy/policy-view-compliance.png#lightbox)
     
-1. Select an assignment to view its details.
+1. Select an assignment to view its details. This opens the **Initiative compliance** page, which lists the policy definitions in the initiative and whether each is in compliance.
     
     [![Compliance details](media/vminsights-enable-policy/compliance-details.png)](media/vminsights-enable-policy/compliance-details.png#lightbox)
 
-    This opens the **Initiative compliance** page, which lists the policy definitions in the initiative and whether each is in compliance.
-    
-1. Select a policy definition to view its details. Scenarios that policy definitions will show as out of compliance include the following:
+    Policy definitions are considered non-compliant if:
 
-    * Log Analytics agent or Dependency agent isn't deployed. Create a remediation task to mitigate.
-    * VM image (OS) isn't identified in the policy definition. The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported.
-    * VMs aren't logging to the specified Log Analytics workspace. Some VMs in the initiative scope are connected to a Log Analytics workspace other than the one that's specified in the policy assignment.
+    * Azure Monitor Agent, Log Analytics agent, or Dependency agent aren't deployed. Create a remediation task to mitigate.
+    * VM image (OS) isn't identified in the policy definition. Policies can only verify well-known Azure VM images. Check the documentation to see whether the VM OS is supported.
+    * Some VMs in the initiative scope are connected to a Log Analytics workspace other than the one that's specified in the policy assignment.
     
+    
+1. Select a policy definition to open the **Policy compliance** page. 
+
 1. To create a remediation task to mitigate compliance issues, select **Create Remediation Task**. 
 
     [![Policy compliance details](media/vminsights-enable-policy/policy-compliance-details.png)](media/vminsights-enable-policy/policy-compliance-details.png#lightbox)
 
     
-
     [![New remediation task](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
 
 1. Select **Remediate** to create the remediation task and then **Remediate** to start it. You will most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
