@@ -178,6 +178,8 @@
   items:
     - name: Cluster operations
       items:
+        - name: Maintaining and upgrading an AKS cluster
+          href: upgrade.md
         - name: Abort long running operations
           href: manage-abort-operations.md
         - name: Automatically upgrade an AKS cluster
