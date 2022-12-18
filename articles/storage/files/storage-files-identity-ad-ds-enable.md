@@ -7,7 +7,7 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 11/29/2022
 ms.author: kendownie 
-ms.custom: devx-track-azurepowershell
+ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 
 # Enable AD DS authentication for Azure file shares
@@ -251,4 +251,4 @@ AzureStorageID:<yourStorageSIDHere>
 
 ## Next steps
 
-You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md).
+You've now successfully enabled AD DS on your storage account. To use the feature, you must [assign share-level permissions](storage-files-identity-ad-ds-assign-permissions.md).

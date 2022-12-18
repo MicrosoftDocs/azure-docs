@@ -85,7 +85,7 @@ If you want to disable any of the plans, turn the plan off. The extensions used 
 
 Certain plans allow you to customize your protection.
 
-- Learn about the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which plan you want to apply to your subscription.
+- Learn about the [Defender for Servers plans](plan-defender-for-servers-select-plan.md#plan-features) to help you choose which plan you want to apply to your subscription.
 - Defender for Databases lets you [select which type of resources you want to protect](quickstart-enable-database-protections.md).
 - Learn more about [how to enable Defender for Containers](defender-for-containers-enable.md) for different Kubernetes environments.
 - Learn about the [monitoring components](monitoring-components.md) that the Defender plans use to collect data from your Azure, hybrid, and multicloud resources.

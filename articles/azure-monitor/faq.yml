@@ -473,7 +473,7 @@ sections:
           
           * [Set firewall exceptions](app/ip-addresses.md)
           * [Set up an ASP.NET server](app/status-monitor-v2-overview.md)
-          * [Set up a Java server](app/java-2x-agent.md)
+          * [Set up a Java server](app/deprecated-java-2x.md#monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps)
           
           *How many Application Insights resources should I deploy:*
           
@@ -564,7 +564,7 @@ sections:
           * HTTP requests
           * [Dependencies](app/asp-net-dependencies.md). Calls to: SQL Databases; HTTP calls to external services; Azure Cosmos DB, table, blob storage, and queue.
           * [Exceptions](app/asp-net-exceptions.md) and stack traces.
-          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/java-2x-collectd.md).
+          * [Performance Counters](app/performance-counters.md) - If you use [Azure Monitor Application Insights Agent](app/status-monitor-v2-overview.md), [Azure monitoring for VM or Virtual Machine Scale Set](app/azure-vm-vmss-apps.md), or the [Application Insights collectd writer](app/deprecated-java-2x.md#collectd-linux-performance-metrics-in-application-insights-deprecated).
           * [Custom events and metrics](app/api-custom-events-metrics.md) that you code.
           * [Trace logs](app/asp-net-trace-logs.md) if you configure the appropriate collector.
           
@@ -592,12 +592,12 @@ sections:
           * Telemetry Processor to filter or add properties to selected telemetry items before they are sent from your app.
           * Telemetry Initializer to add properties to all items of telemetry.
           
-          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/java-2x-filter-telemetry.md).
+          Learn more for [ASP.NET](app/api-filtering-sampling.md) or [Java](app/deprecated-java-2x.md#filter-telemetry-in-your-java-web-app).
           
       - question: |
           How are city, country/region, and other geo location data calculated?
         answer: |
-          We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
+          We look up the IP address (IPv4 or IPv6) of the web client.
           
           * Browser telemetry: We collect the sender's IP address.
           * Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
@@ -881,25 +881,24 @@ sections:
         answer: |
           The following chart breaks out OpenTelemetry feature support for each language.
 
-          |Feature                                                                                                                                                                              | .NET      | Node.js   | Python    | Java               |
-          |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
-          | Distributed Tracing                                                                                                                                                                 | :warning: | :warning: | :warning: | :white_check_mark: |
-          | Metrics                                                                                                                                                                             | :warning: | :warning: | :warning: | :white_check_mark: |
-          | [Live Metrics](app/live-stream.md)                                                                                                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Logging API (console logs and logging libraries)                                                                                                                                    | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Profiler](profiler/profiler-overview.md)                                                                                                                                                    | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                                                                                                                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Azure AD authentication](app/azure-ad-authentication.md)                                                                                                                               | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Auto-populate cloud role name/role instance                                                                                                                                         | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Autopopulation of User ID and Authenticated User ID                                                                                                                                 | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Autopopulation of User IP                                                                                                                                                           | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Auto-populate cloud role name/role instance                                                                                                                                         | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Override [Operation Name](app/correlation.md#data-model-for-telemetry-correlation)                                                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Manually set User ID or Authenticated User ID                                                                                                                                       | :x:       | :x:       | :x:       | :white_check_mark: |
-          | Propagate Operation Name to Dependency Telemetry                                                                                                                                    | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Instrumentation libraries](app/opentelemetry-enable.md#instrumentation-libraries) for Azure Functions                                                                                                         | :x:       | :x:       | :x:       | :white_check_mark: |
-          | [Status](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/api.md#set-status) supports statuscode(unset,ok,error) and status-description. | :x:       | :x:       | :x:       | :white_check_mark: |
-
+          |Feature                                                                                                  | .NET      | Node.js   | Python    | Java               |
+          |---------------------------------------------------------------------------------------------------------|-----------|-----------|-----------|--------------------|
+          | [Distributed Tracing](app/distributed-tracing.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Custom Metrics](app/opentelemetry-enable.md#add-custom-metrics)                                        | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Standard Metrics](app/standard-metrics.md) (accuracy currently affected by sampling)                   | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Fixed-Rate Sampling](app/sampling.md)                                                                  | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Offline Storage & Automatic Retries](app/opentelemetry-enable.md#offline-storage-and-automatic-retries)| :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Exception Reporting](/app/asp-net-exceptions.md)                                                       | :warning: | :warning: | :warning: | :white_check_mark: |
+          | [Logs Collection](app/asp-net-trace-logs.md)                                                            | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Azure Active Directory (AAD) authentication](app/azure-ad-authentication.md)                           | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Auto-populate cloud role name/role instance on Azure](/app/correlation.md#role-names)                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Live Metrics](app/live-stream.md)                                                                      | :x:       | :x:       | :x:       | :white_check_mark: |
+          | Autopopulation of User ID, Authenticated User ID, and User IP                                           | :x:       | :x:       | :x:       | :white_check_mark: |
+          | Manually override/set Operation Name, User ID or Authenticated User ID                                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Adaptive Sampling](app/sampling.md#adaptive-sampling)                                                  | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Profiler](profiler/profiler-overview.md)                                                               | :x:       | :x:       | :x:       | :white_check_mark: |
+          | [Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)                                             | :x:       | :x:       | :x:       | :white_check_mark: |
+          
           **Key**
           - :white_check_mark: : This feature is available to all customers with formal support.
           - :warning: : This feature is available as a public preview. [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)

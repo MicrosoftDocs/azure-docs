@@ -55,16 +55,44 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect data network values
 
-Collect all the values in the following table to define the packet core instance's connection to the data network over the user plane interface.
+You can configure up to three data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.
+
+For each data network that you want to configure, collect all the values in the following table. These values define the packet core instance's connection to the data network over the user plane interface, so you need to collect them whether you're creating the data network or using an existing one.
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The name of the data network.                  |**Data network name**|
+   | The name of the data network. This could be an existing data network or a new one you'll create during packet core configuration.                 |**Data network name**|
    | The virtual network name on port 6 on your Azure Stack Edge Pro device corresponding to the user plane interface on the data network. For 5G, this interface is the N6 interface; for 4G, it's the SGi interface. | **ASE N6 virtual subnet** (for 5G) or **ASE SGi virtual subnet** (for 4G). |
    | The network address of the subnet from which dynamic IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support dynamic IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`192.0.2.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Dynamic UE IP pool prefixes**|
    | The network address of the subnet from which static IP addresses must be allocated to user equipment (UEs), given in CIDR notation. You won't need this address if you don't want to support static IP address allocation for this site. You identified this in [Allocate user equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools). The following example shows the network address format. </br></br>`203.0.113.0/24` </br></br>Note that the UE subnets aren't related to the access subnet.    |**Static UE IP pool prefixes**|
    | The Domain Name System (DNS) server addresses to be provided to the UEs connected to this data network. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses). </br></br>This value may be an empty list if you don't want to configure a DNS server for the data network. In this case, UEs in this data network will be unable to resolve domain names. | **DNS Addresses** |
    |Whether Network Address and Port Translation (NAPT) should be enabled for this data network. NAPT allows you to translate a large pool of private IP addresses for UEs to a small number of public IP addresses. The translation is performed at the point where traffic enters the data network, maximizing the utility of a limited supply of public IP addresses.</br></br>If you want to use [UE-to-UE traffic](private-5g-core-overview.md#ue-to-ue-traffic) in this data network, keep NAPT disabled.  |**NAPT**|
+
+## Collect local monitoring values
+
+You can use a self-signed or a custom certificate to secure access to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md) at the edge. We recommend that you provide your own HTTPS certificate signed by a globally known and trusted certificate authority (CA), as this provides additional security to your deployment and allows your browser to recognize the certificate signer.
+
+If you don't want to provide a custom HTTPS certificate at this stage, you don't need to collect anything. You'll be able to change this configuration later by following [Modify the local access configuration in a site](modify-local-access-configuration.md).
+
+If you want to provide a custom HTTPS certificate at site creation, follow the steps below. You'll need a certificate signed by a globally known and trusted CA. Your certificate must use a private key of type RSA or EC to ensure it's exportable (see [Exportable or non-exportable key](/azure/key-vault/certificates/about-certificates) for more information).
+
+   1. Either [create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) or choose an existing one to host your certificate. Ensure the Azure Key Vault is configured with **Azure Virtual Machines for deployment** resource access.
+   1. [Add the certificate to your Key Vault](/azure/key-vault/certificates/quick-create-portal). If you want to configure your certificate to renew automatically, see [Tutorial: Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) for information on enabling auto-rotation.
+      > [!NOTE]
+      > Certificate validation will always be performed against the latest version of the local access certificate in the Key Vault.
+      >
+      > If you enable auto-rotation, it might take up to four hours for certificate updates in the Key Vault to synchronize with the edge location.
+   1. Decide how you want to provide access to your certificate. You can use a Key Vault access policy or Azure role-based access control (Azure RBAC).
+
+      - [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal). Provide **Get** and **List** permissions under **Secret permissions** and **Certificate permissions** to the **Private Mobile Network** service principal.
+      - [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli). Provide **Key Vault Reader** and **Key Vault Secrets User** permissions to the **Private Mobile Network** service principal.
+
+   1. Collect the values in the following table.
+
+       |Value  |Field name in Azure portal  |
+       |---------|---------|
+       |The name of the Azure Key Vault containing the custom HTTPS certificate.|**Key vault**|
+       |The name of the CA-signed custom HTTPS certificate within the Azure Key Vault. |**Certificate**|
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [Azure CLI](howto-linkvnet-cli.md)
+> * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
@@ -76,6 +76,15 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 The *circuit owner* is the administrator/coadministrator of the subscription in which the ExpressRoute circuit is created. The circuit owner can authorize administrators/coadministrators of other subscriptions, referred to as *circuit users*, to use the dedicated circuit that they own. Circuit users who are authorized to use the organization's ExpressRoute circuit can link the virtual network in their subscription to the ExpressRoute circuit after they are authorized.
 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization will result in all links being deleted from the subscription whose access was revoked.
+
+  > [!NOTE]
+  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > The definition of the circuit owner is any role with the following access:
+  > - Microsoft.Network/expressRouteCircuits/authorizations/write
+  > - Microsoft.Network/expressRouteCircuits/authorizations/read
+  > - Microsoft.Network/expressRouteCircuits/authorizations/delete
+  >
+  > This includes the built-in roles such as Contributor, Owner and Network Contributor. Detailed description for the different [built-in roles](../role-based-access-control/built-in-roles.md).
 
 ### Circuit owner operations
 

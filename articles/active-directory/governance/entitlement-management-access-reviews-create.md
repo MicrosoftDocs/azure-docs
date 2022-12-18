@@ -1,6 +1,6 @@
 ---
-title: Create an access review of an access package in Microsoft Entra entitlement management
-description: Learn how to set up an access review in a policy for entitlement management access packages in Azure Active Directory.
+title: Create an access review of an access package in entitlement management
+description: Learn how to set up an access review in a policy for entitlement management access packages in Microsoft Entra.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want to create an access review for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
-# Create an access review of an access package in Microsoft Entra entitlement management
+# Create an access review of an access package in entitlement management
 
-To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in Microsoft Entra entitlement management. You can enable reviews when you create a new access package or edit an existing access package assignment policy. This article describes how to enable access reviews of access packages.
+To reduce the risk of stale access, you should enable periodic reviews of users who have active assignments to an access package in entitlement management. You can enable reviews when you create a new access package or edit an existing access package assignment policy. This article describes how to enable access reviews of access packages.
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ You can designate reviewers, or users can review their access themselves. By def
 
 The email will include instructions on how to review access to access packages. If the review is for users to review their access, show them the instructions on how to perform a self-review of their access packages.
   
-If you've assigned guest users as reviewers, and they haven't accepted their Azure AD guest invitation, they won't receive emails from Microsoft Entra access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails. 
+If you've assigned guest users as reviewers, and they haven't accepted their Azure AD guest invitation, they won't receive emails from access reviews. They must first accept the invite and create an account with Azure AD before they can receive the emails. 
 
 ## Next steps
 

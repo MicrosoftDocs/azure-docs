@@ -18,7 +18,7 @@ VM insights guest health allows you to view the health of virtual machines based
 See [Enable VM insights guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
 
 ## Pricing
-There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details on pricing models and costs.
+There's no direct cost for the guest health feature, but there's a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Azure Monitor Logs pricing details](../logs/cost-logs.md) for details on pricing models and costs.
 
 ## View virtual machine health
 The **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
@@ -27,7 +27,7 @@ The **Guest VM Health** column in the **Get Started** page gives you a quick vie
 
 
 ## Monitors
-Click on a virtual machine's health status to view the detailed status for each of its monitors. Each monitor measures the health of a particular component. The overall health of the virtual machine is determined by the health of its individual monitors. 
+Select a virtual machine's health status to view the detailed status for each of its monitors. Each monitor measures the health of a particular component. The overall health of the virtual machine is determined by the health of its individual monitors. 
 
 ![Monitors example](media/vminsights-health-overview/monitors.png)
 
@@ -45,9 +45,9 @@ The following table lists the aggregate and unit monitors currently available fo
 | Available memory | Unit | Available megabytes on the VM. |
 
 ## Health states
-Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state is true, then the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there is a state change.
+Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state are true, the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there's a state change.
 
-Each monitor has a lookback window and analyzes any samples collected within that time. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least 2 sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there is any disruption in the agent operation.
+Each monitor has a lookback window and analyzes any samples collected within that time. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least two sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there's any disruption in the agent operation.
 
 Monitors each have the potential health states in the following table and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state.
 
@@ -74,19 +74,19 @@ There are two types of monitors as shown in the following table.
 ### Health rollup policy
 The health state of a virtual machine is determined by the rollup of health from each of its unit and aggregate monitors. Each aggregate monitor uses a worst state health rollup policy where the state of the aggregate monitor matches the state of the child monitor with the worst health state.  
 
-In the following example, the **Free space** monitor is in a critical state which roles up to the aggregates for its instance and then to **File systems**. Even though **CPU utilization** in in a warning state, the virtual machine is set to critical since this is the worst state underneath it. If the free space were to return to a healthy state, then the virtual machine would change to a warning state since CPU utilization would then become the monitor with the worst state.
+In the following example, the **Free space** monitor is in a critical state which roles up to the aggregates for its instance and then to **File systems**. Even though **CPU utilization** is in a warning state, the virtual machine is set to critical since this is the worst state underneath it. If the free space were to return to a healthy state, then the virtual machine would change to a warning state since CPU utilization would then become the monitor with the worst state.
 
 ![Health rollup example](media/vminsights-health-overview/health-rollup-example.png)
 
 
 ## Monitor details
-Select a monitor to view its detail which includes the following tabs.
+Select a monitor to view its details, including the following tabs.
 
 **Overview** provides a description of the monitor, the last time it was evaluated, and values sampled to determine the current health state. The number of samples may vary based on the definition of the monitor and the volatility of the values.
 
 [![Monitor details overview](media/vminsights-health-overview/monitor-details-overview.png)](media/vminsights-health-overview/monitor-details-overview.png#lightbox)
 
-**History** lists the history of state changes for the monitor. You can expand any of the state changes to view values evaluated to determine the health state. Click **View configuration applied** to view the configuration of the monitor at the time that the health state was changed.
+**History** lists the history of state changes for the monitor. You can expand any of the state changes to view values evaluated to determine the health state. Select **View configuration applied** to view the configuration of the monitor at the time that the health state was changed.
 
 
 
@@ -96,8 +96,6 @@ Select a monitor to view its detail which includes the following tabs.
 View and modify the configuration of the monitor for the selected VM. See [Configure monitoring in VM insights guest health (preview)](vminsights-health-enable.md) for details.
 
 [![Monitor details configuration](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
-
-
 
 
 ## Next steps

@@ -94,6 +94,8 @@
       href: /dotnet/api/overview/azure/virtualmachines
   - name: Java
     items:
+    - name: Create and manage VMs using Java
+      href: ./windows/java.md
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference
@@ -151,7 +153,23 @@
   - name: SQL on Virtual Machines
     href: /azure/azure-sql/virtual-machines/index
   - name: High Performance Computing (HPC)
-    href: /azure/architecture/topics/high-performance-computing/
+    items:
+    - name: HPC on Azure
+      href: /azure/architecture/topics/high-performance-computing/
+    - name: HPC for H-series and N-series VMs
+      href: ./workloads/hpc/overview.md
+    - name: How to set up HPC/AI VMs
+      href: ./workloads/hpc/set-up-hpc-vms.md
+    - name: Configuration
+      items:
+      - name: Configure and optimize VMs
+        href: ./workloads/hpc/configure.md
+      - name: Enable InfiniBand
+        href: ./workloads/hpc/enable-infiniband.md
+      - name: Set up MPI
+        href: ./workloads/hpc/setup-mpi.md 
+    - name: Scaling applications
+      href: ./workloads/hpc/compiling-scaling-applications.md  
 - name: Instances
   items:
   - name: Sizes
@@ -329,23 +347,47 @@
         displayName: HPC, high performance compute, sizes, size
         href: sizes-hpc.md
       - name: H-series
-        href: h-series.md
+        items: 
+        - name: H-series
+          href: h-series.md
+        - name: H-series retirement
+          href: h-series-retirement.md
       - name: HB-series
         href: hb-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hb-series-overview.md
+        - name: Performance
+          href: ./workloads/hpc/hb-series-performance.md  
+        - name: HB-series retirement
+          href: hb-series-retirement.md
       - name: HBv2-series
         href: hbv2-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hbv2-series-overview.md
+        - name: Performance
+          href: ./workloads/hpc/hbv2-performance.md
       - name: HBv3-series
-        href: hbv3-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hbv3-series-overview.md
+        - name: HBv3-series
+          href: hbv3-series.md
+        - name: Performance
+          href: ./workloads/hpc/hbv3-performance.md
       - name: HBv4-series
         href: hbv4-series.md
       - name: HC-series
-        href: hc-series.md
+        items:
+        - name: Overview
+          href: ./workloads/hpc/hc-series-overview.md
+        - name: HC-series
+          href: hc-series.md
+        - name: Performance
+          href: ./workloads/hpc/hc-series-performance.md
       - name: HX-series
-        href: hx-series.md        
-      - name: H-series retirement
-        href: h-series-retirement.md
-      - name: HB-series retirement
-        href: hb-series-retirement.md
+        href: hx-series.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md

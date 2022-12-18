@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -21,13 +21,13 @@ ms.custom: H1Hack27Feb2017
 
 # Use Azure to host and run SAP workload scenarios
 
-When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc, we've got you covered.
+When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL Server, Oracle, Db2, etc., we've got you covered.
 
-Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure.
+Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. Our partnership with SAP lead to a variety of integration scenarios with the overall Microsoft ecosystem. Check out the **dedicated [Integration section](./integration-get-started.md)** to learn more.
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who are focussed on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focused on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
@@ -40,7 +40,7 @@ Changes to documents in the SAP on Azure workload section are listed at the [end
 If you have specific questions, we are going to point you to specific documents or flows in this section of the start page. You want to know:
 
 - Is Azure accepting new customers for HANA Large Instances? HANA Large Instance service is in sunset mode and doesn't accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24).
-- Can Azure Active Directory acounts be used to run the SAP ABAP stack in Windows guest OS. No, due to shortcomings in feature set of AAD, it can not be used for running the ABAP stack within the Windows guest OS
+- Can Azure Active Directory accounts be used to run the SAP ABAP stack in Windows guest OS. No, due to shortcomings in feature set of AAD, it can not be used for running the ABAP stack within the Windows guest OS
 - What Azure Services, Azure VM types and Azure storage services are available in the different Azure regions, check the site [Products available by region](https://azure.microsoft.com/global-infrastructure/services/)
 - Are third-party HA frameworks, besides Windows and Pacemaker supported? Check bottom part of [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - What Azure storage is best for my scenario? Read [Azure Storage types for SAP workload](./planning-guide-storage.md)
@@ -53,17 +53,18 @@ If you have specific questions, we are going to point you to specific documents 
 
 In the SAP workload documentation space, you can find the following areas:
 
-- **SAP on Azure Large Instances**: This documentation section is covering a bare-metal service that orginally was named HANA Large Instances. Different topics around this technology are covered in this section
+- **Integration with Microsoft Services** and **References** contain different links to integration scenarios between SAP and other Microsoft services. The list may not be complete.
+- **SAP on Azure Large Instances**: This documentation section is covering a bare-metal service that originally was named HANA Large Instances. Different topics around this technology are covered in this section
 - **Plan and Deploy (Azure VMs)**: Deploying SAP workload into Azure Infrastructure as a Service, you should go through the documents in this section first to learn more about the principle Azure components used and guidelines
 - **Storage (Azure VMs)**: This section includes documents that give recommendations how to use the different Azure storage types when deploying SAP workload on Azure
 - **DBMS Guides (Azure VMs)**: The section DBMS Guides covers specifics around deploying different DBMS that are supported for SAP workload in Azure IaaS
-- **High Availability (Azure VMs)**: In this section, many of the high availability configurations around SAP workload on Azure is covered. This section includes detailed documentation around deploying Windows  clustering and Pacemaker cluster configuration for the different SAP components and different database systems
-- **Automation Framework (Azure VMs)**: Automation Framework documentation is covering an a [Terraform and Ansible based automation framework](https://github.com/Azure/sap-automation) that allows automation of Azure infrastructure and SAP software
+- **High Availability (Azure VMs)**: In this section, many of the high availability configurations around SAP workload on Azure are covered. This section includes detailed documentation around deploying Windows clustering and Pacemaker cluster configuration for the different SAP components and different database systems
+- **Automation Framework (Azure VMs)**: Automation Framework documentation is covering a [Terraform and Ansible based automation framework](https://github.com/Azure/sap-automation) that allows automation of Azure infrastructure and SAP software
 - **Azure Monitor for SAP solutions**: Microsoft developed monitoring solutions specifically for SAP supported OS and DBMS, as well as S/4HANA and NetWeaver. This section documents the deployment and usage of the service
-- **Integration with Microsoft Services** and **References** contain different links to integration between SAP and other Microsoft services. The list may not be complete.
 
 ## Change Log
 
+- December 14, 2022: Fixes in recommendations of capacity for a few VM types in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - November 30, 2022: Added storage recommendations for Premium SSD v2 into [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - November 22, 2022: Release of Disaster Recovery guidelines for SAP workload on Azure - [Disaster Recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) and [Disaster Recovery recommendation for SAP workload](disaster-recovery-sap-guide.md).
 - November 22, 2022: Update of [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md) to add latest recommendations
@@ -106,7 +107,7 @@ In the SAP workload documentation space, you can find the following areas:
 - February 09, 2022: Add more information around 4K sectors usage of Db2 11.5 in [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
 - February 08, 2022: Style changes in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
 - February 07, 2022: Adding new functionality [ANF application volume groups for HANA](../../../azure-netapp-files/application-volume-group-introduction.md) in documents [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md) and [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
-- January 30, 2022: Adding context about SQL Server proprotional fill and expectations that SQL Server data files should be the same size and should have the same free space in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
+- January 30, 2022: Adding context about SQL Server proportional fill and expectations that SQL Server data files should be the same size and should have the same free space in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md)
 - January 24, 2022: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md), [HA for NFS on Azure VMs on SLES](./high-availability-guide-suse-nfs.md), [HA for SAP NNW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md), [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md) and  [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove cidr_netmask from Pacemaker configuration to allow the resource agent to determine the value automatically.
 - January 12, 2022: Change in [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to remove obsolete information for the SAP kernel that supports the scenario.
 - December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) to clarify Azure Load Balancer settings.
@@ -197,25 +198,3 @@ In the SAP workload documentation space, you can find the following areas:
 - September 08, 2020: Change in [High availability of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) to clarify fencing definitions
 - September 03, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to adapt to minimal 2 IOPS per 1 GB capacity with Ultra disk
 - September 02, 2020: Change in [Available SKUs for HLI](./hana-available-skus.md) to get more transparent in what SKUs are HANA certified
-- August 25, 2020: Change in [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) to fix typo
-- August 25, 2020: Change in [HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [Install SAP NW HA with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md) to introduce the option of using Azure shared disk and document SAP ERS2 architecture
-- August 25, 2020: Release of [multi-SID HA guide for SAP ASCS/SCS with WSFC and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
-- August 25, 2020: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and file share](./sap-high-availability-infrastructure-wsfc-file-share.md), [multi-SID HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) and [multi-SID HA guide for SAP ASCS/SCS with WSFC and SOFS file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) as a result of the content updates and restructuring in the HA guides for SAP ASCS/SCS with WFC and shared disk 
-- August 21, 2020: Adding new OS release into [Compatible Operating Systems for HANA Large Instances](./os-compatibility-matrix-hana-large-instance.md) as available operating system for HLI units of type I and II
-- August 18, 2020: Release of [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
-- August 17, 2020: Add information about using Azure Site Recovery for moving SAP NetWeaver systems from on-premises to Azure in article [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
-- 08/14/2020: Adding disk configuration advice for Db2 in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
-- August 11, 2020: Adding RHEL 7.6 into [Compatible Operating Systems for HANA Large Instances](./os-compatibility-matrix-hana-large-instance.md) as available operating system for HLI units of type I
-- August 10, 2020: Introducing cost conscious SAP HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) and making some updates to [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
-- August 04, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to emphasize the importance of reliable name resolution for Pacemaker clusters
-- August 04, 2020: Change in [SAP NW HA on WFCS with file share](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW HA on WFCS with shared disk](./sap-high-availability-installation-wsfc-shared-disk.md), [HA for SAP NW on Azure VMs](./high-availability-guide.md), [HA for SAP NW on Azure VMs on SLES](./high-availability-guide-suse.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [High availability for SAP NetWeaver on Azure VMs on RHEL](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to clarify the use of parameter `enque/encni/set_so_keepalive`
-- July 23, 2020: Added the [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) article explaining what you need to know before you buy an SAP HANA Large Instances reservation and how to make the purchase
-- July 16, 2020: Describe how to use Azure PowerShell to install new VM Extension for SAP in the [Deployment Guide](deployment-guide.md)
-- July 04,2020: Release of  [Azure Monitor for SAP solutions (preview)](./monitor-sap-on-azure.md)
-- July 01, 2020: Suggesting less expensive storage configuration based on Azure premium storage burst functionality in document [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) 
-- June 24, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to release new improved Azure Fence Agent and more resilient fencing configuration for devices, based on Azure Fence Agent 
-- June 24, 2020: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to release more resilient fencing configuration
-- June 23, 2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) guide and introduction of [Azure Storage types for SAP workload](./planning-guide-storage.md) guide
-- June 22, 2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
-- June 16, 2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) to add a link to SUSE Public Cloud Infrastructure 101 documentation 
-- June 10, 2020: Adding new HLI SKUs into [Available SKUs for HLI](./hana-available-skus.md) and [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md)
