@@ -722,8 +722,17 @@ All data from the table will be exported unless limitations are specified. This 
 | AMSStreamingEndpointRequests |  |
 | ANFFileAccess |  |
 | ApiManagementGatewayLogs |  |
+| AppAvailabilityResults |  |
+| AppBrowserTimings |  |
 | AppCenterError |  |
+| AppDependencies |  |
+| AppEvents |  |
+| AppExceptions |  |
+| AppMetrics |  |
+| AppPageViews |  |
+| AppPerformanceCounters |  |
 | AppPlatformSystemLogs |  |
+| AppRequests |  |
 | AppServiceAppLogs |  |
 | AppServiceAuditLogs |  |
 | AppServiceConsoleLogs |  |
@@ -731,6 +740,8 @@ All data from the table will be exported unless limitations are specified. This 
 | AppServiceHTTPLogs |  |
 | AppServicePlatformLogs |  |
 | AppServiceServerlessSecurityPluginData |  |
+| AppSystemEvents |  |
+| AppTraces |  |
 | ASimDnsActivityLogs |  |
 | ASimNetworkSessionLogs |  |
 | ATCExpressRouteCircuitIpfix |  |
@@ -785,7 +796,6 @@ All data from the table will be exported unless limitations are specified. This 
 | ContainerNodeInventory |  |
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
-| Custom |  |
 | DatabricksAccounts |  |
 | DatabricksClusters |  |
 | DatabricksDBFS |  |
@@ -909,6 +919,7 @@ All data from the table will be exported unless limitations are specified. This 
 | SentinelAudit |  |
 | SentinelHealth |  |
 | SfBAssessmentRecommendation |  |
+| SfBOnlineAssessmentRecommendation |  |
 | SharePointOnlineAssessmentRecommendation |  |
 | SignalRServiceDiagnosticLogs |  |
 | SigninLogs |  |
