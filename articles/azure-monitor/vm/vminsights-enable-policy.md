@@ -1,6 +1,6 @@
 ---
 title: Enable VM insights by using Azure Policy
-description: Describes how you enable VM insights for multiple Azure virtual machines or virtual machine scale sets using Azure Policy.
+description: Describes how you enable VM insights for multiple Azure virtual machines or Virtual Machine Scale Sets using Azure Policy.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
@@ -11,23 +11,23 @@ ms.date: 12/13/2022
 
 # Enable VM insights by using Azure Policy
 
-[Azure Policy](/azure/governance/policy/overview) lets you set and enforce requirements for all new resources created in your Azure environment. VM insights policy initiatives, which are predefined sets of policies created for VM insights, install the agents required for VM insights and enable monitoring on all new virtual machines in your Azure environment. This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, and hybrid virtual machines connected with Azure Arc using predefined VM insights policy initiates. 
+[Azure Policy](/azure/governance/policy/overview) lets you set and enforce requirements for all new resources created in your Azure environment. VM insights policy initiatives, which are predefined sets of policies created for VM insights, install the agents required for VM insights and enable monitoring on all new virtual machines in your Azure environment. This article explains how to enable VM insights for Azure virtual machines, Virtual Machine Scale Sets, and hybrid virtual machines connected with Azure Arc using predefined VM insights policy initiates. 
 
 > [!NOTE]
 > To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
-VM insights policy initiatives install Azure Monitor Agent and Dependency Agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on any Windows or Linux Azure virtual machines within a defined scope automatically.
+VM insights policy initiatives install Azure Monitor Agent and Dependency Agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on Windows or Linux Azure virtual machines in the defined scope automatically.
 
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs. 
 
 |Name |Description |
 |:---|:---|
 | Enable Azure Monitor for VMs with Azure Monitoring Agent (AMA) | Installs Azure Monitor Agent and Dependency agent on Azure VMs. |
-| Enable Azure Monitor for VMSS with Azure Monitoring Agent (AMA) | Installs Azure Monitor Agent and Dependency agent on Azure virtual machine scale sets. |
+| Enable Azure Monitor for VMSS with Azure Monitoring Agent (AMA) | Installs Azure Monitor Agent and Dependency agent on Azure Virtual Machine Scale Sets. |
 | Enable Azure Monitor for Hybrid VMs with AMA | Installs Azure Monitor Agent and Dependency agent on hybrid VMs connected with Azure Arc. |
-| Legacy - Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
-| Legacy - Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale sets. |
+| Legacy - Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure Virtual Machine Scale Sets. |
+| Legacy - Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure Virtual Machine Scale Sets. |
 
 ## Assign a VM insights policy initiative
 
@@ -42,7 +42,8 @@ To assign a VM insights policy initiative to a subscription or management group 
 
     [![Create assignment](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
     
-    This is the same page to assign an initiative in Azure Policy except that it's hardcoded with the scope that you selected and the **Enable VM insights** initiative definition. 
+    > [!NOTE]
+    > This is the standard Azure Policy policy initiative screen, except that it's hardcoded with the scope you selected and the **Enable VM insights** initiative definition. 
 
 1. (Optional) Change the **Assignment name** and add a **Description**. 
 1. Select **Exclusions** if you want to provide an exclusion to the scope. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
@@ -83,7 +84,7 @@ To see how many virtual machines exist in each of the management groups or subsc
     | **Assignment Status** | **Success** - All VMs in the scope have the Log Analytics and Dependency agents deployed to them.<br>**Warning** - The subscription isn't under a management group.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No VMs exist or a policy isn't assigned. |
     | **Compliant VMs** | Number of VMs that are compliant, which is the number of VMs that have both Log Analytics agent and Dependency agent installed. This will be blank if there are no assignments, no VMs in the scope, or not proper permissions. |
     | **Compliance** | The overall compliance number is the sum of distinct resources that are compliant divided by the sum of all distinct resources. |
-    | **Compliance State** | **Compliant** - All VMs in the scope virtual machines have the Log Analytics and Dependency agents deployed to them or any new VMs in the scope subject to the assignment have not yet been evaluated.<br>**Non-compliant** - There are VMs that have been evaluated but are not enabled and may require remediation.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No policy is assigned.  |
+    | **Compliance State** | **Compliant** - All VMs in the scope virtual machines have the Log Analytics and Dependency agents deployed to them or any new VMs in the scope subject to the assignment haven't yet been evaluated.<br>**Non-compliant** - There are VMs that have been evaluated but aren't enabled and may require remediation.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No policy is assigned.  |
 
     When you assign the initiative, the scope you select in the assignment could be the scope listed or a subset of it. For instance, you might have created an assignment for a subscription (initiative scope) and not a management group (coverage scope). In this case, the value of **Assignment Coverage** indicates the VMs in the initiative scope divided by the VMs in coverage scope. In another case, you might have excluded some VMs, resource groups, or a subscription from policy scope. If the value is blank, it indicates that either the policy or initiative doesn't exist or you don't have permission. Information is provided under **Assignment Status**.
 
@@ -123,7 +124,7 @@ To create remediation tasks from the Azure portal:
     
     [![New remediation task](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
 
-1. Select **Remediate** to create the remediation task and then **Remediate** to start it. You will most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
+1. Select **Remediate** to create the remediation task and then **Remediate** to start it. You'll most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
 
     [![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
     
@@ -132,7 +133,7 @@ To create remediation tasks from the Azure portal:
     
 
 ## Azure Policy
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
+To use Azure Policy to enable monitoring for Virtual Machine Scale Sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
 
 ![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/vminsights-enable-policy/virtual-machine-scale-set-assign-initiative.png)
 
@@ -140,7 +141,7 @@ Select the workspace that the data will be sent to. This workspace must have the
 
 ![Screenshot that shows selecting a workspace.](media/vminsights-enable-policy/virtual-machine-scale-set-workspace.png)
 
-Create a remediation task if you have existing virtual machine scale sets that need to be assigned this policy.
+Create a remediation task if you have existing Virtual Machine Scale Sets that need to be assigned this policy.
 
 ![Screenshot that shows creating a remediation task.](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
 
