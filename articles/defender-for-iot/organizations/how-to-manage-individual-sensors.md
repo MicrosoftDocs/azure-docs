@@ -33,17 +33,19 @@ Select the link in each widget to drill down for more information in your sensor
 
 ### Validate connectivity status
 
-Verify that your sensor is successfully connected to the Azure portal. If the sensor isn't connected to the Azure portal, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
+Verify that your sensor is successfully connected to the Azure portal directly from the sensor's **Overview** page. 
+
+If there are any connection issues, a disconnection message is shown in the **General Settings** area on the **Overview** page, and a **Service connection error** warning appears at the top of the page in the :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages** area. For example:
 
 :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-status.png" alt-text="Screenshot of a sensor page showing the connectivity status as disconnected." lightbox="media/how-to-manage-individual-sensors/connectivity-status.png":::
 
-Find more information about the issue by hovering over the :::image type="icon" source="media/how-to-manage-individual-sensors/information-icon.png" border="false"::: information icon. For example:
+1. Find more information about the issue by hovering over the :::image type="icon" source="media/how-to-manage-individual-sensors/information-icon.png" border="false"::: information icon. For example:
 
-:::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/connectivity-message.png" alt-text="Screenshot of a connectivity error message." lightbox="media/how-to-manage-individual-sensors/connectivity-message.png":::
 
-Take action by selecting the **Learn more** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**. For example:
+1. Take action by selecting the **Learn more** option under :::image type="icon" source="media/how-to-manage-individual-sensors/bell-icon.png" border="false"::: **System Messages**. For example:
 
-:::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/system-messages.png" alt-text="Screenshot of the system messages pane." lightbox="media/how-to-manage-individual-sensors/system-messages.png":::
 
 ## Manage sensor activation files
 
