@@ -462,6 +462,8 @@
         href: cisco-spark-tutorial.md
       - name: Cisco Umbrella
         href: cisco-umbrella-tutorial.md    
+      - name: Cisco Unified Communications Manager
+        href: cisco-unified-communications-manager-tutorial.md
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
       - name: Citrix ADC SAML Connector for Azure AD
