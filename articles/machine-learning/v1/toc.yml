@@ -268,8 +268,17 @@
           displayName: time series
           href: ../how-to-auto-train-forecast.md
         - name: Overview of forecasting methods in AutoML
-          displayName: auto ML, time series, methods
+          displayName: auto ML, time series, forecasting, methods
           href: ../how-to-automl-forecasting-methods.md
+        - name: Forecasting model selection in AutoML
+          displayName: auto ML, time series, forecasting, model selection, sweeping
+          href: ../how-to-automl-forecasting-sweeping.md
+        - name: Lagged features for time series forecasting in AutoML
+          displayName: auto ML, time series, lags
+          href: ../how-to-automl-forecasting-lags.md
+        - name: Frequently asked questions
+          displayName: auto ML, time series, forecasting, FAQ
+          href: ../how-to-automl-forecasting-faq.md
       - name: Set up AutoML to train computer vision models with Python
         displayName: auto ML, automl, SDK
         href: how-to-auto-train-image-models-v1.md
