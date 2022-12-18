@@ -79,7 +79,7 @@ To see how many virtual machines exist in each of the management groups or subsc
     | Function | Description | 
     |----------|-------------| 
     | **Scope** | Management group and subscription to which the initiative applies.|
-    | **Role** | Your role in the scope. The role can be **Reader**, **Owner**, or **Contributor**. This will be blank if you have access to the subscription but not to the management group it belongs to. Your role determines which data you can see and whether you can assign policies or initiatives (owner), edit them, or view compliance. |
+    | **Role** | Your role in the scope. The role can be **Reader**, **Owner**, **Contributor**, or blank if you have access to the subscription but not to the management group it belongs to. Your role determines which data you can see and whether you can assign policies or initiatives (owner), edit them, or view compliance. |
     | **Total VMs** | Total number of VMs in the scope, regardless of their status. For a management group, this is the sum total of VMs in all related subscriptions or child management groups. |
     | **Assignment Coverage** | Percentage of VMs covered by the initiative. |
     | **Assignment Status** | **Success** - Azure Monitor Agent or Log Analytics agent and Dependency agent deployed on all machines in scope.<br>**Warning** - The subscription isn't under a management group.<br>**Not Started** - A new assignment was added.<br>**Lock** - You don't have sufficient privileges to the management group.<br>**Blank** - No VMs exist or a policy isn't assigned. |
@@ -146,7 +146,6 @@ Create a remediation task if you have existing Virtual Machine Scale Sets that n
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with VM insights. 
-
-- To view discovered application dependencies, see [View VM insights Map](vminsights-maps.md). 
-- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+Learn how to: 
+- [View VM insights Map](vminsights-maps.md) to see application dependencies. 
+- [View Azure VM performance](vminsights-performance.md) to identify bottlenecks and overall utilization of your VM's performance.
