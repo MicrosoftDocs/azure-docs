@@ -42,10 +42,10 @@ Test Alert was successfully triggered.
 
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source.
 
-In such cases, create and configure capture filters on your OT network sensors to filter the traffic as needed. Capture filters use both include and exclude lists.
+In such cases, use include and/or exclude lists to create and configure capture filters on your OT network sensors. Capture filters ensure that the data that reaches Defender for IoT is only the data that you need to monitor.
 
 > [!NOTE]
-> Commands for applying traffic filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
+> Commands for applying capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 >
 
 ### Creating a new capture filter
