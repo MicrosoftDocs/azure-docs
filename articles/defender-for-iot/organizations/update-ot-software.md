@@ -79,11 +79,11 @@ You can update software on your sensors individually, directly from each sensor 
 > For more information, see [Update an on-premises management console](#update-an-on-premises-management-console).
 >
 
-# [From each sensor](#tab/sensor)
+# [From an OT sensor UI](#tab/sensor)
 
-This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console.
+This procedure describes how to manually download the new sensor software version and then run your update directly on the sensor console's UI.
 
-**To update sensor software directly from the sensor console**:
+**To update sensor software directly from the sensor UI**:
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Updates**.
 
@@ -149,9 +149,11 @@ The sensor update process won't succeed if you don't update the on-premises mana
 
     If updates fail, a retry option appears with an option to download the failure log. Retry the update process or open a support ticket with the downloaded log files for assistance.
 
-# [From the sensor UI](#tab/cli)
+# [From an OT sensor via CLI](#tab/cli)
 
-This procedure describes how to update OT sensor software via the CLI.
+This procedure describes how to update OT sensor software via the CLI, directly on the OT sensor.
+
+**To update sensor software directly from the sensor via CLI**:
 
 1. Use SFTP or SCP to copy the update file to the sensor machine.
 
