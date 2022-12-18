@@ -46,7 +46,7 @@ To assign a VM insights policy initiative to a subscription or management group 
     > This is the standard Azure Policy policy initiative screen, except that it's hardcoded with the scope you selected and the **Enable VM insights** initiative definition. 
 
 1. (Optional) Change the **Assignment name** and add a **Description**. 
-1. Select **Exclusions** if you want to provide an exclusion to the scope. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
+1. Select **Exclusions** if you want to exclude specific resources from the policy assignment. For example, your scope could be a management group, and you could specify a subscription in that management group to be excluded from the assignment.
 
     [![Assign initiative](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -56,10 +56,12 @@ To assign a VM insights policy initiative to a subscription or management group 
     [![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
    
     > [!NOTE]
-    > If you select a workspace that's not within the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. If you don't do this, you might see a deployment failure like `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+    > If you select a workspace that's not within the scope of the assignment, grant *Log Analytics Contributor* permissions to the policy assignment's Principal ID. Otherwise, you might get a deployment failure like `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 
-1. Select **Review + Create** to review the details before selecting **Create** to create the assignment. Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. See [Remediate compliance results](#remediate-compliance-results) below.
+1. Select **Review + Create** to review the initiative assignment details and select **Create** to create the assignment. 
+
+    Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. See [Remediate compliance results](#remediate-compliance-results) below.
 
 ### Review compliance for a VM insights policy initiative 
 
