@@ -121,7 +121,7 @@ class Program
 
 ```
 
-*Run your application**
+## Run your application
 
 Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 

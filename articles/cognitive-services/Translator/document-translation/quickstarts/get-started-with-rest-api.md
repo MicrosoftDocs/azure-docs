@@ -100,13 +100,13 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 
 ### Sample document
 
-> * For this project, you'll need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
+For this project, you'll need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart.
 
-## HTTP requests
+## HTTP request
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will be listed in your target container.
 
-### HTTP headers
+### Headers
 
 The following headers are included with each Document Translation API request:
 
@@ -115,9 +115,8 @@ The following headers are included with each Document Translation API request:
 |Ocp-Apim-Subscription-Key|**Required**: The value is the Azure key for your Translator or Cognitive Services resource.|
 |Content-Type|**Required**: Specifies the content type of the payload. Accepted values are application/json or charset=UTF-8.|
 
-### POST request body properties
+### POST request body
 
-* The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 * The POST request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs.
 * The `prefix` and `suffix` are case-sensitive strings to filter documents in the source path for translation. The `prefix` field is often used to delineate subfolders for translation. The `suffix` field is most often used for file extensions.
@@ -161,7 +160,7 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 ## Next steps
 
-Learn more about Document Translation APIs
+Learn more about Document Translation:
 
 * [Document Translation REST API guide](../reference/rest-api-guide.md)
 * [Language support](../../language-support.md)
