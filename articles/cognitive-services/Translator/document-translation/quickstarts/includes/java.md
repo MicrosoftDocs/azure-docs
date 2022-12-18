@@ -11,9 +11,10 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-For this quickstart, we'll use the Gradle build automation tool to create and run the application.
 
 ## Set up your Java environment
+
+For this quickstart, we'll use the Gradle build automation tool to create and run the application.
 
 * You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. _See_ [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
@@ -50,8 +51,8 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
 
 1. Accept the default project name (document-translation) by selecting **Return** or **Enter**.
 
-> [!NOTE]
-> It may take a few minutes for the entire application to be created, but soon you should see several folders and files including `build-gradle.kts`.
+    > [!NOTE]
+    > It may take a few minutes for the entire application to be created, but soon you should see several folders and files including `build-gradle.kts`.
 
 1. Update `build.gradle.kts` with the following code:
 
@@ -94,7 +95,7 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
     >
     > * You can also create a new file in your IDE named `DocumentTranslation.java`  and save it to the `java` directory.
 
-1. Copy and paste the document translation [code sample](#code-sample) into your **document-translation.go** file.
+1. Copy and paste the document translation [code sample](#code-sample) into your **DocumentTranslation.java** file.
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -102,8 +103,8 @@ For this quickstart, we'll use the Gradle build automation tool to create and ru
 
 ## Code sample
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, _see_ Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```java
 import java.io.*;
@@ -153,18 +154,22 @@ public class DocumentTranslation {
 
 ## Build and run your Java application
 
-Once you've added a code sample to your application, navigate back to your main project directory, **document-translation**, open a console window, and enter the following commands:
+* Once you've added a code sample to your application, navigate back to your main project directory, **document-translation**, open a console window, and enter the following commands:
 
-1. Build your application with the `build` command:
+  1. Build your application with the `build` command:
 
-    ```console
-    gradle build
-    ```
+      ```console
+      gradle build
+      ```
 
-1. Run your application with the `run` command:
+  1. Run your application with the `run` command:
 
-    ```console
-    gradle run
-    ```
+      ```console
+      gradle run
+      ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+
+* The translated documents will be listed in your target container.

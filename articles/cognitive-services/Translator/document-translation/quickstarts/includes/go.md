@@ -19,7 +19,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 >
 > If you're new to Go, try the [Get started with Go](/training/modules/go-get-started/) Learn module.
 
-1. If you haven't done so already, [download and install Go](https://go.dev/doc/install).
+1. If you haven't already done so, [download and install Go](https://go.dev/doc/install).
 
     * Download the Go version for your operating system.
     * Once the download is complete, run the installer.
@@ -33,7 +33,7 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **document-translation-qs**, and navigate to it.
 
-1. Create a new GO file named **document-translation.go** from the **document-translation-qs** directory.
+1. Create a new Go file named **document-translation.go** in the **document-translation-qs** directory.
 
 1. Copy and paste the document translation [code sample](#code-sample) into your **document-translation.go** file.
 
@@ -43,9 +43,9 @@ You can use any text editor to write Go applications. We recommend using the lat
 
 ## Code sample
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
-
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+  
 ```go
 
 package main
@@ -102,10 +102,14 @@ func main() {
 
 ## Run your Go application
 
-Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **document-translation-qs** folder and use the following command:
+* Once you've added a code sample to your application, your Go program can be executed in a command or terminal prompt. Make sure your prompt's path is set to the **document-translation-qs** folder and use the following command:
 
-```console
- go run document-translation.go
-```
+    ```console
+     go run document-translation.go
+    ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. 
+
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. 
+
+* The translated documents will be listed in your target container.

@@ -49,12 +49,12 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
 ## Translate all documents in a storage container
 
-> [!NOTE]
->
-> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
-> * The new output uses recent C# features that simplify the code you need to write.
-> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
-> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+    > [!NOTE]
+    >
+    > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+    > * The new output uses recent C# features that simplify the code you need to write.
+    > * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+    > * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the **Program.cs** file.
 
@@ -68,8 +68,9 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
 ## Code sample
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+
 
 ```csharp
 
@@ -123,8 +124,12 @@ class Program
 
 ## Run your application
 
-Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+* Once you've added a code sample to your application, choose the green **Start** button next to **document-translation-qs** to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+    :::image type="content" source="../../media/visual-studio/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
-The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+* The successful POST method returns a `202 Accepted`  response code indicating that the batch request was created by the service.
+
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. 
+
+* The translated documents will be listed in your target container.

@@ -71,11 +71,14 @@ The custom domain endpoint is a URL formatted with your resource name, hostname,
 Requests to the Translator service require a read-only key and custom endpoint to authenticate access.
 
 1. If you've created a new resource, after it deploys, select **Go to resource**. If you have an existing Document Translation resource, navigate directly to your resource page.
+
 1. In the left rail, under *Resource Management*, select **Keys and Endpoint**.
+
 1. Copy and paste your **`key`** and **`document translation endpoint`** in a convenient location, such as *Microsoft Notepad*. Only one key is necessary to make an API call.
+
 1. You'll paste it into the code sample to authenticate your request to the Document Translation service.
 
-:::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Image of the get your key field in Azure portal.":::
+    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Image of the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
@@ -123,9 +126,6 @@ The following headers are included with each Document Translation API request:
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
 * The `targetUrl` for each target language must be unique.
 
->[!NOTE]
-> If a file with the same name already exists in the destination, the job will fail.
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# programming](includes/csharp.md)]
@@ -162,5 +162,5 @@ That's it, congratulations! In this quickstart, you used Document Translation to
 
 Learn more about Document Translation:
 
-* [Document Translation REST API guide](../reference/rest-api-guide.md)
-* [Language support](../../language-support.md)
+> [!div class="nextstepaction"]
+>[Document Translation REST API guide](../reference/rest-api-guide.md) [Language support](../../language-support.md)

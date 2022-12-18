@@ -11,9 +11,11 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-For this quickstart, we'll use the Node.js JavaScript runtime environment to create and run the application.
+
 
 ## Set up your Node.js environment
+
+For this quickstart, we'll use the Node.js JavaScript runtime environment to create and run the application.
 
 1. If you haven't done so already, install the latest version of [Node.js](https://nodejs.org/en/download/). Node Package Manager (npm) is included with the Node.js installation.
 
@@ -37,7 +39,7 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
        npm init
     ```
 
-1. Specify your project's attributes using the prompts presented in the terminal.
+1. Specify your project's attributes by accepting the prompts presented in the terminal.
 
     * The most important attributes are name, version number, and entry point.
     * We recommend keeping `index.js` for the entry point name. The description, test command, GitHub repository, keywords, author, and license information are optional attributes—they can be skipped for this project.
@@ -70,8 +72,8 @@ For this quickstart, we'll use the Node.js JavaScript runtime environment to cre
 
 ## Code sample
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```javascript
 const axios = require('axios').default;
@@ -121,14 +123,18 @@ axios(config)
 
 ## Run your JavaScript application
 
-Once you've added the code sample to your application, run your program:
+* Once you've added the code sample to your application, run your program:
 
-1. Navigate to your application directory (document-translation).
+  1. Navigate to your application directory (document-translation).
+  
+  1. Type the following command in your terminal:
+  
+      ```console
+      node index.js
+      ```
 
-1. Type the following command in your terminal:
+* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. 
 
-    ```console
-    node index.js
-    ```
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. 
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+* The translated documents will be listed in your target container.

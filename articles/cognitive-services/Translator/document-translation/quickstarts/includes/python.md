@@ -34,7 +34,7 @@ recommendations: false
 
 1. Create a new Python file called **document-translation.py** in your **document-translation** directory.
 
-1. Copy and paste the document translation [code sample](#code-sample) into your `document-translation.py` file. 
+1. Copy and paste the document translation [code sample](#code-sample) into your `document-translation.py` file.
 
     * Update **`{your-document-translation-endpoint}`** and **`{your-key}`** with values from your Azure portal Translator instance.
 
@@ -42,8 +42,8 @@ recommendations: false
 
 ## Code sample
 
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
+  > [!IMPORTANT]
+  > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/security-features.md).
 
 ```python
 import requests
@@ -93,15 +93,19 @@ for key, value in response_headers.items():
 
 ## Run your Python application
 
-Once you've added a code sample to your application, build and run your program:
+* Once you've added a code sample to your application, build and run your program:
 
-1. Navigate to your **document-translation** directory.
+  1. Navigate to your **document-translation** directory.
 
-1. Type the following command in your console:
+  1. Type the following command in your console:
 
-    ```console
-    python document-translation.py
+      ```console
+      python document-translation.py
 
-   ```
+     ```
 
-The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service. The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests. The translated documents will be listed in your target container.
+* The successful POST method returns a `202 Accepted` response code indicating that the batch request was created by the service.
+
+* The POST request also returns response headers including `Operation-Location` that provides a value used in subsequent GET requests.
+
+* The translated documents will be listed in your target container.
