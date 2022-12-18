@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 12/16/2022
 ms.author: jasteppe
 ---
 
@@ -27,7 +27,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC?](../../role-based-access-control/overview.md)
+- Owner or Contributor and User Access Administrator role assignments in the Azure subscription. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 
 - The Microsoft.HealthcareApis and Microsoft.EventHub resource providers registered with your Azure subscription. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -35,7 +35,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to deploy the ARM template.
 
-## Review the ARM template
+## Review the ARM template - Optional
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/). 
 
