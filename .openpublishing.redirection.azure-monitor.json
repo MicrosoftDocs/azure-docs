@@ -5586,6 +5586,11 @@
             "source_path_from_root": "/articles/azure-monitor/vm/tutorial-monitor-vm-enable.md",
             "redirect_url": "/azure/azure-monitor/vm/tutorial-monitor-vm-enable-insights",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/logs/collect-sccm.md",
+            "redirect_url": "/mem/configmgr/core/plan-design/changes/deprecated/removed-and-deprecated-cmfeatures",
+            "redirect_document_id": false
         }
     ]
 }
