@@ -13,15 +13,13 @@ ms.date: 12/18/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=adfb8027-21ca-4bd0-9e54-28b0d642558a" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [04:09](/shows/mdc-in-the-field/defender-easm#time=01m11s) - How Defender for Cloud leverages Defender TI
+- [04:09](/shows/mdc-in-the-field/defender-easm#time=04m09s) - How Defender for Cloud leverages Defender TI
 
-- [05:25](/shows/mdc-in-the-field/defender-easm#time=02m59s) - What is reputation score in Defender TI
+- [05:25](/shows/mdc-in-the-field/defender-easm#time=05m25s) - What is reputation score in Defender TI
 
-- [07:15](/shows/mdc-in-the-field/defender-easm#time=05m55s) - How to try Defender TI
+- [07:15](/shows/mdc-in-the-field/defender-easm#time=07m15s) - How to try Defender TI
 
-- [08:45](/shows/mdc-in-the-field/defender-easm#time=09m50s) - Demonstration
-
-- [11:51](/shows/mdc-in-the-field/security-explorer#time=11m51s) - Demonstration
+- [08:45](/shows/mdc-in-the-field/defender-easm#time=08m45s) - Demonstration
 
 
 ## Recommended resources
