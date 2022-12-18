@@ -171,7 +171,7 @@ Cache Hits/Misses describe the request number cache hits and cache misses for cl
 
 This report takes caching scenarios into consideration and requests that met the following requirements are taken into calculation. 
 
-* The requested content was cached on the POP closest to the requester or origin shield. 
+* The requested content was cached on a Front Door PoP.
 
 * Partial cached contents for object chunking.
 

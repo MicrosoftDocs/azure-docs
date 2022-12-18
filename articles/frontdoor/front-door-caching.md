@@ -17,16 +17,6 @@ zone_pivot_groups: front-door-tiers
 
 In this article, you'll learn how Azure Front Door Standard and Premium tier routes and rule sets behave when you have caching enabled. Azure Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing.
 
-## Caching architecture
-
-When caching is configured on your route, Front Door uses a multi-tier caching architecture. When a request is received, the edge site that receives the request checks its cache for a valid response. If none is available, it also checks a regional cache. This approach helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
-
-Each Front Door edge site manages its own cache, and requests might be served by different edge sites. As a result, you might still see some traffic reach your origin, even if you served cached responses.
-
-## Request methods
-
-Only requests that use the `GET` request method are cacheable. All other request methods are always proxied through the network.
-
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
@@ -34,6 +24,16 @@ Only requests that use the `GET` request method are cacheable. All other request
 The following document specifies behaviors for Azure Front Door (classic) with routing rules that have enabled caching. Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing, it also supports caching behaviors just like any other CDN.
 
 ::: zone-end
+
+## Caching architecture
+
+When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
+
+Each Front Door edge site manages its own cache, and requests might be served by different edge sites. As a result, you might still see some traffic reach your origin, even if you served cached responses.
+
+## Request methods
+
+Only requests that use the `GET` request method are cacheable. All other request methods are always proxied through the network.
 
 ## Delivery of large files
 
@@ -202,11 +202,18 @@ If the origin response is cacheable, then the `Set-Cookie` header is removed bef
 
 In addition, Front Door attaches the `X-Cache` header to all responses. The `X-Cache` response header includes one of the following values:
 
-- `TCP_HIT`: The first byte of the request is a cache hit in the Front Door edge. 
-- `TCP_REMOTE_HIT`: The first byte of the request is a cache hit in the regional cache (origin shield layer) but a miss in the edge cache. 
+- `TCP_HIT` or `TCP_REMOTE_HIT`: The first byte of the request is a cache hit, and content is served from the Front Door cache.
 - `TCP_MISS`: The first byte of the request is a cache miss, and the content is served from the origin.
 - `PRIVATE_NOSTORE`: Request can't be cached because the *Cache-Control* response header is set to either *private* or *no-store*.
 - `CONFIG_NOCACHE`: Request is configured to not cache in the Front Door profile.
+
+::: zone pivot="front-door-standard-premium"
+
+## Logs and reports
+
+The [Front Door Access Log](how-to-logs.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Front Door's cache is used in your application.
+
+::: zone-end
 
 ## Cache behavior and duration
 
