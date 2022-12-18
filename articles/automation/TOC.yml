@@ -43,6 +43,8 @@
       href: /powershell/dsc/overview
     - name: Automation network configuration details
       href: automation-network-configuration.md
+    - name: Azure Automation extension for Visual Studio Code
+      href: automation-runbook-authoring.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
@@ -98,6 +100,8 @@
               href: delete-run-as-account.md
             - name: Manage Run As account
               href: manage-runas-account.md
+        - name: Use Automation extension for Visual Studio Code
+          href: runbook-authoring-extension-for-vscode.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
