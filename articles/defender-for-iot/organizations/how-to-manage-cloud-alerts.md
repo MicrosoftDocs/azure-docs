@@ -43,8 +43,6 @@ The alerts displayed on the Azure portal are alerts that have been detected by c
 
 This section describes how to view alert details in the Azure portal.
 
-To learn about data retention for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).
-
 **To view Defender for IoT alerts on the Azure portal**:
 
 Go to **Defender for IoT** > **Alerts (Preview)**.
@@ -176,4 +174,7 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 ## Next steps
 
-For more information, see [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
+For more information, see:
+
+- [Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md#gain-insight-into-global-regional-and-local-threats).
+- [Alert data retention](references-data-retention.md#alert-data-retention).

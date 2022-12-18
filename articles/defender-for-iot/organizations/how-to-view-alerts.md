@@ -62,6 +62,14 @@ The following information is available from the Alerts page:
 1. Select **Edit Columns** from the Alerts page.
 1. Add and remove columns as required from the Edit columns dialog box.
 
+**How long are alerts saved?**
+
+- New alerts are automatically closed if no identical traffic is detected 14 days after the initial detection. After 90 days of being closed, the alert is removed from the sensor console.  
+
+- If identical traffic is detected after the initial 14 days, the 14-day count for network traffic is reset.
+
+Changing the status of an alert to *Learn*, *Mute* or *Close* doesn't affect how long the alert is displayed in the sensor console.
+
 ### Filter the view
 
 Use filter, grouping and text search tools to view alerts of interest to you.
@@ -186,4 +194,4 @@ For more information, see:
 
 - [Accelerate alert workflows](how-to-accelerate-alert-incident-response.md)
 
-To learn about data retention for alerts, see [Alerts retention periods](references-data-retention.md#alerts-retention-periods).
+- [Alert data retention](references-data-retention.md#alert-data-retention)

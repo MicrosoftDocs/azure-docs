@@ -46,8 +46,6 @@ To export device inventory data, select the **Import/Export file** :::image type
 
 Save the exported file locally.
 
-To learn about data retention for device inventory, see [Devices retention periods](references-data-retention.md#devices-retention-periods).
-
 ## Add to and enhance device inventory data
 
 Use information from other sources, such as CMDBs, DNS, firewalls, and Web APIs, to enhance the data shown in your device inventory. For example, use enhanced data to present information about the following items:
@@ -168,3 +166,4 @@ For more information, see:
 
 - [Control what traffic is monitored](how-to-control-what-traffic-is-monitored.md)
 - [Detect Windows workstations and servers with a local script](detect-windows-endpoints-script.md)
+- [Devices retention periods](references-data-retention.md#devices-retention-periods).

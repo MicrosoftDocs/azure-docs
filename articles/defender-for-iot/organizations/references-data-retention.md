@@ -7,7 +7,7 @@ ms.date: 12/14/2022
 
 # Data retention across Microsoft Defender for IoT
 
-Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles. 
+Microsoft Defender for IoT stores data in the Azure portal, on OT network sensors, and on-premises management consoles.
 
 Each storage location affords a certain storage capacity and retention times. This article describes how  much and how long each type of data is stored in each location before it's either deleted or overridden.
 
@@ -55,7 +55,7 @@ For more information, see [Enhance security posture with security recommendation
 
 ## OT event timeline retention
 
-OT event timeline data is stored on OT network sensors only, and differs depending on the sensor's [hardware profile](ot-appliance-sizing.md). 
+OT event timeline data is stored on OT network sensors only, and differs depending on the sensor's [hardware profile](ot-appliance-sizing.md).
 
 The following table lists the maximum number of events that can be stored for each hardware profile:
 
@@ -75,7 +75,7 @@ For more information, see [Track sensor activity](how-to-track-sensor-activity.m
 
 Only service and processing log files are stored on the Azure portal, and are retained for 30 days.
 
-Other OT network monitoring log files are stored only on the OT network sensor and on-premises management console. 
+Other OT network monitoring log files are stored only on the OT network sensor and on-premises management console.
 
 On both the OT sensor and the on-premises management console, older log files are overridden when the appliance's storage has reached its maximum capacity. Log file sizes differ depending on the amount of content, but the average size per log file is 100-150 MB. <!--you'd written log here, not log file. I assume it's log file since each indidvidual log would be much, much smaller, no?-->
 
@@ -89,7 +89,7 @@ On both the OT sensor and the on-premises management console, older log files ar
 
 ## On-premises backup file capacity
 
-Both the OT network sensor and the on-premises management console have automated backups running daily, which are stored as follows: 
+Both the OT network sensor and the on-premises management console have automated backups running daily, which are stored as follows:
 
 | Storage type | Details |
 |---------|---------|
@@ -112,4 +112,3 @@ For more information, see:
 - [Manage individual OT network sensors](how-to-manage-individual-sensors.md)
 - [Manage OT network sensors from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md)
 - [Manage an on-premises management console](how-to-manage-the-on-premises-management-console.md)
-

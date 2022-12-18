@@ -133,8 +133,6 @@ When the sensors aren't registered with the on-premises management console, the 
 
 The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
-To learn about data retention for backups, see [Backups retention capacity](references-data-retention.md#backups-retention-capacity).
-
 ### Backup storage for sensors
 
 You can use the on-premises management console to maintain up to nine backups for each managed sensor, provided that the backed-up files don't exceed the maximum backup space that's allocated.
@@ -275,3 +273,4 @@ For more information, see:
 - [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
 - [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 - [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [On-premises backup file capacity](references-data-retention.md#on-premises-backup-file-capacity).
