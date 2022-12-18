@@ -22,6 +22,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | January 2023 |
 | [The built-in policy [Preview]: Private endpoint should be configured for Key Vault is set to be deprecated](#the-built-in-policy-preview-private-endpoint-should-be-configured-for-key-vault-is-set-to-be-deprecated) | January 2023 |
+| [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
@@ -56,6 +57,13 @@ We recommend that you use the recommendation to remediate vulnerabilities in you
 **Estimated date for change: January 2023**
 
 The built-in policy [`[Preview]: Private endpoint should be configured for Key Vault`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) is set to be deprecated and will be replaced with the [`[Preview]: Azure Key Vaults should use private link`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6abeaec-4d90-4a02-805f-6b26c4d3fbe9) policy.
+### The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed
+
+**Estimated date for change: January 2023**
+
+The secure score control `Protect your applications with Azure advanced networking solutions` will change to `Protect applications against DDoS attacks`.
+
+The updated name will be reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
 ## Next steps
 
