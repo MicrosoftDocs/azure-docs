@@ -63,6 +63,6 @@ sudo apt-get install defender-iot-micro-agent=<version>
 
 For more information, see:
 
-- [Install Defender for IoT micro agent for Edge (Preview)](how-to-install-micro-agent-for-edge.md)
+- [Install Defender for IoT micro agent for Edge](how-to-install-micro-agent-for-edge.md)
 
-- [Tutorial: Create a DefenderIotMicroAgent module twin (Preview)](tutorial-create-micro-agent-module-twin.md)
+- [Tutorial: Create a DefenderforIoTMicroAgent module twin](tutorial-create-micro-agent-module-twin.md)

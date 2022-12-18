@@ -91,7 +91,8 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.NetApp/netAppAccounts/capacityPools | Yes | Yes | [Azure NetApp Files capacity pools](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes | Yes | Yes | [Azure NetApp Files volumes](../essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways | Yes | No | [Azure Application Gateway](../essentials/metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/azurefirewalls | Yes | No | [Azure Firewall](../essentials/metrics-supported.md#microsoftnetworkazurefirewalls) |
+|Microsoft.Network/azureFirewalls | Yes | No | [Azure Firewall](../essentials/metrics-supported.md#microsoftnetworkazurefirewalls) |
+|microsoft.Network/networkWatchers/connectionMonitors | Yes | No | [Connection Monitors](../essentials/metrics-supported.md#microsoftnetworknetworkwatchersconnectionmonitors) |
 |Microsoft.Network/dnsZones | No | No | [Azure DNS zones](../essentials/metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | Yes | No |[Azure ExpressRoute circuits](../essentials/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRouteGateways | Yes | No |[Azure ExpressRoute gateways](../essentials/metrics-supported.md#microsoftnetworkexpressroutegateways) |

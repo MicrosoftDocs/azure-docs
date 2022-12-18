@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2022
+ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 14, 2022: Fixes in recommendations of capacity for a few VM types in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - November 30, 2022: Added storage recommendations for Premium SSD v2 into [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - November 22, 2022: Release of Disaster Recovery guidelines for SAP workload on Azure - [Disaster Recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) and [Disaster Recovery recommendation for SAP workload](disaster-recovery-sap-guide.md).
 - November 22, 2022: Update of [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md) to add latest recommendations
@@ -197,25 +198,3 @@ In the SAP workload documentation space, you can find the following areas:
 - September 08, 2020: Change in [High availability of SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) to clarify fencing definitions
 - September 03, 2020: Change in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) to adapt to minimal 2 IOPS per 1 GB capacity with Ultra disk
 - September 02, 2020: Change in [Available SKUs for HLI](./hana-available-skus.md) to get more transparent in what SKUs are HANA certified
-- August 25, 2020: Change in [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) to fix typo
-- August 25, 2020: Change in [HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and shared disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [Install SAP NW HA with WSFC and shared disk](./sap-high-availability-guide-wsfc-shared-disk.md) to introduce the option of using Azure shared disk and document SAP ERS2 architecture
-- August 25, 2020: Release of [multi-SID HA guide for SAP ASCS/SCS with WSFC and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
-- August 25, 2020: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md), [Prepare Azure infrastructure for SAP ASCS/SCS with WSFC and file share](./sap-high-availability-infrastructure-wsfc-file-share.md), [multi-SID HA guide for SAP ASCS/SCS with WSFC and shared disk](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) and [multi-SID HA guide for SAP ASCS/SCS with WSFC and SOFS file share](./sap-ascs-ha-multi-sid-wsfc-file-share.md) as a result of the content updates and restructuring in the HA guides for SAP ASCS/SCS with WFC and shared disk 
-- August 21, 2020: Adding new OS release into [Compatible Operating Systems for HANA Large Instances](./os-compatibility-matrix-hana-large-instance.md) as available operating system for HLI units of type I and II
-- August 18, 2020: Release of [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
-- August 17, 2020: Add information about using Azure Site Recovery for moving SAP NetWeaver systems from on-premises to Azure in article [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md)
-- 08/14/2020: Adding disk configuration advice for Db2 in article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_ibm.md)
-- August 11, 2020: Adding RHEL 7.6 into [Compatible Operating Systems for HANA Large Instances](./os-compatibility-matrix-hana-large-instance.md) as available operating system for HLI units of type I
-- August 10, 2020: Introducing cost conscious SAP HANA storage configuration in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) and making some updates to [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
-- August 04, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to emphasize the importance of reliable name resolution for Pacemaker clusters
-- August 04, 2020: Change in [SAP NW HA on WFCS with file share](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW HA on WFCS with shared disk](./sap-high-availability-installation-wsfc-shared-disk.md), [HA for SAP NW on Azure VMs](./high-availability-guide.md), [HA for SAP NW on Azure VMs on SLES](./high-availability-guide-suse.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md), [HA for SAP NW on Azure VMs on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md), [High availability for SAP NetWeaver on Azure VMs on RHEL](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to clarify the use of parameter `enque/encni/set_so_keepalive`
-- July 23, 2020: Added the [Save on SAP HANA Large Instances with an Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) article explaining what you need to know before you buy an SAP HANA Large Instances reservation and how to make the purchase
-- July 16, 2020: Describe how to use Azure PowerShell to install new VM Extension for SAP in the [Deployment Guide](deployment-guide.md)
-- July 04,2020: Release of  [Azure Monitor for SAP solutions (preview)](./monitor-sap-on-azure.md)
-- July 01, 2020: Suggesting less expensive storage configuration based on Azure premium storage burst functionality in document [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) 
-- June 24, 2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to release new improved Azure Fence Agent and more resilient fencing configuration for devices, based on Azure Fence Agent 
-- June 24, 2020: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to release more resilient fencing configuration
-- June 23, 2020: Changes to [Azure Virtual Machines planning and implementation for SAP NetWeaver](./planning-guide.md) guide and introduction of [Azure Storage types for SAP workload](./planning-guide-storage.md) guide
-- June 22, 2020: Add installation steps for new VM Extension for SAP to the [Deployment Guide](deployment-guide.md)
-- June 16, 2020: Change in [Public endpoint connectivity for VMs using Azure Standard ILB in SAP HA scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) to add a link to SUSE Public Cloud Infrastructure 101 documentation 
-- June 10, 2020: Adding new HLI SKUs into [Available SKUs for HLI](./hana-available-skus.md) and [SAP HANA (Large Instances) storage architecture](./hana-storage-architecture.md)

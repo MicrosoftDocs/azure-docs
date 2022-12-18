@@ -291,7 +291,7 @@ Because a system-assigned managed identity can only be retrieved after the creat
             },
             // ...
             "properties": {
-                "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+                "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
                 "keyVaultKeyUri": "<key-vault-key-uri>"
                 // ...
             }
@@ -318,6 +318,14 @@ Because a system-assigned managed identity can only be retrieved after the creat
 You can create a continuous backup account by using the Azure CLI or an Azure Resource Manager template.
 
 Currently, only user-assigned managed identity is supported for creating continuous backup accounts. 
+
+Once the account has been created, user can update the identity to system-assigned managed identity using these instructions [Configure customer-managed keys for your Azure Cosmos DB account](./how-to-setup-customer-managed-keys.md#to-use-a-system-assigned-managed-identity). 
+
+> [!NOTE]
+> System-assigned identity and continuous backup mode is currently under Public Preview and may change in the future.
+
+Alternatively, user can also create a system identity with periodic backup mode first, then migrate the account to Continuous backup mode using these instructions [Migrate an Azure Cosmos DB account from periodic to continuous backup mode](./migrate-continuous-backup.md)
+
 
 ### To create a continuous backup account by using the Azure CLI
 
@@ -358,12 +366,46 @@ When you create a new Azure Cosmos DB account through an Azure Resource Manager 
     // ...
     "properties": {
         "backupPolicy": { "type": "Continuous" },
-        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>",
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
         "keyVaultKeyUri": "<key-vault-key-uri>"
         // ...
     }
 }
 ```
+
+### To restore a continuous account that is configured with managed identity using CLI 
+
+#### Restore source account with system-assigned identity 
+
+> [!NOTE]
+> This feature is currently under Public Preview and requires Cosmos DB CLI Extension version 0.20.0 or higher.
+
+System Identity is tied to one specific account and cannot be reused in another account.  So, a new user-assigned identity is required during the restore process.  This newly created user assigned identity is only needed during the restore and can be cleaned up once the restore has completed. 
+ 
+
+1.	Create a new user-assigned identity (or use an existing one) for the restore process. 
+
+1.	Create the new access policy in your Azure Key Vault account as described above, use the Object ID of the managed identity from step 1. 
+
+1.	Trigger the restore using Azure CLI: 
+
+```azurecli
+az cosmosdb restore \ 
+ --target-database-account-name {targetAccountName} \ 
+ --account-name {sourceAccountName} \ 
+ --restore-timestamp {timestampInUTC} \ 
+ --resource-group {resourceGroupName} \ 
+ --location {locationName} \ 
+ --assign-identity {userIdentity} \ 
+ --default-identity {defaultIdentity} 
+```
+1.	Once the restore has completed, the target (restored) account will have the user-assigned identity.  If desired, user can update the account to use System-Assigned managed identity. 
+
+#### Restore source account with user-assigned identity 
+
+By default, when user trigger a restore for an account with user-assigned managed identity, the user-assigned identity will be passed to the target account automatically. 
+
+If desired, the user can also trigger a restore using a different user-assigned identity than the source account by specifying it in the restore parameters.  Please follow the steps in [Restore source account with system-assigned identity](./how-to-setup-customer-managed-keys.md#restore-source-account-with-system-assigned-identity)
 
 ## Customer-managed keys and double encryption
 

@@ -190,6 +190,9 @@ Get-AzAksVersion -Location eastus
 
 For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
+> [!NOTE]
+> The asterisk (*) states that a date has not been finalized; because of this, the timeline below is subject to change. Please continue to check the release calendar for updates.
+
 |  K8s version | Upstream release  | AKS preview  | AKS GA  | End of life |
 |--------------|-------------------|--------------|---------|-------------|
 | 1.21  | Apr-08-21 | May 2021   | Jul 2021  | 1.24 GA |
@@ -197,7 +200,9 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.23  | Dec 2021 | Jan 2022   | Apr 2022  | 1.26 GA |
 | 1.24 | Apr-22-22 | May 2022 | Jul 2022 | 1.27 GA
 | 1.25 | Aug 2022 | Oct 2022 | Dec 2022 | 1.28 GA
-| 1.26 | Dec 2022 | Jan 2023 | Mar 2023 | 1.29 GA
+| 1.26 | Dec 2022 | Jan 2023 | Feb 2023 | 1.29 GA
+| 1.27 | Apr 2023 | May 2023 | Jun 2023 | 1.30 GA 
+| 1.28 | * | * | * | 1.31 GA
 
 > [!NOTE]
 > To see real-time updates of region release status and version release notes, visit the [AKS release status webpage][aks-release]. To learn more about the release status webpage, see [AKS release tracker][aks-tracker].
