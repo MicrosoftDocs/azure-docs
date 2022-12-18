@@ -74,8 +74,7 @@ To see how many virtual machines exist in each of the management groups or subsc
 
     [![VM insights Manage Policy page](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
-
-    The table below describes the compliance information provided in this view.
+    This table describes the compliance information provided on the **Azure Monitor for VMs Policy Coverage** page.
     
     | Function | Description | 
     |----------|-------------| 
@@ -143,7 +142,6 @@ Select the workspace that the data will be sent to. This workspace must have the
 Create a remediation task if you have existing Virtual Machine Scale Sets that need to be assigned this policy.
 
 ![Screenshot that shows creating a remediation task.](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
-
 
 
 ## Next steps
