@@ -16,7 +16,7 @@ ms.author: jeedes
 
 # Azure Active Directory SSO integration with Cybozu(cybozu.com)
 
-In this article, you'll learn how to integrate Cybozu(cybozu.com) with Azure Active Directory (Azure AD). Cybozu.com(kintone, Cybozu Office, Garoon, Mailwise) is the cloud service provided by Cybozu, Inc.The integration with Azure Active Directory enables SSO. When you integrate Cybozu(cybozu.com) with Azure AD, you can:
+In this article, you'll learn how to integrate Cybozu(cybozu.com) with Azure Active Directory (Azure AD). Cybozu.com(kintone, Cybozu Office, Garoon, Mailwise) is the cloud service provided by Cybozu, Inc. The integration with Azure Active Directory enables SSO. When you integrate Cybozu(cybozu.com) with Azure AD, you can:
 
 * Control in Azure AD who has access to Cybozu(cybozu.com).
 * Enable your users to be automatically signed-in to Cybozu(cybozu.com) with their Azure AD accounts.
