@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 02/07/2022
+ms.date: 12/18/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -57,6 +57,8 @@ An Azure proximity placement group is a logical construct. When a proximity plac
 
 > [!NOTE]
 > If there is no host hardware deployed that could run a specific VM type under the network spine where the first VM was placed, the deployment of the requested VM type won’t succeed. You’ll get an allocation failure message that indicates that the VM can't be supported within the perimeter of the proximity placement group.
+
+To avoid the above, it is recommended to use the intent option when creating the proximity placement group. The intent option allows you to list the VM types that you are intending to include into the proximity placement group. This list of VM types will be taken to find the best datacenter that hosts these VM types. If such a datacenter is found, the PPG is going to be created and is scoped for the datacenter that fulfills the VM SKU requirement. If there is no such datacenter found, the creation of the proximity placement group is going to fail. You can find more information in the documentation [PPG - Use intent to specify VM sizes](../../co-location.md#use-intent-to-specify-vm-sizes). Be aware that actual capacity situations are not taken into account in the checks triggered by the intent option. As a result, there still could be allocation errors rooted in insufficient capacity available.
 
 A single [Azure resource group](../../../azure-resource-manager/management/manage-resources-portal.md) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
 
