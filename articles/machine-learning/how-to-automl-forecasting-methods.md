@@ -27,13 +27,18 @@ y(t+1) = f(y(t), y(t-1), ..., y(t-s)).
 
 The function f often has parameters that we tune using observed demand from the past. The amount of history that f uses to make predictions, s, can also be considered a parameter of the model.
 
-The time series model in the orange juice demand example may not be accurate enough since it only uses information about past demand. There are many other factors that likely influence future demand such as price, day of the week, and whether it is a holiday or not. We could obviously list more factors, but we will keep it simple for purposes of demonstration! Now we consider a **regression model** that uses these predictor variables,
+The time series model in the orange juice demand example may not be accurate enough since it only uses information about past demand. There are many other factors that likely influence future demand such as price, day of the week, and whether it is a holiday or not. Consider a **regression model** that uses these predictor variables,
 
 y = g(price, day of week, holiday).
 
 Again, g generally has a set of parameters we tune using past values of the demand and the predictors. We omit t from the expression to emphasize that the regression model uses correlational patterns between _contemporaneously_ defined variables to make predictions. That is, to predict y(t+1) from g, we must know which day of the week t+1 falls on, whether it is a holiday, and the orange juice price on day t+1. The first two pieces of information are always easily found by consulting a calendar. A retail price is usually set in advance, so the orange juice price is likely also known at t+1; however, it may not be known ten days into the future at t+10! It is important to understand that the utility of this regression is limited by how far into the future we need forecasts, also called the **forecast horizon**, and to what degree we know the future values of the predictors.
 
+> [!IMPORTANT]
+> AutoML's forecasting regression models assume that all features provided by the user are known into the future, at least up to the forecast horizon.  
+
 AutoML's forecasting regression models can also be augmented to use historical values of the target and predictors. This creates a hybrid kind of model with characteristics of a time series model and a pure regression model. In this case, we think of historical quantities as just more predictor variables in the regression and we refer to them as **lagged quantities**. The _order_ of the lag refers to how far back the value is known. For example, the current value of an order two lag of the target for our orange juice demand example is the observed juice demand from two days ago.
+
+Another notable difference between the time series models and the regression models is in the way they generate forecasts when the horizon is greater than one period (e.g. one day) into the future. Time series models are generally defined by recursion relations and produce forecasts one-at-a-time. To forecast many periods into the future, they iterate up-to the forecast horizon, feeding previous forecasts back into the model to generate the next one-period-ahead forecast as needed. In contrast, the regression models are so-called **direct forecasters** that generate _all_ forecasts up to the horizon in one go. Direct forecasters can be preferable to recursive ones because recursive models compound prediction error when they feed previous forecasts back into the model. When lag features are included, AutoML makes some important modifications to the training data so that the regression models can function as direct forecasters. See the [lag features article](./how-to-automl-forecasting-lags.md) for more details. 
 
 ## Forecasting Models in AutoML
 The following table lists the forecasting models implemented in AutoML and what category they belong to:
@@ -75,7 +80,7 @@ timestamp | SKU | price | advertised | quantity
 2013-12-31 | JUICE1 | 3.75 | 0 | 347
 2013-12-31 | BREAD3 | 5.7 | 0 | 94
 
-In this example, there is a SKU, a retail price, and a flag indicating whether an item was advertised in addition to the timestamp and target quantity. There are evidently two series in this dataset - one for the JUICE1 SKU and one for the BREAD3 SKU; the `SKU` column is a **time series ID column** since grouping by gives two groups containing a single series each. AutoML can build a variety of time series and regression models from this information! Before sweeping over models, AutoML does basic validation of the input configuration and data as well as augmentation of the data with engineered features.
+In this example, there is a SKU, a retail price, and a flag indicating whether an item was advertised in addition to the timestamp and target quantity. There are evidently two series in this dataset - one for the JUICE1 SKU and one for the BREAD3 SKU; the `SKU` column is a **time series ID column** since grouping by it gives two groups containing a single series each. AutoML can build a variety of time series and regression models from this information! Before sweeping over models, AutoML does basic validation of the input configuration and data as well as augmentation of the data with engineered features.
 
 ### Missing Data Handling
 AutoML's time series models generally require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Before feeding data to models, then, the data must be full (i.e., no missing values) _and_ regular. This leads to two potential missing data cases:
