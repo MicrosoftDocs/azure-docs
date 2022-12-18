@@ -9,10 +9,35 @@ ms.topic: reference
 
 This article lists the endpoints, ports, and protocols required for Azure Arc-enabled services and features.NET
 
-## Azure Arc resource bridge (preview)
+## Arc Kubernetes endpoints
 
-[!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
+Arc Kubernetes endpoints are required for all Kubernetes based Arc offerings. Including:
+
+- Azure Arc-enabled data services
+- Azure Arc-enabled App services
+- Azure Arc-enabled Machine Learning
+
+[!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
 ## Azure Arc-enabled data services
 
+This section describes requirements for Azure Arc-enabled data services.
+
 [!INCLUDE [network-requirements](data/includes/network-requirements.md)]
+
+## Azure Arc-enabled servers
+
+Arc-enabled server endpoints are required for:
+
+- Azure Arc resource bridge
+- Azure Arc-enabled SQL Server
+- Azure Arc VMs
+
+[!INCLUDE [network-requirements](servers/includes/network-requirements.md)]
+
+## Azure Arc resource bridge (preview)
+
+This section describes the networking requirements for deploying Azure Arc resource bridge (preview) in your enterprise.
+
+[!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
+
