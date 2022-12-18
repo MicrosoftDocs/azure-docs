@@ -20,7 +20,7 @@ Each activity listed below is accessible by a different set of privileged users,
 >[!IMPORTANT]
 > We recommend that you use the *support* user for CLI access whenever possible.
 
-For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
+For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
 ## Triggering a test alert
 

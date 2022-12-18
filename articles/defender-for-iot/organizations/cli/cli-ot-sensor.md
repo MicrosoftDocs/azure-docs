@@ -20,7 +20,7 @@ Each activity listed below is accessible by a different set of privileged users,
 >[!IMPORTANT]
 > We recommend that you use the *support* user for CLI access whenever possible.
 
-For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
+For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
 
 ## Check OT monitoring services health
@@ -495,7 +495,7 @@ root@xsense:/#
 
 ## Update sensor software from CLI
 
-For more information, see [Update your sensors](../update-ot-software.md#update-your-sensors&tabs=onprem).
+For more information, see [Update your sensors](../update-ot-software?&tabs=cli#update-your-sensors&tabs=onprem).
 
 ## Back up and restore appliance snapshot
 
@@ -607,5 +607,5 @@ root@xsense:
 
 For more information, see:
 
-- [Getting started with the Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md)
+- [Getting started with the Defender for IoT CLI](../references-work-with-defender-for-iot-cli-commands.md)
 - [Advanced CLI reference: OT sensor network monitoring](cli-ot-sensor-configuration.md)
