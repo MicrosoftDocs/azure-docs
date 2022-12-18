@@ -173,9 +173,7 @@ In this section, you'll change the frontend configuration used for outbound conn
 In this article, you:
 
 - Created a load balancer using an existing public IP. 
-
 - Replaced the IP address in a load balancer frontend configuration. 
-
 - Changed an outbound frontend configuration to use a public IP prefix.
 
 For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
