@@ -1,6 +1,6 @@
 ---
-title: Customize SAML token claims
-description: Learn how to customize the claims issued by Microsoft identity platform in the SAML token for enterprise applications.
+title: Customize JSON Web Token (JWT) claims
+description: Learn how to customize the claims issued by Microsoft identity platform in the JSON web token (JWT) token for enterprise applications.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -13,96 +13,33 @@ ms.author: davidmu
 ms.custom: aaddev
 ---
 
-# Customize SAML token claims
+# Customize claims issued in the JSON web token (JWT)
 
-The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
+The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
-These SAML tokens contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user. In a [SAML token](https://en.wikipedia.org/wiki/SAML_2.0), *claims* data is typically contained in the SAML Attribute Statement. The user's unique ID is typically represented in the SAML Subject also referred to as the name identifier (nameID).
+These JSON Web tokens (JWT) used by OIDC applications contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
 
-By default, the Microsoft identity platform issues a SAML token to an application that contains a `NameIdentifier` claim with a value of the user's username (also known as the user principal name) in Azure AD, which can uniquely identify the user. The SAML token also contains other claims that include the user's email address, first name, and last name.
+## Create or edit attributes and claims
 
-## View or edit claims
+In an [OIDC response]( https://en.wikipedia.org/wiki/OpenID), *claims* data is typically contained in the ID Token issued by the identity provider in the form of a JWT. For more information about OIDC claims, see [Microsoft identity platform ID tokens](id-tokens.md).
 
-To view or edit the claims issued in the SAML token to the application, open the application in Azure portal. Then open the **Attributes & Claims** section.
+Besides [optional claims](active-directory-optional-claims.md), you can view, create or edit the attributes and claims issued in the OIDC token to the application. To edit claims, open the application in Azure portal through the Enterprise Applications experience. Then select **Single sign-on** blade in the left-hand menu and open the **Attributes & Claims** section.
 
-:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
+:::image type="content" source="./media/active-directory-jwt-claims-customization/attributes-claims.png" alt-text="Screenshot of opening the Attributes & Claims section in the Azure portal.":::
 
-There are two possible reasons why you might need to edit the claims issued in the SAML token:
+Claims customization may be required for various reasons by an application. A good example is when an application has been written to require a different set of claim URIs or claim values. Using the **Attributes & Claims** section you can add or remove a claim for your application. You can also create a custom claim that is specific for an application based on the use case.
 
-* The application requires the `NameIdentifier` or NameID claim to be something other than the username (or user principal name) stored in Azure AD.
-* The application has been written to require a different set of claim URIs or claim values.
+You can also assign any constant (static) value to any claims, which you define in Azure AD. The following steps outline how to assign a constant value:
 
-## Edit nameID
-
-To edit the NameID (name identifier value):
-
-1. Open the **Name identifier value** page.
-1. Select the attribute or transformation you want to apply to the attribute. Optionally, you can specify the format you want the NameID claim to have.
-
-    :::image type="content" source="./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png" alt-text="Screenshot of editing the NameID (name identifier) value in the Azure portal.":::
-
-### NameID format
-
-If the SAML request contains the element NameIDPolicy with a specific format, then the Microsoft identity platform honors the format in the request.
-
-If the SAML request doesn't contain an element for NameIDPolicy, then the Microsoft identity platform issues the NameID with the  format you specify. If no format is specified, the Microsoft identity platform uses the default source format associated with the claim source selected. If a transformation results in a null or illegal value, Azure AD sends a persistent pairwise identifier in the nameIdentifier.
-
-From the **Choose name identifier format** dropdown, select one of the options in the following table.
-
-| NameID format | Description |
-|---------------|-------------|
-| **Default** | Microsoft identity platform uses the default source format. |
-| **Persistent** | Microsoft identity platform uses Persistent as the NameID format. |
-| **Email address** | Microsoft identity platform uses EmailAddress as the NameID format. |
-| **Unspecified** | Microsoft identity platform uses Unspecified as the NameID format. |
-|**Windows domain qualified name**| Microsoft identity platform uses the WindowsDomainQualifiedName format.|
-
-Transient NameID is also supported, but isn't available in the dropdown and can't be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single sign-On SAML protocol](single-sign-on-saml-protocol.md).
-
-### Attributes
-
-Select the desired source for the `NameIdentifier` (or NameID) claim. You can select from the following options.
-
-| Name | Description |
-|------|-------------|
-| Email | Email address of the user |
-| userprincipalName | User principal name (UPN) of the user |
-| onpremisessamaccountname | SAM account name that has been synced from on-premises Azure AD |
-| objectid | Objectid of the user in Azure AD |
-| employeeid | Employee ID of the user |
-| Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
-| Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
-| pairwiseid | Persistent form of user identifier |
-
-For more information about identifier values, see [Table 3: Valid ID values per source](reference-claims-mapping-policy-type.md#table-3-valid-id-values-per-source).
-
-Any constant (static) value can be assigned to any claim that is defined in Azure AD. The following steps outline how to assign a constant value:
-
-1. In the [Azure portal](https://portal.azure.com/), in the **User Attributes & Claims** section, select **Edit** to edit the claims.
+1. In the [Azure portal](https://portal.azure.com/), on the **Attributes & Claims** section, Select **Edit** to edit the claims.
 1. Select the required claim that you want to modify.
-1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
+1. Enter the constant value without quotes in the **Source attribute** as per your organization, and then select **Save**.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/organization-attribute.png" alt-text="Screenshot of the organization Attributes & Claims section in the Azure portal.":::
+:::image type="content" source="./media/active-directory-jwt-claims-customization/customize-claim.png" alt-text="Screenshot of customizing a claim in the Azure portal.":::
 
-1. The constant value will be displayed as shown in the following image.
+The constant value is displayed on the Attributes overview.
 
-    :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
-
-## Add the UPN claim to SAML tokens
-
-The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
-
-Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
-
-## Advanced SAML claims options
-
-The following table lists advanced options that can be configured for an application.
-
-| Option | Description |
-|--------|-------------|
-| Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |
-| Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
-| Include attribute name format | If selected, Azure Active Directory adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
+:::image type="content" source="./media/active-directory-jwt-claims-customization/claims-overview.png" alt-text="Screenshot of displaying claims in the Azure portal.":::
 
 ## Special claims transformations
 
@@ -245,4 +182,4 @@ Advanced claim options can be configured by checking the box under **Advanced SA
 
 ## Next steps
 
-* [Configure single sign-on for applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
+* [Configure single sign-on on applications that aren't in the Azure AD application gallery](../manage-apps/configure-saml-single-sign-on.md)
