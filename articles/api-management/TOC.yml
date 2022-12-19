@@ -470,14 +470,14 @@
               href: send-one-way-request-policy.md
             - name: send-request
               href: send-request-policy.md
-            - name: set-backend-service (Dapr)
-              href: set-backend-service-dapr-policy.md
-            - name: set-graphql-resolver
-              href: set-graphql-resolver-policy.md
             - name: set-backend-service
               href: set-backend-service-policy.md
+            - name: set-backend-service (Dapr)
+              href: set-backend-service-dapr-policy.md
             - name: set-body
               href: set-body-policy.md
+            - name: set-graphql-resolver
+              href: set-graphql-resolver-policy.md
             - name: set-header
               href: set-header-policy.md
             - name: set-method
