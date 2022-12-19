@@ -1,5 +1,5 @@
 ---
-title: Use Document Translation programmatically
+title: Use Document Translation APIs programmatically
 description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python and the REST API"
 services: cognitive-services
 author: laujan
@@ -7,15 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/17/2022
+ms.date: 12/19/2022
 ms.author: lajanuar
 recommendations: false
 ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
-zone_pivot_groups: programming-languages-set-translator
 ---
 
-# Use Document Translation programmatically
+# Use Document Translation APIs programmatically
 
  Document Translation is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can use the Document Translation API to asynchronously translate whole documents in [supported languages](../../language-support.md) and various [file formats](../overview.md#supported-document-formats) while preserving source document structure and text formatting. In this how-to guide, you'll learn to use Document Translation APIs with a programming language of your choice and the HTTP REST API.
 
