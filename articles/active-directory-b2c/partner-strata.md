@@ -178,7 +178,7 @@ The Connector configuration corresponds to the app registered in the Azure AD B2
 6. For the `oauthClientID` parameter, set the Client ID you copied.
 7. For the `oauthClientSecret` parameter, set the Client secret you copied.
 8. For the `oauthRedirectURL` parameter, set the redirect URI you copied.
-9. The Azure AD B2C OIDC Connector uses the OIDC endpoint to discover metadata, including URLs and signing keys. For the tentant endpoint, use `oidcWellKnownURL`.
+9. The Azure AD B2C OIDC Connector uses the OIDC endpoint to discover metadata, including URLs and signing keys. For the tenant endpoint, use `oidcWellKnownURL`.
 
 ```yaml
 connectors:
@@ -193,7 +193,7 @@ connectors:
 
 ### Define Azure AD B2C as your authentication provider
 
-An authentication provider determines authentication for users who don't present a valid session during an app resource request. Azure AD B2C tenant configuration determines how users are challenged for credentials, whicle it applies other authentication policies. An example is to require a second factor to complete authentication and decide what is returned to the Orchestrator App Gateway, after authentication.
+An authentication provider determines authentication for users who don't present a valid session during an app resource request. Azure AD B2C tenant configuration determines how users are challenged for credentials, while it applies other authentication policies. An example is to require a second factor to complete authentication and decide what is returned to the Orchestrator App Gateway, after authentication.
 
 The value for the `authProvider` must match your Connector `name` value.
 
@@ -311,7 +311,7 @@ appgateways:
 2. The Orchestrator redirects to the user flow page.
 3. From the list, select the IdP.
 4. Enter credentials, including an MFA token, if required by the IdP.
-5. You are redirected to Azure AD B2C, which forwards the app request to the Orchestrator redirect URI.
+5. You're redirected to Azure AD B2C, which forwards the app request to the Orchestrator redirect URI.
 6. The Orchestrator evaluates policies, and calculates headers.
 7. The requested application appears.
 
