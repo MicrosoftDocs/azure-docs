@@ -1,5 +1,6 @@
 ---
-title: Download a blob with Java - Azure Storage
+title: Download a blob with Java
+titleSuffix: Azure Storage
 description: Learn how to download a blob in Azure Storage by using the Java client library.
 services: storage
 author: pauljewellmsft

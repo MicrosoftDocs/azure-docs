@@ -1,5 +1,6 @@
 ---
-title: Copy a blob with Java - Azure Storage
+title: Copy a blob with Java
+titleSuffix: Azure Storage
 description: Learn how to copy a blob in Azure Storage by using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -13,7 +14,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devguide-java
 ---
 
-# Copy a blob with Azure Storage using the Java client library
+# Copy a blob using the Java client library
 
 This article demonstrates how to copy a blob in an Azure Storage account. It also shows how to abort a copy operation. The example code uses the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
@@ -21,7 +22,7 @@ This article demonstrates how to copy a blob in an Azure Storage account. It als
 
 When you copy a blob within the same storage account, it's a synchronous operation. When you copy across accounts, it's an asynchronous operation.
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
+The source blob for a copy operation may be a block blob, an append blob, a page blob, a snapshot, or a blob version. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
 The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 

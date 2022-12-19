@@ -1,5 +1,6 @@
 ---
-title: Manage properties and metadata for a blob with Java - Azure Storage
+title: Manage properties and metadata for a blob with Java
+titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the Java client library.
 services: storage
 author: pauljewellmsft
@@ -26,7 +27,7 @@ In addition to the data they contain, blobs support system properties and user-d
 > [!NOTE]
 > Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
 >
-> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
+> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index](storage-manage-find-blobs.md).
 
 ## Set and retrieve properties
 
@@ -62,7 +63,7 @@ The following code example sets metadata on a blob:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java" id="Snippet_AddBlobMetadata":::
 
-To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata in a single call. This functionality is different from the REST APIs, which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
+To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
 The following code example reads metadata on a blob and prints each key/value pair: 
 

@@ -1,5 +1,6 @@
 ---
-title: Use blob index tags to find data in Azure Blob Storage (Java)
+title: Use blob index tags to find data with Java
+titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the Java client library.  
 services: storage
 author: pauljewellmsft
