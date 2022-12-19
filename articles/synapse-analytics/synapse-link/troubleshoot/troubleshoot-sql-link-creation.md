@@ -7,7 +7,7 @@ ms.reviewer: imotiwala
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 12/15/2022
+ms.date: 12/19/2022
 ---
 
 # Troubleshoot: Azure Synapse Link creation for Azure SQL Database 
@@ -58,7 +58,7 @@ If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-s
    Set-AzSqlServer-ResourceGroupName '<resource group>' -ServerName '<server name>' -AssignIdentity -IdentityType 'SystemAssigned'
    ```
 1. In the Azure portal, navigate to your Synapse Link for SQL connection in Azure Synapse Workspace. In the **Integrate** hub, under **Link connection**, select your link connection. In the General window, expand the **Advanced** section. Select the **Refresh** button. You will see a message with checked green tick indicating the SQL logical server resource ID and Managed identity ID have been refreshed.
-   :::image type="content" source="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png" alt-text="A screenshot of the Azure portal in the Synapse workspace. In the General section under Advanced, the Refresh button is highlighted." lightbox="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png":::.
+   :::image type="content" source="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png" alt-text="A screenshot of the Azure portal in the Synapse workspace. In the General section under Advanced, the Refresh button is highlighted." lightbox="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png":::
 
 ## Next steps
 
