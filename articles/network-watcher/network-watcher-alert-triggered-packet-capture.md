@@ -74,12 +74,12 @@ The first step is to create an Azure function to process the alert and create a 
       3. Select a **Runtime stack**.
       4. Select the version of the Runtime stack in **Version**.
       5. Select the **Region** in which you want to create the function app.
-   3. Under **Operating System**, select the type pf Operating system that you are currently using. Azure reccommends the type of Operating system based on your runtime stack selection. 
+   3. Under **Operating System**, select the type of Operating system that you're currently using. Azure recommends the type of Operating system based on your runtime stack selection. 
    4. Under **Plan**, select the type of plan that you want to use for the function app. Choose from the following options:
       - Consumption (Serverless) - For event-driven scaling for the lowest minimum cost 
       - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation
       - App Service Plan - For reusing compute from an existing app service plan.
-3. Click **Review + create** to create the app.
+3. Select **Review + create** to create the app.
 
 ### Create an Azure function
 
@@ -396,13 +396,13 @@ Use the following PowerShell code if you're using the old schema:
 
 ## Configure an alert on a VM
 
-Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the CPU Percentage that are sent, but the alert can be triggered for many other metrics. 
+Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the CPU Percentage that is sent, but the alert can be triggered for many other metrics. 
 
 ### Create the alert rule
 
 Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). Do the following in the **Create an Alert rule** screen.
 
-1. In the **Select a signal** pane, search for the name of the signal and select it. In the example below, Percentage CPU is the selected signal. It denotes the percentage of allocated compute units that are in use by the VM.
+1. In the **Select a signal** pane, search for the name of the signal and select it. In this example, Percentage CPU is the selected signal. It denotes the percentage of allocated compute units that are in use by the VM.
 
    :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
 
@@ -418,7 +418,7 @@ Go to an existing virtual machine and [add an alert rule](../azure-monitor/alert
   |**Lookback period**|5 minutes| 
 
 3. In the **Actions** tab, select **Create an action group**.
-4. In the **Create action group** screen, select the **Subscription**, **Resource group**, and **Region**. Also enter the Action group name and the display name and select **Next: Notfications >**.
+4. In the **Create action group** screen, select the **Subscription**, **Resource group**, and **Region**. Also enter the Action group name and the display name and select **Next: Notifications >**.
 5. In the screen that appears, select **Action type** as **Azure Function**. 
 6. In the Azure Function pane, select the **Subscription**, **Resource group**, **Function app**, and **Azure Function**.
 7. Select **No** in **Enable the common alert schema** slider and select **OK**. 
