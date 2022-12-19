@@ -60,7 +60,7 @@ To assign a VM insights policy initiative to a subscription or management group 
 
 1. Select **Review + Create** to review the initiative assignment details and select **Create** to create the assignment. 
 
-    Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. For more information about creating remediation tasks, see [Remediate compliance results](#remediate-compliance-results).
+    Don't create a remediation task at this point because you'll probably need multiple remediation tasks to enable existing virtual machines. For more information about creating remediation tasks, see [Remediate compliance results](#create-a-remediate-task).
 
 ## Review compliance for a VM insights policy initiative 
 
