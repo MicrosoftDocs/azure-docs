@@ -19,7 +19,7 @@ After installing OT monitoring software, make sure to run the following tests:
 
 - **ifconfig**: Verify that all the input interfaces configured during the installation process are running.
 
-#### Gateway checks
+## Gateway checks
 
 Use the `route` command to show the gateway's IP address. For example:
 
@@ -42,7 +42,7 @@ redis_22.2.6.27-r-c64cbca.iot_network_22.2.6.27-r-c64cbca (172.18.0.3) at 02:42:
 >
 ```
 
-#### DNS checks
+## DNS checks
 
 Use the `cat /etc/resolv.conf` command to find the IP address that's configured for DNS traffic. For example:
 ``` CLI
@@ -66,7 +66,7 @@ e6858.dscx.akamaiedge.net has IPv6 address 2a02:26f0:5700:182::1aca
 >
 ```
 
-#### Firewall checks
+## Firewall checks
 
 Use the `wget` command to verify that port 443 is open for communication. For example:
 

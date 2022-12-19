@@ -164,7 +164,7 @@ After connecting, you must [set up a site](#set-up-a-site) with these sensors.
 
 ### Connect sensors by using tunneling
 
-Set up a secured tunneling connection between organizational sensors and the on-premises management console. Enhance system security by preventing direct user access to the sensor. Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
+Enhance system security by preventing direct user access to the sensor. Instead of direct access, use proxy tunneling to let users access the sensor from the on-premises management console with a single firewall rule. This technique narrows the possibility of unauthorized access to the network environment beyond the sensor. The user's experience when signing in to the sensor remains the same.
 
 Using tunneling allows you to connect to the on-premises management console from its IP address and a single port (9000 by default) to any sensor.
 

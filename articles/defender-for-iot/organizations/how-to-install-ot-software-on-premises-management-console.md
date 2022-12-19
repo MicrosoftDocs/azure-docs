@@ -7,9 +7,19 @@ ms.topic: how-to
 
 # Install OT monitoring software on an on-premises management console
 
-This article provides generic procedures for installing OT monitoring software on an on-premises management console.
+This article describes how to install Microsoft Defender for IoT monitoring software on an on-premises management console.
 
-This procedure describes how to install on-premises management console software on a physical or virtual appliance.
+## Prerequisites
+
+Before installing the software, make sure that you have:
+
+- Completed [Prepare for OT agentless monitoring software installation](how-to-prepare-for-ot-software-installation.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [Microsoft Defender for IoT - OT monitoring appliance catalog](appliance-catalog/index.yml).
+
+- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+## Install on-premises management console software
+
+This procedure describes how to install OT monitoring software on an on-premises management console, for a physical or virtual appliance.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 

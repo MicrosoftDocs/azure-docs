@@ -7,12 +7,22 @@ ms.topic: how-to
 
 # Install OT monitoring software on OT sensors
 
-This article provides generic procedures for installing OT monitoring software on sensors.
+This article describes how to install Microsoft Defender for IoT monitoring software on OT network sensors.
+
+## Prerequisites
+
+Before starting the software installation, make sure that you have:
+
+- Completed [Prepare for OT agentless monitoring software installation](how-to-prepare-for-ot-software-installation.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [Microsoft Defender for IoT - OT monitoring appliance catalog](appliance-catalog/index.yml).
+
+- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+
+## Install sensor software
+
+This procedure describes how to install OT monitoring software on a sensor.
 
 > [!Note]
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
-
-**To install the sensor's software**:
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to install.
 

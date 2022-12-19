@@ -9,6 +9,16 @@ ms.topic: how-to
 
 This article describes how to prepare to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 
+## Prerequisites
+
+- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+
+- [configure traffic mirroring in your network](best-practices/traffic-mirroring-methods.md)
+
+- [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+
+- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+
 ## Download software files from the Azure portal
 
 Download OT sensor and on-premises management console software from the Azure portal.
@@ -46,6 +56,3 @@ For more information, see:
 
 - [Install OT monitoring software on OT sensors](how-to-install-software.md)
 - [Install OT monitoring software on an on-premises management console](how-to-install-ot-software-on-premises-management-console.md)
-- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
-
