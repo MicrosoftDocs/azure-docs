@@ -328,19 +328,6 @@ There are six levels of logging in Python, with numbers associated with severity
 | DEBUG         | 10            |
 | NOTSET        | 0             |
 
-### Access logs
-
-When a request comes into the server, it will be logged except for requests to `/`.
-The logs are emitted in the following format as the `<message>`:
-
-`<method> <encoded path + query> <status> <response size> <duration>ms [- <optional message>]`
-
-For example, a GET request to `/score` will be logged as follows:
-
-```
-2022-11-29 16:54:29,313 I [21] azmlinfsrv.access - GET /score?a=10 200 15 21ms
-```
-
 ## Troubleshooting guide
 In this section, we'll provide basic troubleshooting tips for Azure Machine Learning inference HTTP server. If you want to troubleshoot online endpoints, see also [Troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 
