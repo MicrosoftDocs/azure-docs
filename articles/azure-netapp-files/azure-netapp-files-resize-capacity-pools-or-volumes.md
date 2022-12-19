@@ -12,13 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 9/30/2022
+ms.date: 12/19/2022
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
 You can change the size of a capacity pool or a volume as necessary, for example, when a volume or capacity pool fills up. 
 
 For information about monitoring a volume’s capacity, see [Monitor the capacity of a volume](monitor-volume-capacity.md).
+
+## Considerations
+
+* Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
 
 ## Resize the capacity pool using the Azure portal 
 
@@ -84,3 +88,4 @@ The following table describes the destination volume resizing behavior based on 
 - [Understand volume quota](volume-quota-introduction.md)
 - [Monitor the capacity of a volume](monitor-volume-capacity.md)
 - [Capacity management FAQs](faq-capacity-management.md)
+- [Resource limits](azure-netapp-files-resource-limits.md)
