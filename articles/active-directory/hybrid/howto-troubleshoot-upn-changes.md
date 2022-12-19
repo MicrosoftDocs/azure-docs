@@ -45,7 +45,7 @@ We recommend you change user UPN when their primary email address changes. Durin
 
 ### UPNs in Active Directory
 
-In Active Directory, the default UPN suffix is the domain DNS name where you created the user account. In most cases, this is the domain name you register as the enterprise domain. If you create the user account in the contoso.com domain, the default UPN is: username@contoso.com. However, you can add more UPN suffixes by using Active Directory domains and trusts. Learn more: [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
+In Active Directory, the default UPN suffix is the domain DNS name where you created the user account. In most cases, you register this domain name as the enterprise domain. If you create the user account in the contoso.com domain, the default UPN is: username@contoso.com. However, you can add more UPN suffixes by using Active Directory domains and trusts. Learn more: [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
 
 For example, if you add labs.contoso.com and change the user UPNs and email to reflect that, the result is: username@labs.contoso.com.
 
@@ -82,7 +82,7 @@ Read the following sections for known issues and workarounds during UPN change.
 
 ## Apps known issues and workarounds
 
-Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UNP changes use just-in-time (JIT) provisioning to create a user profile when users intially sign in to the app.
+Software as a service (SaaS) and line of business (LoB) applications often rely on UPNs to find users and store user profile information, including roles. Applications potentially affected by UNP changes use just-in-time (JIT) provisioning to create a user profile when users initially sign in to the app.
 
 Learn more:
 
@@ -95,7 +95,7 @@ Changing user UPN can break the relationship between the Azure AD user and the u
 
 ### Workarounds
 
-Use automated app provisioning in Azure AD to create, maintain, and remove user identities in supported cloud applications. Configure automated user provisioning on your applications to update UPNs on the applications. Test the applications to validate they are not affected by UPN changes. If you are a developer, consider adding SCIM support to your application to enable automatic user provisioning. 
+Use automated app provisioning in Azure AD to create, maintain, and remove user identities in supported cloud applications. Configure automated user provisioning on your applications to update UPNs on the applications. Test the applications to validate they aren't affected by UPN changes. If you're a developer, consider adding SCIM support to your application to enable automatic user provisioning. 
 
 Learn more:
 
@@ -132,7 +132,7 @@ Learn more: [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hy
 
 ### Known issues and resolution
 
-Windows 10 Hybrid Azure AD joined devices are likely to experience unexpected restarts and access issues. If users sign in to Windows before the new UPN is synchronized to Azure AD, or they continue to use a Windows session, they might experience single sign-on (SSO) issues with applications that use Azure AD for authentication. This situation occurs if Conditional Access is configured to enforce the use of hybrid joined devices to access resources. 
+Windows 10 Hybrid Azure AD joined devices are likely to experience unexpected restarts and access issues. If users sign in to Windows before the new UPN synchronizes to Azure AD, or they continue using a Windows session, they might experience single sign-on (SSO) issues with apps that use Azure AD for authentication. This situation occurs if Conditional Access is configured to enforce the use of hybrid joined devices to access resources. 
 
 In addition, the following message can appear, which forces a restart after one minute:
 
@@ -158,7 +158,7 @@ To unjoin a device from Azure AD, run the following command at a command prompt:
 
 ### Known issues
 
-Your organization might use Mobile Application Management (MAM) to protect corporate data in apps on user devices. MAM app protection policies are not resiliant during UPN changes, which can break the connection between MAM enrollments and active users in MAM integrated applications. This could leave data in an unprotected state.
+Your organization might use Mobile Application Management (MAM) to protect corporate data in apps on user devices. MAM app protection policies aren't resilient during UPN changes, which can break the connection between MAM enrollments and active users in MAM integrated applications. This scenario could leave data in an unprotected state.
 
 Learn more: 
 
@@ -199,7 +199,7 @@ Learn more: [Common questions about the Microsoft Authenticator app](/account-bi
 
 **Workaround**
 
-If notification appears, instruct the user to dismiss it, open the Authenticator app, select **Check for notifications** and approve the MFA prompt. The UPN on the account updates. Note the updated UPN might appear as a new account. This change is due to other Authenticator functionality. For more information refer to the known issues in this article.
+If notification appears, instruct the user to dismiss it, open the Authenticator app, select **Check for notifications** and approve the MFA prompt. The UPN on the account updates. Note the updated UPN might appear as a new account. This change is due to other Authenticator functionality. For more information, see the known issues in this article.
 
 ### Brokered authentication
 
@@ -216,7 +216,7 @@ In addition, applications can participate in other features:
 
 ### Known issues
 
-Due to a mismatch between the login_hint passed by the application and the UPN stored on the broker, the user experiences more interactive authentication prompts on new applications that use broker-assisted sign-in.
+Due to a mismatch, between the login_hint passed by the application and the UPN stored on the broker, the user experiences more interactive authentication prompts on new applications that use broker-assisted sign-in.
 
 ### Workaround
 
@@ -232,7 +232,7 @@ The Microsoft Authenticator app registers the device in Azure AD, which allows t
 
 ### Known issues
 
-If you change UPN, a new account with the new UPN appears on the Microsoft Authenticator app. The account with the old UPN remains listed. Also, the old UPN appears on the Device Registration section in app settings. There is no change in functionality of Device Registration or dependant scenarios.
+If you change UPN, a new account with the new UPN appears on the Microsoft Authenticator app. The account with the old UPN remains listed. Also, the old UPN appears on the Device Registration section in app settings. There's no change in functionality of Device Registration or dependant scenarios.
 
 ### Workaround
 
@@ -254,7 +254,7 @@ The user selects the drop-down menu on the account enabled for phone sign-in. Ne
 
 ### Known issues
 
-When multiple users are registered on the same key, the sign-in screen shows account selection where the old UPN appears. Sign-in with security keys are not affected by UPN changes.  
+When multiple users are registered on the same key, the sign-in screen shows account selection where the old UPN appears. Sign-in with security keys isn't affected by UPN changes.  
 
 ### Workaround
 
@@ -287,7 +287,7 @@ After the UPN change, users can recover meeting notes by downloading them from O
 2. Select **Microsoft Teams Data**.
 3. Select **Wiki**. 
 
-New meeting notes created after the UPN change are not affected.  
+New meeting notes created after the UPN change aren't affected.  
 
 ## Next steps
 
