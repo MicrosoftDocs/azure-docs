@@ -103,7 +103,7 @@ The directory hierarchy rules implemented by a directory server describe how the
 
 Next, you'll need to define the rules for how the connector should determine if there is already a user in the directory server corresponding to an Azure AD user. Every LDAP directory has a distinguished name that is unique for each object in the directory server, however that distinguished name is often not present for users in Azure AD. Instead, an organization may have a different attribute, such as `mail` or `employeeId`, in their directory server schema that is also present on their users in Azure AD.  Then, when the connector is provisioning a new user into a directory server, the connector can search whether there is already a user in that directory that has a specific value of that  attribute, and only create a new user in the directory server if one is not present.
 
-If your scenario involves creating new users in the LDAP directory, not just updating or deleting existing users, then you'll need to also determine how the applications that use that directory server will handle authentication.  The recommended approach is for the applications to use a federation or SSO protocol such as SAML, OAuth, or OpenID Connect to authenticate to Azure AD, and only rely upon the directory server for attributes.  Traditionally LDAP directories could be used by applications to authenticate users by checking a password, but this is not possible for multi-factor authentication or when the user has already been authenticated. Some applications can query a user's SSH public key or certificate from the directory, which may be appropriate of the users already hold credentials of those forms.  However, if your application that relies upon the directory server does not support modern authentication protocols or stronger credentials, then you will need to set an application-specific password when creating a new user in the directory, as Azure AD does not support provisioning a user's Azure AD password.
+If your scenario involves creating new users in the LDAP directory, not just updating or deleting existing users, then you'll need to also determine how the applications that use that directory server will handle authentication.  The recommended approach is for the applications to use a federation or SSO protocol such as SAML, OAuth, or OpenID Connect to authenticate to Azure AD, and only rely upon the directory server for attributes.  Traditionally LDAP directories could be used by applications to authenticate users by checking a password, but this use case is not possible for multi-factor authentication or when the user has already been authenticated. Some applications can query a user's SSH public key or certificate from the directory, which may be appropriate of the users already hold credentials of those forms.  However, if your application that relies upon the directory server does not support modern authentication protocols or stronger credentials, then you will need to set an application-specific password when creating a new user in the directory, as Azure AD does not support provisioning a user's Azure AD password.
 
 Finally, you'll need to agree on the deprovisioning behavior.  When the connector is configured, and Azure AD has established a link between a user in Azure AD and a user in the directory, either for a user already in the directory or a new user, then Azure AD can provision attribute changes from the Azure AD user into the directory. If a user that is assigned to the application is deleted in Azure AD, then Azure AD will send a delete operation to the directory server. You may also wish to have Azure AD update the object in the directory server when a user goes out of scope of being able to use the application.  This behavior depends upon the application that will be using the directory server, as many directories, such as OpenLDAP, may not have a default way of indicating a user's account is inactivated.
 
@@ -180,7 +180,7 @@ Depending on the options you select, some of the wizard screens might not be ava
      |Password|The password of the user name specified.|
      |Realm/Domain|This setting is only required if you selected `Kerberos` as the Binding option, to provide the Realm/Domain of the user.|
      |Certificate|The settings in this section are only required you selected `SSL` or `TLS` as the Binding option.|
-     |Attribute Aliases|The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the connector needs help with identifying those attributes. For example, if the directory server does not publish `userCertificate;binary` and you wish to provision that attribute, the following string must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute: `userCertificate;binary`.  If you do not require any special attributes not in the schema, you can leave this blank|
+     |Attribute Aliases|The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the connector needs help with identifying those attributes. For example, if the directory server does not publish `userCertificate;binary` and you wish to provision that attribute, the following string must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute: `userCertificate;binary`.  If you do not require any special attributes not in the schema, you can leave this blank.|
      |Include operational attributes|Select the `Include operational attributes in schema` checkbox to also include attributes created by the directory server. These include attributes such as when the object was created and last update time.|
      |Include extensible attributes|Select the `Include extensible attributes in schema` checkbox if extensible objects (RFC4512/4.3) are used in the directory server. Enabling this option allows every attribute to be used on all object. Selecting this option makes the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.|
      |Allow manual anchor selection|Leave unchecked.|
@@ -188,7 +188,7 @@ Depending on the options you select, some of the wizard screens might not be ava
      >[!NOTE]
      >If you experience an issue trying to connect, and cannot proceed to the **Global** page, ensure that the service account in AD LDS or the other directory server is enabled.
      
- 5. On the **Global** page, you will configure the distinguished name of the delta change log, if needed and additional LDAP features. The page is pre-populated with the information provided by the LDAP server. Review the values shown, and then select **Next**.
+ 5. On the **Global** page, you will configure the distinguished name of the delta change log, if needed, and additional LDAP features. The page is pre-populated with the information provided by the LDAP server. Review the values shown, and then select **Next**.
  
      |Property|Description|
      |-----|-----|
@@ -273,16 +273,17 @@ Depending on the options you select, some of the wizard screens might not be ava
  16. On the **Deprovisioning** page, you can specify if you wish to have Azure AD remove users from the directory when they go out of scope of the application.  If so, under **Disable flow**, select **Delete**, and under **Delete flow**, select **Delete**. If `Set attribute value` is chosen, the attributes selected on the previous page won't be available to select on the Deprovisioning page.
  >[!NOTE]
  >If you use the **Set attribute value** be aware that only boolean values are allowed.
+
  15. Select **Finish**.
 
-## Ensure ECMA2Host service is running
+## Ensure ECMA2Host service is running and can read from the directory server
+
+Follow these steps to confirm that the connector host has started and has identified any existing users from the directory server.
+
  1. On the server running the Azure AD ECMA Connector Host, select **Start**.
- 2. Enter **run** or enter **services.msc** in the box.
- 3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
+ 2. Select **run** if needed, then enter **services.msc** in the box.
+ 3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If it is not running, select **Start**.
      [![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)](.\media\active-directory-app-provisioning-sql\configure-2.png#lightbox)
-
-If you are connecting to a new directory server or one that is empty and has no users, then continue at the next section. Otherwise, follow these steps to confirm that the connector has identified existing users from the directory.
-
  1. If you have recently started the service, and have many user objects in the directory server, then wait several minutes for the connector to establish a connection with the directory server.
  1. On the server running the Azure AD ECMA Connector Host, launch PowerShell.
  1. Change to the folder where the ECMA host was installed, such as `C:\Program Files\Microsoft ECMA2Host`.
@@ -294,17 +295,18 @@ If you are connecting to a new directory server or one that is empty and has no 
     SecretToken: ************
     ```
  1. If the script displays an error or warning message, then check that the service is running, and the connector name and secret token match those values you configured in the configuration wizard.
- 1. If the script displays the output `False`, then the connector has not seen any entries in the source directory server for existing users.  If this is a new directory server installation, then this behavior is to be expected. However, if the directory server already contains one or more users, then this status indicates Azure AD may not correctly match users in that source directory with users in Azure AD.  Wait several minutes for the connector host to finish reading objects from the existing directory server, and then rerun the script. If the output continues to be `False`, then check the configuration of your connector and the permissions in the directory server are allowing the connector to read existing users.
+ 1. If the script displays the output `False`, then the connector has not seen any entries in the source directory server for existing users.  If this is a new directory server installation, then this behavior is to be expected, and you can continue at the next section.
+ 1. However, if the directory server already contains one or more users but the script displayed `False`, then this status indicates the connector could not read from the directory server.  If you attempt to provision, then Azure AD may not correctly match users in that source directory with users in Azure AD.  Wait several minutes for the connector host to finish reading objects from the existing directory server, and then rerun the script. If the output continues to be `False`, then check the configuration of your connector and the permissions in the directory server are allowing the connector to read existing users.
 
-## Test the application connection
- 1. Return to the web browser window where you were configuring the application provisioning.
+## Test the connection from Azure AD to the connector host
+ 1. Return to the web browser window where you were configuring the application provisioning in the portal.
     >[!NOTE]
     >If the window had timed out, then you will need to re-select the agent.
      1. Sign in to the Azure portal.
      1. Go to **Enterprise applications** and the **On-premises ECMA app** application.
      1. Click on **Provisioning**.
      1. If **Get started** appears, then change the mode to **Automatic**,  on the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**, and wait 10 minutes. Otherwise go to **Edit Provisioning**.
- 2. Under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host, such as `LDAP`. You can also replace `localhost` with the host name of the server where the ECMA host is installed.
+ 2. Under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host, such as `LDAP`. If you provided a certificate from your certificate authority for the ECMA host, then replace `localhost` with the host name of the server where the ECMA host is installed.
 
     |Property|Value|
     |-----|-----|
@@ -323,7 +325,7 @@ If you are connecting to a new directory server or one that is empty and has no 
 
 In this section, you'll configure the mapping between the Azure AD user's attributes and the attributes that you previously selected in the ECMA Host configuration wizard.  Later when the connector creates an object in a directory server, the attributes of an Azure AD user will then be sent through the connector to the directory server to be part of that new object.
 
- 1. Ensure that the Azure AD schema includes the attributes which are required by the directory server. If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
+ 1. Ensure that the Azure AD schema includes the attributes that are required by the directory server. If the directory server requires users to have an attribute, such as `uidNumber` for the OpenLDAP POSIX schema, and that attribute is not already part of your Azure AD schema for a user, then you will need to use the [directory extension feature](../articles/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping.md) to add that attribute as an extension.
  1. In the Azure AD portal, under **Enterprise applications**, select the **On-premises ECMA app** application, and then select the **Provisioning** page.
  2. Select **Edit provisioning**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.  If this is the first time you've configured the attribute mappings for this application, there will be only one mapping present, for a placeholder.
@@ -331,7 +333,7 @@ In this section, you'll configure the mapping between the Azure AD user's attrib
  1. Every user in a directory must have a unique distinguished name.  You can specify how the connector should construct a distinguished name by using an attribute mapping. Select **Add New Mapping**. Use the values below to create the mapping, changing the distinguished names in the expression to match that of the organizational unit or other container in your target directory.
     - Mapping type: expression
     - Expression, if provisioning into AD LDS: `Join("", "CN=", Word([userPrincipalName], 1, "@"), ",CN=CloudUsers,CN=App,DC=Contoso,DC=lab")`
-    - Expresssion, if provisioning into OpenLDAP: `Join("", "CN=", Word([userPrincipalName], 1, "@"), ",DC=Contoso,DC=lab")`
+    - Expression, if provisioning into OpenLDAP: `Join("", "CN=", Word([userPrincipalName], 1, "@"), ",DC=Contoso,DC=lab")`
     - Target attribute: `urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:-dn-`
     - Apply this mapping: only during object creation
  1. If the directory server requires multiple structural object class values, or auxiliary object class values, to be supplied in the `objectClass` attribute, then add a mapping to that attribute.  For this example of provisioning into AD LDS, mapping the `objectClass` is not required, but may be necessary for other directory servers or other schemas. To add a mapping for `objectClass`, select **Add New Mapping**. Use the values below to create the mapping, changing the object class names in the expression to match that of the target directory schema.
@@ -429,7 +431,7 @@ For more information, change to the **Troubleshooting & Recommendations** tab.
 For other errors, see [troubleshooting on-premises application provisioning](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md).
 
 ## Check that users were successfully provisioned
-After waiting, check the directory server to ensure users are being provisioned.  The following instructions illustrate how to check AD LDS.
+After waiting, check the directory server to ensure users are being provisioned. They query you perform to the directory server will depend on what commands your directory server provides. The following instructions illustrate how to check AD LDS.
 
  1. Open Server Manager and select AD LDS on the left.
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
