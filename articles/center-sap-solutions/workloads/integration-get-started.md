@@ -92,25 +92,25 @@ Also see the following SAP resources:
 
 For more information about integration with Azure AD, see the following Azure documentation:
 
-- [Secure access with SAP Cloud Identity Services and Azure AD](../../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
+- [Secure access with SAP Cloud Identity Services and Azure AD](../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md)
 - [SAP workload security - Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sap/security)
-- [Provision users from SAP SuccessFactors to Active Directory](../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-- [Provision users from SAP SuccessFactors to Azure AD](../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
-- [Write-back users from Azure AD to SAP SuccessFactors](../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
-- [Provision users to SAP Cloud Identity Services - Identity Authentication](../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
+- [Provision users from SAP SuccessFactors to Active Directory](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [Provision users from SAP SuccessFactors to Azure AD](../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+- [Write-back users from Azure AD to SAP SuccessFactors](../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md)
+- [Provision users to SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md)
 
 For how to configure single sign-on, see the following Azure documentation and tutorials:
-- [SAP Cloud Identity Services - Identity Authentication](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
-- [SAP SuccessFactors](../../../active-directory/saas-apps/successfactors-tutorial.md)
-- [SAP Analytics Cloud](../../../active-directory/saas-apps/sapboc-tutorial.md)
-- [SAP Fiori](../../../active-directory/saas-apps/sap-fiori-tutorial.md)
-- [SAP Qualtrics](../../../active-directory/saas-apps/qualtrics-tutorial.md)
-- [SAP Ariba](../../../active-directory/saas-apps/ariba-tutorial.md)
-- [SAP Concur Travel and Expense](../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md)
-- [SAP Business Technology Platform](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md)
-- [SAP Business ByDesign](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md)
-- [SAP HANA](../../../active-directory/saas-apps/saphana-tutorial.md)
-- [SAP Cloud for Customer](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
+- [SAP Cloud Identity Services - Identity Authentication](../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)
+- [SAP SuccessFactors](../../active-directory/saas-apps/successfactors-tutorial.md)
+- [SAP Analytics Cloud](../../active-directory/saas-apps/sapboc-tutorial.md)
+- [SAP Fiori](../../active-directory/saas-apps/sap-fiori-tutorial.md)
+- [SAP Qualtrics](../../active-directory/saas-apps/qualtrics-tutorial.md)
+- [SAP Ariba](../../active-directory/saas-apps/ariba-tutorial.md)
+- [SAP Concur Travel and Expense](../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md)
+- [SAP Business Technology Platform](../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md)
+- [SAP Business ByDesign](../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md)
+- [SAP HANA](../../active-directory/saas-apps/saphana-tutorial.md)
+- [SAP Cloud for Customer](../../active-directory/saas-apps/sap-customer-cloud-tutorial.md)
 
 Also see the following SAP resources:
 - [Azure Application Gateway Setup for for Public and Internal SAP URLs](https://blogs.sap.com/2020/12/10/sap-on-azure-single-sign-on-configuration-using-saml-and-azure-active-directory-for-public-and-internal-urls/)
@@ -122,14 +122,14 @@ For more information about using SAP with Azure Integration services, see the fo
 
 - [New SAP events on Azure Event Grid with SAP Event Mesh](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/new-sap-events-on-azure-event-grid/ba-p/3663372)
 - [Expose SAP Process Orchestration on Azure securely](expose-sap-process-orchestration-on-azure.md)
-- [Connect to SAP from workflows in Azure Logic Apps](../../../logic-apps/logic-apps-using-sap-connector.md)
+- [Connect to SAP from workflows in Azure Logic Apps](../../logic-apps/logic-apps-using-sap-connector.md)
 
 Also see the following SAP resources:
 
 - [Event-driven architectures for SAP ERP with Azure](https://blogs.sap.com/2021/12/09/hey-sap-where-is-my-xbox-an-insight-into-capitalizing-on-event-driven-architectures/)
 - [Achieve high availability for SAP Cloud Integration (part of SAP Integration Suite) on Azure](https://blogs.sap.com/2021/09/23/black-friday-will-take-your-cpi-instance-offline-unless/)
 - [Automate SAP invoice processing using Azure Logic Apps and Cognitive Services](https://blogs.sap.com/2021/02/03/your-sap-on-azure-part-26-automate-invoice-processing-using-azure-logic-apps-and-cognitive-services/)
-- [Import SAP OData metadata as an API into Azure API Management](../../../api-management/sap-api.md)
+- [Import SAP OData metadata as an API into Azure API Management](../../api-management/sap-api.md)
 
 ### App development and DevOps
 
@@ -143,9 +143,9 @@ Also see the following SAP resources:
 
 For more information about integration with Azure Data Services, see the following Microsoft and Azure resources:
 
-- [SAP knowledge center for Azure Data Factory and Synapse](../../../data-factory/industry-sap-overview.md)
+- [SAP knowledge center for Azure Data Factory and Synapse](../../data-factory/industry-sap-overview.md)
 - [Track end-to-end lineage of your SAP data with Microsoft Purview](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/of-kings-amp-queens-and-sap-scans-to-identify-the-right-lineage/ba-p/3268816)
-- [Replicating SAP data using the CDC connector](../../../data-factory/sap-change-data-capture-introduction-architecture.md)
+- [Replicating SAP data using the CDC connector](../../data-factory/sap-change-data-capture-introduction-architecture.md)
 - [Replicating SAP data using the OData connector with Synapse Pipelines](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/extracting-sap-data-using-odata-part-1-the-first-extraction/ba-p/2841635)
 - [Use SAP HANA in Power BI Desktop](/power-bi/desktop-sap-hana)
 - [DirectQuery and SAP HANA](/power-bi/desktop-directquery-sap-hana)
