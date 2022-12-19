@@ -116,9 +116,9 @@
       items:
       - name: Why migrate from BizTalk Server?
         href: biztalk-server-to-azure-integration-services-overview.md
-      - name: Which integration services to choose in Azure
+      - name: Which integration services to choose
         href: azure-integration-services-choose-capabilities.md
-      - name: Which offerings to choose from Azure Integration Services
+      - name: Migration options and best practices
         href: biztalk-server-azure-integration-services-migration-approaches.md
       - name: Migrate from BizTalk Services
         href: logic-apps-move-from-mabs.md

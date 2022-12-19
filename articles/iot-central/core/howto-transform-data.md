@@ -362,13 +362,14 @@ To connect a downstream device to the IoT Edge gateway device:
     ```bash
     cd ~/iot-central-transform-with-iot-edge/leafdevice
     sudo apt update
-    sudo apt install nodejs npm node-typescript
+    curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    sudo apt-get install nodejs
     npm install
     npm run-script build
     npm run-script start
     ```
 
-    During `sudo apt install nodejs npm node-typescript` commands, you could be asked to allow installations: press `Y` if prompted.
+    During `sudo apt-get install nodejs` commands, you could be asked to allow installations: press `Y` if prompted.
 
 1. Enter the device ID, scope ID, and SAS key for the downstream device you created previously. For the hostname, enter `edgegateway`. The output from the command looks like:
 
