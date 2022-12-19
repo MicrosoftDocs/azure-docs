@@ -192,12 +192,12 @@ Depending on the options you select, some of the wizard screens might not be ava
  
      |Property|Description|
      |-----|-----|
-     |Supported SASL Mechanisms and Mandatory Features Found|The top section shows information provided by the server itself, such as the name of the server. |
-     |Server Certificate Details|If `SSL` or `TLS` was specified, the wizard will display the certificate returned by the server.  Confirm that the issuer, subject and thumbprint are for the correct directory server.|
+     |Supported SASL Mechanisms|The top section shows information provided by the server itself, including the list of SASL mechanisms. |
+     |Server Certificate Details|If `SSL` or `TLS` was specified, the wizard will display the certificate returned by the directory server.  Confirm that the issuer, subject and thumbprint are for the correct directory server.|
      |Mandatory Features Found|The connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories do not list all features in the Root DSE and it is possible that the connector works without issues even if a warning is present.|
      |Supported Controls|The **supported controls** checkboxes control the behavior for certain operations|
      |Delta Import|The change log DN is the naming context used by the delta change log, for example **cn=changelog**. This value must be specified to be able to do delta import.|
-     |Password Attribute|Not used.|
+     |Password Attribute|If the directory server supports a different password attribute or password hashing, you can specify the destination for password changes.|
      |Partition Names|In the additional partitions list, it is possible to add additional namespaces not automatically detected. For example, this setting can be used if several servers make up a logical cluster, which should all be imported at the same time. Just as Active Directory can have multiple domains in one forest but all domains share one schema, the same can be simulated by entering the additional namespaces in this box. Each namespace can import from different servers and is further configured on the **Configure Partitions and Hierarchies** page.|
     
  1. On the **Partitions** page, keep the default and select **Next**.
