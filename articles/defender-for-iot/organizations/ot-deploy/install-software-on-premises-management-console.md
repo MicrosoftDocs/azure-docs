@@ -7,15 +7,15 @@ ms.topic: how-to
 
 # Install OT monitoring software on an on-premises management console
 
-This article describes how to install Microsoft Defender for IoT monitoring software on an on-premises management console.
+This article describes how to install Microsoft Defender for IoT OT monitoring software on an on-premises management console.
 
 ## Prerequisites
 
 Before installing the software, make sure that you have:
 
-- Completed [Prepare for OT agentless monitoring software installation](how-to-prepare-for-ot-software-installation.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [Microsoft Defender for IoT - OT monitoring appliance catalog](appliance-catalog/index.yml).
+- Completed [Prepare for OT agentless monitoring software installation](prepare-for-ot-software-install.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [OT monitoring appliance catalog](../appliance-catalog/index.yml).
 
-- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
 ## Install on-premises management console software
 
@@ -29,21 +29,15 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. Select your preferred language for the installation process.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
-
-1. Select your location. For example:
-
-1. Detect keyboard layout?  default no, then select a keyboard layout 
-
-1. Configure the network - your system has detected multiple interfaces. 
+   :::image type="content" source="../media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
 
 1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::
+   :::image type="content" source="../media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::
 
 1. In the Installation Wizard, define the network properties:
 
-   :::image type="content" source="media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::
+   :::image type="content" source="../media/tutorial-install-components/on-prem-first-steps-install.png" alt-text="Screenshot that shows the appliance profile.":::
 
    | Parameter | Configuration |
    |--|--|
@@ -55,7 +49,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. **(Optional)** If you would like to install a secondary NIC, define the following appliance profile, and network properties:
 
-    :::image type="content" source="media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
+    :::image type="content" source="../media/tutorial-install-components/on-prem-secondary-nic-install.png" alt-text="Screenshot that shows the Secondary NIC install questions.":::
 
    | Parameter | Configuration |
    |--|--|
@@ -71,7 +65,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
    Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
 
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
 1. Select **Enter** to continue.
 
@@ -81,7 +75,7 @@ For information on how to find the physical port on your appliance, see [Find yo
 
 You can enhance security to your on-premises management console by adding a secondary NIC dedicated for attached sensors within an IP address range. When you use a secondary NIC, the first is dedicated for end-users, and the secondary supports the configuration of a gateway for routed networks.
 
-:::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="Diagram that shows the overall architecture of the secondary NIC." border="false":::
+:::image type="content" source="../media/tutorial-install-components/secondary-nic.png" alt-text="Diagram that shows the overall architecture of the secondary NIC." border="false":::
 
 Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
@@ -97,7 +91,7 @@ This procedure describes how to add a secondary NIC if you've already installed 
 
 1. Enter the following responses to the following questions:
 
-    :::image type="content" source="media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
+    :::image type="content" source="../media/tutorial-install-components/network-reconfig-command.png" alt-text="Screenshot of the required answers to configure your appliance. ":::
 
     | Parameters | Response to enter |
     |--|--|
@@ -124,6 +118,6 @@ This command will cause the light on the port to flash for the specified time pe
 
 ## Next steps
 
-- [Post-installation validation](how-to-validate-post-install-ot-software.md)
-- [Install OT monitoring software on OT sensors](how-to-install-software.md)
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Post-installation validation of OT network monitoring software](post-install-validation-ot-software.md)
+- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
+- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

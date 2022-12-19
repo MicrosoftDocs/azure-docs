@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Post-installation validation of OT network monitoring software
 
-After you've finished installing OT monitoring software on your appliance, test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
+After you've installed OT software on your [OT sensors](install-software-ot-sensor.md) or [on-premises management console](install-software-on-premises-management-console.md), test your system to make sure that processes are running correctly. The same validation process applies to all appliance types.
 
 System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
@@ -86,8 +86,8 @@ index.html.1        100%[===================>]  97.62K  --.-KB/s    in 0.02s
 >
 ```
 
-For more information, see [Check system health](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
+For more information, see [Check system health](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#check-system-health) in our sensor and on-premises management console troubleshooting article.
 
 ## Next steps
 
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

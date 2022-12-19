@@ -11,13 +11,13 @@ This article describes how to prepare to install agentless monitoring software f
 
 ## Prerequisites
 
-- [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
 
-- [configure traffic mirroring in your network](best-practices/traffic-mirroring-methods.md)
+- [Configure traffic mirroring in your network](../best-practices/traffic-mirroring-methods.md)
 
-- [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md)
+- [Manage OT plans on Azure subscriptions](../how-to-manage-subscriptions.md)
 
-- [Onboard OT sensors to Defender for IoT](onboard-sensors.md)
+- [Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
 
 ## Download software files from the Azure portal
 
@@ -42,17 +42,17 @@ Mount the ISO file onto your hardware appliance or VM using one of the following
 
 Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
 
-Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see the [OT monitoring appliance catalog](appliance-catalog/appliance-catalog-overview.md).
+Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see the [OT monitoring appliance catalog](../appliance-catalog/index.yml).
 
 For more information, see:
 
-- [Which appliances do I need?](ot-appliance-sizing.md)
-- [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md), including the catalog of available appliances
-- [OT monitoring with virtual appliances](ot-virtual-appliances.md)
+- [Which appliances do I need?](../ot-appliance-sizing.md)
+- [Pre-configured physical appliances for OT monitoring](../ot-pre-configured-appliances.md), including the catalog of available appliances
+- [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
 
 ## Next steps
 
 For more information, see:
 
-- [Install OT monitoring software on OT sensors](how-to-install-software.md)
-- [Install OT monitoring software on an on-premises management console](how-to-install-ot-software-on-premises-management-console.md)
+- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
+- [Install OT monitoring software on an on-premises management console](install-software-on-premises-management-console.md)

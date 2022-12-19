@@ -13,9 +13,9 @@ This article describes how to install Microsoft Defender for IoT monitoring soft
 
 Before starting the software installation, make sure that you have:
 
-- Completed [Prepare for OT agentless monitoring software installation](how-to-prepare-for-ot-software-installation.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [Microsoft Defender for IoT - OT monitoring appliance catalog](appliance-catalog/index.yml).
+- Completed [Prepare for OT agentless monitoring software installation](prepare-for-ot-software-install.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [OT monitoring appliance catalog](../appliance-catalog/index.yml).
 
-- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
 ## Install sensor software
 
@@ -26,9 +26,9 @@ This procedure describes how to install OT monitoring software on a sensor.
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to install.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options." lightbox="media/tutorial-install-components/sensor-architecture.png":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's hardware profile options." lightbox="../media/tutorial-install-components/sensor-architecture.png":::
 
-    For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
+    For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
 
     System files are installed, the sensor reboots, and then sensor files are installed. This process can take a few minutes.
 
@@ -46,64 +46,64 @@ This procedure describes how to install OT monitoring software on a sensor.
 
     For example:
 
-    :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
+    :::image type="content" source="../media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
 
 1. In the `Select erspan monitor interfaces` screen, select any ERSPAN monitoring ports that you have. The wizard lists available interfaces, even if you don't have any ERSPAN monitoring ports in your system. If you have no ERSPAN monitoring ports, leave all options unselected.
 
     For example:
 
-    :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
+    :::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
 1. In the `Select management interface` screen, we recommend keeping the default `eno1` value selected as the management interface.
 
     For example:
 
-    :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
+    :::image type="content" source="../media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
 
 1. In the `Enter sensor IP address` screen, enter the IP address for the sensor appliance you're installing.
 
-    :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
 
 1. In the `Enter path to the mounted backups folder` screen, enter the path to the sensor's mounted backups. We recommend using the default path of `/opt/sensor/persist/backups`. For example:
 
-    :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
+    :::image type="content" source="../media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
 
 1. In the `Enter Subnet Mask` screen, enter the IP address for the sensor's subnet mask. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-subnet-ip.png" alt-text="Screenshot of the Enter Subnet Mask screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-subnet-ip.png" alt-text="Screenshot of the Enter Subnet Mask screen.":::
 
 1. In the `Enter Gateway` screen, enter the sensor's default gateway IP address. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-gateway-ip.png" alt-text="Screenshot of the Enter Gateway screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-gateway-ip.png" alt-text="Screenshot of the Enter Gateway screen.":::
 
 1. In the `Enter DNS server` screen, enter the sensor's DNS server IP address. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-dns-ip.png" alt-text="Screenshot of the Enter DNS server screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-dns-ip.png" alt-text="Screenshot of the Enter DNS server screen.":::
 
 1. In the `Enter hostname` screen, enter the sensor hostname. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the Enter hostname screen.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the Enter hostname screen.":::
 
 1. In the `Run this sensor as a proxy server (Preview)` screen, select `<Yes>` only if you want to configure a proxy, and then enter the proxy credentials as prompted.
 
     The default configuration is without a proxy.
 
-    For more information, see [Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)](how-to-connect-sensor-by-proxy.md).
+    For more information, see [Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (version 10.x)](../how-to-connect-sensor-by-proxy.md).
 
 
 1. <a name=credentials></a>The installation process starts running and then shows the credentials screen. For example:
 
-    :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
+    :::image type="content" source="../media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](../roles-on-premises.md#default-privileged-on-premises-users).
 
     Select `<Ok>` when you're ready to continue.
 
     The installation continues running again, and then reboots when the installation is complete. Upon reboot, you're prompted to enter credentials to sign in. For example:
 
-    :::image type="content" source="media/tutorial-install-components/sensor-sign-in.png" alt-text="Screenshot of a sensor sign-in screen after installation.":::
+    :::image type="content" source="../media/tutorial-install-components/sensor-sign-in.png" alt-text="Screenshot of a sensor sign-in screen after installation.":::
 
 1. Enter the credentials for one of the users that you'd copied down in the [previous step](#credentials).
 
@@ -114,11 +114,10 @@ This procedure describes how to install OT monitoring software on a sensor.
 
     :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of the sign-in confirmation.":::
 
-Make sure that your sensor is connected to your network, and then you can sign in to your sensor via a network-connected browser. For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
-
+Make sure that your sensor is connected to your network, and then you can sign in to your sensor via a network-connected browser. For more information, see [Activate and set up your sensor](../how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor)
 
 ## Next steps
 
-- [Post-installation validation](how-to-validate-post-install-ot-software.md)
-- [Install OT monitoring software on an on-premises management console](how-to-install-ot-software-on-premises-management-console.md)
-- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+- [Post-installation validation of OT network monitoring software](post-install-validation-ot-software.md)
+- [Install OT monitoring software on an on-premises management console](install-software-on-premises-management-console.md)
+- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
