@@ -66,7 +66,7 @@ The [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob
 
 ## Item examples
 
-The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) Python sample shows how to do the following tasks. To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [document_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) and [change_feed_management.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) Python samples show how to do the following tasks using the [ContainerProxy methods](/python/api/azure-cosmos/azure.cosmos.container.containerproxy#methods). To learn about the Azure Cosmos DB documents before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
@@ -74,7 +74,7 @@ The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mast
 | [Read an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L46-L54) |container.read_item |
 | [Read all the items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L57-L68) |container.read_all_items |
 | [Query an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L71-L83) |container.query_items |
-| [Replace an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L86-L93) |container.replace_items |
+| [Replace an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L86-L93) |container.replace_item |
 | [Upsert an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L95-L103) |container.upsert_item |
 | [Delete an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L106-L111) |container.delete_item |
 | [Get the change feed of items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |container.query_items_change_feed |
