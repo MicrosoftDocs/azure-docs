@@ -360,6 +360,8 @@
     items:
     - name: Set up network for Azure Monitor for SAP solutions
       href: create-network-azure-monitor-sap-solutions.md
+    - name: Enable TLS 1.2 or higher
+      href: enable-tls-azure-monitor-sap-solutions.md
     - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: azure-monitor-alerts-portal.md
     - name: Provider configuration

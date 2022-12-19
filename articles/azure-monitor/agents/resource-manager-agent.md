@@ -56,8 +56,8 @@ resource windowsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' 
     settings: {
       authentication: {
         managedIdentity: {
-          identifier-name: 'mi_res_id'
-          identifier-value: userAssignedManagedIdentity
+          'identifier-name': 'mi_res_id'
+          'identifier-value': userAssignedManagedIdentity
         }
       }
     }
@@ -231,8 +231,8 @@ resource linuxAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = 
     settings: {
       authentication: {
         managedIdentity: {
-          identifier-name: 'mi_res_id'
-          identifier-value: userAssignedManagedIdentity
+          'identifier-name': 'mi_res_id'
+          'identifier-value': userAssignedManagedIdentity
         }
       }
     }
