@@ -194,6 +194,9 @@ The following illustration shows the currency conversion flow:
 ![Screenshot of the geo availability of currencies.](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-12-12-2022.png)
 
 
+![currency-exchange-flow1](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-12-12-2022.png)
+
+
 ## Options to manage local prices, for example in cases where markets have high foreign exchange rate variations
 Once a plan is created and saved, the prices in all local currencies are static and are not updated automatically, for example when there are foreign exchange fluctuations.
 
