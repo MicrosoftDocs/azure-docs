@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/01/2022
+ms.date: 12/19/2022
 ms.author: sarahlipsey
 ms.reviewer: plenzke 
 

@@ -13,7 +13,7 @@ ms.subservice: aiplabels
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 12/19/2022
 ms.author: terrylan
 
 ---

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 6/28/2022
+ms.date: 12/19/2022
 ms.author: amsliu
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
