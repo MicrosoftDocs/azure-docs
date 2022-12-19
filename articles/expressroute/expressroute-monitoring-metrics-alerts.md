@@ -47,7 +47,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
 | DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
 | GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | No | 
-| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No | 
+| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No |
+| [FastPathRoutesCount](#number-of-fastpath-routes---circuit-level) | Fastpath | Count | Maximum | Count of FastPath routes configured on the circuit | None | Yes |
 
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
@@ -86,6 +87,7 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | No | 
 | [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | No | 
 | [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | No |
+| [FastPathRoutesCount](#number-of-fastpath-routes---port-level) | FastPath | Count | Maximum | Count of FastPath routes configured on the port | None | Yes |
 
 ### ExpressRoute Traffic Collector
 
@@ -124,6 +126,14 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 >[!NOTE]
 >During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
 >
+
+### Number of FastPath routes - circuit level
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on the circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits). 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
 ### <a name = "arp"></a>ARP Availability - Split by Peering  
 
@@ -190,6 +200,14 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 >[!NOTE]
 > ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
 >
+
+### Number of FastPath routes - port level
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
