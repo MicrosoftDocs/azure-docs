@@ -61,7 +61,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
 1. After about 10 minutes, the two sets of credentials appear. For example:
 
-   :::image type="content" source="media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they won't be presented again.":::
+   :::image type="content" source="../media/tutorial-install-components/credentials-screen.png" alt-text="Copy these credentials as they won't be presented again.":::
 
    Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
 

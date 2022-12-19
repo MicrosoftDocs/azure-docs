@@ -24,7 +24,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../how-to-prepare-for-ot-software-installation.md#download-software-files-from-the-azure-portal).
+- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/prepare-for-ot-software-install.md#download-software-files-from-the-azure-portal).
 
 Make sure the hypervisor is running.
 
@@ -64,8 +64,7 @@ This procedure describes how to create a virtual machine for your on-premises ma
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing on-premises management console software](../how-to-install-ot-software-on-premises-management-console.md).
-
+1. Continue with the [generic procedure for installing on-premises management console software](../ot-deploy/install-software-on-premises-management-console.md).
 
 ## Next steps
 
@@ -75,4 +74,4 @@ Then, use any of the following procedures to continue:
 
 - [Purchase sensors or download software for sensors](../onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](../how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
-- [Install software](../how-to-install-software.md)
+- [Prepare for OT agentless monitoring software installation](../ot-deploy/prepare-for-ot-software-install.md)

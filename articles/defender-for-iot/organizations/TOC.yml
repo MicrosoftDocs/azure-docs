@@ -183,13 +183,13 @@
     - name: Install OT system software
       items:
       - name: Prepare to install OT system software
-        href: how-to-prepare-for-ot-software-installation.md
+        href: ot-deploy/prepare-for-ot-software-install.md
       - name: Install OT system software on sensors
-        href: how-to-install-software.md
+        href: ot-deploy/install-software-ot-sensor.md
       - name: Install OT system software on the on-premises management console
-        href: how-to-install-ot-software-on-premises-management-console.md
+        href: ot-deploy/install-software-on-premises-management-console.md
       - name: Post-installation validation
-        href: how-to-validate-post-install-ot-software.md
+        href: ot-deploy/post-install-validation-ot-software.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
     - name: Deploy OT certificates

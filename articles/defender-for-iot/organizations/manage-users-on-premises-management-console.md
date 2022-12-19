@@ -17,7 +17,7 @@ By default, each on-premises management console is installed with the privileged
 
 When setting up an on-premises management console for the first time, sign in with one of these privileged users, create an initial user with an **Admin** role, and then create extra users for security analysts and read-only users.
 
-For more information, see [Install OT monitoring software on an on-premises management console](how-to-install-ot-software-on-premises-management-console.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software on an on-premises management console](ot-deploy/install-software-on-premises-management-console.md) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Add new on-premises management console users
 
