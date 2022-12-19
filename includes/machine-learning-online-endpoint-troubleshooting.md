@@ -90,7 +90,7 @@ If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configu
     **For Kubernetes online endpoint**, 
 
     1. Check the DNS configuration in Kubernetes cluster.
-    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following the command:
+    2. Additionally, you can check if the [azureml-fe](../articles/machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) works as expected, use the following command:
         
         ```bash
         kubectl exec -it deploy/azureml-fe -- /bin/bash

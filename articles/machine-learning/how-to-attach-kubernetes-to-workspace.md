@@ -71,7 +71,7 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 1. Select the **Attached computes** tab.
 1. Select **+New > Kubernetes**
 
-   :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
+   :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/attach-kubernetes-cluster.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
 
 1. Enter a compute name and select your Kubernetes cluster from the dropdown.
 
@@ -79,13 +79,13 @@ Attaching a Kubernetes cluster makes it available to your workspace for training
 
     * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see the [Assign managed identity](#assign-managed-identity-to-the-compute-target) section of this article.
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png" alt-text="Screenshot of settings for developer configuration of Kubernetes cluster.":::
+    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/configure-kubernetes-cluster-2.png" alt-text="Screenshot of settings for developer configuration of Kubernetes cluster.":::
 
 1. Select **Attach**
 
     In the Attached compute tab, the initial state of your cluster is *Creating*. When the cluster is successfully attached, the state changes to *Succeeded*. Otherwise, the state changes to *Failed*.
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/provision-resources.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
+    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/provision-resources.png" alt-text="Screenshot of attached settings for configuration of Kubernetes cluster.":::
    
 ---
 
@@ -101,9 +101,9 @@ To access Azure Container Registry (ACR) for a Docker image, and a Storage Accou
     - Go to [Azure Machine Learning studio](https://ml.azure.com). Select __Compute__, __Attached compute__, and select your attached compute.
     - Select the pencil icon to edit managed identity.
 
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/edit-identity.png" alt-text="Screenshot of updating identity of the Kubernetes compute from Azure portal.":::
+    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/edit-identity.png" alt-text="Screenshot of updating identity of the Kubernetes compute from Azure portal.":::
     
-    :::image type="content" source="media/how-to-attach-arc-kubernetes/update-identity2.png" alt-text="Screenshot of selecting identity of the Kubernetes compute from Azure portal.":::
+    :::image type="content" source="media/how-to-attach-kubernetes-to-workspace/update-identity-2.png" alt-text="Screenshot of selecting identity of the Kubernetes compute from Azure portal.":::
      
 
 

@@ -198,7 +198,7 @@ Below is a list of common image build failure scenarios:
 
 #### Container registry authorization failure
 
-If the error message mentions `"container registry authorization failure"`, that means the container registry could not be accessed with the current credentials.
+If the error message mentions `"container registry authorization failure"` that means the container registry could not be accessed with the current credentials.
 This can be caused by desynchronization of a workspace resource's keys and it takes some time to automatically synchronize.
 However, you can [manually call for a synchronization of keys](/cli/azure/ml/workspace#az-ml-workspace-sync-keys) which may resolve the authorization failure.
 
@@ -247,7 +247,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Role assignment quota
 
-When creating a managed online endpoint, role assignment is required for the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to access workspace resources. If you've reached the [role assignment limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
+When you are creating a managed online endpoint, role assignment is required for the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to access workspace resources. If you've reached the [role assignment limit](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-rbac-limits), try to delete some unused role assignments in this subscription. You can check all role assignments in the Azure portal by going to the Access Control menu.
 
 #### Kubernetes quota
 
@@ -259,7 +259,7 @@ Adjust your request in the cluster, you can directly [adjust resource request of
 
 ##### Container can't be scheduled
 
-When deploying a model to an Kubernetes compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
+When you are deploying a model to a Kubernetes compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If there are no nodes available in the cluster with the appropriate amount of resources after 5 minutes, the deployment will fail. The failure message is `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes, or changing the resource requirements of your service. 
 
 The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that don't have available GPUs. This could be addressed by adding more nodes if you're using a GPU SKU, switching to a GPU enabled SKU if you aren't or changing your environment to not require GPUs.  
 
@@ -385,6 +385,7 @@ You can also check if the blobs are present in the workspace storage account.
 
   ---
 
+
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
@@ -454,7 +455,7 @@ Retrying the operation might allow it to be performed without cancellation.
 
 Azure operations have a brief waiting period after being submitted during which they retrieve a lock to ensure that we don't run into race conditions. This error happens when the operation you submitted is the same as another operation that is currently still waiting for confirmation that it has received the lock to proceed. It may indicate that you've submitted a very similar request too soon after the initial request.
 
-Retrying the operation after waiting a few seconds up to a minute may allow it to be performed without cancellation.
+Retrying the operation after waiting several seconds up to a minute may allow it to be performed without cancellation.
 
 ### ERROR: NamespaceNotFound
 
@@ -466,13 +467,13 @@ You can check the Kubernetes compute in your workspace portal and check the name
 
 Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
 * There is an error in `score.py` and the container crashed when init your score code, please following [ERROR: ResourceNotReady](#error-resourcenotfound) part. 
-* Your scoring process needs more memory that your deployment config limit is insufficient, you can try update the deployment with a larger memory limit. 
+* Your scoring process needs more memory that your deployment config limit is insufficient, you can try to update the deployment with a larger memory limit. 
 
 ### ERROR: ACRSecretError 
 
 Below is a list of reasons you might run into this error when using Kubernetes online endpoint:
 
-* Role assignment has not yet been completed. In this case, please wait for a serval seconds and try again later. 
+* Role assignment has not yet been completed. In this case, please wait for a few seconds and try again later. 
 * The Azure ARC (For Azure Arc Kubernetes cluster) or AMLArc extension (For AKS) is not properly installed or configured. Please try to check the Azure ARC or AMLArc extension configuration and status. 
 * The Kubernetes cluster has improper network configuration, please check the proxy, network policy or certificate. 
 
@@ -486,7 +487,7 @@ In this case, you can detach and then **re-attach** your compute.
 >
 > To troubleshoot errors by re-attaching, please guarantee to re-attach with the exact same configuration as previously detached compute, such as the same compute name and namespace, otherwise you may encounter other errors.
 
-If it is still not working, please ask the administrator who can access the cluster to use `kubectl get po -n azureml` to check whether the *relayserver* pods are running.
+If it is still not working, please ask the administrator who can access the cluster to use `kubectl get po -n azureml` to check whether the *relay server* pods are running.
 
 
 ### ERROR: InternalServerError
@@ -538,7 +539,7 @@ Below are common error codes when consuming Kubernetes online endpoints with RES
 | Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |
 | 409 | Conflict error | When an operation is already in progress, any new operation on that same online endpoint will respond with 409 conflict error. For example, If create or update online endpoint operation is in progress and if you trigger a new Delete operation it will throw an error. |
-| 502 | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example a imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file. |
+| 502 | Has thrown an exception or crashed in the `run()` method of the score.py file | When there's an error in `score.py`, for example an imported package does not exist in the conda environment, a syntax error, or a failure in the `init()` method. You can follow [here](#error-resourcenotready) to debug the file. |
 | 503 | Receive large spikes in requests per second | The autoscaler is designed to handle gradual changes in load. If you receive large spikes in requests per second, clients may receive an HTTP status code 503. Even though the autoscaler reacts quickly, it takes AKS a significant amount of time to create more containers. You can follow [here](#how-to-prevent-503-status-codes) to prevent 503 status codes.|
 | 504 | Request has timed out | A 504 status code indicates that the request has timed out. The default timeout is 1 minute. You can increase the timeout or try to speed up the endpoint by modifying the score.py to remove unnecessary calls. If these actions don't correct the problem, you can follow [here](#error-resourcenotready) to debug the score.py file. The code may be in a non-responsive state or an infinite loop. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
