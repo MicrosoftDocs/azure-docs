@@ -76,7 +76,7 @@ sections:
       - question: |
           How many records I can download from the Azure portal?
         answer: |
-          You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records. You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
+          You can download up to 250,000 records from the Azure portal. The records are sorted by *most recent* and by default. You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up to a million records at any given point.
 
       - question: |
           How long does Azure AD store activity logs?

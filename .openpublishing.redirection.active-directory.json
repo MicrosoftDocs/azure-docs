@@ -4357,6 +4357,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring//troubleshoot-missing-data-download.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring//reports-faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/reports-monitoring/troubleshoot-missing-audit-data.md",
+      "redirect_url": "/azure/active-directory/reports-monitoring//reports-faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/customize-branding.md",
       "redirect_url": "/azure/active-directory/fundamentals/customize-branding",
       "redirect_document_id": false

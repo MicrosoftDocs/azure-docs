@@ -2,6 +2,7 @@ items:
 - name: Reports and monitoring documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: Azure AD reports
     href: overview-reports.md
@@ -11,14 +12,10 @@ items:
     href: overview-workbooks.md
   - name: Azure AD recommendations
     href: overview-recommendations.md
-  - name: Flagged sign-ins
-    href: overview-flagged-sign-ins.md
   - name: Service Health notifications
     href: overview-service-health-notifications.md
-  - name: Sign-in diagnostic
-    href: overview-sign-in-diagnostics.md
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Filter your audit log 
     href: quickstart-filter-audit-log.md
@@ -42,10 +39,12 @@ items:
   items:
   - name: Audit logs
     href: concept-audit-logs.md
-  - name: New sign-in logs - preview
-    href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
+  - name: Sign-in logs (preview)
+    href: concept-all-sign-ins.md
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
   - name: Usage and Insights report
@@ -56,13 +55,11 @@ items:
     href: concept-activity-logs-azure-monitor.md
   - name: Plan a reporting and monitoring deployment
     href: plan-monitoring-and-reporting.md
-  - name: Sign-in diagnostics scenarios
-    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true
   items:
-  - name: Reports
+  - name: Logs and reports
     items:
     - name: Access activity logs
       href: howto-access-activity-logs.md
@@ -72,17 +69,15 @@ items:
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD
       href: howto-manage-inactive-user-accounts.md
-    - name: Troubleshoot sign-in errors for a user
-      href: howto-troubleshoot-sign-in-errors.md
     - name: View applied conditional access policies
       href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
     items:
+    - name: Integrate activity logs with Azure Monitor logs
+      href: howto-integrate-activity-logs-with-log-analytics.md 
     - name: Analyze activity logs in Azure Monitor logs
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Integrate activity logs with Azure Monitor logs
-      href: howto-integrate-activity-logs-with-log-analytics.md    
     - name: Integrate activity logs with ArcSight
       href: howto-integrate-activity-logs-with-arcsight.md
     - name: Integrate activity logs with Splunk
@@ -92,6 +87,14 @@ items:
 
   - name: Troubleshoot
     items:
+    - name: Flagged sign-ins
+      href: overview-flagged-sign-ins.md
+    - name: Sign-in diagnostic
+      href: overview-sign-in-diagnostics.md
+    - name: Sign-in diagnostics scenarios
+      href: concept-sign-in-diagnostics-scenarios.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
     - name: Missing audit data
       href: troubleshoot-missing-audit-data.md
     - name: Missing data in download
@@ -106,8 +109,6 @@ items:
   items:
   - name: Azure Active Directory SLA performance
     href: reference-azure-ad-sla-performance.md
-  - name: Basic info in the sign-in logs
-    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
