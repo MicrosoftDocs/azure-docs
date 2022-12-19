@@ -512,24 +512,6 @@
               href: xml-to-json-policy.md
             - name: xsl-transform
               href: xsl-transform-policy.md
-            - name: Access restriction policies
-              href: api-management-access-restriction-policies.md
-            - name: Advanced policies
-              href: api-management-advanced-policies.md
-            - name: Authentication policies
-              href: api-management-authentication-policies.md
-            - name: Caching policies
-              href: api-management-caching-policies.md
-            - name: Cross-domain policies
-              href: api-management-cross-domain-policies.md
-            - name: Distributed Application Runtime (Dapr) integration policies
-              href: api-management-dapr-policies.md
-            - name: GraphQL API policies
-              href: graphql-policies.md
-            - name: Transformation policies
-              href: api-management-transformation-policies.md
-            - name: Validation policies
-              href: validation-policies.md
       - name: Authorizations - identity providers
         href: authorizations-reference.md
       - name: Azure Policy built-ins

@@ -31,16 +31,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
-            "redirect_document_id": false
-        },
-        {
             "source_path":  "articles/sentinel/whats-new-archive.md",
             "redirect_url":  "/azure/sentinel/whats-new",
             "redirect_document_id":  false
@@ -163,16 +153,6 @@
         {
             "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
             "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/zone-redundancy.md",
-            "redirect_url": "/azure/availability-zones/migrate-api-mgt",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/developer-portal-implement-widgets.md",
-            "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
         },
         {
@@ -553,11 +533,6 @@
         {
             "source_path": "articles/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade.md",
             "redirect_url": "/previous-versions/azure/service-fabric-mesh/service-fabric-mesh-tutorial-upgrade",
-            "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/api-management/import-api-app-as-api.md",
-            "redirect_url": "/azure/api-management/import-app-service-as-api",
             "redirect_document_id": false
         },
         {
@@ -2716,71 +2691,6 @@
         {
             "source_path_from_root": "/articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
             "redirect_url": "/azure/analysis-services/analysis-services-overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-product.md",
-            "redirect_url": "/azure/api-management/api-management-howto-add-products",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
-            "redirect_url": "/azure/api-management/graphql-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-policy-reference.md",
-            "redirect_url": "/azure/api-management/api-management-policies",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-docker.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-docker",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-deploy-self-hosted-gateway-to-k8s.md",
-            "redirect_url": "/azure/api-management/how-to-deploy-self-hosted-gateway-kubernetes",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-get-started.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-create-apis.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-import-api.md",
-            "redirect_url": "/azure/api-management/import-and-publish",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-add-operations.md",
-            "redirect_url": "/azure/api-management/mock-api-responses",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/policy-samples.md",
-            "redirect_url": "/azure/api-management/policy-reference",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-attributes.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-security-controls.md",
-            "redirect_url": "/azure/api-management/security-baseline",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/api-management/api-management-howto-product-with-rules.md",
-            "redirect_url": "/azure/api-management/transform-api",
             "redirect_document_id": false
         },
         {
@@ -6971,11 +6881,6 @@
         {
             "source_path_from_root": "/articles/functions/functions-scale.md",
             "redirect_url": "/azure/azure-functions/functions-scale",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md",
-            "redirect_url": "/azure/api-management/export-api-power-platform",
             "redirect_document_id": false
         },
         {
@@ -18534,11 +18439,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/service-fabric/service-fabric-api-management-quick-start.md",
-            "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-api-management",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
             "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
             "redirect_document_id": false
@@ -24521,11 +24421,6 @@
         {
             "source_path_from_root": "/articles/app-service-mobile/app-service-mobile-xamarin-ios-get-started.md",
             "redirect_url": "/azure/developer/mobile-apps/azure-mobile-apps/quickstarts/xamarin-ios",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/azure-api-management-certs.md",
-            "redirect_url": "/previous-versions/azure/azure-api-management-certs",
             "redirect_document_id": false
         },
         {
