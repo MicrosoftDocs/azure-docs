@@ -1,16 +1,16 @@
 ---
-title: How to display the MedTech service monitoring tab metrics - Azure Health Data Services
-description: This article describes how to display the MedTech service monitoring tab metrics.
+title: How to use the MedTech service monitoring tab metrics - Azure Health Data Services
+description: This article describes how to use the MedTech service monitoring tab metrics.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 12/17/2022
 ms.author: jasteppe
 ---
 
-# How to display the MedTech service monitoring tab metrics
+# How to use the MedTech service monitoring tab metrics
 
 In this article, you'll learn how to use the MedTech service monitoring tab in the Azure portal. The monitoring tab provides access to crucial MedTech service metrics. These metrics can be used in assessing the health and performance of your MedTech service and can be useful seeing patterns and/or trends or assisting with troubleshooting your MedTech service.
 

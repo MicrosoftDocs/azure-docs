@@ -555,7 +555,7 @@ You can set up other applications, such as RStudio, or Posit Workbench (formerly
 
 ### Setup Posit Workbench (formerly RStudio Workbench)
 
-Posit is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers.
+RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench, which provides access to RStudio along with other development tools, to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
@@ -568,7 +568,6 @@ Posit is one of the most popular IDEs among R developers for ML and data science
 > [!NOTE]
 > * Support for accessing your workspace file store from Posit Workbench is not yet available.
 > * When accessing multiple instances of Posit Workbench, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
-> * Shiny applications are not currently supported on Posit Workbench.
  
 
 ### Setup RStudio (open source)
