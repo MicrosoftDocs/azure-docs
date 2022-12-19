@@ -38,11 +38,13 @@ Triggering Test Alert...
 Test Alert was successfully triggered.
 ```
 
-## Applying ingress traffic capture filters
+## Applying capture filters for incoming traffic
 
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source.
 
 In such cases, use include and/or exclude lists to create and configure capture filters on your OT network sensors. Capture filters ensure that the data that reaches Defender for IoT is only the data that you need to monitor.
+
+<!--do we want to explain about the fact that we have different components? horizon = DPI, collector = pcap collection default = all. traffic monitor = statistics on the communication. if we want to just keep the default as all and all others undoc'd. then remove the program selector and any specific program items-->
 
 > [!NOTE]
 > Commands for applying capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
@@ -54,7 +56,7 @@ Use the following commands to create a new capture filter on your sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| **support** | `network capture-filter` | No attributes |
+| **support** | `network capture-filter` | No attributes. Configure your capture filter settings using the [CLI prompts](#create-a-new-capture-filter-using-the-support-user). |
 | **cyberx** | `cyberx-xsense-capture-filter` | `cyberx-xsense-capture-filter [-h] [-i INCLUDE] [-x EXCLUDE] [-etp EXCLUDE_TCP_PORT] [-eup EXCLUDE_UDP_PORT] [-itp INCLUDE_TCP_PORT] [-iup INCLUDE_UDP_PORT] [-vlan INCLUDE_VLAN_IDS] -p PROGRAM [-o BASE_HORIZON] [-s BASE_TRAFFIC_MONITOR] [-c BASE_COLLECTOR] -m MODE [-S]`   |
 
 Supported attributes are defined as follows:
@@ -64,62 +66,59 @@ Supported attributes are defined as follows:
 |`-h`, `--help`     |  Shows the help message and exits.      |
 |`-i <INCLUDE>`, `--include <INCLUDE>`     |  The path to a file that contains the devices and subnet masks you want to include, where `<INCLUDE>` is the path to the file.       |
 |`-x EXCLUDE`, `--exclude EXCLUDE`     |  The path to a file that contains the devices and subnet masks you want to exclude, where `<EXCLUDE>` is the path to the file.       |
-|- `-etp <EXCLUDE_TCP_PORT>`, `--exclude-tcp-port <EXCLUDE_TCP_PORT>`     | Excludes TCP traffic on any specified ports, where the `<EXCLUDE_TCP_PORT>` defines the port or ports you want to exclude. Delimitate multiple reports by commas, with no spaces.        |
-|`-eup <EXCLUDE_UDP_PORT>`, `--exclude-udp-port <EXCLUDE_UDP_PORT>`     |   Excludes UDP traffic on any specified ports, where the `<EXCLUDE_UDP_PORT>` defines the port or ports you want to exclude. Delimitate multiple reports by commas, with no spaces.              |
-|`-itp <INCLUDE_TCP_PORT>`, `--include-tcp-port <INCLUDE_TCP_PORT>`     |   Includes TCP traffic on any specified ports, where the `<INCLUDE_TCP_PORT>` defines the port or ports you want to include. Delimitate multiple reports by commas, with no spaces.                   |
-|`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple reports by commas, with no spaces.                    |
-|`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple reports by commas, with no spaces.                          |
+|- `-etp <EXCLUDE_TCP_PORT>`, `--exclude-tcp-port <EXCLUDE_TCP_PORT>`     | Excludes TCP traffic on any specified ports, where the `<EXCLUDE_TCP_PORT>` defines the port or ports you want to exclude. Delimitate multiple ports by commas, with no spaces.        |
+|`-eup <EXCLUDE_UDP_PORT>`, `--exclude-udp-port <EXCLUDE_UDP_PORT>`     |   Excludes UDP traffic on any specified ports, where the `<EXCLUDE_UDP_PORT>` defines the port or ports you want to exclude. Delimitate multiple ports by commas, with no spaces.              |
+|`-itp <INCLUDE_TCP_PORT>`, `--include-tcp-port <INCLUDE_TCP_PORT>`     |   Includes TCP traffic on any specified ports, where the `<INCLUDE_TCP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                   |
+|`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                    |
+|`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple VLAN IDs by commas, with no spaces.                          |
 |`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the program you're working with, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all` <!--do we need more information about when to use each?-->        |
 |`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines the base capture filter for the `horizon` program, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
 |`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    Defines the basic capture filter for the `traffic-monitor` filter. <br> Default value = `""`    |
 |`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | Defines the basic capture filter for the `collector` filter.  <br> Default value = `""`             |
-|`-m <MODE>`, `--mode <MODE>`     | Relevant only when an include list is used.  <!--the following description is unclear--> Assume A and B are in the included set and X isn't so "-m  internal" allows only [A B] and "-m all-connected" also allows [A X] [B X]    |
-| `-S`, `--from-shell` | Replaces special characters in arguments received from the shell CLI. <!--can we give an example?--> |
+|`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
+| `-S`, `--from-shell` | Replaces special characters in arguments received from the shell CLI. <!--can we give an example? arkadiy: not in use, remove--> |
 
-After you run the command, answer the questions that are prompted as follows:
+
+<!--this procedure should actually go in the how-to section together with [Control what traffic is monitored](../how-to-control-what-traffic-is-monitored.md), and then just refer here. That may come later, when that page is redone. -->
+
+#### Create a new capture filter using the support user
+
+If you are creating a new capture filter as the *support* user, no attributes are passed in the original command. Instead, you're prompted to answer a series of questions to create the capture filter.
 
 1. `Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
-    Select `Y` to open a nano file where you can add a device, channel, port, and subset.
+    Select `Y` to open a new include file where you can add a device, channel, and/or subnet that you want to include in monitored traffic. Any other traffic, not listed in your include file, isn't ingested to Defender for IoT.
 
-    Including a device, channel, or subnet causes the sensor to process all valid traffic for the supplied argument, including ports and traffic that wouldn't otherwise be processed. <!--for example?-->
+    The include file is opened in the [Nano](https://www.nano-editor.org/dist/latest/cheatsheet.html) text editor.  In the include file, define devices, channels, and subnets as follows:
 
-    In the nano file, use the following syntax:
+    - **Device**. Define a device by its IP address. For example, `1.1.1.1` includes all traffic for this device.
+    - **Channel**: Define a channel by the IP addresses of its source and destination devices, separated by a comma. For example, `1.1.1.1,2.2.2.2` includes all of the traffic for this channel.
+    - **Subnet**: Define a subnet by the source and destination network addresses. For example, `1.1.1,2.2.2` includes all of the traffic for this subnet.
 
-    | Attribute | Description |
-    |--|--|
-    | `1.1.1.1` | Includes all of the traffic for this device. |
-    | `1.1.1.1,2.2.2.2` | Includes all of the traffic for this channel. |
-    | `1.1.1,2.2.2` | Includes all of the traffic for this subnet. |
-
-    Separate arguments by dropping a row.
+    Separate arguments by dropping a row. <!--what does this mean? for example?-->
 
 1. `Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
-    Select `Y` to open a nano file where you can add a device, channel, port, and subset.
+    Select `Y` to open a new exclude file where you can add a device, channel, and/or subnet that you want to exclude from monitored traffic. Any other traffic, not listed in your exclude file, is ingested to Defender for IoT.
 
-    Excluding a device, channel, or subnet prevents the sensor from processing traffic for the supplied argument, including ports and traffic that would otherwise be processed. <!--for example?-->
+    The exclude file is opened in the [Nano](https://www.nano-editor.org/dist/latest/cheatsheet.html) text editor.  In the exclude file, define devices, channels, and subnets as follows:
 
-    In the nano file, use the following syntax:
+    - **Device**. Define a device by its IP address. For example, `1.1.1.1` excludes all traffic for this device.
+    - **Channel**: Define a channel by the IP addresses of its source and destination devices, separated by a comma. For example, `1.1.1.1,2.2.2.2` excludes all of the traffic between these devices.
+    - **Channel by port**: Define a channel by the IP addresses of its source and destination devices, and the traffic port. For example, `1.1.1.1,2.2.2.2,443` excludes all of the traffic between these devices and using the specified port.
+    - **Subnet**: Define a subnet by its network address. For example, `1.1.1` excludes all traffic for this subnet.
+    - **Subnet channel**: Define a subnet channel network addresses of the source and destination subnets. For example, `1.1.1,2.2.2` excludes all of the traffic between these subnets.
 
-    | Attribute | Description |
-    |--|--|
-    | `1.1.1.1` | Excludes all the traffic for this device. |
-    | `1.1.1.1,2.2.2.2` | Excludes all the traffic for this channel, meaning all the traffic between two devices. |
-    | `1.1.1.1,2.2.2.2,443` | Excludes all the traffic for this channel by port. |
-    | `1.1.1` | Excludes all the traffic for this subnet. |
-    | `1.1.1,2.2.2` | Excludes all the traffic for between subnets. |
+    Separate arguments by dropping a row. <!--what does this mean? for example?-->
 
-    Separate arguments by dropping a row.
-
-1. Define any TCP or UDP ports to include or exclude, using the following syntax:
+1. <!--is this another prompt? or is this done in the nano file? and if so - need an example of the full syntax, and we should probably split it up by include or exclude file..-->Define any TCP or UDP ports to include or exclude, using the following syntax:
 
     - `502`: single port
     - `502,443`: both ports
 
     Separate multiple ports by comma. If you don't want to include or exclude ports, press `ENTER` to skip the step.
 
-1. `In which component do you wish to apply this capture filter?`
+1. `In which component do you wish to apply this capture filter?`<!--if it's included in the prompts, we should include it above too. there are more components listed here than above. how to handle that?-->
 
     Configure a filter for a specific component by entering one of the following:
 
@@ -131,7 +130,7 @@ After you run the command, answer the questions that are prompted as follows:
     - `smb-parser`
 
     > [!NOTE]
-    > This filter doesn't support Defender for IoT malware detections.
+    > This filter doesn't support Defender for IoT malware detections. <!--i thought all of it isn't for malware detections?-->
     >
 
 1. Configure a base capture filter for your components. For example, your filter might allow specific ports to be available for the component.
@@ -154,7 +153,7 @@ After you run the command, answer the questions that are prompted as follows:
 > [!NOTE]
 > Your selections are used for all filters configured, and aren't session dependent. This means, for example, that you can't select `internal` for some filters and `all-connected` for others.
 
-The following example shows the command syntax and response for the *support* user:
+The following example shows the command syntax and response for the *support* user:<!--no it doesn't, it's just part of it. can we get a full example?-->
 
 ```bash
 root@xsense: network capture-filter
