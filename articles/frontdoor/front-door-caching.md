@@ -211,7 +211,7 @@ In addition, Front Door attaches the `X-Cache` header to all responses. The `X-C
 
 ## Logs and reports
 
-The [Front Door Access Log](how-to-logs.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Front Door's cache is used in your application.
+The [Front Door Access Log](standard-premium/how-to-logs.md#access-log) includes the cache status for each request. Also, [reports](standard-premium/how-to-reports.md#caching) include information about how Front Door's cache is used in your application.
 
 ::: zone-end
 
