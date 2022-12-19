@@ -48,6 +48,8 @@
                 maintainContext: true
     - name: Multivariate Anomaly Detection
       items:
+        - name: Run Multivariate Anomaly Detection API in Postman
+          href: how-to/mvad-postman.md
         - name: Create an Anomaly Detector Resource
           href: how-to/create-resource.md
         - name: Prepare and upload your data
@@ -80,8 +82,10 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: REST API (preview) 
-      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
+    - name: REST API (v1.1) 
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1/operations/CreateMultivariateModel
+    - name: REST API (v1.1-preview-1) 
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
     - name: .NET (preview)
       href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview&preserve-view=true
     - name: Java (preview)
