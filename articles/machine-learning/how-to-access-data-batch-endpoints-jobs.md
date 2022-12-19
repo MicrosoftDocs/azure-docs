@@ -58,7 +58,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     ```
     
     > [!NOTE]
-    > Data stores ID would look like `azureml:/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
+    > Data stores ID would look like `/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/datastores/<data-store>`.
 
     # [Python](#tab/sdk)
 
