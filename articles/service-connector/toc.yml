@@ -38,21 +38,21 @@ items:
       - name: ASP.NET app to Blob Storage
         href: tutorial-csharp-webapp-storage-cli.md
       - name: ASP.NET core app to SQL Database
-        href: ../app-service/tutorial-dotnetcore-sqldb-app.md
+        href: tutorial-dotnetcore-sqldb-app.md
       - name: Java Tomcat app to PostgreSQL
-        href: ../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
+        href: tutorial-java-tomcat-connect-managed-identity-postgresql-database.md
       - name: Python (Django) app to PostgreSQL
         href: tutorial-django-webapp-postgres-cli.md
     - name: Azure Container Apps
       expanded: true
       items:
       - name: Java Quarkus to PostgreSQL
-        href: ../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+        href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Azure Spring Apps
       expanded: true
       items:
       - name: Java app to PostgreSQL Flexible Server
-        href: ../spring-apps/how-to-bind-postgres.md?tabs=Passwordlessflex
+        href: how-to-bind-postgres.md?tabs=Passwordlessflex
       - name: Spring Boot app to Kafka on Confluent Cloud
         href: tutorial-java-spring-confluent-kafka.md
       - name: Spring app to MySQL Flexible Server
@@ -72,7 +72,7 @@ items:
     - name: Store secrets in Key Vault
       href: tutorial-portal-key-vault.md
     - name: Connect a container app to a Blob Storage
-      href: ../container-apps/service-connector.md
+      href: service-connector.md
     - name: Troubleshoot
       href: how-to-troubleshoot-front-end-error.md
     - name: Connection details
