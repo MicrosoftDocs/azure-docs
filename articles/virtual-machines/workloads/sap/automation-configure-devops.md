@@ -161,7 +161,7 @@ Name of code repository: 'sap-automation', source: 'https://github.com/Azure/sap
 Name of sample and template repository: 'sap-samples', source: 'https://github.com/Azure/sap-automation-samples.git'
 
 #### Running the code directly from GitHub
-If you want to run the code directly from GitHub you need to provide credentials for Azure DevOps to be able to pull the content from GitHub
+If you want to run the code directly from GitHub you need to provide credentials for Azure DevOps to be able to pull the content from GitHub.
 #### Creating the GitHub Service connection
 
 To pull the code from GitHub, you need a GitHub service connection. For more information, see [Manage service connections](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&preserve-view=true)
