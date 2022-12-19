@@ -18,7 +18,7 @@ ms.date: 12/15/2022
 In this tutorial, you'll create and work with:
 
 * A *workspace*.  The workspace is the central place to view and manage all the artifacts and resources you create while using Azure Machine Learning.
-* A *compute instance*.  The compute instance is your cloud workstation, a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
+* A *compute instance*.  The compute instance is your dedicated machine in the cloud, a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
 
 Once you've created the workspace and compute, you'll use them to:
 
@@ -56,7 +56,7 @@ If you don't yet have a workspace, create one now:
 
 ## Create a compute instance
 
-You'll use a *compute instance* as your cloud workstation, an online development compute attached to your workspace. The compute instance provides a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
+You'll use a *compute instance* as your online development environment. The compute instance provides a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
 
 If you already have a compute instance, skip this section and continue to [Upload files](#upload-files).  
 
@@ -66,11 +66,11 @@ Create a compute instance now.  You'll also use it as your development environme
 
 ## Upload files
 
-You'll need to get your own files into the cloud.  For this tutorial, [download this small data file](https://hbiostat.org/data/repo/titanic3.csv) first, so that you can use it to upload to your workspace.
+You'll need to get your own files into the cloud.  For this tutorial, [download this small data file](https://hbiostat.org/data/repo/titanic3.csv) first, so that you can upload it to your workspace file storage..
 
 **@@Steps to upload.**
 
-You might think that you just put the file onto your compute instance.  But you didn't.  Instead, you put it into a storage container in the workspace that is then mounted to the compute instance. If you delete the compute instance all your file are still available.  If you create multiple compute instances in the workspace, the files are visible on all of them.
+You might think that this uploaded the data directly to your compute instance, but this is not the case. The file was uploaded to a cloud Azure storage container attached to the workspace, which is then mounted to the compute instance. If you delete the compute instance, all of your files will still be available. If you create multiple compute instances in your workspace, these files will be mounted and visible on each.
 
 Uploading data is fine for small files, but is not the only way to access data.  You'll learn other ways to deal with data files in other tutorials.
 
@@ -83,7 +83,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
     
     :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
 
-1. Name your new notebook **my-new-notebook.ipynb**.
+1. Name your new notebook **visualize-sample-data.ipynb**.
  
     > [!TIP]
     > Make sure you keep the `.ipynb` extension in the name.
@@ -98,36 +98,36 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
     df.info()
     ```
 
-1. Now run the code cell, either by using **Shift + Enter** or by selecting the **Run cell** tool to the right of the cell. 
+1. Now run the code cell, either by using **Shift + Enter** or by selecting the **Run cell** button to the left of the cell. 
 
-1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You also see the output of the cell, the information about the data file you read.
+1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You will also see the output of the cell, which is a visual representation of the data file details.
 
 ### See your variables
 
-Use the **Variable explorer** to see the variables that are defined in your session.  
+Use the **Variable explorer** to see the variables defined in your current notebook context.
 
 1. Select the **"..."** in the notebook toolbar.
 1. Select **Variable explorer**.
     
     :::image type="content" source="media/quickstart-run-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::
 
-    The explorer appears at the bottom.  You'll see your current variable, `df`.  The variable explorer is tool that will help you understand the current state of variables in your notebook session.
+    The explorer appears at the bottom.  You'll see your current variable, `df`.  The variable explorer is tool that will help you understand the current state of variables in your notebook.
 
 ### Install packages
 
-The notebook kernel on the compute instance has all the basics for running your code, including the Azure Machine Learning Python SDK.  But it may not contain every packages you need in your own work.  For example, you'll use the `seaborn` package in this tutorial.
+The notebook kernel on the compute instance has all the basics for running your code, including the Azure Machine Learning Python SDK.  But it may not contain all the packages you need for your own work.  For example, you'll use the `seaborn` package in this tutorial.
 
-1. Add a new code cell to your notebook to install it now:
+1. Add a new code cell to your notebook to install `seaborn` now:
 
     ```python
     %pip install seaborn
     ```
 
     > [!TIP]
-    > Always use notebook magic, `%pip install`, to install packages in a Jupyter notebook, which installs the package in the Python environment used by the notebook.
+    > Always use notebook magic, `%pip install`, to install packages in a Jupyter notebook, which installs the package  on the kernel (the Python environment used by the notebook).
 
 1. Run the cell to install the package.  
-1. After the package is installed, change the cell to a comment.  When you rerun the notebook, you don't want to install again!  But if you later run the notebook on a different computer or environment, you'll have a reminder of the install that will be needed.
+1. After the package is installed, change the cell to a comment.  When you rerun the notebook, you don't need to install again.  But if you later run the notebook on a different compute resource or environment, you'll have a reminder of the install that will be needed.
 
     ```python
     # %pip install seaborn
@@ -141,12 +141,10 @@ The notebook kernel on the compute instance has all the basics for running your 
     import seaborn as sns
     import matplotlib.pyplot as plt
     
-    fig, axs = plt.subplots(ncols=5, figsize=(30,5))
+    fig, axs = plt.subplots(ncols=3, figsize=(10,3))
     sns.violinplot(x="survived", y="age", hue="sex", data=df, ax=axs[0])
-    sns.pointplot(x="sibsp", y="survived", hue="sex", data=df, ax=axs[1]) # sibsp = number of siblings/spouses
-    sns.pointplot(x="parch", y="survived", hue="sex", data=df, ax=axs[2]) # parch = number of parents/children
-    sns.pointplot(x="pclass", y="survived", hue="sex", data=df, ax=axs[3]) # ticket class (e.g. first class, etc)
-    sns.violinplot(x="survived", y="fare", hue="sex", data=df, ax=axs[4]) # ticket cost
+    sns.pointplot(x="parch", y="survived", hue="sex", data=df, ax=axs[1]) # parch = number of parents/children
+    sns.violinplot(x="survived", y="fare", hue="sex", data=df, ax=axs[2]) # ticket cost
     ```
 
 1. Run this cell, which will produce these plots.
@@ -163,9 +161,7 @@ Add a Markdown cell to the notebook to record some observations from the plot.
 Interpretation guidance:
 
 * violinplot 1: young adult men were less likely to survive than children and elderly, and to a lesser extent, women
-* lineplot 1: the fewer siblings, the higher survival rate
-* lineplot 2: the fewer parents/grandparents, the higher survival rate
-* lineplot 3: the lower the class, the lower the survival rate (e.g. notice almost all 1st class women survived)
+* lineplot 1: the fewer parents/grandparents, the higher survival rate
 * violinplot 2: the more the ticket cost, the higher the survival rate
 ```
 
@@ -179,17 +175,17 @@ Use the notebook tools to export the notebook as .py -
 
 **@@talk about steps for this.  Probably also an image.**
 
-If  you didn't comment out the install cell, you'll see `get_ipython().run_line_magic('pip', 'install seaborn')` as a line of code.  This code only works in notebooks.  If you have this line, delete or comment it out.
+If  you didn't comment out the `%pip install seaborn` cell before, you'll see `get_ipython().run_line_magic('pip', 'install seaborn')` as a line of code.  TThis code only works in notebooks, so if you have this line, either delete it or comment it out in the script file.
 
 ### Run the script
 
-From the toolbar above the script, select **Save and run script in Terminal**.  
+From the toolbar above the script, select **Save and run script in terminal**.  
 
 **@@Show an image of the tool.**
 
-A new tab opens to show the terminal window.  At the top are some helpful links for more information about using tools such as Git and Azure ML CLI in this window.
+A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
 
-Then you'll see the line that was submitted for you: `python example.py`.  
+You will see that the terminal has run a command for you: `python visualize-sample-data.py`.
 
 Finally you'll see the text output from the execution. 
 
@@ -203,18 +199,18 @@ When you run the script in a terminal, you'll see text output, but not the plots
     plt.savefig("plots.png") #save as png
     ```
 
-1. Now again select **Save and run script in Terminal**.
+1. Now again select **Save and run script in terminal**.
 
-1. In your **Files** section, select **Refresh** to view the new file, **plots.png**.  
+1. In your **Files** section, you'll see the new image file, **plots.png**.  If you don't see the file, select **Refresh** to get the most up-to-date view of your files.  
 
 **@@Show image of the refresh tool.**
 
 1. Select this file to open it in another tab.
-1. You can close the terminal tabs if you wish.
+1. Close the terminal tabs (terminating the sessions) since you are done working in terminal for now.
 
 ## Learn from sample notebooks
 
-Use the sample notebooks available in studio to help you learn about how to train ad deploy models.  To find these samples:
+Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
 
 1. Still in the **Notebooks** section, select **Samples** at the top.
 
@@ -223,7 +219,7 @@ Use the sample notebooks available in studio to help you learn about how to trai
 1. The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
 1. Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
 1. Select the notebook **SDK v2/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb**.  You'll see a read-only version of the notebook.  
-1. To get your own copy, you can select **Clone this notebook**.  This action will also copy the rest of the folder's content for that notebook.  No need to do that now, though, as you're going to instead clone the whole folder.
+1. To get a copy of the notebook to your cloud file storage, you could select **Clone this notebook**.  This action will also copy the rest of the folder's content for that notebook.  No need to do that now, though, as you're going to instead clone the whole folder.
 
 ## Clone tutorials folder
 
@@ -256,7 +252,7 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-You now have an Azure Machine Learning workspace, and a compute instance to use as your cloud workstation.
+You now have an Azure Machine Learning workspace, and a compute instance to use as your dedicated machine in the cloud.
 
 Use these resources with the following tutorials to train a model with Python scripts.and deploy a model.
 
