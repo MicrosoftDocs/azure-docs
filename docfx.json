@@ -1220,6 +1220,8 @@
           "articles/azure-netapp-files/faq-application-resilience.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
+          "articles/center-sap-solutions/large-instances/**/**.md",
+          "articles/center-sap-solutions/workloads/**/**.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
           "articles/databox-online/azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md",
           "articles/defender-for-iot/organizations/alert-engine-messages.md",
@@ -1251,6 +1253,7 @@
       "sensitive-language-bl": {
         "exclude": [
           "articles/azure-monitor/app/opencensus-python-request.md",
+          "articles/center-sap-solutions/large-instances/**/**.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/kafka/kafka-mirrormaker-2-0-guide.md",

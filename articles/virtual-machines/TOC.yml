@@ -138,12 +138,8 @@
       href: ./linux/openshift-container-platform-3x-troubleshooting.md
     - name: Deploy OKD
       href: ./linux/openshift-okd.md
-  - name: SAP on Azure
-    items:
-    - name: SAP on Azure VM workloads
-      href: ./workloads/sap/index.yml
-    - name: Azure Center for SAP solutions
-      href: ../center-sap-solutions/index.yml
+  - name: Azure Center for SAP solutions
+    href: ../center-sap-solutions/index.yml
   - name: Oracle
     href: ./workloads/oracle/oracle-database-quick-create.md
   - name: Azure for Gaming
