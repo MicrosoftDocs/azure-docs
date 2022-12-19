@@ -5,12 +5,12 @@ services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 12/19/2022
 ms.author: rambala
 ---
 # Configure Virtual WAN for Azure NetApp Files (preview)
 
-You can configure Azure NetApp Files volumes with Standard network features in one or more Virtual WAN spoke virtual networks (VNets). This allows access to the file storage service globally across your Virtual WAN environment.
+You can configure Azure NetApp Files volumes with Standard network features in one or more Virtual WAN spoke virtual networks (VNets). Virtual WAN spoke VNets allow access to the file storage service globally across your Virtual WAN environment.
 
 Your Virtual WAN global deployments could include any combinations of different branches, Point-of-Presence (PoP), private users, offices, Azure virtual networks, and other multicloud deployments. You can use SD-WAN, site-to-site VPN, point-to-site VPN, and ExpressRoute to connect your different sites to a virtual hub. If you have multiple virtual hubs, all the hubs would be connected in full mesh in a standard Virtual WAN deployment.
 
@@ -18,7 +18,7 @@ Refer to [What is Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md) to le
 
 The following diagram shows the concept of deploying Azure NetApp Files volume in one or more spokes of a Virtual WAN and accessing the volumes globally.
 
-:::image type="content" source="../media/azure-netapp-files/virtual-wan-1.png" alt-text="Conceptual illustration of virtual wan set up.":::
+:::image type="content" source="../media/azure-netapp-files/virtual-wan-1.png" alt-text="Conceptual illustration of virtual wan setup.":::
 
 This article will explain how to deploy and access an Azure NetApp Files volume over Virtual WAN.
 
@@ -55,7 +55,7 @@ To force the Azure NetApp Files-bound traffic through Azure Firewall in the Virt
 
 The following image of the Azure portal shows an example virtual hub of effective routes. In the first item, the IP address is listed as 10.2.0.5/32. The static routing entry's destination prefix is `<IP-Azure NetApp Files-Volume>/32`, and the next hop is `Azure-Firewall-in-hub`.
 
-:::image type="content" source="../virtual-wan/media/howto-private-link/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
+:::image type="content" source="../media/azure-netapp-files/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
 
 > [!IMPORTANT] 
 > Azure NetApp Files mount leverages Azure Private Endpoint. The specific IP address entry is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
@@ -64,7 +64,7 @@ The following image of the Azure portal shows an example virtual hub of effectiv
 
 To identify the private IP address associated with your Azure NetApp Files volume:
 1. Navigate to the **Volumes** in your Azure NetApp Files subscription. 
-1. Identify the volume you are looking for. The private IP address associated with an Azure NetApp Files volume is listed as part of the mount path of the volume.
+1. Identify the volume you're looking for. The private IP address associated with an Azure NetApp Files volume is listed as part of the mount path of the volume.
 
 :::image type="content" source="../media/azure-netapp-files/virtual-wan-volumes-list.png" alt-text="Screenshot showing the private IP address of an Azure NetApp Files volume  listed as part of its mount path." lightbox="../media/azure-netapp-files/virtual-wan-volumes-list.png":::
 
