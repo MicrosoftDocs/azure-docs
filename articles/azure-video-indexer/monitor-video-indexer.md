@@ -21,8 +21,6 @@ Keep the headings in this order.
 
 # Monitoring Azure Video Indexer
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 <!-- REQUIRED. Please keep headings in this order -->
 <!-- Most services can use this section unchanged. Add to it if there are any unique charges if your service has significant monitoring beyond Azure Monitor. -->
 
