@@ -6,20 +6,21 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 12/19/2022
 ms.author: jasteppe
 ---
 
 # How to enable diagnostic settings for the MedTech service
 
-In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs to different destinations (for example: to [Azure storage](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, or backup.
+In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs and metrics to different destinations (for example: to an [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) or an [Azure storage account](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, or backup.
 
 ## Create a diagnostic setting for the MedTech service
-1. To enable metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
+
+1. To enable logs and metrics export for your MedTech service, select **MedTech service** in your workspace under **Services**.
  
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png":::
 
-2. Select the MedTech service that you want to enable a diagnostic setting for. For this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
+2. Select the MedTech service that you want to enable a diagnostic setting for. In this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
    
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics." lightbox="media/iot-diagnostic-settings/select-medtech-service.png":::
 
@@ -31,7 +32,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
    :::image type="content" source="media/iot-diagnostic-settings/add-diagnostic-settings.png" alt-text="Screenshot of select the + Add diagnostic setting." lightbox="media/iot-diagnostic-settings/add-diagnostic-settings.png"::: 
 
-5. The **+ Add diagnostic setting** page will open, requiring configuration inputs from you. 
+5. The **+ Add diagnostic setting** page will open, requiring configuration information from you. 
 
    :::image type="content" source="media/iot-diagnostic-settings/select-all-logs-and-metrics.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-diagnostic-settings/select-all-logs-and-metrics.png":::   
 
@@ -44,10 +45,10 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
       > [!Note]
       > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
-   4. Under **Destination details**, select the destination you want to use for your exported MedTech service metrics. In this example, we've selected an Azure storage account named **azuredocsdemostorage**. You'll select a destination of your own choosing.
+   4. Under **Destination details**, select the destination or destinations you want to use for your exported MedTech service logs and metrics. In this example, we've selected an Azure Log Analytics workspace (named **la-azuredocsdemo**) and a storage account (named **azuredocsdemostorage**). You'll select a destination or destinations of your own choosing.
    
       > [!Important]
-      > Each **Destination details** selection requires that certain resources (for example, an existing Azure storage account) be created and available before the selection can be successfully configured. Choose each selection to see which resources are required.
+      > Each **Destination details** selection requires that certain resources (for example, an existing Azure Log Analytics workspace or storage account) be created and available before the selection can be successfully configured. Choose each selection to see which resources are required.
 
       Metrics can be exported to the following destinations:
 
@@ -65,7 +66,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    :::image type="content" source="media/iot-diagnostic-settings/diagnostic-settings-successfully-saved.png" alt-text="Screenshot of a successful diagnostic setting save." lightbox="media/iot-diagnostic-settings/diagnostic-settings-successfully-saved.png"::: 
 
    > [!Note] 
-   > It might take up to 15 minutes for the first MedTech service metrics to display in the destination of your choice.
+   > It might take up to 15 minutes for the first MedTech service logs and metrics to display in the destination of your choice.
 
 7. To view your saved diagnostic setting, select **Diagnostic settings**.
 
