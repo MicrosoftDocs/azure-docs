@@ -61,9 +61,9 @@ ms.author: ajithkr-ms
     --GO
    ```
 
-  Here is how the permissions script above can be used:
+  Here's how the permissions script can be used:
 
-   - Save the permissions script (with valid password string) as a _.sql_ file, say _c:\workspace\MinPermissions.sql_
+   - Save the permissions script (with valid password string) as an _.sql_ file, say _c:\workspace\MinPermissions.sql_
    - Connect to the instance(s) to be assessed using an account with sysadmin permissions and execute the script. You can use **SQL Server Management Studio** or **sqlcmd**. The following example uses a trusted connection.
    ```cmd
       sqlcmd.exe -S sourceserver\sourceinstance -d master -E -i c:\workspace\MinPermissions.sql
