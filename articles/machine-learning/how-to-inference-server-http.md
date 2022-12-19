@@ -293,18 +293,18 @@ Server Routes
 Liveness Probe: GET   127.0.0.1:5001/
 Score:          POST  127.0.0.1:5001/score
 
-2022-12-19 07:37:53,318 I [32726] gunicorn.error - Starting gunicorn 20.1.0
-2022-12-19 07:37:53,319 I [32726] gunicorn.error - Listening at: http://0.0.0.0:5001 (32726)
-2022-12-19 07:37:53,319 I [32726] gunicorn.error - Using worker: sync
-2022-12-19 07:37:53,322 I [32756] gunicorn.error - Booting worker with pid: 32756
+2022-12-24 07:37:53,318 I [32726] gunicorn.error - Starting gunicorn 20.1.0
+2022-12-24 07:37:53,319 I [32726] gunicorn.error - Listening at: http://0.0.0.0:5001 (32726)
+2022-12-24 07:37:53,319 I [32726] gunicorn.error - Using worker: sync
+2022-12-24 07:37:53,322 I [32756] gunicorn.error - Booting worker with pid: 32756
 Initializing logger
-2022-12-19 07:37:53,779 I [32756] azmlinfsrv - Starting up app insights client
-2022-12-19 07:37:54,518 I [32756] azmlinfsrv.user_script - Found user script at /home/shohei/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
-2022-12-19 07:37:54,518 I [32756] azmlinfsrv.user_script - run() is not decorated. Server will invoke it with the input in JSON string.
-2022-12-19 07:37:54,518 I [32756] azmlinfsrv.user_script - Invoking user's init function
-2022-12-19 07:37:55,974 I [32756] azmlinfsrv.user_script - Users's init has completed successfully
-2022-12-19 07:37:55,976 I [32756] azmlinfsrv.swagger - Swaggers are prepared for the following versions: [2, 3, 3.1].
-2022-12-19 07:37:55,977 I [32756] azmlinfsrv - AML_FLASK_ONE_COMPATIBILITY is set, but patching is not necessary.
+2022-12-24 07:37:53,779 I [32756] azmlinfsrv - Starting up app insights client
+2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - Found user script at /home/shohei/azureml-examples/cli/endpoints/online/model-1/onlinescoring/score.py
+2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - run() is not decorated. Server will invoke it with the input in JSON string.
+2022-12-24 07:37:54,518 I [32756] azmlinfsrv.user_script - Invoking user's init function
+2022-12-24 07:37:55,974 I [32756] azmlinfsrv.user_script - Users's init has completed successfully
+2022-12-24 07:37:55,976 I [32756] azmlinfsrv.swagger - Swaggers are prepared for the following versions: [2, 3, 3.1].
+2022-12-24 07:37:55,977 I [32756] azmlinfsrv - AML_FLASK_ONE_COMPATIBILITY is set, but patching is not necessary.
 ```
 
 
