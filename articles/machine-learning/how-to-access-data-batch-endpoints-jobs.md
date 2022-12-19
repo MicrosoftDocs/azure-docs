@@ -117,7 +117,7 @@ Data from Azure Machine Learning registered data stores can be directly referenc
     > See how the path `paths` is appended to the resource id of the data store to indicate that what follows is a path inside of it.
 
     > [!TIP]
-    > You can also use `azureml:/datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
+    > You can also use `azureml://datastores/<data-store>/paths/<data-path>` as a way to indicate the input.
 
 1. Run the deployment:
 
