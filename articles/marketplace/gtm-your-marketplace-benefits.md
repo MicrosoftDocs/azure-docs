@@ -50,7 +50,7 @@ Detailed descriptions of all program benefits can be found in this [Marketplace 
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
 > [!NOTE]
-> If your offer has been live for more than four weeks and you have not received a message, please verify the owner of the offer within your organization. To do this, go into Partner Center and verify the contacts listed. One of these listed contact should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://go.microsoft.com/fwlink/?linkid=2165533).
+> If your offer has been live for more than three weeks and you have not received a message, please verify the owner of the offer within your organization. To do this, go into Partner Center and verify the contacts listed. One of these listed contact should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, raise a support ticket at [Help and Support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 The scope of the activities available to you expands as you grow your offerings in the commercial marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
