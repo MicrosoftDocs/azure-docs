@@ -353,14 +353,14 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Run the following script in the project root directory to create a *src/main/resources/application.properties* file and add configuration details:
+Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
 #### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 EOF
@@ -370,9 +370,9 @@ EOF
 > If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin" in the url.
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}
 EOF
@@ -381,9 +381,9 @@ EOF
 #### [Password](#tab/password)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_NAME}.mysql.database.azure.com:3306/demo?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
 user=${AZ_MYSQL_NON_ADMIN_USERNAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
@@ -433,7 +433,7 @@ public class DemoApplication {
     public static void main(String[] args) throws Exception {
         log.info("Loading application properties");
         Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("database.properties"));
 
         log.info("Connecting to the database");
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
@@ -464,12 +464,12 @@ public class DemoApplication {
 
 [Having any issues? Let us know.](https://github.com/MicrosoftDocs/azure-docs/issues)
 
-This Java code will use the *application.properties* and the *schema.sql* files that you created earlier, in order to connect to the MySQL server and create a schema that will store your data.
+This Java code will use the *database.properties* and the *schema.sql* files that you created earlier, in order to connect to the MySQL server and create a schema that will store your data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data: you'll code those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
-> The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
+> The database credentials are stored in the *user* and *password* properties of the *database.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 > [!NOTE]
 > The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver specific command to destroy an internal thread when shutting down the application.

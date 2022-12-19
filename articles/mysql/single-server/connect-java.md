@@ -56,7 +56,7 @@ Replace the placeholders with the following values, which are used throughout th
 
 - `<YOUR_DATABASE_SERVER_NAME>`: The name of your MySQL server, which should be unique across Azure.
 - `<YOUR_AZURE_REGION>`: The Azure region you'll use. You can use `eastus` by default, but we recommend that you configure a region closer to where you live. You can see the full list of available regions by entering `az account list-locations`.
-- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your Spring Boot application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
+- `<YOUR_LOCAL_IP_ADDRESS>`: The IP address of your local computer, from which you'll run your application. One convenient way to find it is to open [whatismyip.akamai.com](http://whatismyip.akamai.com/).
 
 ### [Password](#tab/password)
 
@@ -345,14 +345,14 @@ This file is an [Apache Maven](https://maven.apache.org/) file that configures y
 
 ### Prepare a configuration file to connect to Azure Database for MySQL
 
-Run the following script in the project root directory to create a *src/main/resources/application.properties* file and add configuration details:
+Run the following script in the project root directory to create a *src/main/resources/database.properties* file and add configuration details:
 
 #### [Passwordless connection (Recommended)](#tab/passwordless)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
@@ -363,9 +363,9 @@ EOF
 > If you are using MysqlConnectionPoolDataSource class as the datasource in your application, please remove "defaultAuthenticationPlugin=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin" in the url.
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?sslMode=REQUIRED&serverTimezone=UTC&authenticationPlugins=com.azure.identity.providers.mysql.AzureIdentityMysqlAuthenticationPlugin
 user=${AZ_MYSQL_AD_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 EOF
@@ -373,9 +373,9 @@ EOF
 #### [Password](#tab/password)
 
 ```bash
-mkdir -p src/main/resources && touch src/main/resources/application.properties
+mkdir -p src/main/resources && touch src/main/resources/database.properties
 
-cat << EOF > src/main/resources/application.properties
+cat << EOF > src/main/resources/database.properties
 url=jdbc:mysql://${AZ_DATABASE_SERVER_NAME}.mysql.database.azure.com:3306/${AZ_DATABASE_NAME}?useSSL=true&sslMode=REQUIRED&serverTimezone=UTC
 user=${AZ_MYSQL_NON_ADMIN_USERNAME}@${AZ_DATABASE_SERVER_NAME}
 password=${AZ_MYSQL_NON_ADMIN_PASSWORD}
@@ -429,7 +429,7 @@ public class DemoApplication {
     public static void main(String[] args) throws Exception {
         log.info("Loading application properties");
         Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("database.properties"));
 
         log.info("Connecting to the database");
         Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
@@ -458,12 +458,12 @@ public class DemoApplication {
 }
 ```
 
-This Java code will use the *application.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
+This Java code will use the *database.properties* and the *schema.sql* files that you created earlier. After connecting to the MySQL server, you can create a schema to store your data.
 
 In this file, you can see that we commented methods to insert, read, update and delete data. You'll implement those methods in the rest of this article, and you'll be able to uncomment them one after each other.
 
 > [!NOTE]
-> The database credentials are stored in the *user* and *password* properties of the *application.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
+> The database credentials are stored in the *user* and *password* properties of the *database.properties* file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
 
 > [!NOTE]
 > The `AbandonedConnectionCleanupThread.uncheckedShutdown();` line at the end is a MySQL driver command to destroy an internal thread when shutting down the application. You can safely ignore this line.
