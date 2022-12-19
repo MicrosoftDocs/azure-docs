@@ -41,7 +41,7 @@ A unique activation file is uploaded to each sensor that you deploy. For more in
 
 Locally connected sensors are associated with an Azure subscription. The activation file for your locally connected sensors contains an expiration date. One month before this date, a warning message appears in the System Messages window in the top-right corner of the console. The warning remains until after you've updated the activation file.
 
-You can continue to work with Defender for IoT features even if the activation file has expired. 
+You can continue to work with Defender for IoT features even if the activation file has expired.
 
 ### About activation files for cloud-connected sensors
 
@@ -51,9 +51,9 @@ Sensors that are cloud connected aren't limited by time periods for their activa
 
 You might need to upload a new activation file for an onboarded sensor when:
 
-- An activation file expires on a locally connected sensor. 
+- An activation file expires on a locally connected sensor.
 
-- You want to work in a different sensor management mode. 
+- You want to work in a different sensor management mode.
 
 - For sensors connected via an IoT Hub ([legacy](architecture-connections.md)), you want to assign a new Defender for IoT hub to a cloud-connected sensor.
 
@@ -97,7 +97,7 @@ You'll receive an error message if the activation file couldn't be uploaded. The
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.
 
 Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen, for example,  if a certificate expired.
 
@@ -138,7 +138,7 @@ This section describes how to ensure connection between the sensor and the on-pr
 
 3. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
 
-   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen."::: 
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
 
 4. Sign in to the sensor console.
 
@@ -157,6 +157,7 @@ Continue with additional settings, such as [adding users](how-to-create-and-mana
 ## Change the name of a sensor
 
 You can change the name of your sensor console. The new name will appear in:
+
 - The sensor console web browser
 - Various console windows
 - Troubleshooting logs
@@ -233,6 +234,7 @@ System backup is performed automatically at 3:00 AM daily. The data is saved on 
 You can automatically transfer this file to the internal network.
 
 > [!NOTE]
+>
 > - The backup and restore procedure can be performed between the same versions only.
 > - In some architectures, the backup is disabled. You can enable it in the `/var/cyberx/properties/backup.properties` file.
 
@@ -272,7 +274,7 @@ Sensor backup files are automatically named through the following format: `<sens
 
 4. Edit and create credentials to share for the SMB server:
 
-    `sudo nano /etc/samba/user` 
+    `sudo nano /etc/samba/user`
 
 5. Add:
 
@@ -299,22 +301,22 @@ You can restore a sensor from a backup file using the sensor console or the CLI.
 To restore a backup from the sensor console, the backup file must be accessible from the sensor.
 
 - **To download a backup file:**
-    
+
     1. Access the sensor using an SFTP client.
-    
+
     1. Sign in to an administrative account and enter the sensor IP address.
-    
+
     1. Download the backup file from your chosen location and save it. The default location for system backup files is `/var/cyberx/backups`.
-    
+
 - **To restore the sensor**:
-    
+
      1. Sign in to the sensor console and go to **System settings** > **Sensor management** > **Backup & restore** > **Restore**. For example:
-     
+
         :::image type="content" source="media/how-to-manage-individual-sensors/restore-sensor-screen.png" alt-text="Screenshot of Restore tab in sensor console.":::
-    
-    1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
-    
-    1. When the restore process is complete, select **Close**.
+
+     1. Select **Browse** to select your downloaded backup file. The sensor will start to restore from the selected backup file.
+
+     1. When the restore process is complete, select **Close**.
 
 **To restore the latest backup file by using the CLI:**
 
@@ -322,13 +324,13 @@ To restore a backup from the sensor console, the backup file must be accessible 
 
 ## Configure SMTP settings
 
-Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers. 
+Define SMTP mail server settings for the sensor so that you configure the sensor to send data to other servers.
 
 You'll need an SMTP mail server configured to enable email alerts about disconnected sensors, failed sensor backup retrievals, and SPAN monitoring port failures from the on-premises management console, and to set up mail forwarding and configure [forwarding alert rules](how-to-forward-alert-information-to-partners.md).
 
 **Prerequisites**:
 
-Make sure you can reach the SMTP server from the [sensor's management port](/best-practices/understand-network-architecture). 
+Make sure you can reach the SMTP server from the [sensor's management port](/best-practices/understand-network-architecture).
 
 **To configure an SMTP server on your sensor**:
 
@@ -344,7 +346,7 @@ Make sure you can reach the SMTP server from the [sensor's management port](/bes
     |**SSL**     | Toggle on for secure connections from your sensor.        |
     |**Authentication**     | Toggle on and then enter a username and password for your email account.        |
     |**Use NTLM**     | Toggle on to enable [NTLM](/windows-server/security/kerberos/ntlm-overview). This option only appears when you have the **Authentication** option toggled on.        |
-        
+
 1. Select **Save** when you're done.
 
 ## Forward sensor failure alerts
@@ -368,7 +370,6 @@ To send notifications:
 1. Select **Report System Notifications**.
 
 For more information about forwarding rules, see [Forward alert information](how-to-forward-alert-information-to-partners.md).
-
 
 ## Upload and play PCAP files
 
@@ -415,7 +416,7 @@ To access system properties:
 
 ## Download a diagnostics log for support
 
-This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket. 
+This procedure describes how to download a diagnostics log to send to support in connection with a specific support ticket.
 
 This feature is supported for the following sensor versions:
 
@@ -433,6 +434,30 @@ This feature is supported for the following sensor versions:
     :::image type="content" source="media/release-notes/support-ticket-diagnostics.png" alt-text="Screenshot of the Backup & Restore pane showing the Support Ticket Diagnostics option." lightbox="media/release-notes/support-ticket-diagnostics.png":::
 
 1. For a locally managed sensor, version 22.1.3 or higher, continue with [Upload a diagnostics log for support](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview).
+
+## Forensics data stored on the sensor
+
+The following types of forensics data are stored locally on the sensor:
+
+- Devices
+- Alerts
+- OT alert PCAP files
+- OT event timeline
+- OT log files
+
+Use the [data mining reports](how-to-create-data-mining-queries.md) to retrieve forensics data from the sensor's local storage.
+
+The following table describes how much and how long each type of data is stored before it's either deleted or overridden:
+
+|Type of data  | Retention time / capacity  |
+|---------|---------|
+| **Devices** | Device inventory data is stored for 90 days, for all sensors from sensor version 22.3 minor and up. <br><br> For more information, see [Manage your OT device inventory from a sensor console](how-to-investigate-sensor-detections-in-a-device-inventory.md). |
+| **Alerts** | Alerts are stored on the local sensor for 90 days from their first detection time. <br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
+| **OT alert PCAP files** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **OT event timeline** | Event timeline data retention capacity differs depending on the sensor's [hardware profile](ot-appliance-sizing.md). <br><br> For more information, see x-ref to event timeline in data retention article. |
+| **OT log files** | x-ref to log files in data retention article. |
+
+For more information, see Data retention x-ref.
 
 ## Clearing sensor data
 

@@ -77,13 +77,11 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 | **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
 
-## Forensics data stored by the sensor
+## Retrieve forensics data stored on the sensor
 
-The following types of forensics data are stored locally on the sensor:
+There are several types of [forensics data stored locally on the sensor](how-to-manage-individual-sensors.md#forensics-data-stored-on-the-sensor).
 
-Each type of forensics data is stored for a set period of time, or up until it reaches the maximum allowed storage capacity. For more information about data retention, see Data retention x-ref.
-
-To retrieve forensics data from the sensor's local storage to the cloud's global storage, use the data mining reports x-ref.
+Use [workbooks](workbooks.md) to retrieve forensics data from the sensor's local storage to the could's global storage on the Azure portal.
 
 ## Reactivate an OT sensor
 

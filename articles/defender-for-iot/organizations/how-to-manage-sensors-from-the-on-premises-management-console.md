@@ -115,13 +115,11 @@ Sensors are protected by Defender for IoT engines. You can enable or disable the
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/red-exclamation-example.png" alt-text="Mismatch of enabled engines.":::
 
-## Forensics data stored by the sensor
+## Retrieve forensics data stored on the sensor
 
-The following types of forensics data are stored locally on the sensor:
+There are several types of [forensics data stored by the sensor](how-to-manage-individual-sensors.md#forensics-data-stored-by-the-sensor).
 
-Each type of forensics data is stored for a set period of time, or up until it reaches the maximum allowed storage capacity. For more information about data retention, see Data retention x-ref.
-
-To retrieve forensics data from the sensor's local storage to the on-premises management console's central storage, use the data mining reports x-ref.
+Use [data mining reports](how-to-create-data-mining-queries.md) to retrieve forensics data from the sensor's local storage to the on-premises management console's central storage.
 
 ## Define sensor backup schedules
 
