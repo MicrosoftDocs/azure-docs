@@ -13239,6 +13239,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/expressroute/howto-linkvnet-cli.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-linkvnet-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
             "redirect_url": "/azure/firewall/firewall-diagnostics",
             "redirect_document_id": false
