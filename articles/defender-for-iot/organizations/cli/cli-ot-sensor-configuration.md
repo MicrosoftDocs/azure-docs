@@ -104,7 +104,7 @@ Reply to the prompts displayed as follows:
     |Type  |Description  |Example  |
     |---------|---------|---------|
     |**Device**     |   Define a device by its IP address.      |    `1.1.1.1` includes all traffic for this device.     |
-    |**Channel****     |    Define a channel by the IP addresses of its source and destination devices, separated by a comma.     |   `1.1.1.1,2.2.2.2` includes all of the traffic for this channel.      |
+    |**Channel**    |    Define a channel by the IP addresses of its source and destination devices, separated by a comma.     |   `1.1.1.1,2.2.2.2` includes all of the traffic for this channel.      |
     |**Subnet**     |    Define a subnet by its network address.     |   `1.1.1` incudes all traffic for this subnet.      |
     |**Subnet channel**     |    Define a subnet channel network addresses of the source and destination subnets.     |   `1.1.1,2.2.2` incudes all of the traffic between these subnets.      |
 
@@ -122,7 +122,7 @@ Reply to the prompts displayed as follows:
     | **Channel** | Define a channel by the IP addresses of its source and destination devices, separated by a comma. | `1.1.1.1,2.2.2.2` excludes all of the traffic between these devices. |
     | **Channel by port** | Define a channel by the IP addresses of its source and destination devices, and the traffic port. | `1.1.1.1,2.2.2.2,443` excludes all of the traffic between these devices and using the specified port.|
     | **Subnet** | Define a subnet by its network address. | `1.1.1` excludes all traffic for this subnet. |
-    | **Subnet channel**: Define a subnet channel network addresses of the source and destination subnets. | `1.1.1,2.2.2` excludes all of the traffic between these subnets. |
+    | **Subnet channel** | Define a subnet channel network addresses of the source and destination subnets. | `1.1.1,2.2.2` excludes all of the traffic between these subnets. |
 
     List multiple arguments in separate rows.
 
@@ -176,8 +176,8 @@ Use the following commands to show details about the current capture filters con
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| **support** | Use the following commands to view the capture filters for each component: <br><br>**horizon**: `edit-config horizon_parser/horizon.properties` <br>**traffic-monitor**: `edit-config traffic_monitor/traffic-monitor` <br>**collector**: `edit-config dumpark.properties` | No attributes |
-| **cyberx** | Use the following commands to view the capture filters for each component: <br><br>**horizon**: `nano /var/cyberx/properties/horizon_parser/horizon.properties` <br>- **traffic-monitor**: `nano /var/cyberx/properties/traffic_monitor/traffic-monitor.properties` <br>- **collector**: `nano /var/cyberx/properties/dumpark.properties` | No attributes |
+| **support** | Use the following commands to view the capture filters for each component: <br><br>- **horizon**: `edit-config horizon_parser/horizon.properties` <br>- **traffic-monitor**: `edit-config traffic_monitor/traffic-monitor` <br>- **collector**: `edit-config dumpark.properties` | No attributes |
+| **cyberx** | Use the following commands to view the capture filters for each component: <br><br>-**horizon**: `nano /var/cyberx/properties/horizon_parser/horizon.properties` <br>- **traffic-monitor**: `nano /var/cyberx/properties/traffic_monitor/traffic-monitor.properties` <br>- **collector**: `nano /var/cyberx/properties/dumpark.properties` | No attributes |
 
 These commands open the following files, which list the capture filters configured for each component:
 
