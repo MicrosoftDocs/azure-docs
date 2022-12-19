@@ -104,7 +104,6 @@ You can easily set access validation for a Function App without code changes usi
 1. Select **Authentication** from the menu.
 1. Select **Add identity provider**.
 1. In the **Basics** tab, select **Microsoft** from the **Identity provider** dropdown.
-1. 
 1. Select **Log in with Azure Active Directory** in **Action to take when request is not authenticated**.
 1. Select **Microsoft** in the identity provider dropdown. The option to create a new registration is selected by default. You can change the name of the registration. For more information on enabling Azure AD provider, see [Configure your App Service or Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
     :::image type="content" source="media/signalr-howto-use-managed-identity/function-aad.png" alt-text="Function Aad":::
