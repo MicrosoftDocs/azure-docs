@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 12/15/2022
+ms.date: 12/19/2022
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
 ---
 
@@ -34,7 +34,7 @@ Finally, you'll see how to use included sample notebooks to learn more about Azu
 
 ## Create the workspace
 
-The workspace is the top-level resource for your machine learning activities, providing a centralized place to view and manage the artifacts you create when you use Azure Machine Learning. 
+The workspace is the top-level resource for your machine learning activities, providing a centralized place to view and manage the artifacts you create when you use Azure Machine Learning.
 
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
@@ -62,13 +62,22 @@ If you already have a compute instance, skip this section and continue to [Uploa
 
 Create a compute instance now.  You'll also use it as your development environment for the rest of the tutorials, and for your own development work.
  
-**@Steps for creating the compute instance with the new experience will go here.**
+**@@Steps for creating the compute instance with the new experience will go here.**
 
 ## Upload files
 
 You'll need to get your own files into the cloud.  For this tutorial, [download this small data file](https://hbiostat.org/data/repo/titanic3.csv) first, so that you can upload it to your workspace file storage.
 
-**@@Steps to upload.**
+1. On the left navigation, select **Notebooks**.
+1. On the toolbar above the file list, select **+** to add files.
+1. Select **Upload files**.
+
+    :::image type="content" source="media/tutorial-set-up-workstation/upload-files.png" alt-text="Screenshot: Upload files":::
+
+1. Browse to select the data file **titanic2.csv** that you just downloaded.
+1. Select **Upload**.
+
+You'll see the file open in a tab. Close this tab if you wish.
 
 You might think that you uploaded the data directly to your compute instance, but you didn't. You instead uploaded the file to a cloud Azure storage container attached to the workspace, which is then mounted to the compute instance. If you delete the compute instance, all of your files will still be available. If you create multiple compute instances in your workspace, these files will be mounted and visible on each.
 
@@ -78,10 +87,10 @@ Uploading data is fine for small files, but isn't the only way to access data.  
 
 A Jupyter notebook is a good place to start learning about Azure Machine Learning and its capabilities.  Notebook support is built in to your workspace.  
 
-1. On the left, select **Notebooks**.
-1. Select **Create new file**.
+1. Still in the **Notebooks** section, again select **+** to add files.
+1. select **Create new file**.
     
-    :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
+    :::image type="content" source="media/tutorial-set-up-workstation/create-new-file.png" alt-text="Screenshot: Create new file":::
 
 1. Name your new notebook **visualize-sample-data.ipynb**.
  
@@ -93,7 +102,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
     ```python
     import pandas as pd
 
-    df = pd.read_csv('titanic.csv')
+    df = pd.read_csv('titanic3.csv')
     
     df.info()
     ```
@@ -153,12 +162,11 @@ The notebook kernel on the compute instance has all the basics for running your 
 
 ### Add a markdown cell
 
-Add a Markdown cell to the notebook to record some observations from the plot.
+Select **+ Markdown** to add a Markdown cell to the notebook.  Use the cell to add some observations from the plot.
 
-**@@steps, and probably an image**
 
 ```md
-Interpretation guidance:
+## Interpretation guidance:
 
 * violinplot 1: young adult men were less likely to survive than children and elderly, and to a lesser extent, women
 * lineplot 1: the fewer parents/grandparents, the higher survival rate
@@ -173,7 +181,11 @@ Your compute instance can also be used to run scripts, using a terminal window.
 
 Use the notebook tools to export the notebook as .py - 
 
-**@@talk about steps for this.  Probably also an image.**
+1. On the notebook toolbar, select the menu.
+1. Select **Export as> Python file**.
+1. Select **Create**.
+
+A new tab opens with the new file, **visualize-sample-data.py**.  
 
 If  you didn't comment out the `%pip install seaborn` cell before, you'll see `get_ipython().run_line_magic('pip', 'install seaborn')` as a line of code.  This code only works in notebooks, so if you have this line, either delete it or comment it out in the script file.
 
@@ -181,17 +193,22 @@ If  you didn't comment out the `%pip install seaborn` cell before, you'll see `g
 
 From the toolbar above the script, select **Save and run script in terminal**.  
 
-**@@Show an image of the tool.**
+:::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
 
 A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
 
 You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
 
-Finally you'll see the text output from the execution. 
+Finally you'll see the text output from the execution.
+
+Close the terminal tab to terminate the session.
+
 
 ### Save the plot
 
-When you run the script in a terminal, you'll see text output, but not the plots, since plots can't be rendered in the terminal window.  
+When you run the script in a terminal, you'll see text output, but not the plots, since plots can't be rendered in the terminal window. 
+
+1. Select the **visualize-sample-data.py** tab to go back to the Python script. 
 
 1. Add the following line to the end of the Python script to save the plot as a file instead:
 
@@ -203,11 +220,11 @@ When you run the script in a terminal, you'll see text output, but not the plots
 
 1. In your **Files** section, you'll see the new image file, **plots.png**.  If you don't see the file, select **Refresh** to get the most up-to-date view of your files.  
 
-**@@Show image of the refresh tool.**
+    :::image type="content" source="media/tutorial-set-up-workstation/refresh.png" alt-text="Screenshot: Refresh to see your new file.":::
 
-1. Select this file to open it in another tab.
-1. Close the terminal tabs (terminating the sessions) since you're done working in terminal for now.
-
+1. Select the file **plots.png** to open it in another tab.
+1. Close the terminal tab to terminate the session.
+f
 ## Learn from sample notebooks
 
 Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
