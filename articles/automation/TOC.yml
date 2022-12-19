@@ -238,11 +238,11 @@
                   href: automation-dsc-create-composite.md
     - name: Change tracking and inventory 
       items:
-        - name: Use Azure Monitoring Agent
+        - name: Use Azure Monitoring Agent (AMA)
           items:
             - name: Overview
               href: change-tracking/overview-monitoring-agent.md
-            - name: Support regions
+            - name: Supported regions
               href: change-tracking/region-mappings-monitoring-agent.md
             - name: Enable change tracking from portal
               href: change-tracking/enable-vms-monitoring-agent.md
