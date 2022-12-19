@@ -86,7 +86,7 @@ productDirectory:
         - mobile
       url: cognitive-services/index.yml
     # Card
-    - title: Azure OpenAI Service (Preview)
+    - title: Azure OpenAI Service
       summary: Apply advanced coding and language models to a variety of use cases
       imageSrc: cognitive-services/openai/media/icon/azure-openai-dark.svg
       azureCategories:

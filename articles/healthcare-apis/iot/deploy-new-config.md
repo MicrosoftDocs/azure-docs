@@ -1,11 +1,11 @@
 ---
-title: Configuring the MedTech service for deployment using the Azure portal - Azure Health Data Services
+title: Configure the MedTech service for deployment using the Azure portal - Azure Health Data Services
 description: In this article, you'll learn how to configure the MedTech service for manual deployment using the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/21/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -94,7 +94,7 @@ To begin configuring the device mapping tab, go to the Create MedTech service pa
 
 For more information regarding device mappings, see the relevant GitHub open source documentation at [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-For Azure docs information about device mapping, see [How to use Device mappings](how-to-use-device-mappings.md).
+For Azure docs information about device mapping, see [How to configure device mappings](how-to-configure-device-mappings.md).
 
 ## Configure the Destination tab
 
@@ -138,7 +138,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 For more information regarding destination mapping, see the FHIR service GitHub documentation at [FHIR mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
-For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-use-fhir-mappings.md).
+For Azure docs information about destination mapping, see [How to use FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ### JSON template request
 

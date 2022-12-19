@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x |17(preview) <br/>11 <br/>8 |17(preview) <br/>11 <br/>8 |
+| 4.x |17 <br/>11 <br/>8 |17 <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -162,7 +162,7 @@ You can control the version of Java targeted by the Maven archetype by using the
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
-| Element |  Java 8 value | Java 11 value | Java 17 (preview) value | Description |
+| Element |  Java 8 value | Java 11 value | Java 17 value | Description |
 | ---- | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | 17 | Version of Java used by the maven-compiler-plugin. |
 | **`JavaVersion`** | 8 | 11 | 17 | Java version hosted by the function app in Azure. |
@@ -192,12 +192,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 and 11. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. The table below describes the new Java versions that Function apps will begin using with the January 2022 Functions platform release:
-
-| Java Version | Linux            | Windows              |
-|--------------|------------------|----------------------|
-| Java 8       | 1.8.0_302 (Adoptium) | 1.8.0_302 (Adoptium) |
-| Java 11      | 11.0.12 (MSFT)   | 11.0.12 (MSFT)       |
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), 11 (MSFT) and 17(MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. 
 
 For local development or testing, you can download the [Microsoft build of OpenJDK](/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
