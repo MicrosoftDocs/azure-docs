@@ -564,6 +564,7 @@ This can happen when a Docker image pull fails due to a network issue.
 
 **Troubleshooting steps**  
 Add the host to the firewall rules  
+* See [configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) to learn how to use Azure Firewall for your workspace and resources behind a VNet
 
 Assess your workspace set-up. Are you using a virtual network, or are any of the resources you are trying to access during your image build behind a virtual network?
 * Ensure that you have followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
