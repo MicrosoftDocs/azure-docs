@@ -27744,7 +27744,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/azure/virtual-machines/workloads/sap-high-availability-multi-sid.md",
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap-high-availability-multi-sid.md",
             "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
             "redirect_document_id": false
         },    
