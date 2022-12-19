@@ -49,12 +49,12 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
 ## Translate all documents in a storage container
 
-      > [!NOTE]
-      >
-      > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
-      > * The new output uses recent C# features that simplify the code you need to write.
-      > * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
-      > * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+  > [!NOTE]
+  >
+  > * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+  > * The new output uses recent C# features that simplify the code you need to write.
+  > * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+  > * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the **Program.cs** file.
 
