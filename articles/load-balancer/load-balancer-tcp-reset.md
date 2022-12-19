@@ -10,7 +10,7 @@ ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2022
+ms.date: 12/19/2022
 ms.author: mbender
 ---
 
