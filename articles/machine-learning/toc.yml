@@ -239,6 +239,20 @@
           href: concept-customer-managed-keys.md
         - name: Vulnerability management
           href: concept-vulnerability-management.md
+- name: R Support
+  items:
+    - name: Overview of R capabilities
+      href: how-to-razureml-overview-r-capabilities.md
+    - name: Interactive R development
+      href: how-to-razureml-interactive-development.md
+    - name: Adapt interactive R scripts for jobs and production
+      href: how-to-razureml-modify-script-for-prod.md
+    - name: Run R jobs
+      href: how-to-razureml-train-model.md
+    - name: Deploy R model with plumber for scoring using managed endpoint
+      href: how-to-razureml-deploy-an-r-model.md
+    - name: Leverage RMlops packages tidymodels and vetiver
+      href: how-to-razureml-tidymodels-vetiver.md 
 - name: Infrastructure & security
   items:
     - name: Tutorials & templates
