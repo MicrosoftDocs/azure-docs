@@ -50,7 +50,7 @@ The audit logs capture a wide variety of data. Some examples of the types of act
 
 * Password reset and registration activity
 * Self-service groups activity
-* Microsoft365 Group name changes
+* Microsoft 365 Group name changes
 * Account provisioning activity and errors
 * Privileged Identity Management activity
 * Device registration and compliance activity
