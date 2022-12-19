@@ -140,6 +140,9 @@ items:
       href: document-translation/quickstarts/get-started-with-rest-api.md
     - name: How-to guides
       items:
+      - name: Use REST APIs programmatically
+        displayName: get started,batch,sdk,c#,.net,dotnet,python,javascript,java,go,source,target,blob,set up,storage
+        href: document-translation/how-to-guides/use-rest-api-programmatically.md
       - name: Create SAS tokens for storage containers
         displayName: user,delegation,shared access,tokens,storage explorer,azure,portal,blob,url
         href: document-translation/how-to-guides/create-sas-tokens.md
