@@ -12,7 +12,9 @@
       href: resources-faq.md
     - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Server Assessment tool/dependency analysis
+    - name: Discovery and dependency analysis
+      href: common-questions-discovery-dependency-analysis.md
+    - name: Assessment
       href: common-questions-discovery-assessment.md
     - name: Business case
       href: common-questions-business-case.md

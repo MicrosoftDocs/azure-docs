@@ -261,6 +261,68 @@ azcopy set-properties 'https://<storage-account-name>.blob.core.windows.net/<con
 
 ## Bulk rehydrate a set of blobs
 
+To rehydrate archived blobs in a container or folder to the hot or cool tier, enumerate through the blobs and call the Set Blob Tier operation on each one. The following example shows you how to perform this operation:
+
+### [Portal](#tab/azure-portal)
+
+N/A
+
+### [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+    # Initialize these variables with your values.
+    $rgName = "<resource-group>"
+    $accountName = "<storage-account>"
+    $containerName = "<container>"
+    $folderName = "<folder>/"
+    
+    $ctx = (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).Context
+    
+    $blobCount = 0
+    $Token = $Null
+    $MaxReturn = 5000
+    
+    do {
+        $Blobs = Get-AzStorageBlob -Context $ctx -Container $containerName -Prefix $folderName -MaxCount $MaxReturn -ContinuationToken $Token
+        if($Blobs -eq $Null) { break }
+        #Set-StrictMode will cause Get-AzureStorageBlob returns result in different data types when there is only one blob
+        if($Blobs.GetType().Name -eq "AzureStorageBlob")
+        {
+            $Token = $Null
+        }
+        else
+        {
+            $Token = $Blobs[$Blobs.Count - 1].ContinuationToken;
+        }
+        $Blobs | ForEach-Object {
+                if(($_.BlobType -eq "BlockBlob") -and ($_.AccessTier -eq "Archive") ) {
+                    $_.BlobClient.SetAccessTier("Hot", $null, "Standard")
+                }
+            }
+    }
+    While ($Token -ne $Null)
+    
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+
+az storage blob list --account-name $accountName --account-key $key \
+    --container-name $containerName --prefix $folderName \
+    --query "[?properties.blobTier == 'Archive'].name" --output tsv \
+    | xargs -I {} -P 10 \
+    az storage blob set-tier --account-name $accountName --account-key $key \
+    --container-name $containerName --tier Hot --name "{}" 
+
+```
+
+### [AzCopy](#tab/azcopy)
+
+N/A
+
+---
+
 To rehydrate a large number of blobs at one time, call the [Blob Batch](/rest/api/storageservices/blob-batch) operation to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation. For a code example that shows how to perform the batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## Check the status of a rehydration operation
