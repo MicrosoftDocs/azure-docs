@@ -66,7 +66,7 @@ The [container_management.py](https://github.com/Azure/azure-sdk-for-python/blob
 
 ## Item examples
 
-The [document_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) and [change_feed_management.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) Python samples show how to do the following tasks using the [ContainerProxy methods](/python/api/azure-cosmos/azure.cosmos.container.containerproxy#methods). To learn about the Azure Cosmos DB items before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
+The [document_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) and [change_feed_management.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) Python samples show how to do the following tasks using [ContainerProxy methods](/python/api/azure-cosmos/azure.cosmos.container.containerproxy#methods). To learn about the Azure Cosmos DB items before running the following samples, see [Working with databases, containers, and items](../account-databases-containers-items.md) conceptual article.
 
 | Task | API reference |
 | --- | --- |
