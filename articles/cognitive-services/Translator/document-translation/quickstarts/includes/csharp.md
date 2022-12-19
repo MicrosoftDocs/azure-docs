@@ -45,7 +45,7 @@ For this quickstart, we'll use the latest version of [Visual Studio](https://vis
 
 1. Select the latest stable version from the dropdown menu and install the package in your project.
 
-    :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected nuget package window":::
+    :::image type="content" source="../../media/visual-studio/install-nuget-package.png" alt-text="Screenshot of install selected NuGet package window.":::
 
 ## Translate all documents in a storage container
 

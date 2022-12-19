@@ -78,7 +78,7 @@ Requests to the Translator service require a read-only key and custom endpoint t
 
 1. You'll paste it into the code sample to authenticate your request to the Document Translation service.
 
-    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Image of the get your key field in Azure portal.":::
+    :::image type="content" source="../media/document-translation-key-endpoint.png" alt-text="Screenshot showing the get your key field in Azure portal.":::
 
 ## Create Azure blob storage containers
 
