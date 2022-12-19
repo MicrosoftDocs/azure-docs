@@ -59,28 +59,29 @@ Create a text file in a local working working directory with some sample text. F
 echo "Here is an artifact" > artifact.txt
 ```
 
-Use the `oras push` command to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name *myregistry.azurecr.io* (all lowercase). The artifact is tagged `1.0`. The artifact has an undefined type, by default, identified by the *media type* string following the filename `artifact.txt`. See [OCI Artifacts](https://github.com/opencontainers/artifacts) for additional types. 
+Use the `oras push` command to push this text file to your registry. The following example pushes the sample text file to the `samples/artifact` repo. The registry is identified with the fully qualified registry name *myregistry.azurecr.io* (all lowercase). The artifact is tagged `1.0`. Artifact type defines the manifest `artifactType`, See for defining or using artifact types [OCI Artifacts](https://github.com/opencontainers/artifacts). Optionally you can add a `mediaType` using the format filename[:type] `artifact.txt:text/plain` (when omitted `application/vnd.oci.image.layer.v1.tar` is used as mediaType).
 
 **Linux or macOS**
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
-    --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
-    ./artifact.txt:application/vnd.unknown.layer.v1+txt
+    --artifact-type application/vnd.acme.rocket.config \
+    ./artifact.txt:text/plain
 ```
 
 **Windows**
 
-```cmd
-.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
-    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
-    .\artifact.txt:application/vnd.unknown.layer.v1+txt
+```powerhell
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 `
+    --artifact-type application/vnd.acme.rocket.config `
+    .\artifact.txt:text/plain
 ```
 
 Output for a successful push is similar to the following:
 
 ```console
 Uploading 33998889555f artifact.txt
+Uploaded 33998889555f artifact.txt
 Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
@@ -124,8 +125,7 @@ rm artifact.txt
 Run `oras pull` to pull the artifact, and specify the media type used to push the artifact:
 
 ```bash
-oras pull myregistry.azurecr.io/samples/artifact:1.0 \
-    --media-type application/vnd.unknown.layer.v1+txt
+oras pull myregistry.azurecr.io/samples/artifact:1.0
 ```
 
 Verify that the pull was successful:
