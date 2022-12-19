@@ -77,7 +77,7 @@ You can modify the default list of MIME types on Optimizations page.
 
    :::image type="content" source="../media/how-to-compression/front-door-compression-edit-content-type-2.png" alt-text="Screenshot of customize file compression page."::: 
 
-1. Select **Save**, to update compression configure .
+1. Select **Save** to update the compression configuration.
 
 ## Disabling compression
 

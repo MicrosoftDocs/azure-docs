@@ -178,9 +178,9 @@ The following order of headers is used to determine how long an item will be sto
 1. `Cache-Control: max-age=<seconds>`
 1. `Expires: <http-date>`
 
-Some `Cache-Control` response header values indicate that the response isn't cacheable. These values include `private`, `no-cache`, and `no-store`. Front Door honors these header values and won't cache the responses, even if you override the caching behaviour by using the Rules Engine.
+Some `Cache-Control` response header values indicate that the response isn't cacheable. These values include `private`, `no-cache`, and `no-store`. Front Door honors these header values and won't cache the responses, even if you override the caching behavior by using the Rules Engine.
 
-If the `Cache-Control` header isn't present on the response from the origin, by default Front Door will randomly determine a cache duration between 1 and 3 days.
+If the `Cache-Control` header isn't present on the response from the origin, by default Front Door will randomly determine a cache duration between one and three days.
 
 > [!NOTE]
 > Cache expiration can't be greater than **366 days**.
@@ -198,7 +198,7 @@ The following request headers won't be forwarded to the origin when caching is e
 
 ## Response headers
 
-If the origin response is cacheable, then the `Set-Cookie` header is removed before the response is sent to the client. If an origin response is not cacheable, Front Door doesn't strip the header. For example, if the origin response includes a `Cache-Control` header with a `max-age` value, this indicates to Front Door that the response is cacheable, and the `Set-Cookie` header is stripped.
+If the origin response is cacheable, then the `Set-Cookie` header is removed before the response is sent to the client. If an origin response isn't cacheable, Front Door doesn't strip the header. For example, if the origin response includes a `Cache-Control` header with a `max-age` value, this indicates to Front Door that the response is cacheable, and the `Set-Cookie` header is stripped.
 
 In addition, Front Door attaches the `X-Cache` header to all responses. The `X-Cache` response header includes one of the following values:
 
@@ -225,7 +225,7 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
 
 * **When caching is enabled**, the cache behavior is different based on the cache behavior value applied by the Rules Engine:
 
-   * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from 1 to 3 days.  
+   * **Honor origin**: Azure Front Door will always honor origin response header directive. If the origin directive is missing, Azure Front Door will cache contents anywhere from one to three days.  
    * **Override always**: Azure Front Door will always override with the cache duration, meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. This behavior will only be applied if the response is cacheable.
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door will use the specified cache duration. This behavior will only be applied if the response is cacheable. 
 
@@ -242,7 +242,7 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 * **When caching is disabled**, Azure Front Door (classic) doesn’t cache the response contents, irrespective of origin response directives.
 
 * **When caching is enabled**, the cache behavior is different for different values of *Use cache default duration*.
-    * When *Use cache default duration* is set to **Yes**, Azure Front Door (classic) will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days.
+    * When *Use cache default duration* is set to **Yes**, Azure Front Door (classic) will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from one to three days.
     * When *Use cache default duration* is set to **No**, Azure Front Door (classic) will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
 
 > [!NOTE]
