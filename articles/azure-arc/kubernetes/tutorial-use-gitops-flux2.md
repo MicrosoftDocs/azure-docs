@@ -563,7 +563,7 @@ az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClu
 ```
 
 > [!TIP]
-> The commands above use `-t connectedClusters`, which is appropriate for an Azure Arc-enabled Kubernetes cluster. For an AKS cluster, use `-t managedClusters` instead. For AKS hybrid clusters provisioned from Azure, use `-t provisionedClusters`.
+> These commands use `-t connectedClusters`, which is appropriate for an Azure Arc-enabled Kubernetes cluster. For an AKS cluster, use `-t managedClusters` instead. For AKS hybrid clusters provisioned from Azure, use `-t provisionedClusters`.
 
 ### [Azure portal](#tab/azure-portal)
 
