@@ -26,7 +26,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 ## Register and download your quickstart application
 
-#### Step 1: Register your application
+### Step 1: Register your application
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If access to multiple tenants is available, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which to register the application.
 1. Search for and select **Azure Active Directory**.
@@ -43,7 +43,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 1. Select **In 1 year** for the secret's expiration.
 1. Select **Add** and immediately record the secret's **Value** for use in a later step. The secret value is *never displayed again* and is irretrievable by any other means. Record it in a secure location as you would any password.
 
-#### Step 2: Download the ASP.NET Core project
+### Step 2: Download the ASP.NET Core project
 
 [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 
@@ -51,7 +51,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > The code sample currently targets ASP.NET Core 3.1. The sample can be updated to use .NET Core 6.0 and is covered in the following steps: [Update the sample code to ASP.NET Core 6.0](#step-4-update-the-sample-code-to-aspnet-core-60)
 This quickstart will be deprecated in the near future and will be updated to use .NET 6.0.
 
-#### Step 3: Configure your ASP.NET Core project
+### Step 3: Configure your ASP.NET Core project
 
 1. Extract the *.zip* file to a local folder that's close to the root of the disk to avoid errors caused by path length limitations on Windows. For example, extract to *C:\Azure-Samples*.
 1. Open the solution in the chosen code editor.
@@ -91,7 +91,7 @@ To update this code sample to target ASP.NET Core 6.0, follow these steps:
 
 This step will ensure that the sample is targeting the .NET Core 6.0 framework.
  
-#### Step 5: Build and run the application
+### Step 5: Build and run the application
 
 Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the F5 key. 
 
