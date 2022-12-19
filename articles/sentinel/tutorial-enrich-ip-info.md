@@ -29,7 +29,9 @@ To complete this tutorial, make sure you have:
 
 - A Log Analytics workspace with the Microsoft Sentinel solution deployed on it.
 
-- An Azure user with the [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) and [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor) roles assigned.
+- An Azure user with the following roles assigned on the following resources: 
+    - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
+    - [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor), and **Owner** or equivalent, on whichever resource group will contain the playbook created in this tutorial.
 
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
@@ -204,14 +206,29 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
     :::image type="content" source="media/tutorial-enrich-ip-info/23-add-run-playbook-action.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 1.":::
 
-    You'll see a list of all the playbooks in your subscription. The grayed-out ones are those you don't have access to. In the **Search playbooks** text box, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. When you see your playbook in the list, select it.
+    You'll see a list of all the playbooks in your subscription. The grayed-out ones are those you don't have access to. In the **Search playbooks** text box, begin typing the name - or any part of the name - of the playbook we created above. The list of playbooks will be dynamically filtered with each letter you type. 
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/24-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/24-search-playbooks.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 2.":::
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/25-playbook-selected.png" alt-text="Screenshot showing your selected playbook.":::
+    When you see your playbook in the list, select it.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/25-select-playbook.png" alt-text="Screenshot showing how to select your playbook from the list of playbooks - part 3.":::
+
+    If the playbook is grayed out, select the **Manage playbook permissions** link (in the fine-print paragraph below where you selected a playbook - see the screenshot above). In the panel that opens up, select the resource group containing the playbook from the list of available resource groups, then select **Apply**.
+
+1. Select **+ Add action** again. Now, from the new action drop-down that appears, select **Add tags.**
+
+1. Select **+ Add tag**. Enter "*Tutorial-Enriched IP addresses*" as the tag text and select **OK**.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/26-automation-rule-tags.png" alt-text="Screenshot showing how to add a tag to an automation rule.":::
 
 1. Leave the remaining settings as they are, and select **Apply**.
 
+## Verify successful automation
+
+1. In the **Incidents** page, enter the tag text *Tutorial-Enriched IP addresses* into the **Search** bar and hit the Enter key to filter the list for incidents with that tag applied. These are the incidents that our automation rule ran on.
+
+1. Open any one or more of these incidents and see if there are comments about the IP addresses there. The presence of these comments indicates that the playbook ran on the incident.
 
 ## Clean up resources
 
