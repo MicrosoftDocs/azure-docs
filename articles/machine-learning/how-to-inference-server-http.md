@@ -60,8 +60,8 @@ To install the `azureml-inference-server-http package`, run the following comman
 python -m pip install azureml-inference-server-http
 ```
 
-## Debug your scoring script with the inference server locally
-### Understand the server behavior with dummy scoring script
+## Debug your scoring script locally
+### Understand the server behavior with a dummy scoring script
 1. Create a directory to hold your files:
 
     ```bash
