@@ -1,12 +1,12 @@
 ---
 title: How to manage a dev box auto-stop schedule
 titleSuffix: Microsoft Dev Box
-description: This article describes how to automatically shut down a pool of dev boxes by using a dev box auto-stop schedule.
+description: This article describes how to automatically shutdown a pool of dev boxes by using a dev box auto-stop schedule.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/16/2022
+ms.date: 12/19/2022
 ms.topic: how-to
 ---
 
@@ -121,11 +121,10 @@ You can also manage auto-stop schedules using Azure CLI.
 
 ### Create an auto-stop schedule
 
-```az devcenter admin schedule create -n {scheduleName} --pool {poolName} --project {projectName} --time 23:15 --time-zone "America/Los_Angeles" --schedule-type stopdevbox --frequency daily --state enabled```
+```az devcenter admin schedule create -n default --pool {poolName} --project {projectName} --time 23:15 --time-zone "America/Los_Angeles" --schedule-type stopdevbox --frequency daily --state enabled```
 
 |Parameter|Description|
 |-----|-----|
-|scheduleName|a name for your schedule|
 |poolName|Name of your pool|
 |project|Name of your Project|
 |time| Local time when Dev Boxes should be shut down|
@@ -133,11 +132,10 @@ You can also manage auto-stop schedules using Azure CLI.
 
 ### Delete an auto-stop schedule
 
-```az devcenter admin schedule delete -n {scheduleName} --pool {poolName} --project {projectName}```
+```az devcenter admin schedule delete -n default --pool {poolName} --project {projectName}```
 
 |Parameter|Description|
 |-----|-----|
-|scheduleName|a name for your schedule|
 |poolName|Name of your pool|
 |project|Name of your Project|
 |time| Local time when Dev Boxes should be shut down|
@@ -145,6 +143,5 @@ You can also manage auto-stop schedules using Azure CLI.
 
 ## Next steps
 
-- [Provide access to projects for project admins](./how-to-project-admin.md)
-- [Create dev box definitions](./quickstart-configure-dev-box-service.md#create-a-dev-box-definition)
-- [Configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md)
+- [Manage a dev box definition](./how-to-manage-dev-box-definitions.md)
+- [Manage a dev box using the developer portal](./how-to-manage-dev-boxes.md)
