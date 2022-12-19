@@ -27,7 +27,7 @@ To complete this tutorial, make sure you have:
 
 - An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
-- A Log Analytics workspace with the Microsoft Sentinel solution deployed on it.
+- A Log Analytics workspace with the Microsoft Sentinel solution deployed on it and data being ingested into it.
 
 - An Azure user with the following roles assigned on the following resources: 
     - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
@@ -194,13 +194,7 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
     :::image type="content" source="media/tutorial-enrich-ip-info/21-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
 
-1. Under **Actions**, select **Change status** from the drop-down. In the new drop-down that appears just below that, select **Active**.
-
-    :::image type="content" source="media/tutorial-enrich-ip-info/22-create-automation-rule-action.png" alt-text="Screenshot showing how to add actions to your automation rule.":::
-
-1. Select **+ Add action**. From the new action drop-down that appears, select **Assign owner** and choose an owner of your choice from the drop-down that appears below.
-
-1. Select **+ Add action** again. Now, from the new action drop-down that appears, select **Run playbook.**
+1. Under **Actions**, select **Run playbook** from the drop-down.
 
 1. Select the new drop-down that appears.
 
