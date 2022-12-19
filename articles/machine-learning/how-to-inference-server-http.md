@@ -195,10 +195,11 @@ In this section, we'll run the server locally with [sample files](https://github
 
 The server is listening on port 5001 (as default) at these routes.
 
-| Name           | Route                |
-| -------------- | -------------------- |
-| Liveness Probe | 127.0.0.1:5001/      |
-| Score          | 127.0.0.1:5001/score |
+| Name              | Route                       |
+| ----------------- | --------------------------- |
+| Liveness Probe    | 127.0.0.1:5001/             |
+| Score             | 127.0.0.1:5001/score        |
+| OpenAPI (swagger) | 127.0.0.1:5001/swagger.json |
 
 ## Server parameters
 
