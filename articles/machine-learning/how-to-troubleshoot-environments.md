@@ -553,17 +553,24 @@ If you haven't provided credentials for a private registry you're trying to pull
 This can happen when a Docker image pull fails due to a network issue.  
 
 **Potential causes:**
-* There is a firewall block or network connection issue  
-* ACR is unreachable and there is network isolation. For additional details, please see [ACR unreachable](https://aka.ms/azureml/environment/acr-unreachable). 
+* Network connection issue, which could be temporary
+* Firewall is blocking the connection
+* ACR is unreachable and there is network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
 
 **Affected areas (symptoms):**
-* placeholder
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
 <!--/issueDescription-->
 
-**Troubleshooting steps**
-* List the host in the firewall rules.
-* Check your network settings. If there's network isolation, you need to change it so they are both behind the same VNet.
+**Troubleshooting steps**  
+Add the host to the firewall rules  
 
+Assess your workspace set-up. Are you using a virtual network, or are any of the resources you are trying to access during your image build behind a virtual network?
+* Ensure that you have followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
+* Azure Machine Learning requires both inbound and outbound access to the public internet. If there is a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
+
+If you aren't using a virtual network, or if you have configured it correctly
+* Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
 ### *Conda issues during build*
 ### Bad spec
