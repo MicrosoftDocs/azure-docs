@@ -191,7 +191,7 @@ Microsoft converts offer prices using exchange rates sourced directly from the W
 
 The following illustration shows the currency conversion flow:
 
-![currency-exchange-flow-updated-12-12-2022](currency-exchange-flow1.png)
+![Screenshot of the geo availability of currencies.](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-12-12-2022.png)
 
 
 ## Options to manage local prices, for example in cases where markets have high foreign exchange rate variations
