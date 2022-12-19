@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/backup/backup-afs.md",
+            "redirect_url": "/azure/backup/backup-azure-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
+            "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/storage-quickstart-queues-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/iot-solution.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-solution",
+            "redirect_document_id": false
+        }, 
+        {
+            "source_path_from_root": "/articles/sentinel/iot-advanced-threat-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/iot-advanced-threat-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-center-community.md",
+            "redirect_url": "/azure/backup/backup-center-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/api-management/developer-portal-widget-contribution-guidelines.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
@@ -9,21 +39,21 @@
             "source_path_from_root": "/articles/api-management/developer-portal-use-community-widgets.md",
             "redirect_url": "/azure/api-management/developer-portal-extend-custom-functionality",
             "redirect_document_id": false
-        },       
+        },
         {
             "source_path":  "articles/sentinel/whats-new-archive.md",
             "redirect_url":  "/azure/sentinel/whats-new",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/backup/sap-hana-db-manage.md",
             "redirect_url":  "/azure/backup/sap-hana-database-manage",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/backup/sap-hana-db-restore.md",
             "redirect_url":  "/azure/backup/sap-hana-database-restore",
-            "redirect_document_id":  false  
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/backup/sap-hana-db-about.md",
@@ -93,32 +123,32 @@
         {
             "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
             "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
-            "redirect_document_id":  false 
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
             "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
             "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
             "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/physical-server-azure-architecture-preview.md",
             "redirect_url":  "/azure/physical-server-azure-architecture-modernized",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path":  "articles/vmware-azure-tutorial-failover-failback-preview.md",
             "redirect_url":  "/azure/vmware-azure-tutorial-failover-failback-modernized",
-            "redirect_document_id":  false   
+            "redirect_document_id":  false
         },
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
@@ -128,6 +158,11 @@
         {
             "source_path_from_root": "/articles/aks/view-metrics.md",
             "redirect_url": "/azure/aks/monitor-aks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/aks/workload-identity-migration-sidecar.md",
+            "redirect_url": "/azure/aks/workload-identity-migrate-from-pod-identity",
             "redirect_document_id": false
         },
         {
@@ -785,7 +820,7 @@
         },
         {
             "source_path_from_root": "/articles/aks/concepts-diagnostics.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_url": "/azure/aks/aks-diagnostics",
             "redirect_document_id": false
         },
         {
@@ -800,12 +835,12 @@
         },
         {
             "source_path_from_root": "/articles/aks/dapr-troubleshooting.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-dapr-extension-installation-errors",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/aks/csi-secrets-store-troubleshooting.md",
-            "redirect_url": "/troubleshoot/azure/azure-kubernetes/welcome-azure-kubernetes",
+            "redirect_url": "/troubleshoot/azure/azure-kubernetes/troubleshoot-key-vault-csi-secrets-store-csi-driver",
             "redirect_document_id": false
         },
         {
@@ -5954,14 +5989,14 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
-            "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
-            "redirect_document_id": true
+            "source_path_from_root": "/articles/update-center/enable-machines.md",
+            "redirect_url": "/azure/update-center/updates-maintenance-schedules",
+            "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/availability-zones/index.md",
-            "redirect_url": "/azure/availability-zones/az-overview",
-            "redirect_document_id": false
+            "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+            "redirect_url": "/azure/reliability/cross-region-replication-azure",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
@@ -6353,7 +6388,12 @@
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
             "redirect_document_id": false
         },
-        { 
+        {
+            "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
+            "redirect_url": "/azure/storage/blobs/anonymous-read-access-prevent",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
             "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
             "redirect_document_id": false
@@ -7011,6 +7051,16 @@
         {
             "source_path_from_root": "/articles/azure-functions/functions-debug-event-grid-trigger-local.md",
             "redirect_url": "/azure/azure-functions/functions-event-grid-blob-trigger",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/azure-functions-supported-features.md",
+            "redirect_url": "/azure/azure-functions/functions-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/azure-functions-az-redundancy.md",
+            "redirect_url": "/azure/reliability/reliability-functions",
             "redirect_document_id": false
         },
         {
@@ -9769,11 +9819,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/backup/backup-azure-files.md",
-            "redirect_url": "/azure/backup/backup-afs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/backup/tutorial-backup-azure-files.md",
             "redirect_url": "/azure/backup/backup-afs",
             "redirect_document_id": false
@@ -10486,21 +10531,6 @@
         {
             "source_path_from_root": "/articles/cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md",
             "redirect_url": "/azure/cloud-services/diagnostics-performance-counters",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cloud-shell/features-powershell.md",
-            "redirect_url": "/azure/cloud-shell/features",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cloud-shell/index.md",
-            "redirect_url": "/azure/cloud-shell/overview",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/cloud-shell/persisting-shell-storage-powershell.md",
-            "redirect_url": "/azure/cloud-shell/persisting-shell-storage",
             "redirect_document_id": false
         },
         {
@@ -13206,6 +13236,11 @@
         {
             "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
             "redirect_url": "/azure/expressroute/work-remotely-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/expressroute/howto-linkvnet-cli.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-linkvnet-cli",
             "redirect_document_id": false
         },
         {
@@ -16304,6 +16339,11 @@
             "redirect_document_id": ""
         },
         {
+            "source_path_from_root": "/articles/search/search-how-to-index-power-query-data-sources.md",
+            "redirect_url": "/previous-versions/azure/search/search-how-to-index-power-query-data-sources",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
             "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
             "redirect_document_id": false
@@ -18281,6 +18321,11 @@
         {
             "source_path_from_root": "/articles/sentinel/sap-solution-log-reference.md",
             "redirect_url": "/azure/sentinel/sap/sap-solution-log-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/monitor-sentinel-health.md",
+            "redirect_url": "/azure/sentinel/enable-monitoring",
             "redirect_document_id": false
         },
         {
@@ -25432,7 +25477,7 @@
             "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path_from_root": "/articles/virtual-machines/disks-cross-tenant-cmk.md",
             "redirect_url": "/azure/virtual-machines/disks-cross-tenant-customer-managed-keys",
@@ -25571,36 +25616,6 @@
         {
             "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md",
-            "redirect_url": "/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
             "redirect_document_id": false
         },
         {
@@ -29296,12 +29311,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service/environment/overview-zone-redundancy.md",
-            "redirect_url": "/azure/availability-zones/migrate-app-service-environment",
+            "redirect_url": "/azure/reliability/migrate-app-service-environment",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/app-service/how-to-zone-redundancy.md",
-            "redirect_url": "/azure/availability-zones/migrate-app-service",
+            "redirect_url": "/azure/reliability/migrate-app-service",
             "redirect_document_id": true
         },
         {
@@ -29350,6 +29365,121 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/availability-zones/az-overview.md",
+            "redirect_url": "/azure/reliability/availability-zones-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/index.yml",
+            "redirect_url": "/azure/reliability/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/az-region.md",
+            "redirect_URL": "/azure/reliability/availability-zones-service-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/business-continuity-management-program.md",
+            "redirect_URL": "/azure/reliability/business-continuity-management-program",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/cross-region-replication-azure.md",
+            "redirect_URL": "/azure/reliability/cross-region-replication-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/glossary.md",
+            "redirect_URL": "/azure/reliability/glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-app-service-environment.md",
+            "redirect_URL": "/azure/reliability/migrate-app-service-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-api-mgt.md",
+            "redirect_URL": "/azure/reliability/migrate-api-mgt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-app-configuration.md",
+            "redirect_URL": "/azure/reliability/migrate-app-configuration-mgt",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-app-gateway-v2.md",
+            "redirect_URL": "/azure/reliability/migrate-app-gateway-v2",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-container-instances.md",
+            "redirect_URL": "/azure/reliability/migrate-container-instances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-functions.md",
+            "redirect_URL": "/azure/reliability/migrate-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-load-balancer.md",
+            "redirect_URL": "/azure/reliability/migrate-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-monitor-log-analytics.md",
+            "redirect_URL": "/azure/reliability/migrate-monitor-log-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-workload-aks-mysql.md",
+            "redirect_URL": "/azure/reliability/migrate-workload-aks-mysql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-search-service.md",
+            "redirect_URL": "/azure/reliability/migrate-search-service-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-app-service.md",
+            "redirect_URL": "/azure/reliability/migrate-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-cache-redis.md",
+            "redirect_URL": "/azure/reliability/migrate-cache-redis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-recovery-services-vault.md",
+            "redirect_URL": "/azure/reliability/migrate-recovery-services-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-storage.md",
+            "redirect_URL": "/azure/reliability/migrate-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/migrate-vm.md",
+            "redirect_URL": "/azure/reliability/migrate-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/overview.md",
+            "redirect_URL": "/azure/reliability/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/availability-zones/region-types-service-categories-azure.md",
+            "redirect_URL": "/azure/reliability/availability-service-by-category",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/pytorch-enterprise/index.yml",
             "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
             "redirect_document_id": false
@@ -29375,9 +29505,24 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/cloud-shell/example-terraform-bash.md",
-            "redirect_url": "/azure/developer/terraform/quickstart-configure",
-            "redirect_document_id": false
+            "source_path_from_root": "/articles/aks/managed-cluster-snapshot.md",
+            "redirect_url": "/azure/aks/intro-kubernetes",
+            "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy-service-principal-encryption.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/servers/onboard-group-policy.md",
+            "redirect_url": "/azure/azure-arc/servers/onboard-group-policy-powershell",
+            "redirect_document_id": "false"
+        },
+        {
+          "source_path": "articles/azure-cache-for-redis/redis-cache-insights-overview.md",
+          "redirect_url": "/azure/azure-cache-for-redis/cache-insights-overview",
+          "redirect_document_id": false
         }
     ]
 }

@@ -2,7 +2,7 @@
 title: Migrate an Application Insights classic resource to a workspace-based resource - Azure Monitor | Microsoft Docs
 description: Learn about the steps required to upgrade your Application Insights classic resource to the new workspace-based model. 
 ms.topic: conceptual
-ms.date: 08/23/2022
+ms.date: 11/15/2022
 ms.custom: devx-track-azurepowershell
 ms.reviewer: cawa
 ---
@@ -279,7 +279,7 @@ No. Migration won't affect existing API access to data. After migration, you'll 
 
 ### Will there be any impact on Live Metrics or other monitoring experiences?
 
-No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor--diagnose-with-1-second-latency) or other monitoring experiences.
+No. There's no impact to [Live Metrics](live-stream.md#live-metrics-monitor-and-diagnose-with-1-second-latency) or other monitoring experiences.
 
 ### What happens with continuous export after migration?
 

@@ -113,17 +113,17 @@ The following table provides a brief description of each built-in role. Click th
 > | [AcrPush](#acrpush) | Push artifacts to or pull artifacts from a container registry. | 8311e382-0749-4cb8-b61a-304f252e45ec |
 > | [AcrQuarantineReader](#acrquarantinereader) | Pull quarantined images from a container registry. | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | [AcrQuarantineWriter](#acrquarantinewriter) | Push quarantined images to or pull quarantined images from a container registry. | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
-> | [Azure Kubernetes Fleet Manager RBAC Admin](#azure-kubernetes-fleet-manager-rbac-admin) | This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
+> | [Azure Kubernetes Fleet Manager RBAC Admin](#azure-kubernetes-fleet-manager-rbac-admin) | This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces. | 434fb43a-c01c-447e-9f67-c3ad923cfaba |
 > | [Azure Kubernetes Fleet Manager RBAC Cluster Admin](#azure-kubernetes-fleet-manager-rbac-cluster-admin) | Lets you manage all resources in the fleet manager cluster. | 18ab4d3d-a1bf-4477-8ad9-8359bc988f69 |
 > | [Azure Kubernetes Fleet Manager RBAC Reader](#azure-kubernetes-fleet-manager-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation).  Applying this role at cluster scope will give access across all namespaces. | 30b27cfc-9c84-438e-b0ce-70e35255df80 |
-> | [Azure Kubernetes Fleet Manager RBAC Writer](#azure-kubernetes-fleet-manager-rbac-writer) | Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces. | 5af6afb3-c06c-4fa4-8848-71a8aee05683 |
+> | [Azure Kubernetes Fleet Manager RBAC Writer](#azure-kubernetes-fleet-manager-rbac-writer) | Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces. | 5af6afb3-c06c-4fa4-8848-71a8aee05683 |
 > | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | [Azure Kubernetes Service Contributor Role](#azure-kubernetes-service-contributor-role) | Grants access to read and write Azure Kubernetes Service clusters | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | [Azure Kubernetes Service RBAC Admin](#azure-kubernetes-service-rbac-admin) | Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. | 3498e952-d568-435e-9b2c-8d77e338d7f7 |
 > | [Azure Kubernetes Service RBAC Cluster Admin](#azure-kubernetes-service-rbac-cluster-admin) | Lets you manage all resources in the cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
 > | [Azure Kubernetes Service RBAC Reader](#azure-kubernetes-service-rbac-reader) | Allows read-only access to see most objects in a namespace. It does not allow viewing roles or role bindings. This role does not allow viewing Secrets, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation). Applying this role at cluster scope will give access across all namespaces. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
-> | [Azure Kubernetes Service RBAC Writer](#azure-kubernetes-service-rbac-writer) | Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
+> | [Azure Kubernetes Service RBAC Writer](#azure-kubernetes-service-rbac-writer) | Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
 > | **Databases** |  |  |
 > | [Azure Connected SQL Server Onboarding](#azure-connected-sql-server-onboarding) | Allows for read and write access to Azure resources for SQL Server on Arc-enabled servers. | e8113dce-c529-4d33-91fa-e9b972617508 |
 > | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
@@ -228,13 +228,18 @@ The following table provides a brief description of each built-in role. Click th
 > | [Microsoft Sentinel Contributor](#microsoft-sentinel-contributor) | Microsoft Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Microsoft Sentinel Reader](#microsoft-sentinel-reader) | Microsoft Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Microsoft Sentinel Responder](#microsoft-sentinel-responder) | Microsoft Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Security Admin](#security-admin) | View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Security Admin](#security-admin) | View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations. <br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md).| fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Security Assessment Contributor](#security-assessment-contributor) | Lets you push assessments to Microsoft Defender for Cloud | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Security Manager (Legacy)](#security-manager-legacy) | This is a legacy role. Please use Security Admin instead. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Security Reader](#security-reader) | View permissions for Microsoft Defender for Cloud. Can view recommendations, alerts, a security policy, and security states, but cannot make changes. <br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](../defender-for-iot/organizations/roles-azure.md). | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | [Lab Assistant](#lab-assistant) | Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab. | ce40b423-cede-4313-a93f-9b28290b72e1 |
+> | [Lab Contributor](#lab-contributor) | Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs. | 5daaa2af-1fe8-407c-9122-bba179798270 |
 > | [Lab Creator](#lab-creator) | Lets you create new labs under your Azure Lab Accounts. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
+> | [Lab Operator](#lab-operator) | Gives you limited ability to manage existing labs. | a36e6959-b6be-4b12-8e9f-ef4b474d304d |
+> | [Lab Services Contributor](#lab-services-contributor) | Enables you to fully control all Lab Services scenarios in the resource group. | f69b8690-cc87-41d6-b77a-a4bc3c0a966f |
+> | [Lab Services Reader](#lab-services-reader) | Enables you to view, but not change, all lab plans and lab resources. | 2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc |
 > | **Monitor** |  |  |
 > | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Gives user permission to view and download debug snapshots collected with the Application Insights Snapshot Debugger. Note that these permissions are not included in the [Owner](#owner) or [Contributor](#contributor) roles. When giving users the Application Insights Snapshot Debugger role, you must grant the role directly to the user. The role is not recognized when it is added to a custom role. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
@@ -244,7 +249,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Management and governance** |  |  |
-> | [Automation Contributor](#automation-contributor) | Manage azure automation resources and other resources using azure automation. | f353d9bd-d4a6-484e-a77a-8050b599b867 |
+> | [Automation Contributor](#automation-contributor) | Manage Azure Automation resources and other resources using Azure Automation. | f353d9bd-d4a6-484e-a77a-8050b599b867 |
 > | [Automation Job Operator](#automation-job-operator) | Create and Manage Jobs using Automation Runbooks. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | [Automation Operator](#automation-operator) | Automation Operators are able to start, stop, suspend, and resume jobs | d3881f73-407a-4167-8283-e981cbba0404 |
 > | [Automation Runbook Operator](#automation-runbook-operator) | Read Runbook properties - to be able to create Jobs of the runbook. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
@@ -297,6 +302,9 @@ The following table provides a brief description of each built-in role. Click th
 > | [Azure Digital Twins Data Owner](#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | [Azure Digital Twins Data Reader](#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | [Load Test Contributor](#load-test-contributor) | View, create, update, delete and execute load tests. View and list load test resources but can not make any changes. | 749a398d-560b-491b-bb21-08924219302e |
+> | [Load Test Owner](#load-test-owner) | Execute all operations on load test resources and load tests. | 45bb0b16-2f0c-4e78-afaa-a07599b003f6 |
+> | [Load Test Reader](#load-test-reader) | View and list all load tests and load test resources but can not make any changes. | 3ae3fb29-0000-4ccd-bf80-542e7b26e081 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Services Hub Operator](#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |
 
@@ -4939,7 +4947,7 @@ Push quarantined images to or pull quarantined images from a container registry.
 
 ### Azure Kubernetes Fleet Manager RBAC Admin
 
-This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.
+This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4991,7 +4999,7 @@ This role grants admin access - provides write permissions on most objects withi
   "assignableScopes": [
     "/"
   ],
-  "description": "This role grants admin access - provides write permissions on most objects within a a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
+  "description": "This role grants admin access - provides write permissions on most objects within a namespace, with the exception of ResourceQuota object and the namespace object itself. Applying this role at cluster scope will give access across all namespaces.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/434fb43a-c01c-447e-9f67-c3ad923cfaba",
   "name": "434fb43a-c01c-447e-9f67-c3ad923cfaba",
   "permissions": [
@@ -5200,7 +5208,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 
 ### Azure Kubernetes Fleet Manager RBAC Writer
 
-Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.
+Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -5249,7 +5257,7 @@ Allows read/write access to most objects in a namespace.This role does not allow
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.",
+  "description": "Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace.  Applying this role at cluster scope will give access across all namespaces.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5af6afb3-c06c-4fa4-8848-71a8aee05683",
   "name": "5af6afb3-c06c-4fa4-8848-71a8aee05683",
   "permissions": [
@@ -5641,7 +5649,7 @@ Allows read-only access to see most objects in a namespace. It does not allow vi
 
 ### Azure Kubernetes Service RBAC Writer
 
-Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces. [Learn more](../aks/manage-azure-rbac.md)
+Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces. [Learn more](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -5691,7 +5699,7 @@ Allows read/write access to most objects in a namespace.This role does not allow
   "assignableScopes": [
     "/"
   ],
-  "description": "Allows read/write access to most objects in a namespace.This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces.",
+  "description": "Allows read/write access to most objects in a namespace. This role does not allow viewing or modifying roles or role bindings. However, this role allows accessing Secrets and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. Applying this role at cluster scope will give access across all namespaces.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
   "name": "a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb",
   "permissions": [
@@ -11348,6 +11356,7 @@ View permissions for Microsoft Defender for Cloud. Can view recommendations, ale
 }
 ```
 
+
 ## DevOps
 
 
@@ -11454,6 +11463,168 @@ Lets you connect, start, restart, and shutdown your virtual machines in your Azu
 }
 ```
 
+### Lab Assistant
+
+Enables you to view an existing lab, perform actions on the lab VMs and send invitations to the lab.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/ce40b423-cede-4313-a93f-9b28290b72e1",
+    "properties": {
+        "roleName": "Lab Assistant",
+        "description": "The lab assistant role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Lab Contributor
+
+Applied at lab level, enables you to manage the lab. Applied at a resource group, enables you to create and manage labs.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/saveImage/action | Create an image from a virtual machine in the gallery attached to the lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/write | Create new or update an existing lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/delete | Delete the lab and all its users, schedules and virtual machines. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/publish/action | Publish a lab by propagating image of the template virtual machine to all virtual machines in the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/syncGroup/action | Updates the list of users from the Active Directory group assigned to the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/write | Create new or update an existing schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/delete | Delete the schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/write | Create new or update an existing user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/delete | Delete the user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/resetPassword/action | Reset local user's password on a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/createLab/action | Create a new lab from a lab plan. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/5daaa2af-1fe8-407c-9122-bba179798270",
+    "properties": {
+        "roleName": "Lab Contributor",
+        "description": "The lab contributor role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labPlans/saveImage/action",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/write",
+                    "Microsoft.LabServices/labs/delete",
+                    "Microsoft.LabServices/labs/publish/action",
+                    "Microsoft.LabServices/labs/syncGroup/action",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/schedules/write",
+                    "Microsoft.LabServices/labs/schedules/delete",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/write",
+                    "Microsoft.LabServices/labs/users/delete",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/labs/virtualMachines/resetPassword/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LabServices/labPlans/createLab/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ### Lab Creator
 
 Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-services/add-lab-creator.md)
@@ -11526,6 +11697,183 @@ Lets you create new labs under your Azure Lab Accounts. [Learn more](../lab-serv
   "roleName": "Lab Creator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Lab Operator
+
+Gives you limited ability to manage existing labs.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/images/read | Get the properties of an image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/read | Get the properties of a lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/saveImage/action | Create an image from a virtual machine in the gallery attached to the lab plan. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/publish/action | Publish a lab by propagating image of the template virtual machine to all virtual machines in the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/read | Get the properties of a lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/read | Get the properties of a schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/write | Create new or update an existing schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/schedules/delete | Delete the schedule. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/read | Get the properties of a user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/write | Create new or update an existing user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/delete | Delete the user. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/users/invite/action | Send email invitation to a user to join the lab. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/read | Get the properties of a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/start/action | Start a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/stop/action | Stop and deallocate a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/reimage/action | Reimage a virtual machine to the last published image. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/redeploy/action | Redeploy a virtual machine to a different compute node. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labs/virtualMachines/resetPassword/action | Reset local user's password on a virtual machine. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/locations/usages/read | Get Usage in a location. |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/skus/read | Get the properties of a Lab Services SKU. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* | |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/a36e6959-b6be-4b12-8e9f-ef4b474d304d",
+    "properties": {
+        "roleName": "Lab Operator",
+        "description": "The lab operator role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.LabServices/labPlans/images/read",
+                    "Microsoft.LabServices/labPlans/read",
+                    "Microsoft.LabServices/labPlans/saveImage/action",
+                    "Microsoft.LabServices/labs/publish/action",
+                    "Microsoft.LabServices/labs/read",
+                    "Microsoft.LabServices/labs/schedules/read",
+                    "Microsoft.LabServices/labs/schedules/write",
+                    "Microsoft.LabServices/labs/schedules/delete",
+                    "Microsoft.LabServices/labs/users/read",
+                    "Microsoft.LabServices/labs/users/write",
+                    "Microsoft.LabServices/labs/users/delete",
+                    "Microsoft.LabServices/labs/users/invite/action",
+                    "Microsoft.LabServices/labs/virtualMachines/read",
+                    "Microsoft.LabServices/labs/virtualMachines/start/action",
+                    "Microsoft.LabServices/labs/virtualMachines/stop/action",
+                    "Microsoft.LabServices/labs/virtualMachines/reimage/action",
+                    "Microsoft.LabServices/labs/virtualMachines/redeploy/action",
+                    "Microsoft.LabServices/labs/virtualMachines/resetPassword/action",
+                    "Microsoft.LabServices/locations/usages/read",
+                    "Microsoft.LabServices/skus/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Lab Services Contributor
+
+Enables you to fully control all Lab Services scenarios in the resource group.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/* | Create and manage lab services components. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/labPlans/createLab/action | Create a new lab from a lab plan. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/f69b8690-cc87-41d6-b77a-a4bc3c0a966f",
+    "properties": {
+        "roleName": "Lab Services Contributor",
+        "description": "The lab services contributor role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LabServices/*",
+                    "Microsoft.Insights/alertRules/*",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LabServices/labPlans/createLab/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+
+### Lab Services Reader
+
+Enables you to view, but not change, all lab plans and lab resources. 
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.LabServices](resource-provider-operations.md#microsoftlabservices)/*/read | Read lab services properties. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* | |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/2a5c394f-5eb7-4d4f-9c8e-e8eae39faebc",
+    "properties": {
+        "roleName": "Lab Services Reader",
+        "description": "The lab services reader role",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LabServices/*/read",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -14914,6 +15262,150 @@ Lets you manage BizTalk services, but not access to them.
   "roleName": "BizTalk Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Load Test Contributor
+
+View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.LoadTestService/*/read | Read load testing resources |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.LoadTestService/loadtests/* | Create and manage load tests |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/749a398d-560b-491b-bb21-08924219302e",
+    "properties": {
+        "roleName": "Load Test Contributor",
+        "description": "View, create, update, delete and execute load tests. View and list load test resources but can not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LoadTestService/*/read",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Insights/alertRules/*"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LoadTestService/loadtests/*"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Load Test Owner
+
+Execute all operations on load test resources and load tests.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.LoadTestService/* | Create and manage load testing resources |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.LoadTestService/loadtests/* | Create and manage load tests |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/45bb0b16-2f0c-4e78-afaa-a07599b003f6",
+    "properties": {
+        "roleName": "Load Test Owner",
+        "description": "Execute all operations on load test resources and load tests",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LoadTestService/*",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Insights/alertRules/*"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LoadTestService/*"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
+### Load Test Reader
+
+View and list all load tests and load test resources but can not make any changes.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.LoadTestService/*/Read | Read load testing resources |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | Microsoft.LoadTestService/loadtests/readTest/action | Read load tests |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/3ae3fb29-0000-4ccd-bf80-542e7b26e081",
+    "properties": {
+        "roleName": "Load Test Reader",
+        "description": "View and list all load tests and load test resources but can not make any changes",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.LoadTestService/*/read",
+                    "Microsoft.Authorization/*/read",
+                    "Microsoft.Resources/deployments/*",
+                    "Microsoft.Resources/subscriptions/resourceGroups/read",
+                    "Microsoft.Insights/alertRules/*"
+                ],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.LoadTestService/loadtests/readTest/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 

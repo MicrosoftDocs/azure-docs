@@ -42,7 +42,7 @@ Azure clusters can be configured through the JSON Resource Manager template. To 
 
 You can also customize cluster settings in one of the following ways with Azure Resource Manager:
 
-- Use the [Azure portal](../azure-resource-manager/templates/export-template-portal.md) to export and update the Resource Manger template.
+- Use the [Azure portal](../azure-resource-manager/templates/export-template-portal.md) to export and update the Resource Manager template.
 - Use [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md) to export and update the Resource Manager template.
 - Use the [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md) to export and update the Resource Manager template.
 - Use the Azure PowerShell [Set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) and [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) commands to modify the setting directly.

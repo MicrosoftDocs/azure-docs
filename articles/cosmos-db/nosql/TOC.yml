@@ -428,6 +428,18 @@
                   href: how-to-dotnet-read-item.md
                 - name: Query items
                   href: how-to-dotnet-query-items.md
+        - name: Python
+          items:
+            - name: Get started
+              href: how-to-python-get-started.md
+            - name: Work with databases
+              items:
+                - name: Create a database
+                  href: how-to-python-create-database.md
+            - name: Work with containers
+              items:
+                - name: Create a container
+                  href: how-to-python-create-container.md
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
@@ -515,12 +527,14 @@
           items:
             - name: Install and use the emulator
               href: ../local-emulator.md
-            - name: Run the emulator on Docker
+            - name: Run the emulator container in Docker
               items:
-                - name: Run the emulator on Docker for Linux
-                  href: ../linux-emulator.md
-                - name: Run the emulator on Docker for Windows
-                  href: ../local-emulator-on-docker-windows.md
+                - name: Run in Docker for Linux
+                  href: ../docker-emulator-linux.md
+                - name: Run in Docker for Windows
+                  href: ../docker-emulator-windows.md
+                - name: Access the REST API
+                  href: ../docker-emulator-rest-api.md
             - name: Export emulator certificates
               href: ../local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -739,13 +753,11 @@
               href: ../how-to-setup-cross-tenant-customer-managed-keys.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
-        - name: Managed Identity
-          items:
-            - name: Use a managed identity
-              href: ../how-to-setup-managed-identity.md
-            - name: Use managed identities to access data
-              href: ../managed-identity-based-authentication.md
-              displayName: msi, managed service identity, aad, azure active directory, identity
+        - name: Use managed identities with Azure services
+          href: ../how-to-setup-managed-identity.md
+        - name: Use managed identities to access data
+          href: ../managed-identity-based-authentication.md
+          displayName: msi, managed service identity, aad, azure active directory, identity
         - name: Role-based access control
           items:
             - name: Configure role-based access control to data
@@ -755,7 +767,7 @@
         - name: Configure Cross Origin Resource Sharing (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Use Azure Key Vault to store master keys
-          href: ../access-secrets-from-keyvault.md
+          href: ../store-credentials-key-vault.md
         - name: Use certificates to access data
           href: certificate-based-authentication.md
     - name: Monitor
@@ -782,10 +794,10 @@
               href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: ../monitor-logs-basic-queries.md
-            - name: Troubleshoot issues using advanced queries
-              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
+            - name: Troubleshoot issues with advanced diagnostics queries
+              href: diagnostic-queries.md
         - name: Configure alerts
           items:
             - name: Create alert on metrics
@@ -822,8 +834,6 @@
           href: ../migration-choices.md
         - name: Using .NET bulk support
           href: tutorial-dotnet-bulk-import.md
-        - name: Using the Data Migration tool
-          href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim
