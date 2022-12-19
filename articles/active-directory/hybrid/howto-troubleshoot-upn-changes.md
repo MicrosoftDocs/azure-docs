@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
 ms.date: 12/19/2022
-ms.author: gargi-sinha
-author: gasinh
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
