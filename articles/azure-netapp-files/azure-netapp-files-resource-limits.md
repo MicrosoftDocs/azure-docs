@@ -98,7 +98,7 @@ If you've allocated at least 4 TiB of quota for a volume, you can initiate a sup
 You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at least 20 TiB. 
 
 >[!IMPORTANT]
-> Once a volume has exceeded a `maxfiles` threshold, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
+> Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
 ## Request limit increase
 
