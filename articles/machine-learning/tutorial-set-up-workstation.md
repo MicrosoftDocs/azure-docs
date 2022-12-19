@@ -74,7 +74,7 @@ You'll need to get your own files into the cloud.  For this tutorial, [download 
 
     :::image type="content" source="media/tutorial-set-up-workstation/upload-files.png" alt-text="Screenshot: Upload files":::
 
-1. Browse to select the data file **titanic2.csv** that you just downloaded.
+1. Browse to select the data file **titanic3.csv** that you just downloaded.
 1. Select **Upload**.
 
 You'll see the file open in a tab. Close this tab if you wish.
@@ -109,7 +109,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
 
 1. Now run the code cell, either by using **Shift + Enter** or by selecting the **Run cell** button to the left of the cell. 
 
-1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You'll also see the output of the cell, which is a visual representation of the data file details.
+1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You'll also see output produced by the code, in this case the output from `df.info()`.
 
 ### See your variables
 
@@ -179,7 +179,7 @@ Your compute instance can also be used to run scripts, using a terminal window.
 
 ### Export a Python script
 
-Use the notebook tools to export the notebook as .py - 
+Use the notebook tools to export the notebook as a Python file:
 
 1. On the notebook toolbar, select the menu.
 1. Select **Export as> Python file**.
@@ -191,17 +191,17 @@ If  you didn't comment out the `%pip install seaborn` cell before, you'll see `g
 
 ### Run the script
 
-From the toolbar above the script, select **Save and run script in terminal**.  
+1. From the toolbar above the script, select **Save and run script in terminal**.  
 
-:::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
+    :::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
+    
+    A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
+    
+    You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
+    
+    Finally you'll see the text output from the execution.
 
-A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
-
-You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
-
-Finally you'll see the text output from the execution.
-
-Close the terminal tab to terminate the session.
+2. Close the terminal tab to terminate the session.
 
 
 ### Save the plot
@@ -210,7 +210,7 @@ When you run the script in a terminal, you'll see text output, but not the plots
 
 1. Select the **visualize-sample-data.py** tab to go back to the Python script. 
 
-1. Add the following line to the end of the Python script to save the plot as a file instead:
+1. Add the following line to the end of the Python script to save the plot as a file:
 
     ```python
     plt.savefig("plots.png") #save as png
