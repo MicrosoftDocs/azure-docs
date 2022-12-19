@@ -208,7 +208,7 @@ The following example applies a Flux configuration to a cluster, using the follo
 * The scope of the configuration is `cluster`. This gives the operators permissions to make changes throughout cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
 * Two kustomizations are specified with names `infra` and `apps`. Each is associated with a path in the repository.
 * The `apps` kustomization depends on the `infra` kustomization. (The `infra` kustomization must finish before the `apps` kustomization runs.)
-* Set `prune=true` on both kustomizations. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
+* Set `prune=true` on both kustomizations. This setting ensures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
 
 ```azurecli
 az k8s-configuration flux create -g flux-demo-rg \
@@ -430,7 +430,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
    1. Under **Scope**, select **Cluster** so that the Flux operator will have access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
    1. Select **Next** to continue to the **Source** section.
 
-   :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-basics.png" alt-text="Screenshot showing the Basics options for a GitOps configuration in the Azure portal.":::
+   :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-basics.png" alt-text="Screenshot showing the Basics options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-basics.png":::
 
 1. In the **Source** section:
 
@@ -440,7 +440,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
    1. For **Repository type**, select **Public**.
    1. Leave the other options set to the default, then select **Next**.
 
-   :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-source.png" alt-text="Screenshow showing the Source options for a GitOps configuration in the Azure portal.":::
+   :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-source.png" alt-text="Screenshow showing the Source options for a GitOps configuration in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-source.png":::
 
 1. In the **Kustomizations** section, you will create two kustomizations: `infrastructure` and `staging`. These are Flux resources, each associated with a path in the repository, representing the set of manifests that Flux should reconcile to the cluster.
 
@@ -449,7 +449,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 
       1. For **Instance name**, enter **infrastructure**.
       1. For **Path**, enter **./infrastructure**.
-      1. Check the box for **Prune**. This setting assures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
+      1. Check the box for **Prune**. This setting ensures that the objects that Flux deployed to the cluster will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
       1. Leave the other options as is, then select **Save** to create the `infrastructure` kustomization.
 
          :::image type="content" source="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png" alt-text="Screenshot showing the options to create the infrastructure kustomization in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-kustomization-infrastructure.png":::
@@ -475,11 +475,13 @@ To view all of the configurations for a cluster, navigate to the cluster and sel
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-view-configurations.png" alt-text="Screenshot showing all configurations for a cluster in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-view-configurations.png":::
 
-Select the name of a configuration to view more details such as the configuration's status, properties, and source. You can then select **Configuration objects** to view all of the objects that were created to enable the GitOps configuration. This lets you quickly see the compliance state and other details about each object. To see other Kubernetes resources deployed on the cluster, return to the cluster overview page and select **Kubernetes resources** in the left pane.
+Select the name of a configuration to view more details such as the configuration's status, properties, and source. You can then select **Configuration objects** to view all of the objects that were created to enable the GitOps configuration. This lets you quickly see the compliance state and other details about each object. 
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-objects.png" alt-text="Screenshots showing configuration objects and their state in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-objects.png":::
 
-To view detailed conditions for an object, select its name.
+To see other Kubernetes resources deployed on the cluster, return to the cluster overview page and select **Kubernetes resources** in the left pane.
+
+To view detailed conditions for a configuration object, select its name.
 
 :::image type="content" source="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png" alt-text="Screenshot showing condition details for a configuration object in the Azure portal." lightbox="media/tutorial-use-gitops-flux2/portal-configuration-object-conditions.png":::
 
