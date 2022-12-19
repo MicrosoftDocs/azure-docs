@@ -78,7 +78,7 @@ The query interface is populated with the following types of queries:
 > Legacy queries are only available in a Log Analytics workspace.
 
 ## Effect of query scope
-The queries that are available when you open Log Analytics are determined by the current [query scope ](scope.md). For example:
+The queries that are available when you open Log Analytics are determined by the current [query scope](scope.md). For example:
 
 - **Workspace**: All example queries and queries from query packs. Legacy queries in the workspace.
 - **Single resource**: Example queries and queries from query packs for the resource type.
