@@ -55,7 +55,7 @@ To force the Azure NetApp Files-bound traffic through Azure Firewall in the Virt
 
 The following image of the Azure portal shows an example virtual hub of effective routes. In the first item, the IP address is listed as 10.2.0.5/32. The static routing entry's destination prefix is `<IP-Azure NetApp Files-Volume>/32`, and the next hop is `Azure-Firewall-in-hub`.
 
-:::image type="content" source="../virtual-wan/media/howto-private-link/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
+:::image type="content" source="../media/azure-netapp-files/effective-routes.png" alt-text="Screenshot of effective routes in Azure portal.":::
 
 > [!IMPORTANT] 
 > Azure NetApp Files mount leverages Azure Private Endpoint. The specific IP address entry is required, even if a CIDR to which the Azure NetApp Files volume IP address belongs is pointing to the Azure Firewall as its next hop. For example, 10.2.0.5/32 should be listed even though 10.0.0.0/8 is listed with the Azure Firewall as the next hop.
