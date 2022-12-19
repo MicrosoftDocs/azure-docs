@@ -221,12 +221,12 @@ The following table contains the parameters accepted by the server:
 The following steps explain how the Azure Machine Learning inference HTTP server (azmlinfsrv) handles incoming requests:
 
 1. A Python CLI wrapper sits around the server's network stack and is used to start the server.
-2. A client sends a request to the server.
-3. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
+1. A client sends a request to the server.
+1. When a request is received, it goes through the [WSGI](https://www.fullstackpython.com/wsgi-servers.html) server and is then dispatched to one of the workers.
     - [Gunicorn](https://docs.gunicorn.org/) is used on __Linux__.
     - [Waitress](https://docs.pylonsproject.org/projects/waitress/) is used on __Windows__.
-4. The requests are then handled by a [Flask](https://flask.palletsprojects.com/) app, which loads the entry script & any dependencies.
-5. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
+1. The requests are then handled by a [Flask](https://flask.palletsprojects.com/) app, which loads the entry script & any dependencies.
+1. Finally, the request is sent to your entry script. The entry script then makes an inference call to the loaded model and returns a response.
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
 
