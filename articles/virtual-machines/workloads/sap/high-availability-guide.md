@@ -8,7 +8,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/24/2019
+ms.date: 12/16/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
@@ -162,7 +162,7 @@ ms.custom: H1Hack27Feb2017, ignite-fall-2021
 
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
-[ha-guide]:high-availability-guide.md
+
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -224,7 +224,7 @@ ms.custom: H1Hack27Feb2017, ignite-fall-2021
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f
 
-[sap-ha-guide]:high-availability-guide.md
+
 [sap-ha-guide-1]:high-availability-guide.md#217c5479-5595-4cd8-870d-15ab00d4f84c
 [sap-ha-guide-2]:high-availability-guide.md#42b8f600-7ba3-4606-b8a5-53c4f026da08
 [sap-ha-guide-3]:high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1
@@ -282,7 +282,7 @@ ms.custom: H1Hack27Feb2017, ignite-fall-2021
 [sap-ha-guide-10.2]:high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916
 [sap-ha-guide-10.3]:high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5
 
-[sap-ha-multi-sid-guide]:high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+
 
 
 [sap-ha-guide-figure-1000]:media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -450,7 +450,7 @@ These articles cover SAP deployments in Azure:
 * [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]
 * [Azure Virtual Machines deployment for SAP NetWeaver][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
-* [Azure Virtual Machines high availability for SAP NetWeaver (this guide)][sap-ha-guide]
+
 
 > [!NOTE]
 > Whenever possible, we give you a link to the referring SAP installation guide (see the [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
@@ -764,7 +764,7 @@ Here's where you can get Azure Resource Manager templates for this deployment sc
 
 ### Prepare the infrastructure for Architectural Template 3
 
-You can prepare the infrastructure and configure SAP for **multi-SID**. For example, you can add an additional SAP ASCS/SCS instance into an *existing* cluster configuration. For more information, see [Configure an additional SAP ASCS/SCS instance into an existing cluster configuration to create an SAP multi-SID configuration in Azure Resource Manager][sap-ha-multi-sid-guide].
+You can prepare the infrastructure and configure SAP for **multi-SID**. For example, you can add an additional SAP ASCS/SCS instance into an *existing* cluster configuration. 
 
 If you want to create a new multi-SID cluster, you can use the multi-SID [quickstart templates on GitHub](https://github.com/Azure/azure-quickstart-templates).
 To create a new multi-SID cluster, you need to deploy the following three templates:
