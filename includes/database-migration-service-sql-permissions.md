@@ -6,7 +6,7 @@ ms.date: 12/19/2022
 ms.author: ajithkr-ms
 ---
 
-  The login used to assess a SQL Server instance requires certain minimal permissions to query the requisite information. The following script shows creation of a SQL Server login with the requisite permissions.
+  The login used to connect to a source SQL Server instance requires certain minimal permissions to query the requisite information. The following script shows creation of a SQL Server login with the requisite permissions.
 
    ```sql
     -- Create a login to run the assessment
@@ -61,9 +61,9 @@ ms.author: ajithkr-ms
   Here's how the permissions script can be used:
 
    - Save the permissions script (with valid password string) as an _.sql_ file, say _c:\workspace\MinPermissions.sql_
-   - Connect to the instance(s) to be assessed using an account with sysadmin permissions and execute the script. You can use **SQL Server Management Studio** or **sqlcmd**. The following example uses a trusted connection.
+   - Connect to the instance(s) using an account with sysadmin permissions and execute the script. You can use **SQL Server Management Studio** or **sqlcmd**. The following example uses a trusted connection.
    ```cmd
       sqlcmd.exe -S sourceserver\sourceinstance -d master -E -i c:\workspace\MinPermissions.sql
    ```
-   - Use the minimal permissions account so created for assessment.
+   - Use the minimal permissions account so created for further connections.
 
