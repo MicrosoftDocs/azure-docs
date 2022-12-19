@@ -1,5 +1,5 @@
 ---
-title: Capture data from Azure Data Lake Storage Gen2 in Delta Lake format
+title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Delta Lake format
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
 author: xujxu
 ms.author: xujiang1
