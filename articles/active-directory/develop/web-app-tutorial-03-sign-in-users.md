@@ -160,4 +160,4 @@ dotnet add package Microsoft.Identity.Web.Diagnostics --version 2.0.5-preview
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md)
+> [Tutorial: Call an API and display results](web-app-tutorial-05-call-web-api.md)

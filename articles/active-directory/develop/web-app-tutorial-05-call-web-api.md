@@ -160,17 +160,29 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 
 ---
 
-2. 
+2. Depending on your IDE, you may need to enter the application URI into the browser, for example `https://localhost:7141`. After the sign-in window appears, select the account with which to sign-in.
 
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/pick-account.png" alt-text="Screenshot depicting the results of the API call.":::
  
-3. 
+1. Upon selecting the account, a second window will appear indicating that a code will be sent to your email address. Select **Send code**, and check your email inbox.
 
-<!-- Add every screenshot  -->
-<!-- Pick an account -->
-<!-- Permissions requested -->
-<!-- Add every step -->
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/sign-in-send-code.png" alt-text="Screenshot depicting the results of the API call.":::
+ 
+1. Open the email from the sender **Microsoft account team**, and enter the 7-digit *single-use code*. Once entered, select **Sign in**.
 
-:::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/enter-code.png" alt-text="Screenshot depicting the results of the API call.":::
+
+1. For **Stay signed in**, you can select either **No** or **Yes**.
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/stay-signed-in.png" alt-text="Screenshot depicting the results of the API call.":::
+
+1. The app will now ask for permission to sign-in and access data. Select **Accept** to continue.
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/permissions-requested.png" alt-text="Screenshot depicting the results of the API call.":::
+
+1. The web app now displays profile data acquired from the Microsoft Graph API.
+
+    :::image type="content" source="./media/web-app-tutorial-05-call-web-api/display-api-call-results.png" alt-text="Screenshot depicting the results of the API call.":::
 
 ## See also
 
