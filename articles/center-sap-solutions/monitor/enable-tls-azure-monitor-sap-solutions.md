@@ -30,7 +30,7 @@ To ensure security, Azure Monitor for SAP solutions provides encryption of monit
 To enable secure communication in Azure Monitor for SAP solutions, customers can choose to use either **Root** certificate or upload **Server** certificate. 
 
 > [!Important]
-> Use of Root certificate is highly recommended. For root certificates, only Microsoft included CA certificates are supported. Please see list [here](https://learn.microsoft.com/security/trusted-root/participants-list).
+> Use of Root certificate is highly recommended. For root certificates, only Microsoft included CA certificates are supported. Please see list [here](/security/trusted-root/participants-list).
 
 > [!Note]
 > Certificates must be signed by a trusted root authority. Self-signed certificates are not supported.
@@ -40,7 +40,7 @@ During deployment of Azure Monitor for SAP solutions resource, a managed resourc
 
 During ‘create’ experience of provider instances in Azure Monitor for SAP Solutions, customers choose to enable or disable secure communication. If enable is selected, customers can then choose which type of certificate they want to use. The options are root certificate or server certificate.
 
-If root certificate is selected, customers need to verify that CA authority is supported by Microsoft. See full list [here](https://learn.microsoft.com/security/trusted-root/participants-list).  Once verified, customers can continue with provider instance creation. Subsequent data in transit is encrypted using this root certificate.
+If root certificate is selected, customers need to verify that CA authority is supported by Microsoft. See full list [here](/security/trusted-root/participants-list).  Once verified, customers can continue with provider instance creation. Subsequent data in transit is encrypted using this root certificate.
 
 If server certificate is selected, customers need to upload the certificate signed by a trusted authority. Once uploaded, this certificate is stored in storage account within the managed resource group in Azure Monitor for SAP solutions resource. Subsequent data in transit is encrypted using this certificate. 
 
@@ -51,4 +51,4 @@ If server certificate is selected, customers need to upload the certificate sign
 > Please refer to the Provider configuration pages to learn about pre-requisites for each provider type, as needed. Pre-requisites must be fulfilled to enable secure communication.
 
 ## Next steps
-> [Configure Azure Monitor for SAP solutions provider](configure-netweaver-azure-monitor-sap-solutions.md)
+> [Configure Azure Monitor for SAP solutions provider](provider-netweaver.md)
