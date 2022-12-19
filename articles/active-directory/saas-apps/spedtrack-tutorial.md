@@ -93,7 +93,7 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. Download the SP Metadata file or copy the values of Identifier, Reply URL, Sign on URL and Logout URL. 
 
-1. Select **Upload Metadata** to upload the **Federation Metadata XML** file which you have downloaded from the Azure portal.
+1. Select **Upload Metadata** to upload the **Federation Metadata XML** file, which you've downloaded from the Azure portal.
 
 1. **Save** the changes within SpedTrack after uploading the file. 
 
@@ -114,7 +114,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the SpedTrack for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SpedTrack tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SpedTrack for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SpedTrack tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SpedTrack for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
