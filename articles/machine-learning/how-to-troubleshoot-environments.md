@@ -53,12 +53,51 @@ Running a training script remotely requires the creation of a Docker image.
 
 ## Reproducibility and vulnerabilities
 
-Over time vulnerabilities are discovered and Docker images that correspond to AzureML environments may be flagged by scanning tools.
-Updates for AzureML based images are released regularly, with a commitment of no unpatched vulnerabilities older than 30 days in the latest version of the image.
-It's your responsibility to evaluate the threat and address vulnerabilities in environments.
-Not all the vulnerabilities are exploitable, so you need to use your judgment when choosing between reproducibility and resolving vulnerabilities.
-> [!IMPORTANT]
-> There's no guarantee that the same set of Python dependencies will be materialized with an image rebuild or for a new environment with the same set of Python dependencies. 
+### Vulnerabilities
+
+Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
+requirements. Mitigating vulnerabilities is time consuming and costly since it can require refractoring of code and infrastructure. With the prevalence
+of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
+
+There are some ways to decrease the impact of vulnerabilities:
+
+- Reduce your number of dependencies - use the minimal set of the dependencies for each scenario.
+- Compartmentalize your environment so issues can be scoped and fixed in one place.
+- Understand flagged vulnerabilities and their relevance to your scenario.
+
+### Vulnerabilities vs Reproducibility
+
+Reproducibility is one of the foundations of software development. While developing production code, a repeated operation must guarantee the same
+result. Mitigating vulnerabilities can disrupt reproducibility by changing dependencies.
+
+AzureML's primary focus is to guarantee reproducibility. Environments can broadly be divided into three categories: curated,
+user-managed, and system-managed.
+
+**Curated environments** are pre-created environments that are managed by Azure Machine Learning (AzureML) and are available by default in every AzureML workspace provisioned.
+
+Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks.
+These pre-created environments also allow for faster deployment time.
+
+In **user-managed environments**, you're responsible for setting up your environment and installing every package that your training script needs on the
+compute target and for model deployment. These types of environments are represented by two subtypes:
+
+- BYOC (bring your own container): the user provides a Docker image to AzureML
+- Docker build context: AzureML materializes the image from the user provided content
+
+Once you install more dependencies on top of a Microsoft-provided image, or bring your own base image, vulnerability
+management becomes your responsibility.
+
+You use **system-managed environments** when you want conda to manage the Python environment for you. A new isolated conda environment is materialized
+from your conda specification on top of a base Docker image. While Azure Machine Learning patches base images with each release, whether you use the
+latest image may be a tradeoff between reproducibility and vulnerability management. So, it's your responsibility to choose the environment version used
+for your jobs or model deployments while using system-managed environments.
+
+Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
+materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
+Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
+can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
+to help scan images for vulnerabilities. To
+automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
 
 ## **Environment definition problems**
 
@@ -548,6 +587,31 @@ If the image you're trying to reference doesn't exist in the container registry 
 If you haven't provided credentials for a private registry you're trying to pull from, or the provided credentials are incorrect
 * Set [workspace connections](https://aka.ms/azureml/environment/set-connection-v1) for the container registry if needed
 
+### I/O Error
+<!--issueDescription-->
+This can happen when a Docker image pull fails due to a network issue.  
+
+**Potential causes:**
+* Network connection issue, which could be temporary
+* Firewall is blocking the connection
+* ACR is unreachable and there's network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
+
+**Affected areas (symptoms):**
+* Failure in building environments from UI, SDK, and CLI.
+* Failure in running jobs because it will implicitly build the environment in the first step.
+<!--/issueDescription-->
+
+**Troubleshooting steps**  
+
+Add the host to the firewall rules  
+* See [configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) to learn how to use Azure Firewall for your workspace and resources behind a VNet
+
+Assess your workspace set-up. Are you using a virtual network, or are any of the resources you're trying to access during your image build behind a virtual network?
+* Ensure that you've followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
+* Azure Machine Learning requires both inbound and outbound access to the public internet. If there's a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
+
+If you aren't using a virtual network, or if you have configured it correctly
+* Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
 ### *Conda issues during build*
 ### Bad spec
