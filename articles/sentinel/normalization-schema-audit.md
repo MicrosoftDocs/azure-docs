@@ -79,7 +79,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |---------------------|-------------|------------|--------------------|
 | <a name='operation'></a>**Operation** | Mandatory | String | The operation audited as reported by the reporting device. |
 | <a name='object'></a>**Object** | Mandatory | String | The name of the object on which the operation identified by [EventType](#eventtype) is performed. |
-| **ObjectType** | Mandatory | Enumerated | The type of [Object](#object). Allowed values are:<br>- `Cloud Resource`<br>- `Configuration Atom`<br>- `Policy Rule`<br> - Other |
+| <a name='objecttype'></a>**ObjectType** | Mandatory | Enumerated | The type of [Object](#object). Allowed values are:<br>- `Cloud Resource`<br>- `Configuration Atom`<br>- `Policy Rule`<br> - Other |
 | <a name="oldvalue"></a> **OldValue** | Optional | String |  The old value of [Object](#object) prior to the operation, if applicable. |
 | <a name="newvalue"></a>**NewValue** | Optional | String | The new value of [Object](#object) after the operation was performed, if applicable. |
 | <a name="value"></a>**Value** | Alias |  | Alias to [NewValue](#newvalue) |
