@@ -1,15 +1,14 @@
 ---
 title: Plan and troubleshoot Azure User Principal name (UPN) changes
 description: Understand known issues and mitigations for UPN changes
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: how-to
-ms.date: 09/27/2022
-ms.author: billmath
-author: billmath
-manager: amycolannino
+ms.date: 12/19/2022
+ms.author: gargi-sinha
+author: gasinh
+manager: martinco
 ms.reviewer: jsimmons, andresc
 ms.collection: M365-identity-device-management
 ---
