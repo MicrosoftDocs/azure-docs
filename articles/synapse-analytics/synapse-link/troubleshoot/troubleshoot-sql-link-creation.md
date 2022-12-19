@@ -51,11 +51,13 @@ If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-s
 
 1. Remove the stale identity from the Azure SQL Database logical server using the Az.Sql cmdlet [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver). Set `-IdentityType 'None'`.
    ```powershell
-   Set-AzSqlServer -AssignIdentity -ResourceGroupName '<resource group>' -ServerName '<server name>' -IdentityType 'None'
+   Set-AzSqlServer -AssignIdentity -ResourceGroupName '<resource group>' `
+   -ServerName '<server name>' -IdentityType 'None'
    ```
 1. Set a new SAMI with `Set-AzSqlServer`, set `-IdentityType 'SystemAssigned'`.
    ```powershell
-   Set-AzSqlServer-ResourceGroupName '<resource group>' -ServerName '<server name>' -AssignIdentity -IdentityType 'SystemAssigned'
+   Set-AzSqlServer-ResourceGroupName '<resource group>' -ServerName '<server name>' `
+   -AssignIdentity -IdentityType 'SystemAssigned'
    ```
 1. In the Azure portal, navigate to your Synapse Link for SQL connection in Azure Synapse Workspace. In the **Integrate** hub, under **Link connection**, select your link connection. In the General window, expand the **Advanced** section. Select the **Refresh** button. You will see a message with checked green tick indicating the SQL logical server resource ID and Managed identity ID have been refreshed.
    :::image type="content" source="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png" alt-text="A screenshot of the Azure portal in the Synapse workspace. In the General section under Advanced, the Refresh button is highlighted." lightbox="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png":::
