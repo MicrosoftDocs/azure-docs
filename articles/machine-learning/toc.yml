@@ -422,6 +422,9 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
+            - name: Working with Tables (mltable)
+              displayName: Working with Tables (mltable)
+              href: how-to-mltable.md
         - name: Label data
           items:
             - name: Set up image labeling
