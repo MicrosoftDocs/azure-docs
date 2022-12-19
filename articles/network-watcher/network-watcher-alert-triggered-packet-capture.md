@@ -35,7 +35,7 @@ By using Network Watcher, alerting and functions from within the Azure ecosystem
 
 In this example, your VM is utilizing more CPU percentage than usual and you want to be alerted. CPU percentage is used as an example here, but you can use any alert condition.
 
-When you're alerted, the packet-level data helps to understand why communication has increased. You can take steps to return the virtual machine to regular communication.
+When you're alerted, the packet-level data helps to understand why utilization has increased. You can take steps to return the virtual machine to regular utilization.
 
 This scenario assumes that you have an existing instance of Network Watcher and a resource group with a valid Virtual machine.
 
@@ -128,7 +128,7 @@ $Encryptedpassword
 
 In the App Service Editor of the function app, create a folder called **keys** under **AlertPacketCapturePowerShell**. Upload the **PassEncryptKey.key** file that you created in the previous PowerShell sample.
 
-![Functions key][functions8]
+:::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/key-function.png" alt-text="Screenshot of the Encryption key.":::
 
 ### Retrieve values for environment variables
 
@@ -140,7 +140,7 @@ The final requirement is to set up the environment variables that are necessary 
 
 #### AzureClientID
 
-The client ID is the Application ID of an application in Azure Active Directory.
+The client ID is the Application ID of an application in the Azure Active Directory.
 
 1. If you don't already have an application to use, run the following example to create an application.
 
@@ -408,14 +408,14 @@ Go to an existing virtual machine and [add an alert rule](../azure-monitor/alert
 
 2. In the **Conditions** tab, set the following values and select **Next: Actions >**.
 
-  |**Setting** | **Value** |
-  |---|---|
-  |**Threshold**|Static|
-  |**Aggregation type**|Average|
-  |**Operator**|Greater than| 
-  |**Threshold value**|3| 
-  |**Check every**|1 minute| 
-  |**Lookback period**|5 minutes| 
+   |**Setting** | **Value** |
+   |---|---|
+   |**Threshold**|Static|
+   |**Aggregation type**|Average|
+   |**Operator**|Greater than| 
+   |**Threshold value**|3| 
+   |**Check every**|1 minute| 
+   |**Lookback period**|5 minutes| 
 
 3. In the **Actions** tab, select **Create an action group**.
 4. In the **Create action group** screen, select the **Subscription**, **Resource group**, and **Region**. Also enter the Action group name and the display name and select **Next: Notifications >**.
@@ -430,12 +430,9 @@ After the criteria for the alert triggers, a packet capture is created. Go to Ne
 
 If the capture file is stored locally, you can retrieve it by signing in to the virtual machine.
 
-For instructions about downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). Another tool you can use is [Storage Explorer](https://storageexplorer.com/).
+For instructions on downloading files from Azure storage accounts, see [Get started with Azure Blob storage using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md). You can also use the [Storage Explorer](https://storageexplorer.com/) tool.
 
-After your capture has been downloaded, you can view it by using any tool that can read a **.cap** file. Following are links to two of these tools:
-
-- [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide)
-- [WireShark](https://www.wireshark.org/)
+After your capture has been downloaded, you can view it using tools like [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) and [WireShark](https://www.wireshark.org/)that can read a **.cap** file. 
 
 ## Next steps
 
