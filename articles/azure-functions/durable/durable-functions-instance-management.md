@@ -3,7 +3,7 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/25/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
 ms.devlang: csharp, java, javascript, python
 ms.custom: ignite-2022
@@ -860,7 +860,7 @@ public HttpResponseMessage httpStartAndWait(
                 .body(orchestration.getSerializedOutput())
                 .header("Content-Type", "application/json")
                 .build();
-    } catch (Exception timeoutEx) {
+    } catch (TimeoutException timeoutEx) {
         // timeout expired - return a 202 response
         return durableContext.createCheckStatusResponse(req, instanceId);
     }
@@ -1262,7 +1262,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 public void purgeInstances(
         @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
         @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
-        ExecutionContext context) {
+        ExecutionContext context) throws TimeoutException {
     PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
             .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
             .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))
