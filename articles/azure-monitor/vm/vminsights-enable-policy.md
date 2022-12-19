@@ -106,43 +106,28 @@ To see how many virtual machines exist in each of the management groups or subsc
 
 1. Select a policy definition to open the **Policy compliance** page. 
 
-## Remediate compliance results
+## Create a remediate task
 
-If your assignment doesn't show 100% compliance, create remediation tasks to evaluate and enable existing VMs.
+If your assignment doesn't show 100% compliance, create remediation tasks to evaluate and enable existing VMs. You'll most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
+
 
 To create a remediation task:
    
-1. Select **Create Remediation Task**. 
+1. From the **Initiative compliance** page, select **Create Remediation Task**. 
 
     [![Policy compliance details](media/vminsights-enable-policy/policy-compliance-details.png)](media/vminsights-enable-policy/policy-compliance-details.png#lightbox)
 
+    This opens the **New remediation task** page.
     
     [![New remediation task](media/vminsights-enable-policy/new-remediation-task.png)](media/vminsights-enable-policy/new-remediation-task.png#lightbox)
 
-1. Select **Remediate** to create the remediation task and then **Remediate** to start it. You'll most likely need to create multiple remediation tasks, one for each policy definition. You can't create a remediation task for an initiative.
+1. Review **Remediation settings** and **Resources to remediate** and modify as necessary. 
+1. To track the progress of remediation tasks, select **Remediate** from the **Policy** menu and select the **Remediation tasks** tab. 
 
     [![Screenshot shows the Policy Remediation pane for Monitor | Virtual Machines.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
         
     Once the remediation tasks are complete, your VMs should be compliant with agents installed and enabled for VM insights. 
     
-## Set VM insights initiative for Virtual Machine Scale Sets
-
-??? This doesn't seem to be different from the regular VM flow. Do we need this???
-
-To use Azure Policy to enable monitoring for Virtual Machine Scale Sets, assign the **Enable Azure Monitor for Virtual Machine Scale Sets** initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
-
-![Screenshot of the Assign initiative page in Azure portal. Initiative definition is set to Enable Azure Monitor for Virtual Machine Scale Sets.](media/vminsights-enable-policy/virtual-machine-scale-set-assign-initiative.png)
-
-Select the workspace that the data will be sent to. This workspace must have the *VMInsights* solution installed, as described in [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md).
-
-??? Put this as a prerequisite whenever you use a Log Analytics agent initiative???
-
-![Screenshot that shows selecting a workspace.](media/vminsights-enable-policy/virtual-machine-scale-set-workspace.png)
-
-Create a remediation task if you have existing Virtual Machine Scale Sets that need to be assigned this policy.
-
-![Screenshot that shows creating a remediation task.](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
-
 ## Next steps
 
 Learn how to: 
