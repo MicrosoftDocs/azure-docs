@@ -137,7 +137,7 @@ The scope defines for who the scheduled workflow will run. Configuring this para
 The scope is made up of the following two parts:
 
 - Scope type: Always preset as Rule based.
-- Rule: Where you can set expressions on user properties that define for whom the scheduled workflow will run. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties]((/graph/api/resources/identitygovernance-rulebasedsubjectset#supported-user-properties-and-query-parameters)) for configuring the scope.
+- Rule: Where you can set expressions on user properties that define for whom the scheduled workflow will run. You can add extra expressions using **And, And not, Or, Or not** to create complex conditionals, and apply the workflow more granularly across your organization. Lifecycle Workflows supports a [rich set of user properties](/graph/api/resources/identitygovernance-rulebasedsubjectset#supported-user-properties-and-query-parameters) for configuring the scope.
 
 [![Extra expressions.](media/understanding-lifecycle-workflows/workflow-8.png)](media/understanding-lifecycle-workflows/workflow-8.png#lightbox)
 
