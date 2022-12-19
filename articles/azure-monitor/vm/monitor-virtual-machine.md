@@ -68,20 +68,30 @@ You should implement a strategy for configuring your DCRs so that they're manage
 
  
 ## VM insights
-[VM insights](../vm/vminsights-overview.md) is a feature in Azure Monitor that allows you to quickly get started monitoring your virtual machines. It provides the following advantages:
+[VM insights](../vm/vminsights-overview.md) is a feature in Azure Monitor that allows you to quickly get started monitoring your virtual machines. It provides the following features:
 
 - Simplified onboarding of the Azure Monitor agent to enable monitoring of a virtual machine guest operating system and workloads.
+- Preconfigured data collection rule that collects the most common set of performance counters for Windows and Linux.
 - Predefined trending performance charts and workbooks that you can use to analyze core performance metrics from the virtual machine's guest operating system.
+- Collection of 
 - Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
+
+Whether or not you choose to use the performance or map views in VM insights, it's valuable in providing base level monitoring and an interface to manage your monitored and unmonitored machines. VM insights also includes a simplified interface for managing Azure Policy definitions to automatically install the agent and enable monitoring on new machines.
+
+By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. Enable this collection if you 
 
 You may or may not choose to use VM insights to support enterprise-wide monitoring of your virtual machines. Even if you enable it, you'll still need create additional DCRs to collect events and send performance data to Azure Monitor Metrics. You'll also need to configure alert rules since VM insights doesn't provide any alerting.
 
-While VM insights makes it easy to deploy the Azure Monitor agent, you may use Azure Policy instead to have the agent automatically deployed to any new machines. Aside from agent management, your decision will primarily depend on whether you use the performance charts and Map feature of VM insights. If you don't, then you can reduce your monitoring costs by not not enabling VM insights and collecting this additional
 
 The performance charts in VM insights depend on the VM insights DCR that sends client performance data to a Log Analytics workspace. This allows you to use use KQL queries to analyze the data, which is what the performance charts are based on. You may choose to send thr performance data to Azure Metrics either instead of or in addition to the workspace. This saves you the cost of sending data to the workspace and allows you to use metrics explorer and metric alerts with the data.
 
-## SCOM Managed Instance
-If you currently use [System Center Operations Manager](/system-center/scom) and are starting your transition into the cloud, then you 
+## System Center Operations Manager (SCOM)
+If you currently use SCOM to manage your 
+
+and are starting your transition into the cloud, then you 
+
+
+[Azure Monitor SCOM Managed Instance (preview)]() allows existing customers of [System Center Operations Manager](/system-center/scom) to maintain their investment in SCOM while moving their monitoring infrastructure into the Azure cloud. 
 
 
 ## Next steps

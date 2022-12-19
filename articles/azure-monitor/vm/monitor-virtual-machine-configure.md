@@ -33,7 +33,9 @@ The following table lists the steps that must be performed for this configuratio
 | [Create Log Analytics workspace](#create-and-prepare-a-log-analytics-workspace) | Create a Log Analytics workspace to support log collection and VM insights if you choose to use it. Depending on your particular requirements, you might configure multiple workspaces. |
 | [Send Activity log to Log Analytics workspace](#send-an-activity-log-to-a-log-analytics-workspace) | Send the Activity log to the workspace to analyze it with other log data. |
 | [Prepare hybrid machines](#prepare-hybrid-machines) | Hybrid machines either need the server agents enabled by Azure Arc installed so they can be managed like Azure virtual machines or must have their agents installed manually. |
-| [Enable VM insights](#enable-vm-insights) | Optionally, onboard machines to VM insights, which deploys required agents and begins collecting data from the guest operating system. |
+| [Deploy Azure Monitor agent](#deploy-azure-monitor-agent) | Optionally, onboard machines to VM insights, which deploys required agents and begins collecting data from the guest operating system. |
+| Configure data collection | 
+| [Create alert rules](#create-alert-rules) |
 
 
 
@@ -91,13 +93,21 @@ You still can monitor these machines with Azure Monitor, but you need to manuall
 > The private endpoint for Azure Arc-enabled servers is currently in public preview. The endpoint allows your hybrid machines to securely connect to Azure by using a private IP address from your virtual network.
 
 ## Deploy Azure Monitor agent
-There are multiple methods for deploying the Azure Monitor agent depending on whether you use the [agent extension](../agents/azure-monitor-agent-manage.md) or the [client installer](../agents/azure-monitor-agent-windows-client.md). The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Install](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
+There are multiple methods for deploying the Azure Monitor agent top your virtual machines depending on whether you use the [agent extension](../agents/azure-monitor-agent-manage.md) or the [client installer](../agents/azure-monitor-agent-windows-client.md). The client installer is only required for machines outside of Azure that don't use Azure Arc. For different options deploying the agent on a single machine or as part of a script, see [Install](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#install).
+
+
+### VM insights
+VM insights provides simplified onboarding in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent and Dependency agent, connects to a workspace, and starts collecting performance data.
+
+
+### Azure Policy
 
 If you have a significant number of virtual machines, you should deploy the agent using Azure Policy as described in [Use Azure Policy](../agents/azure-monitor-agent-manage?tabs=azure-portal.md#use-azure-policy). This will ensure that the agent is automatically added to existing virtual machines and any new ones that you deploy.
 
 
 ## Enable VM insights
-VM insights provides simplified onboarding in the Azure portal. With a single click for a particular machine, it installs the Azure Monitor agent and Dependency agent, connects to a workspace, and starts collecting performance data. You can start using performance views and workbooks to analyze trends for a variety of guest operating system metrics, enable the map feature of VM insights for analyzing running processes and dependencies between machines, and collect the data required for you to create a variety of alert rules.
+
+ You can start using performance views and workbooks to analyze trends for a variety of guest operating system metrics, enable the map feature of VM insights for analyzing running processes and dependencies between machines, and collect the data required for you to create a variety of alert rules.
 
 The dependency agent uses the Azure Monitor agent to deliver the data that it collects, so there are no additional network or firewall considerations.
 

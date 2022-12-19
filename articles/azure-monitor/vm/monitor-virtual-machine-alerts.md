@@ -12,27 +12,29 @@ ms.reviewer: Xema Pathak
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. 
+This article is part of the scenario content [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). 
+
+[Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data you collect from the Azure Monitor agent. 
 
 This article presents alerting concepts specific to virtual machines and common alert rules used by other Azure Monitor customers. See [Monitor virtual machines with Azure Monitor: Workloads](monitor-virtual-machine-workloads.md) for guidance on using these concepts to create other alert rules based on your particular requirements.
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md), [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md), or [Tutorial: Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md).
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md). To quickly enable a recommended set of alerts, see [Enable recommended alert rules for Azure virtual machine](tutorial-monitor-vm-alert-recommended.md)
 
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Recommended alert rules
-Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for an Azure virtual machine. These are a good starting point but will not be sufficient for most enterprise implementations for the following reasons:
+Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-alert-availability.md) that you can quickly enable for an Azure virtual machine. These are a good starting point for basic monitoring but will not provide sufficient alerting for most enterprise implementations for the following reasons:
 
 - Recommended alerts only apply to Azure virtual machines and not hybrid machines.
 - Recommended alerts only include host metrics and not guest metrics or logs. These are useful to monitor the health of the machine itself but give you minimal visibility into the workloads and applications running on the machine.
-- Recommended alerts are associated with individual machines creating an excessive number of alert rules. Instead of relying on this method for each machine, create your own set of equivalent rules targeted at a subscription or resource group that will be applied to all included machines in the same region as the alert rule. This gives you significantly fewer alert rules to management and automatically enable the alert rules for any new machine that you create.
+- Recommended alerts are associated with individual machines creating an excessive number of alert rules. Instead of relying on this method for each machine, see [Scaling alert rules](#scaling-alert-rules) for strategies on using a minimal number of alert rules for multiple machines.
 
 ## Alert types
 
 The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md).
-The type of alert rule that you create for a particular scenario depends on where the data is located that you're alerting on. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
+The type of alert rule that you create for a particular scenario depends on where the data is located that you're alerting on. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you [collect certain data]() and let your decision of alert rule type drive your decision for data collection method.
 
 Typically, the best strategy is to use metric alerts instead of log alerts when possible because they're more responsive and stateful. To use metric alerts, the data you're alerting on must be available in Metrics. Use Log query alerts with metric data when it's unavailable in Metrics or if you require logic beyond the relatively simple logic for a metric alert rule. If you're only using VM insights data collection, you need to create an additional DCR to send performance data to Metrics if you want to create metric alerts from guest performance data. 
 
