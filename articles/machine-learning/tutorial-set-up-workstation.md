@@ -66,13 +66,13 @@ Create a compute instance now.  You'll also use it as your development environme
 
 ## Upload files
 
-You'll need to get your own files into the cloud.  For this tutorial, [download this small data file](https://hbiostat.org/data/repo/titanic3.csv) first, so that you can upload it to your workspace file storage..
+You'll need to get your own files into the cloud.  For this tutorial, [download this small data file](https://hbiostat.org/data/repo/titanic3.csv) first, so that you can upload it to your workspace file storage.
 
 **@@Steps to upload.**
 
-You might think that this uploaded the data directly to your compute instance, but this is not the case. The file was uploaded to a cloud Azure storage container attached to the workspace, which is then mounted to the compute instance. If you delete the compute instance, all of your files will still be available. If you create multiple compute instances in your workspace, these files will be mounted and visible on each.
+You might think that you uploaded the data directly to your compute instance, but you didn't. You instead uploaded the file to a cloud Azure storage container attached to the workspace, which is then mounted to the compute instance. If you delete the compute instance, all of your files will still be available. If you create multiple compute instances in your workspace, these files will be mounted and visible on each.
 
-Uploading data is fine for small files, but is not the only way to access data.  You'll learn other ways to deal with data files in other tutorials.
+Uploading data is fine for small files, but isn't the only way to access data.  You'll learn other ways to deal with data files in other tutorials.
 
 ## Run a notebook
 
@@ -100,7 +100,7 @@ A Jupyter notebook is a good place to start learning about Azure Machine Learnin
 
 1. Now run the code cell, either by using **Shift + Enter** or by selecting the **Run cell** button to the left of the cell. 
 
-1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You will also see the output of the cell, which is a visual representation of the data file details.
+1. The brackets to the left of the cell now show you a number inside.  The number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You'll also see the output of the cell, which is a visual representation of the data file details.
 
 ### See your variables
 
@@ -175,7 +175,7 @@ Use the notebook tools to export the notebook as .py -
 
 **@@talk about steps for this.  Probably also an image.**
 
-If  you didn't comment out the `%pip install seaborn` cell before, you'll see `get_ipython().run_line_magic('pip', 'install seaborn')` as a line of code.  TThis code only works in notebooks, so if you have this line, either delete it or comment it out in the script file.
+If  you didn't comment out the `%pip install seaborn` cell before, you'll see `get_ipython().run_line_magic('pip', 'install seaborn')` as a line of code.  This code only works in notebooks, so if you have this line, either delete it or comment it out in the script file.
 
 ### Run the script
 
@@ -185,7 +185,7 @@ From the toolbar above the script, select **Save and run script in terminal**.
 
 A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
 
-You will see that the terminal has run a command for you: `python visualize-sample-data.py`.
+You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
 
 Finally you'll see the text output from the execution. 
 
@@ -206,7 +206,7 @@ When you run the script in a terminal, you'll see text output, but not the plots
 **@@Show image of the refresh tool.**
 
 1. Select this file to open it in another tab.
-1. Close the terminal tabs (terminating the sessions) since you are done working in terminal for now.
+1. Close the terminal tabs (terminating the sessions) since you're done working in terminal for now.
 
 ## Learn from sample notebooks
 
