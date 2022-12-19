@@ -55,7 +55,7 @@ Currently, automl forecasting job supports creation of holiday features if frequ
 Let’s understand this with an example dataset.
 
 <b>sample_data</b>:<br>
-<img src='./media/load_forecasting_sample_data_daily.png' width=40%></img>
+<img src='./media/how-to-forecasting-time-driven-features/load_forecasting_sample_data_daily.png' width=50%></img>
 
 We set the `country_or_region_for_holiday` as 'US' in forecast settings as shown below:
 
@@ -82,7 +82,7 @@ forecasting_job.set_forecast_settings(
 Once we submit the job for execution, the automl will generate the holiday features for given country or region ('US' in the above example) and `time_column_name` to create holiday features. 
 The output is shown below:
 
-# [output](./media/sample_dataset_holiday_feature_generated.png)
+# ![output](./media/how-to-forecasting-time-driven-features/sample_dataset_holiday_feature_generated.png)
 
 <br>
 <br>
