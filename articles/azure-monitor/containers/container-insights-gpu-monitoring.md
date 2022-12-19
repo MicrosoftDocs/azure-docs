@@ -12,13 +12,13 @@ ms.reviewer: aul
 Starting with agent version *ciprod03022019*, the Container insights integrated agent now supports monitoring graphical processing unit (GPU) usage on GPU-aware Kubernetes cluster nodes and monitors pods or containers that request and use GPU resources.
 
 >[!NOTE]
-> As per the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), Kubernetes is deprecating GPU metrics that are being reported by the kubelet, for Kubernetes version 1.20+. As a result, Container Insights will no longer be able to collect the following metrics out of the box:
+> As per the Kubernetes [upstream announcement](https://kubernetes.io/blog/2020/12/16/third-party-device-metrics-reaches-ga/#nvidia-gpu-metrics-deprecated), Kubernetes is deprecating GPU metrics that are being reported by the kubelet, for Kubernetes version 1.20+. As a result, Container insights will no longer be able to collect the following metrics out of the box:
 >
 > * containerGpuDutyCycle
 > * containerGpumemoryTotalBytes
 > * containerGpumemoryUsedBytes
 >
-> To continue collecting GPU metrics through Container Insights, migrate to your GPU vendor-specific metrics exporter by December 31, 2022. Configure [Prometheus scraping](./container-insights-prometheus.md) to scrape metrics from the deployed vendor-specific exporter.
+> To continue collecting GPU metrics through Container insights, migrate to your GPU vendor-specific metrics exporter by December 31, 2022. Configure [Prometheus scraping](./container-insights-prometheus.md) to scrape metrics from the deployed vendor-specific exporter.
 
 ## Supported GPU vendors
 
