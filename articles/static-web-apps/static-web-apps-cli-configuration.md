@@ -45,7 +45,7 @@ Use `swa init` to kickstart the workflow to create a configuration file for a ne
 
 By default, the process creates these settings in a *swa-cli.config.json* in the current working directory of your project. This directory is the default file name and location used by `swa` when searching for project configuration values.
 
-```aspx-csharp
+```azstatic-cli
 swa --config <PATH>
 ```
 
