@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/14/2022
+ms.date: 12/19/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -97,9 +97,12 @@ The service dynamically adjusts the `maxfiles` limit for a volume based on its p
 >[!IMPORTANT]
 > If your volume has a volume size (quota) of more than 4 TiB and you want to increase the `maxfiles` limit, you must initiate [a support request](#request-limit-increase).
 
-If you have allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the maxfiles (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the maxfiles limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+If you've allocated at least 4 TiB of quota for a volume, you can initiate a support request to increase the `maxfiles` (inodes) limit beyond 106,255,630. For every 106,255,630 files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB. For example, if you increase the `maxfiles` limit from 106,255,630 files to 212,511,260 files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the `maxfiles` limit to 531,278,150 if your volume quota is at least 20 TiB. 
+
+>[!IMPORTANT]
+> Once a volume has exceeded a `maxfiles` limit, you cannot reduce volume size below the quota corresponding to that `maxfiles` limit even if you have reduced the actual used file count. For example, if you have crossed the 63,753,378 `maxfiles` limit, the volume quota cannot be reduced below its corresponding index of 2 TiB.
 
 **For [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes):**
 
@@ -127,7 +130,7 @@ You can create an Azure support request to increase the adjustable limits from t
 
     ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
 
-3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
+3. Under the **Additional details** tab, select **Enter details** in the Request Details field.  
 
     ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
 
@@ -145,7 +148,7 @@ You can create an Azure support request to increase the adjustable limits from t
     
     ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
 
-5. Click **Save and continue**. Click **Review + create** to create the request.
+5. Select **Save and continue**. Select **Review + create** to create the request.
 
 ## Next steps  
 
