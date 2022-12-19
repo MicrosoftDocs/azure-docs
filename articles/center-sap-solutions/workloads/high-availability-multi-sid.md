@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 ---
@@ -167,7 +167,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 
 [ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
-[ha-guide]:high-availability-guide.md
+
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -229,63 +229,6 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 [planning-guide-figure-800]:media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
-
-[sap-ha-guide]:high-availability-guide.md 
-[sap-ha-guide-1]:high-availability-guide.md#217c5479-5595-4cd8-870d-15ab00d4f84c 
-[sap-ha-guide-2]:high-availability-guide.md#42b8f600-7ba3-4606-b8a5-53c4f026da08 
-[sap-ha-guide-3]:high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1
-[sap-ha-guide-3.1]:high-availability-guide.md#f76af273-1993-4d83-b12d-65deeae23686 
-[sap-ha-guide-3.2]:high-availability-guide.md#3e85fbe0-84b1-4892-87af-d9b65ff91860
-[sap-ha-guide-4]:high-availability-guide.md#8ecf3ba0-67c0-4495-9c14-feec1a2255b7 
-[sap-ha-guide-4.1]:high-availability-guide.md#1a3c5408-b168-46d6-99f5-4219ad1b1ff2 
-[sap-ha-guide-5]:high-availability-guide.md#fdfee875-6e66-483a-a343-14bbaee33275 
-[sap-ha-guide-5.1]:high-availability-guide.md#be21cf3e-fb01-402b-9955-54fbecf66592
-[sap-ha-guide-5.2]:high-availability-guide.md#ff7a9a06-2bc5-4b20-860a-46cdb44669cd
-[sap-ha-guide-6]:high-availability-guide.md#2ddba413-a7f5-4e4e-9a51-87908879c10a 
-[sap-ha-guide-6.1]:high-availability-guide.md#1a464091-922b-48d7-9d08-7cecf757f341 
-[sap-ha-guide-6.2]:high-availability-guide.md#44641e18-a94e-431f-95ff-303ab65e0bcb
-[sap-ha-guide-7]:high-availability-guide.md#2e3fec50-241e-441b-8708-0b1864f66dfa
-[sap-ha-guide-7.1]:high-availability-guide.md#93faa747-907e-440a-b00a-1ae0a89b1c0e 
-[sap-ha-guide-7.2]:high-availability-guide.md#f559c285-ee68-4eec-add1-f60fe7b978db 
-[sap-ha-guide-7.2.1]:high-availability-guide.md#b5b1fd0b-1db4-4d49-9162-de07a0132a51 
-[sap-ha-guide-7.3]:high-availability-guide.md#ddd878a0-9c2f-4b8e-8968-26ce60be1027
-[sap-ha-guide-7.4]:high-availability-guide.md#045252ed-0277-4fc8-8f46-c5a29694a816 
-[sap-ha-guide-8]:high-availability-guide.md#78092dbe-165b-454c-92f5-4972bdbef9bf 
-[sap-ha-guide-8.1]:high-availability-guide.md#c87a8d3f-b1dc-4d2f-b23c-da4b72977489
-[sap-ha-guide-8.2]:high-availability-guide.md#7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310 
-[sap-ha-guide-8.3]:high-availability-guide.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a 
-[sap-ha-guide-8.4]:high-availability-guide.md#b22d7b3b-4343-40ff-a319-097e13f62f9e 
-[sap-ha-guide-8.5]:high-availability-guide.md#9fbd43c0-5850-4965-9726-2a921d85d73f 
-[sap-ha-guide-8.6]:high-availability-guide.md#84c019fe-8c58-4dac-9e54-173efd4b2c30 
-[sap-ha-guide-8.7]:high-availability-guide.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e 
-[sap-ha-guide-8.8]:high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c 
-[sap-ha-guide-8.9]:high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716 
-[sap-ha-guide-8.10]:high-availability-guide.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c 
-[sap-ha-guide-8.11]:high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158 
-[sap-ha-guide-8.12]:high-availability-guide.md#0d67f090-7928-43e0-8772-5ccbf8f59aab 
-[sap-ha-guide-8.12.1]:high-availability-guide.md#5eecb071-c703-4ccc-ba6d-fe9c6ded9d79 
-[sap-ha-guide-8.12.2]:high-availability-guide.md#e49a4529-50c9-4dcf-bde7-15a0c21d21ca 
-[sap-ha-guide-8.12.2.1]:high-availability-guide.md#06260b30-d697-4c4d-b1c9-d22c0bd64855 
-[sap-ha-guide-8.12.2.2]:high-availability-guide.md#4c08c387-78a0-46b1-9d27-b497b08cac3d 
-[sap-ha-guide-8.12.3]:high-availability-guide.md#5c8e5482-841e-45e1-a89d-a05c0907c868 
-[sap-ha-guide-8.12.3.1]:high-availability-guide.md#1c2788c3-3648-4e82-9e0d-e058e475e2a3 
-[sap-ha-guide-8.12.3.2]:high-availability-guide.md#dd41d5a2-8083-415b-9878-839652812102
-[sap-ha-guide-8.12.3.3]:high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
-[sap-ha-guide-9]:high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b 
-[sap-ha-guide-9.1]:high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 
-[sap-ha-guide-9.1.1]:high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
-[sap-ha-guide-9.1.2]:high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 
-[sap-ha-guide-9.1.3]:high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 
-[sap-ha-guide-9.1.4]:high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 
-[sap-ha-guide-9.2]:high-availability-guide.md#85d78414-b21d-4097-92b6-34d8bcb724b7 
-[sap-ha-guide-9.3]:high-availability-guide.md#8a276e16-f507-4071-b829-cdc0a4d36748 
-[sap-ha-guide-9.4]:high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a 
-[sap-ha-guide-9.5]:high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 
-[sap-ha-guide-9.6]:high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 
-[sap-ha-guide-10]:high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9 
-[sap-ha-guide-10.1]:high-availability-guide.md#65fdef0f-9f94-41f9-b314-ea45bbfea445
-[sap-ha-guide-10.2]:high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 
-[sap-ha-guide-10.3]:high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 
 
 
 [sap-ha-guide-figure-1000]:media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -441,7 +384,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell, ignite-fall-2021
 
 In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
 
-If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide].
+If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs](./ sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster. When this process is completed, you will have configured an SAP multi-SID cluster.
 
@@ -451,7 +394,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
-You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.
+You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs](./ sap-high-availability-infrastructure-wsfc-shared-disk.md) and as shown in this diagram.
 
 ![High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
@@ -516,7 +459,8 @@ The new host name and IP address are displayed in the DNS Manager, as shown in t
 
 ![DNS Manager list highlighting the defined DNS entry for the new SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-6004]
 
-The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].
+The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
+
 
 > [!NOTE]
 > The new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to the SAP Azure load balancer.
@@ -618,7 +562,7 @@ Do the following:
 1. Add an additional disk or disks of the same size (which you need to stripe) to each of the cluster nodes, and format them.
 2. Configure storage replication with SIOS DataKeeper.
 
-This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].  
+This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
 
 ![DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk][sap-ha-guide-figure-6006]
 
@@ -632,38 +576,38 @@ To complete the infrastructure preparation for the second SAP system, do the fol
 
 ## Install the second SAP SID2 NetWeaver system
 
-The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
+The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 The high-level procedure is as follows:
 
-1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
+1. [Install the SAP first cluster node](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
 
-2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
+2. [Modify the SAP profile of the ASCS/SCS instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
-3. [Configure a probe port][sap-ha-guide-9.1.4].  
+3. [Configure a probe port](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
 
-4. [Install the database instance][sap-ha-guide-9.2].  
+4. [Install the database instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing DBMS on a dedicated WSFC cluster.
 
-5. [Install the second cluster node][sap-ha-guide-9.3].  
+5. [Install the second cluster node](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.
 
 6. Open Windows Firewall ports for the SAP ASCS/SCS instance and ProbePort.  
- On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].  
+ On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  Also open the Azure internal load balancer probe port, which is 62350 in our scenario.
 
-7. [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4].
+7. [Change the start type of the SAP ERS Windows service instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
-8. [Install the SAP primary application server][sap-ha-guide-9.5] on the new dedicated VM.
+8. [Install the SAP primary application server](./sap-high-availability-infrastructure-wsfc-shared-disk.md) on the new dedicated VM.
 
-9. [Install the SAP additional application server][sap-ha-guide-9.6] on the new dedicated VM.
+9. [Install the SAP additional application server](./sap-high-availability-infrastructure-wsfc-shared-disk.md) on the new dedicated VM.
 
-10. [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].
+10. [Test the SAP ASCS/SCS instance failover and SIOS replication](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 ## Next steps
 
 - [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
-- [Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]
+

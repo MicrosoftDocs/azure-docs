@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 12/16/2022
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 
@@ -22,7 +22,6 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 # Create a high-availability SAP NetWeaver multi-SID configuration
 
 [load-balancer-multivip-overview]:../../load-balancer/load-balancer-multivip-overview.md
-[sap-ha-guide]:sap-high-availability-guide.md 
 [sap-ha-guide-figure-6001]:./media/virtual-machines-shared-sap-high-availability-guide/6001-sap-multi-sid-ascs-scs-sid1.png
 [sap-ha-guide-figure-6002]:./media/virtual-machines-shared-sap-high-availability-guide/6002-sap-multi-sid-ascs-scs.png
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
@@ -30,29 +29,17 @@ ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 [networking-limits-azure-resource-manager]:../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits
-[sap-ha-guide-9.1.1]:sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
-[sap-ha-guide-8.8]:sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c
-[sap-ha-guide-8.12.3.3]:sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
-[sap-ha-guide-9]:sap-high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b
-[sap-ha-guide-9.1]:sap-high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 
-[sap-ha-guide-9.1.2]:sap-high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 
-[sap-ha-guide-9.1.3]:sap-high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 
-[sap-ha-guide-9.1.4]:sap-high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 
-[sap-ha-guide-9.4]:sap-high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a 
-[sap-ha-guide-9.5]:sap-high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 
-[sap-ha-guide-9.6]:sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 
-[sap-ha-guide-10]:sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9
 
 In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an Azure internal load balancer. This functionality already exists in the Azure external load balancer.
 
-If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide].
+If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster. When this process is completed, you will have configured an SAP multi-SID cluster.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
-You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.
+You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and as shown in this diagram.
 
 ![High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
@@ -117,7 +104,7 @@ The new host name and IP address are displayed in the DNS Manager, as shown in t
 
 ![DNS Manager list highlighting the defined DNS entry for the new SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-6004]
 
-The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].
+The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 > [!NOTE]
 > The new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to the SAP Azure load balancer.
@@ -219,7 +206,7 @@ Do the following:
 1. Add an additional disk or disks of the same size (which you need to stripe) to each of the cluster nodes, and format them.
 2. Configure storage replication with SIOS DataKeeper.
 
-This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].  
+This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have installed it, you must now configure replication between the machines. The process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
 
 ![DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk][sap-ha-guide-figure-6006]
 
@@ -233,38 +220,38 @@ To complete the infrastructure preparation for the second SAP system, do the fol
 
 ## Install the second SAP SID2 NetWeaver system
 
-The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
+The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 The high-level procedure is as follows:
 
-1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
+1. [Install the SAP first cluster node](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
 
-2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
+2. [Modify the SAP profile of the ASCS/SCS instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
-3. [Configure a probe port][sap-ha-guide-9.1.4].  
+3. [Configure a probe port](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are configuring an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
 
-4. [Install the database instance][sap-ha-guide-9.2].  
+4. [Install the database instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing DBMS on a dedicated WSFC cluster.
 
-5. [Install the second cluster node][sap-ha-guide-9.3].  
+5. [Install the second cluster node](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  In this step, you are installing SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.
 
 6. Open Windows Firewall ports for the SAP ASCS/SCS instance and ProbePort.  
- On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.8].  
+ On both cluster nodes that are used for SAP ASCS/SCS instances, you are opening all Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in the [guide for high-availability SAP NetWeaver on Windows VMs](./sap-high-availability-infrastructure-wsfc-shared-disk.md).  
  Also open the Azure internal load balancer probe port, which is 62350 in our scenario.
 
-7. [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4].
+7. [Change the start type of the SAP ERS Windows service instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
-8. [Install the SAP primary application server][sap-ha-guide-9.5] on the new dedicated VM.
+8. [Install the SAP primary application server](./sap-high-availability-infrastructure-wsfc-shared-disk.md) on the new dedicated VM.
 
-9. [Install the SAP additional application server][sap-ha-guide-9.6] on the new dedicated VM.
+9. [Install the SAP additional application server](./sap-high-availability-infrastructure-wsfc-shared-disk.md) on the new dedicated VM.
 
-10. [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].
+10. [Test the SAP ASCS/SCS instance failover and SIOS replication](./sap-high-availability-infrastructure-wsfc-shared-disk.md).
 
 ## Next steps
 
 - [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
-- [Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]
+

@@ -8,8 +8,6 @@ ms.custom: mode-other
 
 # Quickstart: Invite users to Azure Video Indexer
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 To collaborate with your colleagues, you can invite them to your Azure Video Indexer account. 
 
 Only the account’s admin can add or remove users. When using paid accounts, you are only able to invite Azure AD users.
