@@ -136,6 +136,7 @@ The following table lists the field names and descriptions:
 
 > [!div class="nextstepaction"]
 > [View and configure DDoS diagnostic logging](diagnostic-logging.md)
+>
 > [Test with simulation partners](test-through-simulations.md)
 
 
