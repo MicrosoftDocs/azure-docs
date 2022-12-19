@@ -32,6 +32,178 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 
+## December 2022
+
+### Public Preview - Windows 10+ Troubleshooter for Diagnostic Logs
+
+
+
+**Type:** New feature   
+**Service category:** Audit             
+**Product capability:** Monitoring & Reporting       
+
+This feature analyzes uploaded client-side logs, also known as diagnostic logs, from a Windows 10+ device that is having an issue(s) and suggests remediation steps to resolve the issue(s). Admins can work with end user to collect client-side logs, and then upload them to this troubleshooter in the Entra Portal. For more information, see: [Troubleshooting Windows devices in Azure AD](../devices/troubleshoot-device-windows-joined.md).
+
+
+---
+
+### General Availability - Multiple Password-less Phone Sign-in for iOS Devices
+
+
+
+**Type:** New feature   
+**Service category:** Authentications (Logins)            
+**Product capability:** User Authentication     
+
+End users can now enable password-less phone sign-in for multiple accounts in the Authenticator App on any supported iOS device. Consultants, students, and others with multiple accounts in Azure AD can add each account to Microsoft Authenticator and use password-less phone sign-in for all of them from the same iOS device. The Azure AD accounts can be in the same tenant or different tenants. Guest accounts are not supported for multiple account sign-in from one device.
+
+
+End users are not required to enable the optional telemetry setting in the Authenticator App. For more information, see: [Enable passwordless sign-in with Microsoft Authenticator](../authentication/howto-authentication-passwordless-phone.md).
+
+
+---
+
+### Public Preview(refresh) - Updates to Conditional Access templates 
+
+
+
+**Type:** Changed feature   
+**Service category:** Conditional Access             
+**Product capability:** Identity Security & Protection        
+
+Conditional Access templates provide a convenient method to deploy new policies aligned with Microsoft recommendations. In total, there are 14 Conditional Access policy templates, filtered by five different scenarios; secure foundation, zero trust, remote work, protect administrators, and emerging threats.  
+ 
+In this Public Preview refresh, we have enhanced the user experience with an updated design and added four new improvements: 
+ 
+- Admins can create a Conditional Access policy by importing a JSON file.
+- Admins can duplicate existing policy.
+- Admins can view more detailed policy information.
+- Admins can query templates programmatically via MSGraph API.
+
+
+For more information, see: [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md).
+
+
+---
+
+### Public Preview - Enabling customization capabilities for the conditional error messages in Company Branding.
+
+
+
+**Type:** New feature   
+**Service category:** Other             
+**Product capability:** End User Experiences    
+
+Updates to the Company Branding functionality on the Azure AD/Microsoft 365 login experience, to allow customizing conditional access (CA) error messages. For more information, see: [Company Branding](../fundamentals/customize-branding.md).
+
+
+---
+
+### Public Preview - Admins can restrict their users from creating tenants
+
+
+
+**Type:** New feature   
+**Service category:** User Access Management             
+**Product capability:** User Management       
+
+The ability for users to create tenants from the Manage Tenant overview has been present in Azure AD since almost the beginning of the Azure portal. This new capability in the User Settings blade allows admins to restrict their users from being able to create new tenants. There is also a new [Tenant Creator](../roles/permissions-reference.md#tenant-creator) role to allow specific users to create tenants. For more information, see [Default user permissions](../fundamentals/users-default-permissions.md#restrict-member-users-default-permissions).
+
+
+---
+
+### General availability - Consolidated App launcher (My Apps) settings and new preview settings
+
+
+
+**Type:** New feature   
+**Service category:** My Apps            
+**Product capability:** End User Experiences      
+
+We have consolidated relevant app launcher settings in a new App launchers section in the Azure and Entra portals. The entry point can be found under Enterprise applications, where Collections used to be. You can find the Collections blade by selecting App launchers. In addition, we have added a new App launchers Settings blade. This blade has some settings you may already be familiar with like the Microsoft 365 settings. The new Settings blade also has controls for previews. As an admin, you can choose to try out new app launcher features while they are in preview. Enabling a preview feature means that the feature is turned on for your organization, and will be reflected in the My Apps portal and other app launchers for all of your users. To learn more about the preview settings, see: [End-user experiences for applications](../manage-apps/end-user-experiences.md).
+
+
+---
+
+### Public preview - Converged Authentication Methods Policy
+
+
+
+**Type:** New feature   
+**Service category:** MFA          
+**Product capability:** User Authentication     
+
+The Converged Authentication Methods Policy enables you to manage all authentication methods used for MFA and SSPR in one policy, migrate off the legacy MFA and SSPR policies, and target authentication methods to groups of users instead of enabling them for all users in the tenant. For more information, see: [Manage authentication methods for Azure AD](../authentication/concept-authentication-methods-manage.md).
+
+
+---
+
+### General Availability - Administrative unit support for devices
+
+
+
+**Type:** New feature   
+**Service category:** Directory Management             
+**Product capability:** AuthZ/Access Delegation       
+
+You can now use administrative units to delegate management of specified devices in your tenant by adding devices to an administrative unit, and assigning built-in and custom device management roles scoped to that administrative unit. For more information, see: [Device management](../roles/administrative-units.md#device-management).
+
+
+---
+
+### Public Preview - Frontline workers using shared devices can now use Edge and Yammer apps on Android
+
+
+
+**Type:** New feature   
+**Service category:** N/A          
+**Product capability:** SSO       
+
+Companies often provide mobile devices to frontline workers that need to be shared between shifts. Microsoft’s shared device mode allows frontline workers to easily authenticate by automatically signing users in and out of all the apps that have enabled this feature. In addition to Microsoft Teams and Managed Home Screen being generally available, we are excited to announce that Edge and Yammer apps on Android are now in Public Preview.
+
+For further guidance on deploying frontline solutions, see: [frontline deployment documentation](https://aka.ms/frontlinewhitepaper).
+
+
+For more information on shared-device mode, see: [Azure Active Directory Shared Device Mode documentation](../develop/msal-android-shared-devices.md#microsoft-applications-that-support-shared-device-mode).
+
+
+For steps to setup shared device mode with Intune, see: [Intune setup blog](https://techcommunity.microsoft.com/t5/intune-customer-success/enroll-android-enterprise-dedicated-devices-into-azure-ad-shared/ba-p/1820093). 
+
+
+---
+
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - December 2022
+
+
+
+**Type:** New feature   
+**Service category:** App Provisioning             
+**Product capability:** 3rd Party Integration     
+
+We've added the following new applications in our App gallery with Provisioning support. You can now automate creating, updating, and deleting of user accounts for these newly integrated apps:
+
+- [GHAE](../saas-apps/ghae-provisioning-tutorial.md)
+
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+
+
+---
+
+### General Availability - On-premises application provisioning
+
+
+
+**Type:** Changed feature   
+**Service category:** Provisioning            
+**Product capability:** Outbound to On-premises Applications        
+
+Azure AD supports provisioning users into applications hosted on-premises or in a virtual machine, without having to open up any firewalls. If your application supports [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010), or you've built a SCIM gateway to connect to your legacy application, you can use the Azure AD Provisioning agent to [directly connect](../app-provisioning/on-premises-scim-provisioning.md) with your application and automate provisioning and deprovisioning. If you have legacy applications that don't support SCIM and rely on an [LDAP](../app-provisioning/on-premises-ldap-connector-configure.md) user store, or a [SQL](../app-provisioning/tutorial-ecma-sql-connector.md) database, Azure AD can support those as well.
+
+
+---
+
+
 ## November 2022
 
 ### General Availability - Use Web Sign-in on Windows for password-less recovery with Temporary Access Pass
