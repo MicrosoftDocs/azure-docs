@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.custom: aaddev
 ---
 
-# Customize claims issued in the JSON web token (JWT)
+# Customize JSON Web Token (JWT) claims
 
 The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the OIDC protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
