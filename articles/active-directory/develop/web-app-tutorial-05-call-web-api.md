@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Completion of the prerequisites and steps in [Tutorial: Prepare an application for authentication in the tenant](web-app-tutorial-04-prepare-tenant-app.md).
+* Completion of the prerequisites and steps in [Tutorial: Add sign-in to an application](web-app-tutorial-03-sign-in-users.md).
 * Although any integrated development environment (IDE) that supports .NET applications can be used, the following IDEs are used for this tutorial. They can be downloaded from the [Downloads](https://visualstudio.microsoft.com/downloads) page.
     - Visual Studio 2022
     - Visual Studio Code
@@ -147,8 +147,6 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
 
 ### [Visual Studio](#tab/visual-studio)
 1. In Visual Studio, start the application by selecting **Start without debugging**.
-1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
-
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 1. In Visual Studio Code, start the application by typing the following in the terminal;
@@ -156,14 +154,16 @@ The `AuthorizeForScopes` attribute is provided by `Microsoft.Identity.Web`. It m
     ```powershell
     dotnet run
     ```
-1. Select **Accept** to accept the request for permissions. Information similar to the following example should be displayed:
-
 
 ### [Visual Studio for Mac](#tab/visual-studio-for-mac)
 1. In Visual Studio, start the application by selecting the **Play the executing solution**.
-1. Accept, trust and allow requests and changes to be made if any pop-up windows appear. Information similar to the following example should be displayed:
 
 ---
+
+2. 
+
+ 
+3. 
 
 <!-- Add every screenshot  -->
 <!-- Pick an account -->
