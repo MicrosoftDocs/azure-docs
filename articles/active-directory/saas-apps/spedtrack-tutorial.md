@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 12/19/2022
 ms.author: jeedes
 
 ---
@@ -20,7 +20,6 @@ In this article, you'll learn how to integrate SpedTrack with Azure Active Direc
 
 * Control in Azure AD who has access to SpedTrack.
 * Enable your users to be automatically signed-in to SpedTrack with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 You'll configure and test Azure AD single sign-on for SpedTrack in a test environment. SpedTrack supports both **SP** and **IDP** initiated single sign-on.
 
@@ -35,17 +34,15 @@ To integrate Azure Active Directory with SpedTrack, you need:
 
 ## Add application and assign a test user
 
-Before you begin the process of configuring single sign-on, you need to add the SpedTrack application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
+Before you begin the process of configuring single sign-on, you need to add the SpedTrack application from the Azure AD gallery. A user within your tenant will need to be assigned to the application. This test user will need to exist within SpedTrack also. 
 
 ### Add SpedTrack from the Azure AD gallery
 
 Add SpedTrack from the Azure AD application gallery to configure single sign-on with SpedTrack. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
-### Create and assign Azure AD test user
+### Assign an Azure AD test user
 
-Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal called B.Simon.
-
-Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
+Follow the guidelines in the [create and assign a user account](../manage-apps/add-application-portal-assign-users.md) article to create a test user account in the Azure portal. This test user will also need to be created within SpedTrack with a matching email.
 
 ## Configure Azure AD SSO
 
@@ -53,11 +50,23 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 1. In the Azure portal, on the **SpedTrack** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Screenshot shows how to edit Basic SAML Configuration.](common/edit-urls.png "Basic Configuration")
+1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** then perform the following steps:
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+	a. Click **Upload metadata file**.
+
+    ![Screenshot shows how to upload metadata file.](common/upload-metadata.png "File")
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![Screenshot shows how to choose and browse metadata file.](common/browse-upload-metadata.png "Folder")
+
+	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
+
+	d. In the **Sign on URL** textbox, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.spedtrack.com/Login.aspx`
+
+1. If needed, fill the values manually that copied from the SpedTrack in the **Basic SAML Configuration** section by clicking pencil icon.
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
     `https://<SUBDOMAIN>.spedtrack.com`
@@ -74,13 +83,19 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
     ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
-1. On the **Set up SpedTrack** section, copy the appropriate URL(s) based on your requirement.
-
-	![Screenshot shows to copy configuration appropriate URL.](common/copy-configuration-urls.png "Metadata")
-
 ## Configure SpedTrack SSO
 
-To configure single sign-on on **SpedTrack** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SpedTrack support team](mailto:support@spedtrack.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to your SpedTrack company site as an administrator.
+
+1. Navigate to **Admin > District Setup > Single Sign-On**.
+
+1. Click **Edit Config** and select **Azure** as your **IdP Provider**.
+
+1. Download the SP Metadata file or copy the values of Identifier, Reply URL, Sign on URL and Logout URL. 
+
+1. Select **Upload Metadata** to upload the **Federation Metadata XML** file which you have downloaded from the Azure portal.
+
+1. **Save** the changes within SpedTrack after uploading the file. 
 
 ### Create SpedTrack test user
 
@@ -92,9 +107,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to SpedTrack Sign on URL where you can initiate the login flow.  
-
-* Go to SpedTrack Sign on URL directly and initiate the login flow from there.
+* Ensure the user being tested was allowed access to the application and exists within SpedTrack.
+* Within SpedTrack navigate to **Admin > District Setup > Single Sign-On**. Click on **Test Config**. 
 
 #### IDP initiated:
 
