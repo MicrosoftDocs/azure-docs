@@ -5,15 +5,15 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 12/15/2021
 ms.author: jasteppe
 ---
 
-# MedTech service and Microsoft Power BI
+# The MedTech service and Microsoft Power BI
 
 In this article, we'll explore using the MedTech service and Microsoft Power Business Intelligence (BI).
 
-## MedTech service and Power BI reference architecture
+## The MedTech service and Power BI reference architecture
 
 The reference architecture below shows the basic components of using the Microsoft cloud services to enable Power BI on top of Internet of Medical Things (IoMT) and Fast Healthcare Interoperability Resources (FHIR&#174;) data.
 
@@ -35,9 +35,11 @@ Azure IoT Edge can be used in with IoT Hub to create an on-premises endpoint for
 
 ## Next steps
 
-In this article, you've learned about the MedTech service and Power BI integration. For an overview of the MedTech service, see
+In this article, you've learned about the MedTech service and Power BI integration. 
 
->[!div class="nextstepaction"]
->[MedTech service overview](iot-connector-overview.md)
+For an overview of the MedTech service, see
+
+> [!div class="nextstepaction"]
+> [The MedTech service overview](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

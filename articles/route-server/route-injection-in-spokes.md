@@ -92,7 +92,7 @@ The next hop for this `0.0.0.0/0` route will be the NVA, so the spokes still nee
 This design allows automatic injection of routes in a spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment.
 
 > [!IMPORTANT]
-> This design requires a User-Defined Route (UDR) on the GatewaySubnet, programmed with Route Sever 2 as the next-hop for all peered Vnet traffic.
+> This design requires a User-Defined Route (UDR) on the GatewaySubnet, programmed with the NVA as the next-hop for all peered Vnet traffic.
 >
 
 ## Next steps

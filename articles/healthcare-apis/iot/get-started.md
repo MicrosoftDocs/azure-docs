@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/14/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
@@ -59,7 +59,7 @@ After you obtain the required prerequisites, the next phase of deployment is to 
 You must first create a resource group to contain the deployed instances of a workspace, Event Hubs service, FHIR service, and MedTech service. A [workspace](../workspace-overview.md) is required as a container for the Azure Health Data Services. After you create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), a FHIR service and MedTech service can be deployed to the workspace.
 
 > [!NOTE]
-> There are limits to the number of workspaces and the number of MedTech service instances you can create in each Azure subscription. For more information, see [Frequently asked questions about the MedTech service](iot-connector-faqs.md).
+> There are limits to the number of workspaces and the number of MedTech service instances you can create in each Azure subscription. For more information, see [Frequently asked questions about the MedTech service](frequently-asked-questions.md).
 
 ### Provision an Event Hubs instance to a namespace
 
@@ -93,15 +93,15 @@ Once you have starting using the portal and added the MedTech service to your wo
 
 ### Configuring device mappings
 
-You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use device mappings, see [How to use device mappings](how-to-use-device-mappings.md).
+You must configure the MedTech service to map it to the device you want to receive data from. Each device has unique settings that the MedTech service must use. For more information on how to use device mappings, see [How to use device mappings](how-to-configure-device-mappings.md).
 
 - Azure Health Data Services provides an open source tool you can use called [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper). The IoMT Connector Data Mapper will help you map your device's data structure to a form that the MedTech service can use. For more information on device content mapping, see [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#device-content-mapping). 
 
-- When you're deploying the MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the Device mapping properties](deploy-new-config.md).
+- When you're deploying the MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the device mapping properties](deploy-new-config.md).
 
 ### Configuring destination mappings
 
-Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
+Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 For step-by-step destination property mapping, see [Configure destination properties](deploy-new-config.md).
 
@@ -159,11 +159,11 @@ The MedTech service processes the data in five steps:
 
 If the processing was successful and you didn't get any error messages, your device data is now a FHIR service [Observation](http://hl7.org/fhir/observation.html) resource.
 
-For more information on the data flow through MedTech, see [MedTech service data flow](iot-data-flow.md).
+For more information on the data flow through MedTech, see [The MedTech service data flow](data-flow.md).
 
 ## Step 6: Verify the processed data
 
-You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](how-to-use-device-mappings.md) or the [FHIR destination mapping](how-to-use-fhir-mappings.md).
+You can verify that the data was processed correctly by checking to see if there's now a new Observation resource in the FHIR service. If the data isn't mapped or if the mapping isn't authored properly, the data will be skipped. If there are any problems, check the [device mapping](how-to-configure-device-mappings.md) or the [FHIR destination mapping](how-to-configure-fhir-mappings.md).
 
 ### Metrics
 
@@ -171,9 +171,11 @@ You can verify that the data is correctly persisted into the FHIR service by usi
 
 ## Next steps
 
-This article only described the basic steps needed to get started using the MedTech service. For information about deploying the MedTech service in the workspace, see
+This article only described the basic steps needed to get started using the MedTech service. 
+
+To learn about different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Deploy the MedTech service in the Azure portal](deploy-iot-connector-in-azure.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
