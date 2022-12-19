@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial to configure Azure Active Directory B2C with WhoIAM
 
-In this tutorial, learn how to configure WhoIAM Branded Identity Management System (BRIMS) in your environment and integrate it with Azure Active Directory B2C (Azure AD B2C). The BRIMS apps and services are deployed in your environment. They provide user verification with voice, SMS, and email. BRIMS works in conjunction with your identity and access management solution and is platform-agnostic.
+In this tutorial, learn how to configure WhoIAM Branded Identity Management System (BRIMS) in your environment and integrate it with Azure Active Directory B2C (Azure AD B2C). The BRIMS apps and services are deployed in your environment. They provide user verification with voice, SMS, and email. BRIMS works with your identity and access management solution and is platform-agnostic.
 
 Learn more: [WhoIAM, Products and Services, Branded Identity Management System](https://www.whoiam.ai/brims/)
 
@@ -59,7 +59,7 @@ The following diagram shows the implementation architecture.
     * [App Service](https://azure.microsoft.com/services/app-service/): Host the BRIMS API and admin portal services
     * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Authenticate administrative users for the portal
     * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Store and retrieve settings
-    * [Application Insights overview](../azure-monitor/app/app-insights-overview.md) (optional): Log in to the API and the portal
+    * [Application Insights overview](../azure-monitor/app/app-insights-overview.md) (optional): Sign in to the API and the portal
 
 3. Deploy the BRIMS API and the BRIMS administration portal in your Azure environment.
 4. Follow the documentation to configure your app. Use BRIMS for user identity verification. Azure AD B2C custom policy samples are in the BRIMS sign-up documentation.  
