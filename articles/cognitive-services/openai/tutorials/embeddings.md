@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: tutorial
 ms.date: 12/14/2022
-author: noabenefraim
+author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom:

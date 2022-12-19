@@ -177,7 +177,7 @@
     items:        
     - name: Create and manage labs
       href: how-to-manage-labs.md
-    - name: Use a shared image gallery
+    - name: Use an Azure compute gallery
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop for Linux
       href: how-to-enable-remote-desktop-linux.md
