@@ -178,7 +178,7 @@ To enable custom metrics for all clusters in your subscription:
 ---
 
 ## Verify the update
-To verify that custom metrics is enabled, open [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed.
+To verify that custom metrics are enabled, open [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed.
 
 ## Next steps
 
