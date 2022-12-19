@@ -28,8 +28,8 @@ This article contains reference information that may be useful when [configuring
   - AzureML extension can be deployed to AKS or Azure Arc-enabled Kubernetes in supported regions listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all).
 
 ## Recommended resource planing
-### For clusters only enabling inference in AzureML extension
-When you deploy the AzureML extension with the configuration of `enableInference= true`, some inference related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Inference Services and their resource usage** in the cluster:
+
+When you deploy the AzureML extension, some related services will be deployed to your Kubernetes cluster for Azure Machine Learning. The following table lists the **Related Services and their resource usage** in the cluster:
 
 |Deploy/Daemonset |Replica # |Training |Inference|CPU Request(m) |CPU Limit(m)| Memory Request(Mi) | Memory Limit(Mi) |
 |-- |--|--|--|--|--|--|--|
