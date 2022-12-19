@@ -628,6 +628,8 @@
         href: cyberark-saml-authentication-tutorial.md
       - name: CyberSolutions CYBERMAILΣ
         href: cybersolutions-cybermail-tutorial.md  
+      - name: Cybozu(cybozu.com)
+        href: cybozu-tutorial.md
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
       - name: Cytric
@@ -919,6 +921,8 @@
         href: flatter-files-tutorial.md
       - name: Flexera One
         href: flexera-one-tutorial.md  
+      - name: Flipsnack SAML
+        href: flipsnack-saml-tutorial.md
       - name: Float
         href: float-tutorial.md
       - name: Flock
@@ -1075,6 +1079,8 @@
         href: highground-tutorial.md
       - name: Hightail
         href: hightail-tutorial.md
+      - name: HighQ
+        href: highq-tutorial.md
       - name: Hive Learning
         href: hive-learning-tutorial.md
       - name: Hirebridge ATS
@@ -2347,6 +2353,8 @@
         href: teamzskill-tutorial.md
       - name: Templafy SAML2
         href: templafy-tutorial.md
+      - name: TencentCloud IDaaS
+        href: tencent-cloud-idaas-tutorial.md
       - name: Tendium
         href: tendium-tutorial.md
       - name: Terraform Cloud
@@ -2443,6 +2451,8 @@
         href: tribeloo-tutorial.md
       - name: TripActions
         href: tripactions-tutorial.md
+      - name: Tripwire Enterprise
+        href: tripwire-enterprise-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
       - name: TrueChoice
