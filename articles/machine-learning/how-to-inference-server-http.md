@@ -123,6 +123,29 @@ python -m pip install azureml-inference-server-http
 After testing, you can press `Ctrl + C` to terminate the server. 
 Now you can modify the scoring script (`score.py`) and test your changes by running the server again (`azmlinfsrv --entry_script score.py`).
 
+### How to integrate with Visual Studio Code
+
+There are two ways to use Visual Studio Code (VSCode) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package. 
+
+1. Start the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
+1. Set up the `launch.json` in the VSCode and starts the AzureML Inference Server within VSCode.
+
+**launch.json**
+```json
+{
+    "name": "Debug score.py",
+    "type": "python",
+    "request": "launch",
+    "module": "azureml_inference_server_http.amlserver",
+    "args": [
+        "--entry_script",
+        "score.py"
+    ]
+}
+```
+
+In both ways, you can set breakpoint and debug step by step.
+
 ### End-to-end example
 In this section, we'll run the server locally with [sample files](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/model-1) (scoring script, model file, and environment) in our example repository. The sample files are also used in our article for [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 
@@ -167,29 +190,6 @@ In this section, we'll run the server locally with [sample files](https://github
     ```
 
     The scoring result will be returned if there's no problem in your scoring script. If you find something wrong, you can try to update the scoring script, and launch the server again to test the updated script.
-
-### How to integrate with Visual Studio Code
-
-There are two ways to use Visual Studio Code (VSCode) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package. 
-
-1. Start the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
-1. Set up the `launch.json` in the VSCode and starts the AzureML Inference Server within VSCode.
-
-**launch.json**
-```json
-{
-    "name": "Debug score.py",
-    "type": "python",
-    "request": "launch",
-    "module": "azureml_inference_server_http.amlserver",
-    "args": [
-        "--entry_script",
-        "score.py"
-    ]
-}
-```
-
-In both ways, you can set breakpoint and debug step by step.
 
 ## Server Routes
 
