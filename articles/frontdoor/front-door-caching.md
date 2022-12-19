@@ -6,28 +6,14 @@ author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 12/12/2022
+ms.date: 12/19/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
 # Caching with Azure Front Door
 
-::: zone pivot="front-door-standard-premium"
-
-In this article, you'll learn how Azure Front Door Standard and Premium tier routes and rule sets behave when you have caching enabled. Azure Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing.
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-The following document specifies behaviors for Azure Front Door (classic) with routing rules that have enabled caching. Front Door is a modern Content Delivery Network (CDN) with dynamic site acceleration and load balancing, it also supports caching behaviors just like any other CDN.
-
-::: zone-end
-
-## Caching architecture
-
-When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
+Azure Front Door is a modern content delivery network (CDN), with dynamic site acceleration and load balancing capabilities. When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
 
 Each Front Door edge site manages its own cache, and requests might be served by different edge sites. As a result, you might still see some traffic reach your origin, even if you served cached responses.
 
