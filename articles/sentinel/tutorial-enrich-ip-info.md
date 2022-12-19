@@ -184,15 +184,17 @@ Now, to actually run this playbook, you'll need to create an automation rule tha
 
 1. In the **Create new automation rule** panel, name the rule "*Tutorial: Enrich IP info*".
 
-    Under **Conditions**, select **+ Add** and **Condition (And)**.
-
     :::image type="content" source="media/tutorial-enrich-ip-info/20-create-automation-rule-name.png" alt-text="Screenshot of creating an automation rule, naming it, and adding a condition.":::
+
+1. Under **Conditions**, select **+ Add** and **Condition (And)**.
+
+    :::image type="content" source="media/tutorial-enrich-ip-info/21-automation-rule-add-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
 
 1. Select **IP Address** from the property drop-down on the left. Select **Contains** from the operator drop-down, and leave the value field blank. This effectively means that the rule will apply to incidents that have an IP address field that contains anything.
 
     We don't want to stop any analytics rules from being covered by this automation, but we don't want the automation to be triggered unnecessarily either, so we're going to limit the coverage to incidents that contain IP address entities.
 
-    :::image type="content" source="media/tutorial-enrich-ip-info/21-create-automation-rule-condition.png" alt-text="Screenshot of adding a condition to an automation rule.":::
+    :::image type="content" source="media/tutorial-enrich-ip-info/22-automation-rule-condition.png" alt-text="Screenshot of defining a condition to add to an automation rule.":::
 
 1. Under **Actions**, select **Run playbook** from the drop-down.
 
