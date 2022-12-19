@@ -82,7 +82,7 @@ forecasting_job.set_forecast_settings(
 Once we submit the job for execution, the automl will generate the holiday features for given country or region ('US' in the above example) and `time_column_name` to create holiday features. 
 The output is shown below:
 
-# ![output](./media/sample_dataset_holiday_feature_generated.png)
+# [output](./media/sample_dataset_holiday_feature_generated.png)
 
 <br>
 <br>
