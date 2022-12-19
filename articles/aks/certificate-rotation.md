@@ -75,7 +75,7 @@ For any AKS clusters created or upgraded after March 2022 Azure Kubernetes Servi
 
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths:
 
-* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig*
+* On a Linux node: */var/lib/kubelet/bootstrap-kubeconfig* or */host/var/lib/kubelet/bootstrap-kubeconfig*
 * On a Windows node: *C:\k\bootstrap-config*
 
 To access agent nodes, see [Connect to Azure Kubernetes Service cluster nodes for maintenance or troubleshooting][aks-node-access] for more information.
