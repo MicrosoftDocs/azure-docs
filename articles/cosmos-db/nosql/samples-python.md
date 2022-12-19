@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
-ms.date: 12/16/2022
+ms.date: 12/19/2022
 ms.custom: devx-track-python, ignite-2022, devguide-python, py-fresh-zinc
 ---
 
