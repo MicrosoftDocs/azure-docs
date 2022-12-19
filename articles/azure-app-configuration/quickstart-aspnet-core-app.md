@@ -242,14 +242,14 @@ In this example, you'll update a web page to display its content using the setti
     dotnet run
     ```
 
-1. Open a browser and navigate to the URL the app is listening on, as specified in the command output. It looks like `https://localhost:5001`.
+1. The output of the `dotnet run` command contains two URLs. Open a browser and navigate to one of these URLs to access your application. For example: `https://localhost:5001`.
 
     If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000*, and select *Open and browse*.
 
-    ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
+    :::image type="content" source="./media/quickstarts/cloud-shell-web-preview.png" alt-text="Screenshot of Azure Cloud Shell. Locate Web Preview.":::
 
-    The web page will look like this:
-    ![Launching quickstart app locally](./media/quickstarts/aspnet-core-app-launch-local-before.png)
+    The web page looks like this:
+       :::image type="content" source="./media/quickstarts/aspnet-core-app-launch-local-navbar.png" alt-text="Screenshot of the browser.Launching quickstart app locally.":::
 
 ## Clean up resources
 
