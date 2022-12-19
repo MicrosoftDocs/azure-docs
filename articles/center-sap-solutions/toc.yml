@@ -398,6 +398,8 @@ items:
       href: monitor/set-up-network.md
     - name: Configure Azure Monitor for SAP solutions alerts in Azure portal
       href: monitor/get-alerts-portal.md
+    - name: Enable TLS in Azure Monitor for SAP solutions
+      href: monitor/enable-tls-azure-monitor-sap-solutions.md
     - name: Provider configuration
       items:
       - name: Configure NetWeaver provider
