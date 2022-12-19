@@ -147,7 +147,7 @@
     },
     {
         "source_path_from_root": "/articles/api-management/validation-policies.md",
-        "redirect_url": "/azure/api-management/api-management-policies.md#validation-policies",
+        "redirect_url": "/azure/api-management/api-management-policies#validation-policies",
         "redirect_document_id": false
     }
   ]
