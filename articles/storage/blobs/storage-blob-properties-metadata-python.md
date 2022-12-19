@@ -1,0 +1,77 @@
+---
+title: Manage properties and metadata for a blob with Python - Azure Storage
+description: Learn how to set and retrieve system properties and store custom metadata on blobs in your Azure Storage account using the Python client library.
+services: storage
+author: pauljewellmsft
+
+ms.author: pauljewell
+ms.date: 11/16/2022
+ms.service: storage
+ms.subservice: blobs
+ms.topic: how-to
+ms.devlang: python
+ms.custom: devx-track-python, devguide-python
+---
+
+# Manage blob properties and metadata using the Python client library
+
+In addition to the data they contain, blobs support system properties and user-defined metadata. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Python](/python/api/overview/azure/storage).
+
+## About properties and metadata
+
+- **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for Python maintains these properties for you.
+
+- **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+
+> [!NOTE]
+> Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
+>
+> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
+
+## Set and retrieve properties
+
+To set properties on a blob, use the following method:
+
+- [BlobClient.setHTTPHeaders](/java/api/com.azure.storage.blob.specialized.blobclientbase.sethttpheaders#com-azure-storage-blob-specialized-blobclientbase-sethttpheaders(com-azure-storage-blob-models-blobhttpheaders))
+
+The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
+
+Any properties not explicitly set are cleared. The following code example first gets the existing properties on the blob, then uses them to populate the headers that aren't being updated.
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_SetBlobProperties":::
+
+To retrieve properties on a blob, use the following method:
+
+- [BlobClient.getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties())
+
+The following code example gets a blob's system properties and displays some of the values:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_GetBlobProperties":::
+
+## Set metadata
+
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, send a JSON object of name-value pairs using the following method:
+
+- [BlobClient.setMetadata](/java/api/com.azure.storage.blob.specialized.BlobClientBase#com-azure-storage-blob-specialized-blobclientbase-setmetadata(java-util-map(java-lang-string-java-lang-string))).
+
+Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names, valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
+
+Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code `400 (Bad Request)`.
+
+The following code example sets metadata on a blob:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_AddBlobMetadata":::
+
+To retrieve metadata, call the [getProperties](/java/api/com.azure.storage.blob.specialized.blobclientbase#com-azure-storage-blob-specialized-blobclientbase-getproperties()) method on your blob to populate the metadata collection, then read the values, as shown in the example below. The `getProperties` method retrieves blob properties and metadata in a single call. This functionality is different from the REST APIs, which require separate calls to [Get Blob Properties](/rest/api/storageservices/get-blob-properties) and [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata).
+
+The following code example reads metadata on a blob and prints each key/value pair: 
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py" id="Snippet_ReadBlobMetadata":::
+
+## See also
+
+- [View code sample in GitHub](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Python/blob-devguide/blob-devguide/blob-properties-metadata-tags.py)
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties) (REST API)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties) (REST API)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
