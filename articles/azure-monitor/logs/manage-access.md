@@ -282,7 +282,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
 1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
     
-    1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
+    1. Navigate to your workspace and select **Access control (IAM)** > **Roles**.
     
     1. Right-click the **Reader** role and select **Clone**.
     
@@ -300,7 +300,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
     1. Copy the custom role ID:
-        1. Select **Access control (AIM)** > **Roles**.
+        1. Select **Access control (IAM)** > **Roles**.
         1. Right-click on your custom role and select **Edit**. 
           
            This opens the **Custom Role** screen.
@@ -312,7 +312,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
             You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value when you call the `https://management.azure.com/batch?api-version=2020-06-01` POST API.
 
 1. Assign your custom role to the relevant users or groups:
-    1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
+    1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
     
        :::image type="content" source="media/manage-access/manage-access-add-role-assignment-button.png" alt-text="Screenshot that shows the Access control screen with the Add role assignment button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-button.png":::
 
