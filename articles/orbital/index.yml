@@ -4,7 +4,7 @@ title: Azure Orbital documentation
 summary: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
 
 metadata:
-  title: Azure Orbital documentation
+  title: Azure Orbital Ground Station documentation
   description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
   ms.service: orbital
   ms.topic: landing-page
