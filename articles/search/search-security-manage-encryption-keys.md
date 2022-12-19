@@ -18,7 +18,7 @@ Azure Cognitive Search automatically encrypts data at rest with [service-managed
 
 This article walks you through the steps of setting up customer-managed key (CMK) or "bring-your-own-key" (BYOK) encryption. Here are some points to keep in mind:
 
-+ CMK encryption is enacted on individual objects. If you require CMK unilaterally across your search service, [set an enforcement policy](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchencryptionwithcmk) at the service level so that you can be notified if the service falls out of compliance.
++ CMK encryption is enacted on individual objects. If you require CMK across your search service, [set an enforcement policy](#encryption-enforcement-policy).
 
 + CMK encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
@@ -332,6 +332,12 @@ Once you create the encrypted object on the search service, you can use it as yo
 
 > [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault page in Azure portal.
+
+<a name="encryption-enforcement-policy"></a>
+
+## 6 (Optional) - Setup policy to enforce encryption
+
+Azure Cognitive Search has a [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) to enforce usage of CMK on individual objects defined in a search service. In this step, you'll apply this policy to the subscription and/or resource group your search service is in.
 
 ## REST examples
 
