@@ -820,6 +820,8 @@
         href: easysso-for-jira-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
         href: ethicspoint-incident-management-tutorial.md
+      - name: ETU Skillsims
+        href: etu-skillsims-tutorial.md
       - name: Euromonitor International
         href: euromonitor-passport-tutorial.md
       - name: EverBridge
@@ -1897,6 +1899,8 @@
         href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
+      - name: QRadar SOAR
+        href: qradar-soar-tutorial.md
       - name: QReserve
         href: qreserve-tutorial.md
       - name: Qualaroo
