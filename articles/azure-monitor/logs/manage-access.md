@@ -301,7 +301,7 @@ To create a [custom role](../../role-based-access-control/custom-roles.md) that 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
     1. Copy the custom role ID:
         1. Select **Access control (IAM)** > **Roles**.
-        1. Right-click on your custom role and select **Edit**. 
+        1. Select your custom role and click on **View**. 
           
            This opens the **Custom Role** screen.
 
