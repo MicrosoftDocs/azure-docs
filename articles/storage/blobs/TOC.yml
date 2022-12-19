@@ -635,7 +635,7 @@ items:
             - name: List containers
               href: storage-blob-containers-list-java.md
             - name: Manage container leases
-              href: storage-blob-containers-lease-java.md
+              href: storage-blob-container-lease-java.md
             - name: Manage properties and metadata
               href: storage-blob-container-properties-metadata-java.md
           - name: Blob actions
