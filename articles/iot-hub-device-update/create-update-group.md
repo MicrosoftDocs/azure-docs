@@ -193,6 +193,20 @@ az iot du device group show \
 
 ---
 
+## Deleting device groups
+
+While device groups are automatically created, groups, device classes and deployments are not automatically cleaned up so as to retain them for historical records or other user needs. Device groups can be deleted through Azure Portal by individually selecting and deleting the desired groups, or by calling the DELETE API on the group. [Learn more](/cli/azure/iot/du/device/group#az-iot-du-device-group-delete)
+
+If a device is ever connected again for this group after the group is deleted, while the group will be automatically re-created there will be no associated device or deployment history. 
+
+To be deleted, a group must meet the following requirements: 
+* The group must have NO member devices. This means that no device provisioned in the Device Update instance should have a ADUGroup tag with a value matching the selected group's name. 
+* The group must NOT be a default group. 
+* The group must have NO active or cancelled deployments associated with it. 
+
+> [!NOTE]
+> If you are still unable to delete a group after meeting the above requirements, then validate whether you have any Unhealthy devices that are tagged as part of the group. Unhealthy devices are devices that cannot receive a deployment, and as a result don't show up directly in the list of member devices within a group. You can validate whether you have any unhealthy devices by going to "Find missing devices" within the Diagnostics tab in the Device Update Portal experience. In case you have Unhealthy devices that are tagged as part of the group, you will need to modify the tag value or delete the device entirely before attempting to delete your group. 
+
 ## Next Steps
 
 * [Deploy an update](deploy-update.md)
