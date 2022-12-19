@@ -118,7 +118,7 @@ Use the **Variable explorer** to see the variables defined in your current noteb
 1. Select the **"..."** in the notebook toolbar.
 1. Select **Variable explorer**.
     
-    :::image type="content" source="media/quickstart-run-notebooks/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::
+    :::image type="content" source="media/tutorial-set-up-workstation/variable-explorer.png" alt-text="Screenshot: Variable explorer tool.":::
 
     The explorer appears at the bottom.  You'll see your current variable, `df`.  The variable explorer is tool that will help you understand the current state of variables in your notebook.
 
@@ -224,7 +224,7 @@ When you run the script in a terminal, you'll see text output, but not the plots
 
 1. Select the file **plots.png** to open it in another tab.
 1. Close the terminal tab to terminate the session.
-f
+
 ## Learn from sample notebooks
 
 Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
