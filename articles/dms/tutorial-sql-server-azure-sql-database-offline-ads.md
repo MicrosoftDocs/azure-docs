@@ -282,8 +282,13 @@ You've completed the migration to Azure SQL Database. We encourage you to go t
 > [!IMPORTANT]
 > Be sure to take advantage of the advanced cloud-based features of Azure SQL Database. The features include [built-in high availability](/azure/azure-sql/database/high-availability-sla), [threat detection](/azure/azure-sql/database/azure-defender-for-sql), and [monitoring and tuning your workload](/azure/azure-sql/database/monitor-tune-overview).
 
+## Limitations
+
+[!INCLUDE [database-migration-service-ads](includes/sql-database-limitations.md)]
+
 ## Next steps
 
 - Complete a quickstart to [create an Azure SQL Database instance](/azure/azure-sql/database/single-database-create-quickstart).
 - Learn more about [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 - Learn how to [connect apps to Azure SQL Database](/azure/azure-sql/database/connect-query-content-reference-guide).
+- To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

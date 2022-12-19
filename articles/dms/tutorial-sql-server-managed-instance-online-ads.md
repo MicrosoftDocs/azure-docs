@@ -192,8 +192,15 @@ During the cutover process, the migration status changes from *in progress* to *
 > [!IMPORTANT]
 > After the cutover, availability of SQL Managed Instance with Business Critical service tier only can take significantly longer than General Purpose as three secondary replicas have to be seeded for Always On High Availability group. This operation duration depends on the size of data, for more information, see [Management operations duration](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
+## Limitations
+
+Migrating to Azure SQL Managed Instance by using the Azure SQL extension for Azure Data Studio has the following limitations: 
+
+[!INCLUDE [database-migration-service-ads](includes/sql-managed-instance-limitations.md)]
+
 ## Next steps
 
 * For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
 * For information about SQL Managed Instance, see [What is SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview).
 * For information about connecting apps to SQL Managed Instance, see [Connect applications](/azure/azure-sql/managed-instance/connect-application-instance).
+* To troubleshoot, review [Known issues](known-issues-azure-sql-migration-azure-data-studio.md).

@@ -32,6 +32,39 @@ For up-to-date info about the regional availability of Azure Database Migration 
 
 For up-to-date info about Azure Database Migration Service pricing, see [Azure Database Migration Service pricing](https://azure.microsoft.com/pricing/details/database-migration/).
 
+## Compare versions
+
+In 2021, a newer version of the Azure Database Migration Service was released as an extension for Azure Data Studio (ADS), which improved the functionality and supportability of the migration service. Consider using the Azure SQL migration extension for Azure Data Studio whenever possible. 
+
+The following table compares the functionality of the versions for the Database Migration Service: 
+
+
+|Feature  |DMS v1  |Azure SQL extension for Azure Data Studio  |Notes| 
+|---------|---------|---------|---------|
+|Assessment | No | Yes | Assess compatibility of the source.         |
+|SKU recommendation | No  | Yes | SKU recommendations for the target based on the assessment of the source.       |
+|SQL DB online migration  | No | No |Migrate to Azure SQL Database online with minimal downtime. |
+|SQL DB offline migration | No | Yes | Migrate to Azure SQL Database offline. |
+|SQL MI online migration  | No  |Yes | Migrate to Azure SQL Managed Instance online with minimal downtime. |
+|SQL MI offline migration | Yes |Yes  | Migrate to Azure SQL Managed Instance offline.    |
+|SQL VM online migration  | Yes | Yes  |Migrate to SQL Server on Azure VMs online with minimal downtime.|
+|SQL VM offline migration | Yes |Yes  |  Migrate to SQL Server on Azure VMs offline.  |
+|Migrate logins|Yes  | Yes  | Migrate logins from your source to your target.|
+|Migrate schemas| Yes  | No  | Migrate schemas from your source to your target. |
+|Azure portal support |Yes  | Yes  | Control your migration by using the Azure portal. |
+|Integration with ADS| No  | Yes  | Migration support integrated with Azure Data Studio. |
+|Integration with Azure migrate| No  | Yes  | Migration support integrated with Azure migrate. |
+|Regional availability|Yes  |Yes  | More regions are available with the extension. |
+|Pricing|Free  | Free  |Both are free services, but the extension has the advantage of bringing your own compute.|
+|Improved maintenance cost| No | Yes   | Maintenance costs are lower with the extension.|
+|Resilience, availability, and scalability|  | Yes  | Deployed as Service fabric and maintains state in SQL control plane.   |
+|Improved user experience| No  | Yes  | The extension is faster, more secure, and easier to troubleshoot. |
+|Automation| No | Yes  |The extension supports PowerShell, and Terraform. |
+|Private endpoints| No | Yes| Connect to your source and target using private endpoints.
+|TDE support|No  | Yes  |Migrate databases encrypted with TDE. |
+
+
+
 ## Next steps
 
 * [Status of migration scenarios supported by Azure Database Migration Service](./resource-scenario-status.md)

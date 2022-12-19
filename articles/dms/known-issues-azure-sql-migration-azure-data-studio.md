@@ -1,5 +1,5 @@
 ---
-title: "Known issues, limitations, and troubleshooting"
+title: "Known issues, and troubleshooting"
 titleSuffix: Azure Database Migration Service
 description: Known issues, limitations and troubleshooting guide for Azure SQL Migration extension for Azure Data Studio
 services: database-migration
@@ -11,12 +11,12 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: troubleshooting
-ms.date: 10/19/2022
+ms.date: 12/19/2022
 ---
 
-# Known issues, limitations, and troubleshooting
+# Known issues, and troubleshooting
 
-Known issues and limitations associated with the Azure SQL Migration extension for Azure Data Studio.
+Known issues and troubleshooting steps associated with the Azure SQL Migration extension for Azure Data Studio.
 
 > [!NOTE]
 > When checking migration details using the Azure Portal, Azure Data Studio or PowerShell / Azure CLI you might see the following error: *Operation Id {your operation id} was not found*. This can either be because you provided an operationId as part of an api parameter in your get call that does not exist, or the migration details of your migration were deleted as part of a cleanup operation.
@@ -206,36 +206,6 @@ WHERE STEP in (3,4,6);
 - **Recommendation**: See [Troubleshoot Azure Data Factory and Synapse pipelines](../data-factory/data-factory-troubleshoot-guide.md#error-code-2108) for troubleshooting steps.  
 
 
-## Azure SQL Database Migration limitations
-
-The Azure SQL Database offline migration (Preview) utilizes Azure Data Factory (ADF) pipelines for data movement and thus abides by ADF limitations. A corresponding ADF is created when a database migration service is also created. Thus factory limits apply per service.
-
-- 100,000 table per database limit. 
-- 10,000 concurrent database migrations per service. 
-- Migration speed heavily depends on the target Azure SQL Database SKU and the self-hosted Integration Runtime host. 
-- Azure SQL Database migration scales poorly with table numbers due to ADF overhead in starting activities. If a database has thousands of tables, there will be a couple of seconds of startup time for each, even if they're composed of one row with 1 bit of data. 
-- Azure SQL Database table names with double byte characters currently aren't supported for migration.  Mitigation is to rename tables before migration; they can be changed back to their original names after successful migration.
-- Tables with large blob columns may fail to migrate due to timeout.
-- Database names with SQL Server reserved words aren't valid.
-- Database names with double-byte character set (DBCS) are currently not supported.
-- Table names that include semicolons are currently not supported.
-- Computed columns do not get migrated.
-
-## Azure SQL Managed Instance and SQL Server on Azure Virtual Machine known issues and limitations
-- If migrating multiple databases to **Azure SQL Managed Instance** using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. 
-- If migrating a single database to **Azure SQL Managed Instance**, the database backups must be placed in a flat-file structure inside a database folder, and the folders can't be nested, as it's not supported.
-- Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
-- Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
-- The following server objects aren't supported:
-    - Logins
-    - SQL Server Agent jobs
-    - Credentials
-    - SSIS packages
-    - Server roles
-    - Server audit
-- SQL Server 2008 and below as target versions aren't supported when migrating to SQL Server on Azure Virtual Machines.
-- If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
-- You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations.
 
 ## Next steps
 
