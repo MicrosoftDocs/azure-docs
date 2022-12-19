@@ -4,7 +4,7 @@ description: Tutorial - Use GitHub Actions to automate the steps for creating an
 author: kgremban
 ms.author: kgremban
 manager: lizross
-ms.date: 12/15/2022
+ms.date: 12/19/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -31,8 +31,8 @@ In this tutorial, you learn how to:
 
 * The Azure CLI
 
-  * Use the Bash environment in [Azure Cloud Shell](../articles/cloud-shell/quickstart.md).
-   [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+  * Use the Bash environment in [Azure Cloud Shell](../cloud-shell/quickstart.md).
+   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
   * Or, If you prefer to run CLI reference commands locally, [install](/cli/azure/install-azure-cli) the Azure CLI. If you're running on Windows or macOS, consider [running Azure CLI in a Docker container](/cli/azure/run-azure-cli-docker).
 
     * If you're using a local installation, sign in to the Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
