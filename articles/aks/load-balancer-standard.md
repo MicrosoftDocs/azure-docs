@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 12/15/2022
+ms.date: 12/19/2022
 ms.author: jpalma
 author: palma21
 
