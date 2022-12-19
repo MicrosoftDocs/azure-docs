@@ -571,7 +571,7 @@ az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClu
 
 #### Delete the Flux configuration
 
-To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete again when prompted to confirm.
+To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete** again when prompted to confirm.
 
 When you delete a Flux configuration, all of the Flux configuration objects in the cluster will also be deleted. However, this action does not delete the `microsoft.flux` extension itself.
 
