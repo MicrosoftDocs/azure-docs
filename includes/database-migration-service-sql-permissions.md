@@ -8,9 +8,6 @@ ms.author: ajithkr-ms
 
   The login used to assess a SQL Server instance requires certain minimal permissions to query the requisite information. The following script shows creation of a SQL Server login with the requisite permissions.
 
-   > [!TIP]
-   > Where possible, use a Windows login to simplify account administration
-
    ```sql
     -- Create a login to run the assessment
     use master;
