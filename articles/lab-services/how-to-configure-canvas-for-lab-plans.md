@@ -14,7 +14,9 @@ ms.custom: engagement-fy23
 
 Learn more about the [benefits of using Azure Lab Services within Canvas](./lab-services-within-canvas-overview.md).
 
-For information about creating and managing labs in Canvas, see [Create and manage labs in Canvas](./how-to-manage-labs-within-canvas.md).
+To configure Canvas to use Azure Lab Services, go through the one-time step to [enable the Azure Lab Services app in Canvas](#enable-the-azure-lab-services-app-in-canvas). Next, you can then [add the Azure Lab Services app to your course](#add-azure-lab-services-to-a-course).
+
+If you've already configured your course to use Azure Lab Services, learn how you can [Create and manage labs in Canvas](./how-to-manage-labs-within-canvas.md).
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -22,7 +24,7 @@ For information about creating and managing labs in Canvas, see [Create and mana
 
 - An Azure Lab Services lab plan. Follow these steps to [Create a lab plan in the Azure portal](./tutorial-setup-lab-plan.md), if you don't have one yet.
 
-- Your Canvas account needs [Admin permissions](https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-is-the-Admin-role/ta-p/78) to add the Azure Lab Services app to Canvas, and to link lab plans.
+- Your Canvas account needs [Admin permissions](https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-is-the-Admin-role/ta-p/78) to add the Azure Lab Services app to Canvas.
 
 - To link lab plans, your Azure account needs the following permissions. Learn how to [assign Azure Active Directory roles to users](/azure/active-directory/roles/manage-roles-portal).
     - Reader role on the Azure subscription.
@@ -93,9 +95,9 @@ Next, you associate the Azure Lab Services app with a course in Canvas. You have
 
 ### Add the Azure Lab Services app to a course
 
-You add the Azure Lab Services app to a specific course in Canvas, if you didn't previously add the Azure Lab Services app at the Canvas account level.
+You now add the Azure Lab Services app to a specific course in Canvas.
 
-1. In Canvas, go to the course that uses Azure Lab Services.
+1. In Canvas, go to the course that will use Azure Lab Services.
 
 1. Choose **Settings**, and then select the **Apps** tab.
 
