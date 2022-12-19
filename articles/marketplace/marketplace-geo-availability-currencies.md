@@ -194,8 +194,6 @@ The following illustration shows the currency conversion flow:
 ![Screenshot of the geo availability of currencies.](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-12-12-2022.png)
 
 
-![currency-exchange-flow1](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-12-12-2022.png)
-
 
 ## Options to manage local prices, for example in cases where markets have high foreign exchange rate variations
 Once a plan is created and saved, the prices in all local currencies are static and are not updated automatically, for example when there are foreign exchange fluctuations.
@@ -216,5 +214,6 @@ As an ISV, you have several options available to minimize impact of foreign exch
    - If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
    - If possible, have the customer billing profile to be set in USD
    - For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
+
 
 
