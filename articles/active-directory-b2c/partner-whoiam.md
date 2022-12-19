@@ -25,7 +25,7 @@ Learn more: [WhoIAM, Products and Services, Branded Identity Management System](
 
 To get started, you'll need:
 
-- An Azure AD subscription.
+- An Azure AD subscription
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A WhoIAM trial account
@@ -55,7 +55,7 @@ The following diagram shows the implementation architecture.
 1. Contact [WhoIAM](https://www.whoiam.ai/contact-us/) and create a BRIMS account.
 2. Configure the following Azure services:
 
-    * [Key Vault](https://azure.microsoft.com/services/key-vault/): Secure password storage
+    * [Key Vault](https://azure.microsoft.com/services/key-vault/): Store passwords
     * [App Service](https://azure.microsoft.com/services/app-service/): Host the BRIMS API and admin portal services
     * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Authenticate administrative users for the portal
     * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Store and retrieve settings
