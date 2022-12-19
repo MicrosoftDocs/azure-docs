@@ -87,6 +87,8 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | **Branding**  | Host/inviting organization's brand is used.  | For sign-in screens, the user’s home organization brand is used. In the shared channel, the resource organization's brand is used. | Fully customizable branding per application or organization.   |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)            |   [Documentation](b2b-direct-connect-overview.md)     | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
 
+Based on your organization’s requirements you might use cross-tenant synchronization (preview) in multi-tenant organizations. For more information about this new feature, see the [multi-tenant organization documentation](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054) and the [feature comparison](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/overview?branch=pr-en-us-209054#compare-multi-tenant-capabilities). 
+
 ## Managing External Identities features
 
 Azure AD B2B collaboration and B2B direct connect are features Azure AD, and they're managed in the Azure portal through the Azure Active Directory service. To control inbound and outbound collaboration, you can use a combination of *cross-tenant access settings* and *external collaboration settings*.
@@ -100,6 +102,8 @@ Cross-tenant access settings let you manage B2B collaboration and B2B direct con
 - **Organization-specific access settings** let you configure customized settings for individual Azure AD organizations. Once you add an organization and customize your cross-tenant access settings with this organization, these settings will take precedence over your defaults. For example, you could disable B2B collaboration and B2B direct connect with all external organizations by default, but enable these features only for Fabrikam.
 
 For more information, see [Cross-tenant access in Azure AD External Identities](cross-tenant-access-overview.md).
+
+Azure AD ha a new feature called multi-tenant organizations. Multi-tenant organizations are using cross-tenant synchronization (preview) for seamless collaboration experience across Azure AD tenants. Cross-tenant synchronization settings are also configured under the **Organization-specific access settings**. To learn more about multi-tenant organizations and cross-tenant synchronization see the [Multi-tenant organizations documentation](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054).
 
 ### Microsoft cloud settings for B2B collaboration (preview)
 
@@ -161,6 +165,12 @@ Organizations can enforce Conditional Access policies for external B2B collabora
 ### Multitenant applications
 
 If you offer a Software as a Service (SaaS) application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. This configuration is called making your application multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application. See how to [enable multitenant sign-ins](../develop/howto-convert-app-to-be-multi-tenant.md).
+
+### Multi-tenant organizations
+
+A multi-tenant organization is an organization that has more than one instance of Azure AD. There are various reasons for [multi-tenancy](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/overview?branch=pr-en-us-209054#what-is-a-multi-tenant-organization), like using multiple clouds or having multiple geographical boundaries. Multi-tenant organizations use a one-way synchronization service in Azure AD, called [cross-tenant synchronization](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-overview?branch=pr-en-us-209054). Cross-tenant synchronization enables seamless collaboration for a multi-tenant organization, improves user experience and ensures that users can access resources, without receiving an invitation email and having to accept a consent prompt in each tenant. Cross-tenant synchronization is currently in PREVIEW.
+Learn more about multi-tenant organizations [here](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054).
+
 
 ## Next steps
 
