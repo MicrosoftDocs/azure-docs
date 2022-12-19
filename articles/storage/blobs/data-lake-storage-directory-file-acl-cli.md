@@ -1,5 +1,6 @@
 ---
 title: Use Azure CLI to manage data (Azure Data Lake Storage Gen2)
+titleSuffix: Azure Storage
 description: Use the Azure CLI to manage directories and files in storage accounts that have a hierarchical namespace.
 services: storage
 author: jimmart-dev

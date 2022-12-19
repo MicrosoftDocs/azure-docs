@@ -1,5 +1,6 @@
 ---
 title: Use Java to manage data in Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that has hierarchical namespace enabled.
 author: pauljewellmsft
 
