@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/13/2022
+ms.date: 12/17/2022
 ms.author: lajanuar
 ---
 
 # Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
+[Document Translation](../overview.md) is a cloud-based feature of the [Azure Translator](../../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](../quickstarts/get-started-with-rest-api.md) guide.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation is not supported for the free tier).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource). Choose **Global** unless your business or application requires a specific region. Select the **Standard S1** pricing tier to get started (document translation isn't supported for the free tier).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -41,7 +41,7 @@ For more information, *see* [Create SAS tokens](create-sas-tokens.md).
 
 ### [C#/.NET v1.0.0 (GA)](#tab/csharp)
 
-| [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Translation.Document)| [Client library](/dotnet/api/overview/azure/AI.Translation.Document-readme) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples) |
+| [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Translation.Document)| [Client library](/dotnet/api/overview/azure/AI.Translation.Document-readme) |  [REST API](../reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/1.0.0/index.html) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0/sdk/translation/Azure.AI.Translation.Document/samples) |
 
 ### Set up your project
 
@@ -103,7 +103,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
+In the application's **Program** class, create variables for your key and custom endpoint. For details, *see* [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -118,7 +118,7 @@ private static readonly string key = "<your key>";
 
 * **sourceUri**. The SAS URI for the source container containing documents to be translated.
 * **targetUri** The SAS URI for the target container to which the translated documents will be written.
-* **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../language-support.md) page.
+* **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../language-support.md) page.
 
 ```csharp
 
@@ -163,13 +163,13 @@ That's it! You've created a program to translate documents in a storage containe
 
 ### [Python v1.0.0 (GA)](#tab/python)
 
-| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true) |  [REST API](reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
+| [Package (PyPI)](https://pypi.org/project/azure-ai-translation-document/) |  [Client library](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true) |  [REST API](../reference/rest-api-guide.md) | [Product documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/latest/azure.ai.translation.document.html) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples) |
 
 ### Set up your project
 
 ### Install the client library
 
-If you haven't done so, install [Python](https://www.python.org/downloads/) and then install the latest version of the Translator client library:
+If you haven't done so, install [Python](https://www.python.org/downloads/), and then install the latest version of the Translator client library:
 
 ```console
 pip install azure-ai-translation-document==1.0.0
@@ -186,7 +186,7 @@ from azure.ai.translation.document import DocumentTranslationClient
 ```
 
 Create variables for your resource key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Custom domain name and key](get-started-with-document-translation.md#your-custom-domain-name-and-key)
+more information, *see*  [Custom domain name and key](../quickstarts/get-started-with-rest-api.md#your-custom-domain-name-and-key)
 
 ```python
 key = "<your-key>"
@@ -230,4 +230,4 @@ That's it! You've created a program to translate documents in a storage containe
 ### Next step
 
 > [!div class="nextstepaction"]
- > [**Try the REST API quickstart**](get-started-with-document-translation.md)
+ > [**Try the REST API quickstart**](../quickstarts/get-started-with-rest-api.md)
