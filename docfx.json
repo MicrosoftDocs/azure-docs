@@ -1223,6 +1223,8 @@
           "articles/center-sap-solutions/large-instances/large-instance-high-availability-rhel.md",
           "articles/center-sap-solutions/large-instances/os-upgrade-hana-large-instance.md",
           "articles/center-sap-solutions/workloads/dbms-guide-ha-ibm.md",
+          "articles/center-sap-solutions/workloads/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+          "articles/center-sap-solutions/workloads/high-availability-guide-rhel-ibm-db2-luw.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
           "articles/databox-online/azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md",
           "articles/defender-for-iot/organizations/alert-engine-messages.md",
