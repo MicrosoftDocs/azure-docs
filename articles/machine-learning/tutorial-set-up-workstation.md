@@ -141,7 +141,7 @@ The notebook kernel on the compute instance has all the basics for running your 
     import seaborn as sns
     import matplotlib.pyplot as plt
     
-    fig, axs = plt.subplots(ncols=3, figsize=(10,3))
+    fig, axs = plt.subplots(ncols=3, figsize=(15,5))
     sns.violinplot(x="survived", y="age", hue="sex", data=df, ax=axs[0])
     sns.pointplot(x="parch", y="survived", hue="sex", data=df, ax=axs[1]) # parch = number of parents/children
     sns.violinplot(x="survived", y="fare", hue="sex", data=df, ax=axs[2]) # ticket cost
