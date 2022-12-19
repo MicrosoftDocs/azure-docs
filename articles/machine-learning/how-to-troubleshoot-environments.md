@@ -555,7 +555,7 @@ This can happen when a Docker image pull fails due to a network issue.
 **Potential causes:**
 * Network connection issue, which could be temporary
 * Firewall is blocking the connection
-* ACR is unreachable and there is network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
+* ACR is unreachable and there's network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -563,12 +563,13 @@ This can happen when a Docker image pull fails due to a network issue.
 <!--/issueDescription-->
 
 **Troubleshooting steps**  
+
 Add the host to the firewall rules  
 * See [configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md) to learn how to use Azure Firewall for your workspace and resources behind a VNet
 
-Assess your workspace set-up. Are you using a virtual network, or are any of the resources you are trying to access during your image build behind a virtual network?
-* Ensure that you have followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
-* Azure Machine Learning requires both inbound and outbound access to the public internet. If there is a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
+Assess your workspace set-up. Are you using a virtual network, or are any of the resources you're trying to access during your image build behind a virtual network?
+* Ensure that you've followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
+* Azure Machine Learning requires both inbound and outbound access to the public internet. If there's a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
 
 If you aren't using a virtual network, or if you have configured it correctly
 * Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
