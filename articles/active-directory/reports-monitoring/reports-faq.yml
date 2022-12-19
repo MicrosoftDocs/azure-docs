@@ -36,16 +36,6 @@ sections:
         answer: |
           If you've recently switched to a Premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
 
-      - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
-        answer: |
-          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
-          
-      - question: |
-          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
-        answer: |
-          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
-
   - name: Activity logs
     questions:
       - question: |
@@ -169,3 +159,21 @@ sections:
           My sign-in was blocked due to a Conditional Access policy, but the sign-ins log shows that the sign-in succeeded. Why?
         answer: |
           Currently the sign-ins log may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a CA policy.
+
+  - name: Microsoft Graph APIs
+    questions:
+      - question: |
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD audit and integrated application usage reports into our reporting systems programmatically. What should I switch to?
+        answer: |
+          Look up the [API reference](https://developer.microsoft.com/graph/) to see how you can [use the APIs to access activity logs](concept-reporting-api.md). This endpoint has two reports (**Audit** and **Sign-ins**) which provide all the data you got in the old API endpoint. This new endpoint also has a sign-ins report with the Azure AD Premium license that you can use to get app usage, device usage, and user sign-in information.
+          
+      - question: |
+          I currently use the https://graph.windows.net/<tenant-name>/reports/ endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?
+        answer: |
+          You can use the [Identity Protection risk detections API](../identity-protection/howto-identity-protection-graph-api.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](/graph/api/resources/identityprotection-root), which is the Microsoft standard for such APIs as Microsoft 365 or Azure AD. So the work required can either extend your current Microsoft Graph investments or help you begin your transition to this new standard platform.
+
+      - question: |
+          I keep getting permissions errors when running queries. I thought I had the appropriate role.
+        answer: |
+          You may need to sign in to Microsoft Graph separately from the Azure portal. Select your profile icon on the upper-right corner and sign in to the right directory.
+          You may be trying to run a query that you don't have permissions for. Select **Modify Permissions** and select the **Consent** button. Follow the sign-in prompts.

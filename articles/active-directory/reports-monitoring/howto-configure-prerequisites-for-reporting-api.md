@@ -31,13 +31,13 @@ To get access to the reporting data through the API, you need to have one of the
 - Security Administrator
 - Global Administrator
 
-In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium license. Azure AD Premium P1 (or above) license is required  to access sign-in reports for any Azure AD tenant. Alternatively if the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any additional license requirement. 
+In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium P1 or P2 license. Alternatively if the directory type is Azure AD B2C, the sign-in reports are accessible through the API without any additional license requirement. 
 
 ## Register an application
 
 Registration is needed even if you're accessing the reporting API using a script. The registration gives you an **Application ID**, which is required for the authorization calls and enables your code to receive tokens.
 
-To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the roles defined above.
+To configure your directory to access the Azure AD reporting API, you must sign in to the [Azure portal](https://portal.azure.com) in one of the required roles.
 
 > [!IMPORTANT]
 > Applications running under credentials with administrator privileges can be very powerful, so be sure to keep the application's ID and secret credentials in a secure location.
@@ -71,6 +71,8 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
 1. Search for and select **Directory**, then select **Directory.ReadAll**.
 1. Search for and select **AuditLog**, then select **AuditLog.Read.All**.
 1. Select the **Add permissions** button.
+    - If you need more permissions to run the queries you need, you can add them now or modify the permissions as needed in Microsoft Graph.
+    - For more information, see [Work with Graph Explorer](/graph/graph-explorer/graph-explorer-features).
 
     ![Screenshot shows the Request A P I permissions page where you can select Application permissions.](./media/howto-configure-prerequisites-for-reporting-api/directory-read-all.png)
 
@@ -121,60 +123,16 @@ If you don't have a certificate to upload, follow the steps outline in the [Crea
 
 Once you have the app registration configured, you can run activity log queries in Microsoft Graph.
 
-1. Sign in to https://graph.microsoft.com using the **Security Reader** role.
-1. Enter one of the following queries into the GET 
+1. Sign in to https://graph.microsoft.com using the **Security Reader** role. You may need to confirm that you're signed into the appropriate role. Select your profile icon in the upper-right corner of Microsoft Graph.
+1. Use one of the following queries to start using Microsoft Graph for accessing activity logs:
+    - GET `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits`
+    - GET `https://graph.microsoft.com/v1.0/auditLogs/signIns`
+    - For more information on Microsoft Graph queries for activity logs, see [Activity reports API overview](/graph/api/resources/azuread-auditlog-overview?view=graph-rest-1.0)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Troubleshoot errors in the reporting API
-
-This section lists the common error messages you may run into while accessing activity reports using the Microsoft Graph API and steps for their resolution.
-
-### Error: Failed to get user roles from Microsoft Graph
-
- Sign into your account using both sign-in buttons in the Graph Explorer UI to avoid getting an error when trying to sign in using Graph Explorer. 
-
-![Graph Explorer](./media/troubleshoot-graph-api/graph-explorer.png)
-
-### Error: Failed to do premium license check from Microsoft Graph 
-
-If you run into this error message while trying to access sign-ins using Graph Explorer, choose **Modify Permissions** underneath your account on the left nav, and select **Tasks.ReadWrite** and **Directory.Read.All**. 
-
-![Modify permissions UI](./media/troubleshoot-graph-api/modify-permissions.png)
-
-### Error: Neither tenant is B2C or tenant doesn't have premium license
-
-Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) license. If you see this error message while accessing sign-ins, make sure that your tenant is licensed with an Azure AD P1 license.
-
-### Error: User isn't in the allowed roles 
-
-If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Reports Reader** role in your Azure Active Directory tenant. 
-
-### Error: Application missing Azure AD 'Read directory data' permission 
-
-Follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions. 
-
-### Error: Application missing Microsoft Graph API 'Read all audit log data' permission
-
-Follow the steps in the [Prerequisites to access the Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) to ensure your application is running with the right set of permissions.
-
+    ![Screenshot of an activity log GET query in Microsoft Graph.](./media/howto-configure-prerequisites-for-reporting-api/graph-sample-get-query.png)
 
 ## Next steps
 
-* [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
+* [Learn about Azure AD identity and access management APIs](/graph/azuread-identity-access-management-concept-overview?view=graph-rest-1.0)
 * [Audit API reference](/graph/api/resources/directoryaudit) 
-* [Sign-in activity report API reference](/graph/api/resources/signin)
+* [Sign-in API reference](/graph/api/resources/signin)
