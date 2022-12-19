@@ -19,7 +19,7 @@ Network Watcher packet capture creates capture sessions to track traffic in and 
 
 This capability can be started remotely from other automation scenarios such as Azure Functions. Packet capture gives you the capability to run proactive captures based on defined network anomalies. Other uses include gathering network statistics, getting information about network intrusions, debugging client-server communications, and more.
 
-Resources that are deployed in Azure run 24/7. You and your staff can't actively monitor the status of all resources 24/7. For example, what happens if an issue occurs at 2 AM?
+Resources that are deployed in Azure run 24 * 7. You and your staff can't actively monitor the status of all resources 24 * 7. For example, what happens if an issue occurs at 2 AM?
 
 By using Network Watcher, alerting and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
@@ -33,7 +33,7 @@ By using Network Watcher, alerting and functions from within the Azure ecosystem
 
 ## Scenario
 
-In this example, your VM is sending more TCP segments than usual and you want to be alerted. TCP segments are used as an example here, but you can use any alert condition.
+In this example, your VM is utilizing more CPU percentage than usual and you want to be alerted. CPU percentage is used as an example here, but you can use any alert condition.
 
 When you're alerted, the packet-level data helps to understand why communication has increased. You can take steps to return the virtual machine to regular communication.
 
@@ -42,19 +42,19 @@ This scenario assumes that you have an existing instance of Network Watcher and 
 The following list is an overview of the workflow that takes place:
 
 1. An alert is triggered on your VM.
-1. The alert calls your Azure function via a Webhook.
+1. The alert calls your Azure function.
 1. Your Azure function processes the alert and starts a Network Watcher packet capture session.
 1. The packet capture runs on the VM and collects traffic.
 1. The packet capture file is uploaded to a storage account for review and diagnosis.
 
-To automate this process, we create and connect an alert on our VM to trigger when the incident occurs. We also create a function to call in to Network Watcher. 
+To automate this process, we create and connect an alert on our VM to trigger when the incident occurs. We also create a function to call Network Watcher. 
 
 This scenario does the following:
 
 * Creates an Azure function that starts a packet capture.
 * Creates an alert rule on a virtual machine and configures the alert rule to call the Azure function.
 
-## Create an Azure function
+## Create an Azure function app
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
@@ -64,8 +64,9 @@ The first step is to create an Azure function to process the alert and create a 
 
 2. Select **Create** to open the **Create Function App** screen.
 
-2. In the **Basics** tab, enter the following values and select **OK** to create the app:
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function-app.png" alt-text="Screenshot of the Create function app screen.":::
 
+2. In the **Basics** tab, enter the following values and select **OK** to create the app:
    1. Under **Project Details**, select the **Subscription** for which you want to create the Function app and the **Resource Group** to contain the app.
    2. Under **Instance details**, do the following:
       1. Enter the name of the Function app. This name will be appended by *.azurewebsites.net*.
@@ -78,8 +79,24 @@ The first step is to create an Azure function to process the alert and create a 
       - Consumption (Serverless) - For event-driven scaling for the lowest minimum cost 
       - Functions Premium - For enterprise-level, serverless applications with event-based scaling and network isolation
       - App Service Plan - For reusing compute from an existing app service plan.
-
 3. Click **Review + create** to create the app.
+
+### Create an Azure function
+
+1. In the function app that you created, in the **Functions** tab, select **Create** to open the **Create function** pane.
+
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/create-function.png" alt-text="Screenshot of the Create function screen.":::
+
+2. Select **Develop in portal** from the **Development environment** drop-down.
+3. Under **Select a template**, select **HTTP Trigger**.
+4. In the **Template details** section, do the following:
+   1. Enter the name of the function in the **New function** field.
+   2. Select **Function** as the **Authorization level** and select **Create**.
+5. After the function is created, go to the function and select **Code + Test**.
+
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/code-test.png" alt-text="Screenshot of the Code + Test screen.":::
+
+6. Update the [script](#add-powershell-to-the-function) and select **Save**.
 
 ### Authentication
 
@@ -118,11 +135,8 @@ In the App Service Editor of the function app, create a folder called **keys** u
 The final requirement is to set up the environment variables that are necessary to access the values for authentication. The following list shows the environment variables that are created:
 
 * AzureClientID
-
 * AzureTenant
-
 * AzureCredPassword
-
 
 #### AzureClientID
 
@@ -140,13 +154,10 @@ The client ID is the Application ID of an application in Azure Active Directory.
    > [!NOTE]
    > The password that you use when creating the application should be the same password that you created earlier when saving the key file.
 
-1. In the Azure portal, select **Subscriptions**. Select the subscription to use and select **Access control (IAM)**.
-
-    
+1. In the Azure portal, select **Subscriptions**. Select the subscription to use and select **Access control (IAM)**.  
 
 1. Choose the account to use and select **Properties**. Copy the Application ID.
-
-    
+  
 
 #### AzureTenant
 
@@ -179,13 +190,11 @@ $Encryptedpassword
 
 ### Store the environment variables
 
-1. Go to the function app. Select **Function app settings** > **Configure app settings**.
+1. Go to the function app. Select **Configurations** > **Application settings**.
 
-    ![Configure app settings][functions11]
-
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/application-insights.png" alt-text="Screenshot of the Application settings screen.":::
+   
 1. Add the environment variables and their values to the app settings and select **Save**.
-
-    ![App settings][functions12]
 
 ### Add PowerShell to the function
 
@@ -387,24 +396,33 @@ Use the following PowerShell code if you're using the old schema:
 
 ## Configure an alert on a VM
 
-Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the TCP segments that are sent, but the alert can be triggered for many other metrics. In this example, an alert is configured to call a webhook to call the function.
+Alerts can be configured to notify individuals when a specific metric crosses a threshold that's assigned to it. In this example, the alert is on the CPU Percentage that are sent, but the alert can be triggered for many other metrics. 
 
 ### Create the alert rule
 
-Go to an existing virtual machine and add an alert rule. More detailed documentation about configuring alerts can be found at [Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/alerts/alerts-classic-portal.md). Enter the following values in the **Alert rule** tab and select **OK**.
+Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). Do the following in the **Create an Alert rule** screen.
 
-  |**Setting** | **Value** | **Details** |
-  |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|Name of the alert rule.|
-  |**Description**|TCP segments sent exceeded threshold|The description for the alert rule.|
-  |**Metric**|TCP segments sent| The metric to use to trigger the alert. |
-  |**Condition**|Greater than| The condition to use when evaluating the metric.|
-  |**Threshold**|100| The  value of the metric that triggers the alert. This value should be set to a valid value for your environment.|
-  |**Period**|Over the last five minutes| Determines the period in which to look for the threshold on the metric.|
-  |**Webhook**|[webhook URL from function app]| The webhook URL from the function app that was created in the previous steps.|
+1. In the **Select a signal** pane, search for the name of the signal and select it. In the example below, Percentage CPU is the selected signal. It denotes the percentage of allocated compute units that are in use by the VM.
 
-> [!NOTE]
-> The TCP segments metric is not enabled by default. Learn more about how to enable additional metrics by visiting [Enable monitoring and diagnostics](../azure-monitor/overview.md).
+   :::image type="content" source="./media/network-watcher-alert-triggered-packet-capture/action-group.png" alt-text="Screenshot of the Create action group screen.":::
+
+2. In the **Conditions** tab, set the following values and select **Next: Actions >**.
+
+  |**Setting** | **Value** |
+  |---|---|
+  |**Threshold**|Static|
+  |**Aggregation type**|Average|
+  |**Operator**|Greater than| 
+  |**Threshold value**|3| 
+  |**Check every**|1 minute| 
+  |**Lookback period**|5 minutes| 
+
+3. In the **Actions** tab, select **Create an action group**.
+4. In the **Create action group** screen, select the **Subscription**, **Resource group**, and **Region**. Also enter the Action group name and the display name and select **Next: Notfications >**.
+5. In the screen that appears, select **Action type** as **Azure Function**. 
+6. In the Azure Function pane, select the **Subscription**, **Resource group**, **Function app**, and **Azure Function**.
+7. Select **No** in **Enable the common alert schema** slider and select **OK**. 
+
 
 ## Review the results
 
