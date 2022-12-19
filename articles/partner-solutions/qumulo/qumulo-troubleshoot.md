@@ -1,47 +1,43 @@
 ---
-title: Troubleshooting Azure Native Qumulo Service
-description: This article provides information about troubleshooting Azure Native Qumulo Service.
+title: Troubleshoot Azure Native Qumulo Scalable File Service
+description: This article provides information about troubleshooting Azure Native Qumulo Scalable File Service.
 
 ms.topic: conceptual
 ms.date: 12/31/2022
 
 ---
 
-# Troubleshoot Azure Native Qumulo Service
+# Troubleshoot Azure Native Qumulo Scalable File Service
 
-This article describes how to contact support when working with Azure Native Qumulo Scalable File Service. Before contacting support, see [Fix common errors](#fix-common-errors).
+This article describes how to fix common problems when you're working with Azure Native Qumulo Scalable File Service.
 
-## Contact support
+Try the troubleshooting information in this article first. If that doesn't work, you can use one of the following methods to open a request form for Qumulo support:
 
-To contact support about the Azure Native Qumulo Scalable File Service, select [**New Support request**](https://aka.ms/partners/Qumulo/Support) in the left pane. Select the link to the Qumulo support website.
+- Go to the [Qumulo support page](https://aka.ms/partners/Qumulo/Support) and select **Open a case**.
+- Go to the Azure portal and select **New Support request** on the left pane.
 
-:::image type="content" source="media/qumulo-troubleshooting/qumulo-support-request.png" alt-text="Screenshot showing a support request form for Qumulo.":::
+:::image type="content" source="media/qumulo-troubleshooting/qumulo-support-request.png" alt-text="Screenshot that shows a request form for Qumulo support.":::
 
+## You got a purchase error related to a payment method
 
-## Fix common errors
+A purchase can fail because a valid credit card is not connected to the Azure subscription, or because a payment method is not associated with the subscription.
 
-This document supplies information to troubleshoot common problems about Azure Native Qumulo Scalable File Service.
+Try using a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [Update the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
 
-## Purchase error
+## You got a purchase error related to an Enterprise Agreement
 
-- Purchase fails because a valid credit card is not connected to the Azure subscription, or a payment method is not associated with the subscription.
+Some Microsoft Enterprise Agreement (EA) subscriptions don't allow Azure Marketplace purchases.
 
-  - Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
+Try using a different subscription, or [enable your subscription for Azure Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
 
-- The EA (Microsoft Enterprise Agreement) subscription does not allow Azure **Marketplace** purchases.
+## You can't create a resource
 
-  - Use a different subscription. Or check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases).
+To set up Azure Native Qumulo Scalable File Service integration, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure that you have the proper access on both the subnet resource group and the Qumulo service resource group before you start the setup.
 
-If those options do not solve the problem, contact [Qumulo support.](https://aka.ms/partners/Qumulo/Support)
-
-## Unable to create resource
-
-- To set up the Azure Native Qumulo Scalable File Service integration, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the proper access on both the subnet resource group and Qumulo service resource group before starting the setup.
-
-- Custom RBAC roles needs to have the following permissions in the subnet and Qumulo service resource groups to successfully create a Qumulo service:
+For successful creation of a Qumulo service, custom role-based access control (RBAC) roles need to have the following permissions in the subnet and Qumulo service resource groups:
 
   - Qumulo.Storage/\*
 
   - Microsoft.Network/virtualNetworks/subnets/join/action
 
-## Next Steps
+## Next steps
