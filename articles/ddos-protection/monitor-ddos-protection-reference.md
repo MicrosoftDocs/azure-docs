@@ -18,7 +18,7 @@ See [Tutorial: View and configure Azure DDoS protection telemetry](telemetry.md)
 
 
 
-### DDoS Protection Metrics
+### DDoS protection metrics
 
 The metric names present different packet types, and bytes vs. packets, with a basic construct of tag names on each metric as follows:
 
@@ -56,7 +56,7 @@ The following [Azure Monitor metrics](../azure-monitor/essentials/metrics-suppor
 | UDPPacketsDroppedDDoS​ | Inbound UDP packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets dropped DDoS​ |
 | UDPPacketsForwardedDDoS​ | Inbound UDP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets forwarded DDoS​ |
 | UDPPacketsInDDoS​ | Inbound UDP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets DDoS​ |
-### Diagnostic Logs
+### Diagnostic logs
 
 See [Tutorial: View and configure Azure DDoS Protection diagnostic logging](diagnostic-logging.md) for details on attack insights and visualization with DDoS Attack Analytics.
 
@@ -136,6 +136,6 @@ The following table lists the field names and descriptions:
 
 > [!div class="nextstepaction"]
 > [View and configure DDoS diagnostic logging](diagnostic-logging.md)
->[Test with simulation partners](test-through-simulations.md)
+> [Test with simulation partners](test-through-simulations.md)
 
 
