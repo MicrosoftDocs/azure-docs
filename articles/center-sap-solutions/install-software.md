@@ -43,12 +43,12 @@ Following is the operating system (OS) software versions compatibility with SAP 
 
 ## Required components
 
-The following components are necessary for the SAP installation:
+The following components are necessary for the SAP installation. 
 
 - SAP software installation media (part of the `sapbits` container described later in this article)
     - All essential SAP packages (*SWPM*, *SAPCAR*, etc.)
     - SAP software (for example, *S/4HANA 2021 ISS 00*)
-- Supporting software packages for the installation process (part of the `deployervmpackages` container described later in this article)
+- Supporting software packages for the installation process which will be downloaded automatially and used by ACSS during the installation). 
     - `pip3` version `pip-21.3.1.tar.gz`
     - `wheel` version 0.37.1
     - `jq` version 1.6
@@ -125,7 +125,7 @@ You can download the SAP installation media required to install the SAP software
 1. Change the branch to main
 
     ```git bash
-    git checkout main
+    git checkout experimental
     ```
     
 1. [Optional] : Verify if the current branch is "main"
@@ -184,12 +184,9 @@ You also can [run scripts to automate this process](#option-1-upload-software-co
 1. Create a new Azure storage account for storing the software components.
 1. Grant the roles **Storage Blob Data Reader** and **Reader and Data Access** to the user-assigned managed identity, which you used during infrastructure deployment.
 1. Create a container within the storage account. You can choose any container name; for example, **sapbits**. 
-1. Create two folders within the container, named **deployervmpackages** and **sapfiles**. 
+1. Create a folder within the container, named **sapfiles**. 
     > [!WARNING]
     > Don't change the folder name structure for any steps in this process. Otherwise, the installation process can fail.
-1. Download the supporting software packages listed in the [required components list](#required-components) to your local computer.
-1. Put the software packages into a ZIP file named **DeployerVMPackages.zip**.
-1. Go to the **deployervmpackages** folder in the Azure storage container. Upload **DeployerVMPackages.zip**.
 1. Go to the **sapfiles** folder.
 1. Create two subfolders named **archives** and **boms**. 
 1. In the **boms** folder, create four subfolders as follows. 

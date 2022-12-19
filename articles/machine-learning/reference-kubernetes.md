@@ -16,6 +16,7 @@ ms.date: 06/06/2022
 
 This article contains reference information that may be useful when [configuring Kubernetes with Azure Machine Learning](./how-to-attach-kubernetes-anywhere.md).
 
+
 ## Supported Kubernetes version and region
 
 
@@ -60,7 +61,7 @@ Upon AzureML extension deployment completes, it will create following resources 
 
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description | Communication with cloud|
    |--|--|--|--|--|--|--|
-   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relayserver is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relayserver works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
+   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|relay server is only needed in arc-connected cluster, and won't be installed in AKS cluster. Relay server works with Azure Relay to communicate with the cloud services.|Receive the request of job creation, model deployment from cloud service; sync the job status with cloud service.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|The gateway is used to communicate and send data back and forth.|Send nodes and cluster resource information to cloud services.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.| Token exchange with the cloud token service for authentication and authorization of Azure Container Registry.|
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
@@ -132,21 +133,60 @@ spec:
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
 
-## Sample YAML definition of Kubernetes secret for TLS/SSL
+## Supported AzureML taints and tolerations
 
-To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded TLS/SSL certificate and key. The best practice is to save the certificate and key in a Kubernetes secret in the `azureml` namespace.
+[Taint and Toleration](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) are Kubernetes concepts that work together to ensure that pods are not scheduled onto inappropriate nodes. 
 
-The sample YAML definition of the TLS/SSL secret is as follows,
+Kubernetes clusters integrated with Azure Machine Learning (including AKS and Arc Kubernetes clusters) now support specific AzureML taints and tolerations, allowing users to add specific AzureML taints on the AzureML-dedicated nodes, to prevent non-AzureML workloads from being scheduled onto these dedicated nodes.
 
-```
-apiVersion: v1
-data:
-  cert.pem: <PEM-encoded SSL certificate> 
-  key.pem: <PEM-encoded SSL key>
-kind: Secret
-metadata:
-  name: <secret name>
-  namespace: azureml
-type: Opaque
-```
+We only support placing the amlarc-specific taints on your nodes, which are defined as follows: 
 
+| Taint | Key | Value | Effect | Description |
+|--|--|--|--|--|
+| amlarc overall| ml.azure.com/amlarc	| true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| All Azureml workloads, including extension system service pods and machine learning workload pods would tolerate this `amlarc overall` taint.|
+| amlarc system | ml.azure.com/amlarc-system |true	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only Azureml extension system services pods would tolerate this `amlarc system` taint.|
+| amlarc workload| 	ml.azure.com/amlarc-workload |true| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods would tolerate this `amlarc workload` taint. |
+| amlarc resource group| 	ml.azure.com/resource-group | \<resource group name> | `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created from the specific resource group would tolerate this `amlarc resource group` taint.|
+| amlarc workspace | 	ml.azure.com/workspace |	\<workspace name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`|Only machine learning workload pods created from the specific workspace would tolerate this `amlarc workspace` taint. |
+| amlarc compute| 	ml.azure.com/compute| \<compute name>	| `NoSchddule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created with the specific compute target would tolerate this `amlarc compute` taint.|
+
+> [!TIP]
+> 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
+> 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes. For more examples,see the [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+
+### Best practices
+
+According to your scheduling requirements of the Azureml-dedicated nodes, you can add **multiple amlarc-specific taints** to restrict what Azureml workloads can run on nodes. We list best practices for using amlarc taints:
+
+- **To prevent non-azureml workloads from running on azureml-dedicated nodes/node pools**, you can just add the `aml overall` taint to these nodes.
+- **To prevent non-system pods from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
+  - `amlarc overall` taint
+  - `amlarc system` taint
+- **To prevent non-ml workloads from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
+  - `amlarc overall` taint
+  - `amlarc workloads` taint
+- **To prevent workloads not created from *workspace X* from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
+  - `amlarc overall` taint
+  - `amlarc resource group (has this <workspace X>)` taint 
+  - `amlarc <workspace X>` taint
+- **To prevent workloads not created by *compute target X* from running on azureml-dedicated nodes/node pools**, you have to add the following taints: 
+  - `amlarc overall` taint
+  - `amlarc resource group (has this <workspace X>)` taint 
+  - `amlarc workspace (has this <compute X>)` taint
+  - `amlarc <compute X>` taint
+
+## Azureml extension release note
+> [!NOTE]
+ >
+ > New features are released at a biweekly cadance.
+
+| Date | Version |Version description |
+|---|---|---|
+| Aug 29, 2022 | 1.1.9 | Improved health check logic. Bugs fixed.|
+| Jun 23, 2022 | 1.1.6 | Bugs fixed. |
+| Jun 15, 2022 | 1.1.5 | Updated training to use new common runtime to run jobs. Removed Azure Relay usage for AKS extension. Removed service bus usage from the extension. Updated security context usage. Updated inference scorefe to v2. Updated to use Volcano as training job scheduler. Bugs fixed. |
+| Oct 14, 2021 | 1.0.37 | PV/PVC volume mount support in AMLArc training job. |
+| Sept 16, 2021 | 1.0.29 | New regions available, WestUS, CentralUS, NorthCentralUS, KoreaCentral. Job queue explainability. See job queue details in AML Workspace Studio. Auto-killing policy. Support max_run_duration_seconds in ScriptRunConfig. The system will attempt to automatically cancel the run if it took longer than the setting value. Performance improvement on cluster autoscale support. Arc agent and ML extension deployment from on premises container registry.|
+| August 24, 2021 | 1.0.28 | Compute instance type is supported in job YAML. Assign Managed Identity to AMLArc compute.|
+| August 10, 2021 | 1.0.20 |New Kubernetes distribution support, K3S - Lightweight Kubernetes. Deploy AzureML extension to your AKS cluster without connecting via Azure Arc. Automated Machine Learning (AutoML) via Python SDK. Use 2.0 CLI to attach the Kubernetes cluster to AML Workspace. Optimize AzureML extension components CPU/memory resources utilization.|
+| July 2, 2021 | 1.0.13 | New Kubernetes distributions support, OpenShift Kubernetes and GKE (Google Kubernetes Engine). Autoscale support. If the user-managed Kubernetes cluster enables the autoscale, the cluster will be automatically scaled out or scaled in according to the volume of active runs and deployments. Performance improvement on job launcher, which shortens the job execution time to a great deal.|

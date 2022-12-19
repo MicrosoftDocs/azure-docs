@@ -11,6 +11,9 @@ ms.date: 08/04/2022
 
 This article is a guide to successfully deploying Microsoft Purview (formerly Azure Purview) into production in your data estate. It's intended to help you strategize and phase your deployment from research to hardening your production environment, and is best used in tandem with our [deployment checklist](tutorial-azure-purview-checklist.md).
 
+>[!NOTE]
+>These best practices cover the deployment for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
+
 If you're looking for a strictly technical deployment guide, use the [deployment checklist](tutorial-azure-purview-checklist.md).
 
 If you're creating a plan to deploy Microsoft Purview and want to consider best practices as you develop your deployment strategy, then follow the article below. This guide outlines tasks can be completed in phases over the course of a month or more to develop your deployment process for Microsoft Purview. Even organizations who have already deployed Microsoft Purview can use this guide to ensure they're getting the most out of their investment.
