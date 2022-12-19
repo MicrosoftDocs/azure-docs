@@ -144,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. On the **Users** page, select **authentication-service**.
 
-    ![Sreenshot that highlights authentication-service on the screen.](./media/adobe-experience-manager-tutorial/authentication-service.png)
+    ![Screenshot that highlights authentication-service on the screen.](./media/adobe-experience-manager-tutorial/authentication-service.png)
 
 8. Select **Account settings** > **Create/Manage KeyStore**. Create KeyStore by supplying a password.
 
@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     This opens the configuration page.
 
-    ![Configure the single sign-on save button](./media/adobe-experience-manager-tutorial/configuration-page.png)
+    ![Configure the single sign-on save button.](./media/adobe-experience-manager-tutorial/configuration-page.png)
 
 10. Find **Adobe Granite SAML 2.0 Authentication Handler**. Then select the **Add** icon.
 
@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 11. Take the following actions on this page.
 
-    ![Screenshot shows for Configure Single Sign-On Save button](./media/adobe-experience-manager-tutorial/adobe-configuration.png)
+    ![Screenshot shows for Configure Single Sign-On Save button.](./media/adobe-experience-manager-tutorial/adobe-configuration.png)
 
     a. In the **Path** box, enter **/**.
 
@@ -188,7 +188,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In **Apache Sling Referrer Filter** section, perform the below steps:
 
-    ![Screenshot shows for Sling Referrer Filter](./media/adobe-experience-manager-tutorial/allow-host.png)
+    ![Screenshot shows for Sling Referrer Filter.](./media/adobe-experience-manager-tutorial/allow-host.png)
 
     a. Ensure **allow.empty** value is set to true.
 
@@ -208,15 +208,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Adobe Experience Manager Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Adobe Experience Manager Sign-on URL where you can initiate the login flow.  
 
-* Go to Adobe Experience Manager Sign-on URL directly and initiate the login flow from there.
+* Go to Adobe Experience Manager Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Adobe Experience Manager for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Adobe Experience Manager tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Adobe Experience Manager for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Adobe Experience Manager tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Adobe Experience Manager for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
