@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 12/19/2022
 ms.author: davidmu
 ms.custom: aaddev
 ---
@@ -68,7 +68,7 @@ To apply a transformation to a user attribute:
 1. **Treat source as multivalued** is a checkbox indicating whether the transform should be applied to all values or just the first. By default, transformations are only applied to the first element in a multi-value claim, by checking this box it ensures it's applied to all. This checkbox is only be enabled for multi-valued attributes, for example `user.proxyaddresses`.
 1. To apply multiple transformations, select **Add transformation**. You can apply a maximum of two transformations to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
-    :::image type="content" source="./media/active-directory-common-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
+    :::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-multiple-claims-transformation.png" alt-text="Screenshot of claims transformation.":::
 
 You can use the following functions to transform claims.
 
@@ -98,7 +98,7 @@ If you need other transformations, submit your idea in the [feedback forum in Az
 
 ## RegexReplace() transformations
 
-:::image type="content" source="./media/active-directory-common-claims-customization/regexreplace-trasform.png" alt-text="Screenshot of multiple claims transformation.":::
+:::image type="content" source="./media/active-directory-jwt-claims-customization/regexreplace-trasform.png" alt-text="Screenshot of multiple claims transformation.":::
 
 The following table provides information about using transformations. The actions listed in the table correspond to the labels in the previous image.
 
@@ -166,11 +166,11 @@ For example, Britta Simon is a guest user in the Contoso tenant. Britta belongs 
 
 First, the Microsoft identity platform verifies whether Britta's user type is **All guests**. Because this is true, the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies whether Britta's user type is **AAD guests**, because this is also true, the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with a value of `user.mail` for Britta.
 
-:::image type="content" source="./media/active-directory-common-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
+:::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Screenshot of claims conditional configuration.":::
 
 As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with a value of `user.othermail` for Britta.
 
-:::image type="content" source="./media/active-directory-common-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
+:::image type="content" source="./media/active-directory-jwt-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="Screenshot of more claims conditional configuration.":::
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
