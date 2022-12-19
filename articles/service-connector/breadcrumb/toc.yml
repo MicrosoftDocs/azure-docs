@@ -11,7 +11,7 @@
   - name: Service Connector
     tocHref: /azure/spring-apps/
     topicHref: /azure/service-connector/index
-    - name: Service Connector
+  - name: Service Connector
     tocHref: /rest/api/serviceconnector
     topicHref: /azure/service-connector/index
 - name: Azure
