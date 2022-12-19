@@ -270,7 +270,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     # [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    $EXTENSION_NAME="appservice-ext"
+    $EXTENSION_NAME="appenv-ext"
     $NAMESPACE="appplat-ns" 
     $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>" 
     ```
