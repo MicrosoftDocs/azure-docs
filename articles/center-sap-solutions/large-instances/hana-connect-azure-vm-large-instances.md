@@ -37,7 +37,7 @@ Looking closer at the Azure virtual network side, you'll need:
 >[!Note]
 >The Azure virtual network for HANA Large Instances must be created by using the Azure Resource Manager deployment model. The older Azure deployment model, commonly known as the classic deployment model, isn't  supported by the HANA Large Instance solution.
 
-You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
+You can use the Azure portal, PowerShell, an Azure template, or the Azure CLI to create the virtual network. (For more information, see [Create a virtual network using the Azure portal](../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). In the following example, we look at a virtual network that's created by using the Azure portal.
 
 In this documentation, **address space** refers to the address space that the Azure virtual network is allowed to use. This address space is also the address range that the virtual network uses for BGP route propagation. This **address space** can be seen here:
 
@@ -91,8 +91,8 @@ Some of the IP address ranges necessary for deploying HANA Large Instances have 
 
 Optional IP address ranges to eventually submit to Microsoft:
 
-- If you choose to use [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) to enable direct routing from on-premises to HANA Large Instance units, you need to reserve another /29 IP address range. This range may not overlap with any of the other IP addresses ranges you defined before.
-- If you choose to use [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) to enable direct routing from a HANA Large Instance tenant in one Azure region to another HANA Large Instance tenant in another Azure region, you need to reserve another /29 IP address range. This range may not overlap with the other IP address ranges you defined before.
+- If you choose to use [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md) to enable direct routing from on-premises to HANA Large Instance units, you need to reserve another /29 IP address range. This range may not overlap with any of the other IP addresses ranges you defined before.
+- If you choose to use [ExpressRoute Global Reach](../../expressroute/expressroute-global-reach.md) to enable direct routing from a HANA Large Instance tenant in one Azure region to another HANA Large Instance tenant in another Azure region, you need to reserve another /29 IP address range. This range may not overlap with the other IP address ranges you defined before.
 
 For more information about ExpressRoute Global Reach and usage around HANA large instances, see:
 

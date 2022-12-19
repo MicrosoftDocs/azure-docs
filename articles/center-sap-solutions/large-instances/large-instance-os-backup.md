@@ -30,25 +30,25 @@ The information below describes the steps to do an operating system file-level b
 
 ### Take a manual backup
 
-Get the latest Microsoft Snapshot Tools for SAP HANA as explained in a series of articles starting with [What is Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-introduction.md). Configure and test them as described in these articles:
+Get the latest Microsoft Snapshot Tools for SAP HANA as explained in a series of articles starting with [What is Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-introduction.md). Configure and test them as described in these articles:
 
-- [Configure Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
+- [Configure Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-test.md) 
 
-This review will prepare you to run backup regularly via `crontab` as described in [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
+This review will prepare you to run backup regularly via `crontab` as described in [Back up using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-backup.md). 
 
 For more information, see these references:
 
-- [Install Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-installation.md)
-- [Configure Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
-- [Test Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-test.md)
-- [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md)
-- [Obtain details using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-details.md)
-- [Delete using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-delete.md)
-- [Restore using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-restore.md)
-- [Disaster recovery using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-disaster-recovery.md)
-- [Troubleshoot Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-troubleshoot.md)
-- [Tips and tricks for using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-tips.md)
+- [Install Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-installation.md)
+- [Configure Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-configure.md)
+- [Test Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-test.md)
+- [Back up using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-backup.md)
+- [Obtain details using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-details.md)
+- [Delete using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-delete.md)
+- [Restore using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-cmd-ref-restore.md)
+- [Disaster recovery using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-disaster-recovery.md)
+- [Troubleshoot Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-troubleshoot.md)
+- [Tips and tricks for using Azure Application Consistent Snapshot tool](../../azure-netapp-files/azacsnap-tips.md)
 
 
 ### Restore a backup

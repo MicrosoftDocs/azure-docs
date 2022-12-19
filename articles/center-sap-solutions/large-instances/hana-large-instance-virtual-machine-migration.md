@@ -37,7 +37,7 @@ This article makes the following assumptions:
 - You've validated the design and migration plan.
 - Plan for disaster recovery VM along with the primary site.  You can't use the HLI as the DR node for the primary site running on VMs after the migration.
 - You copied the required backup files to target VMs, based on business recoverability and compliance requirements. With VM accessible backups, it allows for point-in-time recovery during the transition period.
-- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the fencing device per SAP HANA HA guides for [SLES](./high-availability-guide-suse-pacemaker.md) and [RHEL](./high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
+- For SAP HANA system replication (HSR) high availability (HA), you need to set up and configure the fencing device per SAP HANA HA guides for [SLES](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md) and [RHEL](../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md).  It’s not preconfigured like the HLI case.
 - This migration approach doesn't cover the HLI SKUs with Optane configuration.
 
 ## Deployment scenarios
@@ -45,21 +45,21 @@ You can migrate to Azure VMs for all HLI scenarios. Common deployment models for
 
 | Scenario ID | HLI Scenario | Migrate to VM verbatim? | Remark |
 | --- | --- | --- | --- |
-| 1 | [Single node with one SID](./hana-supported-scenario.md#single-node-with-one-sid) | Yes | - |
-| 2 | [Single node with Multiple Components in One System (MCOS)](./hana-supported-scenario.md#single-node-mcos) | Yes | - |
-| 3 | [Single node with DR using storage replication](./hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
-| 4 | [Single node with DR (multipurpose) using storage replication](./hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
-| 5 | [HSR with fencing for high availability](./hana-supported-scenario.md#hsr-with-fencing-for-high-availability) | Yes | No preconfigured SBD for target VMs.  Select and deploy a fencing solution.  Possible options: Azure Fencing Agent (supported for both [RHEL](./high-availability-guide-rhel-pacemaker.md), [SLES](./high-availability-guide-suse-pacemaker.md)), and SBD. |
-| 6 | [HA with HSR, DR with storage replication](./hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | Replace storage replication for DR needs with either HSR or backup/restore. |
-| 7 | [Host auto failover (1+1)](./hana-supported-scenario.md#host-auto-failover-11) | Yes | Use Azure NetApp Files (ANF) for shared storage with Azure VMs. |
-| 8 | [Scale-out with standby](./hana-supported-scenario.md#scale-out-with-standby) | Yes | BW/4HANA with M128s, M416s, M416ms VMs using ANF for storage only. |
-| 9 | [Scale-out without standby](./hana-supported-scenario.md#scale-out-without-standby) | Yes | BW/4HANA with M128s, M416s, M416ms VMs (with or without using ANF for storage). |
-| 10 | [Scale-out with DR using storage replication](./hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | No | Replace storage replication for DR needs with either HSR or backup/restore. |
-| 11 | [Single node with DR using HSR](./hana-supported-scenario.md#single-node-with-dr-using-hsr) | Yes | - |
-| 12 | [Single node HSR to DR (cost optimized)](./hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | Yes | - |
-| 13 | [HA and DR with HSR](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Yes | - |
-| 14 | [HA and DR with HSR (cost optimized)](./hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Yes | - |
-| 15 | [Scale-out with DR using HSR](./hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Yes | BW/4HANA with M128s. M416s, M416ms VMs (with or without using ANF for storage). |
+| 1 | [Single node with one SID](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-with-one-sid) | Yes | - |
+| 2 | [Single node with Multiple Components in One System (MCOS)](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-mcos) | Yes | - |
+| 3 | [Single node with DR using storage replication](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-with-dr-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
+| 4 | [Single node with DR (multipurpose) using storage replication](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-with-dr-multipurpose-using-storage-replication) | No | Storage replication isn't available with Azure virtual platform; change current DR solution to either HSR or backup/restore. |
+| 5 | [HSR with fencing for high availability](../../virtual-machines/workloads/sap/hana-supported-scenario.md#hsr-with-fencing-for-high-availability.md) | Yes | No preconfigured SBD for target VMs.  Select and deploy a fencing solution.  Possible options: Azure Fencing Agent (supported for both [RHEL](../../virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker.md), [SLES](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md), and SBD. |
+| 6 | [HA with HSR, DR with storage replication](../../virtual-machines/workloads/sap/hana-supported-scenario.md#high-availability-with-hsr-and-dr-with-storage-replication) | No | Replace storage replication for DR needs with either HSR or backup/restore. |
+| 7 | [Host auto failover (1+1)](../../virtual-machines/workloads/sap/hana-supported-scenario.md#host-auto-failover-11) | Yes | Use Azure NetApp Files (ANF) for shared storage with Azure VMs. |
+| 8 | [Scale-out with standby](../../virtual-machines/workloads/sap/hana-supported-scenario.md#scale-out-with-standby) | Yes | BW/4HANA with M128s, M416s, M416ms VMs using ANF for storage only. |
+| 9 | [Scale-out without standby](../../virtual-machines/workloads/sap/hana-supported-scenario.md#scale-out-without-standby) | Yes | BW/4HANA with M128s, M416s, M416ms VMs (with or without using ANF for storage). |
+| 10 | [Scale-out with DR using storage replication](../../virtual-machines/workloads/sap/hana-supported-scenario.md#scale-out-with-dr-using-storage-replication) | No | Replace storage replication for DR needs with either HSR or backup/restore. |
+| 11 | [Single node with DR using HSR](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-with-dr-using-hsr) | Yes | - |
+| 12 | [Single node HSR to DR (cost optimized)](../../virtual-machines/workloads/sap/hana-supported-scenario.md#single-node-hsr-to-dr-cost-optimized) | Yes | - |
+| 13 | [HA and DR with HSR](../../virtual-machines/workloads/sap/hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr) | Yes | - |
+| 14 | [HA and DR with HSR (cost optimized)](../../virtual-machines/workloads/sap/hana-supported-scenario.md#high-availability-and-disaster-recovery-with-hsr-cost-optimized) | Yes | - |
+| 15 | [Scale-out with DR using HSR](../../virtual-machines/workloads/sap/hana-supported-scenario.md#scale-out-with-dr-using-hsr) | Yes | BW/4HANA with M128s. M416s, M416ms VMs (with or without using ANF for storage). |
 
 
 ## Source (HLI) planning
@@ -105,7 +105,7 @@ Careful planning is essential in deploying a new infrastructure to take the plac
 The current SAP application servers' deployment region are typically close to the associated HLIs. However, HLIs are offered in fewer locations than available Azure regions. When migrating the physical HLI to an Azure VM, it's also a good time to fine-tune the proximity distance of all related services for performance optimization.  While doing so, ensure the chosen region has all the required resources. For instance, you may want to check on the availability of a certain VM family or the Azure Zones offering high availability setup.
 
 ### Virtual network 
-Do you want to run the new HANA database in an existing virtual network or create a new one? The primary deciding factor is the current networking layout for the SAP landscape. Also, when the infrastructure goes from one-zone to two-zones deployment and uses PPG, it imposes architectural change. For more information, see the article [Azure PPG for optimal network latency with SAP application](./sap-proximity-placement-scenarios.md).   
+Do you want to run the new HANA database in an existing virtual network or create a new one? The primary deciding factor is the current networking layout for the SAP landscape. Also, when the infrastructure goes from one-zone to two-zones deployment and uses PPG, it imposes architectural change. For more information, see the article [Azure PPG for optimal network latency with SAP application](../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).   
 
 ### Security
 Whether the new SAP HANA VM runs on a new or existing vnet/subnet, it's a new service critical to your business. It deserves safeguarding. Ensure access control compliant with your company's security policy.
@@ -114,7 +114,7 @@ Whether the new SAP HANA VM runs on a new or existing vnet/subnet, it's a new se
 This migration is also an opportunity to right size your HANA compute engine. You can use HANA [system views](https://help.sap.com/viewer/7c78579ce9b14a669c1f3295b0d8ca16/Cloud/3859e48180bb4cf8a207e15cf25a7e57.html) with HANA Studio to understand the system resource consumption, which allows for right sizing to drive spending efficiency.
 
 ### Storage 
-Storage performance is one of the factors that will affect your SAP application user experience. There are minimum storage layouts published for given VM SKUs. For more information, see [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md). We recommend reviewing these specs and comparing against your existing HLI system statistics to ensure adequate IO capacity and performance for your new HANA VM.
+Storage performance is one of the factors that will affect your SAP application user experience. There are minimum storage layouts published for given VM SKUs. For more information, see [SAP HANA Azure virtual machine storage configurations](../../virtual-machines/workloads/sap/hana-vm-operations-storage.md). We recommend reviewing these specs and comparing against your existing HLI system statistics to ensure adequate IO capacity and performance for your new HANA VM.
 
 Will you configure PPG for the new HANA VM and its associated severs? Then submit a support ticket to inspect and ensure the co-location of the storage and the VM. Since your backup solution may need to change, also revisit the storage cost to avoid operational spending surprises.
 
@@ -122,7 +122,7 @@ Will you configure PPG for the new HANA VM and its associated severs? Then submi
 With HLI, storage replication was the default option for disaster recovery. This feature isn't the default option for SAP HANA on Azure VM. Consider HSR, backup/restore, or other supported solutions that satisfy your business needs.
 
 ### Availability sets, availability zones, and proximity placement groups 
-You can shorten the distance between the application layer and SAP HANA to keep network latency at a minimum. Place the new database VM and the current SAP application servers in a PPG. For more information on how Azure availability set and availability zones work with PPG for SAP deployments, see [Proximity Placement Group](./sap-proximity-placement-scenarios.md).
+You can shorten the distance between the application layer and SAP HANA to keep network latency at a minimum. Place the new database VM and the current SAP application servers in a PPG. For more information on how Azure availability set and availability zones work with PPG for SAP deployments, see [Proximity Placement Group](../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
 
 If members of your HANA system are deployed in more than one Azure Zone, you should be aware of the latency profile of the chosen zones. Place SAP system components to lessen distance between the SAP application and the database. The public domain [Availability zone latency test tool](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) helps make the measurement easier.  
 
@@ -130,7 +130,7 @@ If members of your HANA system are deployed in more than one Azure Zone, you sho
 ### Backup strategy
 Many of our customers are already using third-party backup solutions for SAP HANA on HLI.  If you are, then only added protected VM and HANA databases need to be configured. Ongoing HLI backup jobs can be unscheduled if the machine is being decommissioned after the migration.
 
-Azure backup for SAP HANA on VM is now generally available.  For more information on SAP HANA backup in Azure VMs, see [Backup](../../../backup/backup-azure-sap-hana-database.md), [Restore](../../../backup/sap-hana-db-restore.md), and [Manage](../../../backup/sap-hana-db-manage.md).
+Azure backup for SAP HANA on VM is now generally available.  For more information on SAP HANA backup in Azure VMs, see [Backup](../../backup/backup-azure-sap-hana-database.md), [Restore](../../backup/sap-hana-db-restore.md), and [Manage](../../backup/sap-hana-db-manage.md).
 
 ### DR strategy
 If your service level goals accommodate a longer recovery time, backup can be easy. A backup to blob storage and restore in place or restore to a new VM is the simplest and least expensive DR strategy.
@@ -200,4 +200,4 @@ As the VM servers are deployed and the HLIs are decommissioned, the OS subscript
 Plan your SAP deployment.
 
 > [!div class="nextstepaction"]
-> [SAP workloads on Azure: planning and deployment checklist](sap-deployment-checklist.md)
+> [SAP workloads on Azure: planning and deployment checklist](../../virtual-machines/workloads/sap/sap-deployment-checklist.md)

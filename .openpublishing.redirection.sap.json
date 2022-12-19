@@ -371,6 +371,211 @@
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/module/automation-update-tfstate.md",
       "redirect_url": "/azure/center-sap-solutions/automation/module/update-tfstate",
       "redirect_document_id": true
+    },    
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-architecture.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-overview-architecture",
+      "redirect_document_id": true
+    },
+
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-know-terms.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-know-terms",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-certification.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-certification",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-available-skus.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-available-skus",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-sizing.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-sizing",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-onboarding-requirements.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-onboarding-requirements",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-data-tiering-extension-nodes",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-operations-model.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-operations-model",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/os-compatibility-matrix-hana-large-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-architecture.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-network-architecture.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-network-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-storage-architecture.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-storage-architecture",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-supported-scenario.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-supported-scenario",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-overview-infrastructure-connectivity",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-connect-azure-vm-large-instances.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-connect-azure-vm-large-instances",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-connect-vnet-express-route.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-connect-vnet-express-route",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-additional-network-requirements.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-additional-network-requirements",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-overview-high-availability-disaster-recovery",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-backup-restore.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-backup-restore",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-concept-preparation.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-concept-preparation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-failover-procedure.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-failover-procedure",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/troubleshooting-monitoring.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/troubleshooting-monitoring",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-monitor-troubleshoot.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-monitor-troubleshoot",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-installation.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-installation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-example-installation.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-example-installation",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-li-portal.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-li-portal",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/ha-setup-with-fencing-device.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/ha-setup-with-fencing-device",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/large-instance-os-backup.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/large-instance-os-backup",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-backup-hli-type-ii-skus.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/os-backup-hli-type-ii-skus",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/large-instance-high-availability-rhel.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/large-instance-high-availability-rhel",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-large-instance-enable-kdump.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-large-instance-enable-kdump",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/os-upgrade-hana-large-instance.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/os-upgrade-hana-large-instance",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-setup-smt.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-setup-smt",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path_from_root": "/articles/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration.md",
+      "redirect_url": "/azure/center-sap-solutions/large-instances/hana-large-instance-virtual-machine-migration",
+      "redirect_document_id": true
     },
 
     {
@@ -924,6 +1129,7 @@
       "redirect_url": "/azure/center-sap-solutions/workloads/vm-extension-for-sap",
       "redirect_document_id": true
     },
+
 
   ]
 }

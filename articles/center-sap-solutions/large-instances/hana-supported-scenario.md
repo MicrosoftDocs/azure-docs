@@ -594,7 +594,7 @@ The following mount points are preconfigured on both HLI units (Primary and DR):
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based on the database size in memory. To learn what database sizes in memory are supported in a multi-SID environment, see [Overview and architecture](./hana-overview-architecture.md).
 - The primary node syncs with the DR node by using HANA system replication. 
-- [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+- [Global Reach](../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 
 
@@ -646,7 +646,7 @@ The following mount points are preconfigured:
 - At the DR site: The volumes and mount points are configured (marked as “PROD Instance at DR site”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The primary node syncs with the DR node by using HANA system replication. 
-- [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+- [Global Reach](../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## High availability and disaster recovery with HSR 
  
@@ -691,7 +691,7 @@ The following mount points are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
 - The primary site node syncs with the DR node by using HANA system replication. 
-- [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+- [Global Reach](../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## High availability and disaster recovery with HSR (cost optimized)
  
@@ -740,7 +740,7 @@ The following mount points are preconfigured:
 - At the DR site: The volumes and mount points are configured (marked as “PROD DR instance”) for the production HANA instance installation at the DR HLI unit. 
 - At the DR site: The data, log backups, log, and shared volumes for QA (marked as “QA instance installation”) are configured for the QA instance installation.
 - The primary site node syncs with the DR node by using HANA system replication. 
-- [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+- [Global Reach](../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 ## Scale-out with DR using HSR
  
@@ -787,7 +787,7 @@ The following mount points are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR site: The volumes and mount points are configured for the production HANA instance installation at the DR HLI unit. 
 - The primary site node syncs with the DR node by using HANA system replication. 
-- [Global Reach](../../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
+- [Global Reach](../../expressroute/expressroute-global-reach.md) is used to link the ExpressRoute circuits together to make a private network between your regional networks.
 
 
 ## Next steps
