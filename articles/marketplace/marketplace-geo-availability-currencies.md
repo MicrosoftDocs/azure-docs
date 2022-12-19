@@ -211,7 +211,7 @@ As an ISV, you have several options available to minimize impact of foreign exch
 > [!Note]
 > If an offer has hidden plans, or has plans targeting government clouds, prices can’t be updated. The only option is to stop selling that plan in those markets, and then create a new plan for that market with the new prices.
 
-- Use [Private Offers](https://learn.microsoft.com/marketplace/private-offers-in-azure-marketplace) to customize the local price to be paid by the customer
+- Use [Private Offers](/marketplace/private-offers-in-azure-marketplace) to customize the local price to be paid by the customer
 
    - If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
    - If possible, have the customer billing profile to be set in USD
