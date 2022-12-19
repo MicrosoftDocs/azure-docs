@@ -267,13 +267,13 @@
         - name: Auto-train a forecast model
           displayName: time series
           href: ../how-to-auto-train-forecast.md
-        - name: Overview of forecasting methods in AutoML
+        - name: Overview of forecasting methods
           displayName: auto ML, time series, forecasting, methods
           href: ../how-to-automl-forecasting-methods.md
-        - name: Forecasting model selection in AutoML
+        - name: Model sweeping and selection
           displayName: auto ML, time series, forecasting, model selection, sweeping
           href: ../how-to-automl-forecasting-sweeping.md
-        - name: Lagged features for time series forecasting in AutoML
+        - name: Lag features
           displayName: auto ML, time series, lags
           href: ../how-to-automl-forecasting-lags.md
         - name: Frequently asked questions

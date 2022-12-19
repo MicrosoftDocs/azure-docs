@@ -1,7 +1,24 @@
-# Model Sweeping and Selection
-During training time, we loop through a variety of models in order to choose from a set of models which could performe well each under different circumstances. This is referred as "model sweeping" in the rest of the text. And then the best model is selected from this pool based on primary metric evaluated on out-of-sample data, through user-provided validation data or cross-validations.
+---
+title: Model sweeping and selection for forecasting in AutoML
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning's AutoML searches for and selects forecasting models
+services: machine-learning
+author: ctian-msft
+ms.author: chuantian
+ms.reviewer: ssalgado 
+ms.service: machine-learning
+ms.subservice: automl
+ms.topic: how-to
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.date: 12/15/2022
+---
 
-In particular, every time series model or model class (which we will explain later) trains once in deterministic order, and then the regression models except for Prophet and TCN each paired with different preprocessor and hyperparameters will be recommended by a proprietary backend serivce for training. The model sweeping continues until the number of iterations the user chose is reached, or the early-stopping criterion is satisfied (i.e. metric doesn’t improve much in recent iterations). As long as at least two models have been looped through before the last iteration, the last iteration will usually be the voting ensemble model. And then, at the end of the training run, AutoML will select the model which has the best metric calculated from the validation set user provided, or from cross-validations.
+# Model sweeping and selection for forecasting in AutoML
+This article focuses on how AutoML searches for and selects forecasting models. Please see the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+
+During training time, we loop through a variety of models in order to choose from a set of models which could perform well each under different circumstances. This is referred as "model sweeping" in the rest of the text. And then the best model is selected from this pool based on primary metric evaluated on out-of-sample data, through user-provided validation data or cross-validations.
+
+In particular, every time series model or model class (which we will explain later) trains once in deterministic order, and then the regression models except for Prophet and TCN each paired with different preprocessor and hyper-parameters will be recommended by a proprietary backend service for training. The model sweeping continues until the number of iterations the user chose is reached, or the early-stopping criterion is satisfied (i.e. metric doesn’t improve much in recent iterations). As long as at least two models have been looped through before the last iteration, the last iteration will usually be the voting ensemble model. And then, at the end of the training run, AutoML will select the model which has the best metric calculated from the validation set user provided, or from cross-validations.
 
 When TCN is enabled, the tcn models are trained on multiple HyperDrive (HD) runs where the hyper-parameters including network depth, learning rate and dropout are randomly selected from the parameter space in each run and then evaluated on validation data. At the end, the hyper-parameter combination which has the best metric is selected for the best model.To have confidence in the accuracy of the model selected, please allow at least 50-75 completed HD runs.
 
