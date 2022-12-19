@@ -102,7 +102,7 @@ landingContent:
         links:
           - text: Develop and configure with Azure Functions
             url: signalr-concept-serverless-development-config.md
-          - text: Upstream settings
+          - text: Upstream endpoints
             url: concept-upstream.md
       - linkListType: reference
         links:

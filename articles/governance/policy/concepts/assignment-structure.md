@@ -57,11 +57,11 @@ parameters:
             "suffix": {
                 "value": "-LC"
             }
-        }
+        },
         "identity": {
             "type": "SystemAssigned"
-        }
-        "resourceSelectors": []
+        },
+        "resourceSelectors": [],
         "overrides": []
     }
 }
@@ -114,7 +114,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
     ```json
     {
       "properties": {
-        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
+        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription.",
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
         "metadata": {
           "evidenceStorages": [

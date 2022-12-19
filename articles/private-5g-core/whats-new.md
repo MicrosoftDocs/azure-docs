@@ -156,6 +156,14 @@ The following is a comparison of templates using the 2022-04-01-preview and the 
 
 ---
 
+### Packet core 2211
+
+**Type:** New release
+
+**Date available:** December 5, 2022
+
+The 2211 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2211 release notes](azure-private-5g-core-release-notes-2211.md).
+
 ### Multiple data networks
 
 **Type:** Feature
@@ -166,11 +174,11 @@ You can now configure up to three Attached Data Networks for each Packet Core in
 
 The operator can provision UEs as subscribed in one or more Data Networks and apply Data Network-specific policy and QoS, allowing UEs to use multiple Layer 3 uplink networks selected based on policy or UE preference. 
 
-Each Data Network can have its own configuration for DNS, UE IP address pools, N6 IP configuration, and NAT. This concept also maps directly to 4G APNs. 
+Each Data Network can have its own configuration for DNS, UE IP address pools, N6 IP, and NAT. This concept also maps directly to 4G APNs. 
 
 This feature has the following limitations: 
 
-- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled.
+- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you have made all your changes, you must follow the process for installing and modifying as described in the documentation.
 
 - VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks). 
 
