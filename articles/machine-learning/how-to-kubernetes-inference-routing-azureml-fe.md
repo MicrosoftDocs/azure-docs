@@ -43,7 +43,7 @@ The following steps are how requests are processed by the front-end:
 
 The following diagram illustrates this flow:
 
-:::image type="content" source="./media/how-to-attach-arc-kubernetes/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
+:::image type="content" source="./media/how-to-deploy-kubernetes-extension/request-handling-architecture.png" alt-text="Diagram illustrating the flow of requests between components.":::
 
 As you can see from above diagram, by default 3 `azureml-fe` instances are created during AzureML extension deployment, one instance acts as coordinating role, and the other instances serve incoming inference requests. The coordinating instance has all information about model pods and makes decision about which model pod to serve incoming request, while the serving `azureml-fe` instances are responsible for routing the request to selected model pod and propagate the response back to the original user.
 
@@ -123,7 +123,7 @@ For Kubenet networking, the network is created and configured properly for Azure
 
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
-![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-arc-kubernetes/azureml-kubernetes-network.png)
+![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-deploy-kubernetes-extension/azureml-kubernetes-network.png)
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
