@@ -200,7 +200,7 @@ The following example applies a Flux configuration to a cluster, using the follo
 
 * The resource group that contains the cluster is `flux-demo-rg`.
 * The name of the Azure Arc cluster is `flux-demo-arc`.
-* The cluster type is Azure Arc (`-t connectedClusters`), but this example also works with AKS (`-t managedClusters`) and AKS hybrid clusters provisioned from Azure (`-t provisionedClusters`) .
+* The cluster type is Azure Arc (`-t connectedClusters`), but this example also works with AKS (`-t managedClusters`) and AKS hybrid clusters provisioned from Azure (`-t provisionedClusters`).
 * The name of the Flux configuration is `cluster-config`.
 * The namespace for configuration installation is `cluster-config`.
 * The URL for the public Git repository is `https://github.com/Azure/gitops-flux2-kustomize-helm-mt`.
@@ -300,7 +300,7 @@ volumesnapshots.snapshot.storage.k8s.io                2022-03-28T21:06:12Z
 websites.extensions.example.com                        2022-03-30T23:42:32Z
 ```
 
-Confirm additional details of the configuration by using the following commands.
+Confirm other details of the configuration by using the following commands.
 
 ```azurecli
 kubectl get fluxconfigs -A
@@ -378,7 +378,7 @@ You can use the `k8s-extension` command to change the default options:
 
 For instance, to disable notifications, you can set `notification-controller.enabled` to `false`.
 
-The example below installs the `image-reflector` and `image-automation` controllers. If the Flux extension was created automatically when a Flux configuration was first created, the extension name will be `flux`.
+This example command installs the `image-reflector` and `image-automation` controllers. If the Flux extension was created automatically when a Flux configuration was first created, the extension name will be `flux`.
 
 ```azurecli
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters or provisionedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
@@ -426,7 +426,7 @@ Follow these steps to apply a sample Flux configuration to a cluster. As part of
 1. In the **Basics** section:
 
    1. Enter a name for the configuration.
-   1. Enter the namespace within which which the Flux custom resources will be installed. This can be an existing namespace or a new one that will be created when the configuration is deployed.
+   1. Enter the namespace within which the Flux custom resources will be installed. This can be an existing namespace or a new one that will be created when the configuration is deployed.
    1. Under **Scope**, select **Cluster** so that the Flux operator will have access to apply the configuration to all namespaces in the cluster. To use `namespace` scope with this tutorial, [see the changes needed](conceptual-gitops-flux2.md#multi-tenancy).
    1. Select **Next** to continue to the **Source** section.
 
@@ -540,7 +540,7 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Delete the Flux configuration and extension
 
-Use the commands below to delete your Flux configuration and, if desired, the Flux extension itself.
+Use the following commands to delete your Flux configuration and, if desired, the Flux extension itself.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -548,13 +548,9 @@ Use the commands below to delete your Flux configuration and, if desired, the Fl
 
 The command below deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed. However, this command does not remove the Flux extension itself.
 
-For an Azure Arc-enabled Kubernetes cluster, use this command:
-
 ```azurecli
 az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n cluster-config -t connectedClusters --yes
 ```
-
-For an AKS cluster, use the same command but with `-t managedClusters` replacing `-t connectedClusters`.
 
 #### Delete the Flux cluster extension
 
@@ -562,13 +558,12 @@ When you delete the Flux extension, both the `microsoft.flux` extension resource
 
 If the Flux extension was created automatically when the Flux configuration was first created, the extension name will be `flux`.
 
-For an Azure Arc-enabled Kubernetes cluster, use this command:
-
 ```azurecli
 az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClusters --yes
 ```
 
-For an AKS cluster, use the same command but with `-t managedClusters`replacing `-t connectedClusters`.
+> [!TIP]
+> The commands above use `-t connectedClusters`, which is appropriate for an Azure Arc-enabled Kubernetes cluster. For an AKS cluster, use `-t managedClusters` instead. For AKS hybrid clusters provisioned from Azure, use `-t provisionedClusters`.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -576,7 +571,7 @@ For an AKS cluster, use the same command but with `-t managedClusters`replacing 
 
 To delete a Flux configuration, navigate to the cluster where the configuration was created and select **GitOps** in the left pane. Select the configuration you want to delete. From the top of the page, select **Delete**, then select **Delete again when prompted to confirm.
 
-When you delete a Flux configuration, all of the Flux configuration objects in the cluster will also be deleted. However, this does not delete the `microsoft.flux` extension itself.
+When you delete a Flux configuration, all of the Flux configuration objects in the cluster will also be deleted. However, this action does not delete the `microsoft.flux` extension itself.
 
 #### Delete the Flux cluster extension
 
