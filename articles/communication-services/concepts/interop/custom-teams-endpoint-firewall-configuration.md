@@ -15,9 +15,9 @@ ms.custom: kr2b-contr-experiment
 
 # Firewall configuration of calling applications for Teams users
 
-Azure Communication Services allow you to build custom Teams calling experiences.
+Azure Communication Services allows you to build custom Teams calling experiences.
 
-You can use the Calling *Software development kit* (SDK) to customize experiences. Use your Administrator account to configure your firewall based on Communication Services and Microsoft Teams guidelines. Communication Services requirements are for the control plane, and Teams requirements are for Calling. If you will leverage telephony, follow Communication Services and Teams' requirements.
+You can use the Calling *Software development kit* (SDK) to customize experiences. Use your Administrator account to configure your firewall based on Communication Services and Microsoft Teams guidelines. Communication Services requirements are for the control plane, and Teams requirements are for Calling. If you'll use telephony, follow Communication Services and Teams' requirements.
 
 If you use an *independent software vendor* (ISV) for authentication, use instructions from that vendor and not from Communication Services.
 
