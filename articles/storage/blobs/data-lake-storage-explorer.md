@@ -1,7 +1,9 @@
 ---
 title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to

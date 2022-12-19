@@ -2,8 +2,8 @@
 title: Object replication overview
 titleSuffix: Azure Storage
 description: Object replication asynchronously copies block blobs between a source storage account and a destination account. Use object replication to minimize latency on read requests, to increase efficiency for compute workloads, to optimize data distribution, and to minimize costs.
-services: storage
 author: normesta
+
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/09/2022
