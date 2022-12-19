@@ -235,7 +235,7 @@
       href: move-cluster.md  
   - name: Build with no code editor
     items:
-    - name: Capture Event Hubs data in Detla Lake format
+    - name: Capture Event Hubs data in Delta Lake format
       href: capture-event-hub-data-delta-lake.md
     - name: Capture Event Hubs data in Parquet format
       href: capture-event-hub-data-parquet.md
