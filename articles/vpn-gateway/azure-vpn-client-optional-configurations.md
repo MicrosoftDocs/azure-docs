@@ -124,8 +124,8 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
   ```
   
 > [!NOTE]
-> - The default status for clientconfig tag is <clientconfig i:nil="true" />, which can be modified based on the requirement.
-> - Duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
+> - The default status for the clientconfig tag is `<clientconfig i:nil="true" />`, which can be modified based on the requirement.
+> - A duplicate clientconfig tag is not supported on macOS, so make sure the clientconfig tag is not duplicated in the XML file.
 
 ### Add custom routes
 
@@ -170,8 +170,8 @@ You block (exclude) routes. Modify the downloaded profile XML file and add the *
 ```
 
 > [!NOTE]
-> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above exmaples)_, as multiple destination address in single route tag will not work.
-> - In case you encounter the error "_**Destination cannot be empty or have more than one entry inside route tag**_", check the profile xml file and ensure that includeroutes/excluderoutes section has only one destination address inside a route tag.
+> - To include/exclude multiple destination routes, put each destination address under a separate route tag _(as shown in the above examples)_, because multiple destination addresses in a single route tag won't work.
+> - If you encounter the error "_Destination cannot be empty or have more than one entry inside route tag_", check the profile XML file and ensure that the includeroutes/excluderoutes section has only one destination address inside a route tag.
 >
 
 ## Next steps
