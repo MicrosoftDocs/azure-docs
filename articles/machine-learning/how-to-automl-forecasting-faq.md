@@ -32,7 +32,7 @@ We're always working to make it faster and more scalable! But it is true that Au
 There are four configurations supported by AutoML forecasting.
 1.  Default Auto ML.
 
-    This is recommended if the dataset has less number of time series. This is the first configuration that one should try in Azure Auto ML using a small dataset. Classical models would be trained for each time series. For Machine Learning models, one model would be trained for all the time series.
+    This is recommended if the dataset has less number of time series. This is the first configuration that should be tried in Azure Auto ML using a small dataset. Classical models would be trained for each time series. For Machine Learning models, one model would be trained for all the time series.
 
     This configuration helps in cross learning and forecasting for grains that have less historical data. Availability of meta data can further help in the modelling. Also, it is less computationally expensive. 
     Advantages:
@@ -48,16 +48,15 @@ There are four configurations supported by AutoML forecasting.
 
 2.  Many Models: 
     
-    This allows users to train and manage millions of models in parallel.Separate models are trained for each time series. 
-    It is recommended when the number of time series are high and there is no cross learning/ hierarchy in the data.
+    This allows users to train and manage millions of models in parallel. Separate models are trained for each time series. It is recommended when the number of time series is high and there is no cross learning/ hierarchy in the data.
     
     Advantages:
     - Scalability
-    - Good accuracy
+    - Higher accuracy
   
     Disadvantages:
     - No cross learning across time series
-    - For short time series, there can be over-fitting issues. However, ROCV should reduce it.
+    - For short time series, there can be over-fitting issues.However, ROCV would reduce it.
 
 3. Hierarchical Time Series (HTS): 
 
@@ -66,52 +65,54 @@ There are four configurations supported by AutoML forecasting.
 
 4. Deep Learning: 
    
-   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series and does not need external features.
+   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model, i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series and does not need external features.
 
 ### How can I prevent over-fitting and data leakage?
 
 Azure Auto ML uses Rolling Origin Cross Validation which reduces the modelling-based over-fitting issues to a great extent. However, there can be over-fitting issues due to the data. 
-- One needs to make sure that the input data does not contain columns that are derived from target. 
-- Using deep learning models for small number of short time series. Many models can over-fit the time series that have short history. Increase the cv_step_size and n_cv_folds.
-- Also, features available during training but unavailable in the forecast horizon will lead to poor predictions. In our next version, we are proposing a solution for missing features in forecast horizon (Coming soon). (Intro section –links)
+- The input data should not contain columns that are derived from the target. 
+- Using deep learning models for small number of short time series. Many models can over-fit the time series that have short history. Increasing the cv_step_size and n_cv_folds helps in reducing over-fitting.
+- Features available during training but unavailable in the forecast horizon will lead to poor predictions. In our next version, we are proposing a solution to handle missing features in forecast horizon (Coming soon). 
 
 ### How and where to start? What should be my steps for forecasting using Azure AutoML?
 
-It is recommended to first go through Set up AutoML (Link). Post that the following notebooks should be executed with the required data in sequence based on the accuracy requirements.
-1. Bike share notebook
-2. Forecasting Recipes forecasting-recipes-univariate 
-3. Advanced modelling parameters  
-4. Many models 
-5. Deep Learning : forecasting-github-dau
+It is recommended to initially go through [Set up AutoML to train a time-series forecasting model with Python](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-forecast). Post that the following notebooks should be executed with the required data in sequence based on the accuracy requirements.
+1. [Bike share notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+2. [Forecasting Recipes forecasting-recipes-univariate](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-recipes-univariate/auto-ml-forecasting-univariate-recipe-experiment-settings.ipynb)
+3. [Advanced modelling parameters](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+4. [Many models](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) 
+5. [Forecasting using Deep Learning](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
 
 
 ### How do I choose the primary metric? Which output metrics should I look at?
 
-Forecasting supports spearman_correlation, normalized_root_mean_squared_error (RMSE), r2_score and normalized_mean_absolute_error (MAE). However, R2 not good metric for forecasting and should be avoided.
+Forecasting supports normalized_mean_absolute_error (MAE), normalized_root_mean_squared_error(RMSE), r2_score,and spearman_correlation. However, R2 not a good metric for forecasting and should be avoided.
   
-RMSE heavily penalizes the outliers. If there are few timestamps with poor forecasts and all other timestamps with great forecasts, RMSE will inflate the error metric. If the use case demands that occasional large mistakes should be avoided, then one should use RMSE. However, if errors should be treated equally, one should use MAE. RMSE optimizes the mean function, whereas MAE optimizes the median
+RMSE heavily penalizes the outliers. If there are few timestamps with poor forecasts and all other timestamps with great forecasts, RMSE will inflate the error metric. If the use case demands that occasional large mistakes should be avoided, then one should use RMSE. However, if errors should be treated equally, then MAE should be used. RMSE optimizes the mean function, whereas MAE optimizes the median.
 
 
 ### How can I improve the accuracy of my model?
 
 It is important to understand which modeling configuration is appropriate for the available data. 
-- If the data is extremely granular then aggregating the data at a higher level and generating the forecasts is a good option. Forecasting at lower granularity introduces a lot of noise in the model. 
-- Using back-test notebooks to evaluate the forecast quality over several forecasting cycles. This ensures that the poor accuracy is not due to strange behaviors in a single forecast horizon.
+- If the data is extremely granular then aggregating the data at a higher level and generating the forecasts is a good option. The aggregation could be based on frequency or meta data properties. Forecasting at lower granularity introduces a lot of noise in the model. 
+- Using back-test notebooks to evaluate the forecast quality over several forecasting cycles. This ensures that the accuracy is not due to strange behaviors in a single forecast horizon.
 - Understanding if the models are under-fitting or over-fitting by comparing the training and forecast metrics. Post that updating the model parameters appropriately.
 - Adding external features based on business understanding.
-- Increasing the forecast horizon etc
-- Looking at the appropriate forecasting accuracy metric.
+- Increasing the forecast horizon etc.
+- Looking at the appropriate forecasting accuracy metrics.
 - Increase the number of iterations (add the exact parameters)
 - Adding complex model parameters
 
 ### How can I speed up model training and selection?
+
+- Disable classical models
 - Remove configs like lags
-- Disable classical models etc
-- Reduce the number of iterations, 
-- Reduce the iteration_timeout_minutes, 
-- Reduce experiment_timeout_hours, 
-- Reduce Cross validation parameters (if used : cv_step_size and n_cross_validations)
-- enable_early_stopping.
+- Reduce 
+  - number of iterations
+  - iteration_timeout_minutes
+  - experiment_timeout_hours
+  - cross validation parameters (cv_step_size and n_cross_validations)
+- Enable_early_stopping
 
 ### What can I do if I get an Out-Of-Memory error?
 
@@ -119,9 +120,22 @@ There can be two types of memory issues:
 - RAM Out of Memory 
 - Disk Out of Memory
 
-RAM Out of Memory can be resolved by upgrading the VM. In SDK we require raw data size to be 10 times smaller than the amount of free memory. So 30 * size of raw data seems to be reasonable, but to add to this, if the data size is the problem it means that user data is at least 467 Mb and one should try the ManyModel solution.
+RAM Out of Memory can be resolved by upgrading the VM. In SDK, the amount of free memory should be atleast 10 times larger than the raw data size. 30 times the size of raw data seems to be a reasonable memory requirement. If the data size is the problem, it means that user data is at least 467 Mb and one should try the ManyModel solution.
 
 Disk Out of Memory can be resoved by deleting the compute cluster and creating a new one.
+
+### What are the advanced forecasting scenarios that are supported?
+
+We support scenarios like 
+- Forecasting further than forecast horizon using 
+  - Recursive forecasts 
+  - Rolling forecasts
+- Forecast quantile prediction
+- Forecasting with/without gap between train and test data
+- Automatic stationarity fix (??)
+For more details, refer [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+
+### How to export forecasts? (.csv vs UI etc.)
 
 ### How do I view the output metrics and visualization for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. Where to find the plots and accuracy metrics at different levels of hierarchy for HTS?
 
@@ -132,11 +146,6 @@ To be updated
 User error in main run page—to std error log 
 a.	single model: driver log
 b.	many model: each node has its own user logs describe  log structure readme.
-
-### What are the advanced forecasting scenarios that are supported?
-To do: forecast notebook and update
-
-### How to export forecasts? (.csv vs UI etc.)
 
 ### What is an experiment/ WS/ sweep job – DNN run inside child run? What is job? Link to Azure
 
