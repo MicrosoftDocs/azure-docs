@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 12/07/2022
 ms.author: banders
 ---
 
@@ -56,13 +56,17 @@ Answers to the above questions can help you to communicate early with others to 
 
 Answers for the source and destination offer type questions help define technical paths that you'll need to follow and identify limitations that a transfer combination might have. Limitations are covered in more detail in the next section.
 
+## Support plan transfers
+
+You can't transfer support plans. If you have a support plan, then you should cancel it. Then you can buy a new one for the new agreement. If you cancel an Azure support plan, you're billed for the rest of the month. Cancelling a support plan doesn't result in a prorated refund. For more information about support plans, see [Azure support plans](https://azure.microsoft.com/support/plans/).
+
+For information about how to cancel a support plan, see [Cancel your Azure subscription](cancel-azure-subscription.md).
+
 ## Product transfer support
 
 The following table describes product transfer support between the different agreement types. Links are provided for more information about each type of transfer.
 
 Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) products. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
-
-Support plans can't be transferred. If you have a support plan, you should cancel. Then buy a new one for the new agreement.
 
 Dev/Test products aren't shown in the following table. Transfers for Dev/Test products are handled in the same way as other product types. For example, an EA Dev/Test product transfer is handled in the way an EA product transfer.
 

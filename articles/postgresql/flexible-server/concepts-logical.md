@@ -108,13 +108,10 @@ Here is an example of configuring pglogical at the provider database server and 
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. See [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.
+2. If the replication user is other than the server administration user (who created the server), make sure that you grant membership in a role `azure_pg_admin` to the user and assign REPLICATION and LOGIN attributes to the user. See [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.
    ```SQL
-   GRANT azure_pg_admin, replication to myUser;
-   ```
-   or
-   ```SQL
-   GRANT myAdminUser to myUser;
+   GRANT azure_pg_admin to myUser;
+   ALTER ROLE myUser REPLICATION LOGIN;
    ```
 2. At the **provider** (source/publisher) database server, create the provider node.
    ```SQL
@@ -151,6 +148,10 @@ Here is an example of configuring pglogical at the provider database server and 
    ```SQL
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
+   
+>[!NOTE]
+> Pglogical does not currently support an automatic DDL replication. The initial schema can be copied manually using pg_dump --schema-only. DDL statements can be executed on the provider and subscriber at the same time by using the pglogical.replicate_ddl_command function. Please be aware of other limitations of the extension listed [here](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions).
+
 
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 

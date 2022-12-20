@@ -153,7 +153,7 @@ The second URL grants access to the log streaming service and the console. If ne
 ## Ports and IP addresses
 
 >[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of /23 or larger (/23, /22 etc.).
+> The subnet associated with a Container App Environment requires a CIDR prefix of /21 or larger (/20, /19 etc.).
 
 The following ports are exposed for inbound connections.
 
@@ -168,7 +168,7 @@ IP addresses are broken down into the following types:
 | Type | Description |
 |--|--|
 | Public inbound IP address | Used for app traffic in an external deployment, and management traffic in both internal and external deployments. |
-| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. |
+| Outbound public IP | Used as the "from" IP for outbound connections that leave the virtual network. These connections aren't routed down a VPN. Using a NAT gateway or other proxy for outbound traffic from a Container App environment is not supported. Outbound IPs are not guaranteed and may change over time. |
 | Internal load balancer IP address | This address only exists in an internal deployment. |
 | App-assigned IP-based TLS/SSL addresses | These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured. |
 

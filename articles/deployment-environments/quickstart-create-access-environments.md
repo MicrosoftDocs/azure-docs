@@ -60,7 +60,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 1. Sign in to the Azure CLI:
 
     ```azurecli
-        az login
+    az login
     ```
 
 1. List all the Azure Deployment Environments projects you have access to:
@@ -97,7 +97,7 @@ Complete the following steps in the Azure CLI to create an environment and confi
 
    ```azurecli
    az devcenter dev environment create --dev-center-name <devcenter-name> 
-       --project-name <project-name> -n <name> --environment-type <environment-type-name> 
+       --project-name <project-name> --environment-type <environment-type-name> 
        --catalog-item-name <catalog-item-name> --catalog-name <catalog-name> 
    ```
 
@@ -114,6 +114,20 @@ Complete the following steps in the Azure CLI to create an environment and confi
 > [!NOTE]
 > You can use `--help` to view more details about any command, accepted arguments and examples. For example, use `az devcenter dev environment create --help` to view more details about creating an environment.
 
+### Troubleshoot permission error
+
+You must have the [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, the [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) that has appropriate permissions can create an environment.
+
+If you don't have the correct permissions, creation of the environment will fail, and you may receive an error message like this:
+
+```
+(EnvironmentNotFound) The environment resource was not found.
+Code: EnvironmentNotFound
+Message: The environment resource was not found.
+```
+
+To resolve the issue, assign the correct permissions: [Give project access to the development team](quickstart-create-and-configure-projects.md#give-project-access-to-the-development-team).
+
 ## Access an environment
 
 To access an environment:
@@ -122,7 +136,7 @@ To access an environment:
 
    ```azurecli
     az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
-    ```  
+   ```  
 
 1. View the access endpoints to various resources as defined in the ARM template outputs.
 1. Access the specific resources by using the endpoints.

@@ -40,7 +40,8 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 * The customer-managed key for resources the workspace depends on can’t be updated after workspace creation.
 * Resources managed by Microsoft in your subscription can’t transfer ownership to you.
 * You can't delete Microsoft-managed resources used for customer-managed keys without also deleting your workspace.
-* The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace
+* The key vault that contains your customer-managed key must be in the same Azure subscription as the Azure Machine Learning workspace.
+* Workspace with customer-managed key does not currently support v2 online endpoint and batch endpoint.
 
 > [!IMPORTANT]
 > When using a customer-managed key, the costs for your subscription will be higher because of the additional resources in your subscription. To estimate the cost, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
@@ -145,7 +146,7 @@ To use the key when deploying a model to Azure Container Instance, create a new 
 For more information on creating and using a deployment configuration, see the following articles:
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
-* [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
+* [Where and how to deploy](how-to-deploy-online-endpoints.md)
 * [Deploy a model to Azure Container Instances (SDK/CLI v1)](v1/how-to-deploy-azure-container-instance.md)
 
     For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).

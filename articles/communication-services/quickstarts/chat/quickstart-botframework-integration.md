@@ -14,12 +14,7 @@ ms.custom: mode-other
 
 # Add a bot to your chat app
 
-> [!IMPORTANT]
-> This functionality is in private preview, and restricted to a limited number of Azure Communication Services early adopters. You can [submit this form to request participation in the preview](https://forms.office.com/r/HBm8jRuuGZ) and we will review your scenario(s) and evaluate your participation in the preview.
->
-> Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this quickstart, you will learn how to build conversational AI experiences in a chat application using Azure Communication Services Chat messaging channel that is available under Azure Bot Services. This article will describe how to create a bot using BotFramework SDK and how to integrate this bot into any chat application that is built using Communication Services Chat SDK.
 
@@ -35,8 +30,6 @@ You will learn how to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
 - Latest version of .NET Core. For this tutorial, we have used [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install the version that corresponds with your visual studio instance, 32 vs 64 bit)
-
-
 
 ## Step 1 - Create and deploy an Azure bot
 
@@ -473,7 +466,7 @@ Sometimes the bot wouldn't be able to understand or answer a question or a custo
 
 ## Handling bot to bot communication
 
- There may be certain usecases where two bots need to be added to the same thread. If this occurs, then the bots may start replying to each other's messages. If this scenario is not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. This scenario is handled by Azure Communication Services Chat by throttling the requests which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](/azure/communication-services/concepts/service-limits#chat).
+ There may be certain use cases where two bots need to be added to the same chat thread to provide different services. In such use cases, you may need to ensure that bots don't start sending automated replies to each other's messages. If not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. You can verify the ACS user identity of the sender of a message from the activity's `From.Id` field to see if it belongs to another bot and take required action to prevent such a communication flow. If such a scenario results in high call volumes, then Azure Communication Services Chat channel will start throttling the requests, which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](/azure/communication-services/concepts/service-limits#chat).
 
 ## Troubleshooting
 

@@ -642,8 +642,8 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-planning-and-operations-guide.md",
-            "redirect_url": "/azure/defender-for-cloud/security-center-planning-and-operations-guide",
-            "redirect_document_id": true
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/security-center/sql-information-protection-policy.md",
@@ -754,7 +754,31 @@
             "source_path_from_root": "/articles/defender-for-cloud/defender-for-containers-va-acr.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-containers-vulnerability-assessment-azure",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/deploy-vulnerability-assessment-tvm.md",
+            "redirect_url": "/azure/defender-for-cloud/deploy-vulnerability-assessment-defender-vulnerability-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/plan-multicloud-security-other-resources.md",
+            "redirect_url": "/azure/defender-for-cloud/multicloud",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-servers-introduction.md",
+            "redirect_url": "/azure/defender-for-cloud/plan-defender-for-servers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/security-center-readiness-roadmap.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/security-center-planning-and-operations-guide.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide",
+            "redirect_document_id": true
         }
-    
       ]
 }

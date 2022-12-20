@@ -27,15 +27,15 @@ Details about each sensor are listed in the following columns:
 |Column name |Description  |
 |---------|---------|
 |**Sensor name**| Displays the name that you assigned to the sensor during the registration. |
-|**Sensor type**| Displays whether the sensor is locally connected, cloud-connected, or EIoT. |
+|**Sensor type**| Displays whether the sensor is an OT locally connected, OT cloud-connected, or an Enterprise IoT sensor. |
 |**Zone**| Displays the zone that contains this sensor.|
 |**Subscription name**| Displays the name of the Microsoft Azure account subscription that this sensor belongs to. |
-|**Sensor version**| Displays the software version installed on your sensor. |
-|**Sensor status**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
+|**Sensor version**| Displays the OT monitoring software version installed on your sensor. |
+|**Sensor health**| Displays a [sensor health message](sensor-health-messages.md). For more information, see [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview).|
 |**Last connected (UTC)**| Displays how long ago the sensor was last connected.|
-|**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on the sensor. The name of the version is based on the day the package was built by Defender for IoT. |
-|**Threat Intelligence mode**| Displays whether the Threat Intelligence mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on the cloud connected sensors. |
-|**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
+|**Threat Intelligence version**| Displays the [Threat Intelligence version](how-to-work-with-threat-intelligence-packages.md) installed on an OT sensor. The name of the version is based on the day the package was built by Defender for IoT. |
+|**Threat Intelligence mode**| Displays whether the Threat Intelligence update mode is manual or automatic. If it's manual that means that you can [push newly released packages directly to sensors](how-to-work-with-threat-intelligence-packages.md) as needed. Otherwise, the new packages will be automatically installed on all OT, cloud-connected sensors. |
+|**Threat Intelligence update status**| Displays the update status of the Threat Intelligence package on an OT sensor. The status can be either **Failed**, **In Progress**, **Update Available**, or **Ok**.|
 
 ## Site management options from the Azure portal
 
@@ -87,6 +87,8 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
+- **Change your plan commitment**: If you make changes to your plan, for example if you change your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
+
 In such cases, do the following steps:
 
 1. [Delete your existing sensor](#sensor-management-options-from-the-azure-portal).
@@ -100,8 +102,10 @@ If you're updating your OT sensor version from a legacy version to 22.1.x or hig
 Make sure that you've started with the relevant updates steps for this update. For more information, see [Update OT system software](update-ot-software.md).
 
 > [!NOTE]
-> After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
+> After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
 >
+> For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+
 
 ## Understand sensor health (Public preview)
 

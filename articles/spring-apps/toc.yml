@@ -132,6 +132,14 @@ items:
         href: how-to-use-enterprise-spring-cloud-gateway.md
       - name: Configure Spring Cloud Gateway
         href: how-to-configure-enterprise-spring-cloud-gateway.md
+      - name: Use VMware Tanzu Application Accelerator
+        href: how-to-use-accelerator.md
+      - name: Configure Tanzu Dev Tools
+        href: how-to-use-dev-tool-portal.md
+      - name: Use Application Live View
+        href: how-to-use-application-live-view.md
+      - name: Monitor apps using Application Live View
+        href: monitor-apps-by-application-live-view.md
   - name: Deploy
     items:
     - name: Set up a staging environment
@@ -290,6 +298,8 @@ items:
       href: how-to-dump-jvm-options.md
     - name: Connect to an app instance for troubleshooting
       href: how-to-connect-to-app-instance-for-troubleshooting.md
+    - name: Debug your apps remotely
+      href: how-to-remote-debugging-app-instance.md
   - name: Migrate
     items:
     - name: Migrate Standard and Basic to Enterprise
