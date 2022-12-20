@@ -36,7 +36,7 @@ To assign a VM insights policy initiative to a subscription or management group 
 1. Select for and open **Policy**. 
 1. Select **Assignments** > **Assign initiative**.
 
-    :::image type="content" source="media/vminsights-enable-policyvm-insights-assign-initiative.png" lightbox="media/vminsights-enable-policy/vm-insights-assign-initiative.png" alt-text="Screenshot that shows the Policy Assignments screen with the Assign initiative button highlighted.":::
+    :::image type="content" source="media/vminsights-enable-policy/vm-insights-assign-initiative.png" lightbox="media/vminsights-enable-policy/vm-insights-assign-initiative.png" alt-text="Screenshot that shows the Policy Assignments screen with the Assign initiative button highlighted.":::
 
 1. In the **Scope** field, select the management group or subscription to which you'll assign the initiative. 
 1. (Optional) Select **Exclusions** to exclude specific resources from the initiative assignment. For example, if your scope is a management group, you might specify a subscription in that management group to be excluded from the assignment.
