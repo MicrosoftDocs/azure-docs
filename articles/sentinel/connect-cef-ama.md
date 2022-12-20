@@ -63,7 +63,7 @@ Before you begin, verify that you have:
 
 ### Configure a log forwarder
 
-To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. This machine must have Azure Arc installed (see the [prerequisites](#prerequisites)).
+To ingest Syslog and CEF logs into Microsoft Sentinel, you need to designate and configure a Linux machine that collects the logs from your devices and forwards them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. If this machine is not an Azure VM, it must have Azure Arc installed (see the [prerequisites](#prerequisites)).
 
 This machine has two components that take part in this process:
 
