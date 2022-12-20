@@ -110,7 +110,7 @@ az network application-gateway update -n ApplicationGateway01 -g ResourceGroup01
 A list of all Azure CLI references for client authentication configuration on Application Gateway can be found here:
 - [Azure CLI - Application Gateway](/cli/azure/network/application-gateway)
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 Azure portal support is currently not available.
 
 To verify OCSP revocation status has been evaluated, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
@@ -122,7 +122,7 @@ Note: OCSP checks are validated via local cache based on the nextUpdate time def
 Limitations
 - Revocation check via CRL is not supported
 - Client revocation check was introduced in API version 2022-05-01
-- Azure Portal support is not available
+- Azure portal support is not available
 
 ## Next steps
 
