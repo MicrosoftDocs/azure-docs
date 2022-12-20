@@ -15,7 +15,7 @@ ms.custom: references_regions
 This article provides an overview of how to enable VM insights to monitor the health and performance of:
 
 - Azure virtual machines.
-- Azure virtual machine scale sets.
+- Azure Virtual Machine Scale Sets.
 - Hybrid virtual machines connected with Azure Arc.
 - On-premises virtual machines.
 - Virtual machines hosted in another cloud environment.
@@ -53,7 +53,7 @@ See the following list of considerations on Linux support of the Dependency agen
 - For Debian distros other than version 9.4, the Map feature isn't supported. The Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
 
-The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
+The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult with your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
 
 ```
 $ grep . /sys/devices/system/cpu/vulnerabilities/*
@@ -87,7 +87,7 @@ When you enable VM insights for a machine, the following agents are installed. F
 > [!IMPORTANT]
 > VM insights support for the Azure Monitor agent is currently in public preview. The Azure Monitor agent has several advantages over the Log Analytics agent. It's the preferred agent for virtual machines and virtual machine scale sets. For a comparison of the agent and information on migrating, see [Migrate to Azure Monitor agent from Log Analytics agent](../agents/azure-monitor-agent-migration.md).
 
-- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace.
+- **[Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or [Log Analytics agent](../agents/log-analytics-agent.md):** Collects data from the virtual machine or Virtual Machine Scale Set and delivers it to the Log Analytics workspace.
 - **Dependency agent**: Collects discovered data about processes running on the virtual machine and external process dependencies, which are used by the [Map feature in VM insights](../vm/vminsights-maps.md). The Dependency agent relies on the Azure Monitor agent or Log Analytics agent to deliver its data to Azure Monitor.
 
 ## Changes for the Azure Monitor agent
@@ -96,7 +96,7 @@ There are several changes in the process for enabling VM insights when you use t
 
 - **Workspace configuration:** You no longer need to [enable VM insights on the Log Analytics workspace](vminsights-configure-workspace.md) because the Azure Monitor agent doesn't use the *VMInsights* management pack.
 - **Data collection rule (DCR):** The Azure Monitor agent uses [data collection rules](../essentials/data-collection-rule-overview.md) to configure its data collection. VM insights creates a DCR that's automatically deployed if you enable your machine by using the Azure portal. If you use other methods to onboard your machines, you might need to install the DCR first.
-- **Agent deployment:** There are minor changes to the process for onboarding virtual machines and virtual machine scale sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a DCR for the Azure Monitor agent. For more information, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md).
+- **Agent deployment:** There are minor changes to the process for onboarding virtual machines and Virtual Machine Scale Sets to VM insights in the Azure portal. You must now select which agent you want to use, and you must select a DCR for the Azure Monitor agent. For more information, see [Enable VM insights in the Azure portal](vminsights-enable-portal.md).
 
 ## Data collection rule (Azure Monitor agent)
 
