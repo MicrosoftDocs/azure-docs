@@ -124,3 +124,7 @@ For different options to enable VM insights for your machines, see [Enable VM in
 * [Analyze monitoring data collected for virtual machines](monitor-virtual-machine-analyze.md)
 * [Create alerts from collected data](monitor-virtual-machine-alerts.md)
 * [Monitor workloads running on virtual machines](monitor-virtual-machine-workloads.md)
+
+
+
+The performance charts in VM insights depend on the VM insights DCR that sends client performance data to a Log Analytics workspace. This allows you to use use KQL queries to analyze the data, which is what the performance charts are based on. You may choose to send thr performance data to Azure Metrics either instead of or in addition to the workspace. This saves you the cost of sending data to the workspace and allows you to use metrics explorer and metric alerts with the data.

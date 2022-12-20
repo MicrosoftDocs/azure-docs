@@ -45,9 +45,9 @@ There are fundamentally four layers to a virtual machine that require monitoring
 | Layer | Description |
 |:---|:---|
 | Virtual machine host | The host virtual machine in Azure. Azure Monitor has no access to the host in other clouds but must rely on information collected from the guest operating system. The host can be useful for tracking activity such as configuration changes, and basic alerting such as processor utilization and whether the machine is running. |
-| Guest operating system | The operating system running on the virtual machine, which is some version of either Windows or Linux. A significant amount of monitoring data is available from the guest operating system, such as performance data and events. |
-| Workloads | Workloads running in the guest operating system that support your business applications. |
-| Application | The business application that depends on your virtual machines. |
+| Guest operating system | The operating system running on the virtual machine, which is some version of either Windows or Linux. A significant amount of monitoring data is available from the guest operating system, such as performance data and events. You must install Azure Monitor agent to retrieve this telemetry. |
+| Workloads | Workloads running in the guest operating system that support your business applications. These will typically generate performance data and events similar to the operating system that you can retrieve. You must install Azure Monitor agent to retrieve this telemetry. |
+| Application | The business application that depends on your virtual machines. This will typically be monitored by APplication insights. |
 
 ## Azure Monitor agent
 Any monitoring tool like Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor uses the [Azure Monitor agent](../agents/agents-overview.md), which supports virtual machines in Azure, other cloud environments, and on-premises. The Azure Monitor agent replaces legacy agents that are still available but should only be used if you require particular functionality not yet available with Azure Monitor agent. Most users will be able to use Azure Monitor without the legacy agents.
@@ -73,25 +73,17 @@ You should implement a strategy for configuring your DCRs so that they're manage
 - Simplified onboarding of the Azure Monitor agent to enable monitoring of a virtual machine guest operating system and workloads.
 - Preconfigured data collection rule that collects the most common set of performance counters for Windows and Linux.
 - Predefined trending performance charts and workbooks that you can use to analyze core performance metrics from the virtual machine's guest operating system.
-- Collection of 
-- Dependency map that displays processes running on each virtual machine and the interconnected components with other machines and external sources.
+- Optional collection of details for each virtual machine, the processes running on it, and dependencies with other services.
+- Optional dependency map that displays interconnected components with other machines and external sources.
 
-Whether or not you choose to use the performance or map views in VM insights, it's valuable in providing base level monitoring and an interface to manage your monitored and unmonitored machines. VM insights also includes a simplified interface for managing Azure Policy definitions to automatically install the agent and enable monitoring on new machines.
+Whether or not you choose to use the performance or map views in VM insights, it's valuable in providing base level performance monitoring and an interface to manage your monitored and unmonitored machines. VM insights also includes a simplified interface for [managing Azure Policy definitions](vminsights-enable-policy.md) to automatically install the agent and enable monitoring on new machines.
 
-By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. Enable this collection if you 
-
-You may or may not choose to use VM insights to support enterprise-wide monitoring of your virtual machines. Even if you enable it, you'll still need create additional DCRs to collect events and send performance data to Azure Monitor Metrics. You'll also need to configure alert rules since VM insights doesn't provide any alerting.
-
-
-The performance charts in VM insights depend on the VM insights DCR that sends client performance data to a Log Analytics workspace. This allows you to use use KQL queries to analyze the data, which is what the performance charts are based on. You may choose to send thr performance data to Azure Metrics either instead of or in addition to the workspace. This saves you the cost of sending data to the workspace and allows you to use metrics explorer and metric alerts with the data.
+By default, VM insights will not enable collection of processes and dependencies to save data ingestion costs. This data is required for the map feature and will also deploy the dependency agent to the machine. [Enable this collection](vminsights-enable-portal.md#enable-vm-insights-for-azure-monitor-agent) if you want to use this feature.
 
 ## System Center Operations Manager (SCOM)
-If you currently use SCOM to manage your 
+You may currently use System Center Operations Manager (SCOM) to monitor your virtual machines and their workloads and are starting to consider which monitoring you can move to Azure Monitor. As described in [Azure Monitor for existing Operations Manager customer](../azure-monitor-operations-manager.md), you may continue using SCOM for some period of time until you know longer require the extensive monitoring that SCOM provides.
 
-and are starting your transition into the cloud, then you 
-
-
-[Azure Monitor SCOM Managed Instance (preview)]() allows existing customers of [System Center Operations Manager](/system-center/scom) to maintain their investment in SCOM while moving their monitoring infrastructure into the Azure cloud. 
+Use the information in this content to assess the capabilities of Azure Monitor to monitor your virtual machine and determine those machines and workloads that you can migrate from SCOM.
 
 
 ## Next steps
