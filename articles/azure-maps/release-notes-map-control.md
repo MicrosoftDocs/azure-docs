@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## [3.0.0-preview.2](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2) (December 16, 2022)
 
-### New feature
+### New features
 
 Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map. For more information, see [2.2.2 release notes](#222-december-15-2022).
 
@@ -43,7 +43,7 @@ The preview is available on [npm](https://www.npmjs.com/package/azure-maps-contr
 
 ## [3.0.0-preview.1](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1) (November 18, 2022)
 
-### New feature
+### New features
 
 This update is the first preview of the upcoming 3.0.0 release. The underlying [maplibre-gl][maplibre-gl] dependency has been upgraded from `1.14` to `3.0.0-pre.1`, offering improvements in stability and performance. The preview is available on [npm](https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1).
 
@@ -63,7 +63,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## [2.2.2](https://www.npmjs.com/package/azure-maps-control/v/2.2.2) (December 15, 2022)
 
-### New feature
+### New features
 
 Add `progressiveLoading` and `progressiveLoadingInitialLayerGroups` to [StyleOptions][StyleOptions] to enable the capability of loading map layers progressively. This feature improves the perceived loading time of the map.
 - `progressiveLoading`
