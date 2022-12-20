@@ -73,7 +73,7 @@ You can also get a list of locales and voices supported for each specific region
 
 # [Pronunciation assessment](#tab/pronunciation-assessment)
 
-The table in this section summarizes the locales supported for Pronunciation assessment.
+The table in this section summarizes the locales supported for Pronunciation assessment, and each language is available on all [Speech-to-text regions](regions.md#speech-service).
 
 [!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
