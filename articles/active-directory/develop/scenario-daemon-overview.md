@@ -41,7 +41,7 @@ Examples of non-daemon applications:
 
 Applications that acquire a token for their own identities:
 
-- Confidential client applications, given that they access resources independently of users, need to prove their identity. They're also rather sensitive apps. They need to be approved by the Azure Active Directory (Azure AD) tenant admins.
+- Confidential client applications, given that they access resources independently of users, need to prove their identity. As they're rather sensitive apps, they need to be approved by the Azure Active Directory (Azure AD) tenant admins.
 - Have registered a secret (application password or certificate) with Azure AD. This secret is passed in during the call to Azure AD to get a token.
 
 ## Specifics
