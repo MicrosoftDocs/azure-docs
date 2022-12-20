@@ -27,7 +27,7 @@ Besides hosting SAP NetWeaver and S/4HANA scenarios with the different DBMS on A
 
 We just announced our  new services of Azure Center for SAP solutions and Azure Monitor for SAP solutions 2.0 entering the public preview stage. These services will give you the possibility to deploy SAP workload on Azure in a highly automated manner in an optimal architecture and configuration. And monitor your Azure infrastructure, OS, DBMS, and ABAP stack deployments on one single pane of glass.
 
-For customers and partners who are focused on deploying and operating their assets in public cloud through Terraform and Ansible, leverage our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
+For customers and partners who are focused on deploying and operating their assets in public cloud through Terraform and Ansible, use our SAP on Azure Deployment Automation Framework to jump start your SAP deployments into Azure using our public Terraform and Ansible modules on [github](https://github.com/Azure/sap-automation).
 
 Hosting SAP workload scenarios in Azure also can create requirements of identity integration and single sign-on. This situation can occur when you use Azure Active Directory (Azure AD) to connect different SAP components and SAP software-as-a-service (SaaS) or platform-as-a-service (PaaS) offers. A list of such integration and single sign-on scenarios with Azure AD and SAP entities is described and documented in the section "Azure AD SAP identity integration and single sign-on."
 
@@ -64,9 +64,9 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- December 20, 2022: Update article [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) with table around AD and AAD support. Deleting a few reference to HANA Large Instances.
+- December 20, 2022: Update article [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) with table around AD and AAD support. Deleting a few references to HANA Large Instances.
 - December 19, 2022: Update article [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) related to new functionalities like zonal replication of Azure Premium Files
-- December 18, 2022: Add short desription and link to intent option of PPG creation in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
+- December 18, 2022: Add short description and link to intent option of PPG creation in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
 - December 14, 2022: Fixes in recommendations of capacity for a few VM types in [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
 - November 30, 2022: Added storage recommendations for Premium SSD v2 into [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 - November 22, 2022: Release of Disaster Recovery guidelines for SAP workload on Azure - [Disaster Recovery overview and infrastructure guidelines for SAP workload](disaster-recovery-overview-guide.md) and [Disaster Recovery recommendation for SAP workload](disaster-recovery-sap-guide.md).
@@ -141,7 +141,7 @@ In the SAP workload documentation space, you can find the following areas:
 - August 11, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to adjust cluster resources stickiness, migration thresholds and order constraints  
 - August 11, 2021: Release of [SAP BW-Near Line Storage (NLS) implementation guide with SAP IQ on Azure](./sap-iq-deployment-guide.md) 
 - July 29, 2021: Introduce combined two-node Windows cluster for ASCS/SCS and DBMS in [High availability for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB) for SAP applications](./high-availability-guide-windows-netapp-files-smb.md) and [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md) 
-- July 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to replace role assignment instructions with links to the RBAC documentation in the sections describing the set up for Azure Fence Agent
+- July 26, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to replace role assignment instructions with links to the RBAC documentation in the sections describing the setup for Azure Fence Agent
 - July 22, 2021: Change in [HA for SAP NW on Azure VMs on RHEL for SAP applications](./high-availability-guide-rhel.md), [HA for SAP NW on Azure VMs on RHEL with ANF](./high-availability-guide-rhel-netapp-files.md) and [HA for SAP NW on Azure VMs on RHEL multi-SID guide](./high-availability-guide-rhel-multi-sid.md) to remove `failure-timeout` for the ASCS cluster resource (ENSA2 only)
 - July 16, 2021: Restructuring of the SAP on Azure documentation Table of contents(TOC) for more streamlined navigation
 - July 2, 2021: Change in [Backup and restore of SAP HANA on HANA Large Instances](./hana-backup-restore.md) to remove duplicate content for azacsnap tool and backup and restore of HANA Large Instances
