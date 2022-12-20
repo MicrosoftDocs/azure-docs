@@ -2521,6 +2521,8 @@
         href: vecos-releezme-locker-management-system-tutorial.md  
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
+      - name: Venafi Control Plane - Datacenter
+        href: venafi-control-plane-tutorial.md
       - name: Veracode
         href: veracode-tutorial.md
       - name: VergeSense
