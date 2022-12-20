@@ -16,25 +16,37 @@ ms.reviewer: sgilley
 
 This article outlines the key scenarios for R that are supported in Azure Machine Learning and known limitations.
 
-## Key scenarios supported
+There is not an Azure Machine Learning SDK for R.  In order to use R, you'll use a combination of R scripts and the Azure Machine Learning CLI v2.  
 
-- Develop R scripts interactively using Jupyter Notebooks or RStudio on larger hardware.
-- Read and write artifacts to Azure Storage from the interactive R session
-- Submit remote asynchronous R jobs (this happens via the CLI or Python SDK, not R)
-- Build R workflows (pipelines)
-- Deploy R models to real-time endpoints
-- Score R models as a batch process
-- Deploy R functions as a Web API
-- Create and managed model assets
-- Track experiments and model metrics using MLFlow
+A typical workflow will be:
+
+- Develop R scripts interactively using Jupyter Notebooks on a compute instance
+    - Read tabular data from a registered data asset or datastore
+    - Install additional R libraries
+    - Save artifacts to the workspace file storage
+- Adapt your interactive script to run as a production job in Azure Machine Learning
+    - Remove any action that may require user interaction
+    - Add command line input parameters to the script as necessary
+    - Include and source the `azureml_utils.R` script in the same working directory of the R script to be executed.
+    - Use `crate` to package the model.
+    - Include the R/MLFlow functions in the script to **log** artifacts, models, parameters, and/or tags to the job on MLFlow.
+- Build an environment and submit remote asynchronous R jobs (this happens via the CLI or Python SDK, not R)
+- Log job artifacts, parameters, tags and models
+- Register your model in the studio UI
+- Deploy registered R models to managed online endpoints
+- Use the deployed endpoints for real-time inferencing/scoring
 
 
 ## Known limitations
+ 
+- There is no R _control-plane_ SDK, instead you use the Azure CLI or Python control script to submit jobs
+- RStudio running as a custom application within a container on the compute instance cannot access workspace assets or MLFlow
+- Zero code deployment (i.e. automatic deployment) of an R MLFlow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
+- Scoring using an R model with batch endpoints is not supported
+- Programmatic model registering/recording from a running job with R is not supported
+- Interactive querying of workspace MLFlow registry from R is not supported
+- Parallel job step is not supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
 
-- There is no R *control-plane* SDK, instead you use the Azure CLI v2 via a terminal.
-- Zero code deployment of an R MLFlow model is currently not supported.
-- Batch endpoints are currently not supported.
-- Parallel job step not supported with R
 
 ## Next steps
 
