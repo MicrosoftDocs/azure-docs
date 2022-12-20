@@ -30,15 +30,14 @@ The function **[series_uv_change_points_fl()](/azure/data-explorer/kusto/funct
 
 These two functions are user-defined [tabular functions](/azure/data-explorer/kusto/query/functions/user-defined-functions#tabular-function) applied using the [invoke operator](/azure/data-explorer/kusto/query/invokeoperator). You can either embed its code in your query (ad hoc) or you can define it as a stored function in your database (persistent).
 
-
 ## Where to use these new capabilities?
 These two functions are available to use either in Azure Data Explorer website or in Kusto. Explorer application.  
 
-![way to use](../media/tutorials/adx-tutorial/way-of-use.png)
+![Screenshot of Azure Data Explorer and Kusto Explorer](../media/tutorials/data-explorer/way-of-use.png)
 
 ## Create resources
-1. [Create an ADX Cluster](https://ms.portal.azure.com/#create/Microsoft.AzureKusto) in Azure portal, after the resource is created successfully, go to the resource and create a database.
-2. [Create an Anomaly Detector](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in Azure portal and check the keys and endpoints that you’ll need later.
+1. [Create an ADX Cluster](https://portal.azure.com/#create/Microsoft.AzureKusto) in Azure portal, after the resource is created successfully, go to the resource and create a database.
+2. [Create an Anomaly Detector](https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) resource in Azure portal and check the keys and endpoints that you’ll need later.
 3. Enable plugins in ADX 
     * These new functions have inline Python and require [enabling the python() plugin](/azure/data-explorer/kusto/query/pythonplugin#enable-the-plugin) on the cluster.
     * These new functions call the anomaly detection service endpoint and require:
@@ -47,7 +46,7 @@ These two functions are available to use either in Azure Data Explorer website o
 
 ## Code example 1: Detect anomalies in an entire way
 
-In ADX, run the following query to make an anomaly detection chart with your onboarded data. You could also [create a function](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/functions-library/series-uv-change-points-fl?tabs=persistent) to add the code to a stored function for persistent usage. 
+In ADX, run the following query to make an anomaly detection chart with your onboarded data. You could also [create a function](/azure/data-explorer/kusto/functions-library/series-uv-change-points-fl?tabs=persistent) to add the code to a stored function for persistent usage. 
 
 ```kusto
 let series_uv_anomalies_fl=(tbl:(*), y_series:string, sensitivity:int=85, tsid:string='_tsid') 
@@ -93,12 +92,12 @@ ts
 ```
 After you run the code, you'll render a chart like this:
 
-![function1](../media/tutorials/adx-tutorial/function1.png)
+![Screenshot of line chart of anomalies](../media/tutorials/data-explorer/anomaly.png)
 
 
 ## Code example 2: Detect change points when anomaly happens
 
-In ADX, run the following query to make an anomaly detection chart with your onboarded data. You could also [create a function](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/functions-library/series-uv-change-points-fl?tabs=persistent) to add the code to a stored function for persistent usage.
+In ADX, run the following query to make an anomaly detection chart with your onboarded data. You could also [create a function](/azure/data-explorer/kusto/functions-library/series-uv-change-points-fl?tabs=persistent) to add the code to a stored function for persistent usage.
 
 ```kusto
 let series_uv_change_points_fl=(tbl:(*), y_series:string, score_threshold:real=0.9, trend_window:int=5, tsid:string='_tsid') 
@@ -147,7 +146,7 @@ ts
 
 After you run the code, you'll render a chart like this:
 
-![function2](../media/tutorials/adx-tutorial/function2.png)
+![Screenshot of line chart with confidence and change points graphed ](../media/tutorials/data-explorer/confidence.png)
 
 ## Next steps
 
