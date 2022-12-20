@@ -65,13 +65,42 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 ### Configure metrics and logs
 
-1. Your next step is to configure metrics and logs.  When creating the Dynatrace resource, you can set up automatic log forwarding for two types of logs:
+1. Your next step is to configure metrics and logs for your resources. Azure Native Dynatrace Service supports the metrics for compute (such as VMs, App Services etc.) and non-compute resources.
 
     :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
+    
+    - **Metrics for compute resources** – Users can send metrics for the compute resources (Virtual machines and App services) by installing the Dynatrace OneAgent as extensions on the compute resources after the Dynatrace resource has been created.
+    - **Metrics for non-compute resources** – These metrics can be collected by configuring the Dynatrace resource to automatically query Azure monitor for metrics. To enable metrics collection, click the checkbox. If you have an **owner access** in your subscription, then you can enable/disable the metrics collection using the checkbox and proceed to the configuring logs. However, if you have a contributor access then please use the information in the following step.
+
+2. **Contributor guide** - If you have a contributor role in the subscription, then you would not see the option to enable metrics collection because in Azure, a contributor cannot assign a ‘monitoring reader’ role to a resource which is required by the metrics crawler to collect metrics. 
+ 
+  :::image type="content" source="media/dynatrace-create/dynatrace-contributor-UI.png" alt-text="Screenshot showing contributor view.":::
+  
+  Complete the resource provisioning excluding the metrics configuration and ask an owner to assign an appropriate role manually to your resource.
+  
+   - **Owner’s guide to manage contributor access** - The owner can take the following steps to grant a monitoring reader identity to a contributor user:
+        - Go to the resource created by a contributor.
+        - Go to Access control on the left blade and click on ‘+ Add’ and ‘add role assignment.’
+        - Click on ‘Monitoring reader’ in the list of roles and then click on Next.
+        - Click on assign access to managed identity then select members.
+        - Select the subscription, managed identity (Dynatrace) and the Dynatrace resource created by the contributor.
+        - Review + assign
+    
+    The contributor will be able to set up metrics collection after the owner has completed the above steps.
+
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing settings for contributor access 1.":::
+ 
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-2.png" alt-text="Screenshot showing settings for contributor access 2.":::
+  
+ :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-3.png" alt-text="Screenshot showing settings for contributor access 3.":::
+   
+3. When creating the Dynatrace resource, you can set up automatic log forwarding for three types of logs:
 
     - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There's a single activity log for each Azure subscription.
 
     - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
+
+    - **Azure Active Directory logs** – The global administrator or Security Administrator for your Azure AD tenant can enable AAD logs so that you can route the audit, sign-in, and provisioning logs to Dynatrace. The details are listed [Azure AD activity logs in Azure Monitor](https://learn.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor).
 
 1. To send subscription level logs to Dynatrace, select **Send subscription activity logs**. If this option is left unchecked, none of the subscription level logs are sent to Dynatrace.
 
@@ -84,9 +113,6 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
     - If there's a conflict between an inclusion and exclusion rule, the exclusion rule applies.
 
    The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
-
-   > [!NOTE]
-   > Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created.
 
 1. Once you have completed configuring metrics and logs, select **Next: Single sign-on**.
 
