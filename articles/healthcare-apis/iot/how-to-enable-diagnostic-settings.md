@@ -88,13 +88,13 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
 ## Use the Log Analytics workspace to view the MedTech service logs - Optional
 
-If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of the MedTech service health check.
+If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of the MedTech service **HealthCheck** process that runs continuously in the background.
 
 1. To access your Log Analytics workspace, select the **Logs** button within your MedTech service.
 
    :::image type="content" source="media/iot-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/iot-diagnostic-settings/select-logs-button.png":::
 
-2. Copy + paste the below string into the query window and select **Run**.
+2. Copy the below string into your Log Analytics workspace query window and select **Run**.
 
    ```query
    AHDSMedTechDiagnosticLogs
@@ -109,7 +109,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/iot-diagnostic-settings/query-result-with-errors.png" alt-text="Screenshot of query with health issues." lightbox="media/iot-diagnostic-settings/query-result-with-errors.png":::
 
-5. Select the down arrow in one of the logs to display the full log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the log error message shows that the MedTech service wasn't able to authenticate with the FHIR service.
+5. Select the down arrow in one of the error logs to display the full error log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the error log message shows that the MedTech service wasn't able to authenticate with the FHIR service.
 
    :::image type="content" source="media/iot-diagnostic-settings/display-log-error-message.png" alt-text="Screenshot of log error message." lightbox="media/iot-diagnostic-settings/display-log-error-message.png":::
 
