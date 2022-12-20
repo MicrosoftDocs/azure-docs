@@ -141,8 +141,35 @@ The data collected on each package includes:
 |**Version**     |  The package version.       |
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages.     |
 
-> [!NOTE]
-> The SBoM collector currently only collects the first 500 packages ingested.
+## Peripheral events (event-based collector)
+
+Collects connections and disconnections of USB and Ethernet.
+
+Collected fields depend on the type of event:
+
+## USB event
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **ActionType** | Whether the event was a connection or disconnection event. |
+| **bus_number** | Specific controller identifier, each USB device can have several. |
+| **kernel_device_number** | Representation in the kernel of the device, not unique and can each time the device is connected. |
+| **device_class** | Identifier specifying the type of device.  |
+| **device_subclass** | Identifier specifying the type of device. |
+| **device_protocol** | Identifier specifying the protocol of device. |
+| **interface_class** | In case device class is 0, indicate the type of device. |
+| **interface_subclass** | In case device class is 0, indicate the type of device. |
+| **interface_protocol** | In case device class is 0, indicate the type of device. |
+
+## Ethernet event
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **ActionType** | Whether the event was a connection or disconnection event. |
+| **bus_number** | Specific controller identifier, each USB device can have several. |
+| **Interface name** | The interface name. |
 
 ## Event aggregation for Process and Network collectors
 
