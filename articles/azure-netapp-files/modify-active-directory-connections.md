@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 11/28/2022
 ms.author: anfdocs
 ---
 
@@ -40,7 +40,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 | Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. See [Create and manage Active Directory connections](create-active-directory-connections.md#create-an-active-directory-connection) for more information. | Yes | None* | The specified accounts will be allowed to change the NTFS permissions at the file or folder level. |
 | Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges |
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
-| Password | Password of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
+| Password | Password of the Active Directory domain administrator | Yes | None* <br></br> Password cannot exceed 64 characters. | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
 | Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used |
 | Region | The region where the Active Directory credentials are associated | No | None | N/A |

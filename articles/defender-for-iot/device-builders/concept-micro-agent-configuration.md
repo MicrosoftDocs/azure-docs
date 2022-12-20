@@ -1,11 +1,11 @@
 ---
-title: Micro agent configurations (Preview)
+title: Micro agent configurations
 description: The collector sends all current data immediately after any configuration change is made. The configuration changes are then applied.
 ms.date: 05/03/2022
 ms.topic: conceptual
 ---
 
-# Micro agent configurations (Preview)
+# Micro agent configurations
 
 This article describes the different types of configurations that the micro agent supports. Customers can configure the micro agent to fit the needs of their devices, and network environments.  
 
@@ -113,4 +113,4 @@ Configure the micro agent using the following collector-specific properties and 
 
 For more information, see:
 - [Configure a micro agent twin](how-to-configure-micro-agent-twin.md).
-- [Micro agent event collection (Preview)](concept-event-aggregation.md)
+- [Micro agent event collection](concept-event-aggregation.md)

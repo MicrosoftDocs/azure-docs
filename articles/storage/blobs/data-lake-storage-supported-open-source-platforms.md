@@ -1,7 +1,9 @@
 ---
-title: Open source platforms that support Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Open source platforms that support Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about which open source platforms that support Azure Data Lake Storage Gen2
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual

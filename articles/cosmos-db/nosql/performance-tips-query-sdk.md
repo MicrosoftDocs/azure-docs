@@ -339,7 +339,7 @@ filteredItemsAsPages.map(page -> {
 
 ## Tune the buffer size
 
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching (NOTE: This can also result in high memory consumption). If you set this value to 0, the system will automatically determine the number of items to buffer.
+Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. [setMaxBufferedItemCount](/java/api/com.azure.cosmos.models.cosmosqueryrequestoptions.setmaxbuffereditemcount) in `CosmosQueryRequestOptions` limits the number of pre-fetched results. To maximize the pre-fetching, set the `maxBufferedItemCount` to a higher number than the `pageSize` (NOTE: This can also result in high memory consumption). To minimize the pre-fetching, set the `maxBufferedItemCount` equal to the `pageSize`. If you set this value to 0, the system will automatically determine the number of items to buffer.
 
 ```java
 CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();

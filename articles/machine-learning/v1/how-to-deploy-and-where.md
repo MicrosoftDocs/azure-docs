@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 author: dem108
 ms.author: sehan
-ms.date: 07/28/2022
+ms.date: 11/16/2022
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, contperf-fy21q4, mktng-kw-nov2021, cliv1, sdkv1, event-tier1-build-2022
 adobe-target: true
@@ -92,7 +92,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 A typical situation for a deployed machine learning service is that you need the following components:
 	
 + Resources representing the specific model that you want deployed (for example: a pytorch model file).
-+ Code that you will be running in the service, that executes the model on a given input.
++ Code that you will be running in the service that executes the model on a given input.
 
 Azure Machine Learnings allows you to separate the deployment into two separate components, so that you can keep the same code, but merely update the model. We define the mechanism by which you upload a model _separately_ from your code as "registering the model".
 
@@ -182,6 +182,16 @@ For more information, see the documentation for the [Model class](/python/api/az
     To deploy a registered model from an `AutoMLRun`, we recommend doing so via the [one-click deploy button in Azure Machine Learning studio](../how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 
 ---
+
+> [!NOTE]
+>
+> You can also register a model from a local file via the Workspace UI portal.
+>
+> Currently, there are two options to upload a local model file in the UI:
+> - **From local files**, which will register a v2 model.
+> - **From local files (based on framework)**, which will register a v1 model.
+>
+>Note that only models registered via the **From local files (based on framework)** entrance (which are known as v1 models) can be deployed as webservices using SDKv1/CLIv1.
 
 ## Define a dummy entry script
 

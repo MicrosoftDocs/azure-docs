@@ -77,25 +77,29 @@ az network vnet subnet create \
   --resource-group <RESOURCE_GROUP_NAME> \
   --vnet-name <VNET_NAME> \
   --name infrastructure \
-  --address-prefixes 10.0.0.0/23
+  --address-prefixes 10.0.0.0/21
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az network vnet create `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --name <VNET_NAME> `
-  --location <LOCATION> `
-  --address-prefix 10.0.0.0/16
+
+```azurepowershell
+$SubnetArgs = @{
+    Name = 'infrastructure-subnet'
+    AddressPrefix = '10.0.0.0/21'
+}
+$subnet = New-AzVirtualNetworkSubnetConfig @SubnetArgs
 ```
 
-```powershell
-az network vnet subnet create `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --vnet-name <VNET_NAME> `
-  --name infrastructure-subnet `
-  --address-prefixes 10.0.0.0/23
+```azurepowershell
+$VnetArgs = @{
+    Name = <VNetName>
+    Location = <Location>
+    ResourceGroupName = <ResourceGroupName>
+    AddressPrefix = '10.0.0.0/16'
+    Subnet = $subnet 
+}
+$vnet = New-AzVirtualNetwork @VnetArgs
 ```
 
 ---
@@ -108,10 +112,10 @@ Next, query for the infrastructure subnet ID.
 INFRASTRUCTURE_SUBNET=`az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-$INFRASTRUCTURE_SUBNET=(az network vnet subnet show --resource-group <RESOURCE_GROUP_NAME> --vnet-name <VNET_NAME> --name infrastructure-subnet --query "id" -o tsv)
+```azurepowershell
+$InfrastructureSubnet=(Get-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet).Id
 ```
 
 ---
@@ -129,15 +133,37 @@ az containerapp env create \
   --zone-redundant
 ```
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-```powershell
-az containerapp env create `
-  --name <CONTAINER_APP_ENV_NAME> `
-  --resource-group <RESOURCE_GROUP_NAME> `
-  --location "<LOCATION>" `
-  --infrastructure-subnet-resource-id $INFRASTRUCTURE_SUBNET `
-  --zone-redundant
+A Log Analytics workspace is required for the Container Apps environment.  The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
+
+```azurepowershell
+$WorkspaceArgs = @{
+    Name = 'myworkspace'
+    ResourceGroupName = <ResourceGroupName>
+    Location = <Location>
+    PublicNetworkAccessForIngestion = 'Enabled'
+    PublicNetworkAccessForQuery = 'Enabled'
+}
+New-AzOperationalInsightsWorkspace @WorkspaceArgs
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName <ResourceGroupName> -Name $WorkspaceArgs.Name).CustomerId
+$WorkspaceSharedKey = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName <ResourceGroupName> -Name $WorkspaceArgs.Name).PrimarySharedKey
+```
+
+To create the environment, run the following command:
+
+```azurepowershell
+$EnvArgs = @{
+    EnvName = <EnvironmentName>
+    ResourceGroupName = <ResourceGroupName>
+    Location = <Location>
+    AppLogConfigurationDestination = "log-analytics"
+    LogAnalyticConfigurationCustomerId = $WorkspaceId
+    LogAnalyticConfigurationSharedKey = $WorkspaceSharedKey
+    VnetConfigurationInfrastructureSubnetId = $InfrastructureSubnet
+    VnetConfigurationInternal = $true
+}
+New-AzContainerAppManagedEnv @EnvArgs
 ```
 
 ---

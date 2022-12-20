@@ -76,13 +76,13 @@ Set up an [Azure storage account](../storage/common/storage-account-create.md).
 
 ### Prepare an account for Mobility service installation
 
-The Mobility service must be installed on each server you want to replicate. Site Recovery installs this service automatically when you enable replication for the server. To install automatically, you need to prepare an account that Site Recovery will use to access the server.
+The Mobility service must be installed on each server you want to replicate. Site Recovery installs this service automatically when you enable replication for the server. To install automatically, you need to use the **root**/**admin** account that Site Recovery will utilize to access the server.
 
-- You can use a domain or local account
+- You can use a domain or local account for Windows VMs
 - For Windows VMs, if you're not using a domain account, disable Remote User Access control on the local machine. To do this, in the register under **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - To add the registry entry to disable the setting from a CLI, type:
   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
-- For Linux, the account should be root on the source Linux server.
+- For Linux, the account should be **root** on the source Linux server.
 
 
 ## Create a vault
