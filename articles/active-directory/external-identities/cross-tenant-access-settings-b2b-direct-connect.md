@@ -181,6 +181,12 @@ With inbound settings, you select which external users and groups will be able t
 
 1. Select **Save**.
 
+### Allow users to sync into this tenant
+
+This feature is a part of the cross-tenant synchronization (preview) setup. Cross-tenant synchronization is one-way synchronization service in Azure Active Directory (Azure AD) that automates creating, updating, and deleting Azure AD B2B collaboration users across tenants in an organization. For more information, see [Configure cross-tenant synchronization](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/cross-tenant-synchronization-configure?branch=pr-en-us-209054) and the [Multi-tenant organizations documentation](https://review.learn.microsoft.com/en-us/azure/active-directory/multi-tenant-organizations/?branch=pr-en-us-209054).
+
+:::image type="content" source="media/cross-tenant-access-settings-b2b-direct-connect/cross-tenant-sync-tab.png" alt-text="Screenshot that shows the Cross-tenant sync tab with the Allow users sync into this tenant check box." lightbox="media/cross-tenant-access-settings-b2b-direct-connect/cross-tenant-sync-tab.png":::
+
 ## Modify outbound access settings
 
 With outbound settings, you select which of your users and groups will be able to access the external applications you choose. The detailed steps for modifying outbound cross-tenant access settings are the same whether you're configuring default or organization-specific settings. As described in this section, navigate to the **Default** tab or an organization on the **Organizational settings** tab, and then make your changes.
