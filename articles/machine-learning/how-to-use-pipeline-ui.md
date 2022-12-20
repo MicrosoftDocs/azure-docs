@@ -246,16 +246,16 @@ Along with the profiling, you can also use the *Output + logs* (on the details p
 
 ### Different view of Gantt chart
 
-By default the critical path of a pipeline job is shown, other views include:
-
+- Critical path
+  - You'll see only the step jobs in the pipeline's critical path ( jobs that have a dependency).
+  - By default the critical path pf the pipeline job is shown.
 - Flatten view
-  - In flatten view, the whole graph is flattened, you will see all step jobs.
+  - You'll see all step jobs.
   - In this view, you'll see more nodes than in critical path.
 - Compact view
-  - The compact view filters out nodes with total duration less than 30s. You will only see step jobs that are longer than 30 seconds.
-  - Nodes that are taking very short time usually aren't worth investigating, so we can filter them out by this compact view.
-- Hierarchical view.
-  - When selecting this view, you'll see the hierarchy of pipeline component grouping.
+  - You'll only see step jobs that are longer than 30 seconds.
+- Structured view.
+  - You'll see all jobs including pipeline component jobs and step jobs.
 
 ### Download the duration table
 
