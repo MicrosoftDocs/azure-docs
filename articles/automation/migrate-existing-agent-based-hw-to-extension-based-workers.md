@@ -49,7 +49,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 - Two cores
 - 4 GB of RAM
 - **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
-- The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
+- The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the installation process through the Azure portal.
  
 ### Supported operating systems
 
@@ -80,7 +80,7 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 ### Permissions for Hybrid Worker credentials
 
-If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ensure that following permissions are assigned to extension-based Hybrid Worker to avoid jobs from getting suspended.
+If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ensure that following permissions are assigned to the custom user to avoid jobs from getting suspended on the extension-based Hybrid Worker.
 
 | **Resource type** | **Folder permissions** |
 | --- | --- |
@@ -805,6 +805,38 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 ```powershell
 New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
 ```
+---
+
+## Remove agent-based Hybrid Worker
+
+#### [Windows Hybrid Worker](#tab/win-hrw)
+
+1. In the Azure portal, go to your Automation account.
+
+1. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**.
+
+1. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
+
+```powershell-interactive
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
+```
+> [!NOTE]
+> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+
+#### [Linux Hybrid Worker](#tab/lin-hrw)
+
+You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspace ID. A folder is created that is named with the workspace ID.
+
+```bash
+sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
+```
+
+> [!NOTE]
+> - This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
+> - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
+> - After you remove the Hybrid Worker, the Hybrid Worker authentication certificate on the machine is valid for 45 minutes.
+
 ---
 
 ## Next steps
