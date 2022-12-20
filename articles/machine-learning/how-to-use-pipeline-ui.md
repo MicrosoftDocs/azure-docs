@@ -106,9 +106,9 @@ After cloning, you can also know which pipeline job it's cloned from by selectin
 
 You can edit your pipeline and then submit again. After submitting, you can see the lineage between the job you submit and the original job by selecting **Show lineage** in the job detail page.
 
-## How to debug a failed job using pipeline comparison (preview)
+## Compare different pipelines to debug failure or other unexpected issues (preview)
 
-pipeline comparison identifies the differences (including topology, component properties and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
+Pipeline comparison identifies the differences (including topology, component properties, and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
 
 Two major scenarios where you can use pipeline comparison to help with debugging:
 
@@ -119,15 +119,20 @@ Two major scenarios where you can use pipeline comparison to help with debugging
 
 During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use pipeline comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
 
-#### Compare a pipeline with its parent lineage
+#### Compare a pipeline with its parent
 
-The first thing you should check when debugging is locate the failed node and check the logs. 
+The first thing you should check when debugging is to locate the failed node and check the logs.
 
 For example, you may get an error message showing that your pipeline failed due to out-of-memory. If your pipeline is cloned from a completed parent pipeline, you can use pipeline comparison to see what has changed.
 
-1. Select *Show lineage*
+1. Select **Show lineage**
 1. Select the link under "Cloned From*. This will open a new browser tab with the parent pipeline.
+
+  :::image type="content" source="./media/how-to-use-pipeline-ui/cloned-from.png" alt-text="Screenshot showing the cloned from link, with the previous step, the lineage button highlighted." lightbox= "./media/how-to-use-pipeline-ui/cloned-from.png":::
+
 1. Select **Add to compare** on the failed pipeline and the parent pipeline. This will add them in the comparison candidate list.
+
+  :::image type="content" source="./media/how-to-use-pipeline-ui/comparison-list.png" alt-text="Screenshot showing the comparison list with a parent and child pipeline added." lightbox= "./media/how-to-use-pipeline-ui/comparison-list.png":::
 
 ### Compare topology
 
@@ -137,15 +142,11 @@ Once the two pipelines are added to the comparison list, you'll have two options
 
 Topology differences:
 
-- Input sourced changed
-
-    Double select the node to see the details. It will show the dataset properties like dataset ID, name, version, and path. You can use this information to help find the root cause of why your pipeline failed. For example, if pipeline A was using larger data than pipeline B and it failed then it could be due the size of the data. You can select the dataset name to see the dataset detail page to preview or access the data.
-
+- Input source changed
 - Pipeline component changed
-
-    To compare, select the folder icon to dig down into the pipeline component. For example, after doing so you might see "Parameter changed", double select that and you might see different values for the successful and failed nodes, which could be the reason the pipeline failed. The string difference for the parameters is inline highlighted. You can uncheck *Show difference inline* to view the second value more clearly.
-
- To compare the two pipelines, use CTRL and left click to multi-select two datasets. Right click then select *Add selected nodes to compare**. After the two datasets will be in the comparison list. Select **Compare details** to check dataset properties.
+  - This means that there is a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details.
+- Parameter changed
+   :::image type="content" source="./media/how-to-use-pipeline-ui/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab.." lightbox= "./media/how-to-use-pipeline-ui/parameter-changed.png":::
 
 ### Compare pipeline meta info and properties
 
@@ -162,7 +163,11 @@ You'll see *Pipeline properties* and *Run properties*.
 
 The following screenshot shows an example of using the detail comparison, where the default compute setting might have been the reason for failure.
 
+:::image type="content" source="./media/how-to-use-pipeline-ui/compute.png" alt-text="Screenshot showing the comparison overview of the default compute." lightbox= "./media/how-to-use-pipeline-ui/compute.png":::
+
 To quickly check the topology comparison, select the pipeline name and select **Compare graph**.
+
+:::image type="content" source="./media/how-to-use-pipeline-ui/compare-graph.png" alt-text="Screenshot of detail comparison with compare graph highlighted." lightbox= "./media/how-to-use-pipeline-ui/compare-graph.png":::
 
 ### How to debug your failed node in a pipeline by comparing to similar completed node
 
@@ -172,21 +177,24 @@ If you only updated node properties and changed nothing in the pipeline, then yo
 
 1. Find a successful job to compare with by viewing all runs submitted from the same component.
     1. Right select the failed node and select *View Jobs*. This will give you a list of all the jobs.
+  
+    :::image type="content" source="./media/how-to-use-pipeline-ui/view-jobs.png" alt-text="Screenshot that shows a failed node with view jobs highlighted." lightbox= "./media/how-to-use-pipeline-ui/view-jobs.png":::
+
     1. Choose a completed job as a comparison target.
-1. After you found a failed and completed job to compare with, add the two jobs to the comparison candidate list
-    1. For the failed node, right select and select *Add to compare*
-    1. For the completed job, go to its parent pipeline and located the completed job. Then select *add to compare*
+1. After you found a failed and completed job to compare with, add the two jobs to the comparison candidate list.
+    1. For the failed node, right select and select *Add to compare*.
+    1. For the completed job, go to its parent pipeline and located the completed job. Then select *Add to compare*.
 1. Once the two jobs are in the comparison list, select **Compare detail** to show the differences.
-    
+
 ### Share the comparison results
 
 To share your comparison results select **Share** and copying the link. For example, you might find out that the dataset difference might of lead to the failure but you aren't a dataset specialist, you can share the comparison result with a data engineer on your team.
 
-:::image type="content" source="./media/how-to-use-pipeline-ui/share.png" alt-text="Screenshot showing the share button and the link you should copy. " lightbox= "./media/how-to-use-pipeline-ui/share.png":::
+:::image type="content" source="./media/how-to-use-pipeline-ui/share.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-use-pipeline-ui/share.png":::
 
-## How to debug pipeline runtime related issues
+## View profiling (preview) to debug pipeline performance issues
 
-Profiling (preview) can help you debug pipeline runtime related issues such as hang, long pole etc. It list duration information of each step in a pipeline, and provide a Gantt chart for visualization.
+Profiling (preview) can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
 
 Profiling enables you to:
 
@@ -196,34 +204,43 @@ Profiling enables you to:
 ### How to find the node that runs totally the longest
 
 1. On the Jobs page, select the job name and enter the job detail page.
-1. In the action bar, select **View profiling**. Profiling only works at the root level, you won't see this button you're viewing a subgraph. It will take a few minutes to load the next page.
+1. In the action bar, select **View profiling**. Profiling only works for root level pipeline. It will take a few minutes to load the next page.
+
+    :::image type="content" source="./media/how-to-use-pipeline-ui/view-profiling.png" alt-text="Screenshot showing the pipeline at root level with the view profiling button highlighted." lightbox= "./media/how-to-use-pipeline-ui/view-profiling.png":::
+
 1. After the profiler loads, you'll see a Gantt chart. By Default the critical path of a pipeline is shown. A critical path is a subsequence of steps that determine a pipeline job's total duration.
+
+    :::image type="content" source="./media/how-to-use-pipeline-ui/critical-path.png" alt-text="Screenshot showing the Gantt chart and the critical path." lightbox= "./media/how-to-use-pipeline-ui/critical-path.png":::
+
 1. To find the step that takes the longest, you can either view the Gantt chart or the table below it.
-    
+
     In the Gantt chart, the length of each bar shows how long the step takes, steps with a longer bar length take more time. You can also filter the table below by "total duration". When you select a row in the table, it will show you the node in the Gantt chart too. When you select a bar on the Gantt chart it will also highlight it in the table.
 
     In the table reuse is denoted with the recycling icon.
 
-    If you select the eye icon next the node name it will open the detail page, which shoes parameter, snapshot, outputs, logs etc.
+    If you select the log icon next the node name it will open the detail page, which shoes parameter, code, outputs, logs etc.
 
-    If you're trying to make the queue time shorter for a node, you can modify job priority, change compute node number, kill other unimportant jobs to get more compute resources on this one.
+    :::image type="content" source="./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page. " lightbox= "./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png":::
+
+    If you're trying to make the queue time shorter for a node, change compute node number and you can modify job priority to get more compute resources on this one.
 
 ### How to find the node that runs the longest in each status
 
-Besides the total duration, you can also sort by durations for each status. For example, you can sort by  *Preparing* duration to see which step spends the most time on image building. Then you can open the detail page to find that image building fails because of timeout issue. 
+Besides the total duration, you can also sort by durations for each status. For example, you can sort by *Preparing* duration to see which step spends the most time on image building. Then you can open the detail page to find that image building fails because of timeout issue.
 
-#### Status and definitions
+#### What do I do if a duration issue identified
 
-| Status | Definition |
-|------|-------|
-| Total duration | From when the job is submitted from client side, until it turns to a final state (canceled, completed or failed). |
-| Not started |  Job is submitted from client side and accepted in Azure Machine Learning services. Time spent in this stage is mainly in Azure Machine Learning service scheduling and preprocessing. |
-| Preparing |  In this status, job is pending for some preparation on job dependencies, for example, environment image building. |
-| Inqueue | Job is pending for compute resource allocation. Time spent in this stage is dependent on the status of your compute cluster or job yield policy for scope job. |
-| Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: </br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. |
-| Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up. |
+Status and definitions:
 
-### What do I do if a duration issue identified
+
+| Status | What does it mean? | Time estimation | Next step |
+|------|--------------|-------------|----------|
+| Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there is no backend service issue, this time should be very short.| Open support case via Azure portal. |
+|Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you are using curated or registered custom environment, this time should be very short. | Check image building log. |
+|Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster or job yield policy for scope job.| If you are using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
+| Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | 1. Go to the source code check if any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
+| Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up.| It will be short for command job. However, might be very long for PRS/MPI job because for a distributed job, the finalizing status is from the first node starting finalizing to the last node done finalizing. | Change your step run output mode from upload to mount if you find unexpected long finalizing time, or open support case via Azure portal. |
+
 
 Along with the profiling, you can also use the *Output + logs* (on the details page), the Common Runtime enabled monitoring metric for PRS/MPI jobs, and the local debug to do further debug.
 
@@ -232,13 +249,13 @@ Along with the profiling, you can also use the *Output + logs* (on the details p
 By default the critical path of a pipeline job is shown, other views include:
 
 - Flatten view
-  - In flatten view, the whole graph is flattened. You see only the leaf nodes and no subgraph at all.
+  - In flatten view, the whole graph is flattened, you will see all step jobs.
   - In this view, you'll see more nodes than in critical path.
 - Compact view
-  - The compact view filters out nodes with total duration less than 30s. 
+  - The compact view filters out nodes with total duration less than 30s. You will only see step jobs that are longer than 30 seconds.
   - Nodes that are taking very short time usually aren't worth investigating, so we can filter them out by this compact view.
 - Hierarchical view.
-  - When selecting this view, you'll see the hierarchy of subgraph grouping.
+  - When selecting this view, you'll see the hierarchy of pipeline component grouping.
 
 ### Download the duration table
 
