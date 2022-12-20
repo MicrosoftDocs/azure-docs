@@ -156,8 +156,6 @@ items:
       href: vm/monitor-virtual-machine-workloads.md
   - name: Monitor Kubernetes
     href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Migrate from Operations Manager
-    href: azure-monitor-operations-manager.md
   - name: Forward syslog data to workspace
     href: ../sentinel/forward-syslog-monitor-agent.md?bc=%2fazure%2fazure-monitor%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fazure-monitor%2ftoc.json
   - name: Self-monitoring
@@ -336,6 +334,9 @@ items:
     - name: Overview
       displayName: data collection, data collection rules
       href: essentials/data-collection-rule-overview.md
+    - name: Best practices
+      displayName: data collection, data collection rules
+      href: essentials/data-collection-rule-best-practices.md
     - name: Edit
       displayName: data collection rules
       href: essentials/data-collection-rule-edit.md
@@ -567,6 +568,8 @@ items:
             href: logs/log-excel.md
   - name: System Center
     items:
+    - name: Migrate from Operations Manager
+      href: azure-monitor-operations-manager.md
     - name: SCOM Managed Instance (preview)
       href: vm/scom-managed-instance-overview.md
     - name: Connect Operations Manager
@@ -1039,8 +1042,6 @@ items:
       href: vm/vminsights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#vm-insights
-    - name: Configure workspace
-      href: vm/vminsights-configure-workspace.md
     - name: Enable and configure
       items:
       - name: Overview
@@ -1051,12 +1052,14 @@ items:
         href: vm/vminsights-enable-powershell.md
       - name: ARM templates
         href: vm/vminsights-enable-resource-manager.md
-      - name: Azure Policy
+      - name: Azure Policy 
         href: vm/vminsights-enable-policy.md
       - name: Hybrid VMs
         href: vm/vminsights-enable-hybrid.md
       - name: Dependency Agent
         href: vm/vminsights-dependency-agent-maintenance.md
+      - name: Configure workspace 
+        href: vm/vminsights-configure-workspace.md
     - name: Map dependencies
       href: vm/vminsights-maps.md
     - name: Monitor performance
