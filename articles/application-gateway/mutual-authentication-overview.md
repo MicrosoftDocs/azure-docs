@@ -121,7 +121,7 @@ Note: OCSP checks are validated via local cache based on the nextUpdate time def
 
 Limitations
 - Revocation check via CRL is not supported
-- Client revoation check was introduced in API version 2022-05-01
+- Client revocation check was introduced in API version 2022-05-01
 - Azure Portal support is not available
 
 ## Next steps
