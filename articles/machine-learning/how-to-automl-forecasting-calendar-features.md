@@ -1,4 +1,19 @@
-<h1 align="center"><b>Date/Time Driven Features</b></h1>
+---
+title: Calendar features for time series forecasting in AutoML
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning's AutoML creates calendar and holiday features
+services: machine-learning
+author: nivi09
+ms.author: nivmishra
+ms.reviewer: ssalgado 
+ms.service: machine-learning
+ms.subservice: automl
+ms.topic: how-to
+ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.date: 12/15/2022
+---
+
+# Calendar features for time series forecasting in AutoML
 
 In a forecasting job, the time index is the column in the data set which corresponds to the time axis, i.e. the time at which each observation has occurred. Each observation or row within the time series should have a unique (non-overlapping) time index. Please note that time feature can consists of only date (for e.g. date formats like "DD/MM/YYYY") or both date and time (for e.g. formats like "DD/MM/YYYY HH:MM:SS"), but the format should be uniform and parsable in datetime format.<br>
 As a part of feature engineering, we use the `time_column_name` parameter provided in forecast settings of the automl job to generate [calendar features](#calender-features) and [holiday features](#holiday-features) as these features help to capture some information on more granular level.<br> 
@@ -6,7 +21,7 @@ To generate these time driven features, <b>`TimeIndexFeaturizer`</b> class is us
 <br>
 <br>
 
-## **Calender Features**
+## Standard Calendar Features
 
 In an automl forecasting job, the given time index is decomposed into more granular level consisting of time information. Following is the example to illustrate this.
 For given timestamp “2011-01-01 00:25:30” of parsable format ('YY-mm-dd %H-%m-%d'), automl job creates following features:
@@ -36,7 +51,7 @@ Please note that time driven features are only available for regular time series
 <br>
 <br>
 
-## **Holiday Features**
+## Holiday Features
 
 As mentioned earlier, the azure automl job also creates some features to represent holiday mentioned below:
 

@@ -273,6 +273,9 @@
         - name: Model sweeping and selection
           displayName: auto ML, time series, forecasting, model selection, sweeping
           href: ../how-to-automl-forecasting-sweeping.md
+        - name: Calendar features
+          displayName: auto ML, time series, calendar features, holiday features
+          href: ../how-to-automl-forecasting-calendar-features.md
         - name: Lag features
           displayName: auto ML, time series, lags
           href: ../how-to-automl-forecasting-lags.md
