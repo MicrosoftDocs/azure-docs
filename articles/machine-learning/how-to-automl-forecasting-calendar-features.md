@@ -98,15 +98,15 @@ forecasting_job.set_forecast_settings(
 Once we submit the job for execution, the automl will generate the holiday features for given country or region ('US' in the above example) and `time_column_name` to create holiday features. 
 The output is shown below:
 
-<a name='output'>![output](./media/how-to-forecasting-time-driven-features/sample_dataset_holiday_feature_generated.png)</a>
+<a name='output'><img src='./media/how-to-forecasting-time-driven-features/sample_dataset_holiday_feature_generated.png' alt='sample_data_output' width=75%></img></a>
 
 <br>
 <br>
 
 #### **Quick reference links:**
 
-1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays?view=azure-ml-py)
-2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline?view=azure-ml-py)
+1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays)
+2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline)
 3.	[ISO week date - Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
 4.  [List of ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
-5. [How to set forecast settings](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob?view=azure-python#azure-ai-ml-automl-forecastingjob-set-forecast-settings&preserve-view=true)
+5. [How to set forecast settings](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings&preserve-view=true)
