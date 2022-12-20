@@ -150,8 +150,11 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ## See also
 
 [API reference documentation](/dotnet/api/microsoft.identity.client) 
+
 [Package on NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/)
+
 [Library source code](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) 
+
 [Code samples](sample-v2-code.md)
 
 ## Next steps
