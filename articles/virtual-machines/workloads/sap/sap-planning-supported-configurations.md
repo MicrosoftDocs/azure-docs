@@ -72,8 +72,7 @@ This type of DBMS deployment is supported for:
 - SQL Server on Windows
 - IBM Db2. Find details in the article [Multiple instances (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - For Oracle. For details see [SAP support note #1778431](https://launchpad.support.sap.com/#/notes/1778431) and related SAP notes
-- For SAP HANA, multiple instances on one VM, SAP calls this deployment method MCOS, is supported. For details see the SAP article [Multiple SAP HANA Systems on One Host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
-- /b2751fd43bec41a9a14e01913f1edf18.html)
+- For SAP HANA, multiple instances on one VM, SAP calls this deployment method MCOS, is supported. For details see the SAP article [Multiple SAP HANA Systems on One Host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/-/b2751fd43bec41a9a14e01913f1edf18.html)
 
 Running multiple database instances on one host, you need to make sure that the different instances aren't competing for resources and thereby exceed the physical resource limits of the VM. This is especially true for memory where you need to cap the memory anyone of the instances sharing the VM can allocate. That also might be true for the CPU resources the different database instances can consume. All the database systems mentioned have configurations that allow limiting memory allocation and CPU resources on an instance level.
 In order to have support for such a configuration for Azure VMs, it's expected that the disks or volumes that are used for the data and log/redo log files of the databases that are managed by the different instances are separate. Or in other words data or log/redo log files of databases that are managed by different DBMS instance aren't supposed to share the same disks or volumes.
