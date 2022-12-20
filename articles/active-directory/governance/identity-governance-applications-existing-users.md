@@ -73,6 +73,9 @@ When you create an assignment for a user to an access package, Azure AD entitlem
 
   - If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
   - If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
+  - If the application is a cloud application that supports the SCIM protocol, then you can add the application from the [application gallery](../manage-apps/overview-application-gallery.md).
+  - If the application is on-premises and supports the SCIM protocol, then follow the [guide for configuring Azure AD to provision users into on-premises SCIM-based applications](../app-provisioning/on-premises-scim-provisioning.md).
+
 
 ## Collect existing users from an application
 
@@ -368,7 +371,14 @@ The first time your organization uses these cmdlets for this scenario, you need 
 
 The previous steps have confirmed that all the users in the application's data store exist as users in Azure AD. However, they might not all currently be assigned to the application's roles in Azure AD. So the next steps are to see which users don't have assignments to application roles.
 
-1. Retrieve the users who currently have assignments to the application in Azure AD.
+1. Register the application, if it does not already exist in Azure AD.
+
+   * If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md#configure-the-on-premises-ecma-app) section to create a new registration for an on-premises ECMA app in Azure AD.
+   * If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md#4-configure-the-on-premises-ecma-app) section to to create a new registration for an on-premises ECMA app in Azure AD.
+   * If it a cloud application that supports the SCIM protocol, then you can add the application from the [application gallery](../manage-apps/overview-application-gallery.md).
+   * If the application is on-premises and supports the SCIM protocol, then follow the [guide for configuring Azure AD to provision users into on-premises SCIM-based applications](../app-provisioning/on-premises-scim-provisioning.md).
+
+1. Look up the service principal ID for the application's service principal.
 
    For example, if the enterprise application is named `CORPDB1`, enter the following commands:
 
@@ -376,6 +386,13 @@ The previous steps have confirmed that all the users in the application's data s
    $azuread_app_name = "CORPDB1"
    $azuread_sp_filter = "displayName eq '" + ($azuread_app_name -replace "'","''") + "'"
    $azuread_sp = Get-MgServicePrincipal -Filter $azuread_sp_filter -All
+   ```
+
+1. Retrieve the users who currently have assignments to the application in Azure AD.
+
+   This builds upon the `$azuread_sp` variable set in the previous command.
+
+   ```powershell
    $azuread_existing_assignments = @(Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
    ```
 
@@ -418,7 +435,7 @@ The previous steps have confirmed that all the users in the application's data s
 
 ## Configure application provisioning
 
-Before you create new assignments, configure [provisioning of Azure AD users](../app-provisioning/user-provisioning.md) to the application. Configuring provisioning will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.
+If your application uses an LDAP directory, a SQL database, or supports SCIM, then before you create new assignments, configure [provisioning of Azure AD users](../app-provisioning/user-provisioning.md) to the application. Configuring provisioning before creating assignments will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.  If your application does not support provisioning, then continue reading in the next section.
 
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
 1. If provisioning hasn't been configured for the application, configure it now (but don't start provisioning):
@@ -439,13 +456,19 @@ Before you create new assignments, configure [provisioning of Azure AD users](..
 
 For Azure AD to match the users in the application with the users in Azure AD, you need to create application role assignments in Azure AD.
 
-When an application role assignment is created in Azure AD for a user to an application, then:
+When an application role assignment is created in Azure AD for a user to an application, and the application supports provisioning, then:
 
 - Azure AD will query the application to determine if the user already exists.
 - Subsequent updates to the user's attributes in Azure AD will be sent to the application.
 - The user will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
 - On the next review of that application's role assignments, the user will be included in the review.
 - If the user is denied in an access review, their application role assignment will be removed. Azure AD will notify the application that the user is blocked from sign-in.
+
+If the application does not support provisioning, then
+
+- The user will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
+- On the next review of that application's role assignments, the user will be included in the review.
+- If the user is denied in an access review, their application role assignment will be removed.  The user will no longer be able to sign in from Azure AD to the application.
 
 1. Create application role assignments for users who don't currently have role assignments:
 
@@ -495,6 +518,8 @@ When an application role assignment is created in Azure AD for a user to an appl
 1. Check the provisioning log through the [Azure portal](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
 
 After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
+
+
 
 ## Next steps
 
