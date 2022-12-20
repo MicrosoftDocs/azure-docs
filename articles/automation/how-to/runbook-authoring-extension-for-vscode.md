@@ -73,7 +73,7 @@ To run the Automation job, follow these steps:
 1. In Automation account, select the runbook.
 1. Right click and select **Start Automation job** to run the Automation job.
 
-   :::image type="content" source="media/runbook-authoring-extension-for-vscode/run-local-job-inline.png" alt-text="Screenshot on how to run local version of job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/run-local-job-expanded.png":::
+   :::image type="content" source="media/runbook-authoring-extension-for-vscode/start-automation-job-inline.png" alt-text="Screenshot on how to run local version of job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/start-automation-job-expanded.png":::
 
 ### Add new webhook
 
