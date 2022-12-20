@@ -97,7 +97,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     | **\*.anaconda.org** | Used to get repo data. |
     | **pypi.org** | Used to list dependencies from the default index, if any, and the index isn't overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
-    | **ghcr.io**</br>**pkg-containers.githubusercontent.com** | Used by the Custom Applications feature on a compute instance to pull images from Github Container Repository (ghcr.io). For example, the RStudio or Posit Workbench image is hosted here. |
+    | **ghcr.io**</br>**pkg-containers.githubusercontent.com** | Used by the Custom Applications feature on a compute instance to pull images from GitHub Container Repository (ghcr.io). For example, the RStudio or Posit Workbench image is hosted here. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
     | **\*vscode.dev**</br>**\*vscode-unpkg.net**</br>**\*vscode-cdn.net**</br>**\*vscodeexperiments.azureedge.net**</br>**default.exp-tas.com** | Required to access vscode.dev (Visual Studio Code for the Web) |
