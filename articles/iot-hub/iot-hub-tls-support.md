@@ -126,9 +126,13 @@ IoT Edge devices can be configured to use TLS 1.2 when communicating with IoT Hu
 
 After a successful TLS handshake, IoT Hub can authenticate a device using a symmetric key or an X.509 certificate. For certificate-based authentication, this can be any X.509 certificate, including ECC. IoT Hub validates the certificate against the thumbprint or certificate authority (CA) you provide. To learn more, see [Supported X.509 certificates](iot-hub-dev-guide-sas.md#supported-x509-certificates).
 
-## Mutual TLS support
+## Mtual TLS authentication support
 
-When a device is configured for X.509 authentication in the device registry, mutual TLS (mTLS) is supported by IoT Hub.
+Mutual TLS authentication ensures the client _authenticates_ the server certificate AND the server _authenticates_ the [X.509 client certificate or X.509 Thumbprint](tutorial-x509-introduction). _Authorization_ is performed by IoT Hub after _authentication_ is complete. 
+
+For AMQP and MQTT protocols the server will request a client certificate in the initial TLS handshake. If one is provided, client certificate is _authenticated_ along with the client _authenticating_ the server certificate (mutual TLS _authentication_). When IoT Hub receives an MQTT connect packet or an AMQP link open, IoT Hub performs _authorization_ for the requesting client and determines if the client requires X.509 _authentication_. If mutual TLS _authentication_ was completed AND the client is _authorized_ to connect as the device, it is allowed. However, if the client requires X.509 _authentication_ and mutual TLS _authentication_ was NOT completed during the initial handshake then IoT Hub will initiate a new TLS handshake requiring client _authentication_. Once the mutual TLS _authentication_ is complete, IoT Hub will perform _authorization_ again with the now _authenticated_ client. 
+
+For HTTP protocol the server will NOT request a client certificate in the initial TLS handshake. Once the client makes its first request then the server checks if client requires X.509 _authentication_. If so, IoT Hub will initiate a new TLS handshake requiring client _authentication_. Once the mutual TLS _authentication_ is complete, IoT Hub will perform _authorization_ again with the now _authenticated_ client. 
 
 ## Certificate pinning
 
