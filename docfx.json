@@ -299,6 +299,7 @@
         "articles/baremetal-infrastructure/**/*.md": "dineshga",
         "articles/batch/**/*.md": "harperche",
         "articles/blockchain/**/*.md": "PatAltimore",
+        "articles/center-sap-solutions/**/*.md": "lauradolan",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/applied-ai-services/**/*.md": "mrbullwinkle",
         "articles/cognitive-services/**/*.md": "PatrickFarley",
