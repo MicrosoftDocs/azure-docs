@@ -283,7 +283,29 @@ While the `MLTable` file contains YAML, it needs the **exact** name of `MLTable`
 > Filename extensions of **yaml** or **yml**, as seen in `MLTable.yaml` or `MLTable.yml`, will cause an `MLTable file not found` error when loading. The MLTable file needs the exact name of `MLTable`.
 
 ### Authoring `MLTable` files
-To author `MLTable` files, we recommend VSCode because it can handle auto-complete, and it allows you to add Azure Cloud Storage to your workspace for seamless `MLTable` file edits on cloud storage.
+
+You can author `MLTable` files with the Python SDK. You can also directly author the MLTable file in an IDE (like VSCode). This example shows an MLTable file authored with the SDK:
+
+```python
+
+import mltable
+from mltable import DataType
+
+data_files = {
+    'pattern': './*parquet'
+}
+
+tbl = mltable.from_parquet_files(path=[data_files])
+# add additional transformations
+# tbl = tbl.keep_columns()
+# tbl = tbl.filter()
+
+# save to local directory
+tbl.save("<local_path>")
+
+```
+
+To author `MLTable` files directly, we recommend VSCode because it can handle auto-complete, and it allows you to add Azure Cloud Storage to your workspace for seamless `MLTable` file edits on cloud storage.
 
 To enable autocomplete and intellisense for `MLTable` files in VSCode, you'll need to associate the `MLTable` file with yaml.
 
@@ -416,6 +438,7 @@ az ml data create --name <name_of_asset> --version 1 --path <folder_with_MLTable
 > [!NOTE]
 > The path points to the **folder** containing the `MLTable` file. The path can be local or remote (a cloud storage URI). If the path is a local folder, then the folder will automatically be uploaded to the default Azure ML datastore in the cloud.
 
+When creating data assets from a local folder, only the data in the *same* folder as the `MLTable` file will upload. That upload will go to the default Azure ML datastore located in the cloud. Then, the asset is created. If any relative path in the `MLTable` `path` section exists, and the data is *not* in the same folder, the data will not upload, and the relative path will not work.
 
 # [Python](#tab/Python-SDK)
 
@@ -796,7 +819,7 @@ my_path = {
     'pattern': './*.parquet'
 }
 
-tbl = mltable.from_parquet(paths=[my_path])
+tbl = mltable.from_parquet_files(paths=[my_path])
 tbl = tbl.take_random_sample(probability=0.20, seed=132)
 
 # save the table to the local file system
