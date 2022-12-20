@@ -622,6 +622,28 @@ items:
             href: storage-retry-policy.md
           - name: Performance tuning for uploads and downloads
             href: storage-blobs-tune-upload-download.md
+        - name: Java
+          items:
+          - name: Get started
+            href: storage-blob-java-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-java.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-java.md
+            - name: List containers
+              href: storage-blob-containers-list-java.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-java.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-java.md
+          - name: Blob actions
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-java.md
+            - name: Manage blob leases
+              href: storage-blob-lease-java.md
         - name: JavaScript
           items:
           - name: Get started
