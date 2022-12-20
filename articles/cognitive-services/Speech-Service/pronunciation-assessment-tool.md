@@ -69,11 +69,11 @@ Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, flu
 
 **During recording**
 
-:::image type="content" source="media/pronunciation-assessment/pa-recording-display-score.png" alt-text="Screenshot of overall assessment scores when recording.":::
+:::image type="content" source="media/pronunciation-assessment/pa-recording-display-score.png" alt-text="Screenshot of overall assessment scores when recording." lightbox="media/pronunciation-assessment/pa-recording-display-score.png":::
 
 **Completing recording**
 
-:::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording.":::
+:::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording." lightbox="media/pronunciation-assessment/pa-after-recording-display-score.png":::
 
 ### Scores within words
 
