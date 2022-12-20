@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 12/12/2022
 ms.author: anfdocs
 ---
-# Configure access control lists on NFSv4.1 with Azure NetApp Files
+# Configure access control lists on NFSv4.1 for Azure NetApp Files
 
 Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs provide granular file security via NFSv4.1.
 
