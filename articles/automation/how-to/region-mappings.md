@@ -31,6 +31,42 @@ The following table shows the supported mappings:
 
 |**Log Analytics workspace region**|**Azure Automation region**|
 |---|---|
+|**Asia Pacific**||
+|EastAsia|EastAsia|
+|SoutheastAsia|SoutheastAsia|
+|**Australia**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
+|**Brazil**||
+|BrazilSouth|BrazilSouth|
+|**Canada**||
+|CanadaCentral|CanadaCentral|
+|**China**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**Europe**||
+|NorthEurope|NorthEurope|
+|WestEurope|WestEurope|
+|**France**||
+|FranceCentral|FranceCentral|
+|**India**||
+|CentralIndia|CentralIndia|
+|**Japan**||
+|JapanEast|JapanEast|
+|**Korea**||
+|KoreaCentral|KoreaCentral|
+|**Norway**||
+|NorwayEast|NorwayEast|
+|**Qatar**||
+|QatarCentral|QatarCentral|
+|**Switzerland**||
+|SwitzerlandNorth|SwitzerlandNorth|
+|**United Kingdom**
+|UKSouth|UKSouth|
+|**United Arab Emirates**||
+|UAENorth|UAENorth|
+|**US Gov**||
+|USGovVirginia|USGovVirginia|
+|USGovArizona<sup>3</sup>|USGovArizona|
 |**US**||
 |EastUS<sup>1</sup>|EastUS2|
 |EastUS2<sup>2</sup>|EastUS|
@@ -40,40 +76,6 @@ The following table shows the supported mappings:
 |CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
-|**Brazil**||
-|BrazilSouth|BrazilSouth|
-|**Canada**||
-|CanadaCentral|CanadaCentral|
-|**China**||
-|ChinaEast2<sup>3</sup>|ChinaEast2|
-|**Asia Pacific**||
-|EastAsia|EastAsia|
-|SoutheastAsia|SoutheastAsia|
-|**India**||
-|CentralIndia|CentralIndia|
-|**Japan**||
-|JapanEast|JapanEast|
-|**Australia**||
-|AustraliaEast|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
-|**Korea**||
-|KoreaCentral|KoreaCentral|
-|**Norway**||
-|NorwayEast|NorwayEast|
-|**Europe**||
-|NorthEurope|NorthEurope|
-|WestEurope|WestEurope|
-|**France**||
-|FranceCentral|FranceCentral|
-|**United Kingdom**
-|UKSouth|UKSouth|
-|**Switzerland**||
-|SwitzerlandNorth|SwitzerlandNorth|
-|**United Arab Emirates**||
-|UAENorth|UAENorth|
-|**US Gov**||
-|USGovVirginia|USGovVirginia|
-|USGovArizona<sup>3</sup>|USGovArizona|
 
 <sup>1</sup> EastUS mapping for Log Analytics workspaces to Automation accounts isn't an exact region-to-region mapping, but is the correct mapping.
 
