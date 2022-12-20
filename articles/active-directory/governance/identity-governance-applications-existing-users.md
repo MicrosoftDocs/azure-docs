@@ -39,7 +39,9 @@ After Azure AD is aware of a user's assignment, it can send updates to the appli
 
 In the second scenario, an application doesn't solely rely on Azure AD as its identity provider. 
 
-In some cases, an application might support multiple identity providers or have its own built-in credential storage. This scenario is described as Pattern C in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md). 
+In some cases, an application might rely upon AD groups.  This scenario is described in Pattern B in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).  You do not need to configure provisioning for that application as described in that article, instead follow the instructions for Pattern B in that article on how to review the membership of AD groups.
+
+In other cases, an application might support multiple identity providers or have its own built-in credential storage. This scenario is described as Pattern C in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md). 
 
 It might not be feasible to remove other identity providers or local credential authentication from the application. In that case, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users who don't rely on Azure AD for authentication.
 
