@@ -46,6 +46,7 @@ The feature consists of two parts, management and runtime:
 
 For public preview the following limitations exist:
 
+- User-delegated permissions are not supported
 - Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral.
 - Authorizations feature is not supported in National Clouds.
 - Authorizations feature is not supported on self-hosted gateways.
@@ -54,8 +55,6 @@ For public preview the following limitations exist:
 - Maximum configured number of authorizations per authorization provider: 10,000
 - Maximum configured number of access policies per authorization: 100
 - Maximum requests per minute per service: 250
-- Authorization code PKCE flow with code challenge isn't supported.
-- API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
