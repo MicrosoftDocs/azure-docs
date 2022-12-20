@@ -1,6 +1,6 @@
 ---
-title: 'Create a zone-redundant virtual network gateway in Azure Availability Zones'
-description: Learn how to deploy zone-redundant VPN Gateways and ExpressRoute gateways in Azure Availability Zones.
+title: 'Create a zone-redundant virtual network gateway in Azure availability zones'
+description: Learn how to deploy zone-redundant virtual network gateways in Azure availability zones.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -12,9 +12,9 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Create a zone-redundant virtual network gateway in Azure Availability Zones
+# Create a zone-redundant virtual network gateway in Azure availability zones
 
-You can deploy VPN and ExpressRoute gateways in Azure Availability Zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [About Azure Availability Zones](../availability-zones/az-overview.md).
+This article helps you create a zone-redundant virtual network gateway in Azure availability zones. You can deploy both VPN gateways and ExpressRoute gateways in Azure availability zones. This brings resiliency, scalability, and higher availability to virtual network gateways. Deploying gateways in Azure Availability Zones physically and logically separates gateways within a region, while protecting your on-premises network connectivity to Azure from zone-level failures. For information, see  [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) and [About Azure Availability Zones](../availability-zones/az-overview.md).
 
 ## Before you begin
 
