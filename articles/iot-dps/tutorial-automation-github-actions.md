@@ -203,7 +203,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
              az iot device simulate -n "$HUB_NAME" -d "$DEVICE_NAME"
    ```
 
-1. Define a job to `monitor` the IoT hub endpoint for events, and watch messages coming in from the simulated device. Notice that the **simulate** and **monitor** jobs both define the **register** job in their `needs` parameter. This configuration means that once the **register** job completes successfuly, both these jobs will run in parallel.
+1. Define a job to `monitor` the IoT hub endpoint for events, and watch messages coming in from the simulated device. Notice that the **simulate** and **monitor** jobs both define the **register** job in their `needs` parameter. This configuration means that once the **register** job completes successfully, both these jobs will run in parallel.
 
    ```yml
      monitor:
@@ -293,7 +293,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
 
    :::image type="content" source="./media/tutorial-automation-github-actions/run-workflow.png" alt-text="Screenshot of the action tab where you can select a workflow and run it.":::
 
-1. Change the branch if you created your workflow in a branch other then main, then select **Run workflow**.
+1. Change the branch if you created your workflow in a branch other than main, then select **Run workflow**.
 
 1. A new workflow run appears in progress. Select the name to view details of the run.
 
@@ -305,7 +305,7 @@ Workflows are YAML files that are located in the `.github/workflows/` directory 
 
 ## Clean up resources
 
-If you're not going to continue to use this resources created in this tutorial, delete
+If you're not going to continue to use these resources created in this tutorial, delete
 them with the following steps.
 
 Use the Azure CLI:
