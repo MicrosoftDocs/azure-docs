@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/20/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -27,7 +27,7 @@ On your Azure Stack Edge device, you can configure compute. With compute configu
 
 This article covers the following scenarios:
 
-1. **Deploy AKS on your device.** Deployment can be with or without configuring the Azure Arc for Kubernetes clusters as an addon. 
+1. **Deploy AKS on your device.** Deployment can be with or without configuring the Azure Arc for Kubernetes clusters as an add-on. 
    - If you enable Azure Arc on the Kubernetes cluster, use Azure Arc to manage your cluster. 
    - If you disable Azure Arc, you can use kubectl to manage your cluster.
 
@@ -90,7 +90,9 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
 Use the following steps for 1-node or 2-node deployments. 
 
-### [Single node](#tab/1-node)
+### [Single node device](#tab/1-node)
+
+Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
 
 ## Step 1. Enable AKS and custom locations
 
@@ -261,7 +263,9 @@ Follow these steps to deploy the AKS cluster.
 
    If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
 
-### [Two node](#tab/2-node)
+### [Two node cluster](#tab/2-node)
+
+Use this feature for a two node cluster implementation only if you are an SAP customer. 
 
 ---
 
