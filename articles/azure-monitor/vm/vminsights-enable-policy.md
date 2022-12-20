@@ -33,19 +33,15 @@ The initiatives apply to new machines you create and machines you modify, but no
 
 To assign a VM insights policy initiative to a subscription or management group from the Azure portal:
 
-1. Select **Azure Monitor** > **Virtual machines**. 
-1. Select **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+1. Select for and open **Policy**. 
+1. Select **Assignments** > **Assign initiative**.
 
-    The **Azure Monitor for VMs Policy Coverage** lists the tenant root group, which consists of the top-level management groups and subscriptions in your tenant. To assign an initiative to a lower-level management group or subscription, select one of the management groups to drill down in your [hierarchy of management groups](../../governance/management-groups/overview.md#hierarchy-of-management-groups-and-subscriptions). 
+    :::image type="content" source="media/vminsights-enable-policyvm-insights-assign-initiative.png" lightbox="media/vminsights-enable-policy/vm-insights-assign-initiative.png" alt-text="Screenshot that shows the Policy Assignments screen with the Assign initiative button highlighted.":::
 
-    :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot showing other onboarding options page of VM insights with the Enable using policy option.":::
-   
-1. Select **Assign Policy** to assign a policy to a subscription or management group.
+1. In the **Scope** field, select the management group or subscription to which you'll assign the initiative. 
+1. (Optional) Select **Exclusions** to exclude specific resources from the initiative assignment. For example, if your scope is a management group, you might specify a subscription in that management group to be excluded from the assignment.
 
-    [![Create assignment](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
-    
 1. (Optional) Change the **Assignment name** and add a **Description**. 
-1. Select **Exclusions** to exclude specific resources from the policy assignment. For example, if your scope is a management group, you might specify a subscription in that management group to be excluded from the assignment.
 
     [![Assign initiative](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
