@@ -109,7 +109,7 @@ You've now created your share. The recipients of your share will receive an invi
 
 To clean up the resources created for the quick start, follow the steps below: 
 
-1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-a-sent-share).
+1. Within [Microsoft Purview governance portal](https://web.purview.azure.com/), [delete the sent share](how-to-share-data.md#delete-share).
 1. Also [delete your received share](how-to-receive-share.md#delete-received-share).
 1. Once the shares are successfully deleted, delete the target container and folder Microsoft Purview created in your target storage account when you received shared data.
 
