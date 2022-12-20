@@ -21,7 +21,7 @@ Data in Log Analytics is available for the retention period defined in your work
 
 After you've configured data export rules in a Log Analytics workspace, new data for tables in rules is exported from the Azure Monitor pipeline to your storage account or event hubs as it arrives.
 
-[![Data export overview](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
+[![Diagram that shows a data export flow.](media/logs-data-export/data-export-overview.png "Diagram that shows a data export flow.")](media/logs-data-export/data-export-overview.png#lightbox)
 
 Data is exported without a filter. For example, when you configure a data export rule for a *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
@@ -70,7 +70,7 @@ Blobs are stored in 5-minute folders in the following path structure: *Workspace
 
 The format of blobs in a storage account is in [JSON lines](../essentials/resource-logs-blob-format.md), where each record is delimited by a new line, with no outer records array and no commas between JSON records.
 
-[![Storage sample data](media/logs-data-export/storage-data.png "Screenshot that shows data format in a blob.")](media/logs-data-export/storage-data-expand.png#lightbox)
+[![Screenshot that shows data format in a blob.](media/logs-data-export/storage-data.png "Screenshot that shows data format in a blob.")](media/logs-data-export/storage-data-expand.png#lightbox)
 
 ### Event hubs
 
@@ -111,7 +111,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ### Allow trusted Microsoft services
 If you've configured your storage account to allow access from selected networks, you need to add an exception to allow Azure Monitor to write to the account. From **Firewalls and virtual networks** for your storage account, select **Allow Azure services on the trusted services list to access this storage account**.
 
-[![Storage account firewalls and networks](media/logs-data-export/storage-account-network.png "Screenshot that shows the option Allow Azure services on the trusted services list.")](media/logs-data-export/storage-account-network.png#lightbox)
+[![Screenshot that shows the option Allow Azure services on the trusted services list.](media/logs-data-export/storage-account-network.png "Screenshot that shows the option Allow Azure services on the trusted services list.")](media/logs-data-export/storage-account-network.png#lightbox)
 
 ### Monitor destinations
 
@@ -161,7 +161,7 @@ A data export rule defines the destination and tables for which data is exported
 
 1. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select **New export rule** at the top of the pane.
 
-   [![Export create](media/logs-data-export/export-create-1.png "Screenshot that shows the data export entry point.")](media/logs-data-export/export-create-1.png#lightbox)
+   [![Screenshot that shows the data export entry point.](media/logs-data-export/export-create-1.png "Screenshot that shows the data export entry point.")](media/logs-data-export/export-create-1.png#lightbox)
 
 1. Follow the steps, and then select **Create**.
 
@@ -462,7 +462,7 @@ Use the following command to create a data export rule to a specific event hub b
 
 1. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section.
 
-   [![Export rules view](media/logs-data-export/export-view-1.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view-1.png#lightbox)
+   [![Screenshot that shows the data export rules view.](media/logs-data-export/export-view-1.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view-1.png#lightbox)
 
 1. Select a rule for a configuration view.
 
@@ -504,7 +504,7 @@ The template option doesn't apply.
 
 You can disable export rules to stop the export for a certain period, such as when testing is being held. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select the **Status** toggle to disable or enable the export rule.
 
-[![Export rule disable](media/logs-data-export/export-disable.png "Screenshot that shows disabling the data export rule.")](media/logs-data-export/export-disable.png#lightbox)
+[![Screenshot that shows disabling the data export rule.](media/logs-data-export/export-disable.png "Screenshot that shows disabling the data export rule.")](media/logs-data-export/export-disable.png#lightbox)
 
 # [PowerShell](#tab/powershell)
 
@@ -557,7 +557,7 @@ You can disable export rules to stop export when testing is performed and you do
 
 On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section. Select the ellipsis to the right of the rule and select **Delete**.
 
-[![Export rule delete](media/logs-data-export/export-delete.png "Screenshot that shows deleting the data export rule.")](media/logs-data-export/export-delete.png#lightbox)
+[![Screenshot that shows deleting the data export rule.](media/logs-data-export/export-delete.png "Screenshot that shows deleting the data export rule.")](media/logs-data-export/export-delete.png#lightbox)
 
 # [PowerShell](#tab/powershell)
 
@@ -595,7 +595,7 @@ The template option doesn't apply.
 
 On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section to view all export rules in the workspace.
 
-[![Export rules](media/logs-data-export/export-view.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view.png#lightbox)
+[![Screenshot that shows the data export rules view.](media/logs-data-export/export-view.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view.png#lightbox)
 
 # [PowerShell](#tab/powershell)
 
@@ -781,7 +781,7 @@ All data from the table will be exported unless limitations are specified. This 
 | CommonSecurityLog |  |
 | ComputerGroup |  |
 | ConfidentialWatchlist |  |
-| ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | ContainerAppConsoleLogs |  |
 | ContainerAppSystemLogs |  |
 | ContainerImageInventory |  |
@@ -857,7 +857,7 @@ All data from the table will be exported unless limitations are specified. This 
 | IdentityDirectoryEvents |  |
 | IdentityLogonEvents |  |
 | IdentityQueryEvents |  |
-| InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
@@ -887,8 +887,8 @@ All data from the table will be exported unless limitations are specified. This 
 | OfficeActivity |  |
 | OLPSupplyChainEntityOperations |  |
 | OLPSupplyChainEvents |  |
-| Operation | Partial support. Some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
-| Perf | Partial support. Only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| Operation | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
+| Perf | Partial support. Only Windows perf data is currently supported. Currently, the Linux perf data is missing in export. |
 | PFTitleAuditLogs |  |
 | PowerBIActivity |  |
 | PowerBIAuditTenant |  |
@@ -946,7 +946,7 @@ All data from the table will be exported unless limitations are specified. This 
 | UCClient |  |
 | UCDOAggregatedStatus |  |
 | UCDOStatus |  |
-| Update | Partial support. Some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| Update | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | UrlClickEvents |  |
@@ -955,11 +955,11 @@ All data from the table will be exported unless limitations are specified. This 
 | UserPeerAnalytics |  |
 | VIAudit |  |
 | VIIndexing |  |
-| W3CIISLog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
+| W3CIISLog | Partial support. Data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics extension agent is collected through storage while this path isn’t supported in export. |
 | Watchlist |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | Partial support. Some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
+| WireData | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |
