@@ -25,7 +25,7 @@ Before you begin, it's important to understand what moving these resources invol
 
 The `connectedClusters` resource is the Azure Resource Manager representation of a Kubernetes cluster outside of Azure (such as on-premises, another cloud, or edge). The underlying infrastructure lies in your environment, and Azure Arc provides a representation of the cluster on Azure by installing agents on the cluster.
 
-Moving a connected cluster to a new region means means deleting the ARM resource in the source region, cleaning up the agents on your cluster, and then connecting your cluster again in the target region.
+Moving a connected cluster to a new region means deleting the ARM resource in the source region, cleaning up the agents on your cluster, and then connecting your cluster again in the target region.
 
 Source control configurations, [Flux configurations](conceptual-gitops-flux2.md) and [extensions](conceptual-extensions.md) within the cluster are child resources of the connected cluster resource. To move these resources, you'll need to save details about the resources, then move the parent `connectedClusters` resource. After that, you can recreate the child resources in the target cluster resource.
 
