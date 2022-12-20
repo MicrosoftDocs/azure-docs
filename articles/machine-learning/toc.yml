@@ -168,6 +168,9 @@
           href: concept-component.md
         - name: MLflow
           href: concept-mlflow.md
+        - name: Git integration
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: Responsible AI
       items:
         - name: Responsible AI overview
@@ -254,8 +257,6 @@
           href: how-to-identity-based-service-authentication.md
         - name: Manage users and roles
           href: how-to-assign-roles.md
-        - name: Use managed identities for access control
-          href: how-to-use-managed-identities.md
     - name: Network security
       items:
         - name: Virtual network overview
@@ -267,6 +268,9 @@
         - name: Secure training environment
           displayName: vnet, No public IP
           href: how-to-secure-training-vnet.md
+        - name: Secure inference environment
+          displayName: vnet, Managed Endpoint, AKS
+          href: how-to-secure-inferencing-vnet.md
         - name: Use studio in a virtual network
           displayName: vnet
           href: how-to-enable-studio-virtual-network.md
@@ -296,6 +300,9 @@
           href: how-to-manage-workspace-terraform.md
         - name: Use REST
           href: how-to-manage-rest.md
+        - name: Recover workspace after deletion
+          displayName: soft-delete
+          href: concept-soft-delete.md
         - name: How to move a workspace
           href: how-to-move-workspace.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
@@ -343,11 +350,14 @@
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
         - name: Secure Kubernetes online endpoint
-          displayName: Securing Kubernetes online endpoint with TLS/SSL
+          displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot AzureML extension
           displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
+        - name: Troubleshoot Kubernetes compute
+          displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
+          href: how-to-troubleshoot-kubernetes-compute.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -407,21 +417,14 @@
         - name: Create datastores
           displayName: Create datastores
           href: how-to-datastore.md
-        - name: Create data assets
-          displayName: Create data assets
-          href: how-to-create-data-assets.md
-        - name: Read & write data in jobs
-          displayName: Read & write data in jobs
-          href: how-to-read-write-data-v2.md
-        - name: Submit Spark jobs in Azure Machine Learning
-          displayName: Submit Spark jobs in Azure Machine Learning
-          href: how-to-submit-spark-jobs.md
-        - name: Interactive Data Wrangling with Apache Spark
-          displayName: Interactive Data Wrangling with Apache Spark
-          href: interactive-data-wrangling-with-apache-spark-azure-ml.md
-        - name: Data administration
-          displayName: Data administration
-          href: how-to-administrate-data-authentication.md
+        - name: Access and explore your data
+          items:
+            - name: Access data during interactive development
+              displayName: Access data during interactive development
+              href: how-to-access-data-interactive.md
+            - name: Access data in jobs
+              displayName: Access data in jobs
+              href: how-to-read-write-data-v2.md
         - name: Label data
           items:
             - name: Set up image labeling
@@ -438,12 +441,31 @@
               href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
+        - name: Prepare data with Apache Spark
+          items:
+            - name: Submit Spark jobs in Azure Machine Learning
+              displayName: Submit Spark jobs in Azure Machine Learning
+              href: how-to-submit-spark-jobs.md
+            - name: Interactive Data Wrangling with Apache Spark
+              displayName: Interactive Data Wrangling with Apache Spark
+              href: interactive-data-wrangling-with-apache-spark-azure-ml.md
+        - name: Share and Version Data
+          items:
+            - name: Create data assets
+              displayName: Create data assets
+              href: how-to-create-data-assets.md
+        - name: Data administration and authentication
+          displayName: Data administration and authentication
+          href: how-to-administrate-data-authentication.md
     - name: Train models
       items:
         - name: Train a model (SDK, CLI, REST)
           href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
+        - name: Debug jobs and monitor training progress
+          displayName: automl
+          href: how-to-interactive-jobs.md
         - name: Train with the Python SDK
           items:
             - name: Tune hyperparameters
@@ -498,6 +520,9 @@
               href: how-to-configure-auto-train.md
             - name: Use automated ML (interface)
               href: how-to-use-automated-ml-for-ml-models.md
+            - name: Use automated ML with Databricks
+              displayName: automl
+              href: how-to-configure-databricks-automl-environment.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -522,7 +547,7 @@
         - name: Online endpoints (real-time)
           items:
             - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
+              href: how-to-deploy-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
@@ -564,35 +589,35 @@
         - name: Batch endpoints
           items:
             - name: Batch scoring with batch endpoints
-              href: batch-inference/how-to-use-batch-endpoint.md
-            - name: Accessing data from batch endpoints jobs
-              href: batch-inference/how-to-access-data-batch-endpoints-jobs.md
+              href: how-to-use-batch-endpoint.md
+            - name: Input data for batch endpoints jobs
+              href: how-to-access-data-batch-endpoints-jobs.md
             - name: Author scoring scripts for batch scoring
-              href: batch-inference/how-to-batch-scoring-script.md
+              href: how-to-batch-scoring-script.md
             - name: Troubleshoot batch endpoints
-              href: batch-inference/how-to-troubleshoot-batch-endpoints.md
+              href: how-to-troubleshoot-batch-endpoints.md
             - name: Security
               items:
                 - name: Authentication on batch endpoints
-                  href: batch-inference/how-to-authenticate-batch-endpoint.md
+                  href: how-to-authenticate-batch-endpoint.md
                 - name: Network isolation in batch endpoints
-                  href: batch-inference/how-to-secure-batch-endpoint.md
+                  href: how-to-secure-batch-endpoint.md
             - name: Scenarios
               items:
                 - name: Use low priority VMs in batch deployments
-                  href: batch-inference/how-to-use-low-priority-batch.md
+                  href: how-to-use-low-priority-batch.md
                 - name: Use MLflow models in batch deployments
-                  href: batch-inference/how-to-mlflow-batch.md
+                  href: how-to-mlflow-batch.md
                 - name: Image processing with batch deployments
-                  href: batch-inference/how-to-image-processing-batch.md
+                  href: how-to-image-processing-batch.md
                 - name: Text processing with batch deployments
-                  href: batch-inference/how-to-nlp-processing-batch.md
+                  href: how-to-nlp-processing-batch.md
                 - name: Customize outputs in batch jobs
-                  href: batch-inference/how-to-deploy-model-custom-output.md
+                  href: how-to-deploy-model-custom-output.md
                 - name: Invoke batch endpoints from Azure Data Factory
-                  href: batch-inference/how-to-use-batch-azure-data-factory.md
+                  href: how-to-use-batch-azure-data-factory.md
                 - name: Invoke batch endpoints from Event Grid events in storage
-                  href: batch-inference/how-to-use-event-grid-batch.md
+                  href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
         - name: Deploying MLflow models
@@ -680,7 +705,7 @@
         - name: Using the Responsible AI dashboard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-dashboard.md
-        - name: Responsible AI scorecard in studio
+        - name: Using the Responsible AI scorecard in studio
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
@@ -745,6 +770,14 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
+            - name: AutoML Image Classification
+              href: reference-automl-images-cli-classification.md
+            - name: AutoML Image Instance Segmentation
+              href: reference-automl-images-cli-instance-segmentation.md
+            - name: AutoML Image Multilabel Classification
+              href: reference-automl-images-cli-multilabel-classification.md
+            - name: AutoML Image Object Detection
+              href: reference-automl-images-cli-object-detection.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -773,6 +806,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+    - name: PowerShell
+      href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md
     - name: Image data schemas for AutoML
@@ -798,9 +833,9 @@
       href: /cli/azure/ml
 - name: Resources
   items:
-    - name: Python SDK release notes
+    - name: Python SDK (v2) release notes
       displayName: what's, new, issues, bugs
-      href: azure-machine-learning-release-notes.md
+      href: https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/ml/azure-ai-ml/CHANGELOG.md
     - name: CLI (v2) release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes-cli-v2.md

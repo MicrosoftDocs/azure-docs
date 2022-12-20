@@ -32,8 +32,12 @@
       
   - name: Concepts
     items:
-    - name: Ready safety
-      href: azure-stack-edge-pro-2-safety.md
+    - name: View safety
+      items:
+        - name: In English (en-us)
+          href: azure-stack-edge-pro-2-safety.md
+        - name: In other languages
+          href: azure-stack-edge-pro-2-safety-languages.md
     - name: Review requirements
       href: azure-stack-edge-pro-2-system-requirements.md
     - name: Understand limits
@@ -310,8 +314,6 @@
           href: azure-stack-edge-gpu-manage-edge-resource-groups-portal.md
         - name: VM sizes
           href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
-        - name: Virtual switches
-          href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: VM tags
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
       - name: Reset VM password
@@ -408,6 +410,8 @@
             href: azure-stack-edge-gpu-deploy-compute-module-simple.md
           - name: Sync data from local share
             href: https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/blob/master/Scripts/IotEdgeScript/README.md
+          - name: Move to Linux VMs
+            href: azure-stack-edge-move-to-self-service-iot-edge.md
       - name: Troubleshoot IoT Edge issues
         href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
         
@@ -457,6 +461,8 @@
     items:         
     - name: Check network readiness 
       href: azure-stack-edge-deploy-check-network-readiness.md
+    - name: Create virtual switches and virtual networks via PowerShell
+      href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
     - name: Deploy via config file
       href: azure-stack-edge-zero-touch-provisioning.md
     - name: Manage Edge compute 
@@ -509,7 +515,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2209 - Current
+    - name: 2210 - Current
+      href: azure-stack-edge-gpu-2210-release-notes.md
+    - name: 2209
       href: azure-stack-edge-gpu-2209-release-notes.md
     - name: 2207
       href: azure-stack-edge-gpu-2207-release-notes.md

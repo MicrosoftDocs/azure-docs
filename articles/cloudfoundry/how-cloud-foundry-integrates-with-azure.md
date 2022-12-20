@@ -10,7 +10,8 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 11/14/2022
+ms.reviewer: erd
 ms.author: ningk
 ---
 # Integrate Cloud Foundry with Azure

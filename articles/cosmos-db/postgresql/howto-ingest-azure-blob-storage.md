@@ -6,18 +6,20 @@ author: mulander
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 10/19/2022
+ms.date: 11/28/2022
 ---
 
-# How to ingest data using Azure Blob Storage
+# How to ingest data using pg_azure_storage
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS) is a cloud-native scalable, durable and secure storage service. These characteristics of ABS make it a good choice of storing and moving existing data into the cloud.
-
 This article shows how to use the pg_azure_storage PostgreSQL extension to
 manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from
-Azure Blob Storage.
+[Azure Blob
+Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS).
+ABS is a cloud-native scalable, durable and secure storage service. These
+characteristics make it a good choice of storing and moving existing data into
+the cloud.
 
 ## Prepare database and blob storage
 

@@ -1,16 +1,16 @@
 ---
-title: Secure Azure SignalR outbound traffic through Shared Private Endpoints
+title: Secure Azure SignalR outbound traffic through shared private endpoints
 titleSuffix: Azure SignalR Service
-description: How to secure outbound traffic through Shared Private Endpoints to avoid traffic go to public network
+description: How to secure outbound traffic through shared private endpoints to avoid traffic go to public network
 services: signalr
 author: vicancy
 ms.service: signalr
-ms.topic: article
-ms.date: 07/08/2021
+ms.topic: how-to
+ms.date: 12/09/2022
 ms.author: lianwei
 ---
 
-# Secure Azure SignalR outbound traffic through Shared Private Endpoints
+# Secure Azure SignalR outbound traffic through shared private endpoints
 
 When you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service,  you can create outbound [private endpoint connections](../private-link/private-endpoint-overview.md) to an upstream service. 
 

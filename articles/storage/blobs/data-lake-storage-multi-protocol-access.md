@@ -1,7 +1,9 @@
 ---
 title: Multi-protocol access on Azure Data Lake Storage
+titleSuffix: Azure Storage
 description: Use Blob APIs and applications that use Blob APIs with Azure Data Lake Storage Gen2.
 author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual

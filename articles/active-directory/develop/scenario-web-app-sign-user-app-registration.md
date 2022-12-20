@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 12/6/2022
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
@@ -89,7 +89,7 @@ By default, the sample uses:
    1. Enter a key description.
    1. Select the key duration **In 1 year**.
    1. Select **Add**.
-   1. When the key value appears, copy it for later. This value will not be displayed again or be retrievable by any other means.
+   1. When the key value appears, copy it for later. This value won't be displayed again or be retrievable by any other means.
 
 # [Node.js](#tab/nodejs)
 
@@ -124,13 +124,70 @@ By default, the sample uses:
 
 ## Register an app by using PowerShell
 
-> [!NOTE]
-> Currently, Azure AD PowerShell creates applications with only the following supported account types:
->
-> - MyOrg (accounts in this organizational directory only)
-> - AnyOrg (accounts in any organizational directory)
->
-> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) property to **2** and the [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) property to `AzureADandPersonalMicrosoftAccount` in the [application manifest](./reference-app-manifest.md) from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
+You can also register an application with Microsoft Graph PowerShell, using the [New-MgApplication](/powershell/module/microsoft.graph.applications/new-mgapplication).
+
+Here's an idea of the code. For a fully functioning code, see [this sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal/AppCreationScripts/Configure.ps1)
+
+```PowerShell
+# Connect to the Microsoft Graph API, non-interactive is not supported for the moment (Oct 2021)
+    Write-Host "Connecting to Microsoft Graph"
+    if ($tenantId -eq "") {
+        Connect-MgGraph -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+    }
+    else {
+        Connect-MgGraph -TenantId $tenantId -Scopes "User.Read.All Organization.Read.All Application.ReadWrite.All" -Environment $azureEnvironmentName
+    }
+    
+    $context = Get-MgContext
+    $tenantId = $context.TenantId
+
+    # Get the user running the script
+    $currentUserPrincipalName = $context.Account
+    $user = Get-MgUser -Filter "UserPrincipalName eq '$($context.Account)'"
+
+    # get the tenant we signed in to
+    $Tenant = Get-MgOrganization
+    $tenantName = $Tenant.DisplayName
+    
+    $verifiedDomain = $Tenant.VerifiedDomains | where {$_.Isdefault -eq $true}
+    $verifiedDomainName = $verifiedDomain.Name
+    $tenantId = $Tenant.Id
+
+    Write-Host ("Connected to Tenant {0} ({1}) as account '{2}'. Domain is '{3}'" -f  $Tenant.DisplayName, $Tenant.Id, $currentUserPrincipalName, $verifiedDomainName)
+
+   # Create the webApp AAD application
+   Write-Host "Creating the AAD application (WebApp)"
+   # create the application 
+   $webAppAadApplication = New-MgApplication -DisplayName "WebApp" `
+                                                      -Web `
+                                                      @{ `
+                                                          RedirectUris = "https://localhost:44321/", "https://localhost:44321/signin-oidc"; `
+                                                          HomePageUrl = "https://localhost:44321/"; `
+                                                          LogoutUrl = "https://localhost:44321/signout-oidc"; `
+                                                        } `
+                                                       -SignInAudience AzureADandPersonalMicrosoftAccount `
+                                                      #end of command
+
+    $currentAppId = $webAppAadApplication.AppId
+    $currentAppObjectId = $webAppAadApplication.Id
+
+    $tenantName = (Get-MgApplication -ApplicationId $currentAppObjectId).PublisherDomain
+    #Update-MgApplication -ApplicationId $currentAppObjectId -IdentifierUris @("https://$tenantName/WebApp")
+    
+    # create the service principal of the newly created application     
+    $webAppServicePrincipal = New-MgServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
+
+    # add the user running the script as an app owner if needed
+    $owner = Get-MgApplicationOwner -ApplicationId $currentAppObjectId
+    if ($owner -eq $null)
+    { 
+        New-MgApplicationOwnerByRef -ApplicationId $currentAppObjectId  -BodyParameter = @{"@odata.id" = "htps://graph.microsoft.com/v1.0/directoryObjects/$user.ObjectId"}
+        Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($webAppServicePrincipal.DisplayName)'"
+    }
+    Write-Host "Done creating the webApp application (WebApp)"
+```
+
+
 
 ## Next steps
 

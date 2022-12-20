@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 10/26/2022
+ms.date: 12/12/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -19,6 +19,8 @@ App Service can now automate migration of your App Service Environment v1 and v2
 
 At this time, App Service Environment migrations to v3 using the migration feature are supported in the following regions:
 
+### Azure Public:
+
 - Australia East
 - Australia Central
 - Australia Southeast
@@ -31,14 +33,19 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - East US
 - East US 2
 - France Central
+- Germany North
 - Germany West Central
 - Japan East
 - Korea Central
+- Korea South
 - North Central US
 - North Europe
 - Norway East
+- Norway West
 - South Central US
+- South India
 - Switzerland North
+- Switzerland West
 - UAE North
 - UK South
 - UK West
@@ -125,7 +132,7 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 ### Ensure there are no locks on your resources
 
-Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription or resource group scope, they'll need to be removed during the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
+Virtual network locks will block platform operations during migration. If your virtual network has locks, you'll need to remove them before migrating. The locks can be readded if needed once migration is complete. Locks can exist at three different scopes: subscription, resource group, and resource. When you apply a lock at a parent scope, all resources within that scope inherit the same lock. If you have locks applied at the subscription, resource group, or resource scope, they'll need to be removed before the migration. For more information on locks and lock inheritance, see [Lock your resources to protect your infrastructure](../../azure-resource-manager/management/lock-resources.md).
 
 ### Choose your App Service Environment v3 configurations
 

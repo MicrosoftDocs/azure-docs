@@ -52,7 +52,7 @@ In this article, you learn how to secure inferencing environments (online endpoi
 
 ## Secure managed online endpoints
 
-For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md) article.
+For information on securing managed online endpoints, see the [Use network isolation with managed online endpoints](how-to-secure-online-endpoint.md) article.
 
 ## Secure Azure Kubernetes Service
 
@@ -61,7 +61,7 @@ To configure and attach an Azure Kubernetes Service cluster for secure inference
 1. Create or configure a [secure Kubernetes inferencing environment](how-to-secure-kubernetes-inferencing-environment.md).
 1. [Attach the Kubernetes cluster to the workspace](how-to-attach-kubernetes-anywhere.md).
 
-Afterwards, you can use the cluster for inference deployments to online endpoints. For more information, see [How to deploy an online endpoint](how-to-deploy-managed-online-endpoints.md).
+Afterwards, you can use the cluster for inference deployments to online endpoints. For more information, see [How to deploy an online endpoint](how-to-deploy-online-endpoints.md).
 
 ## Limit outbound connectivity from the virtual network
 

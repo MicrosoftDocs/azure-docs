@@ -1,9 +1,11 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+
 ms.service: storage
+ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
 ms.date: 11/03/2022
 ms.author: normesta
@@ -63,7 +65,7 @@ The ability to apply ACL changes recursively from parent directory to child item
 
 ## Access control lists (ACL) and anonymous read access
 
-If [anonymous read access](./anonymous-read-access-configure.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs.
+If [anonymous read access](./anonymous-read-access-overview.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.  This only affects read requests.  Write requests will still honor the ACLs. We recommend requiring authorization for all requests to blob data.
 
 <a id="known-issues-tools"></a>
 

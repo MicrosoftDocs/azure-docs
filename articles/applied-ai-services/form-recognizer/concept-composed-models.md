@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/20/2022
+ms.date: 12/15/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -41,10 +41,10 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ### Composed model compatibility
 
-|Custom model type|Models trained with v2.1 and v2.0| Custom template models v3.0 (preview)|Custom neural models v3.0 (preview)|Custom neural models 3.0 (GA)|
+|Custom model type|Models trained with v2.1 and v2.0 | Custom template models v3.0 |Custom neural models v3.0 (preview) |Custom neural models 3.0 (GA)|
 |--|--|--|--|--|
 |**Models trained with version 2.1 and v2.0** |Supported|Supported|Not Supported|Not Supported|
-|**Custom template models v3.0 (preview)** |Supported|Supported|Not Supported|NotSupported|
+|**Custom template models v3.0** |Supported|Supported|Not Supported|NotSupported|
 |**Custom template models v3.0 (GA)** |Not Supported|Not Supported|Supported|Not Supported|
 |**Custom neural models v3.0 (preview)**|Not Supported|Not Supported|Supported|Not Supported|
 |**Custom Neural models v3.0 (GA)**|Not Supported|Not Supported|Not Supported|Supported|
@@ -74,7 +74,7 @@ The following resources are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
-|_**Custom model**_| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](/azure/applied-ai-services/form-recognizer/how-to-guides/use-sdk-rest-api?view=form-recog-2.1.0&preserve-view=true&tabs=windows&pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|_**Custom model**_| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](./how-to-guides/use-sdk-rest-api.md?pivots=programming-language-rest-api&preserve-view=true&tabs=windows&view=form-recog-2.1.0#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 | _**Composed model**_ |<ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/Compose)</li><li>[C# SDK](/dotnet/api/azure.ai.formrecognizer.training.createcomposedmodeloperation?view=azure-dotnet&preserve-view=true)</li><li>[Java SDK](/java/api/com.azure.ai.formrecognizer.models.createcomposedmodeloptions?view=azure-java-stable&preserve-view=true)</li><li>JavaScript SDK</li><li>[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model&preserve-view=true)</li></ul>|
 ::: moniker-end
 

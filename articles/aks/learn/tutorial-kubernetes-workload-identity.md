@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/29/2022
+ms.date: 12/02/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -77,6 +77,26 @@ Run the following command to update to the latest version of the extension relea
 az extension update --name aks-preview
 ```
 
+## Register the 'EnableWorkloadIdentityPreview' feature flag
+
+Register the `EnableWorkloadIdentityPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature show --namespace "Microsoft.ContainerService" --name "EnableWorkloadIdentityPreview"
+```
+
+When the status shows *Registered*, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ## Create AKS cluster
 
 Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
@@ -141,6 +161,12 @@ To add a secret to the vault, you need to run the Azure CLI [az keyvault secret 
 
 ```azurecli
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
+```
+
+To add the Key Vault URL to the environment variable `KEYVAULT_URL`, you can run the Azure CLI [az keyvault show][az-keyvault-show] command.
+
+```bash
+export KEYVAULT_URL="$(az keyvault show -g ${RESOURCE_GROUP} -n ${KEYVAULT_NAME} --query properties.vaultUri -o tsv)"
 ```
 
 ## Create a managed identity and grant permissions to access the secret
@@ -223,8 +249,8 @@ spec:
     - image: ghcr.io/azure/azure-workload-identity/msal-go
       name: oidc
       env:
-      - name: KEYVAULT_NAME
-        value: ${KEYVAULT_NAME}
+      - name: KEYVAULT_URL
+        value: ${KEYVAULT_URL}
       - name: SECRET_NAME
         value: ${KEYVAULT_SECRET_NAME}
   nodeSelector:
@@ -303,3 +329,4 @@ This tutorial is for introductory purposes. For guidance on a creating full solu
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [aks-tutorial]: ../tutorial-kubernetes-prepare-app.md
 [aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
+[az-keyvault-show]: /cli/azure/keyvault#az-keyvault-show

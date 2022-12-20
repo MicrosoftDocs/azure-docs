@@ -2,13 +2,11 @@
 title:  Azure Video Indexer accounts  
 description: This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 11/19/2022
 ms.author: juliako
 ---
 
 # Azure Video Indexer account types
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
@@ -41,7 +39,7 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 > [!NOTE]
 > It is recommended to use Azure Video Indexer ARM-based accounts. 
     
-* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](/rest/api/videoindexer/accounts?branch=videoindex)
+* [Create an ARM-based (paid) account in Azure portal](create-account-portal.md). To create an account with an API, see [Accounts](/rest/api/videoindexer/preview/accounts)
 
     > [!TIP]
     > Make sure you are signed in with the correct domain to the [Azure Video Indexer website](https://www.videoindexer.ai/). For details, see [Switch tenants](switch-tenants-portal.md).  
