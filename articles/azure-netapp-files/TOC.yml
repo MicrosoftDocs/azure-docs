@@ -177,7 +177,7 @@
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
       href: modify-active-directory-connections.md
-    - name: Enable AD DS LDAP authentication for NFS volumes
+    - name: Configure AD DS LDAP authentication for NFS volumes
       href: configure-ldap-over-tls.md
     - name: Join a Linux VM to an Active Directory Domain
       href: join-active-directory-domain.md
