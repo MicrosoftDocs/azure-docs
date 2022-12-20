@@ -15,41 +15,27 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to deploy and manage Azure Kubernetes Service (AKS) on your Azure Stack Edge device.
+This article describes how to deploy and manage Azure Kubernetes Service (AKS) on your Azure Stack Edge device. Also documented, steps to create persistent volumes, use GitOps to manage an Arc-enabled Kubernetes cluster, and remove AKS and Azure Arc.
+
+The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
 
 ## About Azure Kubernetes Service on Azure Stack Edge
 
 Azure Stack Edge Pro with GPU is an AI-enabled edge computing device with high performance network I/O capabilities. Microsoft ships you a cloud-managed device that acts as a network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing.
 
-On your Azure Stack Edge device, you can configure compute. With compute configured, you can use the Azure portal to deploy the Kubernetes cluster including infrastructure VMs. This cluster is then used for workload deployment via kubectl or Azure Arc.
-
-## Scenarios covered in this article
-
-This article covers the following scenarios:
-
-1. **Deploy AKS on your device.** Deployment can be with or without configuring the Azure Arc for Kubernetes clusters as an add-on. 
-   - If you enable Azure Arc on the Kubernetes cluster, use Azure Arc to manage your cluster. 
-   - If you disable Azure Arc, you can use kubectl to manage your cluster.
-
-2. **Remove AKS.** When you remove AKS, you will also remove the Azure Arc for Kubernetes cluster option.
-
-3. **Create Persistent Volumes (PVs).** Allocate storage for your Kubernetes workload deployments by creating Persistent Volumes.
-
-4. **Manage via Arc-enabled Kubernetes.** You can use the GitOps configuration to manage an Arc-enabled Kubernetes cluster.
-
-This guide provides a step-by-step procedure of the preceding scenarios.  The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
+After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy the Kubernetes cluster including infrastructure VMs. The cluster is then used for workload deployment via kubectl or Azure Arc.
 
 ## Prerequisites
 
 Before you begin, ensure that:
 
-- You have a Microsoft account with credentials to access Azure portal.
-- You have access to an Azure Stack Edge Pro GPU device. This device will be configured and activated using the instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
-- You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device using the instructions in [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
+- You have a Microsoft account with credentials to access Azure portal, and access to an Azure Stack Edge Pro GPU device. The Azure Stack Edge device will be configured and activated using the instructions in [Set up and activate your device](azure-stack-edge-gpu-deploy-checklist.md).
+- You have at least one virtual switch created and enabled for compute on your Azure Stack Edge device. For detailed steps, see [Create virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
 - You have a client to access your device that is running a supported operating system. If using a Windows client, make sure that it's running PowerShell 5.0 or later.
 - Before you enable Azure Arc on the Kubernetes cluster, make sure that you’ve enabled and registered `Microsoft.Kubernetes` and `Microsoft.KubernetesConfiguration` resource providers against your subscription. For detailed steps, see [Register resource providers via Azure CLI](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#register-providers-for-azure-arc-enabled-kubernetes).
 - If you intend to deploy Azure Arc for Kubernetes cluster, you’ll need to create a resource group. You must have owner level access to the resource group.
-- To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
+
+  To verify the access level for the resource group, go to **Resource group** > **Access control (IAM)** > **View my access**. Under **Role assignments**, you should be listed as an Owner.
 
     ![Screenshot showing assignments for the selected user on the Access control (IAM) page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-access-control-my-assignments.png)
 
@@ -61,22 +47,18 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
    ```azurepowershell
    az login
-   az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+   az ad sp show --id 'bc313c14-387c-4e7d-a58e-70417303ee3b' --query objectId -o tsv
    ```
 
   For more information, see [Create and manage custom locations in Arc-enabled Kubernetes](../azure-arc/kubernetes/custom-locations.md).
 
 - If deploying Kubernetes or PMEC workloads, you may need virtual networks that you’ve added using the instructions in [Create virtual networks](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-network).
-- If using a high performance network VM as your Kubernetes VM, you will need to reserve the vCPUs as described in the steps to [reserve vCPUs on HPN VMs](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md?tabs=2210#prerequisites) with the following differences:
-   - Skip steps 1 to 3 that include the start and stop VM commands, as we don’t have any VMs.
-   - Get the logical processor indexes to reserve for HPN VMs:
+
+- Get the logical processor indexes for HPN VMs:
 
      ```azurepowershell
      Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName (hostname)
      ```
-
-   - Reserve all the supplied vCPUs that you got from the preceding step into the `Set-HcsNumaLpMapping` command. The device will automatically reboot. Wait for the reboot to complete.
-
      Here's an example output where all the vcpus were reserved:
 
      ```azurepowershell
@@ -88,13 +70,13 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      [10.126.77.42]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39" -AssignAllCpusToRoot $false
     ```
 
-Use the following steps for 1-node or 2-node deployments. 
+Use the following steps for single node or two node deployments. 
 
 ### [Single node device](#tab/1-node)
 
 Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
 
-## Step 1. Enable AKS and custom locations
+## Enable AKS and custom locations
 
 1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
 
@@ -116,13 +98,13 @@ Use this feature for a single node device implementation only if you are an SAP 
 
     ![Screenshot showing the Azure Kubernetes Service tile in the Overview pane of the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-tile.png)
 
-## Step 2. Specify static IP pools for Kubernetes pods
+## Specify static IP pools for Kubernetes pods
 
 This is an optional step where you can assign IP pools for the virtual network that will be used by Kubernetes pods. 
 
 You can specify a static IP address pool for each virtual network that is enabled for Kubernetes. The virtual network enabled for Kubernetes will generate a `NetworkAttachmentDefinition` that's created for the Kubernetes cluster.
 
-During application provisioning, Kubernetes pods can use static IP addresses in the IP pool for container network interfaces, like container SR-IOV interfaces. This can be done by pointing to a `NetworkAttachmentDefinition` in the PodSpec.
+During application provisioning, Kubernetes pods can use static IP addresses in the IP pool for container network interfaces, like container single root I/O virtualization (SR-IOV) interfaces. This can be done by pointing to a `NetworkAttachmentDefinition` in the PodSpec.
 
 Use the following steps to assign static IP pools in the local UI of your device.
 
@@ -157,7 +139,7 @@ Use the following steps to assign static IP pools in the local UI of your device
 
     ![Screenshot that shows the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-page.png)
 
-## Step 3. Configure the compute virtual switch
+## Configure the compute virtual switch
 
 You’ll now configure the virtual switch that you create for Kubernetes compute traffic.
 
@@ -187,7 +169,7 @@ As part of the AKS deployment, two clusters are created, a management cluster an
 
    ![Screenshot that shows virtual networks on the Kubernetes page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-kubernetes-virtual-networks.png)
 
-## Step 4. Enable a cloud management VM role through Azure portal
+## Enable a cloud management VM role through Azure portal
 
 This step is required to allow the Azure Stack Edge portal to deploy the infrastructure VMs on Azure Stack Edge device for AKS; for example, for the target cluster worker node.
 
@@ -201,7 +183,7 @@ This step is required to allow the Azure Stack Edge portal to deploy the infrast
 
    ![Screenshot that shows the Azure Stack Edge Overview page with the enable virtual machines cloud management option on the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-enable-virtual-machines-cloud-management.png)
 
-## Step 5. Set up Kubernetes cluster and enable Arc
+## Set up Kubernetes cluster and enable Arc
 
 You’ll now set up and deploy the Kubernetes cluster and enable it for management via Arc.
 
@@ -275,7 +257,7 @@ Use this feature for a two node cluster implementation only if you are an SAP cu
 
 There are two different workflows for creating PVs depending on whether the compute is enabled inline when the share is created, or not. Each of these workflows is discussed in the following sections.
 
-### Create a PV with compute enabled inline during share creation
+### Create a persistent volume with compute enabled inline during share creation
 
 On your Azure Stack Edge Pro device, statically provisioned `PersistentVolumes` are created using the device's storage capabilities. When you provision a share and the **Use the share with Edge compute** option is enabled, this action automatically creates a PV resource in the Kubernetes cluster.
 
@@ -286,7 +268,7 @@ To use cloud tiering, you can create an Edge cloud share with the **Use the shar
 ![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)
 
 
-### Create a PV with compute not enabled inline during share creation
+### Create a persistent volume with compute not enabled inline during share creation
 
 For the shares that were created with the **Use the share with Edge compute** option unchecked, you can add a persistent volume using the following steps.
 
