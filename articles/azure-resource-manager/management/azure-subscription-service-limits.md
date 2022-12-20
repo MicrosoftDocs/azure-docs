@@ -195,6 +195,10 @@ The following limits apply to [Azure role-based access control (Azure RBAC)](../
 
 To learn more about the limits for Azure Spring Apps, see [Quotas and service plans for Azure Spring Apps](../../spring-apps/quotas.md).
 
+## Azure subscription creation limits
+
+To learn more about the creation limits for Azure subscriptions, see [Billing accounts and scopes in the Azure portal](../../cost-management-billing/manage/view-all-accounts.md).
+
 ## Azure Virtual Desktop Service limits
 
 [!INCLUDE [azure-virtual-desktop-service-limits](../../../includes/azure-virtual-desktop-limits.md)]
