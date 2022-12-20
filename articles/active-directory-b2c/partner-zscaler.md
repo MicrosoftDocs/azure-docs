@@ -61,7 +61,7 @@ To get started with ZPA, go to help.zscaler.com for [Step-by-Step Configuration 
 
 Configure Azure AD B2C as an IdP on ZPA.
 
-For more information, see [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign).
+For more information, see [Configuring an IdP for single sign-on](https://help.zscaler.com/zpa/configuring-idp-single-sign).
 
 1. Sign in to the [ZPA Admin portal](https://admin.private.zscaler.com).
 2. Go to **Administration** > **IdP Configuration**.
@@ -130,7 +130,7 @@ To complete the IdP configuration:
 3. Select the IdP you configured, and then select **Resume**.
 4. On the **Add IdP Configuration** pane, select the **Create IdP** tab.
 5. Under **IdP Metadata File**, upload the metadata file you saved.
-6. Under **Status** verify the configuration is **Enabled**.
+6. Under **Status**, verify the configuration is **Enabled**.
 7. Select **Save**.
 
     ![Screenshot of Enabled status, under SAML attributes, on the Add IdP Configuration pane.](media/partner-zscaler/create-idp.png)
@@ -144,4 +144,4 @@ To confirm SAML authentication, go to a ZPA user portal or a browser-access appl
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 - [Register a SAML application in Azure AD B2C](./saml-service-provider.md)
 - [Step-by-Step Configuration Guide for ZPA](https://help.zscaler.com/zpa/step-step-configuration-guide-zpa)
-- [Configuring an IdP for Single Sign-On](https://help.zscaler.com/zpa/configuring-idp-single-sign)
+- [Configuring an IdP for single sign-on](https://help.zscaler.com/zpa/configuring-idp-single-sign)
