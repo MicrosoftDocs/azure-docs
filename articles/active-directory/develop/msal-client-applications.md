@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/26/2021
+ms.date: 12/19/2021
 ms.author: cwerner
 ms.reviewer: saeeda
-ms.custom: aaddev, has-adal-ref
+ms.custom: aaddev, has-adal-ref, engagement-fy23
 #Customer intent: As an application developer, I want to learn about the types of client apps so I can decide if this platform meets my app development requirements.
 ---
 
