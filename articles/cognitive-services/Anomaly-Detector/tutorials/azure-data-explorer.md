@@ -33,7 +33,7 @@ These two functions are user-defined [tabular functions](/azure/data-explorer/
 ## Where to use these new capabilities?
 These two functions are available to use either in Azure Data Explorer website or in Kusto. Explorer application.  
 
-![Screenshot of Azure Data Explorer and Kusto Explorer](../media/tutorials/data-explorer/way-of-use.png)
+![Screenshot of Azure Data Explorer and Kusto Explorer](../media/data-explorer/way-of-use.png)
 
 ## Create resources
 1. [Create an ADX Cluster](https://portal.azure.com/#create/Microsoft.AzureKusto) in Azure portal, after the resource is created successfully, go to the resource and create a database.
@@ -92,7 +92,7 @@ ts
 ```
 After you run the code, you'll render a chart like this:
 
-![Screenshot of line chart of anomalies](../media/tutorials/data-explorer/anomaly.png)
+![Screenshot of line chart of anomalies](../media/data-explorer/anomaly.png)
 
 
 ## Code example 2: Detect change points when anomaly happens
@@ -146,7 +146,7 @@ ts
 
 After you run the code, you'll render a chart like this:
 
-![Screenshot of line chart with confidence and change points graphed ](../media/tutorials/data-explorer/confidence.png)
+![Screenshot of line chart with confidence and change points graphed ](../media/data-explorer/confidence.png)
 
 ## Next steps
 
