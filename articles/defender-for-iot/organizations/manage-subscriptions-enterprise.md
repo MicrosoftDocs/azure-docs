@@ -87,7 +87,7 @@ This procedure describes how to add an Enterprise IoT plan to your Azure subscri
 
 After you've onboarded your plan, you'll see it listed in Defender for IoT in the Azure portal. Go to the Defender for IoT **Plans and pricing** page and find your subscription with the new **Enterprise IoT** plan listed. For example:
 
-:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Pricing page.":::
+:::image type="content" source="media/enterprise-iot/eiot-plan-in-azure.png" alt-text="Screenshot of an Enterprise IoT plan showing in the Defender for IoT Plans and pricing page.":::
 
 ## Edit your Enterprise IoT plan
 
