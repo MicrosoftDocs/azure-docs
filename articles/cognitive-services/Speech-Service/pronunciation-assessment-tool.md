@@ -40,11 +40,11 @@ Follow these steps to assess your pronunciation of the reference text:
 
 1. Go to **Pronunciation Assessment** in the [Speech Studio](https://aka.ms/speechstudio/pronunciationassessment).
 
-:::image type="content" source="media/pronunciation-assessment/pa.png" alt-text="Screenshot of how to go to Prounciation Assessment on Speech Studio.":::
+   :::image type="content" source="media/pronunciation-assessment/pa.png" alt-text="Screenshot of how to go to Prounciation Assessment on Speech Studio.":::
 
 1. Choose a supported [language](language-support.md?tabs=pronunciation-assessment) that you want to evaluate the pronunciation.
 
-:::image type="content" source="media/pronunciation-assessment/pa-language.png" alt-text="Screenshot of choosing a supported language that you want to evaluate the pronunciation.":::
+   :::image type="content" source="media/pronunciation-assessment/pa-language.png" alt-text="Screenshot of choosing a supported language that you want to evaluate the pronunciation.":::
 
 1. Choose from the provisioned text samples, or under the **Enter your own script** label, enter your own reference text.
 
@@ -69,11 +69,11 @@ Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, flu
 
 **During recording**
 
-:::image type="content" source="media/pronunciation-assessment/pa-recording-display-score" alt-text="Screenshot of overall assessment scores when recording.":::
+:::image type="content" source="media/pronunciation-assessment/pa-recording-display-score.png" alt-text="Screenshot of overall assessment scores when recording.":::
 
 **Completing recording**
 
-:::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score" alt-text="Screenshot of overall assessment scores after recording.":::
+:::image type="content" source="media/pronunciation-assessment/pa-after-recording-display-score.png" alt-text="Screenshot of overall assessment scores after recording.":::
 
 ### Scores within words
 
