@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Configure access control lists on NFSv4.1 with Azure NetApp Files
 
-Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs on NFSv4.1 can provide granular file security via NFSv4.1 without Kerberos or access via SMB from Windows clients.
+Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs provide granular file security via NFSv4.1.
 
 ACLs contain access control entities (ACEs), which specify the permissions (read, write, etc.) of individual users or groups. When assigning user roles, provide the user email address if you're using a Linux VM joined to an Active Directory Domain. Otherwise, provide user IDs to set permissions. 
 
@@ -18,30 +18,16 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
 
 - NFS volumes using ACLs in Azure NetApp Files must be on NFSv4.1. You can [convert a volume from NFSv3 to NFSv4.1](convert-nfsv3-nfsv41.md).
 
-  
-<!-- 
-## Before you begin
-
-Confirm you have the correct Azure NetApp Files volume configuration:
-* Protocol: NFSv4.1
-    * Keberos: Disabled
-    * LDAP: Enabled
-    * Unix Permissions: 0777
-    * Security Style: Unix
-    * Export Policy
-    * Allowed Clients: 0.0.0.0/0
-    * Access: Read & Write
-    * Root Access: On
-    * Chown Mode: Unrestricted For more information see Configure NFS clients
-Linux joined. Not using Kerberos. -->
-
-## Configure ACLs for NFSv4.1
-
-1. In the root of your virtual machine, install the `nfs-utils` package to mount NFS volumes and the `nfs-acl-tools` package to view and modify NFSv4 ACLs. 
+- You must have two packages installed:
+    -  `nfs-utils` to mount NFS volumes 
+    - `nfs-acl-tools` to view and modify NFSv4 ACLs. 
+    If you do not have either, you can install them:
     ```bash
     sudo yum install -y nfs-utils
     sudo yum install -y nfs4-acl-tools
     ```
+
+## Configure ACLs for NFSv4.1
 
 1. If you want to configure ACLs for a Linux VM joined to Active Directory, complete the steps in [Join a Linux VM to an Azure Active Directory Domain](join-active-directory-domain.md).
 
