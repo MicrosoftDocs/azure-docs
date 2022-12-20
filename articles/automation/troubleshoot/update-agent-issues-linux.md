@@ -103,7 +103,7 @@ As they are the directories of workspaces, the number of directories equals the 
 To fix the issue, run the following command: 
 
 ```
-sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/ PerformRequiredConfigurationChecks.py
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py
 ```
 
 This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
