@@ -56,7 +56,7 @@ You can use the following special claims transformations functions.
 To add application-specific claims:
 
 1. In **User Attributes & Claims**, select **Add new claim** to open the **Manage user claims** page.
-1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
+1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
 ### Claim transformations
@@ -176,9 +176,9 @@ As a final example, consider what happens if Britta has no `user.othermail` conf
 
 ## Advanced claims options
 
-Advanced claims options can be configured for SAML2.0 applications to expose the same claim to OIDC tokens and vice versa for applications that intend to use the same claim for both SAML2.0 and OIDC response tokens.  
+Advanced claims options can be configured for OIDC applications to expose the same claim as SAML tokens and vice versa for applications that intend to use the same claim for both SAML2.0 and OIDC response tokens.  
 
-Advanced claim options can be configured by checking the box under **Advanced SAML Claims Options** in the **Manage claims** blade.
+Advanced claim options can be configured by checking the box under **Advanced Claims Options** in the **Manage claims** blade.
 
 ## Next steps
 
