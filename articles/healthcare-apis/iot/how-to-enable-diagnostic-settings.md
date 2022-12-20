@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 12/20/2022
 ms.author: jasteppe
 ---
 
@@ -20,7 +20,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
  
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png" alt-text="Screenshot of select the MedTech service within workspace." lightbox="media/iot-diagnostic-settings/select-medtech-service-in-workspace.png":::
 
-2. Select the MedTech service that you want to enable a diagnostic setting for. In this example, we'll be using a MedTech service named **mt-azuredocsdemo**. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
+2. Select the MedTech service that you want to enable a diagnostic setting for. In this example, we'll be using a MedTech service named *mt-azuredocsdemo*. You'll be selecting a MedTech service within your own Azure Health Data Services workspace.
    
    :::image type="content" source="media/iot-diagnostic-settings/select-medtech-service.png" alt-text="Screenshot of select the MedTech service for exporting metrics." lightbox="media/iot-diagnostic-settings/select-medtech-service.png":::
 
@@ -32,11 +32,9 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
    :::image type="content" source="media/iot-diagnostic-settings/add-diagnostic-settings.png" alt-text="Screenshot of select the + Add diagnostic setting." lightbox="media/iot-diagnostic-settings/add-diagnostic-settings.png"::: 
 
-5. The **+ Add diagnostic setting** page will open, requiring configuration information from you. 
+5. The **+ Add diagnostic setting** page will open, requiring configuration information from you.  
 
-   :::image type="content" source="media/iot-diagnostic-settings/select-all-logs-and-metrics.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-diagnostic-settings/select-all-logs-and-metrics.png":::   
-
-   1. Enter a display name in the **Diagnostic setting name** box. For this example, we'll name it **MedTech_service_All_Logs_and_Metrics**. You'll enter a display name of your own choosing.  
+   1. Enter a display name in the **Diagnostic setting name** box. For this example, we'll name it *MedTech_service_All_Logs_and_Metrics*. You'll enter a display name of your own choosing.  
    
    2. Under **Logs**, select the **AllLogs** option.
    
@@ -45,10 +43,12 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
       > [!Note]
       > To view a complete list of MedTech service metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
-   4. Under **Destination details**, select the destination or destinations you want to use for your exported MedTech service logs and metrics. In this example, we've selected an Azure Log Analytics workspace (named **la-azuredocsdemo**) and a storage account (named **azuredocsdemostorage**). You'll select a destination or destinations of your own choosing.
+   4. Under **Destination details**, select the destination or destinations you want to use for your exported MedTech service logs and metrics. In this example, we've selected an Azure Log Analytics workspace named *la-azuredocsdemo*. You'll select a destination of your own choosing.
    
       > [!Important]
       > Each **Destination details** selection requires that certain resources (for example, an existing Azure Log Analytics workspace or storage account) be created and available before the selection can be successfully configured. Choose each selection to see which resources are required.
+      >
+      > For a successful configuration, you should only have a single destination per **diagnostic setting**.
 
       Metrics can be exported to the following destinations:
 
@@ -60,6 +60,8 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
       |Azure Monitor partner integrations|Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you're already using one of the partners.|
 
    5. Select the **Save** option to save your diagnostic setting selections.
+   
+      :::image type="content" source="media/iot-diagnostic-settings/select-all-logs-and-metrics.png" alt-text="Screenshot of diagnostic setting and required fields." lightbox="media/iot-diagnostic-settings/select-all-logs-and-metrics.png":::  
 
 6. Once you've selected the **Save** option, the page will display a message that the diagnostic setting for your MedTech service has been saved successfully.
 
@@ -83,6 +85,33 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    > For more information about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
    > 
    > For more information about how to work with diagnostic logs, see the [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+
+## Use the Log Analytics workspace to view the MedTech service logs - Optional
+
+If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of the MedTech service health check.
+
+1. To access your Log Analytics workspace, select the **Logs** button within your MedTech service.
+
+   :::image type="content" source="media/iot-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/iot-diagnostic-settings/select-logs-button.png":::
+
+2. Copy + paste the below string into the query window and select **Run**.
+
+   ```query
+   AHDSMedTechDiagnosticLogs
+   ```
+   :::image type="content" source="media/iot-diagnostic-settings/select-run-query.png" alt-text="Screenshot of query run option." lightbox="media/iot-diagnostic-settings/select-run-query.png":::
+
+3. If your MedTech service is configured correctly and healthy, then the query should come back with no error logs.
+
+   :::image type="content" source="media/iot-diagnostic-settings/query-result-clean.png" alt-text="Screenshot of query with no health issues." lightbox="media/iot-diagnostic-settings/query-result-clean.png":::
+
+4. If your MedTech service is misconfigured or unhealthy, then the query will come back with error logs.
+
+   :::image type="content" source="media/iot-diagnostic-settings/query-result-with-errors.png" alt-text="Screenshot of query with health issues." lightbox="media/iot-diagnostic-settings/query-result-with-errors.png":::
+
+5. Select the down arrow in one of the logs to display the full log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the log error message shows that the MedTech service wasn't able to authenticate with the FHIR service.
+
+   :::image type="content" source="media/iot-diagnostic-settings/display-log-error-message.png" alt-text="Screenshot of log error message." lightbox="media/iot-diagnostic-settings/display-log-error-message.png":::
 
 ## Next steps
 
