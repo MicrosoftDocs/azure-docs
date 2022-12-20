@@ -16,8 +16,9 @@ ms.date: 12/15/2022
 # Calendar features for time series forecasting in AutoML
 
 In a forecasting job, the time index is the column in the data set which corresponds to the time axis, i.e. the time at which each observation has occurred. Each observation or row within the time series should have a unique (non-overlapping) time index. Please note that time feature can consists of only date (for e.g. date formats like "DD/MM/YYYY") or both date and time (for e.g. formats like "DD/MM/YYYY HH:MM:SS"), but the format should be uniform and parsable in datetime format.<br>
-As a part of feature engineering, we use the `time_column_name` parameter provided in forecast settings of the automl job to generate [calendar features](#calender-features) and [holiday features](#holiday-features) as these features help to capture some information on more granular level.<br> 
-To generate these time driven features, <b>`TimeIndexFeaturizer`</b> class is used. Please check out [reference links](#quick-reference-links) at the bottom of document for more details.
+As a part of feature engineering, we use the `time_column_name` parameter provided in forecast settings of the automl job to generate [standard calendar features](#standard-calendar-features) and [holiday features](#holiday-features) as these features help to capture some information on more granular level.<br> 
+
+Please check out [reference links](#quick-reference-links) at the bottom of document for more details.
 <br>
 <br>
 
@@ -70,7 +71,7 @@ Currently, automl forecasting job supports creation of holiday features if frequ
 Let’s understand this with an example dataset.
 
 <b>sample_data</b>:<br>
-<img src='./media/how-to-forecasting-time-driven-features/load_forecasting_sample_data_daily.png' width=50%></img>
+<img src='./media/how-to-forecasting-time-driven-features/load_forecasting_sample_data_daily.png' alt='sample_data' width=50%></img>
 
 We set the `country_or_region_for_holiday` as 'US' in forecast settings as shown below:
 
@@ -97,16 +98,15 @@ forecasting_job.set_forecast_settings(
 Once we submit the job for execution, the automl will generate the holiday features for given country or region ('US' in the above example) and `time_column_name` to create holiday features. 
 The output is shown below:
 
-# ![output](./media/how-to-forecasting-time-driven-features/sample_dataset_holiday_feature_generated.png)
+<a name='output'>![output](./media/how-to-forecasting-time-driven-features/sample_dataset_holiday_feature_generated.png)</a>
 
 <br>
 <br>
 
 #### **Quick reference links:**
 
-1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/en-us/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays?view=azure-ml-py)
-2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/en-us/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline?view=azure-ml-py)
-3.	[azureml.training.tabular.featurization.timeseries.time_index_featurizer.TimeIndexFeaturizer class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/en-us/python/api/azureml-training-tabular/azureml.training.tabular.featurization.timeseries.time_index_featurizer.timeindexfeaturizer?view=azure-ml-py)
-4.	[ISO week date - Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
-5.  [List of ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
-6. [How to set forecast settings](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob?view=azure-python#azure-ai-ml-automl-forecastingjob-set-forecast-settings)
+1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays?view=azure-ml-py)
+2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline?view=azure-ml-py)
+3.	[ISO week date - Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
+4.  [List of ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+5. [How to set forecast settings](https://learn.microsoft.com/en-us/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob?view=azure-python#azure-ai-ml-automl-forecastingjob-set-forecast-settings&preserve-view=true)
