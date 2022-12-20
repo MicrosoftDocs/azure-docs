@@ -243,7 +243,7 @@ On-demand backups that are triggered from any of the HANA native clients that us
 ![Screenshot that shows the 'Restore points' pane for viewing the most recently run backups.](./media/sap-hana-db-manage/last-backups.png)
 
 > [!Note]
-> You can also [monitor the backups](#monitor-manual-backup-jobs-by-using-the-azure-portal) from the **Backup jobs** page.
+> You can also [monitor the backups](#monitor-manual-backup-jobs) from the **Backup jobs** page.
 
 These on-demand backups are also displayed in the list of restore points on the **Select restore point** pane.
 
@@ -257,7 +257,7 @@ Then HANA dumps the backups to the mentioned filesystem path and Azure Backup (t
 
 ### Restore the backups
 
-Restore operations that are triggered from HANA native clients that use Backint to restore backups *to the same machine* can be [monitored](#monitor-manual-backup-jobs-by-using-the-azure-portal) from the **Backup jobs** page.
+Restore operations that are triggered from HANA native clients that use Backint to restore backups *to the same machine* can be [monitored](#monitor-manual-backup-jobs) from the **Backup jobs** page.
 
 Restore operations that are triggered from HANA native clients to restore *to another machine* aren't allowed. This is because, according to Azure role-based access control (RBAC) rules, the Azure Backup service can't authenticate the target server for restore operations.
 
