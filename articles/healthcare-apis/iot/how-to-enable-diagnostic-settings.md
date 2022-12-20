@@ -113,6 +113,10 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/iot-diagnostic-settings/display-log-error-message.png" alt-text="Screenshot of log error message." lightbox="media/iot-diagnostic-settings/display-log-error-message.png":::
 
+6. Once you've resolved the issue, you can adjust the **Time range** setting (for this example, we'll be using **Last 30 minutes**) and select **Run** to see that the error logs have cleared for the issue that you resolved with your MedTech service.
+
+   :::image type="content" source="media/iot-diagnostic-settings/clean-query-result-post-error-fix.png" alt-text="Screenshot of query after fixing error." lightbox="media/iot-diagnostic-settings/clean-query-result-post-error-fix.png":::
+
 > [!TIP]
 > To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 >
