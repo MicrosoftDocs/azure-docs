@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
-author: shouryaj
-ms.author: shoja
+author: jesscioffi
+ms.author: jcioffi
 ms.date: 10/21/2021
 ms.reviewer: scottpolly
 ---
