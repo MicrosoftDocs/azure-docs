@@ -33,7 +33,7 @@ The initiatives apply to new machines you create and machines you modify, but no
 
 To assign a VM insights policy initiative to a subscription or management group from the Azure portal:
 
-1. Select for and open **Policy**. 
+1. Search for and open **Policy**. 
 1. Select **Assignments** > **Assign initiative**.
 
     :::image type="content" source="media/vminsights-enable-policy/vm-insights-assign-initiative.png" lightbox="media/vminsights-enable-policy/vm-insights-assign-initiative.png" alt-text="Screenshot that shows the Policy Assignments screen with the Assign initiative button highlighted.":::
@@ -64,12 +64,16 @@ After you assign an initiative, you can review and manage compliance for the ini
 
 To see how many virtual machines exist in each of the management groups or subscriptions and their compliance status:
 
-1. Select **Azure Monitor** > **Virtual machines**. 
-1. Select **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+1. Search for and open **Azure Monitor**. 
+1. Select **Virtual machines** > **Overview** > **Other onboarding options** and then **Enable** under **Enable using policy**.
+
+    :::image type="content" source="media/vminsights-enable-policy/other-onboarding-options.png" lightbox="media/vminsights-enable-policy/other-onboarding-options.png" alt-text="Screenshot showing other onboarding options page of VM insights with the Enable using policy option.":::
+
+    This opens the **Azure Monitor for VMs Policy Coverage** page.
 
     [![VM insights Manage Policy page](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
-    This table describes the compliance information provided on the **Azure Monitor for VMs Policy Coverage** page.
+    The following table describes the compliance information presented on the **Azure Monitor for VMs Policy Coverage** page.
     
     | Function | Description | 
     |----------|-------------| 
