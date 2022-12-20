@@ -41,6 +41,8 @@ items:
     href: recovery.md
   - name: Enable Multi-Region Replication on Managed HSM (Preview)
     href: multi-region-replication.md 
+  - name: Integrate Managed HSM with Azure Policy (Preview)
+    href: multi-region-replication.md   
 
 
 - name: Concepts 
