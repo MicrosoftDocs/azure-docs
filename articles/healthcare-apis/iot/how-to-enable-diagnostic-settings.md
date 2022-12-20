@@ -96,7 +96,7 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
 2. Copy the below table query string into your Log Analytics workspace query window and select **Run**.
 
-   ```Table query
+   ```Table
    AHDSMedTechDiagnosticLogs
    ```
    :::image type="content" source="media/iot-diagnostic-settings/select-run-query.png" alt-text="Screenshot of query run option." lightbox="media/iot-diagnostic-settings/select-run-query.png":::
