@@ -1,22 +1,22 @@
 ---
-title: Configure access control lists on NFSv4.1 with Azure NetApp Files | Microsoft Docs
+title: Configure access control lists with Azure NetApp Files | Microsoft Docs
 description: This article shows you how to configure access control lists (ACLs) on NFSv4.1 with Azure NetApp Files.
 author: sluce
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 12/12/2022
+ms.date: 12/20/2022
 ms.author: anfdocs
 ---
-# Configure access control lists on NFSv4.1 for Azure NetApp Files
+# Configure access control lists on NFSv4.1 volumes for Azure NetApp Files
 
-Azure NetApp Files supports access control lists (ACLs) on NFSv4.1. ACLs provide granular file security via NFSv4.1.
+Azure NetApp Files supports access control lists (ACLs) on NFSv4.1 volumes. ACLs provide granular file security via NFSv4.1.
 
 ACLs contain access control entities (ACEs), which specify the permissions (read, write, etc.) of individual users or groups. When assigning user roles, provide the user email address if you're using a Linux VM joined to an Active Directory Domain. Otherwise, provide user IDs to set permissions. 
 
 ## Requirements
 
-- NFS volumes using ACLs in Azure NetApp Files must be on NFSv4.1. You can [convert a volume from NFSv3 to NFSv4.1](convert-nfsv3-nfsv41.md).
+- ACLs can only be configured on NFS4.1 volumes. You can [convert a volume from NFSv3 to NFSv4.1](convert-nfsv3-nfsv41.md).
 
 - You must have two packages installed:
     -  `nfs-utils` to mount NFS volumes 
@@ -27,7 +27,7 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
     sudo yum install -y nfs4-acl-tools
     ```
 
-## Configure ACLs for NFSv4.1
+## Configure ACLs
 
 1. If you want to configure ACLs for a Linux VM joined to Active Directory, complete the steps in [Join a Linux VM to an Azure Active Directory Domain](join-active-directory-domain.md).
 
@@ -46,7 +46,9 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
     - In an Active Directory-joined set up, enter an email address for the user. Otherwise, enter the numerical user ID.
     - Permission aliases include read, write, append, execute, etc.
     In the following Active Directory-joined example, user regan@contoso.com is given read, write, and execute access to `/nfsldap/engineering`:
-    `nfs4_setfacl -a A::regan@contoso.com:RWX /nfsldap/engineering`
+    ```bash
+    nfs4_setfacl -a A::regan@contoso.com:RWX /nfsldap/engineering
+    ```
 
 ## Next steps
 
