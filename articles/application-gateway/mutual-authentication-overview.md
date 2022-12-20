@@ -50,7 +50,7 @@ Each SSL profile can support up to five trusted client CA certificate chains.
 
 ### Verify client certificate DN
 
-You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This options is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
+You have the option to verify the client certificate's immediate issuer and only allow the Application Gateway to trust that issuer. This option is off by default but you can enable this through Portal, PowerShell, or Azure CLI. 
 
 If you choose to enable the Application Gateway to verify the client certificate's immediate issuer, here's how to determine what client certificate issuer DN will be extracted from the certificates uploaded. 
 * **Scenario 1:** Certificate chain includes: root certificate - intermediate certificate - leaf certificate 
@@ -75,7 +75,7 @@ With mutual TLS authentication, there are additional server variables that you c
 
 ## Certificate Revocation
 
-When a client initiates a connection to an Application Gateway configured with mutual TLS authentication, not only can the certificate chain and issuer's distinguished name be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the certificate presented by the client will be looked up via the defined OCSP responder defined in its Authority Information Access (AIA) extension. In the event the client certificate has been revoked, the application gateway will respond to the client with a HTTP 400 status code and reason.  If the certificate is valid, the request will continue to be processed by application gateway and forwarded on to the defined backend pool.
+When a client initiates a connection to an Application Gateway configured with mutual TLS authentication, not only can the certificate chain and issuer's distinguished name be validated, but revocation status of the client certificate can be checked with OCSP (Online Certificate Status Protocol). During validation, the certificate presented by the client will be looked up via the defined OCSP responder defined in its Authority Information Access (AIA) extension. In the event the client certificate has been revoked, the application gateway will respond to the client with an HTTP 400 status code and reason.  If the certificate is valid, the request will continue to be processed by application gateway and forwarded on to the defined backend pool.
 
 Client certificate revocation can be enabled via REST API, ARM, Bicep, or PowerShell.
 
@@ -115,7 +115,7 @@ Azure portal support is currently not available.
 
 To verify OCSP revocation status has been evaluated, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
-It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responer is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
+It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
 
 Note: OCSP checks are validated via local cache based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache has not been populated from a previous request, the first response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
 
