@@ -1,7 +1,7 @@
 ---
-title: Working with Tables in Azure Machine Learning
+title: Working with tables in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Learn how to work with Tables (mltable) in Azure Machine Learning.
+description: Learn how to work with tables (mltable) in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute, to train my machine learning models.
 ---
 
-# Working with Tables in Azure Machine Learning
+# Working with tables in Azure Machine Learning
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
 > * [v2 (current version)](how-to-mltable.md)
@@ -52,10 +52,10 @@ In this article you'll learn:
 - An Azure Machine Learning workspace.
 
 
-## When to use Tables instead of Files or Folders
+## When to use tables instead of files or folders
 Azure ML Tables (`mltable`) *aren't* required for tabular data. You can use Azure ML File (`uri_file`) and Folder (`uri_folder`) types, and provide your own parsing logic to materialize the data into a Pandas or Spark data frame. In cases where you have a simple CSV file or Parquet folder, you'll find it **easier** to use Azure ML Files/Folders rather than Tables.
 
-### An example of when *not* to use Azure ML Tables
+### An example of when *not* to use Azure ML tables
 
 Let's assume you have a single CSV file on a public http server, that you would like to read into Pandas. You can read the data using two lines of Python code:
 
@@ -97,7 +97,7 @@ For a simple CSV file, defining the `MLTable` file creates unnecessary extra wor
 - You only need a subset of data (for example: a sample of rows or files, specific columns, etc.).
 - AutoML jobs that require tabular data.
 
-### A motivating example for using Azure ML Tables
+### A motivating example for using Azure ML tables
 
 We defined when we should *avoid* Azure ML Tables. Here, we'll see a motivating example of when Azure ML Tables can help your workflow. Imagine a scenario where you have many text files in a folder:
 
@@ -370,14 +370,14 @@ VSCode has an **[Azure Storage VSCode extension](https://marketplace.visualstudi
 
 1. Install the [Azure Storage VSCode extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
 1. In the left-hand *Activity Bar* select **Azure**, find the storage accounts for your subscription (you can filter the UI by subscriptions):
-    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-1.png" alt-text="Storage resources":::
+    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-1.png" alt-text="Screenshot of storage resources.":::
 1. Next, navigate to the container (filesystem) that has your data, and select the **Open in Explorer** button:
-    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-2.png" alt-text="Open in explorer":::
+    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-2.png" alt-text="Screenshot highlighting the container to open in explorer.":::
 1. Next, select **Add to Workspace**:
-    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-3.png" alt-text="Open in Workspace":::
+    :::image type="content" source="media/how-to-mltable/vscode-storage-ext-3.png" alt-text="Screenshot highlighting Add to Workspace.":::
 1. In the **Explorer**, you can look at your data in cloud storage, and it will appear alongside your code files:
 1. You can author an `MLTable` *in* cloud storage directly, by navigating to the folder that contains the data, and then right-selecting **New File**. Name the file `MLTable` and then author.
-        :::image type="content" source="media/how-to-mltable/vscode-storage-ext-4.png" alt-text="storage added to workspace":::
+        :::image type="content" source="media/how-to-mltable/vscode-storage-ext-4.png" alt-text="Screenshot highlighting the data folder that will store the MLTable file.":::
 
 ##### Option 2: Upload `MLTable` file to cloud storage
 
@@ -394,12 +394,11 @@ azcopy cp $SOURCE $DEST
 If you author files locally (or in a DSVM), you can use `azcopy` or the [Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer/), which allows you to manage files in Azure Storage with a Graphical User Interface (GUI). Once you download and install Azure Storage Explorer, select the storage account and container where you want to upload the `MLTable` file to. Next:
 
 1. On the main pane's toolbar, select **Upload**, and then select **Upload Files**.
-    :::image type="content" source="../media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-menu.png" alt-text="Upload file":::
+    :::image type="content" source="../media/vs-azure-tools-storage-explorer-blobs/blob-upload-files-menu.png" alt-text="Screenshot highlighting upload files.":::
 1. In the **Select files to upload** dialog box, select the `MLTable` file you want to upload.
 1. Select **Open** to begin the upload.
 
-
-#### Supported Transformations
+#### Supported transformations
 
 ##### Read transformations
 
