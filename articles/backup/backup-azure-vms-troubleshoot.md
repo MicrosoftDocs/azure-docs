@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 11/07/2022
+ms.date: 12/21/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -541,6 +541,9 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
+
+  >[!Note]
+  >From December 12, 2022, Azure VM backup automatically sets the registry key in all Azure VMs registered as SQL VMs. Now, you don't need  to explicitly set this registry key. This ensures that snapshots aren't delayed and any log chains managed by other backup products are also not broken. Azure VM backup now also set the registry key in any new SQL VMs automatically.
 
 * **VM status is reported incorrectly because the VM is shut down in RDP**. If you used the remote desktop to shut down the virtual machine, verify that the VM status in the portal is correct. If the status isn't correct, use the **Shutdown** option in the portal VM dashboard to shut down the VM.
 * **If more than four VMs share the same cloud service, spread the VMs across multiple backup policies**. Stagger the backup times, so no more than four VM backups start at the same time. Try to separate the start times in the policies by at least an hour.
