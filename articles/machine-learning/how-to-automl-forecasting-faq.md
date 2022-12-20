@@ -15,7 +15,7 @@ ms.date: 12/15/2022
 
 # Frequently asked questions about forecasting in AutoML
 This article answers common questions about forecasting in AutoML. Please see the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
-
+  
 ### What if my time series data does not have regularly spaced observations?
 
 AutoML's timeseries models all require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Essentially, AutoML just needs to be able to infer a time series frequency. There are two cases where time dependent data may not meet this requirement:
@@ -82,14 +82,12 @@ It is recommended to initially go through [Set up AutoML to train a time-series 
 3. [Advanced modelling parameters](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 4. [Many models](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) 
 5. [Forecasting using Deep Learning](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
-
-
+  
 ### How do I choose the primary metric? Which output metrics should I look at?
 
-Forecasting supports normalized_mean_absolute_error (MAE), normalized_root_mean_squared_error(RMSE), r2_score,and spearman_correlation. However, R2 not a good metric for forecasting and should be avoided.
+Forecasting supports normalized_mean_absolute_error (MAE), normalized_root_mean_squared_error(RMSE), r2_score,and spearman_correlation. However, R2 not a good [metric for forecasting](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-understand-automated-ml) and should be avoided.
   
 RMSE heavily penalizes the outliers. If there are few timestamps with poor forecasts and all other timestamps with great forecasts, RMSE will inflate the error metric. If the use case demands that occasional large mistakes should be avoided, then one should use RMSE. However, if errors should be treated equally, then MAE should be used. RMSE optimizes the mean function, whereas MAE optimizes the median.
-
 
 ### How can I improve the accuracy of my model?
 
@@ -124,9 +122,9 @@ RAM Out of Memory can be resolved by upgrading the VM. In SDK, the amount of fre
 
 Disk Out of Memory can be resoved by deleting the compute cluster and creating a new one.
 
-### What are the advanced forecasting scenarios that are supported?
+### What are the advanced forecasting scenarios that are supported by Azure AutoML?
 
-We support scenarios like 
+We support advanced scenarios like 
 - Forecasting further than forecast horizon using 
   - Recursive forecasts 
   - Rolling forecasts
@@ -135,22 +133,30 @@ We support scenarios like
 - Automatic stationarity fix (??)
 For more details, refer [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 
-### How to export forecasts? (.csv vs UI etc.)
+### How do I view the output metrics, visualization, and logs for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. 
 
-### How do I view the output metrics and visualization for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. Where to find the plots and accuracy metrics at different levels of hierarchy for HTS?
+[Track and monitor training](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-track-monitor-analyze-runs) and [Forecasting Metrics and Visualisations](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-understand-automated-ml) are recommended links to get an overall understanding.
 
-To be updated
+Default AutoML :  
+On selecting any model in the Models tab, go to Output+Logs where User logs (std_log.txt) and Outputs can be found. Metrics tab shows the validation metrics and several useful visualizations. 
+
+Many Models :  
+Double click on many-models-train. Navigate from the Overview tab to the Child Jobs tab that represent the individual grains that are trained in parallel. Selecting any child job is equivalent to Default Auto ML now. On selecting any Child Jobs, the corresponding Metrics tab contain important visualizations and metrics.To summarize, many-models-train -> Child Jobs -> Child Jobs ->Metrics tab.
+The overall logs can be obtained directly at the first layer: many-models-train -> Outputs+Logs tab
+
+HTS :  
+Double click on hts-automl-training and continue the same steps as Many Models.
+
+DNN :  
+Plots, Metrics and Logs can be found similar to Default AutoML. DNN runs inside Child run. 
+TCN-> Child Jobs -> Logs and Vizualisations can be found.
 
 ### Where to look for Logs and which logs are important for the customer? 
 
-User error in main run page—to std error log 
-a.	single model: driver log
-b.	many model: each node has its own user logs describe  log structure readme.
+User error in avaiable in the main run page. Refer std_txt.log. (add details)   
+a.	Default AutoML: driver log  
+b.	Many Models/ HTS: Each node has its own user logs. The log structure is available in readme.txt file present inside.
 
-### What is an experiment/ WS/ sweep job – DNN run inside child run? What is job? Link to Azure
+### What is workspace/ environments/ experiment/ compute instance/ compute target? 
 
-
-
-
-
-
+Here is an useful [link](https://learn.microsoft.com/en-us/azure/machine-learning/concept-workspace) explaining these. [Azure Machine Learning Documentation](https://learn.microsoft.com/en-us/azure/machine-learning/) is a useful place for similar questions.
