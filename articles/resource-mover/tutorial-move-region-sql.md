@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/20/2022
+ms.date: 12/16/2022
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
