@@ -91,7 +91,6 @@ Set environment variables based on your Kubernetes cluster deployment.
 
 ```bash
 GROUP_NAME="my-arc-cluster-group"
-CLUSTER_NAME="my-arc-cluster"
 AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
 AKS_NAME="my-aks-cluster" 
 LOCATION="eastus" 
@@ -101,7 +100,6 @@ LOCATION="eastus"
 
 ```azurepowershell
 $GROUP_NAME="my-arc-cluster-group"
-$CLUSTER_NAME="my-arc-cluster"
 $AKS_CLUSTER_GROUP_NAME="my-aks-cluster-group"
 $AKS_NAME="my-aks-cluster" 
 $LOCATION="eastus" 
@@ -121,7 +119,7 @@ The following steps help you get started understanding the service, but for prod
     az group create --name $AKS_CLUSTER_GROUP_NAME --location $LOCATION
     az aks create \
        --resource-group $AKS_CLUSTER_GROUP_NAME \
-       --name $AKS_NAME \ 
+       --name $AKS_NAME \
        --enable-aad \
        --generate-ssh-keys
     ```
@@ -212,7 +210,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
 
     az monitor log-analytics workspace create `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME
+        --workspace-name $WORKSPACE_NAME
     ```
 
     ---
@@ -224,13 +222,13 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     ```azurecli
     LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
         --resource-group $GROUP_NAME \
-        --workspace-name $wORKSPACE_NAME \
+        --workspace-name $WORKSPACE_NAME \
         --query customerId \
         --output tsv)
     LOG_ANALYTICS_WORKSPACE_ID_ENC=$(printf %s $LOG_ANALYTICS_WORKSPACE_ID | base64 -w0) # Needed for the next step
     lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
         --resource-group $GROUP_NAME \
-        --workspace-name $wORKSPACE_NAME \
+        --workspace-name $WORKSPACE_NAME \
         --query primarySharedKey \
         --output tsv)
     lOG_ANALYTICS_KEY_ENC=$(printf %s $lOG_ANALYTICS_KEY | base64 -w0) # Needed for the next step
@@ -241,13 +239,13 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
     ```azurepowershell
     $LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME `
+        --workspace-name $WORKSPACE_NAME `
         --query customerId `
         --output tsv)
     $LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))# Needed for the next step
     $lOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys `
         --resource-group $GROUP_NAME `
-        --workspace-name $wORKSPACE_NAME `
+        --workspace-name $WORKSPACE_NAME `
         --query primarySharedKey `
         --output tsv)
     $lOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($lOG_ANALYTICS_KEY))
