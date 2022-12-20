@@ -425,6 +425,9 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
+            - name: Working with Tables (mltable)
+              displayName: Working with Tables (mltable)
+              href: how-to-mltable.md
         - name: Label data
           items:
             - name: Set up image labeling
@@ -471,6 +474,8 @@
             - name: Tune hyperparameters
               displayName: parameter, hyperparameter, hyperdrive
               href: how-to-tune-hyperparameters.md
+            - name: Distributed GPU guide
+              href: how-to-train-distributed-gpu.md
             - name: Scikit-learn
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
