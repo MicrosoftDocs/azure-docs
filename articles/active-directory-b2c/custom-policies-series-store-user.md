@@ -240,7 +240,11 @@ Test your custom policy again by using the same **Email Address**. Instead of an
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-of-error-account-already-exists.png" alt-text="A screenshot of error as account already exists.":::  
 
 > [!NOTE]
-> The *password* claim value is a very important piece of information, so be very careful how you handle it in your custom policy.   
+> The *password* claim value is a very important piece of information, so be very careful how you handle it in your custom policy. 
+
+## Handle custom attributes 
+
+In this article, you've learnt how to store user details using [built-in User profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
 
 ## Next steps 
 

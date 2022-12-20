@@ -181,7 +181,7 @@ In your `ContosoCustomPolicy.XML` file, locate the `ClaimsProviders` section, an
     </ClaimsProvider>
 ``` 
     
-For the the protocol, you can observe that we configure the Technical Profile to use the *RestfulProvider*. You can also obseveve the following information it the metadata section: 
+From the the protocol, you can observe that we configure the Technical Profile to use the *RestfulProvider*. You can also observe the following information it the metadata section: 
 
 - The `ServiceUrl` represents the API endpoint. It's value is `https://custompolicyapi.azurewebsites.net:3000/validate-accesscode`. If you deployed you Node.js app using an alternative make sure to update the endpoint value.
 

@@ -341,7 +341,7 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Step 6 - Validate user input by using Validation Technical Profiles
 
-The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are complex to be defined at claim declaration level, you can configure [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
+The validation techniques we've used in step 1, step 2 and step 3 aren't applicable for all scenarios. If your business rules are complex to be defined at claim declaration level, you can configure a [Validation Technical](validation-technical-profile.md), and then call it from a [Self-Asserted Technical Profile](self-asserted-technical-profile.md).
 
 > [!NOTE] 
 > Only self-asserted technical profiles can use validation technical profiles. Learn more about [validation technical profile](validation-technical-profile.md) 
@@ -452,5 +452,5 @@ Use the following steps to learn how to validate user input by using Validation 
 
 - Learn about [validation technical profile](validation-technical-profile.md).
 
--  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey-using-pre-conditions.md)
+-  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-in-user-journey.md)
 

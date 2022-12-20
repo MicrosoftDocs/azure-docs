@@ -91,7 +91,9 @@ You need to define two Azure AD Technical Profiles. One technical profile makes 
         </TechnicalProfile>
     ```
     
-    We've added a new Azure AD Technical Profile, *AAD-UserUpdate*. We've configured this technical profile to perform a a *write* operation. However, it will update (not create a new one) a user account that matches its input claim value (`objectId`) as we've configured it to throw an error if the specified user account doesn't already exist. Also, notice that we've used the `objectId` to identify the user account that will be updated (see the input claim).
+    We've added a new Azure AD Technical Profile, *AAD-UserUpdate*. We've configured this technical profile to perform a *write* operation. However, it will update (not create a new one) a user account that matches its input claim value (`objectId`) as we've configured it to throw an error if the specified user account doesn't already exist. In practice, users don't update their account when they sign up (they normally *update profile* after they sign in). We're just doing this for illustration purposes.
+
+    Also, notice that we've used the `objectId` to identify the user account that will be updated (see the input claim). 
 
 ## Step 2 - Update the User Journey Orchestration Steps  
 
@@ -146,5 +148,6 @@ Follow the steps in [Upload custom policy file](custom-policies-series-hello-wor
 
 ## Next steps
 
-- Learn how to [Reuse Technical Profile in Azure Active Directory B2C custom policy](custom-policies-series-reuse-custom-policy.md). 
+- Learn how to [Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md). 
+
 - Learn more about [Azure AD Technical Profile](active-directory-technical-profile.md).  

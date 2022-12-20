@@ -473,7 +473,7 @@
       - name: 4 - Validate user input custom policy
         href: custom-policies-series-validate-user-input.md 
       - name: 5 - Create branching in user journeys
-        href: custom-policies-series-branch-in-user-journey-using-pre-conditions.md
+        href: custom-policies-series-branch-in-user-journey.md
       - name: 6 - Validate custom policy files
         href: custom-policies-series-install-xml-extensions.md
       - name: 7 - Make HTTP call custom policy
@@ -481,10 +481,14 @@
         displayName: call rest api, http call, http request
       - name: 8 - Create user record custom policy
         href: custom-policies-series-store-user.md
-        displayName: CRUD, store user
+        displayName: CRUD, store user, create user account
       - name: 9 - Read or update user record custom policy
         href: custom-policies-series-read-update-user.md
         displayName: CRUD, read user, update user
+      - name: 10 - Sign up and sign in (local account)
+        href: custom-policies-series-sign-up-or-sign-in.md
+      - name: 11 - Sign up and sign in (local and social account)
+        href: custom-policies-series-sign-up-or-sign-in-federation.md
     # Secure
   - name: Secure
     items:
