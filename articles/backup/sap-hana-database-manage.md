@@ -58,7 +58,7 @@ With Azure Backup, you can send alerts by email. These alerts are:
 * Consolidated at the database level by error code.
 * Sent only for a database's first backup failure.
 
-## Manage operations from Azure portal
+## Manage operations using the Azure portal
 
 This section describes several Azure Backup supported  management operations that make it easy to manage a backed-up SAP HANA database.
 
@@ -265,9 +265,9 @@ Restore operations that are triggered from HANA native clients to restore *to an
 
 The delete operation from HANA native clients isn't supported by Azure Backup, because the backup policy determines the lifecycle of backups in the Azure Recovery services vault.
 
-### HANA Catalog clean-up
+### Clean up HANA catalog
 
-The Azure Backup service currently doesn't modify the HANA backup catalog as per the policy. As you can also take backups to the local files (outside of Backint), you need to maintain the lifecycle of the catalog. You can clean up the catalog as per the [SAP documentation](https://help.sap.com/docs/HANA_SERVICE_CF/7c78579ce9b14a669c1f3295b0d8ca16/22275913eb9e4a5bb539fc8df3da77f1.html) and Azure Backup (the Backint service) places the subsequent catalog in the path specified by the `basepath_catalogbackup` parameter.
+The Azure Backup service currently doesn't modify the HANA backup catalog as per the policy. Because you can store the backup locally (outside of Backint), you need to maintain the lifecycle of the catalog. You can clean up the catalog as per the [SAP documentation](https://help.sap.com/docs/HANA_SERVICE_CF/7c78579ce9b14a669c1f3295b0d8ca16/22275913eb9e4a5bb539fc8df3da77f1.html) and Azure Backup (the Backint service) places the subsequent catalog in the path specified by the `basepath_catalogbackup` parameter.
 
 ## Next steps
 

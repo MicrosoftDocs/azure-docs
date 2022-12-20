@@ -34,7 +34,7 @@ sections:
         answer: |
           You can check the status of your backups (scheduled/on-demand) from any of the following locations:
 
-          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal includes database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
 
@@ -50,7 +50,7 @@ sections:
 
              Learn about [how to configure Azure Backup reports](./configure-reports.md).
 
-          1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
+          1. **SAP HANA Native clients**: If you're an SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png" alt-text="Screenshot showing reports in SAP HANA Native clients.":::
           
@@ -65,12 +65,12 @@ sections:
           Azure Backup doesn’t set an explicit retention period on the Auto-heal full backups. This backup is retained till the time you retain the dependent Delta (differential or incremental) and Log backups. Once you delete the last dependent backup on this Auto-heal backup, the Auto-heal backup is also deleted.
 
       - question: | 
-          Can a full backup and a log backup run parallelly?
+          Can a full backup and a log backup run simultaneously?
         answer: |
-          Yes, a full backup and a log backup can run parallelly. This instance occurs in one of the following ways:
+          Yes, a full backup and a log backup can run simultaneously. This instance occurs in one of the following ways:
 
-          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless, the full backup triggered was a remedial full to handle any LSN chain break.
-          - **Log backup is in progress, and a full backup is triggered**: Both backups should run parallelly and succeed.
+          - **Full backup is in progress and a log backup is triggered**: The log backup should succeed irrespective of an ongoing full backup. Unless the full backup triggered was a remedial full to handle any LSN chain-break.
+          - **Log backup is in progress, and a full backup is triggered**: Both backups should run simultaneously and succeed.
 
       - question: |
           Are future databases automatically added for backup?
@@ -109,7 +109,7 @@ sections:
           Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
           
       - question: |
-          Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
+          Can the Azure HANA backup be set up against a virtual IP (load balancer) and not a virtual machine?
         answer: |
           Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
@@ -118,7 +118,7 @@ sections:
         answer: |
           You can trigger an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
       - question: |
-          How can I manage or clean-up the HANA catalog for database with Azure Backup enabled?
+          How can I manage or clean up the HANA catalog for database with the Azure Backup enabled?
         answer: |
           Prune the HANA catalog using SAP recommended methods such as BACKUP CATALOG DELETE statements or HANA stnudio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
@@ -127,7 +127,7 @@ sections:
         answer: |
           Currently, Azure Backup doesn't have the capability to understand an HSR set-up. This means that the primary and secondary nodes of the HSR will be treated as two individual, unrelated VMs. You'll first need to configure backup on the primary node. When a fail-over happens, backup must be configured on the secondary node (which now becomes the primary node). There's no automatic fail-over of backup to the other node.
           
-          To back up data from the active (primary) node at any given point in time, you can **switch protection** to the secondary node, which has now become the primary after fail-over.
+          To back up data from the active (primary) node at any given point-in-time, you can **switch protection** to the secondary node that has now become the primary after fail-over.
           
           To perform this **switch protection**, follow these steps:
           
@@ -158,7 +158,7 @@ sections:
           Then full backup will again be triggered on Node 1 and after that completes, log backups start.
 
           >[!Note]
-          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR set up have the same backup key, thereby reduces the backup sync and failure issues.
+          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR setup have the same backup key, thereby reduces the backup sync and failure issues.
 
       - question: |
           What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?
@@ -167,7 +167,7 @@ sections:
           
           1. Once you run the pre-registration script, the user information is updated with new password on the primary node. Then  the connection to attempt backup will be re-established. But, you might again experience the same scenario.
           
-          1. Also, the backups (full backups) that fail on the secondary node create alerts.
+          1. Also, the backups (full backups) that fails on the secondary node create alerts.
           
           To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
 
@@ -188,9 +188,9 @@ sections:
     questions:
 
       - question: |
-          How many restores are supported per day?
+          How many restore are supported per day?
         answer: |
-          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is cancelled or fails, it's also considered as a restore attempt.
+          You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is canceled or fails, it's also considered as a restore attempt.
            
       - question: |
           Why can't I see the HANA system I want my database to be restored to?
