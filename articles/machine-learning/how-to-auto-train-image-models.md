@@ -533,6 +533,32 @@ In general, deep learning model performance can often improve with more data. Da
 |Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
+Currently the augmentations defined above are applied by default for an Automated ML job. To facilitate a better control over the augmentations, Automated ML expose flags to turn-off certain train time augmentations. Currently, these flags are only supported for object detection and instance segmentation tasks. We expose following two flags to turn-off the augmentations.
+ 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model and turns off the mosaic data augmentation which is applied at the train time.
+ 2. **apply_automl_train_augmentations:** This flag turns off the augmentation applied at the train time to the object detection and instance segmentation models. For augmentations, please see the details in the table above. Please note that for non-yolo object detection models and instance segmentation model, this flag turns off only first three augmentations i.e. *Random crop around bounding boxes, expand, horizontal flip*. The normalization and resize augmentation is still applied regardless of this flag.
+For Yolo model, this flag turns off the random affine and horizontal flg augmentation.
+
+ These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_mosaic_for_yolo": false}
+```
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_automl_train_augmentations": false}
+```
+ Please note that these two flags are independent of each other and can also be used in combination using the following settings.
+ ```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}
+```
 ##  Incremental training (optional)
 
 Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
