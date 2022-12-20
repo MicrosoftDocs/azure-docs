@@ -471,6 +471,8 @@
             - name: Tune hyperparameters
               displayName: parameter, hyperparameter, hyperdrive
               href: how-to-tune-hyperparameters.md
+            - name: Distributed GPU guide
+              href: how-to-train-distributed-gpu.md
             - name: Scikit-learn
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
