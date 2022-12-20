@@ -311,7 +311,7 @@ Following are implications of how the parallel queries would behave for differen
 
 ## Tune the page size
 
-When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first.
+When you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 4 MB, whichever limit is hit first. In many scenarios a higher page size than 100 is optimal to reduce the number of round trips required. If you're not sure what value to set, setting it to -1 will let the SDK choose the value for best performance.
 
 You can use the `pageSize` parameter in `iterableByPage()` for sync API and `byPage()` for async API, to define a page size:
 
