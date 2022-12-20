@@ -3909,7 +3909,7 @@
     {
       "source_path_from_root": "/articles/active-directory/b2b/add-user-without-invite.md",
       "redirect_url": "/azure/active-directory/external-identities/redemption-experience",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/b2b/allow-deny-list.md",
