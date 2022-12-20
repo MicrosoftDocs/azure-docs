@@ -168,7 +168,7 @@ Currently, the only external resource that a search service writes to is Azure S
 
 Although data isn't stored outside of your region, some elements of customer data are collected during routine service monitoring and retained in telemetry logs for global access by Microsoft support engineers. For a search service, this customer data consists of the *names* of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
-These names are not obfuscated in the telemetry logs. If possible, when naming objects, avoid using names that convey sensitive information.
+These names aren't obfuscated in the telemetry logs. If possible, when naming objects, avoid names that convey sensitive information.
 
 Telemetry logs are retained for one and a half years. During that period, support engineers might access and reference object names under these conditions:
 

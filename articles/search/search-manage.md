@@ -89,7 +89,7 @@ Internally, Azure Cognitive Search retains telemetry for a longer period (more t
 * Diagnose an issue, improve a feature, or fix a bug.
 * Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support.
 
-You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to remove object names from the telemetry logs or to shorten the retention period. You should pecify the following categories when filing this request:
+You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to remove object names from the telemetry logs or to shorten the retention period. You should specify the following categories when filing this request:
 
 + **Issue type**: Technical
 + **Problem type**: Setup and configuration
