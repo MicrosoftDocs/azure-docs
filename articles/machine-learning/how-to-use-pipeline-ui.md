@@ -144,9 +144,9 @@ Topology differences:
 
 - Input source changed
 - Pipeline component changed
-  - This means that there is a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details.
+  - This means that there's a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details.
 - Parameter changed
-   :::image type="content" source="./media/how-to-use-pipeline-ui/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab.." lightbox= "./media/how-to-use-pipeline-ui/parameter-changed.png":::
+   :::image type="content" source="./media/how-to-use-pipeline-ui/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-use-pipeline-ui/parameter-changed.png":::
 
 ### Compare pipeline meta info and properties
 
@@ -222,7 +222,7 @@ Profiling enables you to:
 
     :::image type="content" source="./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page. " lightbox= "./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png":::
 
-    If you're trying to make the queue time shorter for a node, change compute node number and you can modify job priority to get more compute resources on this one.
+    If you're trying to make the queue time shorter for a node, you can change the compute node number and modify job priority to get more compute resources on this one.
 
 ### How to find the node that runs the longest in each status
 
@@ -235,10 +235,10 @@ Status and definitions:
 
 | Status | What does it mean? | Time estimation | Next step |
 |------|--------------|-------------|----------|
-| Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there is no backend service issue, this time should be very short.| Open support case via Azure portal. |
-|Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you are using curated or registered custom environment, this time should be very short. | Check image building log. |
-|Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster or job yield policy for scope job.| If you are using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
-|Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | 1. Go to the source code check if any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
+| Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
+|Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you're using curated or registered custom environment, this time should be very short. | Check image building log. |
+|Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster or job yield policy for scope job.| If you're using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
+|Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | 1. Go to the source code check if any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
 | Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up.| It will be short for command job. However, might be very long for PRS/MPI job because for a distributed job, the finalizing status is from the first node starting finalizing to the last node done finalizing. | Change your step run output mode from upload to mount if you find unexpected long finalizing time, or open support case via Azure portal. |
 
 
@@ -247,8 +247,8 @@ Along with the profiling, you can also use the *Output + logs* (on the details p
 ### Different view of Gantt chart
 
 - Critical path
-  - You'll see only the step jobs in the pipeline's critical path ( jobs that have a dependency).
-  - By default the critical path pf the pipeline job is shown.
+  - You'll see only the step jobs in the pipeline's critical path (jobs that have a dependency).
+  - By default the critical path of the pipeline job is shown.
 - Flatten view
   - You'll see all step jobs.
   - In this view, you'll see more nodes than in critical path.
