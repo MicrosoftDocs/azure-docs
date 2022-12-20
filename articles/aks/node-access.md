@@ -72,7 +72,7 @@ When done, `exit` the interactive shell session. After the interactive container
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
 ```
 
-## Create the SSH connection to a Windows node using SSH
+## Create the SSH connection to a Windows node
 
 At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
 
