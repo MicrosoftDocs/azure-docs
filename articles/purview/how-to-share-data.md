@@ -78,6 +78,9 @@ This registration is only needed the first time when sharing or receiving data i
 
 1. Search for and add all the assets you'd like to share out at the folder and file level, and then select **Continue**.
 
+   > [!NOTE]
+   > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported.
+
    :::image type="content" source="./media/how-to-share-data/add-asset.png" alt-text="Screenshot showing the add assets window, with a file and a folder selected to share." border="true":::
 
 1. You can edit the display names the shared data will have, if you like. Then select **Continue**.

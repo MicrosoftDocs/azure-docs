@@ -21,45 +21,42 @@ For an overview of how data sharing works, watch this short [demo](https://aka.m
 
 ## Create a share
 
-1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), select the **Data share** icon from the left navigation, and then **Create a new share**.
+1. Within the [Microsoft Purview governance portal](https://web.purview.azure.com/), find the Azure Storage or Azure Data Lake Storage (ADLS) Gen 2 data asset you would like to share using either the [data catalog search](how-to-search-catalog.md) or [browse](how-to-browse-catalog.md).
 
-   :::image type="content" source="./media/how-to-share-data/create-share.png" alt-text="Screenshot showing the data share overview page in the Microsoft Purview governance portal." border="true":::
+   :::image type="content" source="./media/how-to-share-data/search-or-browse.png" alt-text="The Microsoft Purview governance portal homepage with the search and browse options highlighted." border="true":::
 
-1. Provide the details for your share. Specify a name, share type, description of share contents (optional), and collection. Then select **Continue**.
+1. Once you have found your data asset, select the **Data Share** drop down, and then select **+New Share**
 
-    If you don't see a collection from the drop-down list, it means you don't have Data Share Contributor role access to any Microsoft Purview collection to share data. Contact your Collection Admin to grant you access. 
+   :::image type="content" source="./media/how-to-share-data/select-data-share.png" alt-text="Screenshot of a data asset in the Microsoft Purview governance portal with the Data Share button highlighted." border="true":::
+
+1. Specify a name and a description of share contents (optional). Then select **Continue**.
 
    :::image type="content" source="./media/how-to-share-data/create-share-details.png" alt-text="Screenshot showing create share and enter details window, with the Continue button highlighted." border="true":::
 
-1. To select data to share, select **Add Assets**. 
+1. Search for and add all the assets you'd like to share out at the folder and file level, and then select **Continue**.
 
-   :::image type="content" source="./media/how-to-share-data/create-share-add-asset.png" alt-text="Screenshot showing the add assets button highlighted in the new share window." border="true":::
+   > [!NOTE]
+   > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported.
 
-1. Select an asset type and a storage account that has already been registered with Microsoft Purview. Select **Continue**. 
+   :::image type="content" source="./media/how-to-share-data/add-asset.png" alt-text="Screenshot showing the add assets window, with a file and a folder selected to share." border="true":::
 
-    If you don't see a storage account from the drop-down list, select on the **Register a new source to share from** link below to register your storage account. Azure resource needs to be registered with Microsoft Purview before you can share data from that resource. Your storage account needs to be registered in the same collection as the share. For instructions to register, see the [ADLS Gen2](register-scan-adls-gen2.md) or [Blob storage](register-scan-azure-blob-storage-source.md) data source pages.
+1. You can edit the display names the shared data will have, if you like. Then select **Continue**.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-select-source.png" alt-text="Screenshot showing select source, with an A D L S gen 2 account selected and Continue highlighted." border="true":::
+   :::image type="content" source="./media/how-to-share-data/provide-display-names.png" alt-text="Screenshot showing the second add assets window with the display names unchanged." border="true":::
 
-1. Browse your storage account hierarchy and select (check) the objects you want to share. Then select **Add**. 
+1. Select **Add Recipient** and select **User** or **App**. 
 
-    > [!NOTE]
-    > When sharing from a storage account, only files and folders are currently supported. Sharing from container isn't currently supported. 
+    To share data to a user, select **User**, then enter the Azure login email address of who you want to share data with. By default, the option to enter email address of user is shown.
 
-    :::image type="content" source="./media/how-to-share-data/create-share-select-contents.png" alt-text="Screenshot showing the add assets page, with several folders selected to share and the add button highlighted." border="true"::: 
+    :::image type="content" source="./media/how-to-share-data/create-share-add-user-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, default user email option shown." border="true":::  
 
-1. Review the assets selected. Optionally, edit **Name** and **Display name** which the recipient will see. Select **Continue**.
- 
-    :::image type="content" source="./media/how-to-share-data/create-share-edit-asset-name.png" alt-text="Screenshot showing the add assets second page, with the asset paths listed and the display name bars available to edit." border="true":::  
+    To to share data with a service principal, select **App**. Enter the object ID and tenant ID of the recipient you want to share data with.
 
-1. Select **Add Recipient**. Enter the Azure login email address of who you want to share data with. Select **Create and Share**. Optionally, you can specify an expiration date for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
+    :::image type="content" source="./media/how-to-share-data/create-share-add-app-recipient.png" alt-text="Screenshot showing the add app recipients page, with the add app option and required fields highlighted." border="true":::  
 
-    > [!NOTE]
-    > In Microsoft Purview governance portal, you can only use user's Azure login email address as recipient. In Microsoft Purview SDK or API, you can use object ID of the user or service principal as a recipient, and you can also optionally specify a target tenant ID (i.e. the Azure tenant recipient can receive the share into).
+1. Select **Create and Share**. Optionally, you can specify an **Expiration date** for when to terminate the share. You can share the same data with multiple recipients by clicking on **Add Recipient** multiple times. 
 
-    :::image type="content" source="./media/how-to-share-data/create-share-add-recipient.png" alt-text="Screenshot showing the add recipients page, with the add recipient button highlighted, two users added." border="true":::  
-
-You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account. 
+You've now created your share. The recipients of your share will receive an invitation and they can view the pending share in their Microsoft Purview account.
 
 ## Receive share
 
