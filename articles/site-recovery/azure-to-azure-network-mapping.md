@@ -5,8 +5,9 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 7/25/2021
 ms.author: ankitadutta
+ms.custom: engagement-fy23
 
 ---
 # Set up network mapping and IP addressing for VNets
