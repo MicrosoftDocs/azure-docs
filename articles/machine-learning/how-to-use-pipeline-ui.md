@@ -232,7 +232,6 @@ Besides the total duration, you can also sort by durations for each status. For 
 
 Status and definitions:
 
-
 | Status | What does it mean? | Time estimation | Next step |
 |------|--------------|-------------|----------|
 | Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
