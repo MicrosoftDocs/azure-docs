@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 12/19/2022
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
@@ -56,10 +56,6 @@ The following information is passed to the server in the query:
     Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries do not linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
     
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
-
-<!-- 
-* If a user is member of more than 256 groups, only 256 group IDs will appear in the result.
--->
 
 ## Steps
 
@@ -115,6 +111,8 @@ The following information is passed to the server in the query:
 
     * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
     * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+    * If a user is a member of more than 256 groups, only 256 groups will be listed. 
+    * Refer to [errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) if you run into errors.
 
     ![Screenshot that shows options related to LDAP Search Scope](../media/azure-netapp-files/ldap-search-scope.png)  
 
