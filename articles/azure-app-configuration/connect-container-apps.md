@@ -23,36 +23,38 @@ In this tutorial, you'll learn how to connect an container app to Azure App Conf
 
 ## Build a docker image and test it locally
 
+1. Navigate to the project folder *TestAppConfig* created in the ASP.NET quickstart.
+
+1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the *published* folder.
+
+  ```dotnetcli
+  dotnet publish -c Release -o published
+  ```
+
+1. Run the app.
+
+    ```dotnetcli
+    dotnet "published/TestAppConfig.dll"
+    ```
+
+1. Navigate to the URL displayed in the output to check that the deployment was successful. For example `https://localhost:5001`
+
 ### Create a Dockerfile
 
 A Dockerfile is a text file that doesn't have an extension and that is used to create a container image.
 
-Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below, assuming that you're using the app created in the ASP.NET quickstart.
+Create a file named *Dockerfile* in the directory containing your .csproj, open it in a text editor and enter the content below.
 
 ```docker
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /TestAppConfig
-
-# copy csproj and restore as distinct layers
-COPY *.sln .
-COPY TestAppConfig/*.csproj ./TestAppConfig/
-RUN dotnet restore
-
-# copy everything else and build app
-COPY aspnetapp/. ./aspnetapp/
-WORKDIR /source/aspnetapp
-RUN dotnet publish -c release -o /app --no-restore
-
-# final stage/image
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
-COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+COPY published/ ./
+ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
 ```
 
 ### Build and run the container
 
-1. Navigate to the folder containing the Dockerfile used to build the container and build the container by running the command below
+1. Navigate to the folder containing the Dockerfile and build the container by running the command below
 
     ```bash
     docker build --tag aspnetapp .
@@ -61,13 +63,12 @@ ENTRYPOINT ["dotnet", "aspnetapp.dll"]
 1. Execute the container locally using the command below and replace `<connection-string>` with the connection string of your App Configuration store.
 
     ```bash
-    docker run –-detach –-publish 8080:80 --name myapp aspnetapp -env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
+    docker run –-detach --name myapp aspnetapp --env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
     ```
 
     | Name        | Description                                                                                                                                            |
     |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
     | `--detach`  | Runs the container in the background and prints the container ID.                                                                                      |
-    | `--publish` | Publishes a container's port to the host. In this example, we expose port 8080 of the host machine and port 80 of the container.                       |
     | `--name`    | Assigns a name to the container. In this example we run an aspnetapp container named myapp.                                                            |
     | `--env`     | Sets environment variables in the container. In this example, we set an environment variable for the connection string of the App Configuration store. |
 
