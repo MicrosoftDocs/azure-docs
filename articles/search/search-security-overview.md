@@ -162,6 +162,26 @@ The only external resource that a search service writes to is Azure Storage. The
 
 If both the storage account and the search service are in the same region, network traffic between search and storage uses a private IP address and occurs over the Microsoft backbone network. Because private IP addresses are used, you can't configure IP firewalls or a private endpoint for network security. Instead, use the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as an alternative when both services are in the same region. 
 
+### Exceptions to data residency commitments
+
+Although data isn't stored outside of your region, some elements of customer data are collected during routine service monitoring and retained in telemetry logs for global access by Microsoft support engineers. Specifically, for a search service, this customer data consists of the *names* of indexes, indexers, data sources, skillsets, containers, and key vault store.
+
+These names are not obfuscated in the telemetry logs. If possible, when naming objects, avoid using names that convey sensitive information.
+
+Telemetry logs are retained for one and a half years. During that period, support engineers might access and reference object names under these conditions:
+
++ Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
+
++ Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
+
+Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, the trade off is a reduced ability to troubleshoot any issues related to the object in question.
+
+To remove references to specific objects, or to change the data retention period, file a support ticket for your search service, categorized as follows:
+
++ **Issue type**: Technical
++ **Problem type**: Setup and configuration
++ **Problem subtype**: Issue with security configuration of the service
+
 <a name="encryption"></a>
 
 ## Data protection

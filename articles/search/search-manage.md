@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 12/21/2022
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
 
@@ -34,7 +34,7 @@ Each search service is managed as a standalone resource. The following image sho
 
 ## Overview (home) page
 
-The overview page is the "home" page of each service. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you are new to the service.
+The overview page is the "home" page of each service. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
@@ -55,7 +55,7 @@ Several aspects of a search service are determined when the service is provision
 
 <sup>1</sup> Although there are ARM and bicep templates for service deployment, moving content is a manual job.
 
-<sup>2</sup> Switching tiers requires creating a new service or filing a support ticket to request a tier upgrade.
+<sup>2</sup> Switching a tier requires creating a new service or filing a support ticket to request a tier upgrade.
 
 ## Management tasks
 
@@ -68,7 +68,7 @@ Service administration includes the following tasks:
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
 
-There is feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
+There's feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
 
 * [Management REST API reference](/rest/api/searchmanagement/)
 * [Az.Search PowerShell module](search-manage-powershell.md)
@@ -78,9 +78,16 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search uses other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is placed in Azure Storage.
+Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only persistent data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is stored in Azure Storage.
 
-Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+Usage metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. These metrics are collected and reported to the portal pages automatically as part of the portal experience. 
+
+If your monitoring and diagnostic requirements exceed what the portal provides, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+
+Internally, Azure Cognitive Search retains telemetry for a longer period (more than 30 days) so that support engineers can troubleshoot problems on your service. The data retention period for telemetry is one and a half years. During that period, support engineers might access and reference this data under these scenarios:
+
+* Diagnose an issue, improve a feature, or fix a bug.
+* Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support.
 
 ## Administrator permissions
 
