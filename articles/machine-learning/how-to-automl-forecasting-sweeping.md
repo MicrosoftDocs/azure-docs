@@ -16,40 +16,48 @@ ms.date: 12/15/2022
 # Model sweeping and selection for forecasting in AutoML
 This article focuses on how AutoML searches for and selects forecasting models. Please see the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
 
-During training time, we loop through a variety of models in order to choose from a set of models which could perform well each under different circumstances. This is referred as "model sweeping" in the rest of the text. And then the best model is selected from this pool based on primary metric evaluated on out-of-sample data, through user-provided validation data or cross-validations.
-
-In particular, every time series model or model class (which we will explain later) trains once in deterministic order, and then the regression models except for Prophet and TCN each paired with different preprocessor and hyper-parameters will be recommended by a proprietary backend service for training. The model sweeping continues until the number of iterations the user chose is reached, or the early-stopping criterion is satisfied (i.e. metric doesn’t improve much in recent iterations). As long as at least two models have been looped through before the last iteration, the last iteration will usually be the voting ensemble model. And then, at the end of the training run, AutoML will select the model which has the best metric calculated from the validation set user provided, or from cross-validations.
-
-When TCN is enabled, the tcn models are trained on multiple HyperDrive (HD) runs where the hyper-parameters including network depth, learning rate and dropout are randomly selected from the parameter space in each run and then evaluated on validation data. At the end, the hyper-parameter combination which has the best metric is selected for the best model.To have confidence in the accuracy of the model selected, please allow at least 50-75 completed HD runs.
-
-In order to select the best combination of hyper-parameters, TCN models are trained on multiple HyperDrive (HD) runs where the hyper-parameters are randomly selected from the parameter space in each run and then evaluated on validation data. At the end of training, the hyper-parameter combination with the best evaluation metric is selected. To have confidence in the accuracy of the model selected, please allow at least 50-75 completed HD runs.
-
 ## Model Sweeping
-### Model Sweeping for Time Series Models And Prophet
-Like mentioned above, each time series model and Prophet will train in deterministic order in each training run, before the training of any regression models.
+The central task for AutoML is to train and evaluate several models and choose the best one with respect to the given primary metric. The word "model" here refers to both the model class - such as ARIMA or Random Forest - and the specific hyper-parameter settings which distinguish models within a class. For instance, ARIMA refers to a class of models that share a mathematical template and a set of statistical assumptions. Training, or fitting, an ARIMA model requires a list of positive integers that specify the precise mathematical form of the model; these are the hyper-parameters. ARIMA(1, 0, 1) and ARIMA(2, 1, 2) have the same class, but different hyper-parameters and, so, can be separately fit with the training data and evaluated against each other. AutoML searches, or _sweeps_, over different model classes and within classes by varying hyper-parameters.
 
-Some timeseries models are rather a "model class" instead of a single model, like "ExponentialSmoothing" and "AutoArima" or "ArimaX", which refer to a group of models under the name. For example, the "ExponentialSmoothing" is really a family of models, differs by the modeling of seasonality/trend/error types (linearly or multiplicatively). So within the training iteration of those model class, we have an internal loop which conducts a grid search and selects the best model from that class. Usually the selection creterion is some form of penalized likelihood, e.g. AIC or AICc. We would direct the interested users to [the respective section in this book](https://otexts.com/fpp3/arima-estimation.html#information-criteria).
+The following table shows the different hyper-parameter sweeping methods that AutoML uses for different model classes:
 
-### Model Sweeping for Regression Models
-After the training of time series models, the regression models (except for Prophet and TCN), e.g. tree-based models like RandomForest and regression models like ElasticNet, will be recommended by an optimized model-selection algorithm. 
-In particular, each regression model is paired with a preprocessor which prepares the data before passing it to the model, for example, do some scaling on the features, or use PCA to select the first several principal components. There are also hyperparameters associated with the models (e.g. number of trees and tree depth in RandomForest). The ML model, the preprocessor and the hyperparameters combines to be a ML pipeline, and the pipeline differs as long as any of the components differs. AutoML will decide which ML pipeline to be tried during the next iteration according to the recommendation of the algorithm.
-We should also point out that we don’t support configuring the preprocessors currently.
+Model class group | Model type | Hyper-parameter sweeping method
+---- | ---- | ----
+Naive, Seasonal Naive, Average, Seasonal Average | Time series | No sweeping within class due to model simplicity
+Exponential Smoothing, ARIMA(X) | Time series | Grid search for within-class sweeping
+Prophet | Regression | No sweeping within class
+Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost | Regression | AutoML's [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/) dynamically explores hyper-parameter spaces
+Temporal Convolutional Network | Regression | Static list of models followed by random search over network size, dropout ratio, and learning rate.
 
-## Model Selection
-Like mentioned above, we use cross-validation or user-provided validation dataset to calculate the primary metric for model selection. While this is a commonly used approach in machine learning, there’s some caveats in forecasting tasks, as the train/validation splits have to honor the time order. Specifically, for each time series, the timestamps in the training data have to be earlier than any of the timestamps in the validation data, or the models built from this data split could suffer from information leaks.
+For a description of the different model types, see the [forecasting models](./how-to-automl-forecasting-methods.md#forecasting-models-in-automl) section of the methods overview article.
 
-For this reason, only **Rolling Origin Cross Validation (ROCV)** is used for cross-validations in AutoMl forecasting tasks. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of information leakage.
+The amount of sweeping that AutoML does depends on the forecasting job configuration. You can specify the stopping criteria as a time limit or a limit on the number of trials, or equivalently the number of models. Early termination logic can be used in both cases to stop sweeping if the primary metric is not improving.
 
-:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separates the training and validation sets based on the cross validation step size.":::
+## Model selection
+AutoML forecasting model search and selection proceeds in the following three phases:
 
-In order to use cross-validations, you could specify the training data directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment). Set the number of cross validation folds with the parameter `n_cross_validations` and set the number of periods between two consecutive cross-validation folds with `cv_step_size`. You can also leave either or both parameters empty or set either/both to “auto”,  and AutoML will determine their values for you automatically. 
+1. Sweep over time series models and select the best model from _each class_ using [penalized likelihood methods](https://otexts.com/fpp3/arima-estimation.html#information-criteria).
+2. Sweep over regression models and rank them, along with the best time series models from phase 1, according to their primary metric values from validation sets.
+3. Build an ensemble model from the top ranked models, calculate its validation metric, and rank it with the other models.
+
+The model with the top ranked metric value at the end of phase 3 is designated the best model.
+
+> [!IMPORTANT]
+> AutoML's final phase of model selection always calculates metrics on **out-of-sample** data. That is, data that was not used to fit the models. This helps to protect against over-fitting.
+
+AutoML has two validation configurations - cross-validation and explicit validation data. In the cross-validation case, AutoML uses the input configuration to create data splits into training and validation folds. Time order must be preserved in these splits, so AutoML uses so-called **Rolling Origin Cross Validation** which divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and mitigates the risk of information leakage.  
+
+:::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separating the training and validation sets based on the cross validation step size.":::
+
+Cross-validation for forecasting jobs is configured by setting the number of cross-validation folds and, optionally, the number of time periods between two consecutive cross-validation folds. These are respectively named `n_cross_validations` and `cv_step_size` in the AutoML SDK. Both parameters have "auto" settings wherein AutoML determines their values based on data heuristics. For example, here we can create an [AutoMLConfig](#configure-experiment) object with automatic cross-validation settings:
+
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
                              training_data= training_data,
-                             n_cross_validations="auto", # Could be customized as an integer
-                             cv_step_size = "auto", # Could be customized as an integer
+                             n_cross_validations="auto", # Can also be a positive integer
+                             cv_step_size = "auto", # Can also be a positive integer
                              ...
                              **time_series_settings)
 ```
