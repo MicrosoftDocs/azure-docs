@@ -127,7 +127,7 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 >During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
 >
 
-### Number of FastPath routes - circuit level
+### FastPath routes count (at circuit level)
 
 Aggregation type: *Max*
 
@@ -201,7 +201,7 @@ You can view the Tx light level (the light level that the ExpressRoute Direct po
 > ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
 >
 
-### Number of FastPath routes - port level
+### FastPath routes count (at port level)
 
 Aggregation type: *Max*
 
