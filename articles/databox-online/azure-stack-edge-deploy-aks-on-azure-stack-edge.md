@@ -70,6 +70,8 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      [10.126.77.42]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39" -AssignAllCpusToRoot $false
     ```
 
+## Deploy Azure Kubernetes Service on your Azure Stack Edge device
+
 Use the following steps for single node or two node deployments. 
 
 ### [Single node device](#tab/1-node)
