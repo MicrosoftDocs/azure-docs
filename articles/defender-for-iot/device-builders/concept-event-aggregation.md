@@ -21,6 +21,8 @@ To reduce the number of messages and costs while maintaining your device's secur
 
 - File system events
 
+- Statistics events
+ 
 For more information, see [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors).
 
 Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
@@ -186,6 +188,21 @@ The following data is collected:
 | **Mask** | Linux inotify mask related to the file system event, the mask identify the type of the action and can be one of the following: Access/Modified/Metadata changed/Closed/Opened/Moved/Created/Deleted. |
 | **Path** | Directory/file path the event was generated to. |
 | **Hitcount** | Number of times this event was aggregated. |
+
+## Statistics data (trigger-based collector)
+
+The Statistics collector generate various statistics on the different micro agent collectors, these statistics provide information about the performance of the collectors in the previous collection cycle.
+Examples of possible statistics include the number of events that were successfully sent and the number of events that were dropped, along with the reasons for the failures.
+
+Collected fields:
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **Name** | Name of the collector. |
+| **Events** | An array of pairs formatted as JSON with description and hit count. |
+| **Description** | Whether the message was sent/dropped and the reason for dropping. |
+| **Hitcount** | Number of respective messages. |
 
 ## Event aggregation for Process and Network collectors
 
