@@ -138,8 +138,6 @@ You can also manage auto-stop schedules using Azure CLI.
 |-----|-----|
 |poolName|Name of your pool|
 |project|Name of your Project|
-|time| Local time when Dev Boxes should be shut down|
-|time-zone|Standard timezone string to determine local time|
 
 ## Next steps
 
