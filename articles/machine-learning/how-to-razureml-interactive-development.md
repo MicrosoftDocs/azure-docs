@@ -15,16 +15,15 @@ ms.devlang: r
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The R language and many popular packages are available on Azure Machine Learning compute instances. You can use also an R Kernel running in a Jupyter notebook. 
+This article will show you how to use R on a compute instance in Azure Machine Learning studio, running an R kernel in a Jupyter notebook.
 
-Many R users also use RStudio, a popular IDE. You can install RStudio or Posit Workbench in a custom container, but there are limitations with this approach in reading and writing to your Azure Machine Learning workspace.
-
+Many R users also use RStudio, a popular IDE. You can install RStudio or Posit Workbench in a custom container on a compute instance.  However, there are limitations with the container in reading and writing to your Azure Machine Learning workspace.  
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-> - An [Azure Machine Learning workspace](quickstart-create-resources.md)
+- If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
+- An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
+- A basic understand of using Jupyter notebooks in Azure Machine Learning studio.  For more information, see [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md)
 
 ## Access data
 
@@ -32,35 +31,60 @@ You can upload files to your workspace file storage and access them in R.  But f
 
 This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](https://learn.microsoft.com/en-us/python/api/azure-ai-mlfs/azure.ai.mlfs.spec?view=azure-ml-py) Python package and the `reticulate` R package. 
 
-Use this setup script to install the required packages:
+To install these packages:
 
-	* `azureml-fsspec` must be **pip installed** in the default conda environment (`azureml_py38` as of this writing) 
-	* the R `reticulate` package needs to be at least version 1.26.
-	* Do this with the setup script at CI creation time
+1. Create a new file on the compute instance, called setup.sh.  
+1. Copy this code into the file:
 
-* The user needs to retrieve the complete AzureML URI for the file to be used in the form of `azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>`
-	* This can be done through the CLI 
-* The data asset needs to be created in AzureML (via Studio or CLIv2)
+    :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-env-for-r-azureml/ci-setup-interactive-r.sh":::
+
+1. Select  **Save and run script in terminal** to run the script
+
+The install script performs the following:
+
+	* pip installs `azureml-fsspec` in the default conda environment for the compute instance
+	* Installs the R `reticulate` package if necessary (version must be 1.26 or greater)
+
+### Find data file location
+
+For a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset)
+* Retrieve the complete AzureML URI for the file to be used in the form of `azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>`
+	
+
 
 	Once the setup script is run on the compute instance and the file URI(s) has been retrieved, loading a tabular file into an R `data.frame` is a four step process:
 
-## Read tabular data from registered _data assets_ or _datastores_
-	1. Load `reticulate`
+### Read tabular data from registered _data assets_ or _datastores_
+
+1. Load `reticulate`
+    
+    ```
+    library(reticulate)
+    ```
+
+1. Select the conda environment where `azureml-fsspec` was installed
+
+    ```r
+    use_condaenv("azureml_py38")
+    ```
+
+1. Load `Pandas` in R
+
+    ```r
+    pd <- import("pandas")
+    ```
+1. Specify the fill path to the asset
+
+    ```r
+    # uri is of the form azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>. 
+	uri = "put-full-uri-here"
 	```
-	library(reticulate)
-	```
-	2. Select the approprate conda environment which has `azureml-fsspec`
-	```
-	use_condaenv("azureml_py38")
-	```
-	3. Load `Pandas` in R
-	```
-	pd <- import("pandas")
-	```
-	4. Use Pandas read functions to read in the file(s) into the R environment
-	```
-	r_dataframe <- pd$read_csv(<complete-uri-of-file>)
-	```
+
+1. Use Pandas read functions to read in the file(s) into the R environment
+
+    ```r
+    r_dataframe <- pd$read_csv(uri)
+    ```
 
 You have now created a Python virtual environment with the appropriate Python packages to be able to read data.
 
