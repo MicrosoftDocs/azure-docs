@@ -42,7 +42,7 @@ We recommend that you identify system requirements and plan your OT network moni
 
    Calculate the approximate number of devices you'll be monitoring. Devices can be added in intervals of **100**, such as **100**, **200**, **300**. The numbers of monitored devices are called *committed devices*. For more information, see [What is a Defender for IoT committed device?](architecture.md#what-is-a-defender-for-iot-committed-device)
 
-Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified, preconfigured appliances, or download software to install yourself.
+Microsoft Defender for IoT supports both physical and virtual deployments. For physical deployments, you'll be able to purchase certified, pre-configured appliances, or download software to install yourself.
 
 For more information, see:
 
@@ -79,7 +79,7 @@ This procedure describes how to add a Defender for IoT plan for OT networks to a
 
     - **Committed sites**. Relevant for annual commitments only. Enter the number of committed sites.
 
-    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of [committed devices](#calculate-committed-devices-for-ot-monitoring) you'll want to monitor. If you select a trial, there is a default of 1000 devices.
+    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of [committed devices](architecture.md#what-is-a-defender-for-iot-committed-device) you'll want to monitor. If you select a trial, there is a default of 1000 devices.
 
     For example:
 
