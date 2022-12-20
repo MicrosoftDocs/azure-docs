@@ -1,12 +1,12 @@
 ---
 title: Use Python to manage data in Azure Data Lake Storage Gen2
 titleSuffix: Azure Storage
-description: Use Python to manage directories and files in storage accounts that has hierarchical namespace enabled.
+description: Use Python to manage directories and files in storage accounts that have hierarchical namespace enabled.
 author: pauljewellmsft
 
 ms.author: pauljewell
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 12/20/2022
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
@@ -26,7 +26,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has [hierarchical namespace](./data-lake-storage-namespace.md) enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
 ## Set up your project
 
@@ -47,11 +47,11 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient) instance that represents the storage account.
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account.
+Using an account key is the easiest way to connect to an account.
 
 This example creates a **DataLakeServiceClient** instance by using an account key.
 
@@ -74,7 +74,7 @@ This example creates a **DataLakeServiceClient** instance by using a client ID, 
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by calling the **FileSystemDataLakeServiceClient.create_file_system** method.
+A container acts as a file system for your files. You can create one by calling the [DataLakeServiceClient.create_file_system method](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakeserviceclient#azure-storage-filedatalake-datalakeserviceclient-create-file-system).
 
 This example creates a container named `my-file-system`.
 
@@ -82,7 +82,7 @@ This example creates a container named `my-file-system`.
 
 ## Create a directory
 
-Create a directory reference by calling the **FileSystemClient.create_directory** method.
+Create a directory reference by calling the [FileSystemClient.create_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.filesystemclient#azure-storage-filedatalake-filesystemclient-create-directory) method.
 
 This example adds a directory named `my-directory` to a container.
 
@@ -90,15 +90,15 @@ This example adds a directory named `my-directory` to a container.
 
 ## Rename or move a directory
 
-Rename or move a directory by calling the **DataLakeDirectoryClient.rename_directory** method. Pass the path of the desired directory a parameter.
+Rename or move a directory by calling the [DataLakeDirectoryClient.rename_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-rename-directory) method. Pass the path of the desired directory a parameter.
 
-This example renames a sub-directory to the name `my-directory-renamed`.
+This example renames a subdirectory to the name `my-directory-renamed`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 
 ## Delete a directory
 
-Delete a directory by calling the **DataLakeDirectoryClient.delete_directory** method.
+Delete a directory by calling the [DataLakeDirectoryClient.delete_directory](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakedirectoryclient#azure-storage-filedatalake-datalakedirectoryclient-delete-directory) method.
 
 This example deletes a directory named `my-directory`.
 
@@ -138,7 +138,7 @@ This example, prints the path of each subdirectory and file that is located in a
 ## See also
 
 - [API reference documentation](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
-- [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
+- [Azure File DataLake Storage Client Library (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
 - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
