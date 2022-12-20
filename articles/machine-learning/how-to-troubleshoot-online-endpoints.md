@@ -383,7 +383,6 @@ You can also check if the blobs are present in the workspace storage account.
   )
   ```
 
-  ---
 
 
 #### Resource requests greater than limits
