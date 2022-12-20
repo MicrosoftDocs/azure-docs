@@ -16,48 +16,52 @@ ms.collection:
 ---
 # Azure Active Directory and data residency 
 
-Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns. 
+Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns.
 
 ## Core Store
 
-Update or retrieval data operations in the Azure AD Core Store relate to a single tenant based on the user’s security token, which achieves tenant isolation. The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Azure AD replicates each scale unit in the physical data centers of a logical region for resiliency and performance.
+Update or retrieval data operations in the Azure AD Core Store relate to a single tenant based on the user’s security token, which achieves tenant isolation The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Scale units are assigned to a geo-location. Each geo-location uses two or more Azure regions to store the data. In each Azure region, a scale unit data is replicated in the physical data centers for resiliency and performance.
 
 Learn more: [Azure Active Directory Core Store Scale Units](https://www.youtube.com/watch?v=OcKO44GtHh8)
 
-Currently Azure AD has the following regions:
+Azure Ad is available in the following clouds
 
-* North America
-* Europe, Middle East, and Africa (EMEA)
-* Australia
+* Public
 * China
+* US government
+
+In the public cloud, you are prompted to select a location  at the time of tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal).  Azure AD maps the selection to a geo-location and a single scale unit in it. Tenant location can’t be changed after it’s set.
+The location selected during tenant creation will map to one of the following geo-locations:
+
+* Australia
+* Asia/Pacific
+* Europe, Middle East, and Africa (EMEA)
 * Japan
-* [United States government](https://azure.microsoft.com/global-infrastructure/government/)
-* Worldwide
+* North America
+* Worldwide  
 
-Azure AD handles directory data based on usability, performance, residency and/or other requirements based on geography. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geography. 
+Azure AD handles Azure AD Core Store data based on usability, performance, residency and/or other requirements based on geo-location. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geo-location.
 
-Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria:
+Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
 
-* Directory data stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
-* Directory data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events 
-* Compliance with data residency, or other requirements, for specific customers and countries or geographies
-
-During tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal) you select a country as the primary location. Azure AD maps the selection to a logical region and a single scale unit in it. Tenant location can’t be changed after it’s set.
+* Azure AD Core Store data, stored in data centers closest to the tenant-residency location, to reduce latency and provide fast user sign-in times
+* Azure AD Core Store data stored in geographically isolated data centers to assure availability during unforeseen single-datacenter, catastrophic events
+* Compliance with data residency, or other requirements, for specific customers and geo-locations
 
 ## Azure AD cloud solution models
 
-Use the following table to see Azure AD cloud solution models based on infrastructure, data location, and operation sovereignty.
+Use the following table to see Azure AD cloud solution models based on infrastructure, data location, and operational sovereignty.
 
-|Model|Model regions|Data location|Operations personnel|Customer support|Put a tenant in this model|
-|---|---|---|---|---|---|
-|Regional (2)|North America, EMEA, Japan|At rest, in the target region. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose the country in the residency.|
-|Worldwide|Worldwide||Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Microsoft, globally|Create the tenant in the sign-up experience. Choose a country without a regional model.|
-|Sovereign or national clouds|US government, China|At rest, in the target country or region. No exceptions.|Operated by a data custodian (1). Personnel are screened according to requirements.|Microsoft, country or region|Each national cloud instance has a sign-up experience.
+|Model|Locations|Data location|Operations personnel|Put a tenant in this model|
+|---|---|---|---|---|
+|Public geo located (2)|North America, EMEA, Japan, Asia/Pacific|At rest, in the target location. Exceptions by service or feature|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Create the tenant in the sign-up experience. Choose the location for data residency.|
+|Public worldwide|Worldwide|All locations|Operated by Microsoft. Microsoft datacenter personnel must pass a background check.|Tenant creation available via official support channel and subject to Microsoft discretion.|
+|Sovereign or national clouds|US government, China|At rest, in the target location. No exceptions.|Operated by a data custodian (1). Personnel are screened according to requirements.|Each national cloud instance has a sign-up experience.|
 
 **Table references**:
 
-(1) **Data custodians**: Data centers in the Worldwide region are operated by Microsoft. In China, Azure AD is operated through a partnership with [21Vianet](/microsoft-365/admin/services-in-china/services-in-china?redirectSourcePath=%252fen-us%252farticle%252fLearn-about-Office-365-operated-by-21Vianet-a8ab5061-3346-4da0-bb7c-5260822b53ae&view=o365-21vianet&viewFallbackFrom=o365-worldwide&preserve-view=true).  
-(2) **Authentication data**: Tenants outside the national clouds have authentication information at rest in the continental United States. 
+(1) **Data custodians**: Data centers in the US government cloud are operated by Microsoft. In China, Azure AD is operated through a partnership with  [21Vianet](/microsoft-365/admin/services-in-china/services-in-china?redirectSourcePath=%252fen-us%252farticle%252fLearn-about-Office-365-operated-by-21Vianet-a8ab5061-3346-4da0-bb7c-5260822b53ae&view=o365-21vianet&viewFallbackFrom=o365-worldwide&preserve-view=true).  
+(2) **Authentication data**: Tenants outside the sovereign or national clouds have authentication information at rest in the continental United States.
 
 Learn more: 
 
