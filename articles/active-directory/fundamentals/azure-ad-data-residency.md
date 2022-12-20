@@ -14,13 +14,14 @@ ms.reviewer: jricketts
 ms.custom: "it-pro"
 ms.collection:
 ---
+
 # Azure Active Directory and data residency 
 
 Azure AD is an Identity as a Service (IDaaS) solution that stores and manages identity and access data in the cloud. You can use the data to enable and manage access to cloud services, achieve mobility scenarios, and secure your organization. An instance of the Azure AD service, called a [tenant](/azure/active-directory/develop/developer-glossary#tenant), is an isolated set of directory object data that the customer provisions and owns.
 
 ## Core Store
 
-Update or retrieval data operations in the Azure AD Core Store relate to a single tenant based on the user’s security token, which achieves tenant isolation The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Scale units are assigned to a geo-location. Each geo-location uses two or more Azure regions to store the data. In each Azure region, a scale unit data is replicated in the physical data centers for resiliency and performance.
+Update or retrieval data operations in the Azure AD Core Store relate to a single tenant, based on the user’s security token, which achieves tenant isolation. The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Scale units are assigned to a geo-location. Each geo-location uses two or more Azure regions to store the data. In each Azure region, a scale unit data is replicated in the physical data centers for resiliency and performance.
 
 Learn more: [Azure Active Directory Core Store Scale Units](https://www.youtube.com/watch?v=OcKO44GtHh8)
 
@@ -30,7 +31,7 @@ Azure Ad is available in the following clouds
 * China
 * US government
 
-In the public cloud, you are prompted to select a location  at the time of tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal).  Azure AD maps the selection to a geo-location and a single scale unit in it. Tenant location can’t be changed after it’s set.
+In the public cloud, you're prompted to select a location  at the time of tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal).  Azure AD maps the selection to a geo-location and a single scale unit in it. Tenant location can’t be changed after it’s set.
 The location selected during tenant creation will map to one of the following geo-locations:
 
 * Australia
@@ -103,7 +104,7 @@ Data storage for Azure AD components includes authentication, identity, MFA, and
 
 ## Related resources
 
-For more information on data residency in Microsoft Cloud offerings see the following articles:
+For more information on data residency in Microsoft Cloud offerings, see the following articles:
 
 * [Azure Active Directory – Where is your data located?](https://aka.ms/aaddatamap)
 * [Data Residency in Azure | Microsoft Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview)
