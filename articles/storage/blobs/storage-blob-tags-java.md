@@ -52,7 +52,13 @@ The following example shows how to retrieve and iterate over the blob's tags:
 
 ## Filter and find data with blob index tags
 
-You can use index tags to find and filter data if your code has authorized access by using an account key or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+You can use index tags to find and filter data if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) or higher
+- Azure RBAC action `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` or higher 
+- Shared Access Signature with `f` permission
+- Account key
+
+For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
