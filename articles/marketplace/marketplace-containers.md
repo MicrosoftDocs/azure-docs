@@ -126,7 +126,7 @@ For a Kubernetes application-based offer, the following requirements apply:
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Support one of the PerCore, PerEveryCoreInCluster, or BYOL billing models. |
-| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and Azure Resource Manager template must be packaged as a CNAB. For more information, see [prepare technical assets][azure-kubernetes-technical-assets]. |
+| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and Azure Resource Manager template must be packaged as a CNAB. For more information, see [Prepare technical assets][./azure-container-technical-assets.md]. |
 | Hosting in an Azure Container Registry repository | The CNAB must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
 
 ## Next steps
