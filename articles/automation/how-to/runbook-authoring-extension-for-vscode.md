@@ -8,7 +8,7 @@ ms.topic: how-to
 
 # Use Azure Automation extension for Visual Studio Code
 
-This article explains about the extension that you can use through Visual Studio Code, to create and manage runbooks. You can perform all runbook management operations such as creating runbooks, editing runbook , triggering a job , tracking recent jobs outputs , linking a schedule and asset management.
+This article explains about the Visual Studio that you can use to create and manage runbooks. You can perform all runbook management operations such as creating runbooks, editing runbook, triggering a job, tracking recent jobs outputs, linking a schedule and asset management.
 
 
 ## Prerequisites
@@ -32,6 +32,8 @@ following these steps:
 
 ## Using the Azure Automation extension
 
+The extension simplifies the process of editing runbooks. You can now test them locally without logging into the Azure portal. The various actions that you can perform are listed below:
+
 ### Create a runbook
 
 To create a runbook in the Automation account. Follow these steps:
@@ -48,6 +50,7 @@ To publish a runbook in the Automation account. Follow these steps:
 
 1. In Automation account, select the runbook.
 1. Right click and select **Publish  runbook** to publish the runbook.
+
    A notification appears that the runbook is successfully published.
 
    :::image type="content" source="media/runbook-authoring-extension-for-vscode/publish-runbook-inline.png" alt-text="Screenshot on how to publish runbook using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/publish-runbook-expanded.png":::
@@ -65,6 +68,8 @@ To run local version of Automation job, follow these steps:
 
 ### Run Automation job
 
+To run the Automation job, follow these steps:
+
 1. In Automation account, select the runbook.
 1. Right click and select **Start Automation job** to run the Automation job.
 
@@ -74,8 +79,33 @@ To run local version of Automation job, follow these steps:
 
 To add a webhook to the runbook, follow these steps:
 
+1. In Automation account, select the runbook.
+1. Right click and select **Add New Webhook**.
+1. Select and copy the Webhook URI. 
+1. Use the command palette and select **Azure Automation Trigger Webhook**
+1. Paste the Webhook URI.
+   
+   A notification appears that JobId is created successfully.
+
+   :::image type="content" source="media/runbook-authoring-extension-for-vscode/add-new-webhook-inline.png" alt-text="Screenshot that shows the notification after successfully adding a new webhook." lightbox="media/runbook-authoring-extension-for-vscode/add-new-webhook-expanded.png":::
+   
+
+### Link a schedule
+
+1. In Automation account, go to **Schedules** and select your schedule.
+1. Go to **Runbooks**, select your runbook.
+1. Right click and select **Link Schedule** and confirm the schedule.
+1. In the drop-down select **Azure**
+   
+   A notification appears that the schedule is linked.
 
 
+### Manage Assets
+1. In Automation account, go to **Assets** > **fx Variables**.
+1. Right click and select **Create or Update**.
+1. Provide a name in the text box.
+
+   A notification appears that the variable is created, you can view the new variable in **fx Variables** option.
 
 
 ## Next steps

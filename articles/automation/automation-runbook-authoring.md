@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 # Runbook authoring through VS Code in Azure Automation
 
-This article explains about the extension that you can use through Visual Studio Code, to create and manage runbooks. 
+This article explains about the Visual Studio extension that you can use to create and manage runbooks. 
 
 Azure Automation provides a new extension from VS Code to create and manage runbooks. Using this extension, you can perform all runbook operations such as, create and edit runbooks, trigger a job, track recent jobs output, link a schedule and asset management. 
 
@@ -44,12 +44,12 @@ Supports Python positional parameters and PowerShell parameters to trigger job.
 
 
 ## Limitations
-Currently, the following list of features aren't supported:  
+Currently, the following features aren't supported:  
 
 - Creation of new schedules. 
 - Adding new certificates. 
 - Upload Modules (PowerShell and Python) packages from the extension. 
-- Auto-sync of local runbooks to Azure Automation account runbooks. Ensure to perform the **Fetch** or **Publish** runbook. 
+- Auto-sync of local runbooks to Azure Automation account runbooks. Perform the **Fetch** or **Publish** runbook. 
 - Management of Hybrid worker groups. 
 - Graphical runbook and workflows. 
 
