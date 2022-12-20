@@ -26,81 +26,15 @@ To change the default collation for dedicated SQL pool database, update to the C
 
 To change the default collation for a serverless SQL pool database, you can use ALTER DATABASE statement.
 
-## Collation type support
+## Special Collation type support
 
-The following table shows which collation types are supported by which service.  Collation Types that are no listed should be supported across the options in the table.
+The following table shows which special collation types are supported by which service.  If a Collation Types is not listed, it should be supported across the options in the table.
 
 | Collation Type                            | Serverless SQL Pool | Dedicated SQL Pool - Database & Column Level | Dedicated SQL Pool - External Table (Native Support) | Dedicated SQL Pool - External Table (Hadoop/Polybase) |
 |:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
 | UTF-8                                     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_BIN             | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_BIN2            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_VSS       | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_WS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_KS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_KS_WS_VSS | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_VSS       | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_WS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_KS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_KS_WS_VSS | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_VSS       | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_WS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_KS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_KS_WS_VSS | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_VSS       | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_WS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_KS_VSS    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_KS_WS_VSS | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI           | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_WS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_KS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AI_KS_WS     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS           | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_WS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_KS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CI_AS_KS_WS     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI           | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_WS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_KS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AI_KS_WS     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS           | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_WS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_KS        | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_CS_AS_KS_WS     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_BIN                     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_BIN2                    | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_VSS               | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_WS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_KS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_KS_WS_VSS         | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_VSS               | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_WS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_KS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_KS_WS_VSS         | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_VSS               | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_WS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_KS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_KS_WS_VSS         | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_VSS               | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_WS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_KS_VSS            | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_KS_WS_VSS         | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI                   | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_WS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_KS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AI_KS_WS             | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS                   | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_WS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_KS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CI_AS_KS_WS             | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI                   | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_WS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_KS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AI_KS_WS             | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS                   | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_WS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_KS                | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_CS_AS_KS_WS             | Yes                 | Yes                     | Yes                | No                 |
+| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | Yes                | No                 |
+| Japanese_XJIS_140_*                       | Yes                 | Yes                     | Yes                | No                 |
 | SQL_EBCDIC1141_CP1_CS_AS                  | No                  | No                      | No                 | No                 |
 | SQL_EBCDIC277_2_CP1_CS_AS                 | No                  | No                      | No                 | No                 |
 
