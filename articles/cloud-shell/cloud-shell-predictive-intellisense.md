@@ -130,9 +130,9 @@ For more information about configuring PSReadLine and managing predictors, see
 [Using predictors in PSReadLine][05].
 
 <!-- link references -->
-[01]: /powershell/module/psreadline/about/about_psreadline
-[02]: /powershell/azure/az-predictor
-[03]: /powershell/module/psreadline/set-psreadlineoption
-[04]: /azure/cloud-shell/using-cloud-shell-editor
-[05]: /powershell/scripting/learn/shell/using-predictors
+[01]: https://learn.microsoft.com/powershell/module/psreadline/about/about_psreadline
+[02]: https://learn.microsoft.com/powershell/azure/az-predictor
+[03]: https://learn.microsoft.com/powershell/module/psreadline/set-psreadlineoption
+[04]: https://learn.microsoft.com/azure/cloud-shell/using-cloud-shell-editor
+[05]: https://learn.microsoft.com/powershell/scripting/learn/shell/using-predictors
 
