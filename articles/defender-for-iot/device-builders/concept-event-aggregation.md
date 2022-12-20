@@ -17,7 +17,9 @@ To reduce the number of messages and costs while maintaining your device's secur
 
 - Process events (Linux only)
 
-- Network Activity events
+- Network activity events
+
+- File system events
 
 For more information, see [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors).
 
@@ -170,6 +172,20 @@ Collected fields depend on the type of event:
 | **ActionType** | Whether the event was a connection or disconnection event. |
 | **bus_number** | Specific controller identifier, each USB device can have several. |
 | **Interface name** | The interface name. |
+
+## File system events (event-based collector)
+
+Collects events whenever there are changes under watch directories for: creation, deletion, move and modification of directories and files.
+To define which directories and files you would like to monitor please see [System information collector specific settings](concept-micro-agent-configuration.md).
+
+The following data is collected:
+
+| Parameter | Description|
+|--|--|
+| **Timestamp** | The time the event occurred. |
+| **Mask** | Linux inotify mask related to the file system event, the mask identify the type of the action and can be one of the following: Access/Modified/Metadata changed/Closed/Opened/Moved/Created/Deleted. |
+| **Path** | Directory/file path the event was generated to. |
+| **Hitcount** | Number of times this event was aggregated. |
 
 ## Event aggregation for Process and Network collectors
 
