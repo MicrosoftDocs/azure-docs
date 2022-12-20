@@ -9,7 +9,7 @@ ms.author: allensu
 
 ---
 
-# 'Tutorial: Protect your Bastion host with Azure DDoS protection'
+# Tutorial: Protect your Bastion host with Azure DDoS protection
 
 This tutorial helps you deploy Azure Bastion from the Azure portal using your own specified manual settings. When you use manual settings, you can specify configuration values such as instance counts and the SKU at the time of deployment. After Bastion is deployed, you can connect (SSH/RDP) to virtual machines in the virtual network via Bastion using the private IP address of the VM. When you connect to a VM, it doesn't need a public IP address, client software, agent, or a special configuration.
 
