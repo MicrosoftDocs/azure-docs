@@ -128,6 +128,12 @@ To avoid issues while setting up customer-managed data encryption during restore
 > [!NOTE]  
 > Using the same identity and key as on the source server is not mandatory when performing a restore.
 
+## Limitations
+
+For Azure Database for MySQL flexible server, the support for encryption of data at rest using customers managed key (CMK) has a limitation -
+
+* This feature is only supported for key vaults, which allow public access from all networks.
+
 ## Next steps
 
 - [Data encryption with Azure CLI (Preview)](how-to-data-encryption-cli.md)
