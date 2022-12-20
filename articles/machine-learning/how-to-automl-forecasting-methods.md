@@ -127,7 +127,7 @@ Seasonal decomposition (STL) | Optional
 The user can configure featurization from the AutoML SDK with the [ForecastingParameters](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class or from the [AzureML Studio web interface](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 ### Model Sweeping
-After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See [Model Sweeping and Selection](./how-to-automl-forecasting-sweeping.md) for more details.
+After data has been prepared with missing data handling and feature engineering, AutoML sweeps over a set of models and hyper-parameters using a [model recommendation service](https://www.microsoft.com/research/publication/probabilistic-matrix-factorization-for-automated-machine-learning/). The models are ranked based on validation or cross-validation metrics and then, optionally, the top models may be used in an ensemble model. The best model, or any of the trained models, can be inspected, downloaded, or deployed to produce forecasts as needed. See the [model sweeping and selection](./how-to-automl-forecasting-sweeping.md) article for more details.
 
 
 ### Model Grouping
