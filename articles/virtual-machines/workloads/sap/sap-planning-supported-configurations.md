@@ -33,7 +33,7 @@ Besides the on-premises Active Directory, Azure offers a managed Active Director
 The above doesn't affect the usage of Azure Active Directory accounts for single-sign-on (SSO) scenarios with SAP applications. 
 
 ## 2-Tier configuration
-An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. In the case of a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration doesn't provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
+An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. For a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration doesn't provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
 
 A graphical representation of such a configuration can look like:
 
@@ -42,7 +42,7 @@ A graphical representation of such a configuration can look like:
 Such configurations are supported with Windows, Red Hat, SUSE, and Oracle Linux for the DBMS systems of SQL Server, Oracle, Db2, maxDB, and SAP ASE for production and non-production cases. 
 For SAP HANA as DBMS, SAP supports such a scenario as stated in [SAP note #1953429](https://launchpad.support.sap.com/#/notes/1953429). So far, none of the Linux distros provided sufficient HA documentation to set up and operate a Pacemaker cluster in such a configuration. As a result, such type of configurations is supported on Azure only for non-production cases that don't require a high availability failover cluster. 
 
-For all OS/DBMS combinations supported on Azure, this type of configuration is supported. However, it's mandatory that you set the configuration of the DBMS and the SAP components in a way that DBMS and SAP components don't compete for memory and CPU resources and with that exceed the physical available resources. This needs to be done by restricting the memory the DBMS is allowed to allocate. You also need to limit the SAP Extended Memory on application instances. You also need to monitor CPU consumption of the VM overall to make sure that the components aren't maximizing the CPU resources.
+For all OS/DBMS combinations supported on Azure, this type of configuration is supported. However, it's mandatory that you set the configuration of the DBMS and the SAP components in a way that DBMS and SAP components don't compete for memory and CPU resources and with that exceeds the physical available resources. This needs to be done by restricting the memory the DBMS is allowed to allocate. You also need to limit the SAP Extended Memory on application instances. You also need to monitor CPU consumption of the VM overall to make sure that the components aren't maximizing the CPU resources.
 
 > [!NOTE]
 > For production SAP systems, we recommend additional high availability and eventual disaster recovery configurations as described later in this document
@@ -61,7 +61,7 @@ This type of configuration is supported on Windows, Red Hat, SUSE, and Oracle Li
 
 
 ## Multiple DBMS instances per VM 
-In this configuration type, you host multiple DBMS instances per Azure VM. The motivation can be to have less operating systems to maintain and with that reduced costs. Other motivations can be to have more flexibility and more efficiency by sharing resources of a larger VM or HANA Large Instance unit among multiple DBMS instances. So far these configurations were showing up mostly for non-production systems.
+In this configuration type, you host multiple DBMS instances per Azure VM. The motivation can be to have less operating systems to maintain and with that reduced costs. Other motivations are to have more flexibility and more efficiency by sharing resources of a larger VM or HANA Large Instance unit among multiple DBMS instances. So far these configurations were showing up mostly for non-production systems.
 
 A configuration like that could look like:
 
@@ -75,8 +75,8 @@ This type of DBMS deployment is supported for:
 - For SAP HANA, multiple instances on one VM, SAP calls this deployment method MCOS, is supported. For details see the SAP article [Multiple SAP HANA Systems on One Host (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
 - /b2751fd43bec41a9a14e01913f1edf18.html)
 
-Running multiple database instances on one host, you need to make sure that the different instances aren't competing for resources and thereby exceed the physical resource limits of the VM. This is especially true for memory where you need to cap the memory anyone of the instances sharing the VM can allocate. That also might be true for the CPU resources the different database instances can consume. All the DBMS mentioned have configurations that allow limiting memory allocation and CPU resources on an instance level.
-In order to have support for such a configuration for Azure VMs, it's expected that the disks or volumes that are used for the data and log/redo log files of the databases managed by the different instances are separate. Or in other words data or log/redo log files of databases managed by different DBMS instance aren't supposed to share the same disks or volumes.
+Running multiple database instances on one host, you need to make sure that the different instances aren't competing for resources and thereby exceed the physical resource limits of the VM. This is especially true for memory where you need to cap the memory anyone of the instances sharing the VM can allocate. That also might be true for the CPU resources the different database instances can consume. All the database systems mentioned have configurations that allow limiting memory allocation and CPU resources on an instance level.
+In order to have support for such a configuration for Azure VMs, it's expected that the disks or volumes that are used for the data and log/redo log files of the databases that are managed by the different instances are separate. Or in other words data or log/redo log files of databases that are managed by different DBMS instance aren't supposed to share the same disks or volumes.
 
 > [!NOTE]
 > For production SAP systems, we recommend additional high availability and eventual disaster recovery configurations as described later in this document. VMs with multiple DBMS instances aren't supported with the high availability configurations described later in this document.
@@ -136,7 +136,7 @@ Dependent on the DBMS an/or operating systems, components like Azure load balanc
 
 Specifically for maxDB, the storage configuration needs to be different. With maxDB, the data and log files needs to be located on shared storage for high availability configurations. Only for maxDB, shared storage is supported for high availability. For all other DBMS, separate storage stacks per node are the only supported disk configurations.
 
-Other high availability frameworks are known to exist and are known to run on Microsoft Azure as well. However, Microsoft didn't test those frameworks. If you want to build your high availability configuration with those frameworks, you will need to work with the provider of that software to:
+Other high availability frameworks are known to exist and are known to run on Microsoft Azure as well. However, Microsoft didn't test those frameworks. If you want to build your high availability configuration with those frameworks, you need to work with the provider of that software to:
 
 - Develop a deployment architecture
 - Deployment of the architecture
@@ -255,7 +255,7 @@ Another supported method of deploying a DR target is to have a second DBMS insta
 > Usage of [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) has not been tested for DBMS deployments under SAP workload. As a result it's not supported for the DBMS layer of SAP systems at this point in time. Other methods of replications by Microsoft and SAP that aren't listed aren't supported. Using third party software for replicating the DBMS layer of SAP systems between different Azure Regions, needs to be supported by the vendor of the software and will not be supported through Microsoft and SAP support channels.
 
 ## Non-DBMS layer
-For the SAP application layer and eventual shares or storage locations that are needed, the two major scenarios are leveraged by customers:
+For the SAP application layer and eventual shares or storage locations that are needed, the two major scenarios are used by customers:
 
 - The disaster recovery targets in the second Azure region aren't being used for any production or non-production purposes. In this scenario, the VMs that function as disaster recovery target are ideally not deployed and the image and changes to the images of the production SAP application layer is replicated to the disaster recovery region. A functionality that can perform such a task is [Azure Site Recovery](../../../site-recovery/azure-to-azure-move-overview.md). Azure Site Recovery support an Azure-to-Azure replication scenario like this.
 - The disaster recovery targets are VMs that are actually in use by non-production systems. The whole SAP landscape is spread across two different Azure regions with production systems usually in one region and non-production systems in another region. In many customer deployments, the customer has a non-production system that is equivalent to a production system. The customer has production application instances pre-installed on the application layer non-production systems. In a failover event, the non-production instances would be shut down, the virtual names of the production VMs moved to the non-production VMs (after assigning new IP addresses in DNS), and the pre-installed production instances are getting started
@@ -266,7 +266,7 @@ SAP Central Services clusters that are using shared disks (Windows), SMB shares 
 
 
 ## Non-supported scenario
-There's a list of scenarios, which aren't supported for SAP workload on Azure architectures. **Not supported** means SAP and Microsoft will not be able to support these configurations and need to defer to an eventual involved third-party that provided software to establish such architectures. Two of the categories are:
+There's a list of scenarios, which aren't supported for SAP workload on Azure architectures. **Not supported** means SAP and Microsoft are not able to deliver support for these configurations and need to defer to an eventual involved third-party that provided software to establish such architectures. Two of the categories are:
 
 - Storage soft appliances: There are various storage soft appliances in the market. Some of the vendors offer own documentation on how to use their storage soft appliances on Azure related to SAP software. Support of configurations or deployments involving such storage soft appliances needs to be provided by the vendor of the storage soft appliance. This fact is also manifested in [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)
 - High Availability frameworks: Only Pacemaker and Windows Server Failover Cluster are supported high availability frameworks for SAP workload on Azure. As mentioned earlier, the solution of SIOS `Datakeeper` is described and documented by Microsoft. Nevertheless, the components of SIOS `Datakeeper` need to be supported through SIOS as the vendor providing those components. SAP also listed other certified high availability frameworks in various SAP notes. Some of them were certified by the third-party vendor for Azure as well. Nevertheless, support for configurations using those products need to be provided by the product vendor. Different vendors have different integration into the SAP support processes. You should clarify what support process works best for the particular vendor before deciding to use the product with SAP configurations deployed on Azure.
@@ -283,12 +283,12 @@ Other scenarios, which aren't supported are scenarios like:
 	- Deploying the two layers with two different cloud vendors. For example, deploying the DBMS tier in Oracle Cloud Infrastructure and the application tier in Azure
 - Multi-Instance HANA Pacemaker cluster configurations
 - Windows Cluster configurations with shared disks through SOFS or SMB on ANF for SAP databases supported on Windows. Instead we recommend the usage of native high availability replication of the particular databases and use separate storage stacks
-- Deployment of SAP databases supported on Linux with database files located in NFS shares on top of ANF with the exception of SAP HANA, Oracle on Oracle Linux, and Db2 on Suse and Red Hat
+- Deployment of SAP databases supported on Linux with database files that are located in NFS shares on top of ANF except for SAP HANA, Oracle on Oracle Linux, and Db2 on Suse and Red Hat
 - Deployment of Oracle DBMS on any other guest OS than Windows and Oracle Linux. See also [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
 Scenario(s) that we didn't test and therefore have no experience with list like:
 
-- Azure Site Recovery replicating DBMS layer VMs. As a result, we recommend leveraging the database native asynchronous replication functionality for potential disaster recovery configuration
+- Azure Site Recovery replicating DBMS layer VMs. As a result, we recommend using the database native asynchronous replication functionality for potential disaster recovery configuration
 
 
 ## Next Steps
