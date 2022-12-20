@@ -462,7 +462,7 @@ Use the following command to create a data export rule to a specific event hub b
 
 1. On the **Log Analytics workspace** menu in the Azure portal, select **Data Export** under the **Settings** section.
 
-   [![Screenshot that shows the data export rules view.](media/logs-data-export/export-view-1.png "Screenshot that shows the data export rules view.")](media/logs-data-export/export-view-1.png#lightbox)
+   [![Screenshot that shows the Data Export screen.](media/logs-data-export/export-view-1.png "Screenshot that shows the Data Export screen.")](media/logs-data-export/export-view-1.png#lightbox)
 
 1. Select a rule for a configuration view.
 
