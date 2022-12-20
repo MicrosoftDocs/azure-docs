@@ -87,7 +87,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 Regardless of which trigger you chose to create your playbook with in the previous step, the **Create playbook** wizard will appear.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook.png" alt-text="Create a logic app":::
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-playbook-basics.png" alt-text="Create a logic app":::
 
 1. In the **Basics** tab:
 
