@@ -56,10 +56,26 @@ To publish a runbook in the Automation account. Follow these steps:
 ### Run local version of Automation job
 
 To run local version of Automation job, follow these steps:
+
 1. In Automation account, select the runbook.
 1. Right click and select **Run Local** to run local version of the Automation job.
 
    :::image type="content" source="media/runbook-authoring-extension-for-vscode/run-local-job-inline.png" alt-text="Screenshot on how to run local version of job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/run-local-job-expanded.png":::
+
+
+### Run Automation job
+
+1. In Automation account, select the runbook.
+1. Right click and select **Start Automation job** to run the Automation job.
+
+   :::image type="content" source="media/runbook-authoring-extension-for-vscode/run-local-job-inline.png" alt-text="Screenshot on how to run local version of job using the Azure Automation extension." lightbox="media/runbook-authoring-extension-for-vscode/run-local-job-expanded.png":::
+
+### Add new webhook
+
+To add a webhook to the runbook, follow these steps:
+
+
+
 
 
 ## Next steps
