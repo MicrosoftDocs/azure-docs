@@ -36,7 +36,7 @@ To use Azure Workbooks for Azure AD, you need:
     - Reports Reader
     - Global Administrator
 
-3. Ensure that you have the one of the following Azure subscription roles:
+3. Ensure that you have the one of the following Azure roles for the subscription:
     - Global Reader
     - Reports Reader
     - Security Reader
@@ -77,7 +77,7 @@ Workbooks can be created from scratch or from a template. When creating a new wo
 1. Select a workbook template from the Gallery.
 1. Select **Edit** from the top of the page.
     - Each element of the workbook has its own **Edit** button. 
-    - or more information on editing workbook elements, see [Azure Workbooks Templates](../../azure-monitor/visualize/workbooks-templates.md)
+    - For more information on editing workbook elements, see [Azure Workbooks Templates](../../azure-monitor/visualize/workbooks-templates.md)
 
 1. Select the **Edit** button for any element. Make your changes and select **Done editing**.
         ![Screenshot of a workbook in Edit mode, with the Edit and Done Editing buttons highlighted.](./media/howto-use-azure-monitor-workbooks/edit-buttons.png)
