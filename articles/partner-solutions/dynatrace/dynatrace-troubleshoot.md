@@ -48,7 +48,7 @@ This document contains information about troubleshooting your solutions that use
 
 ### Metrics checkbox disabled
 
-- To collect metrics you should have owner permission on the subscription. If you are a contributor then please refer to the contributor guide mentioned in the [create section[(https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create).
+- To collect metrics you should have owner permission on the subscription. If you are a contributor then please refer to the contributor guide mentioned in the [create section](https://learn.microsoft.com/en-us/azure/partner-solutions/dynatrace/dynatrace-create).
 
 
 ## Next steps
