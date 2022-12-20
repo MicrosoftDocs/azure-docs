@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # How to enable diagnostic settings for the MedTech service
 
-In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs and metrics to different destinations (for example: to an [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) or an [Azure storage account](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, or backup.
+In this article, you'll learn how to enable the diagnostic settings for the MedTech service to export logs and metrics to different destinations (for example: to an [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview) or an [Azure storage account](../../storage/index.yml) or an [Azure event hub](../../event-hubs/index.yml)) for audit, analysis, backup, or troubleshooting of your MedTech service.
 
 ## Create a diagnostic setting for the MedTech service
 
@@ -82,9 +82,9 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
    :::image type="content" source="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png" alt-text="Screenshot of Diagnostic settings options." lightbox="media/iot-diagnostic-settings/view-and-edit-diagnostic-settings.png"::: 
  
    > [!TIP]
-   > For more information about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
+   > To learn about how to work with diagnostic settings, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal).
    > 
-   > For more information about how to work with diagnostic logs, see the [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+   > To learn about how to work with diagnostic logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Use the Log Analytics workspace to view the MedTech service logs - Optional
 
@@ -112,6 +112,11 @@ If you choose to include your Log Analytics workspace as a destination option fo
 5. Select the down arrow in one of the logs to display the full log message, which can be used to help troubleshoot issues with your MedTech service. In this example, the log error message shows that the MedTech service wasn't able to authenticate with the FHIR service.
 
    :::image type="content" source="media/iot-diagnostic-settings/display-log-error-message.png" alt-text="Screenshot of log error message." lightbox="media/iot-diagnostic-settings/display-log-error-message.png":::
+
+> [!TIP]
+> To learn about how to use the Log Analytics workspace, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
+>
+> To learn about how to troubleshoot the MedTech service error messages and conditions, see [Troubleshoot the MedTech service error messages and conditions](troubleshoot-error-messages-and-conditions.md).
 
 ## Next steps
 
