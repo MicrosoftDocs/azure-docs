@@ -65,7 +65,7 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance with a [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) credential. The credential is initiated with a client ID, a client secret, and a tenant ID representing a security principal. To get these values, see [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md). In particular, assign the **Storage Blob Data Contributor** role to the service principal.
+This example creates a **DataLakeServiceClient** instance with a [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) credential. The credential is initiated with a client ID, a client secret, and a tenant ID representing a security principal. To get these values, see [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md). Assign the **Storage Blob Data Contributor** role to the service principal.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
@@ -115,11 +115,11 @@ This example uploads a text file to a directory named `my-directory`.
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFile":::
 
 > [!TIP]
-> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. Consider using the [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method instead. That way, you can upload the entire file in a single call.
+> If your file size is large, your code will have to make multiple calls to the **DataLakeFileClient** [append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method. Consider using the [upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method instead. That way, you can upload the entire file in a single call.
 
 ## Upload a large file to a directory
 
-Use the [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method to upload large files without having to make multiple calls to the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data)method.
+Use the [DataLakeFileClient.upload_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-upload-data) method to upload large files without having to make multiple calls to the [DataLakeFileClient.append_data](/python/api/azure-storage-file-datalake/azure.storage.filedatalake.datalakefileclient#azure-storage-filedatalake-datalakefileclient-append-data) method.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_UploadFileBulk":::
 
