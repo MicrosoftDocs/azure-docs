@@ -78,9 +78,9 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only persistent data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is stored in Azure Storage.
+Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only saved customer data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved customer data, including debug session state and caching, is stored in Azure Storage.
 
-Usage metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. These metrics are collected and reported to the portal pages automatically as part of the portal experience. 
+Usage metrics (such as query latency and queries per second) is reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. These metrics are collected and reported to the portal pages automatically as part of the portal experience. 
 
 If your monitoring and diagnostic requirements exceed what the portal provides, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
@@ -88,6 +88,12 @@ Internally, Azure Cognitive Search retains telemetry for a longer period (more t
 
 * Diagnose an issue, improve a feature, or fix a bug.
 * Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support.
+
+You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to remove object names from the telemetry logs or to shorten the retention period. Specify the following categories when filing this request:
+
++ **Issue type**: Technical
++ **Problem type**: Setup and configuration
++ **Problem subtype**: Issue with security configuration of the service
 
 ## Administrator permissions
 
