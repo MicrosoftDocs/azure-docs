@@ -175,11 +175,11 @@ Depending on the options you select, some of the wizard screens might not be ava
      |Host|The host name where the LDAP server is located. This sample uses `APP3` as the example hostname.|
      |Port|The TCP port number. If the directory server is configured for LDAP over SSL, use port 636.  For `Start TLS`, or if you are using network-level security, use port 389.|
      |Connection Timeout|180|
-     |Binding|This property specifies how the connector will authenticate to the directory server. With the `Basic` setting, the connector will send an LDAP simple bind to authenticate with a distinguished name and a password. With the `SSL` or `TLS` setting, the connector will send an LDAP SASL `EXTERNAL` bind to authenticate with a client certificate.   |
-     |User Name|How the ECMA Connector will authenticate itself to the directory server. In this sample for AD LDS, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`|
+     |Binding|This property specifies how the connector will authenticate to the directory server. With the `Basic` setting, or with the `SSL` or `TLS` setting and no client certificate configured, the connector will send an LDAP simple bind to authenticate with a distinguished name and a password. With the `SSL` or `TLS` setting and a client certificate  specified, the connector will send an LDAP SASL `EXTERNAL` bind to authenticate with a client certificate.   |
+     |User Name|How the ECMA Connector will authenticate itself to the directory server. In this sample for AD LDS, the example username is `CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab`  and for OpenLDAP, `cn=admin,dc=contoso,dc=lab`|
      |Password|The password of the user name specified.|
      |Realm/Domain|This setting is only required if you selected `Kerberos` as the Binding option, to provide the Realm/Domain of the user.|
-     |Certificate|The settings in this section are only required you selected `SSL` or `TLS` as the Binding option.|
+     |Certificate|The settings in this section are only used if you selected `SSL` or `TLS` as the Binding option.|
      |Attribute Aliases|The attribute aliases text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the connector needs help with identifying those attributes. For example, if the directory server does not publish `userCertificate;binary` and you wish to provision that attribute, the following string must be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute: `userCertificate;binary`.  If you do not require any special attributes not in the schema, you can leave this blank.|
      |Include operational attributes|Select the `Include operational attributes in schema` checkbox to also include attributes created by the directory server. These include attributes such as when the object was created and last update time.|
      |Include extensible attributes|Select the `Include extensible attributes in schema` checkbox if extensible objects (RFC4512/4.3) are used in the directory server. Enabling this option allows every attribute to be used on all object. Selecting this option makes the schema very large so unless the connected directory is using this feature the recommendation is to keep the option unselected.|
@@ -192,10 +192,12 @@ Depending on the options you select, some of the wizard screens might not be ava
  
      |Property|Description|
      |-----|-----|
-     |Supported SASL Mechanisms and Mandatory Features Found|The top section shows information provided by the server itself, such as the name of the server. The connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories do not list all features in the Root DSE and it is possible that the connector works without issues even if a warning is present.|
+     |Supported SASL Mechanisms|The top section shows information provided by the server itself, including the list of SASL mechanisms. |
+     |Server Certificate Details|If `SSL` or `TLS` was specified, the wizard will display the certificate returned by the directory server.  Confirm that the issuer, subject and thumbprint are for the correct directory server.|
+     |Mandatory Features Found|The connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories do not list all features in the Root DSE and it is possible that the connector works without issues even if a warning is present.|
      |Supported Controls|The **supported controls** checkboxes control the behavior for certain operations|
      |Delta Import|The change log DN is the naming context used by the delta change log, for example **cn=changelog**. This value must be specified to be able to do delta import.|
-     |Password Attribute|Not used.|
+     |Password Attribute|If the directory server supports a different password attribute or password hashing, you can specify the destination for password changes.|
      |Partition Names|In the additional partitions list, it is possible to add additional namespaces not automatically detected. For example, this setting can be used if several servers make up a logical cluster, which should all be imported at the same time. Just as Active Directory can have multiple domains in one forest but all domains share one schema, the same can be simulated by entering the additional namespaces in this box. Each namespace can import from different servers and is further configured on the **Configure Partitions and Hierarchies** page.|
     
  1. On the **Partitions** page, keep the default and select **Next**.

@@ -29,13 +29,13 @@ Organizations with compliance requirements or risk management plans will have se
    > [!Note]
    > If you're using an application from the Azure AD application gallery that supports provisioning, then Azure AD may import defined roles in the application and automatically update the application manifest with the application's roles automatically, once provisioning is configured.
 
-1. **Select which roles and groups have membership that are to be governed in Azure AD.** Based on compliance and risk management requirements, organizations often prioritize those roles or groups that give privileged access or access to sensitive information.
+1. **Select which roles and groups have membership that are to be governed in Azure AD.** Based on compliance and risk management requirements, organizations often prioritize those application roles or groups that give privileged access or access to sensitive information.
 
 ## Define the organization's policy with prerequisites and other constraints for access to the application
 
 In this section, you'll write down the organizational policies you plan to use to determine access to the application. You can record this as a table in a spreadsheet, for example
 
-|Role|Prerequisite for access|Approvers|Default duration of access|Separation of duties constraints|Conditional access policies|
+|App Role|Prerequisite for access|Approvers|Default duration of access|Separation of duties constraints|Conditional access policies|
 |:--|-|-|-|-|-|
 |*Western Sales*|Member of sales team|user's manager|Yearly review|Cannot have *Eastern Sales* access|Multifactor authentication (MFA) and registered device required for access|
 |*Western Sales*|Any employee outside of sales|head of Sales department|90 days|N/A|MFA and registered device required for access|
@@ -44,9 +44,13 @@ In this section, you'll write down the organizational policies you plan to use t
 |*Eastern Sales*|Any employee outside of sales|head of Sales department|90 days|N/A|MFA and registered device required for access|
 |*Eastern Sales*|Non-employee sales rep|head of Sales department|30 days|N/A|MFA required for access|
 
+If you already have an organization role definition, then see [how to migrate an organizational role](identity-governance-organizational-roles.md) for more information.
+
 1. **Identify if there are prerequisite requirements, standards that a user must meet before to they're given access to an application.** For example, under normal circumstances, only full time employees, or those in a particular department or cost center, should be allowed to have access to a particular department's application.  Also, you may require the entitlement management policy for a user from some other department requesting access to have one or more additional approvers. While having multiple stages of approval may slow the overall process of a user gaining access, these extra stages ensure access requests are appropriate and decisions are accountable.  For example, requests for access by an employee could have two stages of approval, first by the requesting user's manager, and second by one of the resource owners responsible for data held in the application.
 
-1. **Determine how long a user who has been approved for access, should have access, and when that access should go away.**  For many applications, a user might retain access indefinitely, until they're no longer affiliated with the organization. In some situations, access may be tied to particular projects or milestones, so that when the project ends, access is removed automatically.  Or, if only a few users are using an application through a policy, you may configure quarterly or yearly reviews of everyone's access through that policy, so that there's regular oversight. These processes can ensure users lose access eventually when access is no longer needed, even if there isn't a pre-determined project end date.
+1. **Determine how long a user who has been approved for access, should have access, and when that access should go away.**  For many applications, a user might retain access indefinitely, until they're no longer affiliated with the organization. In some situations, access may be tied to particular projects or milestones, so that when the project ends, access is removed automatically.  Or, if only a few users are using an application through a policy, you may configure quarterly or yearly reviews of everyone's access through that policy, so that there's regular oversight.
+
+1. **If your organization is governing access already with an organizational role model, plan to bring that organizational role model into Azure AD.** You may have an [organizational role](identity-governance-organizational-roles.md) defined which assigns access based on a user's property, such as their position or department. These processes can ensure users lose access eventually when access is no longer needed, even if there isn't a pre-determined project end date.  
 
 1. **Inquire if there are separation of duties constraints.** For example, you may have an application with two app roles, *Western Sales* and *Eastern Sales*, and you want to ensure that a user can only have one sales territory at a time.  Include a list of any pairs of app roles that are incompatible for your application, so that if a user has one role, they aren't allowed to request the second role.
 
