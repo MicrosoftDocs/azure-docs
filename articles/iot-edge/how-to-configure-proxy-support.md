@@ -282,7 +282,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 :::moniker-end
 
-<!-- 1.3 -->
+<!-- 1.4 -->
 :::moniker range="=iotedge-2020-11"
 
 3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
@@ -293,7 +293,7 @@ This step takes place once on the IoT Edge device during initial device setup.
     type = "docker"
     
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -305,7 +305,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
     ```toml
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.3"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -348,7 +348,7 @@ This step takes place once on the IoT Edge device during initial device setup.
     
 :::moniker-end
 
-<!-- >= 1.3 -->
+<!-- >= 1.4 -->
 :::moniker range=">=iotedge-2020-11"
 
 5. Save the changes and close the editor. Apply your latest changes.

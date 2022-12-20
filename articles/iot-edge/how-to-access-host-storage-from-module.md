@@ -173,7 +173,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. If using version 1.3, update each image version with `1.3`. For example, `mcr.microsoft.com/azureiotedge-agent:1.3`.
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. If using version 1.4, update each image version with `1.4`. For example, `mcr.microsoft.com/azureiotedge-agent:1.4`.
 
 For example, on a Linux system, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** in the container. On a Windows system, as another example, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** in the container.
 

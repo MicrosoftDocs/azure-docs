@@ -77,7 +77,7 @@ The following table lists the components included in each release. Each release 
 | Release | IoT Edge | CBL-Mariner | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
 | **1.1 LTS** | 1.1 | 2.0 | - |
-| **Continuous Release** | 1.3 | 2.0 | 3.12.3 | 
+| **Continuous Release** | 1.4 | 2.0 | 3.12.3 | 
 | **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
 
 

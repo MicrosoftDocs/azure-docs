@@ -1,11 +1,10 @@
 ---
- title: IoT Edge versions supported - 1.4
+ title: IoT Edge one supported versions - 1.4
  description: include file
  services: iot-edge
  author: PatAltimore
  ms.service: iot-edge
  ms.topic: include
- ms.date: 07/26/2022
  ms.author: patricka
  ms.custom: include file
 ---
