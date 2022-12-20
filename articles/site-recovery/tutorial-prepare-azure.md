@@ -3,7 +3,7 @@ title: Prepare Azure for on-premises disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/15/2022
+ms.date: 12/20/2022
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -55,15 +55,15 @@ To complete these tasks your account should be assigned the Virtual Machine Cont
 1. Search the Azure Marketplace for *Recovery Services*.
 2. Select **Backup and Site Recovery** from the search results, and in the Backup and Site Recovery page, click **Create**. 
 1. In the **Create Recovery Services vault** page, under the **Basics** > **Project details** section, do the following:
-1. Under **Subscription**. We're using **Contoso Subscription**.
-1. In **Resource group**, select an existing resource group or create a new one. For example, **contosoRG**.
+    1. Under **Subscription**. We're using **Contoso Subscription**.
+    1. In **Resource group**, select an existing resource group or create a new one. For example, **contosoRG**.
 
 1. In the **Create Recovery Services vault** page, under **Basics** > **Instance details** section, do the following:
     1. In **Vault name**, enter a friendly name to identify the vault. For example, **ContosoVMVault**.
     1. In **Region**, select the region where the vault should be located. For example, **(Europe) West Europe**.
     1. Select **Review + create** > **Create** to create the recovery vault.
 
-:::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/tutorial-prepare-azure/new-vault-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
 The new vault will now be listed in **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -72,7 +72,7 @@ The new vault will now be listed in **Dashboard** > **All resources**, and on th
 On-premises machines are replicated to Azure managed disks. When failover occurs,  Azure VMs are created from these managed disks, and joined to the Azure network you specify in this procedure.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
-1. Under categories, select **Networking** > **Virtual network**. 
+1. Under **Categories**, select **Networking** > **Virtual network**. 
 1. In **Create virtual network** page, under the **Basics** tab, do the following:
     1. In **Subscription**, select the subscription in which to create the network.
     2. In **Resource group**, select the resource group in which to create the network. For this tutorial, use the existing resource group **contosoRG**.
@@ -85,7 +85,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
         :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the delete address space."::: 
     1. After deleting the pre-existing address range, select **Add an IP address space**.
         :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Starting address** enter **10.0.0.**.
+    1. In **Starting address** enter **10.0.0.**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
         :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
