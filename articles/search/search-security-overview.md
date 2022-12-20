@@ -18,7 +18,7 @@ This article describes the security features in Azure Cognitive Search that prot
 
 ## Data flow (network traffic patterns)
 
-A Cognitive Search service is hosted on Azure and is typically accessed by client applications over public network connections. While that pattern is predominant, it's not the only traffic pattern that you need to care about. Understanding all points of entry and exits (outbound traffic) is necessary background for securing your development and production environments.
+A Cognitive Search service is hosted on Azure and is typically accessed by client applications over public network connections. While that pattern is predominant, it's not the only traffic pattern that you need to care about. Understanding all points of entry as well as outbound traffic is necessary background for securing your development and production environments.
 
 Cognitive Search has three basic network traffic patterns:
 
