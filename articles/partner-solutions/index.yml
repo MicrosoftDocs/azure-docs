@@ -62,8 +62,14 @@ productDirectory:
         - url: ./nginx/nginx-overview.md
           text: Delivers secure and high performance applications using familiar and trusted load balancing solutions.
   # Card 7
-#    - title: Qumolo
-#      imageSrc: /qumuloa/overview.md
-#      links:
-#        - url: ./qumulo/overview.md
-#         text: 
+    - title: Qumulo
+      imageSrc: ./media/index/qumulo.svg
+      links:
+        - url: ./qumulo/qumulo-overview.md
+          text: Multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
+  # Card 
+    # - title: New Relic
+    #   imageSrc: ./media/index/new-relic.svg
+    #   links:
+    #     - url: ./new-relic/new-relic-overview.md
+    #      text: We need to replace this text
