@@ -1,54 +1,40 @@
 ---
-title: "Tutorial: Azure ML in a day"
+title: "Quickstart: Azure ML in a day"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning to train and deploy a model in a cloud-based Python Jupyter Notebook. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
+ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 09/15/2022
+ms.date: 12/20/2022
 ms.custom: sdkv2, ignite-2022
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
-# Tutorial: Azure Machine Learning in a day
+# Quickstart: Azure Machine Learning in a day
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Learn how a data scientist uses Azure Machine Learning (Azure ML) to train a model, then use the model for prediction. This tutorial will help you become familiar with the core concepts of Azure ML and their most common usage.
 
-You'll learn how to submit a *command job* to run your *training script* on a specified *compute resource*, configured with the *job environment* necessary to run the script.
+You'll learn how to submit a *command job* to run your *training script* on a specified *compute cluster*, configured with the *job environment* necessary to run the script.
 
 The *training script* handles the data preparation, then trains and registers a model. Once you have the model, you'll deploy it as an *endpoint*, then call the endpoint for inferencing.
 
-The steps you'll take are:
-
-> [!div class="checklist"]
-> * Connect to your Azure ML workspace
-> * Create your compute resource and job environment
-> * Create your training script
-> * Create and run your command job to run the training script on the compute resource, configured with the appropriate job environment
-> * View the output of your training script
-> * Deploy the newly-trained model as an endpoint
-> * Call the Azure ML endpoint for inferencing
-
-
 ## Prerequisites
 
-* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
+* Complete the [Quickstart: Set up your Azure Machine Learning cloud workstation](tutorial-set-up-workstation.md) if you need help to:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
-
-* Create a new notebook or copy our notebook.
-    * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
-    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.
+    * Create a new notebook, if you want to copy/paste code into cells.
+    * Or, open the notebook version of this tutorial by opening **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** from the **Samples** section of studio.  Then select **Clone** to add the notebook to your **Files**.
 
 ## Run your notebook
 
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to use for running the notebook.
+1. On the top bar, select the compute instance you created during the  [Quickstart: Set up your Azure Machine Learning cloud workstation](tutorial-set-up-workstation.md)  to use for running the notebook.
 
 2. Make sure that the kernel, found on the top right, is `Python 3.10 - SDK v2`.  If not, use the dropdown to select this kernel.
 
@@ -86,17 +72,17 @@ The result is a handler to the workspace that you'll use to manage other resourc
 
 ## Create a compute resource to run your job
 
-You'll need a compute resource for running a job. It can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+You already have a compute resource you're using to run the notebook.  But now you'll add another type, a **compute cluster** that you'll use to run your training job. The compute cluster can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
 
 You'll provision a Linux compute cluster. See the [full list on VM sizes and prices](https://azure.microsoft.com/pricing/details/machine-learning/) .
 
-For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM and create an Azure ML Compute.
+For this example, you only need a basic cluster, so you'll use a Standard_DS3_v2 model with 2 vCPU cores, 7-GB RAM.
 
 [!notebook-python[](~/azureml-examples-main/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb?name=cpu_compute_target)]
 
 ## Create a job environment
 
-To run your AzureML job on your compute resource, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
+To run your AzureML job on your compute cluster, you'll need an [environment](concept-environments.md). An environment lists the software runtime and libraries that you want installed on the compute where you’ll be training. It's similar to your Python environment on your local machine.
 
 AzureML provides many curated or ready-made environments, which are useful for common training and inference scenarios. You can also create your own custom environments using a docker image, or a conda configuration.
 
@@ -125,7 +111,6 @@ The *training script* handles the data preparation, training and registering of 
 Command jobs can be run from CLI, Python SDK, or studio interface. In this tutorial, you'll use the Azure ML Python SDK v2 to create and run the command job.
 
 After running the training job, you'll deploy the model, then use it to produce a prediction.
-
 
 ## Create training script
 
@@ -168,7 +153,7 @@ It's now time to submit the job to run in AzureML. This time you'll use `create_
 
 View the job in AzureML studio by selecting the link in the output of the previous cell.
 
-The output of this job will look like this in the AzureML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training. 
+The output of this job will look like this in the AzureML studio. Explore the tabs for various details like metrics, outputs etc. Once completed, the job will register a model in your workspace as a result of training.
 
 ![Screenshot that shows the job overview](media/tutorial-azure-ml-in-a-day/view-job.gif "Overview of the job.")
 

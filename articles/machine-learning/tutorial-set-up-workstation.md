@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Set up your cloud workstation"
+title: "Quickstart: Set up your cloud workstation"
 titleSuffix: Azure Machine Learning
 description: Upload files, install packages,  and run code on your Azure Machine Learning on a compute instance, your cloud workstation. 
 services: machine-learning
@@ -13,9 +13,9 @@ ms.date: 12/19/2022
 #Customer intent: As a data scientist, I want to know how to use my cloud workstation to upload my files and run code.
 ---
 
-# Tutorial: Set up your Azure Machine Learning cloud workstation
+# Quickstart: Set up your Azure Machine Learning cloud workstation
 
-In this tutorial, you'll create and work with:
+In this quickstart, you'll create and work with:
 
 * A *workspace*.  The workspace is the central place to view and manage all the artifacts and resources you create while using Azure Machine Learning.
 * A *compute instance*.  The compute instance is your dedicated machine in the cloud, a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
@@ -63,6 +63,9 @@ If you already have a compute instance, skip this section and continue to [Uploa
 Create a compute instance now.  You'll also use it as your development environment for the rest of the tutorials, and for your own development work.
  
 **@@Steps for creating the compute instance with the new experience will go here.**
+
+> [!NOTE]
+> If you're here to learn how to create a workspace and compute instance, you now have the resources you need to run other tutorials.  Continue reading to learn more about how to upload files, work with Jupyter notebooks, and run Python scripts.
 
 ## Upload files
 
@@ -229,26 +232,13 @@ When you run the script in a terminal, you'll see text output, but not the plots
 
 Use the sample notebooks available in studio to help you learn about how to train and deploy models.  To find these samples:
 
-1. Still in the **Notebooks** section, select **Samples** at the top.
+Still in the **Notebooks** section, select **Samples** at the top.
 
     :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
 
-1. The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
-1. Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
-1. Select the notebook **SDK v2/tutorials/azureml-in-a-day/azureml-in-a-day.ipynb**.  You'll see a read-only version of the notebook.  
-1. To get a copy of the notebook to your cloud file storage, you could select **Clone this notebook**.  This action will also copy the rest of the folder's content for that notebook.  No need to do that now, though, as you're going to instead clone the whole folder.
-
-## Clone tutorials folder
-
-You can also clone an entire folder.  The **tutorials** folder is a good place to start learning more about how Azure Machine Learning works.
-
-1. Open the **SDK v2** folder.
-1. Select the **"..."** at the right of **tutorials** folder to get the menu, then select **Clone**.
-    
-    :::image type="content" source="media/quickstart-run-notebooks/clone-folder.png" alt-text="Screenshot: clone v2 tutorials folder.":::
-
-1. Your new folder is now displayed in the **Files** section.  
-1. Run the notebooks in this folder to learn more about using the Python SDK v2 to train and deploy models.
+* The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
+* Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
+* These notebooks are read-only, and are updated periodically.  When you open a notebook, select the **Clone** button at the top to add your copy of the notebook and any associated files into your own files.  
 
 ## Clean up resources
 
