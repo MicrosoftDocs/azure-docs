@@ -43,7 +43,7 @@ The overview page is the "home" page of each service. In the following screensho
 | 1  | The **Essentials** section lists service properties, such as the service endpoint, service tier, and replica and partition counts. |
 | 2 | A command bar at the top of the page includes [Import data](search-get-started-portal.md) and [Search explorer](search-explorer.md), used for prototyping and exploration. |
 | 3 | Tabbed pages in the center provide quick access to usage statistics, service health metrics, and access to all of the existing indexes, indexers, data sources, and skillsets.|
-| 4 | Navigation links are to the left. |
+| 4 | Navigation links to other pages. |
 
 ### Read-only service properties
 
@@ -78,7 +78,17 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only saved customer data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved customer data, including debug session state and caching, is stored in Azure Storage.
+Cognitive Search collects service data for monitoring and troubleshooting purposes.
+
+Platform metrics are found on the portal pages of your service. It includes query latency, queries per second, and queries throttled during indexing. This data is stored on a rolling 93-day cycle, but portal visualization is limited to a 30 day window. Data collection and reporting of these metrics occurs automatically as part of the portal experience and is non-configurable.
+
+Durable monitoring data is collected when you opt-in for diagnostic logging. When monitoring and diagnostic requirements exceed what the portal provides automatically, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+
+Internally, Microsoft Support collects telemetry data to support your service and the platform. Telemetry data is retained for one and one half years. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
+
+Frequently, customers need specific details about data collection, residency, and retention. Documentation about data privacy and retention can be found in the ["Data residency"](search-security-overview.md#data-residency) section of the security overview.
+
+<!-- Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only saved customer data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved customer data, including debug session state and caching, is stored in Azure Storage.
 
 Usage metrics (such as query latency and queries per second) are reported out to portal pages. These metrics are pulled from internal logs on a rolling 30-day cycle. Data collection and reporting of these metrics on the portal pages occurs automatically as part of the portal experience. 
 
@@ -94,7 +104,7 @@ You can [file a support ticket](/azure/azure-portal/supportability/how-to-create
 + **Issue type**: Technical
 + **Problem type**: Setup and configuration
 + **Problem subtype**: Issue with security configuration of the service
-
+ -->
 ## Administrator permissions
 
 When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
