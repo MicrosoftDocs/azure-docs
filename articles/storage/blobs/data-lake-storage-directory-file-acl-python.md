@@ -140,7 +140,7 @@ This example, prints the path of each subdirectory and file that is located in a
 ## See also
 
 - [API reference documentation](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
-- [Azure File DataLake Storage Client Library (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
+- [Azure File Data Lake Storage Client Library (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
 - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
