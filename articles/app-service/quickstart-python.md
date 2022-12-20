@@ -56,6 +56,11 @@ To run the application locally:
     ```Console
     pip install -r requirements.txt
     ```
+    > Please Note : If you are deploying your own custom Django / Flask project. Make sure to generate the requirements.txt using the following command
+    > ```console
+    > pip freeze >requirements.txt
+    > ```
+    
 
 1. Run the app:
 
