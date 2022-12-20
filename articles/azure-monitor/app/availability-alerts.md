@@ -20,7 +20,7 @@ Alerts are now automatically enabled by default, but in order to fully configure
 > [!NOTE]
 > With the [new unified alerts](../alerts/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../alerts/action-groups.md) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
 
-1. After saving the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
+1. After you save the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
 
    :::image type="content" source="./media/availability-alerts/edit-alert.png" alt-text="Screenshot of the Availability pane for an Application Insights resource in the Azure portal. The Edit alert menu option is highlighted." lightbox="./media/availability-alerts/edit-alert.png":::
 
@@ -28,11 +28,11 @@ Alerts are now automatically enabled by default, but in order to fully configure
 
 ### Alert criteria
 
-Automatically enabled Availability alerts will trigger an email when the endpoint you have defined is unavailable, and when it is available again. Availability alerts which are created through this experience are state-based. When the alert criteria is met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
+Automatically enabled Availability alerts will trigger an email when the endpoint you have defined is unavailable, and when it is available again. Availability alerts which are created through this experience are state-based. When the alert criteria are met, a single alert gets generated when the website is detected as unavailable. If the website is still down the next time the alert criteria is evaluated, it will not generate a new alert.
 
 For example, if your website is down for an hour and you have set up an e-mail alert with an evaluation frequency of 15 minutes, you will only receive an e-mail when the website goes down, and a subsequent e-mail when it is back up. You will not receive continuous alerts every 15 minutes reminding you that the website is still unavailable.
 
-If you don't want to receive notifications when your website is down for only a short period of time (e.g. during maintenance) you can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold, so it only triggers an alert if the website is down for a certain amount of regions. For longer scheduled downtimes, we recommend temporarily deactivating the alert rule or creating a custom rule. This will give you more options to account for the downtime.
+If you don't want to receive notifications when your website is down for only a short period of time (e.g. during maintenance) you can change the evaluation frequency to a higher value than the expected downtime, up to 15 minutes. You can also increase the alert location threshold, so it only triggers an alert if the website is down for a certain number of regions. For longer scheduled downtimes, we recommend temporarily deactivating the alert rule or creating a custom rule. This will give you more options to account for the downtime.
 
 #### Change the alert criteria
 
