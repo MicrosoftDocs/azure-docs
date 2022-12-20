@@ -65,7 +65,7 @@ items:
   - name: Monitor
     expanded: false
     items:
-    - name: Display monitoring tab metrics
+    - name: Use the monitoring tab
       href: how-to-use-monitoring-tab.md
     - name: Configure metrics
       href: how-to-configure-metrics.md

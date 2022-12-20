@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # The Advanced Security Information Model (ASIM) DNS normalization schema reference (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).

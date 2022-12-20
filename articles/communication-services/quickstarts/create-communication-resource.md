@@ -31,7 +31,7 @@ Get started with Azure Communication Services by provisioning your first Communi
 ::: zone-end
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE [Azure CLI](./includes/create-resource-azcli.md)]
+[!INCLUDE [Azure CLI](./includes/create-resource-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="platform-net"
