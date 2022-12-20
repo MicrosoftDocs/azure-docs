@@ -28,7 +28,7 @@ In the search service pages in Azure portal, you can find the current status of 
 
   ![Azure Monitor integration in a search service](./media/search-monitor-usage/azure-monitor-search.png "Azure Monitor integration in a search service")
 
-+ **Monitoring** in the **Overview** page summarizes key [query metrics](search-monitor-queries.md), including query volume, latency, and throttled queries. On the next tab over, **Usage** reports on available capacity and the quantity of indexes, indexers, data sources, and skillsets relative to the maximum allowed for your [service tier](search-sku-tier.md).
++ **Monitoring** tab in the **Overview** page summarizes key [query metrics](search-monitor-queries.md), including search latency, search queries per second, and throttled queries. On the next tab over (not shown), **Usage** shows available capacity and the quantity of indexes, indexers, data sources, and skillsets relative to the maximum allowed for your [service tier](search-sku-tier.md).
 
 + **Activity log** on the navigation menu captures service-level events: service creation, configuration, and deletion.
 
@@ -68,7 +68,7 @@ The following screenshot shows the activity log signals that can be configured i
 
 In Azure Cognitive Search, [**platform metrics**](../azure-monitor/essentials/data-platform-metrics.md) measure query performance, indexing volume, and skillset invocation.
 
-Metrics are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of platform metrics data on any single chart. This limitation doesn't apply to log-based metrics. 
+Metrics are collected [free of charge](../azure-monitor/usage-estimated-costs.md#pricing-model), with no configuration required. Platform metrics are stored for 93 days. However, in the portal you can only query a maximum of 30 days' worth of platform metrics data on any single chart.
 
 In the Azure portal, find your search service. From the menu on the left, under Monitoring, select **Metrics** to open metrics explorer.
 
