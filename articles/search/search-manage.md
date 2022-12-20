@@ -34,7 +34,7 @@ Each search service is managed as a standalone resource. The following image sho
 
 ## Overview (home) page
 
-The overview page is the "home" page of each service. Below, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
+The overview page is the "home" page of each service. In the following screenshot, the areas on the screen enclosed in red boxes indicate tasks, tools, and tiles that you might use often, especially if you're new to the service.
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="Portal pages for a search service" border="true":::
 
@@ -80,7 +80,7 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only saved customer data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved customer data, including debug session state and caching, is stored in Azure Storage.
 
-Usage metrics (such as query latency and queries per second) is reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. These metrics are collected and reported to the portal pages automatically as part of the portal experience. 
+Usage metrics (such as query latency and queries per second) are reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. These metrics are collected and reported to the portal pages automatically as part of the portal experience. 
 
 If your monitoring and diagnostic requirements exceed what the portal provides, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
@@ -99,7 +99,7 @@ You can [file a support ticket](/azure/azure-portal/supportability/how-to-create
 
 When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
 
-Control plane roles include the following:
+Control plane roles include the following items:
 
 * Owner
 * Contributor (same as Owner, minus the ability to assign roles)
