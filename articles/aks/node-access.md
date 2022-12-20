@@ -82,7 +82,7 @@ To create the SSH connection to the Windows Server node from another node, use t
 
 > [!IMPORTANT]
 >
-> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. If you didn't use this method to create your cluster, you'll use a password instead of an SSH key. To do this, see [Create the SSH connection to a Windows node using a password](create-the-ssh-connection-to-a-windows-node-using-a-password)
+> The following steps for creating the SSH connection to the Windows Server node from another node can only be used if you created your AKS cluster using the Azure CLI and the `--generate-ssh-keys` parameter. If you didn't use this method to create your cluster, you'll use a password instead of an SSH key. To do this, see [Create the SSH connection to a Windows node using a password](#create-the-ssh-connection-to-a-windows-node-using-a-password)
 
 Open a new terminal window and use the `kubectl get pods` command to get the name of the pod started by `kubectl debug`.
 
