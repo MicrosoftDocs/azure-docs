@@ -29,7 +29,7 @@ There are three common scenarios in which it's necessary to populate Azure Activ
  1. Application that doesn't use Azure AD as its only identity provider
  1. Application does not use Azure AD as its identity provider nor does it support provisioning
 
-For those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database or relies upon Azure AD as its identity provider, see the article [Govern an application's existing users](identity-governance-applications-existing-users.md) for more information on how to use identity governance features for that application.
+For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database or relies upon Azure AD as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
 
 This article covers the third scenario. For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications. For those applications, if you want to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent application users.  This article covers that scenario of an application that does not use Azure AD as its identity provider and does not support provisioning.
 
