@@ -94,9 +94,9 @@ If you choose to include your Log Analytics workspace as a destination option fo
 
    :::image type="content" source="media/iot-diagnostic-settings/select-logs-button.png" alt-text="Screenshot of logs option." lightbox="media/iot-diagnostic-settings/select-logs-button.png":::
 
-2. Copy the below string into your Log Analytics workspace query window and select **Run**.
+2. Copy the below table query string into your Log Analytics workspace query window and select **Run**.
 
-   ```query
+   ```Table query
    AHDSMedTechDiagnosticLogs
    ```
    :::image type="content" source="media/iot-diagnostic-settings/select-run-query.png" alt-text="Screenshot of query run option." lightbox="media/iot-diagnostic-settings/select-run-query.png":::
