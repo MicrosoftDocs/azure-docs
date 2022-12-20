@@ -67,7 +67,7 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
 
 1. Your next step is to configure metrics and logs for your resources. Azure Native Dynatrace Service supports the metrics for compute (such as VMs, App Services etc.) and non-compute resources.
 
-    :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs-checkbox.png" alt-text="Screenshot showing options for metrics and logs.":::
+    :::image type="content" source="media/dynatrace-create/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
     
     - **Metrics for compute resources** – Users can send metrics for the compute resources (Virtual machines and App services) by installing the Dynatrace OneAgent as extensions on the compute resources after the Dynatrace resource has been created.
     - **Metrics for non-compute resources** – These metrics can be collected by configuring the Dynatrace resource to automatically query Azure monitor for metrics. To enable metrics collection, click the checkbox. If you have an **owner access** in your subscription, then you can enable/disable the metrics collection using the checkbox and proceed to the configuring logs. However, if you have a contributor access then please use the information in the following step.
