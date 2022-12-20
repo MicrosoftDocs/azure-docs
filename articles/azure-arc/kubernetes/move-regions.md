@@ -1,21 +1,21 @@
 ---
 title: "Move Arc-enabled Kubernetes clusters between regions"
-ms.date: 12/14/2022
+ms.date: 12/20/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources
-description: "Manually move your Azure Arc-enabled Kubernetes (or connected cluster resources) between regions."
+description: "Manually move your Azure Arc-enabled Kubernetes and connected cluster resources between regions."
 ---
 
 # Move Arc-enabled Kubernetes clusters across Azure regions
 
-In some circumstances, you may want to move your Arc-enabled Kubernetes clusters to another region. For example, you might want to deploy features or services that are only available in specific regions, or you need to change regions due to internal policy and governance requirements or capacity planning considerations.
+In some circumstances, you may want to move your [Arc-enabled Kubernetes clusters](overview.md) to another region. For example, you might want to deploy features or services that are only available in specific regions, or you need to change regions due to internal policy and governance requirements or capacity planning considerations.
 
-This article describes how to move Arc-enabled Kubernetes clusters (and any connected cluster resources) to a different Azure region.
+This article describes how to move Arc-enabled Kubernetes clusters and any connected cluster resources to a different Azure region.
 
 ## Prerequisites
 
-- Ensure that Azure Arc-enabled Kubernetes resources (Microsoft.Kubernetes/connectedClusters) are [supported in the target region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc).
-- Ensure that any Azure Arc-enabled Kubernetes configuration resources (Microsoft.KubernetesConfiguration/SourceControlConfigurations, Microsoft.KubernetesConfiguration/Extensions, Microsoft.KubernetesConfiguration/FluxConfigurations) are supported in the target region.
+- Ensure that Azure Arc-enabled Kubernetes resources (`Microsoft.Kubernetes/connectedClusters`) are [supported in the target region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc).
+- Ensure that any Azure Arc-enabled Kubernetes configuration resources (`Microsoft.KubernetesConfiguration/SourceControlConfigurations`, `Microsoft.KubernetesConfiguration/Extensions`, `Microsoft.KubernetesConfiguration/FluxConfigurations`) are supported in the target region.
 - Ensure that the Arc-enabled services you've deployed on top of the cluster are supported in the target region.
 - Ensure you have network access to the API server of your underlying Kubernetes cluster.
 
@@ -23,7 +23,7 @@ This article describes how to move Arc-enabled Kubernetes clusters (and any conn
 
 Before you begin, it's important to understand what moving these resources involves.
 
-The `connectedClusters` resource is the Azure Resource Manager representation of a Kubernetes cluster outside of Azure (on-premises, another cloud, edge...). The underlying infrastructure lies in your environment, and Azure Arc provides a representation of the cluster on Azure by installing agents on your cluster.
+The `connectedClusters` resource is the Azure Resource Manager representation of a Kubernetes cluster outside of Azure (such as on-premises, another cloud, or edge). The underlying infrastructure lies in your environment, and Azure Arc provides a representation of the cluster on Azure by installing agents on the cluster.
 
 Moving a connected cluster to a new region means means deleting the ARM resource in the source region, cleaning up the agents on your cluster, and then connecting your cluster again in the target region.
 
@@ -31,7 +31,7 @@ Source control configurations, [Flux configurations](conceptual-gitops-flux2.md)
 
 ## Move
 
-1. Do a LIST to get all configuration resources in the source cluster (the cluster to be moved) and save the response body to be used as the request body when recreating these resources:
+1. Do a LIST to get all configuration resources in the source cluster (the cluster to be moved) and save the response body:
 
    - [Microsoft.KubernetesConfiguration/SourceControlConfigurations](/cli/azure/k8s-configuration?view=azure-cli-latest&preserve-view=true#az-k8sconfiguration-list)
    - [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-list)
@@ -47,7 +47,7 @@ Source control configurations, [Flux configurations](conceptual-gitops-flux2.md)
    > The above command creates the cluster by default in the same location as its resource group. Use the `--location` parameter to explicitly provide the target region value.
 
 1. [Verify](#verify) that the Arc connected cluster is successfully running in the new region. This is the target cluster.
-1. Recreate each of the configuration resources obtained in the LIST command from the source cluster on the target cluster.
+1. Using the response body you saved, recreate each of the configuration resources obtained in the LIST command from the source cluster on the target cluster.
 
 If you don't need to move the cluster, but want to move configuration resources to an Arc-enabled Kubernetes cluster in a different region, do the following:
 
@@ -65,7 +65,7 @@ If you don't need to move the cluster, but want to move configuration resources 
 
 With network access to the underlying Kubernetes cluster, run [this command](./quickstart-connect-cluster.md?tabs=azure-cli#clean-up-resources) to delete the Arc connected cluster. This command deletes the Azure Arc-enabled Kubernetes cluster resource, any associated configuration resources, and any agents running on the cluster.
 
-If you need to delete individual configuration resources in the source cluster without deleting the cluster resource, you can delete any of these resources individually:
+If you need to delete individual configuration resources in the source cluster without deleting the cluster resource, you can delete these resources individually:
 
 - [Microsoft.KubernetesConfiguration/SourceControlConfigurations](/cli/azure/k8s-configuration?view=azure-cli-latest&preserve-view=true#az-k8s-configuration-delete)
 - [Microsoft.KubernetesConfiguration/Extensions](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-delete)
