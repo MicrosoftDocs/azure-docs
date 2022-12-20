@@ -6,7 +6,7 @@ ms.author: shuji
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 12/19/2022
 ---
 
 # Dv4 and Dsv4-series
