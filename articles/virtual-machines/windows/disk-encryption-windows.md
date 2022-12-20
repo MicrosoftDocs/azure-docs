@@ -295,7 +295,7 @@ You can remove the encryption extension using Azure PowerShell or the Azure CLI.
 - **Disable encryption with the Azure CLI:** To remove encryption, use the [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) command.
 
      ```azurecli-interactive
-     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryption"
      ```
 
 ## Unsupported scenarios
