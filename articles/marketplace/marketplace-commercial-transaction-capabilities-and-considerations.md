@@ -87,7 +87,8 @@ Generally, SaaS offers are a good fit if your customers just want to subscribe t
 
 Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own Azure cloud infrastructure.
 
-![mediacommercial-marketplace-plansoffer-type-and-pricing-plan-flowchart-updated-12-12-2022](media/marketplace-commercial-transaction-capabilities-and-considerations/mediacommercial-marketplace-plansoffer-type-and-pricing-plan-flowchart-updated-12-12-2022.png)
+![Screenshot of the commercial-marketplace-plans offer-types nd-pricing-plan-flowchaT.](media/marketplace-commercial-transaction-capabilities-and-considerations/mediacommercial-marketplace-plansoffer-type-and-pricing-plan-flowchart-updated-12-12-2022.png)
+
 
 [1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
 
@@ -227,4 +228,5 @@ Private plans enable you to provide higher or lower pricing to specific customer
 - For listing and pricing options by online store, see [Introduction to listing options](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 - [Publishing guide by offer type](publisher-guide-by-offer-type.md).
 - [Plans and pricing for commercial marketplace offers](./plans-pricing.md)
+
 
