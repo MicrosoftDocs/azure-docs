@@ -200,7 +200,7 @@ We could use the method below to check private link setup by logging into one po
 *  Show all azureml-fe pods run by `kubectl get po -n azureml -l azuremlappname=azureml-fe`.
 *  Login into any of them run `kubectl exec -it -n azureml {scorin_fe_pod_name} bash`.
 *  If the cluster doesn't use proxy run `nslookup {workspace_id}.workspace.{region}.api.azureml.ms`.
-If they set up private link from VNet to workspace correctly, the DNS Lookup should response the internal IP in VNet.
+If you set up private link from VNet to workspace correctly, then the internal IP in VNet should be responsed through the *DNSLookup* tool.
 
 *  If the cluster uses proxy, you can try to `curl` workspace 
  ```bash
