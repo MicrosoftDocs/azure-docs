@@ -53,7 +53,16 @@ For example, an organization may have an existing organizational role model simi
 |*Sales Account Manager*|The permissions of *Salesperson*, and **Account manager** app role in the Sales application|None|A salesperson can request, requires manager approval and quarterly review|Request cannot be a *Sales Solution Manager*|
 |*Sales Support*|Same permissions as a *Salesperson*|None|Any non-salesperson can request, requires manager approval and quarterly review|Requestor cannot be a *Salesperson*|
 
-The next sections outline the sequence for performing the migration and creating the Azure AD and Microsoft Entra Identity Governance artifacts to implement the equivalent access of an organizational role model.
+This could be represented in Entra Identity Governance as an access package catalog containing four access packages.
+
+|Access package|Resource roles|Policies|Incompatible access packages|
+|:--|--|--|--|
+|*Salesperson*|Member of **Sales** Team|Auto-assignment||
+|*Sales Solution Manager*|**Solution manager** app role in the Sales application|Request-based|*Sales Account Manager*|
+|*Sales Account Manager*|**Account manager** app role in the Sales application|Request-based|*Sales Solution Manager*|
+|*Sales Support*|Member of **Sales** Team|Request-based|*Salesperson*|
+
+The next sections outline the process for migration, creating the Azure AD and Microsoft Entra Identity Governance artifacts to implement the equivalent access of an organizational role model.
 
 ### Connect apps whose permissions are referenced in the organizational roles to Azure AD
 
@@ -71,7 +80,7 @@ You can [extend the Azure AD schema](../app-provisioning/user-provisioning-sync-
 
 ### Create catalogs for delegation
 
-If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by creating a catalog for each part of the organization you will be delegating to.
+If the ongoing maintenance of roles is delegated, then you can delegate the administration of access packages by [creating a catalog](entitlement-management-catalog-create.md ) for each part of the organization you will be delegating to.
 
 If you have multiple catalogs to create, you can use a PowerShell script to [create each catalog](entitlement-management-catalog-create.md#create-a-catalog-with-powershell).
 
@@ -79,39 +88,45 @@ If you are not planning to delegate the administration of the access packages, t
 
 ### Add resources to the catalogs
 
-Now that you have the catalogs identified, then add the applications, groups or other resources that will be included in the access packages representing the organization roles to the catalogs.
+Now that you have the catalogs identified, then [add the applications, groups or sites](entitlement-management-catalog-create.md#add-resources-to-a-catalog) that will be included in the access packages representing the organization roles to the catalogs.
 
 If you have many resources, you can use a PowerShell script to [add each resource to a catalog](entitlement-management-catalog-create.md#add-a-resource-to-a-catalog-with-powershell).
 
 ### Create access packages corresponding to organizational role definitions
 
-Each organizational role definition can be represented with an access package.  You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#create-an-access-package-with-microsoft-powershell).
+Each organizational role definition can be represented with an [access package](entitlement-management-access-package-create.md) in that catalog.
+
+You can use a PowerShell script to [create an access package in a catalog](entitlement-management-access-package-create.md#create-an-access-package-with-microsoft-powershell).
 
 Once you've created an access package, then you'll link one or more of the roles of the resources in the catalog to the access package.  This represents the permissions of the organizational role.
 
-In addition, you'll create a policy for direct assignment, as part of that access package that can be used to track the users who already have individual organizational role assignments.
+In addition, you'll [create a policy for direct assignment](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only), as part of that access package that can be used to track the users who already have individual organizational role assignments.
 
 ### Create access package assignments for existing individual organizational role assignments
+
+If some of your users already have organizational role memberships, that they would not receive via automatic assignment, then you should [create direct assignments](entitlement-management-access-package-assignments.md#directly-assign-a-user) for those users to the corresponding access packages.
 
 If you have many users who need assignments, you can use a PowerShell script to [assign each user to an access package](entitlement-management-access-package-assignments.md#assign-a-user-to-an-access-package-with-powershell).  This would link the users to the direct assignment policy.
 
 ### Add policies to those access packages for auto assignment
 
-If your organizational role definition includes a rule based on user's attributes to assign and remove access automatically based on those attributes, you can use a PowerShell script to [create an automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) in the access package.  An access package can have at most one automatic assignment policy.
+If your organizational role definition includes a rule based on user's attributes to assign and remove access automatically based on those attributes, you can represent this using an [automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md). An access package can have at most one automatic assignment policy.
+
+If you have many role definitions that each have a role definition, you can use a PowerShell script to [create each automatic assignment policy](entitlement-management-access-package-auto-assignment-policy.md#create-an-access-package-assignment-policy-through-powershell) in each access package.
 
 ### Set access packages as incompatible for separation of duties
 
-If you have separation of duties constraints that prevent a user from taking on one organizational role when they already have another, then you can prevent the user from requesting access in entitlement management by marking those access packages as incompatible.  For each access package that is to be marked as incompatible with another, you can use a PowerShell script to [configure access packages as incompatible](entitlement-management-access-package-incompatible.md#configure-incompatible-access-packages-through-microsoft-powershell).
+If you have separation of duties constraints that prevent a user from taking on one organizational role when they already have another, then you can prevent the user from requesting access in entitlement management by [marking those access package combinations as incompatible](entitlement-management-access-package-incompatible.md).
+
+For each access package that is to be marked as incompatible with another, you can use a PowerShell script to [configure access packages as incompatible](entitlement-management-access-package-incompatible.md#configure-incompatible-access-packages-through-microsoft-powershell).
 
 ### Add policies to access packages for users to be allowed to request
 
-If users who do not already have an organizational role are allowed to request and be approved to take on a role, then you can also configure entitlement management to allow users to request an access package. You can add additional policies to an access package, and specify which users can request and who must approve.
+If users who do not already have an organizational role are allowed to request and be approved to take on a role, then you can also configure entitlement management to allow users to request an access package. You can [add additional policies to an access package](entitlement-management-access-package-request-policy.md#choose-between-one-or-multiple-policies), and in each policy specify which users can request and who must approve.
 
 ### Configure access reviews in access package assignment policies
 
-If your organizational roles require regular review of their membership, you can configure recurring access reviews in the request-based and direct assignment policies.
-
-
+If your organizational roles require regular review of their membership, you can [configure recurring access reviews](entitlement-management-access-reviews-create.md) in the request-based and direct assignment policies.
 
 ## Next steps
 
