@@ -156,13 +156,15 @@ This section helps you create an Azure DDoS protection and enable the service on
 
 6. In the search box in the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
 
-7. In **Settings**, select **DDoS protection**.
+7. Select your virtual network.
 
-8. Select **Enable**.
+8. In **Settings**, select **DDoS protection**.
 
-9. Select the pull-down box in **DDoS protection plan**. Select the protection plan you created in the previous steps.
+9. Select **Enable**.
 
-10. Select **Save**.
+10. Select the pull-down box in **DDoS protection plan**. Select the protection plan you created in the previous steps.
+
+11. Select **Save**.
 
 ## <a name="connect"></a>Connect to a VM
 
