@@ -218,7 +218,7 @@ Profiling enables you to:
 
     In the table reuse is denoted with the recycling icon.
 
-    If you select the log icon next the node name it will open the detail page, which shoes parameter, code, outputs, logs etc.
+    If you select the log icon next the node name it will open the detail page, which shows parameter, code, outputs, logs etc.
 
     :::image type="content" source="./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page. " lightbox= "./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png":::
 
