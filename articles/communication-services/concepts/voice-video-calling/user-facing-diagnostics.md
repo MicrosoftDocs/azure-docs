@@ -32,12 +32,12 @@ let userFacingDiagnostics = self.call?.feature(Features.diagnostics)
 
 ### Native Android
 ```java
-// TODO:
+DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGONSTICS_CALL);
 ```
 
 ### Native Windows
 ```csharp
-// TODO:
+this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
 ```
 
 ## Diagnostic values
@@ -169,7 +169,7 @@ extension CallObserver: NetworkDiagnosticsDelegate {
 }
 ```
 
-- Hold a reference to `media` and `network` diagnostics and set delegate object to list to events.
+- Hold a reference to `media` and `network` diagnostics and set delegate object for listening to events.
 
 ```swift
 self.mediaDiagnostics = userFacingDiagnostics?.media
@@ -228,8 +228,49 @@ mediaDiagnostics.removeOnMediaFlagDiagnosticChangedListener(mediaFlagChangedList
 
 ### Native / Windows SDK
 
-TODO
+- Implement listeners for diagnostic events.
 
+```csharp
+private async void Call__OnNetworkQualityDiagnosticsChanged(object sender, NetworkQualityDiagnosticChangedEventArgs args)
+{
+    var diagnostic = args.Diagnostic;
+    var value = args.Value;
+    // Handle the diagnostic event value changed...
+}
+
+private async void Call__OnNetworkFlagDiagnosticChanged(object sender, NetworkFlagDiagnosticChangedEventArgs args)
+{
+    var diagnostic = args.Diagnostic;
+    var value = args.Value;
+    // Handle the diagnostic event value changed...
+}
+
+private async void Call__OnMediaFlagDiagnosticChanged(object sender, MediaFlagDiagnosticChangedEventArgs args)
+{
+    var diagnostic = args.Diagnostic;
+    var value = args.Value;
+    // Handle the diagnostic event value changed...
+}
+```
+
+- Set event methods for listening to events.
+
+```csharp
+this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
+this.networkDiagnostics = diagnosticsCallFeature.Network;
+this.mediaDiagnostics = diagnosticsCallFeature.Media;
+
+this.networkDiagnostics.OnNetworkQualityDiagnosticChanged += Call__OnNetworkQualityDiagnosticsChanged;
+this.networkDiagnostics.OnNetworkFlagDiagnosticChanged += Call__OnNetworkFlagDiagnosticChanged;
+this.mediaDiagnostics.OnMediaFlagDiagnosticChanged += Call__OnMediaFlagDiagnosticChanged;
+
+// Removing listeners
+
+this.networkDiagnostics.OnNetworkQualityDiagnosticChanged -= Call__OnNetworkQualityDiagnosticsChanged;
+this.networkDiagnostics.OnNetworkFlagDiagnosticChanged -= Call__OnNetworkFlagDiagnosticChanged;
+this.mediaDiagnostics.OnMediaFlagDiagnosticChanged -= Call__OnMediaFlagDiagnosticChanged;
+
+```
 
 ## Get the latest User Facing Diagnostics
 
@@ -286,6 +327,8 @@ let lastNetworkQualityValue = self.networkDiagnostics.latestValue(for: .networkR
 
 ### Native / Android SDK
 
+- Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, an exception is thrown.
+
 ```java
 DiagnosticsCallFeature diagnosticsCallFeature = call.feature(Features.DIAGONSTICS_CALL);
 NetworkDiagnostics networkDiagnostics = diagnosticsCallFeature.getNetwork();
@@ -310,4 +353,25 @@ if (mediaDiagnostics.hasLatestFlagValue(MediaFlagDiagnostic.SPEAKER_NOT_FUNCTION
 
 ### Native / Windows SDK
 
-TODO
+- Get the latest diagnostic values that were raised in current call. If a we still didn't receive a value for the diagnostic, an error is thrown.
+
+```csharp
+this.diagnosticsCallFeature = (DiagnosticsCallFeature) call.GetCallFeatureExtension(HandleType.DiagnosticsCallFeature);
+this.networkDiagnostics = diagnosticsCallFeature.Network;
+this.mediaDiagnostics = diagnosticsCallFeature.Media;
+
+if (networkDiagnostics.hasLatestFlagValue(NetworkFlagDiagnostic.NoNetwork)) {
+  bool lastNetworkFlagValue = networkDiagnostics.getLatestFlagValue(NetworkFlagDiagnostic.NoNetwork);
+  // Use the latest value...
+}
+
+if (networkDiagnostics.hasLatestQualityValue(NetworkQualityDiagnostic.NetworkReconnect)) {
+  DiagnosticQuality lastNetworkQualityValue = networkDiagnostics.getLatestQualityValue(NetworkQualityDiagnostic.NetworkReconnect);
+  // Use the latest value in quality scale which can be Good, Poor or Bad
+}
+
+if (mediaDiagnostics.hasLatestFlagValue(MediaFlagDiagnostic.SpeakerNotFunctioning)) {
+  bool lastMediaFlagValue = mediaDiagnostics.getLatestFlagValue(MediaFlagDiagnostic.SpeakerNotFunctioning);
+  // Use the latest value...
+}
+```
