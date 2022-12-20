@@ -20,7 +20,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
 
 ::: zone pivot="platform-azcli"
-[!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-azcli.md)]
+[!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
