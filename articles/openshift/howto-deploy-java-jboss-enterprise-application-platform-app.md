@@ -253,17 +253,17 @@ The next steps explain how you can deploy the application with a Helm chart usin
     ```
 
 1. Open the OpenShift console and navigate to the developer view. You can discover the console URL for your OpenShift cluster by running this command. Log in with the `kubeadmin` userid and password you obtained from a preceding step.
-   
-  ```azcli
-  az aro show \
-  --name $CLUSTER \
-  --resource-group $RESOURCEGROUP \
-  --query "consoleProfile.url" -o tsv
-  ```
 
-  Select the **</> Developer** perspective from the drop down menu at the top of the navigation pane.
+   ```bash
+   az aro show \
+   --name $CLUSTER \
+   --resource-group $RESOURCEGROUP \
+   --query "consoleProfile.url" -o tsv
+   ```
 
-    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png" alt-text="Screenshot of OpenShift console developer view.":::
+   Select the **</> Developer** perspective from the drop down menu at the top of the navigation pane.
+
+   :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png" alt-text="Screenshot of OpenShift console developer view.":::
 
 1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop down menu.
 
