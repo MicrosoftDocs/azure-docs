@@ -176,12 +176,19 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 
 ## Single Sign-On for SAP 
 
-Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The configuration steps are available for typical ECS/RISE managed workloads:
+Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The integration steps with AAD based SSO are available for typical ECS/RISE managed workloads:
 - [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial)
 - [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial)
 - [Tutorial: Azure Active Directory integration with SAP HANA](/azure/active-directory/saas-apps/saphana-tutorial)
 
-SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, needs to be planned in detail with SAP. SSO methods such as Kerberos/SPNEGO and Kerberos/SNC are used often for SSO with SAPGui, WebGui and SAP Portal and require an AD domain for the Kerberos protocol. Active directory integration is typically done on OS level, either Windows domain registration or Linux utilities such as kutil and keytab. With ECS/RISE managed workload this would mean having domain objects in Azure tenant and subscription of SAP. Consider such implementation with your compliance teams.
+| SSO method | Identity Provider | Typical use case                 | Implementation           |
+| :--------- | :---------------: | :------------------------------- | :----------------------- |
+| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration   | 
+| SNC        | AD                | SAP GUI                          | Configure with SAP       | 
+| SPNEGO     | AD                | Web GUI, Portal                  | Configure with SAP       | 
+
+SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, needs to be planned in detail with SAP. SSO methods such as Kerberos/SPNEGO and Kerberos/SNC are used often for SSO with SAP GUI, Web GUI and SAP Portal and require an AD domain for the Kerberos protocol. Active directory integration is typically done on OS level, either Windows domain registration or Linux utilities such as kutil and keytab. With ECS/RISE managed workload this would mean having your domain objects in Azure tenant and subscription of SAP, as SAP does not provide a new AD domain for integration. Consider such implementation with your compliance team and SAP.
+
 
 ## Azure Monitoring for SAP with SAP RISE
 
