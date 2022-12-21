@@ -73,7 +73,7 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to image classification job are linked below.  
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to text classification job are linked below.  
 
 ## YAML: AutoML text classification job
 
