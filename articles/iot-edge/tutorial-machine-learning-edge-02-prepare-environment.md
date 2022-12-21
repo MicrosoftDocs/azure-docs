@@ -12,7 +12,7 @@ monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 

@@ -10,7 +10,7 @@ ms.author: ofshezaf
 
 # The Advanced Security Information Model (ASIM) Audit Events normalization schema reference (Public preview)
 
-The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
+The Microsoft Sentinel Audit events normalization schema represents events associated with the audit trail of information systems. The audit trail logs system configuration activities and policy changes. Such changes are often performed by system administrators, but can also be performed by users when configuring the settings of their own applications.
 
 Every system logs audit events alongside its core activity logs. For example, a Firewall will log events about the network sessions is processes, as well as audit events about configuration changes applied to the Firewall itself.
 
@@ -25,9 +25,9 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 ## Schema overview
 
 The main fields of an audit event are:
-- The object, typically a configuration atom or policy rule that the event focuses on, represented by the field [Object](#object).
+- The object, which may be, for examplem a managed resource or policy rule, that the event focuses on, represented by the field [Object](#object). The field [ObjectType](#objecttype) specifies the type of the object.
 - The application context of the object, represented by the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
-- The operation performed on the object,represented by the field [EventType](#eventtype).
+- The operation performed on the object, represented by the fields [EventType](#eventtype) and [Operation](#operation). While [Operation](#operation) is the value the source reported, [EventType](#eventtype) is a normalized version, that is more consistent across sources.
 - The old and new values for the object, if applicable, represented by [OldValue](#oldvalue) and [NewValue](#newvalue) respectively.
 
 Audit events also reference the following entities which are involved in the configuration operation:
@@ -55,7 +55,8 @@ The following list mentions fields that have specific guidelines for Audit Event
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
-| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete` |
+| <a name="eventtype"></a> **EventType** | Mandatory | Enumerated | Describes the operation audited by the event using a normalized value. Use [EventSubType](#eventsubtype) to provide further details which the normalized value does not convey, and [Operation](#operation). to store the operation as reported by the reported device.<br><br> For Audit Event records, the allowed values are:<br> - `Set`<br>- `Read`<br>- `Create`<br>- `Delete`<br>- `Execute`<br>- `Install`<br>- `Clear`<br>- `Enable`<br>- `Disable`<br>- `Other`. <br><br>Audit events represent a large variety of operations, and the `Other` value enables mapping operations that have no corresponding `EventType`. However, the use of `Other` limit the usability of the event and should be avoided if possible.   |
+| <a name="eventsubtype"></a> **EventSubType** | Optional | String | Provides further details which the normalized value in [EventType](#eventtype) does not convey. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `AuditEvent`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`.  |
 
@@ -76,10 +77,12 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
+| <a name='operation'></a>**Operation** | Mandatory | String | The operation audited as reported by the reporting device. |
 | <a name='object'></a>**Object** | Mandatory | String | The name of the object on which the operation identified by [EventType](#eventtype) is performed. |
-| **ObjectType** | Mandatory | Enumerated | The type of [Object](#object). Allowed values are:<br>- `Configuration Atom`<br>- `Policy Rule`<br> - Other |
+| <a name='objecttype'></a>**ObjectType** | Mandatory | Enumerated | The type of [Object](#object). Allowed values are:<br>- `Cloud Resource`<br>- `Configuration Atom`<br>- `Policy Rule`<br> - Other |
 | <a name="oldvalue"></a> **OldValue** | Optional | String |  The old value of [Object](#object) prior to the operation, if applicable. |
 | <a name="newvalue"></a>**NewValue** | Optional | String | The new value of [Object](#object) after the operation was performed, if applicable. |
+| <a name="value"></a>**Value** | Alias |  | Alias to [NewValue](#newvalue) |
 | **ValueType** | Optional | Enumerated | The type of the old and new values. Allowed values are<br>- Other. |
 
 ### Actor fields
@@ -87,12 +90,14 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
 | <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **ActorScope** | Optional | String | The scope, such as Azure AD tenant, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScope** | Optional | String | The scope, such as Azure AD Domain Name, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScope](normalization-about-schemas.md#userscope) in the [Schema Overview article](normalization-about-schemas.md).|
+| **ActorScopeId** | Optional | String | The scope ID, such as Azure AD Directory ID, in which [ActorUserId](#actoruserid) and [ActorUsername](#actorusername) are defined. or more information and list of allowed values, see [UserScopeId](normalization-about-schemas.md#userscopeid) in the [Schema Overview article](normalization-about-schemas.md).|
 | **ActorUserIdType**| Optional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="actorusername"></a>**ActorUsername**  | Recommended    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
 | **User** | Alias | | Alias to [ActorUsername](#actorusername) | 
 | **ActorUsernameType**              | Recommended    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
 | **ActorUserType** | Optional | UserType | The type of the Actor. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
+| **ActorOriginalUserType** | Optional | UserType | The user type as reported by the reporting device. |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 
 
@@ -100,14 +105,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
-|<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
+| <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the event applies, including a process, browser, or service. <br><br>Example: `89162` |
+|<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which event applies, including a service, a URL, or a SaaS application. <br><br>Example: `Exchange 365` |
 |<a name="application"></a>**Application** | Alias || Alias to [TargetAppName](#targetappname) |
 | **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="targeturl"></a>**TargetUrl** |Optional |URL |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
-| <a name="targetprocessname"></a>**TargetProcessName**              | Optional     | String     |   The file name of the process that initiated the audit event. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
-| **TargetProcessId**| Optional    | String | The process ID (PID) of the process that initiated the audit event.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **TargetProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit event. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 
 ### Target system fields
@@ -119,6 +121,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | <a name="targetdomain"></a>**TargetDomain** | Recommended | String | The domain of the target device.<br><br>Example: `Contoso` |
 | <a name="targetdomaintype"></a>**TargetDomainType** | Recommended | Enumerated | The type of [TargetDomain](#targetdomain). For a list of allowed values and further information refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [TargetDomain](#targetdomain) is used. |
 | **TargetFQDN** | Optional | String | The target device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [TargetDomainType](#targetdomaintype) reflects the format used.   |
+| <a name = "targetdescription"></a>**TargetDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="targetdvcid"></a>**TargetDvcId** | Optional | String | The ID of the target device. If multiple IDs are available, use the most important one, and store the others in the fields `TargetDvc<DvcIdType>`. <br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="targetdvcscopeid"></a>**TargetDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **TargetDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="targetdvcscope"></a>**TargerDvcScope** | Optional | String | The cloud platform scope the device belongs to. **TargetDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
@@ -133,15 +136,10 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| **ActingAppId** | Optional | String | The ID of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `0x12ae8` |
-| **ActiveAppName** | Optional | String | The name of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
+| **ActingAppId** | Optional | String | The ID of the application that initiated the activity reported, including a process, browser, or service. <br><br>For example: `0x12ae8` |
+| **ActiveAppName** | Optional | String | The name of the application that initiated the activity reported, including a service, a URL, or a SaaS application. <br><br>For example: `C:\Windows\System32\svchost.exe` |
 | **ActingAppType** | Optional | AppType | The type of acting application. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
-| <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the process that initiated the audit event. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
-| <a name="process"></a>**Process**        | Alias        |            | Alias to the [ActingProcessName](#actingprocessname) <br><br>Example: `C:\Windows\System32\rundll32.exe`|
-| **ActingProcessId**| Optional    | String | The process ID (PID) of the process that initiated the audit event.<br><br>Example:  `48610176` <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
-| **ActingProcessGuid** | Optional     | String     |  A generated unique identifier (GUID) of the process that initiated the audit event. <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
-
 
 
 ### Source system fields
@@ -156,6 +154,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | DomainType | The type of [SrcDomain](#srcdomain). For a list of allowed values and further information, refer to [DomainType](normalization-about-schemas.md#domaintype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
+| <a name = "srcdescription"></a>**SrcDescription** | Optional | String | A descriptive text associated with the device. For example: `Primary Domain Controller`. |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String |  The ID of the source device. If multiple IDs are available, use the most important one, and store the others in the fields `SrcDvc<DvcIdType>`.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | <a name="srcdvcscopeid"></a>**SrcDvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **SrcDvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
 | <a name="srcdvcscope"></a>**SrcDvcScope** | Optional | String | The cloud platform scope the device belongs to. **SrcDvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 

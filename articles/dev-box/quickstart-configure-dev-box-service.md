@@ -7,7 +7,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/12/2022
+ms.date: 12/16/2022
 ms.custom: references_regions
 ---
 <!-- 
@@ -19,23 +19,20 @@ ms.custom: references_regions
 
 This quickstart describes how to configure the Microsoft Dev Box service by using the Azure portal to enable development teams to self-serve dev boxes.
 
-In this quickstart, you'll perform the following tasks:
-
-* [Create a dev center](#create-a-dev-center)
-* [Create a network connection](#create-a-network-connection)
-* [Attach a network connection to a dev center](#attach-network-connection-to-dev-center)
-* [Create a dev box definition](#create-a-dev-box-definition)
-* [Create a project](#create-a-project)
-
-
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 - Owner or Contributor permissions on an Azure Subscription or a specific resource group.
 - Network Contributor permissions on an existing virtual network (owner or contributor) or permission to create a new virtual network and subnet.
-- User licenses. Each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Endpoint Manager, and Azure Active Directory P1. 
-    - These licenses are available independently and included in Microsoft 365 F3, Microsoft 365 E3, Microsoft 365 E5, Microsoft 365 A3, Microsoft 365 A5, Microsoft 365 Business Premium, and Microsoft 365 Education Student Use Benefit subscriptions.
+- User licenses. To use Windows 365 Enterprise, each user must be licensed for Windows 11 Enterprise or Windows 10 Enterprise, Endpoint Manager, and Azure Active Directory P1. 
+    - These licenses are available independently and also included in the following subscriptions: 
+       - Microsoft 365 F3 
+       - Microsoft 365 E3, Microsoft 365 E5 
+       - Microsoft 365 A3, Microsoft 365 A5
+       - Microsoft 365 Business Premium
+       - Microsoft 365 Education Student Use Benefit 
+- [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your Windows licenses on Azure with Dev Box.
 
 ## Create a dev center
 
@@ -79,9 +76,15 @@ The following steps show you how to create and configure a dev center.
 ## Create a network connection
 Network connections determine the region into which dev boxes are deployed and allow them to be connected to your existing virtual networks. The following steps show you how to create and configure a network connection in Microsoft Dev Box.  
 
-To perform the steps in this section, you must have an existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
+To create a network connection, you must have:
 
-If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+- An existing virtual network (vnet) and subnet. If you don't have a vnet and subnet available, follow the instructions here: [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md) to create them. 
+- A configured and working Hybrid AD join or Azure AD join.
+    - **Hybrid AD join:** To learn how to join your AD DS domain-joined computers to Azure AD from an on-premises Active Directory Domain Services (AD DS) environment, see [Plan your hybrid Azure Active Directory join deployment](/azure/active-directory/devices/hybrid-azuread-join-plan).
+    - **Azure AD join:** To learn how to join devices directly to Azure Active Directory (Azure AD), see [Plan your Azure Active Directory join deployment](/azure/active-directory/devices/azureadjoin-plan).
+- If your organization routes egress traffic through a firewall, you need to open certain ports to allow the Dev Box service to function. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+
+Follow these steps to create a network connection:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -121,7 +124,7 @@ If your organization routes egress traffic through a firewall, you need to open 
    |**AD DNS domain name**| The DNS name of the Active Directory domain that you want to use for connecting and provisioning Cloud PCs. For example, corp.contoso.com. |
    |**Organizational unit**| An organizational unit (OU) is a container within an Active Directory domain, which can hold users, groups, and computers. |
    |**AD username UPN**| The username, in user principal name (UPN) format, that you want to use for connecting the Cloud PCs to your Active Directory domain. For example, svcDomainJoin@corp.contoso.com. This service account must have permission to join computers to the domain and, if set, the target OU. |
-   |**AD domain password**| The password for the user specified above. |
+   |**AD domain password**| The password for the user. |
 
    :::image type="content" source="./media/quickstart-configure-dev-box-service/create-hybrid-network-connection-full-blank.png" alt-text="Screenshot showing the create network connection basics tab with Hybrid Azure Active Directory join highlighted.":::
 
@@ -167,7 +170,7 @@ The following steps show you how to create and configure a dev box definition. Y
    |----|----|----|
    |**Name**|Enter a descriptive name for your dev box definition.|
    |**Image**|Select the base operating system for the dev box. You can select an image from the Azure Marketplace or from an Azure Compute Gallery. </br> If you're creating a dev box definition for testing purposes, consider using the **Windows 11 Enterprise + Microsoft 365 Apps 22H2** image. |To use custom images while creating a dev box definition, you can attach an Azure Compute Gallery that has the custom images. Learn [How to configure an Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md).|
-   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes will not be modified when an image version is updated.|
+   |**Image version**|Select a specific, numbered version to ensure all the dev boxes in the pool always use the same version of the image. Select  **Latest** to ensure new dev boxes use the latest image available.|Selecting the Latest image version enables the dev box pool to use the most recent image version for your chosen image from the gallery. This way, the dev boxes created will stay up to date with the latest tools and code on your image. Existing dev boxes won't be modified when an image version is updated.|
    |**Compute**|Select the compute combination for your dev box definition.||
    |**Storage**|Select the amount of storage for your dev box definition.||
 

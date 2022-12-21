@@ -37,8 +37,6 @@ See the following [Enable monitoring](#enable-monitoring) section to begin setti
 
 [Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is *not supported*. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
-> [!NOTE]
-> Linux auto-instrumentation App Service portal enablement is in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
 See the following [Enable monitoring](#enable-monitoring) section to begin setting up Application Insights with your App Service resource.
 
