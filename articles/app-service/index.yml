@@ -39,6 +39,8 @@ landingContent:
             url: quickstart-nodejs.md
           - text: Deploy a PHP web app
             url: quickstart-php.md
+          - text: Deploy a Go app (experimental)
+            url: quickstart-golang.md           
           - text: Deploy a Java app
             url: quickstart-java.md
           - text: Create a WordPress site
