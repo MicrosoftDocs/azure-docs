@@ -29,7 +29,7 @@ The major differences between deploying your critical VMs through availability s
 
 Your motivation for a deployment across Azure Availability Zones should be that you, on top of covering failure of a single critical VM or ability to reduce downtime for software patching within a critical, want to protect from larger infrastructure issues that might affect the availability of one or multiple Azure datacenters. 
 
-As another resiliency deployment functionality, Azure introduced [Virtual Machine Scale Sets with Flexible orchestration](../../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration). Azure Virtual Machine Scale Sets with Flexible orchestration isn't yet supported for deploying SAP architectures on Azure. Though some scenarios might work, other scenarios aren't yet working. As a result, we're holding back documenting the usage of Virtual Machine Scale Sets with Flexible orchestration until some of the gaps are going to be closed.
+As another resiliency deployment functionality, Azure introduced [Virtual Machine Scale Sets with Flexible orchestration](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration). Azure Virtual Machine Scale Sets with Flexible orchestration isn't yet supported for deploying SAP architectures on Azure. Though some scenarios might work, other scenarios aren't yet working. As a result, we're holding back documenting the usage of Virtual Machine Scale Sets with Flexible orchestration until some of the gaps are going to be closed.
 
 ## Considerations for deploying across Availability Zones
 
