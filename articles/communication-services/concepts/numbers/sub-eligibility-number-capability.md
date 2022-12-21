@@ -30,7 +30,7 @@ Additional details on eligible subscription types are as follows:
 
 \* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
 
-\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to phone@microsoft.com for assistance with your application.
 
 ## Number capabilities
 
