@@ -8,18 +8,18 @@ ms.date: 12/21/2022
 ---
 
 # Create and manage claimable VMs in Azure DevTest Labs
-You add a claimable VM to a lab in a similar manner to how you [add a standard VM](devtest-lab-add-vm.md) – from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md). This tutorial walks you through using the Azure portal to add a claimable VM to a lab in DevTest Labs, and shows the processes a user follows to claim and unclaim the VM.
+You add a claimable VM to a lab in a similar manner to how you [add a standard VM](devtest-lab-add-claimable-vm.md) – from a *base* that is either a [custom image](devtest-lab-create-template.md), [formula](devtest-lab-manage-formulas.md), or [Marketplace image](devtest-lab-configure-marketplace-images.md). This tutorial walks you through using the Azure portal to add a claimable VM to a lab in DevTest Labs, and shows the processes a user follows to claim and unclaim the VM.
 
 ## Steps to add a claimable VM to a lab in Azure DevTest Labs
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services** and then in the **DEVOPS** section, select **DevTest Labs**. If you select * (star) next to **DevTest Labs** in the **DEVOPS** section. This action adds **DevTest Labs** to the left navigational menu so that you can access it easily the next time. Then, you can select **DevTest Labs** on the left navigational menu.
 
-   :::image type="content" source="media/devtest-lab-add-vm/all-services-select.png" alt-text="Screenshot showing All services - select DevTest Labs."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/all-services-select.png" alt-text="Screenshot showing All services - select DevTest Labs."::: 
 
 1. From the list of labs, select the lab in which you want to create the VM.
 1. On the lab's **Overview** page, select **+ Add**.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png" alt-text="Screenshot showing the Add VM button."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-home-blade-add-vm.png" alt-text="Screenshot showing the Add VM button."::: 
 
 1. On the **Choose a base** page, select a marketplace image for the VM.
 1. On the **Basic Settings** tab of the **Virtual machine** page, do the following actions:
@@ -36,7 +36,7 @@ You add a claimable VM to a lab in a similar manner to how you [add a standard V
     1. Select **Add or Remove Artifacts**. Select and configure the artifacts that you want to add to the base image.
     
     >[!NOTE] 
-    >If you're new to DevTest Labs or configuring artifacts, refer to the [Add artifacts after installation](./devtest-lab-add-vm.md#add-artifacts-after-installation) section, and then return here when finished.
+    >If you're new to DevTest Labs or configuring artifacts, refer to the [Add artifacts after installation](./devtest-lab-add-claimable-vm.md#add-artifacts-after-installation) section, and then return here when finished.
 2. Switch to the **Advanced Settings** tab at the top, and do the following actions:
     1. To change the virtual network that the VM is in, select **Change VNet**.
     2. To change the subnet, select **Change subnet**.
@@ -60,12 +60,12 @@ A user can claim any VM from the list of **Claimable virtual machines** by using
 1. On the lab's **Overview** page, on the left menu, select **Claimable virtual machines**.
 1. Right-click the VM you want to claim, and then select **Claim machine**.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-claim-VM.png" alt-text="Screenshot showing requesting a specific claimable VM."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-claim-VM.png" alt-text="Screenshot showing requesting a specific claimable VM."::: 
 
 ### Claim any available VM
 On the lab's **Overview** page, select **Claim any**. A random virtual machine is assigned from the list of claimable VMs.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-claim-any.png" alt-text="Screenshot showing requesting any claimable VM."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-claim-any.png" alt-text="Screenshot showing requesting any claimable VM."::: 
 
 After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of **My virtual machines**. The lab user will now have owner privileges on this machine. The time required for this step may vary depending on startup times and any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
 
@@ -76,12 +76,12 @@ When a user is finished using a claimed VM and wants to make it available for so
 ### Unclaim a VM from a list of VMs
 From the list of **My virtual machines**, right-click on one of the VMs in the list, or select its ellipsis **...**, and choose **Unclaim**.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-unclaim-VM2.png" alt-text="Screenshot showing unclaiming a VM on the list."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-VM2.png" alt-text="Screenshot showing unclaiming a VM on the list."::: 
 
 ### Unclaim a VM from its management pane
 In the list of **My virtual machines**, select a VM to open its management pane, then select **Unclaim** from the top menu bar.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-unclaim-VM.png" alt-text="Screenshot showing unclaiming a VM on the VM's management pane."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-VM.png" alt-text="Screenshot showing unclaiming a VM on the VM's management pane."::: 
 
 When a user unclaims a VM, they no longer have owner permissions for that specific lab VM, and it's available to be claimed by any other lab user in the state that it was returned to the pool. 
 
@@ -90,7 +90,7 @@ If a claimable VM has a data disk attached to it and a user unclaims it, the dat
 
 This action is called transferring the data disk. The data disk then becomes available in the new user's list of **My data disks** for them to manage.
 
-   :::image type="content" source="media/devtest-lab-add-vm/devtestlab-unclaim-datadisks.png" alt-text="Screenshot showing unclaiming data disks."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-datadisks.png" alt-text="Screenshot showing unclaiming data disks."::: 
 
 
 ## Next steps
