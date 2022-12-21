@@ -107,7 +107,7 @@ sudo zypper --non-interactive install nginx
 sudo zypper --non-interactive update
 sudo zypper --non-interactive install nginx
 ```
-
+---
 When done, type `exit` to leave the SSH session.
 
 
