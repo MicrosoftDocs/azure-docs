@@ -17,7 +17,7 @@ Resources in an environment share the same lifecycle, and you can manage them to
 
 You can configure Azure DevTest Labs to use ARM templates from a public or private Git repository. Learn more about [template repositories for labs](#environment-template-repositories).
 
-:::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with Azure DevTest Labs from an ARM template in a public or custom template repository.":::
+:::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with Azure DevTest Labs from an ARM template in a public or custom template repository." lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
 
 If you want to use an ARM template to create an Azure DevTest Labs resource, see the [Quickstart: use an ARM template to create a lab in DevTest Labs](./create-lab-windows-vm-template.md).
 
@@ -43,7 +43,7 @@ To create an environment from a template:
 
 1. On the **Choose a base** page, select the ARM environment template to use. The available environment templates appear first in the list of bases.
 
-   ![Screenshot that shows public environment templates.](media/devtest-lab-create-environment-from-arm/public-environment-templates.png)
+    :::image type="content" source="media/devtest-lab-create-environment-from-arm/public-environment-templates.png" alt-text="Screenshot that shows public environment templates." lightbox="media/devtest-lab-create-environment-from-arm/public-environment-templates.png":::
 
 1. On the **Add** screen, enter an **Environment name**, and fill the other input fields.
 
@@ -53,7 +53,7 @@ To create an environment from a template:
 
    - In ARM template files, the `GEN-UNIQUE`, `GEN-UNIQUE-[N]`, `GEN-SSH-PUB-KEY`, and `GEN-PASSWORD` parameter values generate blank input fields for users to input values.
 
-   ![Screenshot that shows the Add pane for a SharePoint environment.](./media/devtest-lab-create-environment-from-arm/add.png)
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/add.png" alt-text="Screenshot that shows the Add pane for a SharePoint environment." lightbox="./media/devtest-lab-create-environment-from-arm/add.png":::
 
 1. Select **Add** to create the environment.
 
@@ -61,15 +61,15 @@ To create an environment from a template:
 
 1. Once the environment creation completes, expand the environment under **My environments** to see the list of VMs and other resources that the template provisioned.
 
-   ![Screenshot that shows the list of V Ms under an environment.](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/my-vm-list.png" alt-text="Screenshot that shows the list of V Ms under an environment." lightbox="./media/devtest-lab-create-environment-from-arm/my-vm-list.png":::
 
    The deployment creates a new resource group to provision all the environment resources that the ARM template defined. Select the environment name under **My environments** to view the resource group and all the resources the template created.
 
-   ![Screenshot that shows the resource group with all the environment resources.](./media/devtest-lab-create-environment-from-arm/all-environment-resources.png)
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/all-environment-resources.png" alt-text="Screenshot that shows the resource group with all the environment resources." lightbox="./media/devtest-lab-create-environment-from-arm/all-environment-resources.png":::
 
 1. Select an environment VM to see available actions for the VM, such as managing configuration, schedules, and policies.
 
-   ![Screenshot that shows available actions for an environment VM.](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/environment-actions.png" alt-text="Screenshot that shows available actions for an environment VM." lightbox="./media/devtest-lab-create-environment-from-arm/environment-actions.png":::
 
 ## Environment template repositories
 
@@ -96,7 +96,7 @@ To enable public environment repository access for a lab when you create a lab:
 
 1. Select **On** in the **Public environments** field.
 
-    :::image type="content" source="media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png" alt-text="Screenshot that shows enabling public environments for a new lab.":::
+    :::image type="content" source="media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png" alt-text="Screenshot that shows enabling public environments for a new lab." lightbox="media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png":::
 
 ### Enable or disable public environments for existing labs
 
@@ -124,7 +124,7 @@ When you enable public environments, all the environment templates in the reposi
 
 1. Deselect specific environments from the list to make them unavailable to lab users, and then select **Save**.
 
-    :::image type="content" source="media/devtest-lab-create-environment-from-arm/public-environments-page.png" alt-text="Screenshot that shows the list of public environments for a lab.":::
+    :::image type="content" source="media/devtest-lab-create-environment-from-arm/public-environments-page.png" alt-text="Screenshot that shows the list of public environments for a lab." lightbox="media/devtest-lab-create-environment-from-arm/public-environments-page.png":::
 
 ### Configure environment user rights
 
@@ -138,7 +138,7 @@ By default, lab users have the **Reader** role in environments, and can't change
 
 1. Under **Environment access** > **Resource group user rights**, select **Contributor**, and then select **Save**.
 
-    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/config-access-rights.png" alt-text="Screenshot that shows configuring lab user Contributor permissions.":::
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/config-access-rights.png" alt-text="Screenshot that shows configuring lab user Contributor permissions." lightbox="./media/devtest-lab-create-environment-from-arm/config-access-rights.png":::
 
 ## Automate environment creation
 
