@@ -23,7 +23,7 @@ Refer to [Create a user account by using Azure Active Directory B2C custom polic
 
 In this article, user signs in or create an account if they don't already have one 
 
-We use local account (email and passoword)
+We use local account identity provider (email and passoword)
 
 
 ## Overview
@@ -58,39 +58,39 @@ You require three steps
 
 In the `ContosoCustomPolicy.XML` Add claims in the Claims Schema section
 
-    ```xml
-        <ClaimType Id="grant_type">
+```xml
+    <ClaimType Id="grant_type">
         <DisplayName>grant_type</DisplayName>
         <DataType>string</DataType>
         <UserHelpText>Special parameter passed for local account authentication to login.microsoftonline.com.</UserHelpText>
-        </ClaimType>
-        
-        <ClaimType Id="scope">
+    </ClaimType>
+    
+    <ClaimType Id="scope">
         <DisplayName>scope</DisplayName>
         <DataType>string</DataType>
         <UserHelpText>Special parameter passed for local account authentication to login.microsoftonline.com.</UserHelpText>
-        </ClaimType>
-        
-        <ClaimType Id="nca">
+    </ClaimType>
+    
+    <ClaimType Id="nca">
         <DisplayName>nca</DisplayName>
         <DataType>string</DataType>
         <UserHelpText>Special parameter passed for local account authentication to login.microsoftonline.com.</UserHelpText>
-        </ClaimType>
-        
-        <ClaimType Id="client_id">
+    </ClaimType>
+    
+    <ClaimType Id="client_id">
         <DisplayName>client_id</DisplayName>
         <DataType>string</DataType>
         <AdminHelpText>Special parameter passed to EvoSTS.</AdminHelpText>
         <UserHelpText>Special parameter passed to EvoSTS.</UserHelpText>
-        </ClaimType>
-        
-        <ClaimType Id="resource_id">
+    </ClaimType>
+    
+    <ClaimType Id="resource_id">
         <DisplayName>resource_id</DisplayName>
         <DataType>string</DataType>
         <AdminHelpText>Special parameter passed to EvoSTS.</AdminHelpText>
         <UserHelpText>Special parameter passed to EvoSTS.</UserHelpText>
-        </ClaimType>
-    ```
+    </ClaimType>
+```
 
 ### Step 1.2 - Register Identity Experience Framework applications  
 
@@ -162,25 +162,25 @@ You need to:
 
 Add after `SignInUser` TP
 
-    ```xml
-        <TechnicalProfile Id="UserSignInCollector">
-            <DisplayName>Local Account Signin</DisplayName>
-            <Protocol Name="Proprietary"
-                Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="setting.operatingMode">Email</Item>
-                <Item Key="SignUpTarget">SignUpWithLogonEmailExchange</Item>
-            </Metadata>
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="email" Required="true" />
-                <OutputClaim ClaimTypeReferenceId="password" Required="true" />
-                <OutputClaim ClaimTypeReferenceId="objectId" />
-            </OutputClaims>
-            <ValidationTechnicalProfiles>
-                <ValidationTechnicalProfile ReferenceId="SignInUser" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-    ```
+```xml
+    <TechnicalProfile Id="UserSignInCollector">
+        <DisplayName>Local Account Signin</DisplayName>
+        <Protocol Name="Proprietary"
+            Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+            <Item Key="setting.operatingMode">Email</Item>
+            <Item Key="SignUpTarget">SignUpWithLogonEmailExchange</Item>
+        </Metadata>
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+        </OutputClaims>
+        <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="SignInUser" />
+        </ValidationTechnicalProfiles>
+    </TechnicalProfile>
+```
 
 <Explain the items in the metadata>
 
@@ -188,16 +188,16 @@ Add after `SignInUser` TP
 
 Locate the *ContentDefinitions* section, and the sign-in [Content Definition](contentdefinitions.md) by using the following code: 
 
-    ```xml
-        <ContentDefinition Id="SignupOrSigninContentDefinition">
-            <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-            <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-            <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.7</DataUri>
-            <Metadata>
-                <Item Key="DisplayName">Signin and Signup</Item>
-            </Metadata>
-        </ContentDefinition>
-    ``` 
+```xml
+    <ContentDefinition Id="SignupOrSigninContentDefinition">
+        <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.7</DataUri>
+        <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+        </Metadata>
+    </ContentDefinition>
+``` 
 We'll specify that the sign-in user interface SelfAsserted Technical Profile uses this content definition later in the orchestration steps. 
 
 ## Step 3 - Update the ClaimGenerator Technical Profile
@@ -212,31 +212,31 @@ Separate CreateDisplayNameTransformation* and *CreateMessageTransformation* so t
 Replace the *ClaimGenerator* technical profile with the following code: 
  
 
-    ```xml
-        <TechnicalProfile Id="UserInputMessageClaimGenerator">
-            <DisplayName>User Message Claim Generator Technical Profile</DisplayName>
-            <Protocol Name="Proprietary"
-                Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="message" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateMessageTransformation" />
-            </OutputClaimsTransformations>
-        </TechnicalProfile>
-    
-        <TechnicalProfile Id="UserInputDisplayNameGenerator">
-            <DisplayName>Display Name Claim Generator Technical Profile</DisplayName>
-            <Protocol Name="Proprietary"
-                Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <OutputClaims>
-                <OutputClaim ClaimTypeReferenceId="displayName" />
-            </OutputClaims>
-            <OutputClaimsTransformations>
-                <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation" />
-            </OutputClaimsTransformations>
-        </TechnicalProfile>
-    ```
+```xml
+    <TechnicalProfile Id="UserInputMessageClaimGenerator">
+        <DisplayName>User Message Claim Generator Technical Profile</DisplayName>
+        <Protocol Name="Proprietary"
+            Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="message" />
+        </OutputClaims>
+        <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateMessageTransformation" />
+        </OutputClaimsTransformations>
+    </TechnicalProfile>
+
+    <TechnicalProfile Id="UserInputDisplayNameGenerator">
+        <DisplayName>Display Name Claim Generator Technical Profile</DisplayName>
+        <Protocol Name="Proprietary"
+            Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="displayName" />
+        </OutputClaims>
+        <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateDisplayNameTransformation" />
+        </OutputClaimsTransformations>
+    </TechnicalProfile>
+```
 
 ## Step 4 - Update AAD-UserRead Technical Profile 
 
@@ -246,89 +246,89 @@ We need to add more output claims in out *AAD-UserRead* technical profile. At th
 
 Locate the *AAD-UserRead* technical profile, and add three more output claims, *givenName*, *surname* and *displayName* by using the following code:
 
-    ```xml
-          <OutputClaim ClaimTypeReferenceId="givenName"/>
-          <OutputClaim ClaimTypeReferenceId="surname"/>
-          <OutputClaim ClaimTypeReferenceId="displayName"/>
-    ```
+```xml
+    <OutputClaim ClaimTypeReferenceId="givenName"/>
+    <OutputClaim ClaimTypeReferenceId="surname"/>
+    <OutputClaim ClaimTypeReferenceId="displayName"/>
+```
 
 ## Step 5 - Update the User Journey Orchestration Steps
 
 Locate your *HelloWorldJourney* user journey and replace all it's Orchestration Steps with the following code: 
 
-    ```xml
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="SignupOrSigninContentDefinition">
-            <ClaimsProviderSelections>
-                <ClaimsProviderSelection
-                    ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-            </ClaimsProviderSelections>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="UserSignInCollector" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                    <Value>objectId</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="UserInformationCollector" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
+```xml
+    <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="SignupOrSigninContentDefinition">
+        <ClaimsProviderSelections>
+            <ClaimsProviderSelection
+                ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+        </ClaimsProviderSelections>
+        <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="UserSignInCollector" />
+        </ClaimsExchanges>
+    </OrchestrationStep>
+    
+    <OrchestrationStep Order="2" Type="ClaimsExchange">
+        <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                <Value>objectId</Value>
+                <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+        </Preconditions>
+        <ClaimsExchanges>
+            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="UserInformationCollector" />
+        </ClaimsExchanges>
+    </OrchestrationStep>
 
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-            <Preconditions>
-                <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                    <Value>objectId</Value>
-                    <Action>SkipThisOrchestrationStep</Action>
-                </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-                <ClaimsExchange Id="GetAccessCodeClaimsExchange" TechnicalProfileReferenceId="AccessCodeInputCollector" />
-            </ClaimsExchanges>
-        </OrchestrationStep>
-  
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-            <Preconditions>
+    <OrchestrationStep Order="3" Type="ClaimsExchange">
+        <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
                 <Value>objectId</Value>
                 <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
-            </Preconditions>     
-            <ClaimsExchanges>
-            <ClaimsExchange Id="GenerateDisplayNameExchange" TechnicalProfileReferenceId="UserInputDisplayNameGenerator"/>
-            </ClaimsExchanges>
-        </OrchestrationStep>
-        
-        <OrchestrationStep Order="5" Type="ClaimsExchange">
-            <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-                <Value>objectId</Value>
-                <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-            </Preconditions>
-            <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserWriterExchange" TechnicalProfileReferenceId="AAD-UserWrite"/>
-            </ClaimsExchanges>
-        </OrchestrationStep>                
-        
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
-            <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReaderExchange" TechnicalProfileReferenceId="AAD-UserRead"/>
-            </ClaimsExchanges>
-        </OrchestrationStep>                
-        
-        <OrchestrationStep Order="7" Type="ClaimsExchange">
-            <ClaimsExchanges>
-            <ClaimsExchange Id="GetMessageClaimsExchange" TechnicalProfileReferenceId="UserInputMessageClaimGenerator"/>
-            </ClaimsExchanges>          
-        </OrchestrationStep>                
-        
-        <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-    ```
+        </Preconditions>
+        <ClaimsExchanges>
+            <ClaimsExchange Id="GetAccessCodeClaimsExchange" TechnicalProfileReferenceId="AccessCodeInputCollector" />
+        </ClaimsExchanges>
+    </OrchestrationStep>
+
+    <OrchestrationStep Order="4" Type="ClaimsExchange">
+        <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+            <Value>objectId</Value>
+            <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+        </Preconditions>     
+        <ClaimsExchanges>
+        <ClaimsExchange Id="GenerateDisplayNameExchange" TechnicalProfileReferenceId="UserInputDisplayNameGenerator"/>
+        </ClaimsExchanges>
+    </OrchestrationStep>
+    
+    <OrchestrationStep Order="5" Type="ClaimsExchange">
+        <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+            <Value>objectId</Value>
+            <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+        </Preconditions>
+        <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserWriterExchange" TechnicalProfileReferenceId="AAD-UserWrite"/>
+        </ClaimsExchanges>
+    </OrchestrationStep>                
+    
+    <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <ClaimsExchanges>
+        <ClaimsExchange Id="AADUserReaderExchange" TechnicalProfileReferenceId="AAD-UserRead"/>
+        </ClaimsExchanges>
+    </OrchestrationStep>                
+    
+    <OrchestrationStep Order="7" Type="ClaimsExchange">
+        <ClaimsExchanges>
+        <ClaimsExchange Id="GetMessageClaimsExchange" TechnicalProfileReferenceId="UserInputMessageClaimGenerator"/>
+        </ClaimsExchanges>          
+    </OrchestrationStep>                
+    
+    <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+```
 
 ## Step 6 - Upload policy
 

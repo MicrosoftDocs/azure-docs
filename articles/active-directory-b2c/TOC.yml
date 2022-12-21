@@ -489,6 +489,8 @@
         href: custom-policies-series-sign-up-or-sign-in.md
       - name: 11 - Sign up and sign in (local and social account)
         href: custom-policies-series-sign-up-or-sign-in-federation.md
+      - name: 12 - How to read custom policy files
+        href: custom-policies-series-how-to-read.md
     # Secure
   - name: Secure
     items:
