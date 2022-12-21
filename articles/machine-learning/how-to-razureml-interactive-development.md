@@ -71,7 +71,7 @@ Use these steps to find the URI:
 
 ### Read tabular data from registered _data assets_ or _datastores_
 
-Once you've run the setup script on your compute instance and you have the file URI(s) for your data, use the following to read a tabular file into an R `data.frame`:
+Once you've run the setup script on your compute instance and you have the file URI for your data, use the following to read a tabular file into an R `data.frame`:
 
 1. Load `reticulate`
     
