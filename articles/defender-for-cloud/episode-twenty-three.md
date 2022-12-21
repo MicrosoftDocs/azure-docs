@@ -3,7 +3,7 @@ title: Defender Threat Intelligence  | Defender for Cloud in the field
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about Microsoft Defender Threat Intelligence (Defender TI)
 ms.topic: reference
-ms.date: 12/18/2022
+ms.date: 12/21/2022
 ---
 
 # Defender threat Intelligence | Defender for Cloud in the Field
@@ -13,13 +13,13 @@ ms.date: 12/18/2022
 <br>
 <iframe src="https://aka.ms/docs/player?id=adfb8027-21ca-4bd0-9e54-28b0d642558a" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [04:09](/shows/mdc-in-the-field/defender-easm#time=04m09s) - How Defender for Cloud leverages Defender TI
+- [04:09](/shows/mdc-in-the-field/threat-intelligence#time=04m09s) - How Defender for Cloud leverages Defender TI
 
-- [05:25](/shows/mdc-in-the-field/defender-easm#time=05m25s) - What is reputation score in Defender TI
+- [05:25](/shows/mdc-in-the-field/threat-intelligence#time=05m25s) - What is reputation score in Defender TI
 
-- [07:15](/shows/mdc-in-the-field/defender-easm#time=07m15s) - How to try Defender TI
+- [07:15](/shows/mdc-in-the-field/threat-intelligence#time=07m15s) - How to try Defender TI
 
-- [08:45](/shows/mdc-in-the-field/defender-easm#time=08m45s) - Demonstration
+- [08:45](/shows/mdc-in-the-field/threat-intelligence#time=08m45s) - Demonstration
 
 
 ## Recommended resources
