@@ -642,8 +642,20 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload-java.md
+            - name: Download blobs
+              href: storage-blob-download-java.md
+            - name: Copy blobs
+              href: storage-blob-copy-java.md
+            - name: List blobs
+              href: storage-blob-list-java.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-java.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-java.md
             - name: Manage blob leases
               href: storage-blob-lease-java.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-java.md
         - name: JavaScript
           items:
           - name: Get started
