@@ -79,12 +79,12 @@ Create and manage private offers from the **Private offers** dashboard in Partne
 
 Use this page to define private offer terms, notification contacts, and pricing for your customer.
 
-- - **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
+- **Customer Information** – Specify the billing account for the customer receiving this private offer. This will only be available to the configured customer billing account and the customer will need to be an owner or contributor or signatory on the billing account to accept the offer.
 
-   > [!NOTE]
-   >    Customers can find their billing account ID in 2 ways. 1) In the [Azure portal](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** **Properties** **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 2) If customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription **Properties** (or Billing Properties) **Billing Account ID**. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
+    > [!NOTE]
+    >    Customers can find their billing account ID in 2 ways. 1) In the [Azure portal](https://aka.ms/PrivateOfferAzurePortal) under **Cost Management + Billing** **Properties** **ID**. A user in the customer organization should have access to the billing account to see the ID in Azure Portal. 2) If customer knows the subscription they plan to use for the purchase, click on **Subscriptions**, click on the relevant subscription **Properties** (or Billing Properties) **Billing Account ID**. See [Billing account scopes in the Azure portal](/azure/cost-management-billing/manage/view-all-accounts).
    
-           :::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
+:::image type="content" source="media/isv-customer/customer-properties.png" alt-text="Shows the offer Properties tab in Partner Center.":::
 
 - **Private offer terms** – Specify the duration, accept-by date, and terms:
 
