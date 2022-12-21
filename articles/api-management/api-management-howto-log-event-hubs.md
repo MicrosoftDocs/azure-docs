@@ -25,11 +25,17 @@ This article describes how to log API Management events using Azure Event Hubs.
 
 ## Configure access to the event hub
 
-To log events to the event hub, you need credentials to enable access from API Management. API Management supports two access mechanisms: an Event Hubs connection string, or an API Management managed identity.
+To log events to the event hub, you need to configure credentials for access from API Management. API Management supports two access mechanisms:
+
+* An event hub connection string
+* A managed identity for your API Management instance.
 
 ### Configure event hub connection string
 
-To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). You can get a connection string to the namespace or the specific event hub you use for logging from API Management
+To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). 
+
+* You can use a connection string for the Event Hubs namespace or for the specific event hub you use for logging from API Management.
+* The shared access policy for the connection string must enable at least **Send** permissions.
 
 ### Configure API Management managed identity
 
@@ -40,25 +46,25 @@ To create an Event Hubs connection string, see [Get an Event Hubs connection str
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
 
-1. Assign the identity the **Azure Event Hubs Data Owner** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
-
+1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
 
 ## Create an API Management logger
-Now that you have an event hub, the next step is to configure a [Logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
+The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
 
-API Management loggers can be configured using the [API Management REST API](/rest/api/apimanagement/current-ga/logger/create-or-update) directly or tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
+You can create and manage API Management loggers using the [API Management REST API](/rest/api/apimanagement/current-ga/logger/create-or-update) directly or using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
 
 ### Logger with connection string credentials
 
 #### [PowerShell](#tab/PowerShell)
 
-The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by specifying a connection string.
+The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by configuring a connection string.
 
 ```powershell
 # API Management service-specific details
 $apimServiceName = "apim-hello-world"
 $resourceGroupName = "myResourceGroup"
 
+# Create logger
 $context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
 New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "ApimEventHub" -ConnectionString "Endpoint=sb://ContosoEventHubs.servicebus.windows.net/;SharedAccessKeyName=SendKey;SharedAccessKey=<key>" -Description "Event hub logger with connection string"
 ```
@@ -118,7 +124,7 @@ Include the following JSON snippet in your Azure Resource Manager template.
 
 ## Configure log-to-eventhub policy
 
-Once your logger is configured in API Management, you can configure your [log-to-eventhub](api-management-advanced-policies.md#log-to-event-hub) policy to log the desired events. The `log-to-eventhub` policy can be used in either the inbound policy section or the outbound policy section.
+Once your logger is configured in API Management, you can configure your [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub) policy to log the desired events. For example, use the `log-to-eventhub` policy in the inbound policy section to log requests, or in the outbound policy section to log responses.
 
 1. Browse to your API Management instance.
 1. Select **APIs**, and then select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
@@ -156,7 +162,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 
 1. In the Azure portal, browse to the event hub that the logger sends events to. 
 2. Under **Features**, select the **Process data** tab.
-3. On the **Enable real time insights from events** card, select **Explore**.
+3. On the **Enable real time insights from events** card, select **Start**.
 4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
 ## Next steps
@@ -169,12 +175,3 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
   * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
-
-[publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
-[create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
-[event-hub-connection-string]: ./media/api-management-howto-log-event-hubs/event-hub-connection-string.png
-[event-hub-dashboard]: ./media/api-management-howto-log-event-hubs/event-hub-dashboard.png
-[receiving-policy]: ./media/api-management-howto-log-event-hubs/receiving-policy.png
-[sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
-[event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
-[add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
