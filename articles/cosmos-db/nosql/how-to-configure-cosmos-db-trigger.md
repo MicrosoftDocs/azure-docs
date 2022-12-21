@@ -50,7 +50,7 @@ Once enabled, there are four levels of log events that will be emitted:
   * When there are transient connectivity issues preventing the trigger from interacting with the Azure Cosmos DB account. The trigger will retry these [transient connectivity errors](troubleshoot-dotnet-sdk-request-timeout.md) but if they extend for a long period of time, there could be a network problem. You can enable Debug level traces to obtain the Diagnostics from the underlying Azure Cosmos DB SDK.
 
 * Information:
-  * When a lease is taken to another instance - During initialization and when the Function scales, the leases can be rebalanced to another instance. If you customized the acquire or expiration intervals, this can also indicate that the values might be inappropriate (the expiration interval is lower than renewal) and should be fixed.
+  * When a lease is taken to another instance - During initialization and when the Function scales, the leases can be rebalanced to another instance. If you customized the acquire or expiration intervals, it can also indicate that the values might be inappropriate (the expiration interval is lower than renewal).
 
 * Debug:
   * When a lease is acquired by an instance - The current instance will start processing the Change Feed for the lease.
