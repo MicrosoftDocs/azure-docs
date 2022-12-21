@@ -56,8 +56,9 @@ To set up a Log Analytics workspace for data collection:
 
 ## 2. Migrate applications
 
-:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 ## 3. Ingest historical data
+
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
 
 ## 4. Collect data
 
