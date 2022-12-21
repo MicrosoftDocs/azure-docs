@@ -166,7 +166,7 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Although customer data isn't stored outside of your region, the names of user-defined objects are collected during routine service monitoring and retained in telemetry logs for global access by Microsoft support engineers. For a search service, this customer data consists of the names of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Although customer data isn't stored outside of your region, object names will appear in the telemetry logs used by Microsoft Support to troubleshoot your service issues. Object names are considered customer data. Names in telemetry logs include those of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
 Object names aren't obfuscated in the telemetry logs. If possible, avoid using names that convey sensitive information.
 
@@ -186,7 +186,7 @@ To remove references to specific objects, or to change the data retention period
    + **Problem type**: Setup and configuration
    + **Problem subtype**: Issue with security configuration of the service
 
-1. In **Additional details**, describe the object names you would like removed, or specify the retention period that you require.
+1. When you get to **Additional details** (the third tab), describe the object names you would like removed, or specify the retention period that you require.
 
    :::image type="content" source="media/search-security-overview/support-request.png" alt-text="First page of the support ticket with issue and problem types selected." border="true":::
 
