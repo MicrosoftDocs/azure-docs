@@ -44,7 +44,7 @@ The tables below summarize current availability:
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
-| USA               | Short-Codes | Public Preview       | Public Preview\*     | -        | -          |
+| USA               | Short-Codes | General Availability | General Availability | -        | -          |
 
 \* Available through Azure Bot Framework and Dynamics only
 
