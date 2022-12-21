@@ -50,6 +50,25 @@ The install script performs the following steps:
 For a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset)
 * Retrieve the complete AzureML URI for the file to be used in the form of `azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>`
 
+Use these steps to find the URI:
+
+1. Sign in to [studio](https://ml.azure.com)
+1. Select your workspace if necessary
+1. On the left navigation bar, select **Data**
+1. In the list of data assets, select the data name
+1. In the Details section, select the link for **workspaceblobstore**
+
+    :::image type="content" source="media/how-to-razureml-interactive-development/workspaceblobstore.png" alt-text="Screenshot: Select workspaceblobstore in the Details section.":::
+
+1. In the new tab that opens, select **UI** folder.
+
+    :::image type="content" source="media/how-to-razureml-interactive-development/select-ui.png" alt-text="Screenshot: Select Copy URI from the menu.":::
+
+1. Expand the folder(s) to find your file.
+1. Select the **"..."** at the end of the file, then select **Copy URI**
+
+    :::image type="content" source="media/how-to-razureml-interactive-development/copy-uri.png" alt-text="Screenshot: Select Copy URI from the menu.":::
+
 ### Read tabular data from registered _data assets_ or _datastores_
 
 Once you've run the setup script on your compute instance and you have the file URI(s) for your data, use the following to read a tabular file into an R `data.frame`:
