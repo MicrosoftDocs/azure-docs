@@ -20,3 +20,7 @@ items:
     href: ./dynatrace/index.yml
   - name: NGINX for Azure (preview)
     href: ./nginx/index.yml
+  - name: Azure Native Qumolo Service (preview)
+    href: ./qumolo/index.yml
+  - name: Azure Native New Relic Service (preview)
+    href: ./new-relic/index.yml
