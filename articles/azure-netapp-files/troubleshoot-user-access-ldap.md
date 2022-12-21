@@ -16,7 +16,7 @@ ms.date: 12/21/2022
 ms.author: anfdocs
 ---
 
-## Troubleshooting user access on LDAP volumes
+# Troubleshooting user access on LDAP volumes
 
 Azure NetApp Files provides you with the ability to validate user connectivity and access to LDAP-enabled volumes based on group membership. When you provide a user ID, Azure NetApp Files will report a list of primary and auxiliary group IDs that user belongs to from the LDAP server.
 
