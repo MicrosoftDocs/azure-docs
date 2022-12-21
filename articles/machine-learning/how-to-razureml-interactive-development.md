@@ -97,17 +97,29 @@ Once you've run the setup script on your compute instance and you have the file 
     ```r
     pd <- import("pandas")
     ```
-1. Specify the fill path to the asset
+1. Find the URI path to the data file. Using `reticulate`, you can find the path with a small piece of Python code:
 
-    ```r
-    # uri is of the form azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>. 
-	uri = "paste-copied-uri-here"
-	```
+```r
+py_code <- "from azure.identity import DefaultAzureCredential
+from azure.ai.ml import MLClient
+credential = DefaultAzureCredential()
+ml_client = MLClient.from_config(credential=credential)
+
+import pandas as pd
+
+# get a handle to the data asset, then get the uri
+data_asset = ml_client.data.get(name='<DATA_NAME>', version='<VERSION_NUMBER>')
+data_uri = data_asset.path"
+
+py_run_string(py_code)
+
+# your uri is now available in the variable py$data_uri
+```
 
 1. Use Pandas read functions to read in the file(s) into the R environment
 
     ```r
-    r_dataframe <- pd$read_csv(uri)
+    r_dataframe <- pd$read_csv(py$data_uri)
     ```
 
 You've now created a Python virtual environment with the appropriate Python packages to be able to read data.
