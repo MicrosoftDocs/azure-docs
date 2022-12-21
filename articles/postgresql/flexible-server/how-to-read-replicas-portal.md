@@ -117,46 +117,35 @@ You can also delete the read replica from the **Replication** window by followin
 
    :::image type="content" source="./media/how-to-read-replicas-portal/delete-confirm.png" alt-text="Confirm to delete te replica":::
 
-[//]: # (## Monitor a replica)
+## Monitor a replica
 
-[//]: # ()
-[//]: # (Two metrics are available to monitor read replicas.)
+Two metrics are available to monitor read replicas.
 
-[//]: # ()
-[//]: # (### Max Lag Across Replicas metric)
+### Max Physical Replication Lag
+> Available only on the primary.
 
-[//]: # ()
-[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary server and the most-lagging replica.)
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary server and the most-lagging replica.
 
-[//]: # ()
-[//]: # (1.	In the Azure portal, select the primary Azure Database for PostgreSQL server.)
+1.	In the Azure portal, select the primary server.
 
-[//]: # ()
-[//]: # (2.	Select **Metrics**. In the **Metrics** window, select **Max Lag Across Replicas**.)
+2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
 
-[//]: # ()
-[//]: # (    :::image type="content" source="./media/how-to-read-replicas-portal/select-max-lag.png" alt-text="Monitor the max lag across replicas":::)
+    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Monitor the max lag across replicas":::
 
-[//]: # ()
-[//]: # (3.	For your **Aggregation**, select **Max**.)
+3.	For your **Aggregation**, select **Max**.
 
-[//]: # ()
-[//]: # (### Replica Lag metric)
+### Read Replica Lag metric
+> Available only on replicas.
 
-[//]: # ()
-[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your master, the metric reflects this time lag.)
+The **Read Replica Lag** metric shows the time since the last replayed transaction on a replica. If there are no transactions occurring on your primary, the metric reflects this time lag.
 
-[//]: # ()
-[//]: # (1. In the Azure portal, select the Azure Database for PostgreSQL read replica.)
+1. In the Azure portal, select read replica.
 
-[//]: # ()
-[//]: # (2. Select **Metrics**. In the **Metrics** window, select **Replica Lag**.)
+2. Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
 
-[//]: # ()
-[//]: # (   :::image type="content" source="./media/how-to-read-replicas-portal/select-replica-lag.png" alt-text="Monitor the replica lag":::)
+   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Monitor the replica lag":::
 
-[//]: # ()
-[//]: # (3. For your **Aggregation**, select **Max**.)
+3. For your **Aggregation**, select **Max**.
 
 ## Next steps
 

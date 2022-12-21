@@ -78,7 +78,7 @@ By default, read replicas are created with the same server configuration as the 
 
 > [!NOTE]
 > It is recommended that the replica server's configuration should be kept at equal or greater
-> values than the primary to ensure the replica is able to keep up with the master.
+> values than the primary to ensure the replica is able to keep up with the primary.
 
 ### List replicas for a primary server
 
