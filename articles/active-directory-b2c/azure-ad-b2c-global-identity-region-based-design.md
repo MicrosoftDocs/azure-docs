@@ -49,7 +49,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 ### Existing local user attempts sign up
 
-This use case demonstrates how a user re-registering the same email from their own country, or a different region, is blocked.
+This use case demonstrates how a user re-registering the same email from their own country/region, or a different region, is blocked.
 
 ![Screenshot shows the existing local user sign up attempt flow.](media/azure-ad-b2c-global-identity-regional-design/existing-local-user-sign-up.png)
 
