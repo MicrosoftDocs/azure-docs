@@ -188,7 +188,7 @@ To remove references to specific objects, or to change the data retention period
 
 1. When you get to **Additional details** (the third tab), describe the object names you would like removed, or specify the retention period that you require.
 
-   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="First page of the support ticket with issue and problem types selected." border="true":::
+   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="Screenshot of the first page of the support ticket with issue and problem types selected." border="true":::
 
 <a name="encryption"></a>
 
