@@ -7,19 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/15/2022
+ms.date: 12/21/2022
 ms.author: alkohli
 ---
 # Erase data from Azure Stack Edge device and generate a certificate of proof
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides steps to reset an Azure Stack Edge device and generate a certificate of proof that device data has been removed.
-
-After you reset your device, you can generate a Secure Erase Certificate that verifies the following details about your device and its data in an erase record:
-
- - Summary of device details.
- - Disk by disk details, including erasure type how it was verified.
+This article provides steps to reset an Azure Stack Edge device. After you reset your device, you can generate a Secure Erase Certificate that verifies details about your device and its data in an erase record.
  
 The following erase types are supported:
 
@@ -38,12 +33,15 @@ The following erase types are supported:
 
    ![Screenshot that shows the Azure portal option to confirm device reset for an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate-reset-device-confirmation.png)
 
+1. The reset operation includes generation of a Secure Erase Certificate, as shown below:
+
+   ![Screenshot of the Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate.png)
+
 ## Download the Secure erase certificate for your device
 
-1. Troubleshooting > Support > Support package options > Create support package > Download support package
-1. What to do with your Secure Erase Certificate...
+Use the following steps to download a Secure Erase Certificate for your device after device reset:
 
-Yep
+1. **Troubleshooting** > **Support** > **Support package options** > **Create support package** > **Download support package**.
 
 ## Next steps
 
