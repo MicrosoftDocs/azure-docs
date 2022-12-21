@@ -88,11 +88,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML text NER job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml":::
 
 ## YAML: AutoML text NER sweeping job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll-distributed-sweeping/cli-automl-text-ner-conll2003-distributed-sweeping.yml
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll-distributed-sweeping/cli-automl-text-ner-conll2003-distributed-sweeping.yml":::
 
 ## YAML: AutoML text NER pipeline job
 
