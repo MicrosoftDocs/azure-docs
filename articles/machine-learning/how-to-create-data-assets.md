@@ -236,20 +236,6 @@ The MLTable file is a file that provides the specification of the data's schema 
 > [!NOTE]
 > This file needs to be named exactly as `MLTable`.
 
-> [!IMPORTANT]
-> We recommend co-locating the MLTable file with the underlying data in storage. For example:
-> 
-> ```Text
-> ├── my_data
-> │   ├── MLTable
-> │   ├── file_1.txt
-> .
-> .
-> .
-> │   ├── file_n.txt
-> ```
-> Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You need **not** specify *absolute paths* in the MLTable file if you're co-locating the MLTable file with your data.
-
 An *example* MLTable file for delimited files is provided below:
 
 ```yml
@@ -269,7 +255,7 @@ An *example* MLTable file for Delta Lake is provided below:
 type: mltable
 
 paths:
-  - folder: ./folder_name
+  - folder: ./
 
 transformations:
   - read_delta_lake:
@@ -279,6 +265,20 @@ transformations:
 ```
 
 For more transformations available in `mltable`, please look into [reference-yaml-mltable](reference-yaml-mltable.md). 
+
+> [!IMPORTANT]
+> We recommend co-locating the MLTable file with the underlying data in storage. For example:
+> 
+> ```Text
+> ├── my_data
+> │   ├── MLTable
+> │   ├── file_1.txt
+> .
+> .
+> .
+> │   ├── file_n.txt
+> ```
+> Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You need **not** specify *absolute paths* in the MLTable file.
 
 ### Creating the data asset
 
