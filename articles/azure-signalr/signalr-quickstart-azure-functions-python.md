@@ -18,16 +18,16 @@ Get started with Azure SignalR Service by using Azure Functions and Python to bu
 
 ## Prerequisites
 
-This quickstart can be run on macOS, Windows, or Linux.  You willneed the following:
+This quickstart can be run on macOS, Windows, or Linux.  You will need the following:
 
 | Prerequisite | Description |
 | --- | --- |
-| An Azure subsription |If you don't have an [Azure subscription](../articles/guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create an [Azure free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+| An Azure subscription |If you don't have an Azure subscription, create an [Azure free account]((https://azure.microsoft.com/free/?WT.mc_id=A261C142F))|
 | A code editor | You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
 | [Python 3.6+](https://www.python.org/downloads/)| Azure Functions requires Python 3.6+. See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version). |
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage.  You can use a local storage emulator when a function is running locally. |
-| [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
+| [Azure CLI]([Azure CLI](/cli/azure/install-azure-cli))| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
 
 ## Create an Azure SignalR Service instance
 
