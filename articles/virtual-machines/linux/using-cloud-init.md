@@ -7,7 +7,7 @@ ms.subservice: extensions
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 12/21/2022
 ms.author: srijangupta
 
 ---
@@ -128,14 +128,13 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line:
+The next step is to create a file in your current shell, named *cloud-init.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor of your choice. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. In this example, we are using the **nano** editor. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line:
 
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - apache2
-```
+ SLES| Ubuntu | RHEL
+|:--- |:--- |:---
+| ` # cloud-config `<br>` package_upgrade: true `<br>` packages: `<br>`  - apache2 ` | ` # cloud-config `<br>` package_upgrade: true `<br>` packages: `<br>`  - httpd ` | ` # cloud-config `<br>` package_upgrade: true `<br>` packages: `<br>`  - httpd ` |
+ 
+ 
 > [!NOTE]
 > cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
