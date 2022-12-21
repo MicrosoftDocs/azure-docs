@@ -12,10 +12,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2022
+ms.date: 12/21/2022
 ms.author: robiro
 
 ---
+
+[Visio file]:(./media/sap-rise-integration/ecs-rise-connectivity-released.vsdx)
 
 # Integrating Azure with SAP RISE managed workloads
 
@@ -24,7 +26,9 @@ For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services
 RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services are SAP managed services of your SAP landscape, in an Azure subscription owned by SAP. The virtual network (vnet) utilized by these managed systems should fit well in your overall network concept and your available IP address space. Requirements for private IP range for RISE PCE or ECS environments are coming from SAP reference deployments. Customers specify the chosen RFC1918 CIDR IP address range to SAP. To facilitate connectivity between SAP and customers owned Azure subscriptions/vnets, a direct vnet peering can be set up. Another option is the use of a VPN vnet-to-vnet connection.
 
 > [!IMPORTANT]
-> For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud, private edition please contact your SAP representative.
+> For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud private edition, contact your SAP representative.
+
+_Download a [Visio file] of the diagrams in this article._
 
 ## Virtual network peering with SAP RISE/ECS
 
@@ -39,6 +43,12 @@ SAP managed workload is preferably deployed in the same [Azure region](https://a
 :::image-end:::
 
 Since SAP RISE/ECS runs in SAP’s Azure tenant and subscriptions, the virtual network peering needs to be set up between [different tenants](../../../virtual-network/create-peering-different-subscriptions.md). This can be accomplished by setting up the peering with the SAP provided network’s Azure resource ID and have SAP approve the peering. Add a user from the opposite AAD tenant as a guest user, accept the guest user invitation and follow process documented at [Create a VNet peering - different subscriptions](../../../virtual-network/create-peering-different-subscriptions.md#cli). Contact your SAP representative for the exact steps required. Engage the respective team(s) within your organization that deal with network, user administration and architecture to enable this process to be completed swiftly.
+
+### Connectivity during migration to ECS/RISE
+
+Migration of your SAP landscape to ECS/RISE is done in a phases over several months or longer. Some of your SAP environments will be migrated and used productively, while other SAP systems are prepared for migration. In most customer projects the biggest and most critical systems are migrated in the middle or at end of the project. This means that you need to consider having ample bandwidth for data migration or database replication, and not impact the network path of your users to the already productive ECS/RISE environments. Already migrated SAP systems also might need to communicate with the SAP landscape still on-premises or at existing service provider. 
+
+During your migration planning to ECS/RISE, plan how in each phase SAP systems are reachable for your base and how data transfer to ECS/RISE vnet is routed. This is particularly important if you have consider multiple locations and parties involved, such as existing service provider and data centers with own connection to your corporate network. Make sure no temporary solutions with VPN connections are created without considering how in later phases SAP data gets migrated for the business critical and largest systems.
 
 ## VPN Vnet-to-Vnet
 
@@ -72,7 +82,7 @@ Similarly to using a hub and spoke network architecture with connectivity to bot
 
 The vWAN network hub is deployed and managed entirely by customer in customer subscription and vnet. On-premise connection and routing through vWAN network hub are also managed entirely by customer.
 
-Again, contact your SAP representative for details and steps needed to establish this connectivity.
+Contact your SAP representative for details and steps needed to establish this connectivity.
 
 ## DNS integration with SAP RISE/ECS managed workloads
 
@@ -166,7 +176,16 @@ The SAP RISE environment here provides access to the SAP ports for RFC and https
 SAP RISE/ECS exposes the communication ports for these applications to use but has no knowledge about any details of the connected application or service running in a customer’s subscription.
 
 > [!Note]
-> SAP must be contacted for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
+> Contact SAP for any SAP license details for any implications accessing SAP data through Azure service connecting to the SAP system or database.
+
+## Single Sign-On for SAP 
+
+Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads running in ECS/RISE, identical setup steps can be followed for SSO against Azure Active Directory (AAD). The configuration steps are available for typical ECS/RISE managed workloads:
+- [Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver](/azure/active-directory/saas-apps/sap-netweaver-tutorial)
+- [Tutorial: Azure Active Directory single sign-on (SSO) integration with SAP Fiori](/azure/active-directory/saas-apps/sap-fiori-tutorial)
+- [Tutorial: Azure Active Directory integration with SAP HANA](/azure/active-directory/saas-apps/saphana-tutorial)
+
+SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, needs to be planned in detail with SAP. SSO methods such as Kerberos/SPNEGO and Kerberos/SNC are used often for SSO with SAPGui, WebGui and SAP Portal and require an AD domain for the Kerberos protocol. Active directory integration is typically done on OS level, either Windows domain registration or Linux utilities such as kutil and keytab. With ECS/RISE managed workload this would mean having domain objects in Azure tenant and subscription of SAP. Consider such implementation with your compliance teams.
 
 ## Azure Monitoring for SAP with SAP RISE
 
@@ -175,12 +194,11 @@ SAP RISE/ECS exposes the communication ports for these applications to use but h
 > [!Note]
 > SAP RISE/ECS is a fully managed service for your SAP landscape and thus Azure Monitoring for SAP is not intended to be utilized for such managed environment.
 
-SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. SAP RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP.
+SAP RISE/ECS doesn't support any integration with Azure Monitoring for SAP. RISE/ECS’s own monitoring and reporting is provided to the customer as defined by your service description with SAP.
 
 ## Next steps
 Check out the documentation:
 
 - [SAP workloads on Azure: planning and deployment checklist](./sap-deployment-checklist.md)
 - [Virtual network peering](../../../virtual-network/virtual-network-peering-overview.md)
-- [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md)
 - [SAP Data Integration Using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/main/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)
