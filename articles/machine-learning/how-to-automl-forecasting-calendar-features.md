@@ -108,8 +108,8 @@ The output is shown below:
 
 #### **Quick reference links:**
 
-1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays)
-2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](https://learn.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline)
+1.	[azureml.opendatasets.PublicHolidays class - Azure Machine Learning Python | Microsoft Learn](/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays)
+2.	[azureml.opendatasets.PublicHolidaysOffline class - Azure Machine Learning Python | Microsoft Learn](/python/api/azureml-opendatasets/azureml.opendatasets.publicholidaysoffline)
 3.	[ISO week date - Wikipedia](https://en.wikipedia.org/wiki/ISO_week_date)
 4.  [List of ISO 3166 country codes](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
-5. [How to set forecast settings](https://learn.microsoft.com/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings&preserve-view=true)
+5.  [How to set forecast settings](/python/api/azure-ai-ml/azure.ai.ml.automl.forecastingjob#azure-ai-ml-automl-forecastingjob-set-forecast-settings&preserve-view=true)
