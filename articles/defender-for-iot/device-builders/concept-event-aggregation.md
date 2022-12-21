@@ -153,7 +153,7 @@ Collects connections and disconnections of USB and Ethernet.
 
 Collected fields depend on the type of event:
 
-## USB event
+**USB event**
 
 | Parameter | Description|
 |--|--|
@@ -168,7 +168,7 @@ Collected fields depend on the type of event:
 | **interface_subclass** | In case device class is 0, indicate the type of device. |
 | **interface_protocol** | In case device class is 0, indicate the type of device. |
 
-## Ethernet event
+**Ethernet event**
 
 | Parameter | Description|
 |--|--|
