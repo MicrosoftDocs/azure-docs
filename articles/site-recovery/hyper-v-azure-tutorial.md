@@ -3,7 +3,7 @@ title: Set up Hyper-V disaster recovery using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without VMM) to Azure by using Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/21/2022
 ms.custom: MVC
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -17,7 +17,6 @@ This is the third tutorial in a series. It shows you how to set up disaster reco
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Select your replication source and target.
 > * Set up the source replication environment, including on-premises Site Recovery components and the target replication environment.
 > * Create a replication policy.
 > * Enable replication for a VM.
@@ -48,7 +47,7 @@ It is important to prepare the infrastructure before you set up disaster recover
     1. For this tutorial, we don't need the Deployment Planner. In **Deployment planning completed?**, select **I will do it later**. 
     1. Select **Next**.
 
-:::image type="content" source="./media/hyper-v-azure-tutorial/deployment-planning.png" alt-text="Screenshot displays Deployment settings page." lightbox="./media/hyper-v-azure-tutorial/deployment-planning.png":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/deployment-planning.png" alt-text="Screenshot displays Deployment settings page." lightbox="./media/hyper-v-azure-tutorial/deployment-planning.png":::
 
 ### Source settings
 
@@ -62,10 +61,11 @@ To set up the source environment, you create a Hyper-V site and add to that site
 
     1. On the new **Add Server** pane, do the following:
         1. [Download the installer](#install-the-provider) for the Microsoft Azure Site Recovery Provider.
+            :::image type="content" source="./media/hyper-v-azure-tutorial/add-server.png" alt-text="Screenshot displays Add server page." lightbox="./media/hyper-v-azure-tutorial/add-server.png":::
         1. Download the vault registration key. You need this key to the Provider. The key is valid for five days. [Learn more](#install-the-provider-on-a-hyper-v-core-server).
         1. Select the site you created.
     1. Select **Next**.
-        :::image type="content" source="./media/hyper-v-azure-tutorial/add-server.png" alt-text="Screenshot displays Add server page." lightbox="./media/hyper-v-azure-tutorial/add-server.png":::
+        
 
 Site Recovery checks if you have one or more compatible Azure storage accounts and networks.
 
@@ -106,16 +106,17 @@ Select and verify target resources:
 
 1. In the **Target settings** tab, do the following:
     1. In **Subscription**, select the subscription and the resource group **ContosoRG** in which the Azure VMs will be created after failover.
-    1. Under **Post-failover deployment model**, elect the **Resource Manager"** deployment model.
+    1. Under **Post-failover deployment model**, select the **Resource Manager** deployment model.
     1. Select **Next**.
  
-:::image type="content" source="./media/hyper-v-azure-tutorial/target-settings.png" alt-text="Screenshot displays Target settings." lightbox="./media/hyper-v-azure-tutorial/target-settings.png":::
+    :::image type="content" source="./media/hyper-v-azure-tutorial/target-settings.png" alt-text="Screenshot displays Target settings." lightbox="./media/hyper-v-azure-tutorial/target-settings.png":::
 
 
 ### Replication policy
 
 Under **Replication policy**, do the following:
 1. Under **Replication policy**, specify the replication policy. 
+    :::image type="content" source="./media/hyper-v-azure-tutorial/replication-policy.png" alt-text="Screenshot displays Replication policy." lightbox="./media/hyper-v-azure-tutorial/replication-policy.png":::
 1. If you do not have a replication policy, use the **Create new policy and associate** option to create a new policy. 
 1. In the **Create and associate policy** page, do the following:
     - **Name** - specify a policy name. We're using **ContosoReplicationPolicy**.
@@ -126,9 +127,13 @@ Under **Replication policy**, do the following:
     - **App-consistent snapshot frequency** indicates that recovery points containing app-consistent snapshots will be created every hour.
     - **Initial replication start time** indicates that initial replication will start immediately.   
     
-1. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. In our tutorial, that's **ContosoHyperVSite**.
+1. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. 
+    :::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot displays Create policy." lightbox="./media/hyper-v-azure-tutorial/create-policy.png":::
+1. Select **Next**.
 
-:::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot displays Create policy." lightbox="./media/hyper-v-azure-tutorial/create-policy.png":::
+On the **Review** tab, review  your selections and select **Create**.
+
+You can track progress in the notifications. After the job finishes, the initial replication is complete, and the VM is ready for failover.
 
 ## Next steps
 
