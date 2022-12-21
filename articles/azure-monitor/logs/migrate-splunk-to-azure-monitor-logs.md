@@ -63,6 +63,8 @@ To set up a Log Analytics workspace for data collection:
 
 Azure Monitor provides a variety of tools for collecting data from all data sources. The table lists the tools to use to collect data from various monitored resources.  
 
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png" alt-text="Deiagram that shows various data sources being connected to Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/azure-monitor-logs-collect-data.png":::
+
 | Monitored resource | Data collection tool | Collected data |
 | --- | --- | --- |
 | **Azure** | [Diagnostic settings](../essentials/diagnostic-settings.md)  | **Azure tenant** - Azure Active Directory Audit Logs provide sign-in activity history and audit trail of changes made within a tenant.<br/>**Azure resources** - Logs and performance counters.<br/>**Azure subscription** - Service health records along with records on any configuration changes made to the resources in your Azure subscription. |
