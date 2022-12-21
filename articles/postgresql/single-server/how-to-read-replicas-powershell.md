@@ -4,8 +4,8 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 06/24/2022
 ms.custom: devx-track-azurepowershell
 ---

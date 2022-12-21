@@ -4,8 +4,8 @@ description: Learn how to manage read replicas Azure Database for PostgreSQL - F
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
+ms.author: alkuchar
+author: AwdotiaRomanowna
 ms.date: 10/14/2022
 ---
 
