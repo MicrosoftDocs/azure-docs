@@ -36,7 +36,7 @@ When you're setting up scan, you can further scope the scan after providing the 
 ### Known limitations
 
 * Microsoft Purview supports a maximum of 800 columns on the schema tab. If there are more than 800 columns, Microsoft Purview will show **Additional-Columns-Truncated**.
-* Column-level lineage is currently not supported on the lineage tab. However, the `columnMapping` attribute on the properties tab for SQL stored rrocedure runs captures column lineage in plain text.
+* Column-level lineage is currently not supported on the lineage tab. However, the `columnMapping` attribute on the properties tab for SQL stored procedure runs captures column lineage in plain text.
 * Data lineage extraction is currently not supported for functions or triggers.
 * The lineage extraction scan is scheduled and defaulted to run every six hours. The frequency can't be changed.
 * If SQL views are referenced in stored procedures, they're currently captured as SQL tables.
@@ -90,7 +90,7 @@ For more information about the firewall, see the [SQL Database firewall document
 
 ### Allow Azure connections
 
-Enabling Azure connections will allow Microsoft Purview to connect to the server without requiring you to updateing the firewall itself. 
+Enabling Azure connections will allow Microsoft Purview to connect to the server without requiring you to update the firewall itself. 
 
 1. Go to your database account.
 1. On the **Overview** page, select the server name.
@@ -194,7 +194,7 @@ The managed identity needs permission to get metadata for the database, schemas,
 
 ### Configure portal authentication
 
-It's important to give your Microsoft Purview account's system-managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the SQL databse. You can add the SAMI or UAMI at the subscription, resource group, or resource level, depending on the breadth of the scan.
+It's important to give your Microsoft Purview account's system-managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the SQL database. You can add the SAMI or UAMI at the subscription, resource group, or resource level, depending on the breadth of the scan.
 
 > [!Note]
 > To add a managed identity on an Azure resource, you need to be an owner of the subscription.
@@ -285,29 +285,39 @@ For scanning steps, select your method of authentication from the following tabs
 
 # [SQL authentication](#tab/sql-authentication)
 
-1. Provide a **Name** for the scan, select **Database selection method** as _Enter manually_, enter the **Database name** and the **Credential** created earlier, choose the appropriate collection for the scan.
+1. For **Name**, provide a name for the scan. 
 
-1. Select **Test connection** to validate the connection. Once the connection is successful, select **Continue**.
+1. For **Database selection method** select **Enter manually**.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-auth.png" alt-text="Screenshot that shows the SQL Authentication option for scanning.":::
+1. For **Database name** and **Credential**, enter the values that you created earlier.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-auth.png" alt-text="Screenshot that shows database and credential information for the SQL authentication option to run a scan.":::
+
+1. For **Select a connection**, choose the appropriate collection for the scan.
+
+1. Select **Test connection** to validate the connection. After the connection is successful, select **Continue**.    
 
 # [Managed identity](#tab/managed-identity)
 
-1. Provide a **Name** for the scan, select the SAMI or UAMI under **Credential**, choose the appropriate collection for the scan.
+1. For **Name**, provide a name for the scan.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Screenshot that shows the managed identity option to run the scan.":::
+1. Select the SAMI or UAMI under **Credential**, and choose the appropriate collection for the scan.
 
-1. Select **Test connection**. On a successful connection, select **Continue**.
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Screenshot that shows credential and collection information for the managed identity option to run a scan.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-test.png" alt-text="Screenshot that allows the managed identity option to run the scan.":::
+1. Select **Test connection**. After the connection is successful, select **Continue**.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-test.png" alt-text="Screenshot that shows the message for a successful connection for the managed identity option to run a scan.":::
 
 # [Service principal](#tab/service-principal)
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan, and select the **Credential** dropdown to select the credential created earlier.
+1. For **Name**, provide a name for the scan.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Screenshot that shows the option for service principal to enable scanning.":::
+1. Choose the appropriate collection for the scan, and select credential that you created earlier under **Credential**.
 
-1. Select **Test connection**. On a successful connection, select **Continue**.
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Screenshot that shows collection and credential information for the service principal option to enable scanning.":::
+
+1. Select **Test connection**. After the connection is successful, select **Continue**.
 
 ---
 
@@ -315,103 +325,108 @@ For scanning steps, select your method of authentication from the following tabs
 
 1. You can scope your scan to specific database objects by choosing the appropriate items in the list.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scope-scan.png" alt-text="Scope your scan.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scope-scan.png" alt-text="Screenshot that shows options for scoping a scan.":::
 
-1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
+1. Select a scan rule set. You can use the system default, choose from existing custom rule sets, or create a new rule set inline. Select **Continue** when you're finished.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-rule-set.png" alt-text="Scan rule set.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-rule-set.png" alt-text="Screenshot that shows options for selecting a scan rule set.":::
 
-1. If creating a new _scan rule set_.
+    If you select **New scan rule set**, a pane opens so you can enter the source type, the name of the rule set, and a description. Select **Continue** when you're finished.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan-rule-set.png" alt-text="New Scan rule set.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan-rule-set.png" alt-text="Screenshot that shows information for creating a new scan rule set.":::
+    
+    For **Select classification rules**, choose the classification rules that you want to include in the scan rule set, and then select **Create**.
 
-1. You can select the **classification rules** to be included in the scan rule.
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-classification.png" alt-text="Screenshot that shows a list of classification rules for a scan rule set.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-classification.png" alt-text="Scan rule set classification rules.":::
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sel-scan-rule.png" alt-text="Scan rule set selection.":::
+    The new scan rule set then appears in the list of available rule sets.
+   
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sel-scan-rule.png" alt-text="Screenshot shat shows the selection of a new scan rule set.":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-1. Review your scan and select **Save and run**.
+1. Review your scan, and then select **Save and run**.
 
 ### View a scan
 
-1. Go to the data source in the collection, and select **View Details** to check the status of the scan.
+To check the status of a scan, go to the data source in the collection, and then select **View Details**.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan.png" alt-text="view scan.":::
+:::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan.png" alt-text="Screenshot that shows the button for viewing details of a scan.":::
 
-1. The scan details indicate the progress of the scan in the **Last run status** and the number of assets scanned and classified.
+The scan details indicate the progress of the scan in **Last run status**, along with the number of assets scanned and classified. 
+**Last run status** is updated to **In progress** and then **Completed** after the entire scan has run successfully.
 
-1. The **Last run status** will be updated to **In progress** and then **Completed** after the entire scan has run successfully.
+:::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-complete.png" alt-text="Screenshot that shows a completed status for the last scan run.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-complete.png" alt-text="view scan completed.":::
+### Manage a scan
 
-## Manage a scan
+After you run a scan, you can use the run history to manage it:
 
-Scans can be managed or run again on completion:
+1. Under **Recent scans**, select a scan. 
 
-1. Select the **Scan name** to manage the scan.
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-manage scan.png" alt-text="Screenshot that shows the selection of a recently completed scan.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-manage scan.png" alt-text="manage scan.":::
+1. In the run history, you have options for running the scan again, editing it, or deleting it.  
 
-1. You can _run the scan_ again, _edit the scan_, _delete the scan_.  
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-manage-scan-options.png" alt-text="Screenshot that shows options for running, editing, and deleting a scan.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-manage-scan-options.png" alt-text="manage scan options.":::
+    If you select **Run scan now** to rerun the scan, you can then choose either **Incremental scan** or **Full scan**.
 
-1. You can _run an incremental scan_ or a _full scan_ again.
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-full-inc.png" alt-text="Screenshot that shows options for full or incremental scan.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-full-inc.png" alt-text="full or incremental scan.":::
 
-> [!TIP]
-> To troubleshoot any issues with scanning:
-> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
-> 1. Check network by confirming [firewall](#firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#self-hosted-integration-runtime) settings.
-> 1. Confirm [authentication](#authentication-for-a-scan) is properly set up.
-> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
+### Troubleshoot scanning
+
+If you have problems with scanning, try these tips:
+
+- Confirm that you have followed all [prerequisites](#prerequisites).
+- Check the network by confirming [firewall](#firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#self-hosted-integration-runtime) settings.
+- Confirm that [authentication](#authentication-for-a-scan) is properly set up.
+
+For more information, review [Troubleshoot your connections in Microsoft Purview](troubleshoot-connections.md).
 
 ## Set up access policies
 
-### Supported policies
 The following types of policies are supported on this data resource from Microsoft Purview:
 - [DevOps policies](concept-policies-devops.md)
 - [Data owner policies](concept-policies-data-owner.md)
-- [self-service policies](concept-self-service-data-access-policy.md)
+- [Self-service policies](concept-self-service-data-access-policy.md)
 
 ### Access policy prerequisites on Azure SQL Database
-[!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
+[!INCLUDE [Access policies specific Azure SQL Database prerequisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
 ### Configure the Microsoft Purview account for policies
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-### Register the data source and enable data use management
-The Azure SQL Database resource needs to be registered first with Microsoft Purview before you can create access policies. 
-To register your resources, follow the **Prerequisites** and **Register** sections of this guide:
-[Register Azure SQL Database in Microsoft Purview](./register-scan-azure-sql-database.md#prerequisites).
+### Register the data source and enable Data use management
+The Azure SQL Database resource needs to be registered with Microsoft Purview before you can create access policies. To register your resources, follow the "Prerequisites" and "Register the data source" sections in [Enable Data use management on your Microsoft Purview sources](./register-scan-azure-sql-database.md#prerequisites).
 
-After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md).
+After you register the data source, you need to enable **Data use management**. This is a prerequisite before you can create policies on the data source. **Data use management** can affect the security of your data, because it delegates to certain Microsoft Purview roles that manage access to the data sources. Go through the security practices in [Enable Data use management on your Microsoft Purview sources](./how-to-enable-data-use-management.md).
 
-Once your data source has the **Data Use Management** option *Enabled*, it will look like this screenshot.
-![Screenshot shows how to register a data source for policy](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png).
+After your data source has the **Data Use Management** option set to **Enabled**, it will look like this screenshot:
+
+![Screenshot that shows the panel for registering a data source for a policy, including areas for name, server name, and data use management.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png).
 
 ### Create a policy
 To create an access policy for Azure SQL Database, follow these guides:
 
-* [DevOps policy on a single Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy)
-* [Data owner policy on a single Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). This guide will allow you to provision access on a single Azure SQL Database account in your subscription.
-* [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md). This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
-* [self-service policy for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). This guide will allow data consumers to request access to data assets using self-service workflow.
+* [Provision access to system metadata in Azure SQL Database](./how-to-policies-devops-azure-sql-db.md#create-a-new-devops-policy). Use this guide to apply a DevOps policy on a single SQL database.
+* [Provision access by data owner for Azure SQL Database](./how-to-policies-data-owner-azure-sql-db.md#create-and-publish-a-data-owner-policy). Use this guide to provision access on a single SQL database account in your subscription.
+* [Resource group and subscription access provisioning by data owner](./how-to-policies-data-owner-resource-group.md). Use this guide to provision access on all enabled data sources in a resource group or across an Azure subscription. The prerequisite is that the subscription or resource group must be registered with the **Data use management** option enabled. 
+* [Self-service policies for Azure SQL Database](./how-to-policies-self-service-azure-sql-db.md). Use this guide to allow data consumers to request access to data assets by using a self-service workflow.
 
 ## Extract lineage (preview) 
 <a id="lineagepreview"></a>
 
-Microsoft Purview supports lineage from Azure SQL Database. At the time of setting up a scan, enable lineage extraction toggle button to extract lineage.  
+Microsoft Purview supports lineage from Azure SQL Database. When you're setting up a scan, you turn on the **Lineage extraction** toggle to extract lineage.  
 
 ### Prerequisites for setting up a scan with lineage extraction
 
-1. Follow steps under [authentication for a scan using Managed Identity](#authentication-for-a-scan) section to authorize Microsoft Purview to scan your SQL database.
+1. Follow the steps in the [Configure authentication for a scan](#configure-authentication-for-a-scan) section to authorize Microsoft Purview to scan your SQL database.
 
-2. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview Managed identity. Use the following example SQL syntax to create user and grant permission. Replace 'purview-account' with your account name.
+2. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity. 
+
+    Use the following example SQL syntax to create user and grant permission. Replace `purview-account` with your account name.
 
     ```sql
     Create user <purview-account> FROM EXTERNAL PROVIDER
@@ -428,42 +443,46 @@ Microsoft Purview supports lineage from Azure SQL Database. At the time of setti
 
 ### Create a scan with the lineage extraction toggle turned on
 
-1. Enable lineage extraction toggle in the scan screen.
+1. On the pane for setting up a scan, turn on the **Enable lineage extraction** toggle.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction.png" alt-text="Screenshot that shows the screen to create a new scan with lineage extraction." lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-expanded.png":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction.png" alt-text="Screenshot that shows the pane for creating a new scan, with lineage extraction turned on." lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-expanded.png":::
 
-2. Select your method of authentication by following steps in the [scan section](#creating-the-scan).
-3. Once the scan is successfully set up from previous step, a new scan type called **Lineage extraction** will run incremental scans every 6 hours to extract lineage from Azure SQL Database. Lineage is extracted based on the actual stored procedure runs in the Azure SQL Database.
+2. Select your method of authentication by following the steps in the [Create the scan](#create-the-scan) section.
+3. After you successfully set up the scan, a new scan type called **Lineage extraction** will run incremental scans every six hours to extract lineage from Azure SQL Database. Lineage is extracted based on the stored procedure runs in the SQL database.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every 6 hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every six hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
 
 ### Search Azure SQL Database assets and view runtime lineage
 
-You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. The following steps describe how-to view runtime lineage details.
+You can [browse through the data catalog](how-to-browse-catalog.md) or [search the data catalog](how-to-search-catalog.md) to view asset details for Azure SQL Database. The following steps describe how to view runtime lineage details:
 
-1. Go to asset -> lineage tab, you can see the asset lineage when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Azure SQL Database lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
+1. Go to the **Lineage** tab for the asset. When applicable, the asset lineage appears here. 
 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows the screen with lineage from stored procedures.":::
 
-2. Go to stored procedure asset -> Properties -> Related assets to see the latest run details of stored procedures.
+    For information about supported Azure SQL Database lineage scenarios, refer to the [Supported capabilities](#supported-capabilities) section. For more information about lineage in general, see [Data lineage in Microsoft Purview](concept-data-lineage.md) and [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md).
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-properties.png" alt-text="Screenshot that shows the screen with stored procedure properties containing runs.":::
+2. Go to the stored procedure asset. On the **Properties** tab, go to the **Related assets** to get the latest run details of stored procedures.
 
-3. Select the stored procedure hyperlink next to Runs to see Azure SQL Stored Procedure Run Overview. Go to properties tab to see enhanced run time information from stored procedure. For example: executedTime, rowcount, Client Connection, and so on. 
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-properties.png" alt-text="Screenshot that shows run details for stored procedure properties.":::
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-run-properties.png" alt-text="Screenshot that shows the screen with stored procedure run properties."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-run-properties-expanded.png":::
+3. Select the stored procedure hyperlink next to **Runs** to see the **Azure SQL Stored Procedure Run** overview. Go to the **Properties** tab to see enhanced runtime information from the stored procedure, such as **executedTime**, **rowCount**, and **Client Connection**. 
 
-### Troubleshoot
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-run-properties.png" alt-text="Screenshot that shows run properties for a stored procedure."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-stored-procedure-run-properties-expanded.png":::
 
-* If no lineage is captured after a successful **Lineage extraction** run, it's possible that no stored procedures have run at least once since the scan is set up.
-* Lineage is captured for stored procedure runs that happened after a successful scan is set up. Lineage from past Stored procedure runs isn't captured.
-* If your database is processing heavy workloads with lots of stored procedure runs, lineage extraction will filter only the most recent runs. Stored procedure runs early in the 6 hour window or the run instances that create heavy query load won't be extracted. Contact support if you're missing lineage from any stored procedure runs.
+### Troubleshoot lineage extraction
+
+The following tips can help you solve problems related to lineage: 
+
+* If no lineage is captured after a successful **Lineage extraction** run, it's possible that no stored procedures have run at least once since you set up the scan.
+* Lineage is captured for stored procedure runs that happened after a successful scan was set up. Lineage from past stored procedure runs isn't captured.
+* If your database is processing heavy workloads with lots of stored procedure runs, lineage extraction will filter only the most recent runs. Stored procedure runs early in the six- hour window, or the run instances that create heavy query load won't be extracted. Contact support if you're missing lineage from any stored procedure runs.
 
 ## Next steps
 
 To learn more about Microsoft Purview and your data, use these guides:
-- [DevOps policies in Microsoft Purview](concept-policies-devops.md)
-- [Data Estate Insights in Microsoft Purview](concept-insights.md)
-- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+- [Concepts for Microsoft Purview DevOps policies](concept-policies-devops.md)
+- [Understand the Microsoft Purview Data Estate Insights application](concept-insights.md)
+- [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md)
+- [Search the Microsoft Purview Data Catalog](how-to-search-catalog.md)
