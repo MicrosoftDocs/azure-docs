@@ -27,7 +27,7 @@ Text-to-speech includes the following features:
 | Feature | Summary | Demo |
 | --- | --- | --- |
 | Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Highly natural out-of-the-box voices. Create an Azure account and Speech service subscription, and then use the [Speech SDK](./get-started-text-to-speech.md) or visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select prebuilt neural voices to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs. |
-| Custom neural voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Easy-to-use self-service for creating a natural brand voice, with limited access for responsible use. Create an Azure account and Speech service subscription (with the S0 tier), and [apply](https://aka.ms/customneural) to use the custom neural feature. After you've been granted access, visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select **Custom Voice** to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://aka.ms/customvoice). |
+| Custom Neural Voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Easy-to-use self-service for creating a natural brand voice, with limited access for responsible use. Create an Azure account and Speech service subscription (with the S0 tier), and [apply](https://aka.ms/customneural) to use the custom neural feature. After you've been granted access, visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select **Custom Voice** to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://aka.ms/customvoice). |
 
 ### More about neural text-to-speech features
 
@@ -76,12 +76,13 @@ Sample code for text-to-speech is available on GitHub. These samples cover text-
 * [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-## Custom neural voice
+## Custom Neural Voice
 
-In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with custom neural voice](how-to-custom-voice.md).
+In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with Custom Neural Voice](how-to-custom-voice.md).
 
 ## Pricing note
 
+### Billable characters
 When you use the text-to-speech feature, you're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. Here's a list of what's billable:
 
 * Text passed to the text-to-speech feature in the SSML body of the request
@@ -94,13 +95,13 @@ For detailed information, see [Speech service pricing](https://azure.microsoft.c
 > [!IMPORTANT]
 > Each Chinese character is counted as two characters for billing, including kanji used in Japanese, hanja used in Korean, or hanzi used in other languages.  
 
-### How to calculate Custom Neural Voice training and hosting time
+### Model training and hosting time for Custom Neural Voice
 
-Custom Neural Voice training and hosting are both charged by the hour. For the billing unit price, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Custom Neural Voice training and hosting are both calculated by hour and billed per second. For the billing unit price, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Custom Neural Voice (CNV) training is measured by ‘compute hour’ (a unit of measure of time). Typically, when training a voice model, two computing tasks are running in parallel. So, the calculated compute hours will take longer than the actual training time. It takes less than one compute hour to train a CNV Lite voice; for CNV Pro, it takes 20 to 40 compute hours to train a single-style voice, and around 90 compute hours to train a multi-style voice. 
+Custom Neural Voice (CNV) training time is measured by ‘compute hour’ (a unit to measure machine running time). Typically, when training a voice model, two computing tasks are running in parallel. So, the calculated compute hours will be longer than the actual training time. On average, it takes less than one compute hour to train a CNV Lite voice; while for CNV Pro, it usually takes 20 to 40 compute hours to train a single-style voice, and around 90 compute hours to train a multi-style voice. The CNV training time is billed with a cap of 96 compute hours. So in the case that a voice model is trained in 98 compute hours, you will only be charged with 96 compute hours. 
 
-Custom Neural Voice (CNV) endpoint hosting is measured by the actual time (hour). We will calculate the previous day's usage (hours) for each endpoint at 00:00 UTC each day. If the endpoint has been created for more than 24 hours without suspension the previous day, it will be billed for 24 hours at 00:00 UTC. If the endpoint was newly created or resumed within the previous day, it would be billed for the time since it was created or resumed until 00:00 UTC. If the endpoint is not currently hosted, it will not be billed. In addition to the daily calculation at 00:00 UTC each day, the billing is also triggered immediately when an endpoint is deleted or suspended. For example, for an endpoint created at 08:00 UTC on December 1, the hosting hour will be calculated to 16 hours at 00:00 UTC on December 2 and 24 hours at 00:00 UTC on December 3. If the user suspends hosting the endpoint at 16:00 UTC on December 3, the duration (16 hours) from 00:00 to 16:00 UTC on December 3 will be calculated for billing.
+Custom Neural Voice (CNV) endpoint hosting is measured by the actual time (hour). The hosting time (hours) for each endpoint is calculated at 00:00 UTC each second day. For example, if the endpoint has been active for 24 hours on day one, it will be billed for 24 hours at 00:00 UTC the second day. If the endpoint is newly created or has been suspended during the day, it will be billed for its acumulated running time until 00:00 UTC the second day. If the endpoint is not currently hosted, it will not be billed. In addition to the daily calculation at 00:00 UTC each day, the billing is also triggered immediately when an endpoint is deleted or suspended. For example, for an endpoint created at 08:00 UTC on December 1, the hosting hour will be calculated to 16 hours at 00:00 UTC on December 2 and 24 hours at 00:00 UTC on December 3. If the user suspends hosting the endpoint at 16:00 UTC on December 3, the duration (16 hours) from 00:00 to 16:00 UTC on December 3 will be calculated for billing.
 
 
 ## Reference docs
