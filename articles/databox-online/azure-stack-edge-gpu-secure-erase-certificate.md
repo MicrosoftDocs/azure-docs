@@ -14,7 +14,9 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article provides steps to reset an Azure Stack Edge device. After you reset your device, you can generate a Secure Erase Certificate that verifies details about your device and its data in an erase record.
+This article provides steps to reset an Azure Stack Edge device. The reset operation generates a Secure Erase Certificate that verifies details about your device in an erase record. You can also manually generate a Secure Erase Certificate.
+
+The Secure Erase Certificate includes software version details about the device and disk-by-disk details including data erasure type, data erasure method, and erasure verification method. 
  
 The following erase types are supported:
 
@@ -22,6 +24,7 @@ The following erase types are supported:
 |---------|---------|
 |CryptoErase  |Sanitizes the encryption key, leaving the data on disk unrecoverable.  |
 |Block erase  |Deletes all user data from the disk.  |
+|CryptoAndBlockErase  |Performs a crypto erase followed by a block erase.  |
 
 ## Reset the Azure Stack Edge device
 
@@ -33,16 +36,21 @@ The following erase types are supported:
 
    ![Screenshot that shows the Azure portal option to confirm device reset for an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate-reset-device-confirmation.png)
 
-1. The reset operation includes generation of a Secure Erase Certificate, as shown below:
+1. Azure Stack Edge device reset operation generates a Secure Erase Certificate, as shown below:
 
    ![Screenshot of the Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-secure-erase-certificate.png)
 
-## Download the Secure erase certificate for your device
+## Download the Secure Erase Certificate for your device
 
 Use the following steps to download a Secure Erase Certificate for your device after device reset:
 
-1. **Troubleshooting** > **Support** > **Support package options** > **Create support package** > **Download support package**.
+1. On the Azure portal, select **Support** and then select **Secure erase certificate** from the **Support package options** dropdown.
+1. Select **Secure erase certificate**.
+
+   ![Screenshot of the Support package options dropdown menu for generating a Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-download-secure-erase-certificate.png)
+
+1. Select **Download Support package** to download the certificate without creating a full support package.
 
 ## Next steps
 
-Yep
+ - [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
