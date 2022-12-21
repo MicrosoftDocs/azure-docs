@@ -2,13 +2,11 @@
 title:  Azure Video Indexer accounts  
 description: This article gives an overview of Azure Video Indexer accounts and provides links to other articles for more details.
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 11/19/2022
 ms.author: juliako
 ---
 
 # Azure Video Indexer account types
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 This article gives an overview of Azure Video Indexer accounts types and provides links to other articles for more details.
 
@@ -55,7 +53,7 @@ When creating a new paid account, you need to connect the Azure Video Indexer ac
 |   | ARM-based |Classic| Trial|
 |---|---|---|---|
 |Get access token | [ARM REST API](https://aka.ms/avam-arm-api) |[Get access token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)|Same as classic|
-|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](invite-users.md) |Same as classic|
+|Share account| [Azure RBAC(role based access control)](../role-based-access-control/overview.md)| [Invite users](restricted-viewer-role.md#share-the-account) |Same as classic|
 
 ## Limited access features
 

@@ -86,6 +86,7 @@ The following table lists Message IDs used by the Microsoft Sentinel Solution fo
 | AUD | User master record &A changed. | User Master Record Change | Severe | Used |
 | AUE | Audit configuration changed | System | Critical | Used |
 | AUF | Audit: Slot &A: Class &B, Severity &C, User &D, Client &E, &F | System | Critical | Used |
+| AUG | Application server started | System | Critical | Used |
 | AUI | Audit: Slot &A Inactive | System | Critical | Used |
 | AUJ | Audit: Active status set to &1 | System | Critical with Monitor Alert | Used |
 | AUK | Successful RFC call &C (function group = &A) | RFC Start | Non-Critical | Used |

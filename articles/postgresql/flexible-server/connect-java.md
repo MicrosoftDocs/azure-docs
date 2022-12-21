@@ -104,7 +104,7 @@ The first thing we'll create is a managed PostgreSQL server.
 > [!NOTE]
 > You can read more detailed information about creating PostgreSQL servers in [Create an Azure Database for PostgreSQL server by using the Azure portal](./quickstart-create-server-portal.md).
 
-#### [Passwordless connection (Recommended)](#tab/passwordless)
+#### [Passwordless (Recommended)](#tab/passwordless)
 
 If you're using Azure CLI, run the following command to make sure it has sufficient permission:
 

@@ -54,12 +54,12 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
     ```
     We recommend that you use `mi_res_id` as the `identifier-name`. The following sample commands only show usage with `mi_res_id` for the sake of brevity. For more information on `mi_res_id`, `object_id`, and `client_id`, see the [Managed identity documentation](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http).
   - **System-assigned**: This managed identity is suited for initial testing or small deployments. When used at scale, for example, for all VMs in a subscription, it results in a substantial number of identities created (and deleted) in Azure Active Directory. To avoid this churn of identities, use user-assigned managed identities instead. *For Azure Arc-enabled servers, system-assigned managed identity is enabled automatically* as soon as you install the Azure Arc agent. It's the only supported type for Azure Arc-enabled servers.
-  - **Not required for Azure Arc-enabled servers**: The system identity is enabled automatically if the agent is installed via [creating and assigning a data collection rule by using the Azure portal](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association).
+  - **Not required for Azure Arc-enabled servers**: The system identity is enabled automatically when you [create a data collection rule in the Azure portal](data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule).
 - **Networking**: If you use network firewalls, the [Azure Resource Manager service tag](../../virtual-network/service-tags-overview.md) must be enabled on the virtual network for the virtual machine. The virtual machine must also have access to the following HTTPS endpoints:
 
   -	global.handler.control.monitor.azure.com
   -	`<virtual-machine-region-name>`.handler.control.monitor.azure.com (example: westus.handler.control.azure.com)
-  -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opsinsights.azure.com)  
+  -	`<log-analytics-workspace-id>`.ods.opinsights.azure.com (example: 12345a01-b1cd-1234-e1f2-1234567g8h99.ods.opinsights.azure.com)  
     (If you use private links on the agent, you must also add the [dce endpoints](../essentials/data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint)).
 
 > [!NOTE]
@@ -69,7 +69,7 @@ The following prerequisites must be met prior to installing Azure Monitor Agent.
 
 #### [Portal](#tab/azure-portal)
 
-To install Azure Monitor Agent by using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-data-collection-rule-and-association) in the Azure portal. This process creates the rule, associates it to the selected resources, and installs Azure Monitor Agent on them if it's not already installed.
+For information on how to install Azure Monitor Agent from the Azure portal, see [Create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule). This process creates the rule, associates it to the selected resources, and installs Azure Monitor Agent on them if it's not already installed.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -391,7 +391,7 @@ Policy initiatives for Windows and Linux virtual machines, scale sets consist of
 #### Known issues
 
 - Managed Identity default behavior. [Learn more](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request).
-- Possible rare condition with using built-in user-assigned identity creation policy. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues).
+- Possible race condition with using built-in user-assigned identity creation policy. [Learn more](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#known-issues).
 - Assigning policy to resource groups. If the assignment scope of the policy is a resource group and not a subscription, the identity used by policy assignment (different from the user-assigned identity used by agent) must be manually granted [these roles](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#required-authorization) prior to assignment/remediation. Failing to do this step will result in *deployment failures*.
 - Other [Managed Identity limitations](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations).
 
