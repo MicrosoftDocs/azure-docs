@@ -17,8 +17,6 @@ ms.author: robiro
 
 ---
 
-[Visio file]:media/sap-rise-integration/ecs-rise-connectivity-released.vsdx
-
 # Integrating Azure with SAP RISE managed workloads
 
 For customers with SAP solutions such as RISE with SAP Enterprise Cloud Services (ECS) and SAP S/4HANA Cloud, private edition (PCE) which are deployed on Azure, integrating the SAP managed environment with their own Azure ecosystem and third party applications is of particular importance. The following article explains the concepts utilized and best practices to follow for a secure and performant solution.
@@ -27,8 +25,6 @@ RISE with SAP S/4HANA Cloud, private edition and SAP Enterprise Cloud Services a
 
 > [!IMPORTANT]
 > For all details about RISE with SAP Enterprise Cloud Services and SAP S/4HANA Cloud private edition, contact your SAP representative.
-
-_Download a [Visio file] of the diagrams in this article._
 
 ## Virtual network peering with SAP RISE/ECS
 
