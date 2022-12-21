@@ -616,7 +616,7 @@ The request message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  int
+|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|
   
 The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
