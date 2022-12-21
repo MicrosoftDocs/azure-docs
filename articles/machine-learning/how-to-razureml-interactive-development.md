@@ -94,7 +94,7 @@ Once you've run the setup script on your compute instance and you have the file 
 
     ```r
     # uri is of the form azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>. 
-	uri = "put-full-uri-here"
+	uri = "paste-copied-uri-here"
 	```
 
 1. Use Pandas read functions to read in the file(s) into the R environment
