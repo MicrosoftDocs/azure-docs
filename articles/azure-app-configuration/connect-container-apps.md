@@ -12,14 +12,13 @@ ms.author: malev
 
 # Tutorial: Connect an ASP.NET Core 6 app to App Configuration using Service Connector
 
-In this tutorial, you'll learn how to connect an container app to Azure App Configuration using Service Connector. This tutorial leverages the ASP.NET application created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). Complete this quickstart before you continue.
+In this tutorial, you learn how to connect a container app to Azure App Configuration using Service Connector. This tutorial leverages the ASP.NET application created in [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md). Complete this quickstart before you continue.
 
 ## Prerequisites
 
-- An Azure subscription
-- The Docker CLI
-- An App Configurations store
-- Complete the [Quickstart: Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
+- An App Configuration store
+- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- This tutorial assumes that you have completed the quickstart [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md).
 
 ## Build a docker image and test it locally
 
@@ -27,14 +26,14 @@ In this tutorial, you'll learn how to connect an container app to Azure App Conf
 
 1. Run the [dotnet publish](/dotnet/core/tools/dotnet-publish) command to build the app in release mode and create the assets in the *published* folder.
 
-  ```dotnetcli
-  dotnet publish -c Release -o published
-  ```
+      ```dotnetcli
+      dotnet publish -c Release -o published
+      ```
 
 1. Run the app.
 
     ```dotnetcli
-    dotnet "published/TestAppConfig.dll"
+    dotnet published/TestAppConfig.dll
     ```
 
 1. Navigate to the URL displayed in the output to check that the deployment was successful. For example `https://localhost:5001`
@@ -63,7 +62,7 @@ ENTRYPOINT ["dotnet", "TestAppConfig.dll"]
 1. Execute the container locally using the command below and replace `<connection-string>` with the connection string of your App Configuration store.
 
     ```bash
-    docker run –-detach --name myapp aspnetapp --env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
+    docker run –-detach --publish 8080:80 --name myapp aspnetapp --env AZURE_APPCONFIGURATION_CONNECTIONSTRING="<connection-string>"
     ```
 
     | Name        | Description                                                                                                                                            |
@@ -112,6 +111,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
 1. Accept default values for the remaining setting, and select **Review + create**. After reviewing the settings, select **Create** to deploy the Azure Container Registry.
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
+1. Take note of the **Login server** value listed on this page. You will use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials.
 
     :::image type="content" border="true" source="media\connect-container-app\admin-user.png" alt-text="Screenshot of the Azure platform enabling admin user.":::
@@ -134,7 +134,7 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
     | `--admin-enabled`  | `true`                   | Enter `true`to enable the option to connect to connect the container registry to Azure Container Apps using admin user credentials. |
     | `--sku`            | `Basic`                  | Enter `Basic`. The basic tier is a cost-optimized entry point appropriate for lower usage scenarios.                                               |
 
-1. In the command output, take note of fully qualified registry name for your ACR listed for `loginServer`. You will use this information in a later step.
+1. In the command output, take note of the ACR login server value listed after `loginServer`. You will use this information in a later step.
 
 ---
 
@@ -142,29 +142,38 @@ In the next step, create an Azure Container Registry (ACR), where you'll push th
 
 1. Run the [az acr login](/cli/azure/acr#az-acr-login) command to log in to the registry.
 
-    ```azurecli-interactive
+    ```azurecli
     az acr login --name myregistry
     ```
 
     The command returns `Login Succeeded` once login is successful.
 
-1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholder `<registry-name>` by the ACR's fully qualified registry name.
+1. 1. Use [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) to tag the image with the ACR name
+
+    ```azurecli
+    docker tag aspnetapp myregistry.azurecr.io/aspnetapp:v1
+    ```
+
+    > [!TIP]
+    > To review the list of your existing docker images and tags, run `docker image ls`.
+
+1. Use [docker push](https://docs.docker.com/engine/reference/commandline/push/) to push the image to the container registry. This example creates the *aspnetapp* repository in ACR containing the `aspnetapp` image. In the example below, replace the placeholders `<login-server`, `<image-name>` and `<tag>` by the ACR's login server value, the image name and the image tag.
 
     Method:
 
     ```bash
-    docker push <registry-name>/<image-name>
+    docker push <login-server>/<image-name>:<tag>
     ```
 
     Example:
 
     ```bash
-    docker push myregistry.azurecr.io/aspnetapp
+    docker push myregistry.azurecr.io/aspnetapp:v1
     ```
 
 ## Create a Container App
 
-In the next step, you will deploy the container image to [Azure Container Apps](../container-apps/overview.md). This Azure service enables you to run the containerized application created in this tutorial on a serverless platform.
+In the next step, deploy the container image to [Azure Container Apps](../container-apps/overview.md). This Azure service enables you to run the containerized application created on a serverless platform.
 
 #### [Portal](#tab/azure-portal)
 
@@ -192,7 +201,7 @@ In the next step, you will deploy the container image to [Azure Container Apps](
     | Image source          | *Azure Container Registry*              | Select Azure Container Registry as your image source.                                                                                                                             |
     | Registry              | *myregistry.azurecr.io*                 | Select the Azure Container Registry you created earlier.                                                                                                                          |
     | Image                 | *aspnetapp*                             | Select your docker image from the list.                                                                                                                                           |
-    | Image tag             | *latest*                                | Select your image tag from the list.                                                                                                                                              |
+    | Image tag             | *v1*                                    | Select your image tag from the list.                                                                                                                                              |
     | OS type               | *Linux*                                 | Linux is automatically suggested.                                                                                                                                                 |
     | Command override      | Leave empty                             | Optional. Leave this field empty.                                                                                                                                                 |
     | CPU and memory        | 0.25 CPU cores, 0.5 Gi memory           | CPU and memory selected by default.                                                                                                                                               |
@@ -211,13 +220,13 @@ In the next step, you will deploy the container image to [Azure Container Apps](
 
 1. Install the Azure Container Apps CLI extension if you haven't used it before.
 
-    ```azurecli-interactive
+    ```azurecli
     az extension add --name containerapp --upgrade
     ```
 
 1. Register the `Microsoft.App` namespace if you haven't used it before.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register --namespace Microsoft.App
     ```
 
@@ -232,13 +241,13 @@ In the next step, you will deploy the container image to [Azure Container Apps](
 
 1. Retrieve the ACR login information and take note of the username and password in the output for the next step:
 
-   ```azurecli-interactive
+   ```azurecli
     az acr credential show --name myregistry
     ```
 
 1. Run the [az containerapp create](/cli/azure/containerapp#az-containerapp-create) command to create the Azure Container App:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp create \
       --image myregistry.azurecr.io/aspnetapp \
       --name mycontainerapp \
@@ -251,11 +260,11 @@ In the next step, you will deploy the container image to [Azure Container Apps](
 
     | Parameter             | Suggested value                   | Description                                                                                          |
     |-----------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|
-    | `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the fully qualified registry name of your ACR followed by `/` and the name of your image.      |
+    | `--image`             | `myregistry.azurecr.io/aspnetapp` | Enter the ACR's  login server value followed by `/` and the name of your image.      |
     | `--name`              | `mycontainerapp`                  | Enter a name of your container app.                                                                  |
     | `--resource-group`    | `AppConfigTestResources`          | Enter the name of your resource group.                                                               |
     | `--environment`       | `MyContainerAppEnv`               | Enter the name of your Azure Container Apps Environment. |
-    | `--registry-server`   | `myregistry.azurecr.io`           | Enter the fully qualified registry name of your ACR. |
+    | `--registry-server`   | `myregistry.azurecr.io`           | Enter the ACR's  login server value. |
     | `--registry-username` | `myregistry`                      | Enter the name of your ACR. |
     | `--registry-password` | `"<ACR-password>"`                | Enter one of the two passwords displayed in the output of the previous command. |
 
@@ -278,10 +287,10 @@ In the next step, connect the container app to Azure App Configuration using [Se
     |-----------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
     | **Container**         | *mycontainerapp*      | Select your Container Apps instance.                                                                                   |
     | **Service type**      | *App Configuration*   | Select *App Configuration* to connect to your App Configuration store to Azure Container Apps.                         |
-    | **Subscription**      | MySubscription        | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
     | **Connection name**   | Generated unique name | A connection name is automatically generated. This name identifies the connection between your container app and the App Configuration store. |
-    | **App Configuration** | *MyAppConfiguration*  | Select the name of the App Configuration store to which you want to connect.                                                       |
-    | **Client type**       | *.NET*                | Select the application stack that works with the target service you selected.                                                |
+    | **Subscription**      | MySubscription        | Select the subscription containing the App Configuration store. The default value is the subscription for your container app. |
+    | **App Configuration** | *MyAppConfiguration*  | Select the name of the App Configuration store referenced in your app.                                                 |
+    | **Client type**       | *.NET*                | Select the application stack that works with the target service you selected.                                          |
 
 1. Select **Next: Authentication** and select **System assigned managed identity** to let Azure Directory manage the authentication.
 1. Select **Next: Network** to select the network configuration. Then select **Configure firewall rules to enable access to target service**.
@@ -291,7 +300,7 @@ In the next step, connect the container app to Azure App Configuration using [Se
 
 Run the Azure CLI command `az containerapp connection connection create` to create a service connection from the container app, using a system-assigned managed identity.
 
-```azurecli-interactive
+```azurecli
 az containerapp connection create appconfig \
     --name mycontainerapp \ # the name of the container app
     --resource-group AppConfigTestResources \ # the resource group that contains the container app
