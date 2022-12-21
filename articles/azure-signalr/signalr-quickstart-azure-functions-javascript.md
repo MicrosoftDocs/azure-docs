@@ -27,7 +27,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
 |[Node.js](https://nodejs.org/en/download/)| See supported node.js versions in the [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md#node-version).|
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage.  You can use a local storage emulator when a function is running locally. |
-| [Azure CLI]([Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
+| [Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
 
 ## Create an Azure SignalR Service instance
 
