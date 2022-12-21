@@ -24,6 +24,7 @@ You can communicate with satellites directly from Azure using Azure Orbital's Gr
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Must be a Contributer at the subscription level.
 
 ## Sign in to Azure
 
