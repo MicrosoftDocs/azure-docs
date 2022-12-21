@@ -1,12 +1,12 @@
 ---
 title: Azure Storage in-place data sharing with Microsoft Purview (preview)
 description: This article describes Microsoft Purview Data Sharing and its features.
-author: jifems
-ms.author: jife
+author: sidontha
+ms.author: sidontha
 ms.service: purview
 ms.subservice: purview-data-share
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/31/2022
 ---
 
 # Azure Storage in-place data sharing with Microsoft Purview (preview)
@@ -43,8 +43,8 @@ Microsoft Purview Data Sharing only stores metadata about your share. It doesn't
 * Share data from ADLS Gen2 or Blob storage in-place without data duplication.
 * Share data with multiple recipients.
 * Access shared data in near real time.
-* Centrally manage sharing relationships and keep track of who the data is shared with/from.
-* Revoke or terminate share access at any time.
+* Manage sharing relationships and keep track of who the data is shared with/from.
+* Terminate share access at any time.
 * Flexible experience through Microsoft Purview governance portal or via REST APIs.
 
 ## Get started
