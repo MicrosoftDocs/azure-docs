@@ -13,7 +13,7 @@ ms.author: v-pgaddala
 > [!IMPORTANT]
 > The Azure Site Recovery (ASR) functionality for Public MEC is in preview state.
 
-This tutorial shows you how to set up disaster recovery for ASR Azure Public MEC (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
+This tutorial shows you how to set up disaster recovery for Azure Site Recovery Public MEC (preview) using VM Flow. You will do this using the Azure Site Recovery portal.
 
 In this article, you learn how to:
 

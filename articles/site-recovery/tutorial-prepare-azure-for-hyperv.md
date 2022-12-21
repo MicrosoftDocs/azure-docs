@@ -63,13 +63,13 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 1. Select **Review** and review your settings.
 1. Select **Create**.
 
-:::image type="Protection state" source="media/tutorial-prepare-azure/create-storageacct.png" alt-text="Screenshot of the Create a storage account options.":::
+:::image type="Protection state" source="media/tutorial-prepare-azure/create-storage-account.png" alt-text="Screenshot of the Create a storage account options.":::
 
 <br>
 
 > [!NOTE]
 > If you want to create a legacy storage account type, select the provided link under **Basics** > **Instance details** section. This redirects you to **Create storage account** page to a create legacy storage account.
-> :::image type="Protection state" source="media/tutorial-prepare-azure/create-legacystorageacct.png" alt-text="Screenshot of the Create a legacy storage account options.":::
+> :::image type="Protection state" source="media/tutorial-prepare-azure/create-legacy-storage-account.png" alt-text="Screenshot of the Create a legacy storage account options.":::
 
 ## Create a recovery services vault
 
@@ -107,13 +107,13 @@ When Azure VMs are created from storage after failover, they're joined to this n
 
 1. In **Create storage account** page, under the **IP addresses** tab, do the following:
     1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...), under available IP address range, then select **Delete address space**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the delete address space."::: 
+        :::image type="Protection state" source="media/tutorial-prepare-azure/delete-ip-address.png" alt-text="Screenshot of the delete address space."::: 
     1. After deleting the pre-existing address range, select **Add an IP address space**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the adding IP.":::
+        :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
     1. In **Starting address** enter **10.0.0.**.
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
-        :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
+        :::image type="Content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot of the add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
