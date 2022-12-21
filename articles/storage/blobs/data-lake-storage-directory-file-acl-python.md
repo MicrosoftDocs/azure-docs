@@ -65,11 +65,11 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance with a [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) credential. The credential is initiated with a client ID, a client secret, and a tenant ID representing a security principal. To get these values, see [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md). Assign the **Storage Blob Data Contributor** role to the service principal.
+This example creates a **DataLakeServiceClient** instance with a [ClientSecretCredential](/python/api/azure-identity/azure.identity.clientsecretcredential) credential. You create the credential object with a client ID, a client secret, and a tenant ID representing a security principal. To get these values, see [Authorize access to blob or queue data from a native or web application](../common/storage-auth-aad-app.md). Assign the **Storage Blob Data Contributor** role to the service principal.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_AuthorizeWithAAD":::
 
-To use this code, you'll need to add an import statement for the **ClientSecretCredential**: `from azure.identity import ClientSecretCredential`.
+To use this code, make sure you have an import statement for the **ClientSecretCredential**: `from azure.identity import ClientSecretCredential`.
 
 > [!NOTE]
 > For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
