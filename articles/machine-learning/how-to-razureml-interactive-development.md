@@ -128,7 +128,7 @@ Add `/home/azureuser` to the R library path.
 ```
 
 > [!TIP]
-> You need to update the `.libPaths` in each interactive R script to access user installed libraries.  SAdd this code to the top of each interactive R script or notebook.  
+> You need to update the `.libPaths` in each interactive R script to access user installed libraries.  Add this code to the top of each interactive R script or notebook.  
 
 Once the libPath is updated, load libraries as usual
 
