@@ -77,13 +77,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
-    - For Artifactory Self-hosted: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - For Artifactory Self-hosted: `https://<FQDN>/artifactory/webapp/saml/loginResponse`
     - For Artifactory SaaS: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    - For Artifactory Self-hosted: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - For Artifactory Self-hosted: `https://<FQDN>/<servername>/webapp/`
     - For Artifactory SaaS: `https://<servername>.jfrog.io/ui/login`
 
 	> [!NOTE]
@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. Configure the Artifactory (SAML Service Provider Name) with the 'Identifier' field (see step 4). In the **Set up JFrog Artifactory** section, copy the appropriate URL(s) based on your requirement.
 
-   - For Artifactory Self-hosted: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - For Artifactory Self-hosted: `https://<FQDN>/artifactory/webapp/saml/loginResponse` 
    - For Artifactory SaaS: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
