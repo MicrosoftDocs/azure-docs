@@ -19,10 +19,11 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 
 The following image shows a view of the Dell PowerEdge R350 front panel:
 
-
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-front-panel.png" alt-text="Picture of the Dell PowerEdge R350 front panel.":::
 
 The following image shows a view of the Dell PowerEdge R350 back panel:
 
+:::image type="content" source="../media/tutorial-install-components/dell-poweredge-r350-back-panel.png" alt-text="Picture of the Dell PowerEdge R350 back panel.":::
 
 ## Specifications
 
@@ -82,15 +83,13 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |1|	780-BCDQ	|	RAID 10	|
 
 ## Optional Expansion Modules
+
 Optional modules for additional monitoring ports can be installed:
 
-|Location|Type|Specifications|
+|Location |Type |Specifications |
 |----|---|----|
-| Optional Slot 1 | | Quad Port Ethernet NIC | Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
-| Optional Slot 1  | | Dual Port | 540-BBVI - Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
-
-
-
+| Optional Slot 1 | Quad Port Ethernet NIC | Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
+| Optional Slot 1 | Dual Port | 540-BBVI - Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
 
 ## Dell PowerEdge R350 installation
 
