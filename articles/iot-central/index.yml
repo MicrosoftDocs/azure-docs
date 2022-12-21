@@ -88,8 +88,8 @@ landingContent:
         links:
           - text: Export data from IoT Central
             url: core/overview-iot-central-solution-builder.md#data-export          
-          - text: Administer an application with the REST API
-            url: /training/modules/manage-iot-central-apps-with-rest-api/
+          - text: Manage an application with the REST API
+            url: core/tutorial-use-rest-api.md
 
   - title: Secure and administer your application
     linkLists:
