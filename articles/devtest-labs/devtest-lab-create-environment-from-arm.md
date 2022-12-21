@@ -17,6 +17,8 @@ Resources in an environment share the same lifecycle, and you can manage them to
 
 You can configure Azure DevTest Labs to use ARM templates from a public or private Git repository. Learn more about [template repositories for labs](#environment-template-repositories).
 
+:::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows how to create an environment with Azure DevTest Labs from an ARM template in a public or custom template repository.":::
+
 If you want to use an ARM template to create an Azure DevTest Labs resource, see the [Quickstart: use an ARM template to create a lab in DevTest Labs](./create-lab-windows-vm-template.md).
 
 ## Limitations
