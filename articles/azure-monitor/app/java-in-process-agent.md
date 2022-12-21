@@ -233,29 +233,29 @@ Telemetry emitted by these Azure SDKs is automatically collected by default:
 
 This section explains how to modify telemetry.
 
-### Add spans
+### Add spans using the OpenTelemetry annotation
 
-The easiest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
+The simplest way to add your own spans is using OpenTelemetry's `@WithSpan` annotation.
 
 Spans populate the `requests` and `dependencies` tables in Application Insights.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-extension-annotations-1.16.0.jar` to your application:
+1. Add `opentelemetry-instrumentation-annotations-1.21.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
-     <artifactId>opentelemetry-extension-annotations</artifactId>
-     <version>1.16.0</version>
+     <artifactId>opentelemetry-instrumentation-annotations</artifactId>
+     <version>1.21.0</version>
    </dependency>
    ```
 
 1. Use the `@WithSpan` annotation to emit a span each time your method is executed:
 
    ```java
-    import io.opentelemetry.extension.annotations.WithSpan;
+    import io.opentelemetry.instrumentation.annotations.WithSpan;
 
     @WithSpan(value = "your span name")
     public void yourMethod() {
@@ -268,6 +268,46 @@ If your method represents a background job that is not already captured by auto-
 it is recommended to apply the attribute `kind = SpanKind.SERVER` to the `@WithSpan` annotation
 so that it will end up in the Application Insights `requests` table.
 
+### Add spans using the OpenTelemetry API
+
+If the OpenTelemetry `@WithSpan` annotation above doesn't meet your needs,
+then you can add your spans using the OpenTelemetry API.
+
+> [!NOTE]
+> This feature is only in 3.2.0 and later.
+
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
+
+   ```xml
+   <dependency>
+     <groupId>io.opentelemetry</groupId>
+     <artifactId>opentelemetry-api</artifactId>
+     <version>1.0.0</version>
+   </dependency>
+   ```
+
+1. Use the `GlobalOpenTelemetry` class to create a `Tracer`
+
+   ```java
+    import io.opentelemetry.api.GlobalOpenTelemetry;
+    import io.opentelemetry.api.trace.Tracer;
+
+    static final Tracer tracer = GlobalOpenTelemetry.getTracer("com.example");
+   ```
+
+1. Create a span, make it current, and then end it:
+
+   ```java
+    Span span = tracer.spanBuilder("my first span").startSpan();
+    try (Scope ignored = span.makeCurrent()) {
+        // do stuff within the context of this 
+    } catch (Throwable t) {
+        span.recordException(t);
+    } finally {
+        span.end();
+    }
+   ```
+
 ### Add span events
 
 You can use `opentelemetry-api` to create span events, which populate the traces table in Application Insights. The string passed in to `addEvent()` is saved to the _message_ field within the trace.
@@ -275,13 +315,13 @@ You can use `opentelemetry-api` to create span events, which populate the traces
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <version>1.0.0</version>
    </dependency>
    ```
 
@@ -302,13 +342,13 @@ Adding one or more span attributes populates the _customDimensions_ field in the
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <version>1.0.0</version>
    </dependency>
    ```
 
@@ -329,13 +369,13 @@ You can use `opentelemetry-api` to update the status of a span and record except
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <version>1.0.0</version>
    </dependency>
    ```
 
@@ -360,13 +400,13 @@ Populate the _user ID_ field in the requests, dependencies, or exceptions table.
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <version>1.0.0</version>
    </dependency>
    ```
 
@@ -385,13 +425,13 @@ You can use `opentelemetry-api` to get the trace ID or span ID. This action can 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
 
-1. Add `opentelemetry-api-1.6.0.jar` to your application:
+1. Add `opentelemetry-api-1.0.0.jar` (or later) to your application:
 
    ```xml
    <dependency>
      <groupId>io.opentelemetry</groupId>
      <artifactId>opentelemetry-api</artifactId>
-     <version>1.6.0</version>
+     <version>1.0.0</version>
    </dependency>
    ```
 
