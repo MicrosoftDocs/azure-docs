@@ -124,6 +124,11 @@ The following example output shows that *mynodepool* has been successfully creat
 
 The ARM64 processor provides low power compute for your Kubernetes workloads. To create an ARM64 node pool, you will need to choose a [Dpsv5][arm-sku-vm1], [Dplsv5][arm-sku-vm2] or [Epsv5][arm-sku-vm3] series Virtual Machine.
 
+#### Limitations
+
+* ARM64 node pools are not supported on Defender-enabled clusters
+* FIPS-enabled node pools are not supported with ARM64 SKUs 
+
 Use `az aks nodepool add` command to add an ARM64 node pool.
 
 ```azurecli
@@ -132,7 +137,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name armpool \
     --node-count 3 \
-    --node-vm-size Standard_Dpds_v5
+    --node-vm-size Standard_D2pds_v5
 ```
 
 ### Add a Mariner node pool
