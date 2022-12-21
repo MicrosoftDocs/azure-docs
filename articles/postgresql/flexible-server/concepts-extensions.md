@@ -501,7 +501,18 @@ For more details on restore method wiith Timescale enabled database see [Timesca
 /*+ SeqScan(a) */
 ```
 `pg_hint_plan` reads hinting phrases in a comment of special form given with the target SQL statement. The special form is beginning by the character sequence "/\*+" and ends with "\*/". Hint phrases are consists of hint name and following parameters enclosed by parentheses and delimited by spaces. Each hinting phrases can be delimited by new lines for readability.
-
+Example:
+```sql
+  /*+
+      HashJoin(a b)
+      SeqScan(a)
+    */
+    SELECT *
+      FROM pgbench_branches b
+      JOIN pgbench_accounts a ON b.bid = a.bid
+     ORDER BY a.aid;
+```
+The above example will cause the planner to use the results of a `seq scan` on table a to be combined with table b as a `hash join`.
 ## Next steps
 
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
