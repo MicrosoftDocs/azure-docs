@@ -26,9 +26,9 @@ To change the default collation, update to the Collation field in the provisioni
 
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS.
 
-## Special Collation type support
+## Collation support
 
-The following table shows which special collation types are supported by which service.  If a Collation Types is not listed, it should be supported across the options in the table.
+The following table shows which collation types are supported by which service.  
 
 | Collation Type                            | Serverless SQL Pool | Dedicated SQL Pool - Database & Column Level | Dedicated SQL Pool - External Table (Native Support) | Dedicated SQL Pool - External Table (Hadoop/Polybase) |
 |:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
