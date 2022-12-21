@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # What is Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge is a device-focused runtime that enables you to deploy, run, and monitor containerized Linux workloads.
 

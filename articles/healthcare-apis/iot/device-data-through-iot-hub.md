@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/05/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub
 
-For enhanced workflows and ease of use, you can use the MedTech service in Azure Health Data Services to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
+For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Device message flow
 
-The following diagram demonstrates the IoT device message flow when you use an IoT hub in Azure IoT Hub with the MedTech service in Azure Health Data Services. Devices send messages to your IoT hub. Your IoT hub routes the device messages to the device message event hub in Azure Event Hubs for the MedTech service to pick up. The MedTech service transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. For more information, see [MedTech service data flow](iot-data-flow.md).
+The following diagram demonstrates the IoT device message flow when you use an IoT hub in Azure IoT Hub with the MedTech service in Azure Health Data Services. Devices send messages to your IoT hub. Your IoT hub routes the device messages to the device message event hub in Azure Event Hubs for the MedTech service to pick up. The MedTech service transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. For more information, see [MedTech service data flow](data-flow.md).
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png":::
 
@@ -48,7 +48,7 @@ To begin your deployment and complete the tutorial, you must have the following 
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template
+## Review the ARM template - Optional
 
 The ARM template used to deploy the resources in this tutorial is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub).
 
@@ -100,6 +100,17 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
 
    :::image type="content" source="media\iot-hub-to-iot-connector\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
+   > [!IMPORTANT]
+   > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
+   >
+   > Consumer groups enable multiple consuming applications to have a separate view of the event stream, and to read the stream independently at their own pace and with their own offsets. For more information, see [Consumer groups](../../event-hubs/event-hubs-features.md#consumer-groups).
+   >
+   > Examples:
+   >
+   > - Two MedTech services accessing the same device message event hub.
+   >
+   > - A MedTech service and a storage writer application accessing the same device message event hub.
+
 ## Review deployed resources and access permissions
 
 When deployment is completed, the following resources and access roles are created in the template deployment:
@@ -124,7 +135,7 @@ When deployment is completed, the following resources and access roles are creat
 
   - For the FHIR service, the FHIR Data Writer role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the FHIR service.
   
-- Conforming and valid MedTech service [device](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md).
+- Conforming and valid MedTech service [device](how-to-configure-device-mappings.md) and [FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 > [!IMPORTANT]
 > In this tutorial, the ARM template configures the MedTech service to operate in Create mode. A patient resource and a device resource are created for each device that sends data to your FHIR service.
@@ -222,9 +233,9 @@ To learn how to get an Azure AD access token and view FHIR resources in your FHI
 
 ## Next steps
 
-In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub in Azure IoT Hub, created a device, sent a test message, and reviewed your MedTech service metrics.
+In this tutorial, you deployed an ARM template in the Azure portal, connected to your IoT hub, created a device, sent a test message, and reviewed your MedTech service metrics.
 
-To learn more about other methods of deploying the MedTech service, see
+To learn about the different deployment methods for the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)

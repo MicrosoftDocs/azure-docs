@@ -96,30 +96,10 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 
 ---
 
-## Next steps
-
-- [Create a resource](create-workspace-resource.md)
-- [Application Map](app-map.md)
-- [Transaction search](diagnostic-search.md)
-
-## Troubleshooting
-
-### FAQ
-
-Review [frequently asked questions](../faq.yml).
-### Microsoft Q&A questions forum
-
-Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
-
-### Stack Overflow
-
-Post coding questions to [Stack Overflow]() using an Application Insights tag.
-
-### User Voice
-
-Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
-
+---------------------------
 ## Supported languages
+
+This section outlines supported scenarios.
 
 * [C#|VB (.NET)](./asp-net.md)
 * [Java](./java-in-process-agent.md)
@@ -135,6 +115,7 @@ Supported platforms and frameworks are listed here.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Auto-instrumentation (enable without code changes)
@@ -172,3 +153,28 @@ Supported platforms and frameworks are listed here.
 
 ### Unsupported SDKs
 Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when you use the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
+
+---------------------------
+
+## Troubleshooting
+
+### FAQ
+
+Review [frequently asked questions](../faq.yml).
+### Microsoft Q&A questions forum
+
+Post questions to the Microsoft Q&A [answers forum](/answers/topics/24223/azure-monitor.html).
+
+### Stack Overflow
+
+Post coding questions to [Stack Overflow]() using an Application Insights tag.
+
+### User Voice
+
+Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).
+
+## Next steps
+
+- [Create a resource](create-workspace-resource.md)
+- [Application Map](app-map.md)
+- [Transaction search](diagnostic-search.md)

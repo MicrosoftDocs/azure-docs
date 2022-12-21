@@ -111,14 +111,14 @@
       href: workbooks.md
     - name: Create OT sensor reports
       items:
-      - name: Create risk assessment reports
-        href: how-to-create-risk-assessment-reports.md
-      - name: Create attack vector reports
-        href: how-to-create-attack-vector-reports.md
       - name: Create data mining reports
         href: how-to-create-data-mining-queries.md
+      - name: Create risk assessment reports
+        href: how-to-create-risk-assessment-reports.md
       - name: Create trends and statistics reports
         href: how-to-create-trends-and-statistics-reports.md
+      - name: Create attack vector reports
+        href: how-to-create-attack-vector-reports.md
     - name: View OT threats by location from an OT sensor
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
     - name: Analyze OT programming details and changes
