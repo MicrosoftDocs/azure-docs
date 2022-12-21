@@ -1,12 +1,12 @@
 ---
 title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
-author: luismcMSFT
+author: charest
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 02/09/2021
-ms.author: luismc
+ms.date: 12/20/2022
+ms.author: marccharest
 ---
 
 # NP-series 
