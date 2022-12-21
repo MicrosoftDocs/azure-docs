@@ -60,7 +60,7 @@ A user can claim any VM from the list of **Claimable virtual machines** by using
 1. On the lab's **Overview** page, on the left menu, select **Claimable virtual machines**.
 1. Right-click the VM you want to claim, and then select **Claim machine**.
 
-   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-claim-VM.png" alt-text="Screenshot showing requesting a specific claimable VM."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-claim-virtual-machine.png" alt-text="Screenshot showing requesting a specific claimable VM."::: 
 
 ### Claim any available VM
 On the lab's **Overview** page, select **Claim any**. A random virtual machine is assigned from the list of claimable VMs.
@@ -76,12 +76,12 @@ When a user is finished using a claimed VM and wants to make it available for so
 ### Unclaim a VM from a list of VMs
 From the list of **My virtual machines**, right-click on one of the VMs in the list, or select its ellipsis **...**, and choose **Unclaim**.
 
-   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-VM2.png" alt-text="Screenshot showing unclaiming a VM on the list."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-virtual-machine-2.png" alt-text="Screenshot showing unclaiming a VM on the list."::: 
 
 ### Unclaim a VM from its management pane
 In the list of **My virtual machines**, select a VM to open its management pane, then select **Unclaim** from the top menu bar.
 
-   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-VM.png" alt-text="Screenshot showing unclaiming a VM on the VM's management pane."::: 
+   :::image type="content" source="media/devtest-lab-add-claimable-vm/devtestlab-unclaim-virtual-machine.png" alt-text="Screenshot showing unclaiming a VM on the VM's management pane."::: 
 
 When a user unclaims a VM, they no longer have owner permissions for that specific lab VM, and it's available to be claimed by any other lab user in the state that it was returned to the pool. 
 
