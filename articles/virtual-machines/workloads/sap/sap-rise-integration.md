@@ -17,7 +17,7 @@ ms.author: robiro
 
 ---
 
-[Visio file]:(./media/sap-rise-integration/ecs-rise-connectivity-released.vsdx)
+[Visio file]:(media/sap-rise-integration/ecs-rise-connectivity-released.vsdx)
 
 # Integrating Azure with SAP RISE managed workloads
 
