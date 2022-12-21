@@ -36,7 +36,7 @@ You add a claimable VM to a lab in a similar manner to how you [add a standard V
     1. Select **Add or Remove Artifacts**. Select and configure the artifacts that you want to add to the base image.
     
     >[!NOTE] 
-    >If you're new to DevTest Labs or configuring artifacts, refer to the [Add artifacts after installation](./devtest-lab-add-claimable-vm.md#add-artifacts-after-installation) section, and then return here when finished.
+    >If you're new to DevTest Labs or configuring artifacts, refer to [Add artifacts to DevTest Labs VMs](./add-artifact-vm.md), and then return here when finished.
 2. Switch to the **Advanced Settings** tab at the top, and do the following actions:
     1. To change the virtual network that the VM is in, select **Change VNet**.
     2. To change the subnet, select **Change subnet**.
