@@ -89,42 +89,43 @@ This step isn't required if you're using an AKS identity since it will already h
     ```yml
     prometheus:
       prometheusSpec:
-        cluster: <AKS-CLUSTER-NAME>
+		externalLabels:
+			cluster: <AKS-CLUSTER-NAME>
 
-        ## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
-        remoteWrite:
-          - url: 'http://localhost:8081/api/v1/write'
-        containers:
-          - name: prom-remotewrite
-            image: <CONTAINER-IMAGE-VERSION>
-            imagePullPolicy: Always
-            ports:
-              - name: rw-port
-                containerPort: 8081
-            livenessProbe:
-              httpGet:
-                path: /health
-                port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
-            readinessProbe:
-              httpGet:
-                path: /ready
-                port: rw-port
-                initialDelaySeconds: 10
-                timeoutSeconds: 10
-            env:
-              - name: INGESTION_URL
-                value: <INGESTION_URL>
-              - name: LISTENING_PORT
-                value: '8081'
-              - name: IDENTITY_TYPE
-                value: userAssigned
-              - name: AZURE_CLIENT_ID
-                value: <MANAGED-IDENTITY-CLIENT-ID>
-              # Optional parameter
-              - name: CLUSTER
-                value: <CLUSTER-NAME>
+			## https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write    
+			remoteWrite:
+			  - url: 'http://localhost:8081/api/v1/write'
+			containers:
+			  - name: prom-remotewrite
+				image: <CONTAINER-IMAGE-VERSION>
+				imagePullPolicy: Always
+				ports:
+				  - name: rw-port
+					containerPort: 8081
+				livenessProbe:
+				  httpGet:
+					path: /health
+					port: rw-port
+				  initialDelaySeconds: 10
+				  timeoutSeconds: 10
+				readinessProbe:
+				  httpGet:
+					path: /ready
+					port: rw-port
+				  initialDelaySeconds: 10
+				  timeoutSeconds: 10
+				env:
+				  - name: INGESTION_URL
+					value: <INGESTION_URL>
+				  - name: LISTENING_PORT
+					value: '8081'
+				  - name: IDENTITY_TYPE
+					value: userAssigned
+				  - name: AZURE_CLIENT_ID
+					value: <MANAGED-IDENTITY-CLIENT-ID>
+				  # Optional parameter
+				  - name: CLUSTER
+					value: <CLUSTER-NAME>
     ```
 
 
@@ -150,7 +151,7 @@ This step isn't required if you're using an AKS identity since it will already h
     az aks get-credentials -g <aks-rg-name> -n <aks-cluster-name> 
  
     # use helm to update your remote write config 
-    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack -namespace <namespace where Prometheus pod resides> 
+    helm upgrade -f <YAML-FILENAME>.yml prometheus prometheus-community/kube-prometheus-stack --namespace <namespace where Prometheus pod resides> 
     ```
 
 ## Verification and troubleshooting

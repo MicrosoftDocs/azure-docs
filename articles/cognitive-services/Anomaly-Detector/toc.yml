@@ -80,7 +80,9 @@
     href: /legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context
 - name: Reference
   items:
-    - name: REST API (preview) 
+    - name: REST API (v1.1) 
+      href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1/operations/CreateMultivariateModel
+    - name: REST API (v1.1-preview-1) 
       href: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview-1/operations/DetectAnomaly
     - name: .NET (preview)
       href: /dotnet/api/azure.ai.anomalydetector?view=azure-dotnet-preview&preserve-view=true
