@@ -134,9 +134,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `fields` | list(string) | Represent a list of column names on which provided `transformer_params` should be applied.|  |  |
-| `parameters` | object | Represents a dictionary object consisting of 'strategy' as key and value as imputation strategy.<br> An example is [shown](#coltf) here. |  |  |
-
-##### ![coltf](./automl-ref-forecasting/column_transformer_example.png)
+| `parameters` | object | Represents a dictionary object consisting of 'strategy' as key and value as imputation strategy.<br> More details on how it can be provided, is provided in examples [here](#quick-links-for-further-reference). |  |  |
 
 <br>
 <br>
