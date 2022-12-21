@@ -7,9 +7,9 @@ ms.topic: conceptual
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs.
+This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs. Performance values are upper thresholds and dependent on the analyzed traffic protocols, assuming that intermittent traffic profiles are typical of M2M systems.
 
-You can use both physical or virtual appliances.
+Physical or virtual appliances can be used; results depend on hardware and resources available to the monitoring sensor.
 
 ## IT/OT mixed environments
 
@@ -21,7 +21,7 @@ Use the following hardware profiles for high bandwidth corporate IT/OT mixed net
 
 ## Monitoring at the site level
 
-Use the following  hardware profiles for enterprise monitoring at the site level:
+Use the following hardware profiles for enterprise monitoring at the site level, typically collecting multiple traffic feeds:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -31,7 +31,7 @@ Use the following  hardware profiles for enterprise monitoring at the site level
 
 ## Production line monitoring
 
-Use the following hardware profiles for production line monitoring:
+Use the following hardware profiles for production line monitoring, typically in the production/mission-critical environments:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
