@@ -35,13 +35,13 @@ This is the third tutorial in a series. It assumes that you have already complet
 
 ## Prepare infrastructure
 
-It is important to first prepare infrastructure before you set up disaster recovery of on-premises Hyper-V VMs to Azure.
+It is important to prepare the infrastructure before you set up disaster recovery of on-premises Hyper-V VMs to Azure.
 
 ### Deployment planning
 
 1. In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. We prepared the vault **ContosoVMVault** in the previous tutorial.
-2. On the vault home page, select the **Enable Site Recovery** option at the top.
-1. Navigate to the bottom of the page, and select **Prepare infrastructure** under the **Hyper-V machines to Azure** section. This opens a new pane.
+2. On the vault home page, select **Enable Site Recovery**.
+1. Navigate to the bottom of the page, and select **Prepare infrastructure** under the **Hyper-V machines to Azure** section. This opens the **Prepare infrastructure** pane.
 1. In the **Prepare infrastructure** pane, under **Deployment planning** tab do the following:
     > [!TIP]
     > If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
@@ -57,17 +57,17 @@ To set up the source environment, you create a Hyper-V site and add to that site
 1. In the **Source settings** tab, do the following:
     1. For **Are you Using System Center VMM to manage Hyper-V hosts?**, select **No**. This enables new options.
     1. Under **Hyper-V site** specify the site name. You can also use the **Add Hyper-V site** option to add a new Hyper-V site. In this tutorial we're using **ContosoHyperVSite**.
-    1. Under **Hyper-V servers**, select the **Add Hyper-V servers** option to add servers.
+    1. Under **Hyper-V servers**, select **Add Hyper-V servers** to add servers.
          :::image type="content" source="./media/hyper-v-azure-tutorial/source-setting.png" alt-text="Screenshot displays Source settings page." lightbox="./media/hyper-v-azure-tutorial/source-setting.png":::
 
     1. On the new **Add Server** pane, do the following:
-        1. Download the installer for the Microsoft Azure Site Recovery Provider. [Learn more](#install-the-provider).
-        1. Download the vault registration key. You need this key to the Provider. The key is valid for five days after you generate it. [Learn more](#install-the-provider-on-a-hyper-v-core-server).
+        1. [Download the installer](#install-the-provider) for the Microsoft Azure Site Recovery Provider.
+        1. Download the vault registration key. You need this key to the Provider. The key is valid for five days. [Learn more](#install-the-provider-on-a-hyper-v-core-server).
         1. Select the site you created.
     1. Select **Next**.
         :::image type="content" source="./media/hyper-v-azure-tutorial/add-server.png" alt-text="Screenshot displays Add server page." lightbox="./media/hyper-v-azure-tutorial/add-server.png":::
 
-Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+Site Recovery checks if you have one or more compatible Azure storage accounts and networks.
 
 #### Install the Provider
 
@@ -105,9 +105,9 @@ If you're running a Hyper-V core server, download the setup file and follow thes
 Select and verify target resources:
 
 1. In the **Target settings** tab, do the following:
-1. In **Subscription**, select the subscription and the resource group **ContosoRG** in which the Azure VMs will be created after failover.
-1. Under **Post-failover deployment model**, elect the **Resource Manager"** deployment model.
-1. Select **Next**.
+    1. In **Subscription**, select the subscription and the resource group **ContosoRG** in which the Azure VMs will be created after failover.
+    1. Under **Post-failover deployment model**, elect the **Resource Manager"** deployment model.
+    1. Select **Next**.
  
 :::image type="content" source="./media/hyper-v-azure-tutorial/target-settings.png" alt-text="Screenshot displays Target settings." lightbox="./media/hyper-v-azure-tutorial/target-settings.png":::
 
@@ -128,7 +128,7 @@ Under **Replication policy**, do the following:
     
 1. After the policy is created, select **OK**. When you create a new policy, it's automatically associated with the specified Hyper-V site. In our tutorial, that's **ContosoHyperVSite**.
 
-:::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot displays Target settings." lightbox="./media/hyper-v-azure-tutorial/create-policy.png":::
+:::image type="content" source="./media/hyper-v-azure-tutorial/create-policy.png" alt-text="Screenshot displays Create policy." lightbox="./media/hyper-v-azure-tutorial/create-policy.png":::
 
 ## Next steps
 
