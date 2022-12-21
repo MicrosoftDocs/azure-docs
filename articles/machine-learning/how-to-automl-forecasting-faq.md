@@ -69,14 +69,15 @@ There are four configurations supported by AutoML forecasting.
 
 4. Deep Learning: 
    
-   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model, i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series and does not need external features.
+   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model, i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series.
 
 ### How can I prevent over-fitting and data leakage?
 
-Azure Auto ML uses Rolling Origin Cross Validation which reduces the modelling-based over-fitting issues to a great extent. However, there can be over-fitting issues due to the data. 
-- The input data should not contain columns that are derived from the target. 
-- Using deep learning models for small number of short time series. Many models can over-fit the time series that have short history. Increasing the cv_step_size and n_cv_folds helps in reducing over-fitting.
-- Features available during training but unavailable in the forecast horizon will lead to poor predictions. In our next version, we are proposing a solution to handle missing features in forecast horizon (Coming soon). 
+Azure Auto ML uses Rolling Origin Cross Validation which reduces the modelling-based over-fitting issues to a great extent. However, there can be over-fitting issues due to the data, and here are some examples and suggseted solutions:
+- The input data contains feature columns that are derived from the target. For example, including a feature that is exactly a linear function of the target would result in a nearly perfect yet meaningless traning score. We adivse users to drop those columns before training.
+- Using deep learning models for small number of short time series, or many models on the time series that have short history. Please refer to the previous question for advise on how to choose the modeling configuration for your data.
+- Features available during training but unavailable in the forecast horizon will lead to poor predictions. The simplist solution would be dropping those features for now, and we're working on handling this scenario for users as part of the AutoMl offering (coming soon).
+- Setting inappropriate cross-validation parameters. For example, setting an unnecessarily small number of n_cross_validations (number of cross validation folds) and cv_step_size (the number of periods between two consecutive cross-validation folds) could potentially lead to overfitting on the most recent data, instead of obtaining a more stable model across a longer time window. Please see [the following documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-forecast#training-and-validation-data) for more information on cross-validations in AutoMl forecasting. Unless having particular reasons to customize those parameters, you could leave either or both of them empty and AutoML will set them automatically.
 
 ### How and where to start? What should be my steps for forecasting using Azure AutoML?
 
