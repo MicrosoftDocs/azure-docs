@@ -134,7 +134,7 @@ The next step is to create a file in your current shell, named *cloud-init.txt* 
 #cloud-config
 package_upgrade: true
 packages:
-  - httpd
+  - apache2
 ```
 > [!NOTE]
 > cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
