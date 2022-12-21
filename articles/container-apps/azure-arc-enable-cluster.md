@@ -292,7 +292,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --release-namespace $NAMESPACE \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${NAMESPACE}" \
-        --configuration-settings "CLUSTER_NAME=${CONNECTED_ENVIRONMENT_NAME}" \
+        --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" \
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
@@ -314,7 +314,7 @@ A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) pro
         --release-namespace $NAMESPACE `
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" `
         --configuration-settings "appsNamespace=${NAMESPACE}" `
-        --configuration-settings "CLUSTER_NAME=${CONNECTED_ENVIRONMENT_NAME}" `
+        --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" `
         --configuration-settings "envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group=${AKS_CLUSTER_GROUP_NAME}" `
         --configuration-settings "logProcessor.appLogs.destination=log-analytics" `
         --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" `
