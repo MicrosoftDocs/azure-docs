@@ -122,3 +122,16 @@ The following information is passed to the server in the query:
 * [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
+
+
+## Validate user access on LDAP volumes
+
+Azure NetApp Files provides you with the ability to validate user connectivity and access to LDAP-enabled volumes based on group membership. When you provide a user ID, Azure NetApp Files will report a list of primary and auxiliary group IDs that user belongs to from the LDAP server.
+
+Validating user access is helpful for working through scenarios such as permission errors with LDAP volumes and ensuring POSIX attributes set on the LDAP server are accurate.  
+
+1. In the volume page for the LDAP-enabled volume, select **LDAP Group ID List** under **Support & Troubleshooting**.
+1. Enter the user ID and select **Get group IDs**.
+1. The portal will display up to 256 results even if the user is in more than 256 groups. You can search for a specific group ID in the results. 
+
+Refer to [Errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) for additional resources if the group ID you are searching for is not present. 

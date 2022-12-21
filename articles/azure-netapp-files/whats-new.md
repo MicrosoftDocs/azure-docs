@@ -19,6 +19,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+* [Validate user access on LDAP volumes]
+
+
 ## December 2022
 
 * [Azure Application Consistent Snapshot tool (AzAcSnap) 7](azacsnap-introduction.md) 
