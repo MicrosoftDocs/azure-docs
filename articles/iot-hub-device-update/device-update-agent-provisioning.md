@@ -119,7 +119,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
     ```shell
    	sudo nano /etc/adu/du-config.json
     ```
-   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the '<Place value here>' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
+   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 	
 5. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -138,7 +138,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     ```shell
    	sudo nano /etc/adu/du-config.json
     ```
-   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the '<Place value here>' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
+   Change the connectionType to "AIS" for agents who will be using the IoT Identity Service for provisioning. The ConnectionData field must be a empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
 5. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -164,7 +164,7 @@ The Device Update agent can also be configured without the IoT Identity service 
     	- If Device Update agent is configured as a module copy the module's primary connection string. 
     	- Otherwise copy the device's primary connection string.
      
-    3. Enter the copied primary connection string to the 'connectionData' field's value in the du-config.json file. Please note that all values with the '<Place value here>' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents)
+    3. Enter the copied primary connection string to the 'connectionData' field's value in the du-config.json file. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents)
  
 1. Now you are now ready to start the Device Update agent on your IoT device. 
 
