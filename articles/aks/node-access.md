@@ -165,45 +165,45 @@ If you didn't create your AKS cluster using the Azure CLI and the `--generate-ss
 
 1. Create a root user called `azureuser`.
 
-```azurecli
-az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminUsername=azureuser
-```
+    ```azurecli
+    az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminUsername=azureuser
+    ```
 
 2. Create a password for the new root user.
 
-```azurecli
-az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminPassword=<new password>
-```
+    ```azurecli
+    az vmss update -g <nodeRG> -n <vmssName> --set virtualMachineProfile.osProfile.adminPassword=<new password>
+    ```
 
 3. Update the instances to use the above changes.
 
-```azurecli
-az vmss update-instances -g <nodeRG> -n <vmssName> --instance-ids '*'
-```
+    ```azurecli
+    az vmss update-instances -g <nodeRG> -n <vmssName> --instance-ids '*'
+    ```
 
 4. Reimage the affected nodes so you can connect using your new credentials.
 
-```azurecli
-az vmss reimage -g <nodeRG> -n <vmssName> --instance-id <affectedNodeInstanceId>
-```
+    ```azurecli
+    az vmss reimage -g <nodeRG> -n <vmssName> --instance-id <affectedNodeInstanceId>
+    ```
 
 5. Use `kubectl debug` to connect to another node.
 
-```azurecli
-kubectl debug node/<nodeName> -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
-```
+    ```azurecli
+    kubectl debug node/<nodeName> -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
+    ```
 
 6. Open a second terminal to use port forwarding to connect the debug pod to your local computer.
 
-```azurecli
-kubectl port-forward <debugPodName> 2022:22
-```
+    ```azurecli
+    kubectl port-forward <debugPodName> 2022:22
+    ```
 
 7. Open a third terminal to get the `INTERNAL-IP` of the affected node to initiate the SSH connection. You can get this with `kubectl get nodes -o wide`. Once you have it, use the following command to connect.
 
-```azurecli
-ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@<affectedNodeIp>
-```
+    ```azurecli
+     ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@<affectedNodeIp>
+    ```
 
 8. Enter your password.
 
