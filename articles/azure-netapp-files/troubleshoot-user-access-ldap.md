@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 Azure NetApp Files provides you with the ability to validate user connectivity and access to LDAP-enabled volumes based on group membership. When you provide a user ID, Azure NetApp Files will report a list of primary and auxiliary group IDs that user belongs to from the LDAP server.
 
-Validating user access is helpful for working through scenarios such as permission errors with LDAP volumes and ensuring POSIX attributes set on the LDAP server are accurate.  
+Validating user access is helpful for scenarios such as ensuring POSIX attributes set on the LDAP server are accurate or when you encounter permission errors. 
 
 1. In the volume page for the LDAP-enabled volume, select **LDAP Group ID List** under **Support & Troubleshooting**.
 1. Enter the user ID and select **Get group IDs**.
