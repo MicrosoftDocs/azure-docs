@@ -209,8 +209,6 @@
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1
         href: convert-nfsv3-nfsv41.md
-      - name: Configure access control lists for NFSv4.1
-        href: configure-access-control-lists.md
     - name: Manage SMB volumes
       items:
       - name: Create an SMB volume
@@ -229,6 +227,8 @@
         href: azure-netapp-files-configure-export-policy.md
       - name: Configure Unix permissions and change ownership mode
         href: configure-unix-permissions-change-ownership-mode.md
+      - name: Configure access control lists for NFSv4.1
+        href: configure-access-control-lists.md
       - name: Configure network features for a volume
         href: configure-network-features.md
       - name: Configure Virtual WAN
