@@ -28,8 +28,8 @@ After the request for elevated access is approved via the JIT (just-in-time syst
 ## Prerequisites for access request
 
 Before you begin, make sure:
-1.	You have created a [Microsoft Energy Data Services instance](https://learn.microsoft.com/en-us/azure/energy-data-services/quickstart-create-microsoft-energy-data-services-instance). 
-2.	You have enabled [Lockbox within the Azure portal](https://learn.microsoft.com/en-us/azure/security/fundamentals/customer-lockbox-overview). 
+1.	You have created a [Microsoft Energy Data Services instance](quickstart-create-microsoft-energy-data-services-instance.md).
+2.	You have enabled [Lockbox within the Azure portal](../security/fundamentals/customer-lockbox-overview.md). 
 
 ## Track, approve request via Lockbox
 To track and approve a request to access customer data, follow these steps:
