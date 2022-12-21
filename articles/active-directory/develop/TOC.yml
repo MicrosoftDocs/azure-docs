@@ -900,6 +900,8 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
+        - name: Configured permissions limits troubleshooting
+          href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md
