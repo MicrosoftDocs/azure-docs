@@ -13,6 +13,8 @@ This topic describes the networking requirements for using the Connected Machine
 
 [!INCLUDE [network-requirements](includes/network-requirements.md)]
 
+For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
+
 ## Next steps
 
 * Review additional [prerequisites for deploying the Connected Machine agent](prerequisites.md).
