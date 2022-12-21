@@ -73,7 +73,8 @@ import pandas as pd
 data_asset = ml_client.data.get(name="<NAME_OF_ASSET>", version="<VERSION_NUMBER>")
 print(f'Data asset URI: {data_asset.path}')
 ```
-
+> [!TIP]
+> Run this script in a Python Jupyter notebook or Python script on the compute instance.  In a notebook, use the **Python 3.10 - SDK v2** kernel.  In the terminal, if the script doesn't find the `azure.ai` package, active the environment with `conda activate azureml_py310_sdkv2`, then run again.
 
 ### Read tabular data from registered _data assets_ or _datastores_
 
@@ -157,7 +158,7 @@ Other than the above issues, use R as you would in any other environment, such a
 @@Verify this: 
 - Reading a file with `reticulate` only works with tabular data.
 - From an interactive R session, you can only write to the workspace file system.
-- From an interactive R session, you can't interact with MLFlow (such as, log model or query registry).
+- From an interactive R session, you can't interact with MLflow (such as, log model or query registry).
 
 
 ## Next steps
