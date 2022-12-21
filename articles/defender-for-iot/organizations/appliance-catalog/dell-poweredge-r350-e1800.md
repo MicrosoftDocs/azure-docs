@@ -81,6 +81,15 @@ The following image shows a view of the Dell PowerEdge R350 back panel:
 |1|	540-BBDF	|	Broadcom 5719 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile	|
 |1|	780-BCDQ	|	RAID 10	|
 
+## Optional Expansion Modules
+Optional modules for additional monitoring ports can be installed:
+
+|Location|Type|Specifications|
+|----|---|----|
+| Optional Slot 1 | | Quad Port Ethernet NIC | Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
+| Optional Slot 1  | | Dual Port | 540-BBVI - Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
+
+
 
 
 ## Dell PowerEdge R350 installation
