@@ -15,7 +15,7 @@ Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities suc
 
 For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a DDoS Protection plan.
@@ -372,7 +372,7 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-To learn more about Azure Load Balancer security, continue to:
+Advance to the next article to learn how to:
 
 > [!div class="nextstepaction"]
-> [Azure security baseline for Azure Load Balancer](azure-load-balancer-security-baseline.md?toc=%2Fazure%2Fload-balancer%2FTOC.json)
+> [Create a public load balancer with an IP-based backend](tutorial-load-balancer-ip-backend-portal.md)
