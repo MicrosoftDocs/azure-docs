@@ -115,6 +115,14 @@ Two major scenarios where you can use pipeline comparison to help with debugging
 - Debug your failed pipeline job by comparing it to a completed one.
 - Debug your failed node in a pipeline by comparing it to a similar completed one.
 
+To enable this feature:
+
+1. Navigate to Azure Machine Learning studio UI.
+2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+3. In **Managed preview feature** panel, toggle on **Compare pipeline jobs to debug failures or unexpected issues** feature.
+
+:::image type="content" source="./media/how-to-use-pipeline-ui/enable-preview.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-use-pipeline-ui/enable-preview.png":::
+
 ### How to debug your failed pipeline job by comparing to a completed one
 
 During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use pipeline comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
@@ -188,7 +196,7 @@ To share your comparison results select **Share** and copying the link. For exam
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/share.png" alt-text="Screenshot showing the share button and the link you should copy." lightbox= "./media/how-to-use-pipeline-ui/share.png":::
 
-## View profiling (preview) to debug pipeline performance issues
+## View profiling to debug pipeline performance issues (preview)
 
 Profiling (preview) can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
 
@@ -196,6 +204,12 @@ Profiling enables you to:
 
 - Quickly find which node takes longer time than expected.
 - Identify the time spent of job on each status
+
+To enable this feature:
+
+1. Navigate to Azure Machine Learning studio UI.
+2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
+3. In **Managed preview feature** panel, toggle on **View profiling to debug pipeline performance issues** feature.
 
 ### How to find the node that runs totally the longest
 
