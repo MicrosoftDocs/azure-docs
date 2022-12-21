@@ -141,7 +141,41 @@ Upon refresh, the kernel list in your notebooks view should reflect the changes 
 
 ## Manage terminal sessions
 
- Select **View active sessions** in the terminal toolbar to see a list of all active terminal sessions. When there are no active sessions, this tab will be disabled.
+Terminal sessions can stay active if terminal tabs are not properly closed. Too many active terminal sessions can impact the performance of your compute instance. 
+
+Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions and shut down the sessions you no longer need.
+
+Learn more about terminal and notebook sessions [on the next docs page]()
 
 > [!WARNING]
->  Make sure you close any unused sessions to preserve your compute instance's resources. Idle terminals may impact performance of compute instances.
+>  Make sure you close any sessions you no longer need to preserve your compute instance's resources and optimize your performance.
+
+
+
+
+## Managing notebook and terminal sessions
+
+Notebook and terminal sessions run on the compute and represent and preserve the current state of your notebook or terminal.
+
+When you re-open a notebook, or reconnect to a terminal session, this allows you to reconnect to the previous session state (including command history, execution history, and defined variables). However, too many active sessions may slow down the performance of your compute. This may make terminal or cell typing feel laggy, or cause terminal commands to feel slow or notebook execution to take longer than expected. 
+
+There is a session management panel in the Azure Machine Learning studio that can help you manage your active sessions and optimize the performance of your compute instance. You can navigate to this session management panel from the compute toolbar of either a terminal tab or a notebook tab.
+
+> [!NOTE]
+> For optimal performance, we recommend you don’t keep more than ten active sessions - and the fewer the better.
+
+    <insert screenshot of session management panel>
+    
+### Terminal sessions
+Terminal sessions are terminated when you close a terminal tab in the Azure Machine Learning studio. If you navigate away from the Azure Machine Learning studio without closing it, the session may remain open and should be shut down if no longer needed. 
+
+Select **Manage active sessions** in the terminal toolbar to see a list of all active terminal sessions. You can see below that the icon shows the count of active terminal sessions.
+    
+    <insert screenshot of terminal compute toolbar with "Manage active sessions" hovered>
+
+### Notebook sessions
+In contrast, notebook sessions are kept active unless they are shut down explicitly. This enables you to reconnect to your previous notebook session state, and means that when you close a notebook tab, the session is kept active. If you'd like to reconnect to a notebook and have access to previously-defined variables and execution state, you will benefit from the active session. However, keeping too many notebook sessions open can slow down the performance of your compute.
+
+Select **Manage active sessions** in the notebook toolbar to see a list of all active notebook sessions. You can see below that the icon shows the count of active notebook sessions.
+
+    <insert screenshot of terminal compute toolbar with "Manage active sessions" hovered>
