@@ -119,10 +119,9 @@ It is critical that the OCSP responder is highly available and network connectiv
 
 Note: OCSP checks are validated via local cache based on the nextUpdate time defined by a previous OCSP response. If the OCSP cache has not been populated from a previous request, the first response may fail. Upon retry of the client, the response should be found in the cache and the request will be processed as expected. 
 
-Limitations
+## Notes
 - Revocation check via CRL is not supported
 - Client revocation check was introduced in API version 2022-05-01
-- Azure portal support is not available
 
 ## Next steps
 
