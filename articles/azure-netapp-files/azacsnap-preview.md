@@ -171,7 +171,7 @@ Once this is working correctly go on to configure (`azacsnap -c configure`) with
 If AzAcSnap has been installed following option 2, then be sure to allow SSH access to the Db2 database instance per the following example setup.
 
 
-Login to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
+Log in to the AzAcSnap system as the `azacsnap` user and generate a public/private SSH key pair.
 
 ```bash
 ssh-keygen
@@ -210,7 +210,7 @@ cat .ssh/id_rsa.pub
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02
 ```
 
-Login to the IBM Db2 system as the Db2 Instance User.
+Log in to the IBM Db2 system as the Db2 Instance User.
 
 Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `authorized_keys` file.
 
@@ -218,7 +218,7 @@ Add the contents of the AzAcSnap user's public key to the Db2 Instance Users `au
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCb4HedCPdIeft4DUp7jwSDUNef52zH8xVfu5sSErWUw3hhRQ7KV5sLqtxom7an2a0COeO13gjCiTpwfO7UXH47dUgbz+KfwDaBdQoZdsp8ed1WI6vgCRuY4sb+rY7eiqbJrLnJrmgdwZkV+HSOvZGnKEV4Y837UHn0BYcAckX8DiRl7gkrbZUPcpkQYHGy9bMmXO+tUuxLM0wBrzvGcPPZ azacsnap@db2-02" >> ~/.ssh/authorized_keys
 ```
 
-Login to the AzAcSnap system as the `azacsnap` user and test SSH access.
+Log in to the AzAcSnap system as the `azacsnap` user and test SSH access.
 
 ```bash
 ssh <InstanceUser>@<ServerAddress>
