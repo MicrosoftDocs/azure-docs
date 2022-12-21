@@ -17,7 +17,7 @@ When starting out with [Azure Video Indexer](https://www.videoindexer.ai/), clic
 With a trial account, Azure Video Indexer provides:
 
 * up to 600 minutes of free indexing to the [Azure Video Indexer](https://www.videoindexer.ai/) website users and
-* up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](aka.ms/vi-dev-portal).
+* up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://api-portal.videoindexer.ai/).
 
 The trial account option is not available on the Azure Government cloud. For other Azure Government limitations, see [Limitations of Azure Video Indexer on Azure Government](connect-to-azure.md#limitations-of-azure-video-indexer-on-azure-government).
 
