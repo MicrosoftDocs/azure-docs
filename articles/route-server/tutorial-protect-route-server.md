@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Protect your route server with Azure DDoS protection'
-description: Learn how to setup a route server and protect it with Azure DDoS protection
+description: Learn how to set up a route server and protect it with Azure DDoS protection
 author: asudbring
 ms.author: allensu
 ms.service: route-server
@@ -96,13 +96,13 @@ Azure DDoS protection Standard is enabled at the virtual network where the resou
 
 4. Select **Enable**.
 
-5. In the pull-down box in **DDoS protection plan** select **myDDoSProtectionPlan**.
+5. In the pull-down box in DDoS protection plan,** select **myDDoSProtectionPlan**.
 
 6. Select **Save**.
 
 ## Set up peering with NVA
 
-In this section, you'll setup the BGP peering with your NVA.
+In this section, you'll set up the BGP peering with your NVA.
 
 1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** in the search results.
 
@@ -130,7 +130,7 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
 2. Select **myRouteServer**.
 
-3. In the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer Ips**.
+3. In the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
