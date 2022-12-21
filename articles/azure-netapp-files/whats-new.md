@@ -32,6 +32,8 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     * Validation improvements 
     * Timeout improvements 
     * Azure Backup integration improvements 
+    * Features moved to GA (generally available):
+        None
     * The following features are now in preview: 
         * Preliminary support for [Azure NetApp Files backup](backup-introduction.md)
         * [IBM Db2 database](https://www.ibm.com/products/db2) support adding options to configure, test, and snapshot backup IBM Db2 in an application consistent manner
