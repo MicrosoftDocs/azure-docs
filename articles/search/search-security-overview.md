@@ -190,7 +190,6 @@ To remove references to specific objects, or to change the data retention period
 
    :::image type="content" source="media/search-security-overview/support-request.png" alt-text="First page of the support ticket with issue and problem types selected." border="true":::
 
-
 <a name="encryption"></a>
 
 ## Data protection
