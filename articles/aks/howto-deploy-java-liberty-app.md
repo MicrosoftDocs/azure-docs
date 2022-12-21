@@ -98,7 +98,7 @@ Now that the database and AKS cluster have been created, we can proceed to prepa
 
 ## Configure and deploy the sample application
 
-Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven and the `liberty-maven-plugin`.  To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+Follow the steps in this section to deploy the sample application on the Liberty runtime. These steps use Maven.
 
 ### Check out the application
 
@@ -114,9 +114,7 @@ java-app
 │  │  ├─ openlibertyapplication-agic.yaml
 │  ├─ docker/
 │  │  ├─ Dockerfile
-│  │  ├─ Dockerfile-local
 │  │  ├─ Dockerfile-wlp
-│  │  ├─ Dockerfile-wlp-local
 │  ├─ liberty/config/
 │  │  ├─ server.xml
 │  ├─ java/
@@ -127,7 +125,7 @@ java-app
 
 The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image.
+In the *aks* directory, we placed three deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication-agic.yaml* is used to deploy the application image. In the *docker* directory, there are two files to create the application image with either Open Liberty or WebSphere Liberty.
 
 In directory *liberty/config*, the *server.xml* FILE is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
@@ -154,7 +152,7 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure. 
+Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure. and the `liberty-maven-plugin`.  To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined in the above step. 
 
