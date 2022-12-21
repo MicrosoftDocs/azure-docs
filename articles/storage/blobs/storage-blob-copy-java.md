@@ -44,7 +44,7 @@ To copy a blob, use the following method:
 
 - [copyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger and 256 MB, and must be a public blob or have a SAS token attached.
+This method synchronously copies the data at the source URL to a blob and waits for the copy to complete before returning a response. The source must be a block blob no larger than 256 MB. The source URL must include a SAS token that provides permissions to read the source blob. To learn more about the underlying operation, see [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url).
 
 The following code example gets a `BlobClient` object representing an existing blob and copies it to a new blob in a different container. This example also gets a lease on the source blob before copying so that no other client can modify the blob until the copy is complete and the lease is broken.
 
@@ -65,7 +65,7 @@ You can also copy a blob using the following method:
 
 - [beginCopy](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token.
+This method triggers a long-running, asynchronous operation. The source may be another blob or an Azure File resource. If the source is in another storage account, the source must either be public or authorized with a SAS token. To learn more about the underlying operation, see [Copy Blob](/rest/api/storageservices/copy-blob).
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_CopyBlobBeginCopy":::
 
@@ -75,13 +75,15 @@ You can also specify extended options for the copy operation by passing in a [Bl
 
 ## Abort a copy operation
 
-Aborting a copy operation results in a destination blob of zero length. However, the metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
+If you have a pending copy operation and need to cancel it, you can abort the operation. Aborting a copy operation results in a destination blob of zero length and full metadata. To learn more about the underlying operation, see [Abort Copy Blob](/rest/api/storageservices/abort-copy-blob).
+
+The metadata for the destination blob will have the new values copied from the source blob or set explicitly during the copy operation. To keep the original metadata from before the copy, make a snapshot of the destination blob before calling one of the copy methods. The final blob will be committed when the copy completes.
 
 To abort a copy operation, use the following method:
 
 - [BlobClient.abortCopyFromUrl](/java/api/com.azure.storage.blob.specialized.blobclientbase)
 
-The following example stops a pending copy and leaves a destination blob with zero length and metadata:
+The following example stops a pending copy and leaves a destination blob with zero length and full metadata:
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobCopy.java" id="Snippet_AbortCopy":::
 

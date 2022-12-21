@@ -22,11 +22,15 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
-## Set and retrieve index tags
+## Set tags
 
-You can set and get index tags if your code has authorized access by using an account key, or if your code uses a security principal that has been given the appropriate role assignments. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) or higher
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
+- Shared Access Signature with permission to access the blob's tags (`t` permission)
+- Account key
 
-### Set tags
+For more information, see [Setting blob index tags](storage-manage-find-blobs.md#setting-blob-index-tags).
 
 You can set tags by using the following method:
 
@@ -40,7 +44,15 @@ You can delete all tags by passing an empty `Map` object into the `setTags` meth
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobPropertiesMetadataTags.java" id="Snippet_ClearBLobTags":::
 
-### Get tags
+## Get tags
+
+You can set and get index tags if your code has authorized access to blob data through one of the following mechanisms:
+- Azure AD built-in role assigned as [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) or higher
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
+- Shared Access Signature with permission to access the blob's tags (`t` permission)
+- Account key
+
+For more information, see [Getting and listing blob index tags](storage-manage-find-blobs.md#getting-and-listing-blob-index-tags).
 
 You can get tags by using the following method: 
 
@@ -54,11 +66,11 @@ The following example shows how to retrieve and iterate over the blob's tags:
 
 You can use index tags to find and filter data if your code has authorized access to blob data through one of the following mechanisms:
 - Azure AD built-in role assigned as [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) or higher
-- Azure RBAC action `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` or higher 
-- Shared Access Signature with `f` permission
+- Azure RBAC action [Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action](/azure/role-based-access-control/resource-provider-operations#microsoftstorage)
+- Shared Access Signature with permission to find blobs by tags (`f` permission)
 - Account key
 
-For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+For more information, see [Finding data using blob index tags](storage-manage-find-blobs.md#finding-data-using-blob-index-tags).
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).
