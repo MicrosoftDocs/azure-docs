@@ -133,7 +133,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 > [!IMPORTANT]
 > Azure Arc agents require the following outbound URLs on `https://:443` to function.
-> For `*.servicebus.windows.net` & `*.servicebus.usgovcloudapi.net` (for Azure US Government), websockets need to be enabled for outbound access on firewall and proxy.
+> For `*.servicebus.windows.net` (for Azure Cloud) & `*.servicebus.usgovcloudapi.net` (for Azure US Government), websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -149,7 +149,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](azure-rbac.md) is configured |
 
 > [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. For Azure US Government to translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01-01&location=<location>`. Within these command, the region must be specified for the `<location>` placeholder.
+> For Azure Cloud to translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. For Azure US Government to translate the `*.servicebus.usgovcloudapi.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.us/urls/allowlist?api-version=2020-01-01&location=<location>`. Within these command, the region must be specified for the `<location>` placeholder.
 
 > [!IMPORTANT]
 > To view and manage connected clusters in the Azure portal, be sure that your network allows traffic to `*.arc.azure.net`.
