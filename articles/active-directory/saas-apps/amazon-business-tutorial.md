@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/21/2022
+ms.date: 12/21/2022
 ms.author: jeedes
 ---
 
@@ -221,9 +221,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/group.png)
 
-1. On the **Upload your metadata file** wizard, click **Browse** to upload the **Metadata XML** file, which you have downloaded from the Azure portal and click **Upload**.
+1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **Metadata XML** link, which you have downloaded from Azure portal and click **Validate**.
 
     ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data.png)
+
+    >[!NOTE]
+    > Alternatively, you can also upload the **Federation Metadata XML** file by clicking on the **Upload XML File** option.
 
 1. After uploading the downloaded metadata file, the fields in the **Connection data** section will populate automatically. After that click **Next**.
 
@@ -237,7 +240,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows Attribute mapping, where you can edit your Amazon data SAML attribute names.](media/amazon-business-tutorial/attribute-mapping.png)
 
-1. On the **Amazon connection data** wizard, click **Next**.
+1. On the **Amazon connection data** wizard, click **Continue**.
 
     ![Screenshot shows Amazon connection data, where you can click next to continue.](media/amazon-business-tutorial/amazon-connect.png)
 
