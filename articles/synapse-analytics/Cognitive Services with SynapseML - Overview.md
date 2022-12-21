@@ -1,6 +1,6 @@
 ---
-title: CognitiveServices - Overview
-description: CognitiveServices - Overview
+title: Cognitive Services with SynapseML - Overview
+description: Cognitive Services with SynapseML - Overview
 author: mhamilton723, serena-ruan, ppruthi, k-rush
 ms.author: marhamil, serenaruan, ppruthi, kyrush
 ms.date: 12/20/2022
