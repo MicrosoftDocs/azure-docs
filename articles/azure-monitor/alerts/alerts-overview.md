@@ -95,6 +95,9 @@ For stateful alerts, the alert is considered resolved when:
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
 
+> [!NOTE]
+> Log search alert is resolved after time range that teh alert wasn't met. Threrefore the resolve evaluation window is based on last unhealthy window.  
+
 ## Manage your alerts programmatically
 
 You can query your alerts instances to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
