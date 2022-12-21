@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: mopeakande
 author: dem108
 ms.author: sehan
-ms.date: 10/04/2022
+ms.date: 12/08/2022
 ms.custom: event-tier1-build-2022
 ---
 
@@ -207,19 +207,32 @@ The following diagram shows the overall architecture of this example:
 
 :::image type="content" source="./media/how-to-secure-online-endpoint/endpoint-network-isolation-diagram.png" alt-text="Diagram of the services created.":::
 
+To create the resources, use the following Azure CLI commands. To create a resource group. Replace `<my-resource-group>` and `<my-location>` with the desierd values.  
+
+```azurecli
+# create resource group
+az group create --name <my-resource-group> --location <my-location>
+```
+
+Clone the example files for the deployment, use the following command:
+
+```azurecli
+#Clone the example files
+git clone https://github.com/Azure/azureml-examples
+```
+
 To create the resources, use the following Azure CLI commands. Replace `<UNIQUE_SUFFIX>` with a unique suffix for the resources that are created.
 
-:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_suffix":::
-
-:::code language="azurecli" source="~/azureml-examples-main/setup/setup-repo/azure-github.sh" id="managed_vnet_workspace_create":::
-
+```azurecli
+az deployment group create --template-file endpoints/online/managed/vnet/setup_ws/main.bicep --parameters suffix=$SUFFIX --resource-group <my-resource-group>
+```
 ### Create the virtual machine jump box
 
 To create an Azure Virtual Machine that can be used to connect to the VNet, use the following command. Replace `<your-new-password>` with the password you want to use when connecting to this VM:
 
 ```azurecli
 # create vm
-az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password>
+az vm create --name test-vm --vnet-name vnet-$SUFFIX --subnet snet-scoring --image UbuntuLTS --admin-username azureuser --admin-password <your-new-password> --resource-group <my-resource-group>
 ```
 
 > [!IMPORTANT]
