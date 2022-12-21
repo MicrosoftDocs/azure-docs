@@ -183,9 +183,9 @@ Single Sign-On (SSO) is configured for many SAP environments. With SAP workloads
 
 | SSO method | Identity Provider | Typical use case                 | Implementation           |
 | :--------- | :---------------: | :------------------------------- | :----------------------- |
-| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration   | 
-| SNC        | AD                | SAP GUI                          | Configure with SAP       | 
-| SPNEGO     | AD                | Web GUI, Portal                  | Configure with SAP       | 
+| SAML/OAuth | AAD               | SAP Fiori, Web GUI, Portal, HANA | Customer configuration   |
+| SNC        | AD                | SAP GUI                          | Configure with ECS team  |
+| SPNEGO     | AD                | Web GUI, Portal                  | Configure with ECS team  |
 
 SSO against Active Directory (AD) of your Windows domain for ECS/RISE managed SAP environment, needs to be planned in detail with SAP. SSO methods such as Kerberos/SPNEGO and Kerberos/SNC are used often for SSO with SAP GUI, Web GUI and SAP Portal and require an AD domain for the Kerberos protocol. Active directory integration is typically done on OS level, either Windows domain registration or Linux utilities such as kutil and keytab. With ECS/RISE managed workload this would mean having your domain objects in Azure tenant and subscription of SAP, as SAP does not provide a new AD domain for integration. Consider such implementation with your compliance team and SAP.
 
