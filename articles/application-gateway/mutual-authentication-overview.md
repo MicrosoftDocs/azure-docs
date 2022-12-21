@@ -4,7 +4,7 @@ description: This article is an overview of mutual authentication on Application
 services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
-ms.date: 11/03/2022
+ms.date: 12/21/2022
 ms.topic: conceptual 
 ms.author: greglin
 
@@ -111,7 +111,9 @@ A list of all Azure CLI references for client authentication configuration on Ap
 # [Azure portal](#tab/portal)
 Azure portal support is currently not available.
 
-To verify OCSP revocation status has been evaluated, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
+---
+
+To verify OCSP revocation status has been evaluated for the client request, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
 It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
 
