@@ -75,11 +75,11 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to NLP text classification multilabel jobs are linked below.  
 
-## YAML: AutoML text classification job
+## YAML: AutoML text classification multilabel job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml":::
 
-## YAML: AutoML text classification pipeline job
+## YAML: AutoML text classification multilabel pipeline job
 
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/cli-automl-text-classification-multilabel-paper-categorization-pipeline/pipeline.yml":::
 
