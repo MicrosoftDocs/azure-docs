@@ -32,10 +32,10 @@ The following table shows which special collation types are supported by which s
 
 | Collation Type                            | Serverless SQL Pool | Dedicated SQL Pool - Database & Column Level | Dedicated SQL Pool - External Table (Native Support) | Dedicated SQL Pool - External Table (Hadoop/Polybase) |
 |:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
-| UTF-8                                     | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | Yes                | No                 |
-| Japanese_XJIS_140_*                       | Yes                 | Yes                     | Yes                | No                 |
-| Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | No                 |
+| Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | Yes                |
+| UTF-8                                     | Yes                 | Yes                     | No                 | No                 |
+| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | No                 | No                 |
+| Japanese_XJIS_140_*                       | Yes                 | Yes                     | No                 | No                 |
 | SQL_EBCDIC1141_CP1_CS_AS                  | No                  | No                      | No                 | No                 |
 | SQL_EBCDIC277_2_CP1_CS_AS                 | No                  | No                      | No                 | No                 |
 
