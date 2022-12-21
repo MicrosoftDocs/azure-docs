@@ -78,33 +78,22 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search collects service data for monitoring and troubleshooting purposes.
+Because Azure Cognitive Search is a [monitored resource](/azure/azure-monitor/monitor-reference), you can review the built-in [**activity logs**](/azure/azure-monitor/essentials/activity-log) and [**platform metrics**](/azure/azure-monitor/essentials/data-platform-metrics#types-of-metrics) for insights into service operations. Activity logs and the data used to report on platform metrics are retained for the periods described in the following table.
 
-Platform metrics are found on the portal pages of your service. It includes query latency, queries per second, and queries throttled during indexing. This data is stored on a rolling 93-day cycle, but portal visualization is limited to a 30 day window. Data collection and reporting of these metrics occurs automatically as part of the portal experience and is non-configurable.
+If you opt in for [**resource logging**](/azure/azure-monitor/essentials/resource-logs), you'll specify durable storage over which you'll have full control over data retention and data access through Kusto queries. For more information on how to set up resource logging in Cognitive Search, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
-Durable monitoring data is collected when you opt-in for diagnostic logging. When monitoring and diagnostic requirements exceed what the portal provides automatically, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+Internally, Microsoft collects telemetry data about your service and the platform. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
 
-Internally, Microsoft Support collects telemetry data to support your service and the platform. Telemetry data is retained for one and one half years. It's stored internally in Microsoft data centers and made globally available to Microsoft support engineers when you open a support ticket.
+| Monitoring data | Retention |
+|-----------------|-----------|
+| Activity logs | 90 days on a rolling schedule |
+| Platform metrics | 93 days on a rolling schedule, except that portal visualization is limited to a 30 day window |
+| Resource logs | User-managed |
+| Telemetry | One and a half years |
 
-Frequently, customers need specific details about data collection, residency, and retention. Documentation about data privacy and retention can be found in the ["Data residency"](search-security-overview.md#data-residency) section of the security overview.
+> [!NOTE]
+> This section is about monitoring data. For questions about customer data and privacy, see the ["Data residency"](search-security-overview.md#data-residency) section of the security overview article.
 
-<!-- Cognitive Search uses other Azure services for deeper monitoring and management. On the search service itself, the only saved customer data are the structures that support indexing, enrichment, and queries. These data structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved customer data, including debug session state and caching, is stored in Azure Storage.
-
-Usage metrics (such as query latency and queries per second) are reported out to portal pages. These metrics are pulled from internal logs on a rolling 30-day cycle. Data collection and reporting of these metrics on the portal pages occurs automatically as part of the portal experience. 
-
-If your monitoring and diagnostic requirements exceed what the portal provides, you can add [Azure Monitor](../azure-monitor/index.yml) and adopt a supported approach for retaining log data. For more information about setting up resource logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
-
-Internally, Azure Cognitive Search retains telemetry for a longer period (more than 30 days) so that support engineers can troubleshoot problems on your service. Data retention for telemetry is one and a half years. During that period, support engineers might access and reference this data under these conditions:
-
-* Diagnose an issue, improve a feature, or fix a bug.
-* Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support.
-
-You can [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) to remove object names from the telemetry logs or to shorten the retention period. You should specify the following categories when filing this request:
-
-+ **Issue type**: Technical
-+ **Problem type**: Setup and configuration
-+ **Problem subtype**: Issue with security configuration of the service
- -->
 ## Administrator permissions
 
 When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.

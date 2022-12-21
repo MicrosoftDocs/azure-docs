@@ -160,29 +160,36 @@ In Azure Cognitive Search, Resource Manager is used to create or delete the serv
 
 ## Data residency
 
-When you set up a search service, you choose a location or region that determines where data is stored and processed. Azure Cognitive Search won't store data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+When you set up a search service, you choose a location or region that determines where customer data is stored and processed. Azure Cognitive Search won't store customer data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
 
-Currently, the only external resource that a search service writes to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
+Currently, the only external resource that a search service writes customer data to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
 
 ### Exceptions to data residency commitments
 
-Although data isn't stored outside of your region, some elements of customer data are collected during routine service monitoring and retained in telemetry logs for global access by Microsoft support engineers. For a search service, this customer data consists of the *names* of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Although customer data isn't stored outside of your region, the names of user-defined objects are collected during routine service monitoring and retained in telemetry logs for global access by Microsoft support engineers. For a search service, this customer data consists of the names of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
-These names aren't obfuscated in the telemetry logs. If possible, when naming objects, avoid names that convey sensitive information.
+Object names aren't obfuscated in the telemetry logs. If possible, avoid using names that convey sensitive information.
 
 Telemetry logs are retained for one and a half years. During that period, support engineers might access and reference object names under these conditions:
 
 + Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
 
-+ Proactively suggest to the original customer a workaround or alternative to a problem detected by Microsoft Support. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
++ Proactively suggest to the original customer a workaround or alternative. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
 
 Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, the trade off is reduced ability to troubleshoot any issues related to the object in question.
 
-To remove references to specific objects, or to change the data retention period, [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for your search service, categorized as follows:
+To remove references to specific objects, or to change the data retention period, [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for your search service.
 
-+ **Issue type**: Technical
-+ **Problem type**: Setup and configuration
-+ **Problem subtype**: Issue with security configuration of the service
+1. In **Problem details**, tag your request using the following selections:
+
+   + **Issue type**: Technical
+   + **Problem type**: Setup and configuration
+   + **Problem subtype**: Issue with security configuration of the service
+
+1. In **Additional details**, describe the object names you would like removed, or specify the retention period that you require.
+
+   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="First page of the support ticket with issue and problem types selected." border="true":::
+
 
 <a name="encryption"></a>
 
