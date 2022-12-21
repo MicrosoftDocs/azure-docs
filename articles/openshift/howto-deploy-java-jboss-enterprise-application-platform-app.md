@@ -137,7 +137,7 @@ Follow the next steps to build and run the application locally.
 
    Your steps to ensure the network traffic is permitted above were ineffective. Ensure the IP address from the error message is included in the firewall rules.
 
-   If you receive an message with text similar to the following:
+   If you receive a message with text similar to the following:
 
    ```bash
    Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'TODOS' in the database.
@@ -184,7 +184,7 @@ Follow the next steps to build and run the application locally.
    {"status":"UP","checks":[{"name":"SuccessfulCheck","status":"UP"}]}
    ```
 
-   To check the status of readyness, run:
+   To check the status of readiness, run:
    
    ```bash   
    curl http://localhost:9990/health/ready
@@ -261,11 +261,11 @@ The next steps explain how you can deploy the application with a Helm chart usin
    --query "consoleProfile.url" -o tsv
    ```
 
-   Select the **</> Developer** perspective from the drop down menu at the top of the navigation pane.
+   Select the **</> Developer** perspective from the drop-down menu at the top of the navigation pane.
 
    :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-developer-view.png" alt-text="Screenshot of OpenShift console developer view.":::
 
-1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop down menu.
+1. In the **</> Developer** perspective, select the **eap-demo** project from the **Project** drop-down menu.
 
     :::image type="content" source="media/howto-deploy-java-enterprise-application-platform-app/console-project-combo-box.png" alt-text="Screenshot of OpenShift console project combo box.":::
 
