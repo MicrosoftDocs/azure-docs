@@ -153,6 +153,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "functions-azure-product",
+      "url": "https://github.com/Azure/Azure-Functions",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-pytorch",
       "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
       "branch": "master",
@@ -378,6 +384,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-mavaisma-r-azureml",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "mavaisma-r-azureml",
       "branch_mapping": {}
     },
     {

@@ -30,7 +30,7 @@ Additional details on eligible subscription types are as follows:
 
 \* Allowing the purchase of Italian phone numbers for CSP and LSP customers is planned only for General Availability launch. 
 
-\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases
+\** Applications from all other subscription types will be reviewed and approved on a case-by-case bases. Please reach out to phone@microsoft.com for assistance with your application.
 
 ## Number capabilities
 
@@ -44,7 +44,7 @@ The tables below summarize current availability:
 | :---------------- | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | USA & Puerto Rico | Toll-Free   | General Availability | General Availability | General Availability | General Availability\* |
 | USA & Puerto Rico | Local       | -                    | -                    | General Availability | General Availability\* |
-| USA               | Short-Codes | Public Preview       | Public Preview\*     | -        | -          |
+| USA               | Short-Codes | General Availability | General Availability | -        | -          |
 
 \* Available through Azure Bot Framework and Dynamics only
 

@@ -5,16 +5,16 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 10/28/2022
+ms.date: 12/12/2022
 ms.custom: engagement-fy23
 ---
 # Azure Migrate agentless migration of VMware virtual machines
 
-This article describes the replication concepts when migrating VMware VMs using Azure Migrate: Server Migration's agentless migration method.
+This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
 
 ## Replication process
 
-The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from virtual machine disks. The following block diagram shows you various steps involved when you migrate your virtual machines using Azure Migrate: Server Migration tool.
+The agentless replication option works by using VMware snapshots and VMware changed block tracking (CBT) technology to replicate data from virtual machine disks. The following block diagram shows you various steps involved when you migrate your virtual machines using the Migration and modernization tool.
 
  ![Migration steps.](./media/concepts-vmware-agentless-migration/migration-phases.png)
 
