@@ -5,13 +5,16 @@ author: asudbring
 ms.author: allensu
 ms.service: route-server
 ms.topic: tutorial
-ms.date: 12/20/2022
+ms.date: 12/21/2022
 ms.custom: template-tutorial
 ---
 
 # Tutorial: Protect your route server with Azure DDoS protection
 
 This article helps you create an Azure Route Server with a DDoS protected virtual network. Azure DDoS protection protects your publicly accessible route server from Distributed Denial of Service attacks.
+
+> [!IMPORTANT]
+> Azure DDoS protection Standard incurs a cost per public IP address in the virtual network where you enable the service. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](/azure/ddos-protection/ddos-protection-overview).
 
 In this tutorial, you learn how to:
 
