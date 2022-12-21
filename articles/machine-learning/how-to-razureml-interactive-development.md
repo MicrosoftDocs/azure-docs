@@ -42,8 +42,8 @@ To install these packages:
 
 The install script performs the following:
 
-	* pip installs `azureml-fsspec` in the default conda environment for the compute instance
-	* Installs the R `reticulate` package if necessary (version must be 1.26 or greater)
+* `pip` installs `azureml-fsspec` in the default conda environment for the compute instance
+* Installs the R `reticulate` package if necessary (version must be 1.26 or greater)
 
 ### Find data file location
 
