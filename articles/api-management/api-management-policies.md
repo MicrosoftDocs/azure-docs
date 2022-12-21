@@ -38,7 +38,7 @@ More information about policies:
 -   [Forward request](forward-request-policy.md) - Forwards the request to the backend service.
 -   [Include fragment](include-fragment-policy.md) - Inserts a policy fragment in the policy definition.
 -   [Limit concurrency](limit-concurrency-policy.md) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
--   [Log to event hub](log-to-event-hub-policy.md) - Sends messages in the specified format to an event hub defined by a Logger entity.
+-   [Log to event hub](log-to-eventhub-policy.md) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Mock response](mock-response-policy.md) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](retry-policy.md) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 -   [Return response](return-response-policy.md) - Aborts pipeline execution and returns the specified response directly to the caller.

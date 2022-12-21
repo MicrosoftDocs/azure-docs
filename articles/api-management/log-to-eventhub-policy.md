@@ -1,6 +1,6 @@
 ---
-title: Azure API Management policy reference - log-to-event-hub | Microsoft Docs
-description: Reference for the log-to-event-hub policy available for use in Azure API Management. Provides policy usage, settings, and examples.
+title: Azure API Management policy reference - log-to-eventhub | Microsoft Docs
+description: Reference for the log-to-eventhub policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
 
@@ -12,8 +12,7 @@ ms.author: danlep
 
 # Log to event hub
 
-The `log-to-event-hub` policy sends messages in the specified format to an event hub defined by a [Logger](/rest/api/apimanagement/current-ga/logger) entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
-The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
+The `log-to-eventhub` policy sends messages in the specified format to an event hub defined by a [Logger](/rest/api/apimanagement/current-ga/logger) entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.  
 
 > [!NOTE]
 > For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
@@ -42,6 +41,11 @@ The policy is not affected by Application Insights sampling. All invocations of 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+
+### Usage notes
+
+* The policy is not affected by Application Insights sampling. All invocations of the policy will be logged.
+* The maximum supported message size that can be sent to an event hub from this policy is 200 kilobytes (KB). A larger message will be automatically truncated to 200 KB before transfer to an event hub.
 
 ## Example
 

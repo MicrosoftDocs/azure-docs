@@ -442,8 +442,8 @@
               href: json-to-xml-policy.md
             - name: limit-concurrency
               href: limit-concurrency-policy.md
-            - name: log-to-event-hub
-              href: log-to-event-hub-policy.md
+            - name: log-to-eventhub
+              href: log-to-eventhub-policy.md
             - name: mock-response
               href: mock-response-policy.md
             - name: proxy

@@ -64,7 +64,7 @@ The following policies can be used in the `on-error` policy section.
 -   [set-status](set-status-policy.md)
 -   [send-request](send-request-policy.md)
 -   [send-one-way-request](send-one-way-request-policy.md)
--   [log-to-eventhub](log-to-event-hub-policy.md)
+-   [log-to-eventhub](log-to-eventhub-policy.md)
 -   [json-to-xml](json-to-xml-policy.md)
 -   [xml-to-json](xml-to-json-policy.md)
 -   [limit-concurrency](limit-concurrency-policy.md)
