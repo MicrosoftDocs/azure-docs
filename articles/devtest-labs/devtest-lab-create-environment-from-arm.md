@@ -14,56 +14,27 @@ In this article, you learn how to create Azure DevTest Labs environments from [A
 
 Resources in an environment share the same lifecycle, and you can manage them together. You can track the cost of lab environments and PaaS resources, just as you track costs for individual lab VMs.
 
-You can configure Azure DevTest Labs to use ARM templates from a public or private Git repository. Learn how to [configure a template repository](#use-public-and-private-template-repositories).
+You can configure Azure DevTest Labs to use ARM templates from a public or private Git repository. Learn more about [template repositories for labs](#environment-template-repositories).
 
 If you want to use an ARM template to create an Azure DevTest Labs resource, see the [Quickstart: use an ARM template to create a lab in DevTest Labs](./create-lab-windows-vm-template.md).
 
 ## Limitations
 
-Consider these limitations when using ARM environment templates in DevTest Labs:
+Consider these limitations when you create labs from ARM templates in DevTest Labs:
 
 - VM auto-shutdown doesn't apply to PaaS resources.
 
 - Not all lab policies are evaluated when you deploy ARM templates. Policies that aren't evaluated include: number of VMs per lab user, number of premium VMs per user, and number of premium desks per user. For example, your lab policy might limit users to only five VMs apiece. However, a user can deploy an ARM environment template that creates dozens of VMs.
 
-## Use public and private template repositories
-
-Azure DevTest Labs has a [public ARM template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that includes pre-authored environment templates for Azure Web Apps, an Azure Service Fabric cluster, and development SharePoint farms. The templates have minimal input parameters, for a smooth getting started experience with PaaS resources.
-
-You can use the public environment templates as-is, or customize them to suit your needs. To suggest revisions or additions to the public templates, submit pull requests against the open-source [GitHub public template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 
-
-You can also [store environment templates in your own Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users.
-
-## Enable and configure public environments
-
-DevTest Labs users don't have to connect to the public template repository externally to use the environment templates. You can enable and configure lab access to the public repository so lab users can access the templates directly from the Azure portal.
-
-### Enable public environments when you create a lab
-
-To enable public environment repository access for a lab, make sure **On** is selected in the **Public environments** field when you create the lab. The setting is **On** by default.
-
-![Screenshot that shows enabling public environments for a new lab.](media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png)
-
-### Enable or disable public environments for existing labs
-
-Existing labs, and labs you create with some ARM templates, might not have public environments enabled. To enable or disable the public environment repository for existing labs:
-
-1. From the lab's **Overview** page in the Azure portal, select **Configuration and policies** in the left navigation.
-1. On the **Configuration and policies** page, select **Public environments** under **Virtual machine bases** in the left navigation.
-1. Under **Enable Public Environments for this lab**, select **Yes** to enable or **No** to disable public environments.
-
-### Select available public environment templates
-
-If you enable public environments, all the environment templates in the repository are available by default. Deselect specific environments to make them unavailable to lab users.
-
-![Screenshot that shows the public environments page.](media/devtest-lab-create-environment-from-arm/public-environments-page.png)
-
-<a name="create-environments-from-templates-in-the-azure-portal"></a>
 ## Create environments from templates
 
-Once you enable the public environment repository or [add a private template repository](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to your lab, lab users can use the repository templates to create environments.
+You can create an environment from the Azure DevTest Labs public template repository or you can [add a private template repository](./devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to your lab.
+
+Learn how to [configure environments for your lab](#configure-public-environment-settings-for-your-lab). For example, how to configure the template repositories, enable or disable public environments, and selecting specific templates for creating labs.
 
 To create an environment from a template:
+
+1. In the [Azure portal](https://portal.azure.com), select your lab resource.
 
 1. On the lab's **Overview** page, select **Add** from the top toolbar.
 
@@ -71,7 +42,9 @@ To create an environment from a template:
 
    ![Screenshot that shows public environment templates.](media/devtest-lab-create-environment-from-arm/public-environment-templates.png)
 
-1. On the **Add** screen, enter an **Environment name**. The ARM template defines the rest of the input fields. As necessary, enter values for input fields that the template *azuredeploy.parameters.json* file defines as blank or default.
+1. On the **Add** screen, enter an **Environment name**, and fill the other input fields.
+
+    The number and type of input fields is defined in the ARM template. As necessary, enter values for input fields that the template *azuredeploy.parameters.json* file defines as blank or default.
 
    - For `secure string` parameters, you can use secrets from Azure Key Vault. To learn how to store secrets in a key vault and use them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 
@@ -83,7 +56,7 @@ To create an environment from a template:
 
    The environment starts provisioning immediately. You can see the provisioning status under **My environments** on the lab **Overview** page. Provisioning an environment can take a long time.
 
-1. Once the environment is created, expand the environment under **My environments** to see the list of VMs that the template provisioned.
+1. Once the environment creation completes, expand the environment under **My environments** to see the list of VMs and other resources that the template provisioned.
 
    ![Screenshot that shows the list of V Ms under an environment.](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
@@ -95,17 +68,75 @@ To create an environment from a template:
 
    ![Screenshot that shows available actions for an environment VM.](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## Configure environment user rights
+## Environment template repositories
 
-By default, lab users have **Reader** role in environments, so they can't change environment resources. For example, users can't stop or start resources. To give lab users **Contributor** role so they can edit environment resources:
+With Azure DevTest Labs, you can create environments from ARM templates. The ARM templates can come from two sources:
 
-1. On the lab's **Overview** page, select **Configuration and policies** from the left navigation.
-1. On the **Configuration and policies** page, select **Lab settings** in the left navigation.
-1. In the **Lab settings** pane, under **Environment access** > **Resource group user rights**, select **Contributor**, and then select **Save**.
+- Azure DevTest Labs has a [public ARM template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that includes pre-authored environment templates for Azure Web Apps, an Azure Service Fabric cluster, and development SharePoint farms. The templates have minimal input parameters, for a smooth getting started experience with PaaS resources. You can use the public environment templates as-is, or customize them to suit your needs.
 
-   ![Screenshot that shows configuring lab user Contributor permissions.](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
+- You can [store environment templates in your own public or private Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users.
 
-<a name="automate-deployment-of-environments"></a>
+> [!TIP]
+> To suggest revisions or additions to the public templates, submit a pull request against the open-source [GitHub public template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments).
+
+## Configure public environment settings for your lab
+
+You can configure your lab to enable the use of templates from the public template repository. If you enable the public template repository for a lab, users can then quickly create an environment by selecting these templates directly in the Azure portal, similar to how they create a VM in a lab. 
+
+In addition, you can select which templates are available for users to create environments from.
+
+### Enable public environments when you create a lab
+
+To enable public environment repository access for a lab when you create a lab:
+
+1. Select the **Basic Settings** tab when you [create a DevTest Labs resource](./devtest-lab-create-lab.md).
+
+1. Select **On** in the **Public environments** field.
+
+    :::image type="content" source="media/devtest-lab-create-environment-from-arm/enable-public-environment-new-lab.png" alt-text="Screenshot that shows enabling public environments for a new lab.":::
+
+### Enable or disable public environments for existing labs
+
+For existing labs, or labs that you create with an ARM template, public environments might not be enabled. To enable or disable the public environment repository for existing labs:
+
+1. In the [Azure portal](https://portal.azure.com), select your lab resource.
+
+1. Select **Configuration and policies** in the left navigation.
+
+1. Select **Public environments** under **Virtual machine bases** in the left navigation.
+
+1. Select **Yes** or **No** for **Enable Public Environments for this lab**, to enable or disable public environments for the lab.
+
+1. Select **Save**.
+
+### Select available public environment templates
+
+When you enable public environments, all the environment templates in the repository are available for creating environments. To allow only specific environments for a lab:
+
+1. In the [Azure portal](https://portal.azure.com), select your lab resource.
+
+1. Select **Configuration and policies** in the left navigation.
+
+1. Select **Public environments** under **Virtual machine bases** in the left navigation.
+
+1. Deselect specific environments from the list to make them unavailable to lab users, and then select **Save**.
+
+    :::image type="content" source="media/devtest-lab-create-environment-from-arm/public-environments-page.png" alt-text="Screenshot that shows the list of public environments for a lab.":::
+
+### Configure environment user rights
+
+By default, lab users have the **Reader** role in environments, and can't change environment resources. For example, users can't stop or start resources. To give lab users **Contributor** role to allow them to edit environment resources:
+
+1. In the [Azure portal](https://portal.azure.com), select your lab resource.
+
+1. Select **Configuration and policies** in the left navigation.
+
+1. Select **Lab settings** in the left navigation.
+
+1. Under **Environment access** > **Resource group user rights**, select **Contributor**, and then select **Save**.
+
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/config-access-rights.png" alt-text="Screenshot that shows configuring lab user Contributor permissions.":::
+
 ## Automate environment creation
 
 If you need to create multiple environments for development or testing scenarios, you can automate environment deployment with Azure PowerShell or Azure CLI.
