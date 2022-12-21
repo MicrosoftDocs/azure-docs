@@ -57,7 +57,7 @@ You can enable future collaboration with:
 > [!NOTE]
 > If your collaboration settings are highly restrictive, your users might go outside the collaboration framework. We recommend you enable a broad collaboration that your security requirements allow. 
 
-Limits to one domain can prevent authorized collaboration with organizations that have other unrelated domains. For example, the initial point of contact with Contoso might be a US-based employee with email that has a .com domain. However if you allow only the .com domain. you can omit Canadian employees who have the .ca domain. 
+Limits to one domain can prevent authorized collaboration with organizations that have other unrelated domains. For example, the initial point of contact with Contoso might be a US-based employee with email that has a .com domain. However if you allow only the com domain. you can omit Canadian employees who have the ca domain. 
 
 You can allow specific collaboration partners for a subset of users. For example, a university restricts student accounts from accessing external tenants, but allows faculty to collaborate with external organizations.
 
@@ -73,7 +73,7 @@ Learn more: [Allow or block invitations to B2B users from specific organizations
 > [!IMPORTANT]
 > These lists don't apply to users in your directory. By default, they don't apply to OneDrive for Business and SharePoint allowlist or blocklists. These lists are separate, but you can enable [SharePoint-OneDrive B2B integration](/sharepoint/sharepoint-azureb2b-integration.md).  
 
-Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a .com domain, an unrelated organization can use the .org domain, and attempt a phishing attack. 
+Some organizations have a blocklist of bad-actor domains from a managed security provider. For example, if the organization does business with Contoso and uses a com domain, an unrelated organization can use the org domain, and attempt a phishing attack. 
 
 ### Cross Tenant Access Settings
 
