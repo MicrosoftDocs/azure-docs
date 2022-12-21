@@ -1,8 +1,8 @@
 ---
 title: Overview of high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of high availability with Azure Database for PostgreSQL - Flexible Server
-ms.author: srranga
-author: sr-msft
+ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
