@@ -229,7 +229,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * Restarting the primary database server also restarts standby replica. 
 
-* Configuring additional read replicas are not supported.
+* Configuring additional standbys is not supported.
 
 * Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
