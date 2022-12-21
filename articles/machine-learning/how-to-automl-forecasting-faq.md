@@ -15,17 +15,21 @@ ms.date: 12/15/2022
 
 # Frequently asked questions about forecasting in AutoML
 This article answers common questions about forecasting in AutoML. Please see the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
-
+  
 ### What if my time series data does not have regularly spaced observations?
 
 AutoML's timeseries models all require data with regularly spaced observations in time. Regularly spaced, here, includes cases like monthly or yearly observations where the number of days between observations may vary. Essentially, AutoML just needs to be able to infer a time series frequency. There are two cases where time dependent data may not meet this requirement:
 
-1. The data does have a well defined frequency, but there are missing observations that create gaps in the series. In this case, AutoML will attempt to detect the frequency, fill in new observations for the gaps, and impute missing target and feature values therein. The imputation methods can be optionally configured by the user via SDK settings or through the Web UI. For more details on configuring imputation, see [here](https://learn.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#customize-featurization)
+1. The data does have a well defined frequency, but there are missing observations that create gaps in the series. In this case, AutoML will attempt to detect the frequency, fill in new observations for the gaps, and impute missing target and feature values therein. The imputation methods can be optionally configured by the user via SDK settings or through the Web UI. For more details on configuring imputation, see [here](https://learn.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#customize-featurization).
 2. The data does not have a well defined frequency; that is, the duration between observations does not have a discernible pattern. Transactional data, like that from a Point-of-Sales system, is one example. In this case, you can set AutoML to aggregate your data to a chosen frequency. You can choose a regular frequency that best suites the data and the modeling objectives (hourly, daily, monthly, etc.). For more details on aggregation, see [here](https://learn.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#frequency--target-data-aggregation).
 
 ### Why is AutoML so slow for my data?
 
-We're always working to make it faster and more scalable! But it is true that AutoML does a lot of processing that you might not consider if you were just hacking on your laptop. For example: extensive data validations, complex feature engineering, rolling origin (cross-)validation, and sweeping over a large variety of models. In the case of timeseries data, we do many of these computations per series. If your data contains many series, this can become a large computation. Please see our [Forecasting at scale](https://learn.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#forecasting-at-scale) documentation for details on how to scale and accelerate your training jobs. Also, read about [the success of our scaling approach](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
+We're always working to make it faster and more scalable! But it is true that AutoML could do a lot of than you might consider if you were just hacking on your laptop. For example: extensive data validations, complex feature engineering, rolling origin (cross-) validation, and sweeping over a large variety of models. 
+
+Some of the forecasting models do these computations per series, e.g. Exponential Smoothing and Prophet. Please see [Model Grouping section of the forecasting method article](https://github.com/EricWrightAtWork/azure-docs-pr/blob/erwright-forecasting-user-guide-vol1/articles/machine-learning/how-to-automl-forecasting-methods.md#model-grouping) for the list of per series models. If your data contains many series, the training of those per series models can take longer in a default AutoMl run. However, we also have many models solution which allows users to train and manage millions of models in parallel for these large scale forecasting scenarios. Please see our [Forecasting at scale](https://learn.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#forecasting-at-scale) documentation for more details, and also the answer to the next question for guidance on choosing the modeling configuration (e.g., default AutoMl or manymodels solutions) for your scenario.
+
+Also, read about [the success of our scaling approach](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
 
 ### What modeling configuration should I use?
 
@@ -65,14 +69,15 @@ There are four configurations supported by AutoML forecasting.
 
 4. Deep Learning: 
    
-   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model, i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series and does not need external features.
+   Applicable for large datasets where there are a minimum of 1000 rows. This is a global model, i.e. single model is trained for all the time series in the dataset. It also helps cross learning across time series.
 
 ### How can I prevent over-fitting and data leakage?
 
-Azure Auto ML uses Rolling Origin Cross Validation which reduces the modelling-based over-fitting issues to a great extent. However, there can be over-fitting issues due to the data. 
-- The input data should not contain columns that are derived from the target. 
-- Using deep learning models for small number of short time series. Many models can over-fit the time series that have short history. Increasing the cv_step_size and n_cv_folds helps in reducing over-fitting.
-- Features available during training but unavailable in the forecast horizon will lead to poor predictions. In our next version, we are proposing a solution to handle missing features in forecast horizon (Coming soon). 
+Azure Auto ML uses Rolling Origin Cross Validation which reduces the modelling-based over-fitting issues to a great extent. However, there can be over-fitting issues due to the data, and here are some examples and suggseted solutions:
+- The input data contains feature columns that are derived from the target. For example, including a feature that is exactly a linear function of the target would result in a nearly perfect yet meaningless traning score. We adivse users to drop those columns before training.
+- Using deep learning models for small number of short time series, or many models on the time series that have short history. Please refer to the previous question for advise on how to choose the modeling configuration for your data.
+- Features available during training but unavailable in the forecast horizon will lead to poor predictions. The simplist solution would be dropping those features for now, and we're working on handling this scenario for users as part of the AutoMl offering (coming soon).
+- Setting inappropriate cross-validation parameters. For example, setting an unnecessarily small number of n_cross_validations (number of cross validation folds) and cv_step_size (the number of periods between two consecutive cross-validation folds) could potentially lead to overfitting on the most recent data, instead of obtaining a more stable model across a longer time window. Please see [the following documentation](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-forecast#training-and-validation-data) for more information on cross-validations in AutoMl forecasting. Unless having particular reasons to customize those parameters, you could leave either or both of them empty and AutoML will set them automatically.
 
 ### How and where to start? What should be my steps for forecasting using Azure AutoML?
 
@@ -82,14 +87,12 @@ It is recommended to initially go through [Set up AutoML to train a time-series 
 3. [Advanced modelling parameters](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 4. [Many models](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) 
 5. [Forecasting using Deep Learning](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
-
-
+  
 ### How do I choose the primary metric? Which output metrics should I look at?
 
-Forecasting supports normalized_mean_absolute_error (MAE), normalized_root_mean_squared_error(RMSE), r2_score,and spearman_correlation. However, R2 not a good metric for forecasting and should be avoided.
+Forecasting supports normalized_mean_absolute_error (MAE), normalized_root_mean_squared_error(RMSE), r2_score,and spearman_correlation. However, R2 not a good [metric for forecasting](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-understand-automated-ml) and should be avoided.
   
 RMSE heavily penalizes the outliers. If there are few timestamps with poor forecasts and all other timestamps with great forecasts, RMSE will inflate the error metric. If the use case demands that occasional large mistakes should be avoided, then one should use RMSE. However, if errors should be treated equally, then MAE should be used. RMSE optimizes the mean function, whereas MAE optimizes the median.
-
 
 ### How can I improve the accuracy of my model?
 
@@ -105,13 +108,14 @@ It is important to understand which modeling configuration is appropriate for th
 
 ### How can I speed up model training and selection?
 
-- Disable classical models
-- Remove configs like lags
+- Use ManyModel solution
+- Disable per series models
+- Remove look-back features like lags and rolling windows
 - Reduce 
   - number of iterations
   - iteration_timeout_minutes
   - experiment_timeout_hours
-  - cross validation parameters (cv_step_size and n_cross_validations)
+  - n_cross_validations
 - Enable_early_stopping
 
 ### What can I do if I get an Out-Of-Memory error?
@@ -124,33 +128,41 @@ RAM Out of Memory can be resolved by upgrading the VM. In SDK, the amount of fre
 
 Disk Out of Memory can be resoved by deleting the compute cluster and creating a new one.
 
-### What are the advanced forecasting scenarios that are supported?
+### What are the advanced forecasting scenarios that are supported by Azure AutoML?
 
-We support scenarios like 
+We support advanced scenarios like 
 - Forecasting further than forecast horizon using 
   - Recursive forecasts 
   - Rolling forecasts
 - Forecast quantile prediction
 - Forecasting with/without gap between train and test data
 - Automatic stationarity fix (??)
-For more details, refer [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+For more details, please refer to [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 
-### How to export forecasts? (.csv vs UI etc.)
+### How do I view the output metrics, visualization, and logs for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. 
 
-### How do I view the output metrics and visualization for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. Where to find the plots and accuracy metrics at different levels of hierarchy for HTS?
+[Track and monitor training](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-track-monitor-analyze-runs) and [Forecasting Metrics and Visualisations](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-understand-automated-ml) are recommended links to get an overall understanding.
 
-To be updated
+Default AutoML :  
+On selecting any model in the Models tab, go to Output+Logs where User logs (std_log.txt) and Outputs can be found. Metrics tab shows the validation metrics and several useful visualizations. 
+
+Many Models :  
+Double click on many-models-train. Navigate from the Overview tab to the Child Jobs tab that represent the individual grains that are trained in parallel. Selecting any child job is equivalent to Default Auto ML now. On selecting any Child Jobs, the corresponding Metrics tab contain important visualizations and metrics.To summarize, many-models-train -> Child Jobs -> Child Jobs ->Metrics tab.
+The overall logs can be obtained directly at the first layer: many-models-train -> Outputs+Logs tab
+
+HTS :  
+Double click on hts-automl-training and continue the same steps as Many Models.
+
+DNN :  
+Plots, Metrics and Logs can be found similar to Default AutoML. DNN runs inside Child run. 
+TCN-> Child Jobs -> Logs and Vizualisations can be found.
 
 ### Where to look for Logs and which logs are important for the customer? 
 
-User error in main run page—to std error log 
-a.	single model: driver log
-b.	many model: each node has its own user logs describe  log structure readme.
+User error in avaiable in the main run page. Refer std_txt.log. (add details)   
+a.	Default AutoML: driver log  
+b.	Many Models/ HTS: Each node has its own user logs. The log structure is available in readme.txt file present inside.
 
-### What is an experiment/ WS/ sweep job – DNN run inside child run? What is job? Link to Azure
+### What is workspace/ environments/ experiment/ compute instance/ compute target? 
 
-
-
-
-
-
+Here is an useful [link](https://learn.microsoft.com/en-us/azure/machine-learning/concept-workspace) explaining these. [Azure Machine Learning Documentation](https://learn.microsoft.com/en-us/azure/machine-learning/) is a useful place for similar questions.
