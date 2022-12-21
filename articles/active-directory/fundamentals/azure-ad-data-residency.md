@@ -25,7 +25,7 @@ Update or retrieval data operations in the Azure AD Core Store relate to a singl
 
 Learn more: [Azure Active Directory Core Store Scale Units](https://www.youtube.com/watch?v=OcKO44GtHh8)
 
-Azure Ad is available in the following clouds
+Azure AD is available in the following clouds
 
 * Public
 * China
@@ -82,7 +82,7 @@ Learn more: [Azure Active Directory, Product overview](https://www.microsoft.com
 
 ### Azure AD components and data storage location
 
-Data storage for Azure AD components includes authentication, identity, MFA, and others. In the following table, data includes End User Identifiable Information (EUII) and Customer Content (CC).
+Data storage for Azure AD components includes authentication, identity, MFA, and others. .
 
 |Azure AD component|Description|Data storage location|
 |---|---|---|
@@ -100,7 +100,7 @@ Data storage for Azure AD components includes authentication, identity, MFA, and
 |Azure AD business-to-business (B2B) collaboration|Azure AD B2B collaboration has no directory data. Users and other directory objects in a B2B relationship, with another tenant, result in user data copied in other tenants, which might have data residency implications.|In region|
 |Azure AD Identity Protection|Azure AD Identity Protection uses real-time user log-in data, with multiple signals from company and industry sources, to feed its machine-learning systems that detect anomalous logins. Personal data is scrubbed from real-time log-in data before it’s passed to the machine learning system. The remaining log-in data identifies potentially risky usernames and logins. After analysis, the data goes to Microsoft reporting systems. Risky logins and usernames appear in reporting for Administrators.|In region|
 |Azure AD managed identities for Azure resources|Azure AD managed identities for Azure resources with managed identities systems can authenticate to Azure services, without storing credentials. Rather than use username and password, managed identities authenticate to Azure services with certificates. The service writes certificates it issues in Azure Cosmos DB in the East US region, which fail over to another region, as needed. Azure Cosmos DB geo-redundancy occurs by global data replication. Database replication puts a read-only copy in each region that Azure AD managed identities runs. To learn more, see [Azure services that can use managed identities to access other services](/azure/active-directory/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-managed-identities-for-azure-resources). Microsoft isolates each Cosmos DB instance in an Azure AD cloud solution model. </br> The resource provider, such as the virtual machine (VM) host, stores the certificate for authentication, and identity flows, with other Azure services. The service stores its master key to access Azure Cosmos DB in a datacenter secrets management service. Azure Key Vault stores the master encryption keys.|In region|
-|Azure Active Directory business-to-consumer (B2C)|Azure Active Directory B2C is an identity management service to customize and manage how customers sign up, sign in, and manage their profiles when using applications. B2C uses the Core Store to keep user identity information. The Core Store database follows known storage, replication, deletion, and data-residency rules. B2C uses an Azure Cosmos DB system to store service policies and secrets. Cosmos DB has encryption and replication services on database information. Its encryption key is stored in the secrets storage for Microsoft. Microsoft isolates Cosmos DB instances in an Azure AD cloud solution model.|Customer-selectable region|
+|Azure Active Directory B2C |[Azure AD B2C](/azure/active-directory-b2c/data-residency) is an identity management service to customize and manage how customers sign up, sign in, and manage their profiles when using applications. B2C uses the Core Store to keep user identity information. The Core Store database follows known storage, replication, deletion, and data-residency rules. B2C uses an Azure Cosmos DB system to store service policies and secrets. Cosmos DB has encryption and replication services on database information. Its encryption key is stored in the secrets storage for Microsoft. Microsoft isolates Cosmos DB instances in an Azure AD cloud solution model.|Customer-selectable region|
 
 ## Related resources
 
