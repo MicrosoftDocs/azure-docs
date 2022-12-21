@@ -38,6 +38,8 @@ To install these packages:
 
     :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-env-for-r-azureml/ci-setup-interactive-r.sh":::
 
+    @@MARCK: NEED TO UPDATE TO USE azureml_py310_sdkv2
+
 1. Select  **Save and run script in terminal** to run the script
 
 The install script performs the following steps:
@@ -45,51 +47,21 @@ The install script performs the following steps:
 * `pip` installs `azureml-fsspec` in the default conda environment for the compute instance
 * Installs the R `reticulate` package if necessary (version must be 1.26 or greater)
 
-### Find data file location
-
-For a data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset)
-* Retrieve the complete URI for the file to be used in the form of `azureml://subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/workspaces/<workspace_name>/datastores/<datastore_name>/<path/to/file>`
-
-Use this small Python script to find the complete URI:
-
-```python
-from azure.identity import DefaultAzureCredential
-from azure.ai.ml import MLClient
-
-# get a handle for your AzureML workspace
-credential = DefaultAzureCredential()
-
-ml_client = MLClient.from_config(credential=credential)
-# OR, if the above is not successful, uncomment and use this instead 
-# ml_client = MLClient(
-#    credential=credential,
-#    subscription_id="<SUBSCRIPTION_ID>",
-#    resource_group_name="<RESOURCE_GROUP>",
-#    workspace_name="<AML_WORKSPACE_NAME>",
-#)
-import pandas as pd
-
-# get a handle to the data asset and print the URI
-data_asset = ml_client.data.get(name="<NAME_OF_ASSET>", version="<VERSION_NUMBER>")
-print(f'Data asset URI: {data_asset.path}')
-```
-> [!TIP]
-> Run this script in a Python Jupyter notebook or Python script on the compute instance.  In a notebook, use the **Python 3.10 - SDK v2** kernel.  In the terminal, if the script doesn't find the `azure.ai` package, active the environment with `conda activate azureml_py310_sdkv2`, then run again.
 
 ### Read tabular data from registered _data assets_ or _datastores_
 
-Once you've run the setup script on your compute instance and you have the file URI for your data, use the following to read a tabular file into an R `data.frame`:
+Use these steps to read a tabular file data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset) into an R `data.frame`:
 
 1. Load `reticulate`
-    
-    ```
+
+    ```r
     library(reticulate)
     ```
 
 1. Select the conda environment where `azureml-fsspec` was installed
 
     ```r
-    use_condaenv("azureml_py38")
+    use_condaenv("azureml_py310_sdkv2")
     ```
 
 1. Load `Pandas` in R
@@ -97,25 +69,28 @@ Once you've run the setup script on your compute instance and you have the file 
     ```r
     pd <- import("pandas")
     ```
-1. Find the URI path to the data file. Using `reticulate`, you can find the path with a small piece of Python code:
 
-```r
-py_code <- "from azure.identity import DefaultAzureCredential
-from azure.ai.ml import MLClient
-credential = DefaultAzureCredential()
-ml_client = MLClient.from_config(credential=credential)
+1. Find the URI path to the data file. In the code below, replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
+    
+    ```r
+    py_code <- "from azure.identity import DefaultAzureCredential
+    from azure.ai.ml import MLClient
+    credential = DefaultAzureCredential()
+    ml_client = MLClient.from_config(credential=credential)
+    
+    import pandas as pd
+    
+    # get a handle to the data asset, then get the uri
+    data_asset = ml_client.data.get(name='<DATA_NAME>', version='<VERSION_NUMBER>')
+    data_uri = data_asset.path"
+    
+    py_run_string(py_code)
+    # your uri is now available in the variable py$data_uri
+    ```
 
-import pandas as pd
-
-# get a handle to the data asset, then get the uri
-data_asset = ml_client.data.get(name='<DATA_NAME>', version='<VERSION_NUMBER>')
-data_uri = data_asset.path"
-
-py_run_string(py_code)
-
-# your uri is now available in the variable py$data_uri
-```
-
+    > [!TIP]
+    > The above code assumes you are running a notebook on the compute instance, using the R kernel.  Authentication is accomplished by reading a file, **config.json**, that is stored on the compute instance file storage. If you are running the code locally, you'll need to [download the configuraion file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
+    
 1. Use Pandas read functions to read in the file(s) into the R environment
 
     ```r
