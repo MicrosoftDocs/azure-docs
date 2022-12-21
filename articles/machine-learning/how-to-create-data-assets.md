@@ -279,7 +279,7 @@ For more transformations available in `mltable`, please look into [reference-yam
 > .
 > │   ├── file_n.txt
 > ```
-> Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You need **not** specify *absolute paths* in the MLTable file.
+> Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
 ### Creating the data asset
 
