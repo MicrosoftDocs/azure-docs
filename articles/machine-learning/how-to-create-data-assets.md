@@ -266,6 +266,7 @@ transformations:
 
 For more transformations available in `mltable`, please look into [reference-yaml-mltable](reference-yaml-mltable.md). 
 
+
 > [!IMPORTANT]
 > We recommend co-locating the MLTable file with the underlying data in storage. For example:
 > 
