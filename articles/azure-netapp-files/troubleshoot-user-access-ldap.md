@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot user access on LDAP volumes | Microsoft Docs
-description: Describes the the steps for troubleshooting user access on LDAP-enabled volumes.  
+description: Describes the steps for troubleshooting user access on LDAP-enabled volumes.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-ahibbard
@@ -29,4 +29,4 @@ Validating user access is helpful for working through scenarios such as permissi
 
 1. The portal will display up to 256 results even if the user is in more than 256 groups. You can search for a specific group ID in the results. 
 
-Refer to [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-ldap-volumes) for additional resources if the group ID you are searching for is not present. 
+Refer to [Troubleshoot volume errors](troubleshoot-volumes.md#errors-for-ldap-volumes) for further resources if the group ID you're searching for is not present. 
