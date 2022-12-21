@@ -34,7 +34,7 @@ sections:
         answer: |
           You can check the status of your backups (scheduled/on-demand) from any of the following locations:
 
-          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal includes database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
+          1. **Backup jobs**: Azure Backup shows all manually triggered jobs in the Backup jobs section in the Azure portal.  <br><br>   The jobs you see in the Azure portal include database discovery and registering operations, and backup and restore operations. Scheduled jobs, including log backups aren't shown in this section. Manually triggered backups from the SAP HANA native clients (Studio/Cockpit/DBA Cockpit), are also not shown here.
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png" alt-text="Screenshot showing manually triggered jobs in the Backup jobs section in the Azure portal.":::
 
@@ -120,7 +120,7 @@ sections:
       - question: |
           How can I manage or clean up the HANA catalog for database with the Azure Backup enabled?
         answer: |
-          Prune the HANA catalog using SAP recommended methods such as BACKUP CATALOG DELETE statements or HANA stnudio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
+          You can prune the HANA catalog using SAP recommended methods, such as BACKUP CATALOG DELETE statements or HANA Studio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
       - question: |
           How can I use SAP HANA Backup with my HANA Replication set-up?
@@ -167,7 +167,7 @@ sections:
           
           1. Once you run the pre-registration script, the user information is updated with new password on the primary node. Then  the connection to attempt backup will be re-established. But, you might again experience the same scenario.
           
-          1. Also, the backups (full backups) that fails on the secondary node create alerts.
+          1. Also, the backups (full backups) that fail on the secondary node create alerts.
           
           To avoid the above issues, we recommend you to stop protection for a node after it becomes secondary (so that connections aren’t attempted and user is not locked) and resume protection on it, once it becomes primary. If you don’t face this locking situation on their HSR setups and are comfortable with alerts being raised, you can configure backups on both the nodes so that the service handles the take-over and fail-back.
 

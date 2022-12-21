@@ -20,6 +20,30 @@ You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit p
 
 If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](./backup-azure-sap-hana-database.md). To earn more about the supported configurations and scenarios, see [Support matrix for backup of SAP HANA databases on Azure VMs](sap-hana-backup-support-matrix.md).
 
+## Run on-demand backups
+
+Backups run according to the policy schedule.
+
+To run on-demand backups, follow these steps:
+
+1. On the left pane of the Recovery Services vault, select **Backup items**.
+
+   ![Screenshot that shows the 'Backup items' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-items.png)
+
+1. On the **Backup Items** pane, select the VM that's running the SAP HANA database, and then select **Backup now**.
+
+1. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**.
+
+   The retention period of this backup is determined by the type of on-demand backup you want to run.
+
+   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
+   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
+   - *On-demand incremental backups* aren't currently supported.
+
+1. Monitor the Azure portal notifications. To do so, on the Recovery Services vault dashboard, select **Backup Jobs**, and then select **In progress**. 
+
+   Depending on the size of your database, creating the initial backup might take a while.
+
 ## Monitor manual backup jobs
 
 Azure Backup shows all manually triggered jobs in the **Backup jobs** section of **Backup center**.
@@ -206,28 +230,6 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 1. Right-click the protected instance, and then select **Unregister**.
 
    ![Select unregister](./media/sap-hana-db-manage/unregister.png)
-
-### Run on-demand backups
-
-Backups run according to the policy schedule. You can run on-demand backups by doing the following:
-
-1. On the left pane of the Recovery Services vault, select **Backup items**.
-
-   ![Screenshot that shows the 'Backup items' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-items.png)
-
-1. On the **Backup Items** pane, select the VM that's running the SAP HANA database, and then select **Backup now**.
-
-1. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**.
-
-   The retention period of this backup is determined by the type of on-demand backup you want to run.
-
-   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
-   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
-   - *On-demand incremental backups* aren't currently supported.
-
-1. Monitor the Azure portal notifications. To do so, on the Recovery Services vault dashboard, select **Backup Jobs**, and then select **In progress**. 
-
-   Depending on the size of your database, creating the initial backup might take a while.
 
 ## Manage operations using SAP HANA native clients
 
