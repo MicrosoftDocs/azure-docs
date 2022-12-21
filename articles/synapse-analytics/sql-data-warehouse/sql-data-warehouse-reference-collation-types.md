@@ -26,78 +26,18 @@ To change the default collation, update to the Collation field in the provisioni
 
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS.
 
-## List of unsupported collation types
+## Special Collation type support
 
-* Japanese_Bushu_Kakusu_140_BIN
-* Japanese_Bushu_Kakusu_140_BIN2
-* Japanese_Bushu_Kakusu_140_CI_AI_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI
-* Japanese_Bushu_Kakusu_140_CI_AI_WS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_WS
-* Japanese_Bushu_Kakusu_140_CI_AS
-* Japanese_Bushu_Kakusu_140_CI_AS_WS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_WS
-* Japanese_Bushu_Kakusu_140_CS_AI
-* Japanese_Bushu_Kakusu_140_CS_AI_WS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_WS
-* Japanese_Bushu_Kakusu_140_CS_AS
-* Japanese_Bushu_Kakusu_140_CS_AS_WS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_WS
-* Japanese_XJIS_140_BIN
-* Japanese_XJIS_140_BIN2
-* Japanese_XJIS_140_CI_AI_VSS
-* Japanese_XJIS_140_CI_AI_WS_VSS
-* Japanese_XJIS_140_CI_AI_KS_VSS
-* Japanese_XJIS_140_CI_AI_KS_WS_VSS
-* Japanese_XJIS_140_CI_AS_VSS
-* Japanese_XJIS_140_CI_AS_WS_VSS
-* Japanese_XJIS_140_CI_AS_KS_VSS
-* Japanese_XJIS_140_CI_AS_KS_WS_VSS
-* Japanese_XJIS_140_CS_AI_VSS
-* Japanese_XJIS_140_CS_AI_WS_VSS
-* Japanese_XJIS_140_CS_AI_KS_VSS
-* Japanese_XJIS_140_CS_AI_KS_WS_VSS
-* Japanese_XJIS_140_CS_AS_VSS
-* Japanese_XJIS_140_CS_AS_WS_VSS
-* Japanese_XJIS_140_CS_AS_KS_VSS
-* Japanese_XJIS_140_CS_AS_KS_WS_VSS
-* Japanese_XJIS_140_CI_AI
-* Japanese_XJIS_140_CI_AI_WS
-* Japanese_XJIS_140_CI_AI_KS
-* Japanese_XJIS_140_CI_AI_KS_WS
-* Japanese_XJIS_140_CI_AS
-* Japanese_XJIS_140_CI_AS_WS
-* Japanese_XJIS_140_CI_AS_KS
-* Japanese_XJIS_140_CI_AS_KS_WS
-* Japanese_XJIS_140_CS_AI
-* Japanese_XJIS_140_CS_AI_WS
-* Japanese_XJIS_140_CS_AI_KS
-* Japanese_XJIS_140_CS_AI_KS_WS
-* Japanese_XJIS_140_CS_AS
-* Japanese_XJIS_140_CS_AS_WS
-* Japanese_XJIS_140_CS_AS_KS
-* Japanese_XJIS_140_CS_AS_KS_WS
-* SQL_EBCDIC1141_CP1_CS_AS
-* SQL_EBCDIC277_2_CP1_CS_AS
+The following table shows which special collation types are supported by which service.  If a Collation Types is not listed, it should be supported across the options in the table.
+
+| Collation Type                            | Serverless SQL Pool | Dedicated SQL Pool - Database & Column Level | Dedicated SQL Pool - External Table (Native Support) | Dedicated SQL Pool - External Table (Hadoop/Polybase) |
+|:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
+| Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | Yes                |
+| UTF-8                                     | Yes                 | Yes                     | No                 | No                 |
+| Japanese_Bushu_Kakusu_140_*               | Yes                 | Yes                     | No                 | No                 |
+| Japanese_XJIS_140_*                       | Yes                 | Yes                     | No                 | No                 |
+| SQL_EBCDIC1141_CP1_CS_AS                  | No                  | No                      | No                 | No                 |
+| SQL_EBCDIC277_2_CP1_CS_AS                 | No                  | No                      | No                 | No                 |
 
 ## Checking the current collation
 
