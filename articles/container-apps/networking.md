@@ -153,7 +153,7 @@ The second URL grants access to the log streaming service and the console. If ne
 ## Ports and IP addresses
 
 >[!NOTE]
-> The subnet associated with a Container App Environment requires a CIDR prefix of /23 or larger (/23, /22 etc.).
+> The subnet associated with a Container App Environment requires a CIDR prefix of /21 or larger (/20, /19 etc.).
 
 The following ports are exposed for inbound connections.
 
