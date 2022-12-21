@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs (Performance values are upper thresholds and dependent on the analyzed traffic protocols, assuming that intermittent traffic profiles typical of M2M systems).
+This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs. Performance values are upper thresholds and dependent on the analyzed traffic protocols, assuming that intermittent traffic profiles are typical of M2M systems.
 
 Physical or virtual appliances can be used; results depend on hardware and resources available to the monitoring sensor.
 
