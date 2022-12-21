@@ -96,7 +96,7 @@ Azure DDoS protection Standard is enabled at the virtual network where the resou
 
 4. Select **Enable**.
 
-5. In the pull-down box in DDoS protection plan,** select **myDDoSProtectionPlan**.
+5. In the pull-down box in DDoS protection plan, select **myDDoSProtectionPlan**.
 
 6. Select **Save**.
 
