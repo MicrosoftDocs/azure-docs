@@ -16,13 +16,10 @@ This article is part of the scenario [Monitor virtual machines and their workloa
 > [!NOTE]
 > This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md) or [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md). 
 
-## Configure additional data collection
-VM insights collects only performance data from the guest operating system of enabled machines. You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It's configured only once because any agent that connects to the workspace automatically downloads the configuration and immediately starts collecting the defined data.
-
-For a list of the data sources available and details on how to configure them, see [Agent data sources in Azure Monitor](../agents/agent-data-sources.md).
-
 
 ## Controlling costs
+Before you configure data collection across your entire virtual machine environment, 
+
 Be careful to collect only the data that you require. Costs are associated with any data collected in your workspace. The data that you collect should only support particular analysis and alerting scenarios.
 
 [!INCLUDE [azure-monitor-cost-optimization](../../../includes/azure-monitor-cost-optimization.md)]
