@@ -39,14 +39,13 @@ To track and approve a request to access customer data, follow these steps:
 4.	You can see the lockbox request in the Azure portal for your approval.
 
  
-  [![Screenshot of Pending request on Lockbox portal.](media/how-to-create-lockbox/pending_request_on_lockbox_portal.png)](media/how-to-create-lockbox/pending_request_on_lockbox_portal.png#lightbox)
+  [![Screenshot of pending request on Lockbox portal.](media/how-to-create-lockbox/pending_request_on_lockbox_portal.png)](media/how-to-create-lockbox/pending-request-on-lockbox-portal.png#lightbox)
 
 
 5.	To approve the lockbox request from portal, you can select Approve.
  
-[![Screenshot of approve or deny lockbox request ](media/how-to-create-lockbox/approve_deny_lockbox.png)](media/how-to-create-lockbox/approve_deny_lockbox.png#lightbox)
+[![Screenshot of approve or deny a lockbox request.](media/how-to-create-lockbox/approve_deny_lockbox.png)](media/how-to-create-lockbox/approve-deny-lockbox.png#lightbox)
 
-Approve or deny Lockbox request
 6.	Once the request is approved, the AKS clusters are accessible in the support session.
 7.	The support engineer restarts the AKS cluster to resolve the issue and then disables the support session or the session will expire in 4 to 8 hours.
 
