@@ -208,7 +208,7 @@ sections:
       - question: |
           I have customers who have subscribed to private plans. How do I move those customers to private offers?
         answer: |
-          To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure marketplace.
+          To leverage private offers, ISVs must have an offer with public transactable plans published in the Azure Marketplace.
 
           It is not recommended for an ISV to have both a private plan and a private offer for the same customer, product, and time period. Private plans can continue to exist for existing deals and ISVs can also use private offers for new deals.
           
