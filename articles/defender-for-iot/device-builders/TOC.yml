@@ -43,6 +43,8 @@
   - name: Micro agent configurations 
     displayNAme: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
+  - name: DMI Decoder configurations
+    href: concept-dmi-decoder-configurations.md
   - name: Micro agent event collection 
     displayName: process events, network connection
     href: concept-event-aggregation.md
@@ -76,6 +78,8 @@
     href: how-to-configure-micro-agent-twin.md
   - name: Configure PAM to audit sign-in events
     href: configure-pam-to-audit-sign-in-events.md
+  - name: Provision micro agent using DPS 
+    href: how-to-provision-micro-agent.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md
