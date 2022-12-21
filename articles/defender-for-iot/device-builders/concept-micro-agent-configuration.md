@@ -109,17 +109,17 @@ Configure the micro agent using the following collector-specific properties and 
 | **LogCollector_Disabled** | `True`/`False` | Disables the Logs collector. | `False` |
 | **LogCollector_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Log events. | `Low` |
 
-### File system collector specific settings
+### File system collector-specific settings
 
 | Setting Name | Setting options | Description | Default |
 |--|--|--|--|
 | **FileSystem_Disabled** | `True`/`False` | Disables the file system collector. | `False` |
 | **FileSystem_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send file system events. | `Low` |
 | **FileSystem_Recursive** | `True`/`False` | If set to true, monitor all directories under the given path. | `True` |
-| **FileSystem_Paths** | Paths to monitor For example: /path/to/monitor, /another/path/to/monitor| Paths to monitor, we can monitor more than one path. | `Null` |
+| **FileSystem_Paths** | Paths to monitor. For example: /path/to/monitor, /another/path/to/monitor| Defines which paths to monitor, more than one path can be monitored. | `Null` |
 | **FileSystem_CacheSize** | Positive integer | The number of File system events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
 
-### Peripheral collector specific settings
+### Peripheral collector-specific settings
 
 | Setting Name | Setting options | Description | Default |
 |--|--|--|--|
@@ -127,7 +127,7 @@ Configure the micro agent using the following collector-specific properties and 
 | **Peripheral_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send peripheral events. | `Low` |
 | **Peripheral_CacheSize** | Positive integer | The number of peripheral events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
 
-### Statistics collector specific settings
+### Statistics collector-specific settings
 
 | Setting Name | Setting options | Description | Default |
 |--|--|--|--|
