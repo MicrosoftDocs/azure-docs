@@ -53,7 +53,13 @@ To set up a Log Analytics workspace for data collection:
     1. Define a table's log data plan.
     1. Set a data retention and archiving for specific tables that's different the workspace-level data retention and archiving policy. 
     1. Modify the table schema.
-## 2. Collect data
+
+## 2. Migrate applications
+
+:::image type="content" source="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png" alt-text="Diagram that shows data streaming in from Splunk to a Log Analytics workspace in Azure Monitor Logs." lightbox="media/migrate-splunk-to-azure-monitor-logs/import-data-from-splunk-to-azure-monitor.png":::
+## 3. Ingest historical data
+
+## 4. Collect data
 
 Azure Monitor provides a variety of tools for collecting data from all data sources. The table lists the tools to use to collect data from various monitored resources.  
 
@@ -64,12 +70,6 @@ Azure Monitor provides a variety of tools for collecting data from all data sour
 | **Container** |[Container insights](../containers/container-insights-overview.md)| Container performance data. |
 | **Operating system** | [Azure Monitor Agent](../agents/agents-overview.md) | Monitoring data from the guest operating system of Azure and non-Azure virtual machines.|
 | **Non-Azure source** | [Logs Ingestion API](../logs/logs-ingestion-api-overview.md) | File-based logs and any data you send to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) on a monitored resource.|
-
-## 3. Migrate applications
-
-
-## 4. Ingest historical data
-
 ## 5. Analyze log data
 
 [Log Analytics demo environment](https://portal.azure.com/#view/Microsoft_OperationsManagementSuite_Workspace/LogsDemo.ReactView)
