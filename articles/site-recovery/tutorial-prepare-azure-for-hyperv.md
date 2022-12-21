@@ -65,7 +65,6 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 :::image type="Protection state" source="media/tutorial-prepare-azure/create-storage-account.png" alt-text="Screenshot of the Create a storage account options.":::
 
-<br>
 
 > [!NOTE]
 > If you want to create a legacy storage account type, select the provided link under **Basics** > **Instance details** section. This redirects you to **Create storage account** page to a create legacy storage account.
@@ -110,7 +109,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
         :::image type="Protection state" source="media/tutorial-prepare-azure/delete-ip-address.png" alt-text="Screenshot of the delete address space."::: 
     1. After deleting the pre-existing address range, select **Add an IP address space**.
         :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Starting address** enter **10.0.0.**.
+    1. In **Starting address** enter **10.0.0.**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
         :::image type="Content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot of the add virtual network options.":::

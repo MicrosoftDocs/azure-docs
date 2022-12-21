@@ -49,7 +49,7 @@ If you just created your free Azure account, you're the administrator of your su
 To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 
 
-## Create a Recovery Services vault
+## Create a recovery services vault
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource**.
 1. Search the Azure Marketplace for *Recovery Services*.
@@ -82,13 +82,13 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
 
 1. In **Create storage account** page, under the **IP addresses** tab, do the following:
     1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...), under available IP address range, then select **Delete address space**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddress1.png" alt-text="Screenshot of the delete address space."::: 
+        :::image type="Protection state" source="media/tutorial-prepare-azure/delete-ip-address.png" alt-text="Screenshot of the delete address space."::: 
     1. After deleting the pre-existing address range, select **Add an IP address space**.
-        :::image type="Protection state" source="media/tutorial-prepare-azure/create-network-IPaddres-addanIP.png" alt-text="Screenshot of the adding IP.":::
+        :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
     1. In **Starting address** enter **10.0.0.**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
-        :::image type="Content" source="media/tutorial-prepare-azure/create-network-IPaddres-addnew.png" alt-text="Screenshot of the add virtual network options.":::
+        :::image type="Content" source="media/tutorial-prepare-azure/homepage-ip-address.png" alt-text="Screenshot of the add virtual network options.":::
 1. Select **Review + create** > **Create** to create a new virtual network.
 
  
