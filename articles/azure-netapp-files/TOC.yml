@@ -205,7 +205,7 @@
         href: configure-nfs-clients.md
       - name: Convert an NFS volume between NFSv3 and NFSv4.1
         href: convert-nfsv3-nfsv41.md
-      - name: Configure access control lists
+      - name: Configure access control lists for NFSv4.1
         href: configure-access-control-lists.md
     - name: Manage SMB volumes
       items:
