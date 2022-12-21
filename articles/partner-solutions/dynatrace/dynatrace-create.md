@@ -85,8 +85,6 @@ Use the Azure portal to find Azure Native Dynatrace Service application.
         - Click on assign access to managed identity then select members.
         - Select the subscription, managed identity (Dynatrace) and the Dynatrace resource created by the contributor.
         - Review + assign
-    
-    The contributor will be able to set up metrics collection after the owner has completed the above steps.
 
  :::image type="content" source="media/dynatrace-create/dynatrace-contributor-guide-1.png" alt-text="Screenshot showing settings for contributor access 1.":::
  
