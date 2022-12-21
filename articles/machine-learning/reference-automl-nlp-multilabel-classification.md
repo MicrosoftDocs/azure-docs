@@ -1,0 +1,88 @@
+---
+title: 'CLI (v2) Automated ML NLP Text Classification Multilabel job YAML schema'
+titleSuffix: Azure Machine Learning
+description: Reference documentation for the CLI (v2) Automated ML NLP Text Classification Multilabel job YAML schema.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+ms.custom: cliv2, event-tier1-ignite-2022
+
+ms.author: shoja
+author: shouryaj
+ms.date: 10/11/2022
+ms.reviewer: ssalgado
+---
+
+# CLI (v2) Automated ML text classification job YAML schema
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextClassificationMultilabelJob.schema.json.schema.json.
+
+
+
+[!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
+
+## YAML syntax
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `$schema` | string | Represents the location/url to load the YAML schema. If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
+| `type` | const | **Required.** The type of job. | `automl` | `automl` |
+| `task` | const | **Required.** The type of AutoML task. | `text_classification_multilabel` |  |
+| `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
+| `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
+| `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
+| `description` | string | Description of the job. | | |
+| `tags` | object | Dictionary of tags for the job. | | |
+| `compute` | string | Name of the compute target to execute the job on. This compute can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. The 'local' here means that compute instance created in user's AzureML Studio workspace.   <br> *Note:* jobs in pipeline don't support `local` as `compute`. * |1. pattern `azureml:<compute_name>` to use existing compute, <br> <br> 2.`local` to use local execution | `local` |
+| `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
+| `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`,<br> `auc_weighted`,<br> `norm_macro_recall`, <br> `norm_macro_recall`,<br>  `average_precision_score_weighted`, <br> `precision_score_weighted` | `accuracy` |
+| `target_column_name` | string |  **Required.** The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
+| `training_data` | object |  **Required.** The data to be used within the job. For multi-class classification, the dataset can contain several text columns and exactly one label column. | |  |
+| `validation_data` | object |  The validation data to be used within the job. It should be consistent with the training data in terms of the set of columns, data type for each column, order of columns from left to right and at least two unique labels. <br> *Note*: the column names within each dataset should be unique.| | |
+| `limits` | object | Dictionary of limit configurations of the job. Parameters in this section: `max_concurrent_trials`, `max_nodes`, `max_trials`, `timeout_minutes`, `trial_timeoutminutes` | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in following sections. <br> For more information, see [Supported hyperparameters](./how-to-auto-train-nlp-models.md#supported-hyperparameters) section| | |
+| `sweep` | object | Dictionary containing sweep parameters for the job. It has two keys - `sampling_algorithm` (**required**) and `early_termination`. For more information, see [model sweeping and hyperparameter tuning](./how-to-auto-train-nlp-models.md#model-sweeping-and-hyperparameter-tuning-preview) sections. | | |
+| `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. Users can find the possible hyperparameters from parameters specified for `training_parameters` key (also in [supported hyperparameters](./how-to-auto-train-nlp-models.md#supported-hyperparameters)). <br> There are two types of hyperparameters: <br> - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a [`choice`](./reference-yaml-job-sweep.md#choice) among discrete values. `choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - [`randint`](./reference-yaml-job-sweep.md#randint), [`qlognormal`, `qnormal`](./reference-yaml-job-sweep.md#qlognormal-qnormal), [`qloguniform`, `quniform`](./reference-yaml-job-sweep.md#qloguniform-quniform). For more information, see this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters). <br> - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions are - [`lognormal`, `normal`](./reference-yaml-job-sweep.md#lognormal-normal), [`loguniform`](./reference-yaml-job-sweep.md#loguniform), [`uniform`](./reference-yaml-job-sweep.md#uniform). For more information, see this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters). <br> <br> See [Parameter expressions](./reference-yaml-job-sweep.md#parameter-expressions) for the set of possible expressions to use.  | | |
+| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
+| `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
+
+
+### Training or validation data
+
+| Key | Type | Description | Allowed values | Default value |
+| --- | ---- | ----------- | -------------- | ------------- |
+| `description` | string | The detailed information that describes this input data. | | |
+| `path` | string | The path from where data should be loaded. Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(`*` and `**`) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](./reference-yaml-core-syntax.md). URI of the location of the artifact file. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | |
+| `mode` | string | Dataset delivery mechanism. | `direct` | `direct` |
+| `type` | const |  In order to generate nlp models, the user needs to bring training data in the form of an MLTable. For more information, see [preparing data](./how-to-auto-train-nlp-models.md#preparing-data) | mltable | mltable|
+
+### Best model output configuration
+
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string | **Required.** Type of best model. AutoML allows only mlflow models. | `mlflow_model` | `mlflow_model` |
+| `path` | string | **Required.** URI of the location where the model-artifact file(s) are stored. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created. |  |  |
+| `storage_uri` | string | The HTTP URL of the Model. Use this URL with `az storage copy -s THIS_URL -d DESTINATION_PATH --recursive` to download the data.  | | |
+
+## Remarks
+
+The `az ml job` command can be used for managing Azure Machine Learning jobs.
+
+## Examples
+
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to NLP text classification multilabel jobs are linked below.  
+
+## YAML: AutoML text classification job
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml":::
+
+## YAML: AutoML text classification pipeline job
+
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/cli-automl-text-classification-multilabel-paper-categorization-pipeline/pipeline.yml":::
+
+## Next steps
+
+- [Install and use the CLI (v2)](how-to-configure-cli.md)
