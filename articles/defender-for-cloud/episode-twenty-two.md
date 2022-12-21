@@ -42,4 +42,4 @@ ms.date: 12/01/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender Threat Intelligence (Defender TI)](episode-twenty-three.md)

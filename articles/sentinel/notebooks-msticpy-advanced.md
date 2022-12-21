@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Microsoft Sentinel.
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
