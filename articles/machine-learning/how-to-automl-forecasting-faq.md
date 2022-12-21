@@ -108,13 +108,14 @@ It is important to understand which modeling configuration is appropriate for th
 
 ### How can I speed up model training and selection?
 
-- Disable classical models
-- Remove configs like lags
+- Use ManyModel solution
+- Disable per series models
+- Remove look-back features like lags and rolling windows
 - Reduce 
   - number of iterations
   - iteration_timeout_minutes
   - experiment_timeout_hours
-  - cross validation parameters (cv_step_size and n_cross_validations)
+  - n_cross_validations
 - Enable_early_stopping
 
 ### What can I do if I get an Out-Of-Memory error?
@@ -136,7 +137,7 @@ We support advanced scenarios like
 - Forecast quantile prediction
 - Forecasting with/without gap between train and test data
 - Automatic stationarity fix (??)
-For more details, refer [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
+For more details, please refer to [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-forecast-function/auto-ml-forecasting-function.ipynb)
 
 ### How do I view the output metrics, visualization, and logs for the forecasts for various configurations like default AutoML, MM, HTS, TCN etc. 
 
