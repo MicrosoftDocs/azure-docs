@@ -3,7 +3,7 @@ title: Prepare Azure for on-premises disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises machines using Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/20/2022
+ms.date: 12/21/2022
 ms.custom: MVC, engagement-fy23
 ms.author: ankitadutta
 author: ankitaduttaMSFT
