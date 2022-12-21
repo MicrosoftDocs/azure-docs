@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Connect Azure Virtual Desktop data to Microsoft Sentinel
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes how you can monitor your Azure Virtual Desktop environments using Microsoft Sentinel.
 
 For example, monitoring your Azure Virtual Desktop environments can enable you to provide more remote work using virtualized desktops, while maintaining your organization's security posture.
