@@ -114,7 +114,7 @@ let StartTime = ago(72h);
 let EndTime = now();
 ContainerAppsConsoleLogs_CL
 | where TimeGenerated between (StartTime .. EndTime)
-| where AppName_s =~ "my-containerapp"
+| where AppName_s =~ "my-container-app"
 ```
 
 The application logs for all the apps hosted in your Kubernetes cluster are logged to the Log Analytics workspace in the custom log table named `ContainerAppsConsoleLogs_CL`.
