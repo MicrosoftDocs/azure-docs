@@ -188,7 +188,7 @@ sections:
     questions:
 
       - question: |
-          How many restore are supported per day?
+          How many restores are supported per day?
         answer: |
           You can perform a maximum of 10 restores per HANA system or instance in a day. Note that if a restore is canceled or fails, it's also considered as a restore attempt.
            
