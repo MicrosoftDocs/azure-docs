@@ -50,6 +50,8 @@ items:
        href: tutorial-custom-allocation-policies.md
      - name: Provision for geolatency
        href: how-to-provision-multitenant.md
+  - name: Automate provisioning with GitHub Actions
+    href: tutorial-automation-github-actions.md
 - name: Concepts
   items:
   - name: DPS terminology
