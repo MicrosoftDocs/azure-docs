@@ -12,9 +12,6 @@ In addition, you can create custom alerts based on your knowledge of expected de
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
 In this article, you'll find a list of built-in alerts, which can be triggered on your IoT devices.
-In addition to built-in alerts, Defender for IoT allows you to define custom alerts based on expected IoT Hub and/or device behavior.
-
-For more information, see [customizable alerts](concept-customizable-security-alerts.md).
 
 ## Security alerts
 
@@ -31,6 +28,13 @@ For more information, see [customizable alerts](concept-customizable-security-al
 | Web shell | High | Defender-IoT-micro-agent | Possible web shell detected. Malicious actors commonly upload a web shell to a compromised machine to gain persistence or for further exploitation. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_WebShell |
 | Behavior similar to ransomware detected | High | Defender-IoT-micro-agent | Execution of files similar to known ransomware that may prevent users from accessing their system, or personal files, and may demand ransom payment to regain access. | Review with the user that ran the command if this was legitimate activity that you expect to see on the device. If not, escalate the alert to the information security team. | IoT_Ransomware |
 | Crypto coin miner image | High | Defender-IoT-micro-agent | Execution of a process normally associated with digital currency mining detected. | Verify with the user that ran the command if this was legitimate activity on the device. If not, escalate the alert to the information security team. | IoT_CryptoMiner |
+| New USB Connection | High | Defender-IoT-micro-agent | A USB device connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_USBConnection |
+| USB Disconnection | High | Defender-IoT-micro-agent | A USB device disconnection was detected. This may indicate malicious activity | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_UsbDisconnection |
+| New Ethernet Connection | High | Defender-IoT-micro-agent | A new Ethernet connection was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetConnection |
+| Ethernet Disconnection | High | Defender-IoT-micro-agent | A new Ethernet disconnection was detected. This may indicate malicious activity | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_EthernetDisconnection |
+| New File Created | High | Defender-IoT-micro-agent | A new file was detected. This may indicate malicious activity | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileCreated |
+| File Modified | High | Defender-IoT-micro-agent | File modification was detected. This may indicate malicious activity | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileModified |
+| File Deleted | High | Defender-IoT-micro-agent | File deletion was detected. This may indicate malicious activity. | Confirm this is a legitimate expected activity on the host. If not, escalate the alert to your information security team. | IoT_FileDeleted |
 
 ### Medium severity
 
