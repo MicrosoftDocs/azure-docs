@@ -21,7 +21,7 @@ Azure AD is an Identity as a Service (IDaaS) solution that stores and manages id
 
 ## Core Store
 
-Update or retrieval data operations in the Azure AD Core Store relate to a single tenant, based on the user’s security token, which achieves tenant isolation. The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Scale units are assigned to a geo-location. Each geo-location uses two or more Azure regions to store the data. In each Azure region, a scale unit data is replicated in the physical data centers for resiliency and performance.
+The Core Store is made up of tenants stored in scale units, each of which contains multiple tenants. Update or retrieval data operations in the Azure AD Core Store relate to a single tenant, based on the user’s security token, which achieves tenant isolation. Scale units are assigned to a geo-location. Each geo-location uses two or more Azure regions to store the data. In each Azure region, a scale unit data is replicated in the physical data centers for resiliency and performance.  
 
 Learn more: [Azure Active Directory Core Store Scale Units](https://www.youtube.com/watch?v=OcKO44GtHh8)
 
@@ -31,7 +31,8 @@ Azure AD is available in the following clouds
 * China
 * US government
 
-In the public cloud, you're prompted to select a location  at the time of tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal).  Azure AD maps the selection to a geo-location and a single scale unit in it. Tenant location can’t be changed after it’s set.
+In the public cloud, you're prompted to select a location  at the time of tenant creation (for example, signing up for Office 365 or Azure, or creating more Azure AD instances through the Azure portal). Azure AD maps the selection to a geo-location and a single scale unit in it. Tenant location can’t be changed after it’s set.
+
 The location selected during tenant creation will map to one of the following geo-locations:
 
 * Australia
@@ -41,7 +42,7 @@ The location selected during tenant creation will map to one of the following ge
 * North America
 * Worldwide  
 
-Azure AD handles Azure AD Core Store data based on usability, performance, residency and/or other requirements based on geo-location. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geo-location.
+Azure AD handles Core Store data based on usability, performance, residency and/or other requirements based on geo-location. The term residency indicates Microsoft provides assurance the data isn’t persisted outside the geo-location.
 
 Azure AD replicates each tenant through its scale unit, across data centers, based on the following criteria: 
 
