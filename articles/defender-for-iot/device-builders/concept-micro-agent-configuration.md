@@ -109,8 +109,36 @@ Configure the micro agent using the following collector-specific properties and 
 | **LogCollector_Disabled** | `True`/`False` | Disables the Logs collector. | `False` |
 | **LogCollector_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send Log events. | `Low` |
 
+### File system collector specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **FileSystem_Disabled** | `True`/`False` | Disables the file system collector. | `False` |
+| **FileSystem_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send file system events. | `Low` |
+| **FileSystem_Recursive** | `True`/`False` | If set to true, monitor all directories under the given path. | `True` |
+| **FileSystem_Paths** | Paths to monitor For example: /path/to/monitor, /another/path/to/monitor| Paths to monitor, we can monitor more than one path. | `Null` |
+| **FileSystem_CacheSize** | The number of File system events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
+### Peripheral collector specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **Peripheral_Disabled** | `True`/`False` | Disables the peripheral collector. | `False` |
+| **Peripheral_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send peripheral events. | `Low` |
+| **Peripheral_CacheSize** | The number of peripheral events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
+### Statistics collector specific settings
+
+| Setting Name | Setting options | Description | Default |
+|--|--|--|--|
+| **Statistics_Disabled** | `True`/`False` | Disables the statistics collector. | `False` |
+| **Statistics_MessageFrequency** | `Low`/`Medium`/`High` | Defines the frequency in which to send statistics events. | `Low` |
+| **Statistics_CacheSize** | The number of statistics events (after aggregation) to keep in the cache between send intervals. Beyond that number, older events will be dropped (lost). | `256` |
+
 ## Next steps
 
 For more information, see:
+
 - [Configure a micro agent twin](how-to-configure-micro-agent-twin.md).
+
 - [Micro agent event collection](concept-event-aggregation.md)

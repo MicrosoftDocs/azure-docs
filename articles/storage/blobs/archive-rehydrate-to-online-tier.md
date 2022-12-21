@@ -2,7 +2,6 @@
 title: Rehydrate an archived blob to an online tier
 titleSuffix: Azure Storage
 description: Before you can read a blob that is in the Archive tier, you must rehydrate it to either the Hot or Cool tier. You can rehydrate a blob either by copying it from the Archive tier to an online tier, or by changing its tier from Archive to Hot or Cool.
-services: storage
 author: normesta
 
 ms.service: storage
