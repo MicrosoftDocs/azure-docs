@@ -20,9 +20,9 @@ Alerts are now automatically enabled by default, but in order to fully configure
 > [!NOTE]
 > With the [new unified alerts](../alerts/alerts-overview.md), the alert rule severity and notification preferences with [action groups](../alerts/action-groups.md) **must be** configured in the alerts experience. Without the following steps, you will only receive in-portal notifications.
 
-1. After you save the availability test, on the details tab click on the ellipsis by the test you just made. Click on "edit alert".
+1. After you save the availability test, on the details tab click on the ellipsis by the test you just made. Click on "Open Rules (Alerts) page".
 
-   :::image type="content" source="./media/availability-alerts/edit-alert.png" alt-text="Screenshot of the Availability pane for an Application Insights resource in the Azure portal. The Edit alert menu option is highlighted." lightbox="./media/availability-alerts/edit-alert.png":::
+   :::image type="content" source="./media/availability-alerts/edit-alert.png" alt-text="Screenshot of the Availability pane for an Application Insights resource in the Azure portal. The Open Rules (Alerts) page menu option is highlighted." lightbox="./media/availability-alerts/edit-alert.png":::
 
 2. Set the desired severity level, rule description and most importantly - the action group that has the notification preferences you would like to use for this alert rule.
 
