@@ -323,7 +323,7 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create share client from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L52)
+      [Create share client from connection string](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L54)
    :::column-end:::
    :::column span="":::
       [Get share client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_service.py#L96)
@@ -331,23 +331,23 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Create share using file share client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L39)
+      [Create share using file share client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L40)
    :::column-end:::
    :::column span="":::
-      [Create share snapshot](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L43)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Delete share using file share client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L47)
-   :::column-end:::
-   :::column span="":::
-      [Set share quota](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L61)
+      [Create share snapshot](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L45)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Set share metadata](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L66)
+      [Delete share using file share client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L49)
+   :::column-end:::
+   :::column span="":::
+      [Set share quota](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L63)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Set share metadata](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L68)
    :::column-end:::
    :::column span="":::
       [Get share properties](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_hello_world.py#L47)
@@ -390,7 +390,7 @@ The following tables provide an overview of our samples repository and the scena
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [List files in directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L87)
+      [List files in directory](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/samples/file_samples_share.py#L127)
    :::column-end:::
 :::row-end:::
 
