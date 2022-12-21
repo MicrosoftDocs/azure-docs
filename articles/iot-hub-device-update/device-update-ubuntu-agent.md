@@ -83,13 +83,13 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
 
    ```bash
-   /etc/adu/du-config.json
+   sudo /etc/adu/du-config.json
    ```
 
 1. Restart the Device Update agent.
 
    ```bash
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
@@ -119,13 +119,13 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
 1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file.
 
    ```bash
-   /etc/adu/du-config.json
+   sudo /etc/adu/du-config.json
    ```
 
 1. Restart the Device Update agent.
 
    ```bash
-   sudo systemctl restart adu-agent
+   sudo systemctl restart deviceupdate-agent
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
