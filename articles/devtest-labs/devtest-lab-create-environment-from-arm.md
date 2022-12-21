@@ -10,28 +10,22 @@ ms.date: 12/21/2022
 
 # Create Azure DevTest Labs environments from ARM templates
 
-Azure multi-tier web apps or SharePoint farms use multiple virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision these PaaS resources and infrastructure-as-a-service (IaaS) VMs in Azure DevTest Labs by using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/syntax.md) environment templates.
+In this article, you learn how to create Azure DevTest Labs environments from [Azure Resource Manager (ARM)](../azure-resource-manager/templates/syntax.md) templates. You can use DevTest Labs environments to easily and consistently provision labs with multiple virtual machines (VMs) or platform-as-a-service (PaaS) resources. For example, to create a lab for a multi-tier web application, or a SharePoint farm.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+Resources in an environment share the same lifecycle, and you can manage them together. You can track the cost of lab environments and PaaS resources, just as you track costs for individual lab VMs.
 
-Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment. The VMs created with this resource type appear under their environments in the lab's **My environments** list.
+You can configure Azure DevTest Labs to use ARM templates from a public or private Git repository. Learn how to [configure a template repository](#use-public-and-private-template-repositories).
 
-![Screenshot that shows V Ms in an environment.](./media/devtest-lab-create-environment-from-arm/environments.png)
+If you want to use an ARM template to create an Azure DevTest Labs resource, see the [Quickstart: use an ARM template to create a lab in DevTest Labs](./create-lab-windows-vm-template.md).
 
-You can configure DevTest Labs to load ARM environment templates directly from public or private Git source control repositories. Lab users can then create environments by selecting the templates in the Azure portal, just as they select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
-
-VMs in the same environment share the same lifecycle, and lab users can manage the VMs together. You can track the cost of lab environments and PaaS resources, just as you track costs for individual lab VMs.
-
-To learn more about the benefits of using ARM templates to deploy, update, or delete multiple lab resources and VMs as a single environment, see [Benefits of using Resource Manager templates](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
+## Limitations
 
 Consider these limitations when using ARM environment templates in DevTest Labs:
 
 - VM auto-shutdown doesn't apply to PaaS resources.
 
-- Not all lab policies are evaluated when deploying ARM templates. Policies that aren't evaluated include number of VMs per lab user, number of premium VMs per user, and number of premium desks per user. For example, your lab policy might limit users to only five VMs apiece. However, a user can deploy an ARM environment template that creates dozens of VMs.
+- Not all lab policies are evaluated when you deploy ARM templates. Policies that aren't evaluated include: number of VMs per lab user, number of premium VMs per user, and number of premium desks per user. For example, your lab policy might limit users to only five VMs apiece. However, a user can deploy an ARM environment template that creates dozens of VMs.
 
-<a name="create-your-own-template-repositories"></a>
-<a name="configure-your-own-template-repositories"></a>
 ## Use public and private template repositories
 
 Azure DevTest Labs has a [public ARM template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that includes pre-authored environment templates for Azure Web Apps, an Azure Service Fabric cluster, and development SharePoint farms. The templates have minimal input parameters, for a smooth getting started experience with PaaS resources.
