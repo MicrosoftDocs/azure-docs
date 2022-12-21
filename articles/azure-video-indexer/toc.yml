@@ -39,8 +39,6 @@
   items:
   - name: Sign up and upload your first video
     href: video-indexer-get-started.md
-  - name: Invite users
-    href: invite-users.md
 - name: Tutorials
   items:
   - name: Create an ARM-based account

@@ -118,7 +118,7 @@ You can stop the replication between a primary and a replica by promoting one or
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
 - During the create, delete and promote operations of replica, primary server will be in upgrading state.
-- **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
+- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.

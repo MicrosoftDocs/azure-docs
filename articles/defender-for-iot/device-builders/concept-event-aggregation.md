@@ -193,7 +193,7 @@ The following data is collected:
 
 ## Statistics data (trigger-based collector)
 
-The Statistics collector generate various statistics on the different micro agent collectors, these statistics provide information about the performance of the collectors in the previous collection cycle.
+The Statistics collector generates various statistics on the different micro agent collectors, these statistics provide information about the performance of the collectors in the previous collection cycle.
 Examples of possible statistics include the number of events that were successfully sent and the number of events that were dropped, along with the reasons for the failures.
 
 Collected fields:
