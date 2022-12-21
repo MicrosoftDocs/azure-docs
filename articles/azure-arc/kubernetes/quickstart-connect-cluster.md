@@ -144,8 +144,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net`; `https://k8sconnectcsp.azureedge.us/`, `guestnotificationservice.azure.us`, `*.guestnotificationservice.azure.us` (for Azure US Government) | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
-|`*.servicebus.windows.net`, `*.servicebus.usgovcloudapi.net` (for Azure US Government) | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.net`(for Azure Cloud),  `guestnotificationservice.azure.us`, `*.guestnotificationservice.azure.us`, `sts.windows.net`, `https://k8sconnectcsp.azureedge.us/` (for Azure US Government) | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`*.servicebus.windows.net`(for Azure Cloud), `*.servicebus.usgovcloudapi.net` (for Azure US Government) | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](azure-rbac.md) is configured |
 
 > [!NOTE]
