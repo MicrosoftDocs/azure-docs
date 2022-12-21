@@ -15,8 +15,7 @@ Enabling monitoring on your ASP.NET-based web applications running on [Azure App
 > [!NOTE]
 > Manually adding an Application Insights site extension via **Development Tools** > **Extensions** is deprecated. This method of extension installation was dependent on manual updates for each new version. The latest stable release of the extension is now [preinstalled](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) as part of the App Service image. The files are located in *d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent* and are automatically updated with each stable release. If you follow the auto-instrumentation instructions to enable monitoring, it will automatically remove the deprecated extension for you.
 
-> [!NOTE]
-> If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This arrangement prevents duplicate data from being sent. To learn more, see the [troubleshooting section](#troubleshooting).
+If both auto-instrumentation monitoring and manual SDK-based instrumentation are detected, only the manual instrumentation settings will be honored. This arrangement prevents duplicate data from being sent. To learn more, see the [Troubleshooting section](#troubleshooting).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -25,7 +24,7 @@ Enabling monitoring on your ASP.NET-based web applications running on [Azure App
 For a complete list of supported auto-instrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
 > [!NOTE]
-> The combination of `APPINSIGHTS_JAVASCRIPT_ENABLED` and `urlCompression` isn't supported. For more information, see the explanation in the [troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
+> The combination of `APPINSIGHTS_JAVASCRIPT_ENABLED` and `urlCompression` isn't supported. For more information, see the explanation in the [Troubleshooting section](#appinsights_javascript_enabled-and-urlcompression-isnt-supported).
 
 1. **Select Application Insights** in the Azure control panel for your app service. Then select **Enable**.
 
@@ -34,7 +33,7 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
 1. Choose to create a new resource, or select an existing Application Insights resource for this application.
 
     > [!NOTE]
-    > When you select **OK** to create the new resource, you're prompted to **Apply monitoring settings**. Selecting **Continue** links your new Application Insights resource to your app service. Doing so also triggers a restart of your app service.
+    > When you select **OK** to create the new resource, you're prompted to select **Apply monitoring settings**. Selecting **Continue** links your new Application Insights resource to your app service. Doing so also triggers a restart of your app service.
 
      :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot that shows the Change your resource dropdown.":::
 
@@ -52,9 +51,9 @@ For a complete list of supported auto-instrumentation scenarios, see [Supported 
     | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
     | Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
-1. To configure sampling, which you could previously control via the *applicationinsights.config* file, you can now interact with it via Application settings with the corresponding prefix `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor`.
+1. To configure sampling, which you could previously control via the *applicationinsights.config* file, you can now interact with it via application settings with the corresponding prefix `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor`.
 
-    - For example, to change the initial sampling percentage, you can create an Application setting of `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
+    - For example, to change the initial sampling percentage, you can create an application setting of `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
     - To disable sampling, set `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_MinSamplingPercentage` to a value of `100`.
     - Supported settings include:
         - `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage`
@@ -89,17 +88,17 @@ To enable telemetry collection with Application Insights, only application setti
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to ensure optimal performance. | `default` or `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  In default mode, only essential features are enabled to ensure optimal performance. | `default` or `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and affects cold start/startup time. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL and Azure table text will be captured along with the dependency calls. Performance warning: Application cold startup time will be affected. This setting requires the `InstrumentationEngine`. | `~1` |
 
 [!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
-## Upgrade monitoring extension/agent - .NET
+## Upgrade monitoring extension/agent: .NET
 
 ### Upgrade from versions 2.8.9 and up
 
-Upgrading from version 2.8.9 happens automatically, without any extra actions. The new monitoring bits are delivered in the background to the target app service, and on application restart they'll be picked up.
+Upgrading from version 2.8.9 happens automatically, without any extra actions. The new monitoring bits are delivered in the background to the target app service. They'll be picked when the application restarts.
 
 To check which version of the extension you're running, go to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`.
 
@@ -109,18 +108,18 @@ To check which version of the extension you're running, go to `https://yoursiten
 
 Starting with version 2.8.9, the preinstalled site extension is used. If you're on an earlier version, you can update via one of two ways:
 
-* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring). (Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.)
+* [Upgrade by enabling via the portal](#enable-auto-instrumentation-monitoring): Even if you have the Application Insights extension for App Service installed. The UI shows only the **Enable** button. Behind the scenes, the old private site extension will be removed.
 * [Upgrade through PowerShell](#enable-through-powershell):
 
-    1. Set the application settings to enable the preinstalled site extension `ApplicationInsightsAgent`. See [Enable through PowerShell](#enable-through-powershell).
+    1. Set the application settings to enable the preinstalled site extension `ApplicationInsightsAgent`. For more information, see [Enable through PowerShell](#enable-through-powershell).
     1. Manually remove the private site extension named Application Insights extension for App Service.
 
-If the upgrade is done from a version prior to 2.5.1, check that the Application Insights dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
+If the upgrade is done from a version prior to 2.5.1, check that the Application Insights DLLs are removed from the application bin folder. For more information, see the steps in the [Troubleshooting section](#troubleshooting).
 
 ## Troubleshooting
 
 > [!NOTE]
-> When you create a web app with the `ASP.NET` runtimes in App Service it deploys a single static HTML page as a starter website. We do *not* recommend that you troubleshoot an issue with a default template. Deploy an application before you troubleshoot an issue.
+> When you create a web app with the `ASP.NET` runtimes in App Service, it deploys a single static HTML page as a starter website. We do *not* recommend that you troubleshoot an issue with a default template. Deploy an application before you troubleshoot an issue.
 
 Here's our step-by-step troubleshooting guide for extension/agent-based monitoring for ASP.NET-based applications running on App Service.
 
@@ -129,7 +128,7 @@ Here's our step-by-step troubleshooting guide for extension/agent-based monitori
 
     :::image type="content"source="./media/azure-web-apps/app-insights-sdk-status.png" alt-text="Screenshot that shows the preceding link's results page."border ="false":::
 
-    - Confirm that `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx, is running.`
+    - Confirm that `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.x.xxxx` and is running.
 
          If it isn't running, follow the instructions to [enable Application Insights monitoring](#enable-auto-instrumentation-monitoring).
 
@@ -138,7 +137,7 @@ Here's our step-by-step troubleshooting guide for extension/agent-based monitori
          If a similar value isn't present, it means the application isn't currently running or isn't supported. To ensure that the application is running, try manually visiting the application URL/application endpoints, which will allow the runtime information to become available.
 
     - Confirm that `IKeyExists` is `true`.
-        If not, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your ikey guid to your application settings.
+        If not, add `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING` with your instrumentation key GUID to your application settings.
 
     - Confirm that there are no entries for `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly`, and `AppContainsAspNetTelemetryCorrelationAssembly`.
 
@@ -174,7 +173,7 @@ The following table provides a more detailed explanation of what these values me
 |Problem value|Explanation|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | This value indicates that the extension detected that some aspect of the SDK is already present in the application and will back off. It can be because of a reference to `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, or `Microsoft.ApplicationInsights`.  | Remove the references. Some of these references are added by default from certain Visual Studio templates. Older versions of Visual Studio might add references to `Microsoft.ApplicationInsights`.
-|`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the preceding DLLs in the app folder from a previous deployment. | Clean the app folder to ensure that these DLLs are removed. Check both your local app's bin directory and the wwwroot directory on the App Service resource. (To check the wwwroot directory of your App Service web app, select **Advanced Tools (Kudu)** > **Debug console** > **CMD** > **home\site\wwwroot**.)
+|`AppAlreadyInstrumented:true` | This value can also be caused by the presence of the preceding DLLs in the app folder from a previous deployment. | Clean the app folder to ensure that these DLLs are removed. Check both your local app's bin directory and the wwwroot directory on the App Service resource. To check the wwwroot directory of your App Service web app, select **Advanced Tools (Kudu)** > **Debug console** > **CMD** > **home\site\wwwroot**.
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | This value indicates that the extension detected references to `Microsoft.AspNet.TelemetryCorrelation` in the application and will back off. | Remove the reference.
 |`AppContainsDiagnosticSourceAssembly**:true`|This value indicates that the extension detected references to `System.Diagnostics.DiagnosticSource` in the application and will back off.| For ASP.NET, remove the reference.
 |`IKeyExists:false`|This value indicates that the instrumentation key isn't present in the app setting `APPINSIGHTS_INSTRUMENTATIONKEY`. Possible causes might be that the values were accidentally removed, or you forgot to set the values in the automation script. | Make sure the setting is present in the App Service application settings.
@@ -192,7 +191,7 @@ To resolve this issue, remove the binding redirect entry for `System.Runtime.Com
 </dependentAssembly>
 ```
 
-As a temporary workaround, you could set the app setting `ApplicationInsightsAgent_EXTENSION_VERSION` to a value of `2.8.37`. This setting will trigger App Service to use the old Application Insights extension. Note that temporary mitigations should only be used as an interim.
+As a temporary workaround, you could set the app setting `ApplicationInsightsAgent_EXTENSION_VERSION` to a value of `2.8.37`. This setting will trigger App Service to use the old Application Insights extension. Temporary mitigations should only be used as an interim.
 
 ## Release notes
 
@@ -205,5 +204,5 @@ For the latest updates and bug fixes, see the [release notes](web-app-extension-
 * [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
-* Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a webpage.
+* Use [Application Insights for JavaScript apps and webpages](javascript.md) to get client telemetry from the browsers that visit a webpage.
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
