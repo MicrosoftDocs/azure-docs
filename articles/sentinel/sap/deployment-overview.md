@@ -23,7 +23,8 @@ This article introduces you to the process of deploying the Microsoft Sentinel S
 - Workbooks for interactive data visualization. 
 - Watchlists for customization of the built-in solution parameters.  
 
-The solution is free until February 2023, when an additional cost will be added on top of the ingested data. [Learn more about pricing](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).  
+> [!NOTE]
+> The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting February 2023. The additional charge applies to monitoring production systems only. Development and test systems will remain free of charge. 
 
 The Microsoft Sentinel for SAP data connector is an agent, installed on a VM or a physical server, that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 

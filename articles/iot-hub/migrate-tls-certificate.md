@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 12/21/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -25,7 +25,7 @@ The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023*
 
 ### Request an extension
 
-This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [contact us](mailto:iot-ca-updates@microsoft.com?subject=Baltimore%20Migration:%20Request%20for%20whitelisting%20%3ccustomer%20name%3e%20hubs%20) and provide the details of the IoT hub(s) that need more time. We can flag them to be migrated at the end of the rollout window.
+This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [fill out this form](https://aka.ms/BaltimoreAllow) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message indicating that you have completed the form, along with your company name. We can flag the specific hubs to be migrated later in the rollout window.
 
 ## Required steps
 
