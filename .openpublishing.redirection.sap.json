@@ -862,13 +862,13 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-guide",
+      "redirect_url": "/azure/center-sap-solutions/workloads/sap-high-availability-guide-wsfc-shared-disk",
       "redirect_document_id": true
     },
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-multi-sid.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/high-availability-multi-sid",
+      "redirect_url": "/azure/center-sap-solutions/workloads/sap-ascs-ha-multi-sid-wsfc-shared-disk",
       "redirect_document_id": true
     },
 
@@ -1036,7 +1036,7 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-high-availability-guide",
+      "redirect_url": "/azure/center-sap-solutions/workloads/sap-high-availability-guide-wsfc-shared-disk",
       "redirect_document_id": true
     },
 
@@ -1066,7 +1066,7 @@
 
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
-      "redirect_url": "/azure/center-sap-solutions/workloads/sap-high-availability-multi-sid",
+      "redirect_url": "/azure/center-sap-solutions/workloads/sap-ascs-ha-multi-sid-wsfc-shared-disk",
       "redirect_document_id": true
     },
 
