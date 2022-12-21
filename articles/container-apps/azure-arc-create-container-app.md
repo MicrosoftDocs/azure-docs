@@ -43,7 +43,8 @@ az extension add -s https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-
 Create a resource group for the services created in this tutorial.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus 
+myResourceGroup="my-container-apps-resource-group"
+az group create --name $myResourceGroup --location eastus 
 ```
 
 ## Get custom location information
@@ -75,7 +76,6 @@ Now that you have the custom location ID, you can query for the connected enviro
 A connected environment is largely the same as a standard Container Apps environment, but network restrictions are controlled by the underlying Arc-enabled Kubernetes cluster.
 
 ```azure-interactive
-myResourceGroup="my-container-apps-resource-group"
 myContainerApp="my-container-app"
 myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
 ```
@@ -94,7 +94,7 @@ The following example creates a Node.js app.
     --target-port 80 \
     --ingress 'external'
 
-az containerapp browse --resource-group myResourceGroup \
+az containerapp browse --resource-group $myResourceGroup \
     --name $myContainerApp
 ```
 
