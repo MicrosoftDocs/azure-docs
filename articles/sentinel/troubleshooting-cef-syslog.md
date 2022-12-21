@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Troubleshoot your CEF or Syslog data connector
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Microsoft Sentinel.
 
 For example, if your logs are not appearing in Microsoft Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.

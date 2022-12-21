@@ -1903,7 +1903,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > | sites / premieraddons | **Yes** | **Yes** | No |
 > | sites / slots | **Yes** | **Yes** | No |
 > | sourcecontrols | No | No | No |
-> | staticsites | No | No | No |
+> | staticsites | Yes | Yes | No |
 
 ## Microsoft.WindowsESU
 
