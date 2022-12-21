@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) schemas
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
