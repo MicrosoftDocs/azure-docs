@@ -18,7 +18,7 @@ ms.date: 12/19/2022
 In this quickstart, you'll create and work with:
 
 * A *workspace*.  The workspace is the central place to view and manage all the artifacts and resources you create while using Azure Machine Learning.
-* A *compute instance*.  The compute instance is your dedicated machine in the cloud, a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
+* A *compute instance*.  The compute instance is your cloud development environment, a pre-configured cloud-computing resource you can use to train, automate, manage, and track machine learning models.
 
 Once you've created the workspace and compute, you'll use them to:
 
@@ -56,11 +56,11 @@ If you don't yet have a workspace, create one now:
 
 ## Create a compute instance
 
-You'll use a *compute instance* as your online development environment. The compute instance provides a pre-configured cloud-based environment you can use to train, deploy, automate, manage, and track machine learning models.
+You'll use a *compute instance* as your online development environment. The compute instance provides a pre-configured cloud-computing resource you can use to train, automate, manage, and track machine learning models.
 
 If you already have a compute instance, skip this section and continue to [Upload files](#upload-files).  
 
-Create a compute instance now.  You'll also use it as your development environment for the rest of the tutorials, and for your own development work.
+Create a compute instance now.  You'll also use this cloud-computing resource to run Jupyter notebooks and Python scripts in the rest of the tutorials.
  
 **@@Steps for creating the compute instance with the new experience will go here.**
 
@@ -198,14 +198,11 @@ If  you didn't comment out the `%pip install seaborn` cell before, you'll see `g
 
     :::image type="content" source="media/tutorial-set-up-workstation/save-and-run.png" alt-text="Screenshot: Save and run script in terminal.":::
     
-    A new tab opens to show the terminal window.  At the top of the window are some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
+    A new tab opens to show the terminal window.  You'll see some helpful links for more information about using tools such as Git and the Azure ML CLI from the terminal.
     
     You'll see that the terminal has run a command for you: `python visualize-sample-data.py`.
     
     Finally you'll see the text output from the execution.
-
-2. Close the terminal tab to terminate the session.
-
 
 ### Save the plot
 
@@ -219,14 +216,19 @@ When you run the script in a terminal, you'll see text output, but not the plots
     plt.savefig("plots.png") #save as png
     ```
 
-1. Now again select **Save and run script in terminal**.
+1. Save the file (**Ctrl + S**) if necessary. 
+
+    > [!TIP]
+    > Files you're actively working on are automatically saved approximately every 30 seconds.  When there are unsaved changes, you'll see a * next to the name in the tab.
+
+1. Now select the terminal tab and rerun `python visualize-sample-data.py` to run the modified script.
 
 1. In your **Files** section, you'll see the new image file, **plots.png**.  If you don't see the file, select **Refresh** to get the most up-to-date view of your files.  
 
     :::image type="content" source="media/tutorial-set-up-workstation/refresh.png" alt-text="Screenshot: Refresh to see your new file.":::
 
 1. Select the file **plots.png** to open it in another tab.
-1. Close the terminal tab to terminate the session.
+1. Close the terminal tab and terminate the session.
 
 ## Learn from sample notebooks
 
@@ -234,9 +236,8 @@ Use the sample notebooks available in studio to help you learn about how to trai
 
 Still in the **Notebooks** section, select **Samples** at the top.
 
-    :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
+:::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
 
-* The **SDK v1** folder can be used with the previous, v1 version of the SDK. If you're just starting, you won't need these samples.
 * Use notebooks in the **SDK v2** folder for examples that show the current version of the SDK, v2.
 * These notebooks are read-only, and are updated periodically.  When you open a notebook, select the **Clone** button at the top to add your copy of the notebook and any associated files into your own files.  
 
@@ -259,7 +260,7 @@ If you're not going to use it now, stop the compute instance:
 
 ## Next steps
 
-You now have an Azure Machine Learning workspace, and a compute instance to use as your dedicated machine in the cloud.
+You now have an Azure Machine Learning workspace, and a compute instance to use as your dedicated cloud-computing environment.
 
 Use these resources with the following tutorials to train a model with Python scripts.and deploy a model.
 
@@ -269,6 +270,12 @@ Use these resources with the following tutorials to train a model with Python sc
 | [Access and explore your data]()     |  Store large data in the cloud and retrieve it from notebooks and scripts |
 | [Train a model]()   |    Dive in to the details of training a model     |
 | [Deploy a model]()  |   Dive in to the details of deploying a model      |
+
+Learn more about:
+* [Using Git with Azure Machine Learning](concept-train-model-git-integration.md)
+* [Running Jupyter notebooks in your workspace](how-to-run-jupyter-notebooks.md)
+* [Working with a compute instance terminal in your workspace](how-to-access-terminal.md)
+* Managing terminal sessions
 
 Start with the basic end-to-end workflow:
 
