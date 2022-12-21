@@ -208,7 +208,7 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="2":::
-      [Create Data Lake service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L64)
+      [Create Data Lake service client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L84)
    :::column-end:::
 :::row-end:::
 
@@ -216,10 +216,10 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create file system client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L74)
+      [Create file system client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L94)
    :::column-end:::
    :::column span="":::
-      [Delete file system](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L81)
+      [Delete file system](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L101)
    :::column-end:::
 :::row-end:::
 
@@ -227,26 +227,26 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create directory client](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L14)
+      [Create directory client](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L33)
    :::column-end:::
    :::column span="":::
-      [Get directory permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L19)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Set directory permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L23)
-   :::column-end:::
-   :::column span="":::
-      [Rename directory](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L19)
+      [Get directory permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L38)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Get directory properties](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L25)
+      [Set directory permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L42)
    :::column-end:::
    :::column span="":::
-      [Delete directory](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L29)
+      [Rename directory](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L52)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Get directory properties](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L60)
+   :::column-end:::
+   :::column span="":::
+      [Delete directory](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_directory.py#L67)
    :::column-end:::
 :::row-end:::
 
@@ -254,26 +254,26 @@ The following tables provide an overview of our samples repository and the scena
 
 :::row:::
    :::column span="":::
-      [Create file client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L13)
+      [Create file client](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L39)
    :::column-end:::
    :::column span="":::
-      [Create file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L45)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Get file permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L35)
-   :::column-end:::
-   :::column span="":::
-      [Set file permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L38)
+      [Create file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L72)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Append data to file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L18)
+      [Get file permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L38)
    :::column-end:::
    :::column span="":::
-      [Read data from file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L29)
+      [Set file permissions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control.py#L58)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Append data to file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L52)
+   :::column-end:::
+   :::column span="":::
+      [Read data from file](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_upload_download.py#L67)
    :::column-end:::
 :::row-end:::
 
