@@ -23,7 +23,7 @@ The following erase types are supported:
 |Data erasure type |Description  |
 |---------|---------|
 |CryptoErase  |Sanitizes the encryption key, leaving the data on disk unrecoverable.  |
-|Block erase  |Deletes all user data from the disk.  |
+|BlockErase  |Deletes all user data from the disk.  |
 |CryptoAndBlockErase  |Performs a crypto erase followed by a block erase.  |
 
 ## Reset the Azure Stack Edge device
@@ -49,7 +49,7 @@ Use the following steps to download a Secure Erase Certificate for your device a
 
    ![Screenshot of the Support package options dropdown menu for generating a Secure Erase Certificate following reset of an Azure Stack Edge device.](media/azure-stack-edge-gpu-secure-erase-certificate/azure-stack-edge-download-secure-erase-certificate.png)
 
-1. Select **Download Support package** to download the certificate without creating a full support package.
+1. Select **Create Support package** > **Download Support package** to download the certificate.
 
 ## Next steps
 
