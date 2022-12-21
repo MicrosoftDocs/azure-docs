@@ -286,14 +286,14 @@ A time series whose moments (mean and variance) change over time is called a **n
 
 :::image type="content" source="media/how-to-auto-train-forecast/non-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a non-stationary time series.":::
 
-Next, let's examine the image below, which plots the the original series in first differences `($x_{t} = y_{t} - y_{t-1}$)` where `$x_t$` is the change in retail sales and $y_{t}$ and $y_{t-1}$ represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a (first order) stationary times series. The reason we added the `first order` term is because the first moment (mean) is time invariant (does not change with time interval), the same cannot be said about the variance, which is a second moment.
+Next, let's examine the image below, which plots the the original series in first differences, _x_<sub>_t_</sub> = _y_<sub>_t_</sub> - _y_<sub>_t-1_</sub> where _x_<sub>_t_</sub> is the change in retail sales and _y_<sub>_t_</sub> and _y_<sub>_t_</sub> represent the original series and its first lag, respectively. The mean of the series is roughly constant regardless the time frame one is looking at. This is an example of a (first order) stationary times series. The reason we added the `first order` term is because the first moment (mean) is time invariant (does not change with time interval), the same cannot be said about the variance, which is a second moment.
 
 
 :::image type="content" source="media/how-to-auto-train-forecast/weakly-stationary-retail-sales.png" alt-text="Diagram showing retail sales for a weakly stationary time series.":::
 
 AutoML Machine learning models can not inherently deal with stochastic trends, or other well-known problems associated with non-stationary time series. As a result, their out of sample forecast accuracy will be "poor" if such trends are present.
 
-Automated ML automatically analyzes time series dataset to check whether it is stationary or not. When non-stationary time series are detected, they are automatically first differenced to mitigate the impact of non-stationary time series. 
+AutoML automatically analyzes time series dataset to check whether it is stationary or not. When non-stationary time series are detected, AutoML applies a differencing transform automatically to mitigate the impact of non-stationary time series.
 
 ## Run the experiment 
 

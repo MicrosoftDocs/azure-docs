@@ -21,17 +21,17 @@ AutoML uses a variety of quantitative methods to forecast time series values. Th
 1. Time series models that use historical values of the target quantity to make predictions into the future.
 2. Regression, or explanatory, models that use predictor variables to forecast values of the target.
 
-As an example, consider the problem of forecasting daily demand for a particular brand of orange juice from a grocery store. Let $y_t$ represent the demand for this brand on day $t$. A **time series model** predicts demand at $t+1$ using some function of historical demand,
+As an example, consider the problem of forecasting daily demand for a particular brand of orange juice from a grocery store. Let _y_<sub>_t_</sub> represent the demand for this brand on day _t_. A **time series model** predicts demand at _t+1_ using some function of historical demand,
 
-$y_{t+1} = f(y_t, y_{t-1}, ..., y_{t-s})$. 
+_y_<sub>t+1</sub> = _f_(y<sub>_t_</sub>, y<sub>_t-1_</sub>, ..., y<sub>_t-s_</sub>). 
 
-The function $f$ often has parameters that we tune using observed demand from the past. The amount of history that $f$ uses to make predictions, $s$, can also be considered a parameter of the model.
+The function _f_ often has parameters that we tune using observed demand from the past. The amount of history that _f_ uses to make predictions, _s_, can also be considered a parameter of the model.
 
 The time series model in the orange juice demand example may not be accurate enough since it only uses information about past demand. There are many other factors that likely influence future demand such as price, day of the week, and whether it is a holiday or not. Consider a **regression model** that uses these predictor variables,
 
-$y = g(\text{price}, \text{day of week}, \text{holiday})$.
+_y_ = _g_(price, day of week, holiday).
 
-Again, $g$ generally has a set of parameters, including those governing regularization, that AutoML tunes using past values of the demand and the predictors. We omit $t$ from the expression to emphasize that the regression model uses correlational patterns between _contemporaneously_ defined variables to make predictions. That is, to predict $y_{t+1}$ from $g$, we must know which day of the week $t+1$ falls on, whether it is a holiday, and the orange juice price on day $t+1$. The first two pieces of information are always easily found by consulting a calendar. A retail price is usually set in advance, so the orange juice price is likely also known at $t+1$; however, it may not be known ten days into the future at $t+10$ ! It is important to understand that the utility of this regression is limited by how far into the future we need forecasts, also called the **forecast horizon**, and to what degree we know the future values of the predictors.
+Again, _g_ generally has a set of parameters, including those governing regularization, that AutoML tunes using past values of the demand and the predictors. We omit _t_ from the expression to emphasize that the regression model uses correlational patterns between _contemporaneously_ defined variables to make predictions. That is, to predict y<sub>_t+1_</sub> from _g_, we must know which day of the week _t+1_ falls on, whether it is a holiday, and the orange juice price on day _t+1_. The first two pieces of information are always easily found by consulting a calendar. A retail price is usually set in advance, so the orange juice price is likely also known at _t+1_; however, it may not be known ten days into the future at _t+10_! It is important to understand that the utility of this regression is limited by how far into the future we need forecasts, also called the **forecast horizon**, and to what degree we know the future values of the predictors.
 
 > [!IMPORTANT]
 > AutoML's forecasting regression models assume that all features provided by the user are known into the future, at least up to the forecast horizon.  
