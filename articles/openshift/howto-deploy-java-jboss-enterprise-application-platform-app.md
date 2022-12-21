@@ -87,6 +87,7 @@ Before deploying the application on OpenShift, we are going to run it locally to
 
 To create the database, follow the steps in [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal), but use the following substitutions.
 
+* For **Resource group** use the resource group you created previously.
 * For **Database name** use `todos_db`.
 * For **Server admin login** use `azureuser`.
 * For **Password** use `Passw0rd!`.
@@ -337,6 +338,10 @@ $ oc delete project eap-demo
 ### Delete the ARO cluster
 
 Delete the ARO cluster by following the steps in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md)
+
+### Delete the resource group
+
+If you want to delete all of the resources created by the preceding steps, simply delete the resource group you created for the ARO cluster.
 
 ## Next steps
 
