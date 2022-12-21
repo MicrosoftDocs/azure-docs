@@ -647,7 +647,7 @@ items:
             - name: Copy blobs
               href: storage-blob-copy-java.md
             - name: List blobs
-              href: storage-blob-list-java.md
+              href: storage-blobs-list-java.md
             - name: Delete and restore blobs
               href: storage-blob-delete-java.md
             - name: Find blobs using tags
