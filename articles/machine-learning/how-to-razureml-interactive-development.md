@@ -108,9 +108,6 @@ There are many R packages pre-installed on the compute instance.
 
 When you want to install other packages, you'll need to explicitly state the location and dependencies.
 
-> [!NOTE]
-> Since you are installing packages within an R session running in a Jupyter notebook, `dependencies = TRUE` is required, otherwise any dependency will not be automatically installed. The lib location is also required to install in the correct compute instance location.
-
 For example, to install the `tsibble` package:
 
 ```r
@@ -118,6 +115,9 @@ install.packages("tsibble",
                  dependencies = TRUE,
                  lib = "/home/azureuser")
 ```
+
+> [!NOTE]
+> Since you are installing packages within an R session running in a Jupyter notebook, `dependencies = TRUE` is required. Otherwise, dependent packages will not be automatically installed. The lib location is also required to install in the correct compute instance location.
 
 ## Load R libraries
 
