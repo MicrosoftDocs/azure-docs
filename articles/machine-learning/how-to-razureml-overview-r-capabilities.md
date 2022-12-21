@@ -15,7 +15,7 @@ ms.devlang: r
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-There is no Azure Machine Learning SDK for R.  Instead, you'll use either the CLI or a Python control script to run your R scripts.  
+There's no Azure Machine Learning SDK for R.  Instead, you'll use either the CLI or a Python control script to run your R scripts.  
 
 This article outlines the key scenarios for R that are supported in Azure Machine Learning and known limitations.
 
@@ -31,7 +31,7 @@ A typical workflow for R in Azure Machine Learning is:
     - Include and source the `azureml_utils.R` script in the same working directory of the R script to be executed
     - Use `crate` to package the model
     - Include the R/MLflow functions in the script to **log** artifacts, models, parameters, and/or tags to the job on MLflow.
-- Build an environment and [submit remote asynchronous R jobs](how-to-razureml-train-model.md) (this happens via the CLI or Python SDK, not R)
+- Build an environment and [submit remote asynchronous R jobs](how-to-razureml-train-model.md) (you submit jobs via the CLI or Python SDK, not R)
     - Log job artifacts, parameters, tags and models
 - [Register your model](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-ui) using Azure Machine Learning studio
 - [Deploy registered R models](how-to-razureml-deploy-r-model.md) to managed online endpoints
@@ -39,13 +39,13 @@ A typical workflow for R in Azure Machine Learning is:
 
 ## Known limitations
  
-- There is no R _control-plane_ SDK, instead you use the Azure CLI or Python control script to submit jobs
-- RStudio running as a custom application within a container on the compute instance cannot access workspace assets or MLflow
-- Zero code deployment (i.e. automatic deployment) of an R MLflow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
-- Scoring using an R model with batch endpoints is not supported
-- Programmatic model registering/recording from a running job with R is not supported
-- Interactive querying of workspace MLflow registry from R is not supported
-- Parallel job step is not supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
+- There's no R _control-plane_ SDK, instead you use the Azure CLI or Python control script to submit jobs
+- RStudio running as a custom application within a container on the compute instance can't access workspace assets or MLflow
+- Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
+- Scoring using an R model with batch endpoints isn't supported
+- Programmatic model registering/recording from a running job with R isn't supported
+- Interactive querying of workspace MLflow registry from R isn't supported
+- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
 
 
 ## Next steps
