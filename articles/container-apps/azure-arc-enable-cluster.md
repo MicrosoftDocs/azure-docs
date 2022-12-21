@@ -472,7 +472,8 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     az containerapp connected-env create \
         --resource-group $GROUP_NAME \
         --name $CONNECTED_ENVIRONMENT_NAME \
-        --custom-location $CUSTOM_LOCATION_ID 
+        --custom-location $CUSTOM_LOCATION_ID \
+        --location $LOCATION
     ```
 
     # [PowerShell](#tab/azure-powershell)
@@ -481,7 +482,8 @@ Before you can start creating apps in the custom location, you need an [Azure Co
     az containerapp connected-env create `
         --resource-group $GROUP_NAME `
         --name $CONNECTED_ENVIRONMENT_NAME `
-        --custom-location $CUSTOM_LOCATION_ID       
+        --custom-location $CUSTOM_LOCATION_ID `
+        --location $LOCATION
     ```
 
     ---
