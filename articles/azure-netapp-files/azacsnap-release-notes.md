@@ -22,7 +22,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ## Dec-2022
 
-### AzAcSnap 7 (Build: 1A8F367)
+### AzAcSnap 7 (Build: 1A8FDFF)
 
 AzAcSnap 7 is being released with the following fixes and improvements:
 
