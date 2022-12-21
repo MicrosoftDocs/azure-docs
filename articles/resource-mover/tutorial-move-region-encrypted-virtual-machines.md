@@ -289,8 +289,7 @@ To prepare to move the source resource group, do the following:
 
 > [!NOTE]
 > After you've committed the move, the source resource group status changes to *Delete source pending*.
-
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to 'Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
+> :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png" alt-text="Screenshot of the source resource group showing the status changed to 'Delete source pending'." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resource-group-delete-move-pending.png":::
 
 ## Prepare resources to move
 
@@ -308,8 +307,7 @@ Now that the encryption resources and the source resource group are moved, you c
 
 > [!NOTE]
 > After you've prepared the resources, their status changes to *Initiate move pending*.
-
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Screenshot of the 'Prepare resources' pane, showing the resources in 'Initiate move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
+> :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png" alt-text="Screenshot of the 'Prepare resources' pane, showing the resources in 'Initiate move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-initiate-move-pending.png":::
 
 
 ## Initiate the move
@@ -324,10 +322,10 @@ Now that you've prepared the resources prepared, you can initiate the move.
     - Resource Mover re-creates other resources by using the prepared ARM templates. There's usually no downtime.
     - After you've moved the resources, their status changes to *Commit move pending*.
 
-:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
+    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
-## Manage the move
+## Discard or Commit the move
 
 After the initial move, you can decide whether to commit the move or discard it. 
 
@@ -362,8 +360,6 @@ To complete the move process, you commit the move by doing the following:
 > - After you've committed the move, the VMs stop replicating. The source VM is unaffected by the commit.
 > - The commit process doesn't affect the source networking resources.
 > - After you've committed the move, the resource statuses change to *Delete source pending*.
-
-
 
 ## Configure settings after the move
 

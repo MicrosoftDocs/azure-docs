@@ -5,26 +5,20 @@ author: ankitaduttaMSFT
 manager: evansma
 ms.service: resource-mover
 ms.topic: tutorial
-ms.date: 12/16/2022
+ms.date: 12/21/2022
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move SQL Server databases to a different Azure region.
 ---
 
-# Tutorial: Move Azure SQL Database resources to another region
+# Move Azure SQL Database resources to another region
 
 In this tutorial, you learn how to move Azure SQL databases and elastic pools to a different Azure region, using [Azure Resource Mover](overview.md).
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Check prerequisites and requirements.
-> * Select the resources you want to move.
-> * Resolve resource dependencies.
-> * Prepare and move the SQL Server to the target region.
-> * Prepare and move databases and elastic pools.
-> * Decide whether you want to discard or commit the move. 
-> * Optionally remove resources in the source region after the move. 
+> * Move Azure SQL databases and elastic pools to a different Azure region 
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario, and use default options. 
@@ -208,7 +202,7 @@ To prepare a database for the move, follow these steps:
 
 During the prepare stage, the target database is created in the target region and the data replication starts. After Prepare, the database is in an *Initiate move pending* state. 
 
-:::image type="content" source="./media/tutorial-move-region-sql/initiate-move-pending.png" alt-text="Screenshot displays button to prepare the selected database in the elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-move-pending.png":::
+    :::image type="content" source="./media/tutorial-move-region-sql/initiate-move-pending.png" alt-text="Screenshot displays button to prepare the selected database in the elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-move-pending.png":::
 
 ## Move databases
 
@@ -279,10 +273,4 @@ After the move, you can optionally delete resources in the source region.
 
 ## Next steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Moved Azure SQL databases to another Azure region.
-> * Moved Azure SQL elastic pools to another region.
-
-Now, try [moving Azure VMs to another region](./tutorial-move-region-virtual-machines.md).
+[Learn more](./tutorial-move-region-virtual-machines.md) about moving Azure VMs to another region.
