@@ -268,6 +268,9 @@
         - name: Secure training environment
           displayName: vnet, No public IP
           href: how-to-secure-training-vnet.md
+        - name: Secure inference environment
+          displayName: vnet, Managed Endpoint, AKS
+          href: how-to-secure-inferencing-vnet.md
         - name: Use studio in a virtual network
           displayName: vnet
           href: how-to-enable-studio-virtual-network.md
@@ -347,11 +350,14 @@
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
           href: how-to-secure-kubernetes-inferencing-environment.md
         - name: Secure Kubernetes online endpoint
-          displayName: Securing Kubernetes online endpoint with TLS/SSL
+          displayName: AKS, Arc Kubernetes, HTTPS, TSL, SSL, Cname, DNS, Certificate, inference
           href: how-to-secure-kubernetes-online-endpoint.md
         - name: Troubleshoot AzureML extension
           displayName: AKS, Arc Kubernetes, AzureML extension, troubleshoot
           href: how-to-troubleshoot-kubernetes-extension.md
+        - name: Troubleshoot Kubernetes compute
+          displayName: AKS, Arc Kubernetes, Kubernetes compute, training, online endpoint, troubleshoot
+          href: how-to-troubleshoot-kubernetes-compute.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -419,6 +425,9 @@
             - name: Access data in jobs
               displayName: Access data in jobs
               href: how-to-read-write-data-v2.md
+            - name: Working with Tables (mltable)
+              displayName: Working with Tables (mltable)
+              href: how-to-mltable.md
         - name: Label data
           items:
             - name: Set up image labeling
@@ -465,6 +474,8 @@
             - name: Tune hyperparameters
               displayName: parameter, hyperparameter, hyperdrive
               href: how-to-tune-hyperparameters.md
+            - name: Distributed GPU guide
+              href: how-to-train-distributed-gpu.md
             - name: Scikit-learn
               href: how-to-train-scikit-learn.md
             - name: TensorFlow
@@ -541,7 +552,7 @@
         - name: Online endpoints (real-time)
           items:
             - name: Deploy an ML model with an online endpoint
-              href: how-to-deploy-managed-online-endpoints.md
+              href: how-to-deploy-online-endpoints.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-online-endpoints.md
             - name: Deployment scenarios
@@ -764,6 +775,14 @@
               href: reference-yaml-job-pipeline.md
             - name: Parallel
               href: reference-yaml-job-parallel.md
+            - name: AutoML Image Classification
+              href: reference-automl-images-cli-classification.md
+            - name: AutoML Image Instance Segmentation
+              href: reference-automl-images-cli-instance-segmentation.md
+            - name: AutoML Image Multilabel Classification
+              href: reference-automl-images-cli-multilabel-classification.md
+            - name: AutoML Image Object Detection
+              href: reference-automl-images-cli-object-detection.md
         - name: Datastore
           items:
             - name: Azure Blob
@@ -792,6 +811,8 @@
           items:
             - name: Command
               href: reference-yaml-component-command.md
+    - name: PowerShell
+      href: /powershell/module/az.machinelearningservices/
     - name: Service limits
       href: resource-limits-capacity.md
     - name: Image data schemas for AutoML

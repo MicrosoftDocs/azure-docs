@@ -1,11 +1,10 @@
 ---
 title: Storage Optimized Azure Dedicated Host SKUs
 description: Specifications for VM packing of Storage Optimized ADH SKUs.
-author: brittanyrowe
-ms.author: brittanyrowe
+author: vamckMS
+ms.author: vakavuru
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: dedicated-hosts
+ms.service: azure-dedicated-host
 ms.topic: conceptual
 ms.date: 12/01/2021
 ---

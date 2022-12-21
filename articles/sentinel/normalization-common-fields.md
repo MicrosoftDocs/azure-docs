@@ -55,6 +55,7 @@ The following fields are defined by ASIM for all schemas:
 | <a name="eventschema"></a>**EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | <a name="eventschemaversion"></a>**EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | <a name="eventreporturl"></a>**EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
+| <a name="eventowner"></a>**EventOwner** | Optional | String | The owner of the event, which is usually the department or subsidiary in which it was generated. |
 
 ### Device fields
 
@@ -78,7 +79,8 @@ The role of the device fields is different for different schemas and event types
 | <a name="dvcaction"></a>**DvcAction** | Recommended | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
 | <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="dvcinterface"></a>**DvcInterface** | Optional | String | The network interface on which data was captured. This field is  typically relevant to network related activity which is captured by an intermediate or tap device. | 
-| <a name="dvcsubscription"></a>**DvcSubscriptionId** | Optional | String | The cloud platform subscription ID the device belongs to. **DvcSubscriptionId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="dvcscopeid"></a>**DvcScopeId** | Optional | String | The cloud platform scope ID the device belongs to. **DvcScopeId** map to a subscription ID on Azure and to an account ID on AWS. | 
+| <a name="dvcscope"></a>**DvcScope** | Optional | String | The cloud platform scope the device belongs to. **DvcScope** map to a subscription ID on Azure and to an account ID on AWS. | 
 
 ### Other fields
 
@@ -88,6 +90,9 @@ The role of the device fields is different for different schemas and event types
 | <a name="asimmatchingipaddr"></a>**ASimMatchingIpAddr** | Recommended | String | When a parser uses the `ipaddr_has_any_prefix` filtering parameters, this field  is set with the one of the values `SrcIpAddr`, `DstIpAddr`, or `Both` to reflect the matching fields or fields. | 
 | <a name="asimmatchinghostname"></a>**ASimMatchingHostname** | Recommended | String | When a parser uses the `hostname_has_any` filtering parameters, this field  is set with the one of the values `SrcHostname`, `DstHostname`, or `Both` to reflect the matching fields or fields. | 
 
+### Schema updates
+
+The `EventOwner` field has been added to the common fields on Dec 1st 2022, and therefore to all of the schemas.
 
 ## Vendors and products
 
@@ -102,7 +107,7 @@ The currently supported list of vendors and products used in the [EventVendor](#
 | Corelight | Zeek | 
 | GCP | Cloud DNS | 
 | Infoblox | NIOS | 
-| Microsoft | - AAD<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Microsoft | - AAD<br> - Azure<br> - Azure Firewall<br> - Azure Blob Storage<br>    - Azure File Storage<br>    - Azure NSG flows<br> - Azure Queue Storage<br>  - Azure Table Storage <br>      -  DNS Server<br> - Microsoft 365 Defender for Endpoint<br> - Microsoft Defender for IoT<br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
 | Okta | - Okta<BR> - Auth0<br> | 
 | Palo Alto | - PanOS<br> - CDL<br> |
 | PostgreSQL | PostgreSQL |

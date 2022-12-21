@@ -25,9 +25,9 @@ In this quickstart you'll, use the Form Recognizer REST API to analyze and extra
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
 
 * **PowerShell version 7.*+** (or a similar command-line application.):
-  * [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true)
-  * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
-  * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
+  * [Windows](/powershell/scripting/install/installing-powershell-on-windows)
+  * [macOS](/powershell/scripting/install/installing-powershell-on-macos)
+  * [Linux](/powershell/scripting/install/installing-powershell-on-linux)
 
 * To check your PowerShell version, type the following command relative to your operating system:
   * Windows: `Get-Host | Select-Object Version`

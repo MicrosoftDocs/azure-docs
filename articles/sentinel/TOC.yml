@@ -21,6 +21,8 @@
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
+  - name: Automatically enrich incident information
+    href: tutorial-enrich-ip-information.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
@@ -43,6 +45,8 @@
     items:
     - name: Prerequisites
       href: prerequisites.md
+    - name: Geographical availability and data residency
+      href: geographical-availability-data-residency.md
     - name: Costs and billing
       items:
       - name: Plan costs
@@ -50,7 +54,7 @@
       - name: Monitor costs
         href: billing-monitor-costs.md
       - name: Reduce costs
-        href: billing-reduce-costs.md
+        href: billing-reduce-costs.md    
     - name: Best practices
       items:
       - name: Overview
@@ -64,7 +68,7 @@
       - name: Basic Logs
         href: basic-logs-use-cases.md
       - name: Health monitoring 
-        href: health-audit.md
+        href: health-audit.md    
     - name: Architecture
       items:
       - name: Roles and permissions
@@ -72,7 +76,7 @@
       - name: Extend Microsoft Sentinel across workspaces and tenants
         href: extend-sentinel-across-workspaces-tenants.md
       - name: Security baseline
-        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json      
       - name: Support for data types in different clouds
         href: data-type-cloud-support.md
   - name: Find solutions and content
@@ -390,6 +394,8 @@
       href: create-incident-manually.md
     - name: Delete incidents
       href: delete-incident.md
+    - name: Remediate threats while investigating
+      href: respond-threats-during-investigation.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -535,6 +541,8 @@
         href: normalization-known-issues.md
       - name: ASIM schemas
         items:
+        - name: ASIM audit event schema
+          href: normalization-schema-audit.md
         - name: ASIM authentication schema
           href: authentication-normalization-schema.md
         - name: ASIM DNS schema

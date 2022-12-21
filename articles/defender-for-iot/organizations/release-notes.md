@@ -39,6 +39,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **22.2** | | | |
+| 22.2.8 | 11/2022 | Patch | 10/2023 |
 | 22.2.7| 10/2022   | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
 |22.2.5 |08/2022 | Patch| 04/2023 |
@@ -69,8 +70,19 @@ Defender for IoT provides **1 year of support** for every new version, starting 
 
 Earlier versions use a legacy support model, with support dates [detailed for each version](#on-premises-monitoring-software-versions).
 
+### On-premises appliance security
+
+The OT network sensor and the on-premises management console are designed as a *locked-down* security appliance with a hardened attack surface. Appliance access and control is allowed only through the management port, via HTTP for web access and SSH for the support shell.
+
+Defender for IoT adheres to the [Microsoft Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/) throughout the entire development lifecycle,  including activities like training, compliance, code reviews, threat modeling, design requirements, component governance, and pen testing. All appliances are locked down according to industry best practices and should not be modified.
+
+Maintain your sensors and on-premises management consoles, for activities like backups, log exports, or health monitoring, via the web interface, or the Defender for IoT CLI commands.  
+
+
+
+
 > [!IMPORTANT]
-> Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
+> Manual changes to software packages or additions of external packages may have detrimental security or functional effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to software packages.
 >
 
 ### Feature documentation per versions
@@ -88,6 +100,14 @@ To update to 22.2.x versions:
 - **From version 10.x**, first update to the latest **22.1.x** version, and then update again to the latest **22.2.x** version.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
+### 22.2.8
+
+**Release date**: 11/2022
+
+**Supported until**: 10/2023
+
+This version includes bug fixes for stability improvements.
 
 ### 22.2.7
 
@@ -148,6 +168,7 @@ This version includes the following new updates and fixes:
 - [Upload diagnostic logs for support tickets from the Azure portal](how-to-manage-sensors-on-the-cloud.md#upload-a-diagnostics-log-for-support-public-preview)
 - [Improved security for uploading protocol plugins](resources-manage-proprietary-protocols.md)
 - [Sensor names shown in browser tabs](how-to-manage-individual-sensors.md)
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ## Versions 22.1.x
 
@@ -210,6 +231,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
+
 - [New sensor installation wizard](how-to-install-software.md)
 
 - [Sensor redesign and unified Microsoft product experience](how-to-manage-individual-sensors.md)
@@ -245,6 +267,8 @@ This version includes the following new updates and fixes:
 - [Sensor reports now accessible from the **Data Mining** page](how-to-create-data-mining-queries.md)
 
 - [Updated process for sensor name changes](how-to-manage-individual-sensors.md#change-the-name-of-a-sensor)
+
+- [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
 
 ## Versions 10.5.x
 
@@ -293,7 +317,7 @@ This version includes the following new updates and fixes:
 
 - [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
 - [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [On-premises management console audit](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-audit-logs-for-troubleshooting)
+- [Export logs from the on-premises management console for troubleshooting](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting)
 - [Support for Webhook extended to send data to endpoints](how-to-forward-alert-information-to-partners.md#webhook-extended)
 - [Unicode support for certificate passphrases](how-to-deploy-certificates.md)
 

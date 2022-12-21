@@ -142,10 +142,6 @@ items:
       href: insights-permissions.md
 - name: How-to guides
   items:
-  - name: Master Data Management
-    items:
-    - name: Profisee
-      href: how-to-deploy-profisee-purview-integration.md
   - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
@@ -251,8 +247,8 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Monitor scan runs
-      href: how-to-monitor-scan-runs.md
+    - name: Monitor data map population
+      href: how-to-monitor-data-map-population.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Data catalog
@@ -287,8 +283,12 @@ items:
       href: how-to-lineage-sql-server-integration-services.md
   - name: Business glossary
     items:
+    - name: Create & manage glossaries
+      href: how-to-create-manage-glossary.md
     - name: Create & manage terms
-      href: how-to-create-import-export-glossary.md
+      href: how-to-create-manage-glossary-term.md
+    - name: Import & export terms
+      href: how-to-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md
   - name: Classify
@@ -315,8 +315,10 @@ items:
       href: how-to-data-share-faq.md
   - name: Data Estate Insights
     items:
-    - name: Disable or enable Data Estate Insights
-      href: enable-disable-data-estate-insights.md
+    - name: Disable Data Estate Insights
+      href: disable-data-estate-insights.md
+    - name: Schedule report refresh
+      href: how-to-schedule-data-estate-insights.md
     - name: View data stewardship
       href: data-stewardship.md
     - name: View asset insights
@@ -403,14 +405,22 @@ items:
       href: how-to-use-workflow-dynamic-content.md      
     - name: Workflow HTTP connector
       href: how-to-use-workflow-http-connector.md
-  - name: Manage Kafka notifications - .NET
-    href: manage-kafka-dotnet.md
+  - name: Kafka notifications
+    items:
+    - name: Configure for Kafka notifications
+      href: configure-event-hubs-for-kafka.md
+    - name: Publish and receive Kafka notifications - .NET
+      href: manage-kafka-dotnet.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
+  - name: Master Data Management
+    items:
+    - name: Profisee
+      href: how-to-deploy-profisee-purview-integration.md
 - name: Reference
   items:
     - name: Product glossary reference

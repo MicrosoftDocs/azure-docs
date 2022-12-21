@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Migrate databases by using the Azure SQL Migration extension for Azure Data Studio
 
-Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) to assess your database requirements, get right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
+Learn how to use the unified experience in [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension). Helps you to assess your database requirements, get the right-sized SKU recommendations for Azure resources, and migrate your SQL Server database to Azure.
 
 The Azure SQL Migration extension for Azure Data Studio offers these key benefits:
 
@@ -45,11 +45,11 @@ SQL Server to Azure SQL Database (preview)| [Offline](./tutorial-sql-server-azur
 > [!IMPORTANT]
 > If your target is Azure SQL Database, make sure you deploy the database schema before you begin the migration. You can use tools like the [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or the [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 
-The following 16-minute video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio, including the new workflow for SQL Server database assessments and SKU recommendations:
+The following video explains recent updates and features added to the Azure SQL Migration extension for Azure Data Studio:
 
 <br />
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=assess-get-recommendations-migrate-sql-server-to-azure-using-azure-data-studio]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=data-exposed&ep=how-to-migrate-sql-server-to-azure-sql-database-offline-using-azure-data-studio-data-exposed]
 
 ## Architecture of the Azure SQL Migration extension for Azure Data Studio
 

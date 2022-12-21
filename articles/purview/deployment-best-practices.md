@@ -11,6 +11,9 @@ ms.date: 08/04/2022
 
 This article is a guide to successfully deploying Microsoft Purview (formerly Azure Purview) into production in your data estate. It's intended to help you strategize and phase your deployment from research to hardening your production environment, and is best used in tandem with our [deployment checklist](tutorial-azure-purview-checklist.md).
 
+>[!NOTE]
+>These best practices cover the deployment for [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions). For more information about Microsoft Purview risk and compliance solutions, [go here](/microsoft-365/compliance/). For more information about Microsoft Purview in general, [go here](/purview/purview).
+
 If you're looking for a strictly technical deployment guide, use the [deployment checklist](tutorial-azure-purview-checklist.md).
 
 If you're creating a plan to deploy Microsoft Purview and want to consider best practices as you develop your deployment strategy, then follow the article below. This guide outlines tasks can be completed in phases over the course of a month or more to develop your deployment process for Microsoft Purview. Even organizations who have already deployed Microsoft Purview can use this guide to ensure they're getting the most out of their investment.
@@ -208,7 +211,7 @@ Once you have the agreed requirements and participated business units to onboard
 |[Scan Azure Synapse Analytics](register-scan-azure-synapse-analytics.md)|Start to onboard your database sources and scan them to populate key assets|Two Days|
 |[Create custom classifications and rules](create-a-custom-classification-and-classification-rule.md)|Once your assets are scanned, your users may realize that there are other use cases for more classification beside the default classifications from Microsoft Purview.|2-4 Weeks|
 |[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts that have requirements to include lineage from the storage layer.|1-2 Weeks|
-|[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
+|[Import glossary terms](how-to-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Microsoft Purview via .csv file.|One Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|One Week|
 |[Add sensitive labels and scan](how-to-automatically-label-your-content.md)|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |[Get classification and sensitive insights](concept-insights.md)|For reporting and insight in Microsoft Purview, you can access this functionality to get various reports and provide presentation to management.|One Day|

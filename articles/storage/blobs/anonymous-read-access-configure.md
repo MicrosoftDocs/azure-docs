@@ -2,7 +2,6 @@
 title: Configure anonymous public read access for containers and blobs
 titleSuffix: Azure Storage
 description: Learn how to allow or disallow anonymous access to blob data for the storage account. Set the container public access setting to make containers and blobs available for anonymous access.
-services: storage
 author: tamram
 
 ms.service: storage
@@ -11,8 +10,8 @@ ms.date: 11/09/2022
 ms.author: tamram
 ms.reviewer: nachakra
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
-ms.devlang: azurecli
+ms.devlang: powershell, azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ---
 
 # Configure anonymous public read access for containers and blobs

@@ -5,7 +5,7 @@ ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: alkuchar
-author: sr-msft
+author: AwdotiaRomanowna
 ms.date: 10/21/2022
 ---
 
@@ -36,7 +36,7 @@ The feature is meant for scenarios where the lag is acceptable and meant for off
 
 > [!NOTE]
 > For most workloads read replicas offer near-real-time updates from the primary. However, with persistent heavy write-intensive primary workloads, the replication lag could continue to grow and may never be able to catch-up with the primary. This may also increase storage usage at the primary as the WAL files are not deleted until they are received at the replica. If this situation persists, deleting and recreating the read replica after the write-intensive workloads completes is the option to bring the replica back to a good state with respect to lag.
-> Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle through its peak and non-peak times to access the possible lag and the expected RTO/RPO at various points of the workload cycle.
+> Asynchronous read replicas are not suitable for such heavy write workloads. When evaluating read replicas for your application, monitor the lag on the replica for a full app work load cycle through its peak and non-peak times to assess the possible lag and the expected RTO/RPO at various points of the workload cycle.
 
 ## Cross-region replication
 
@@ -118,7 +118,7 @@ You can stop the replication between a primary and a replica by promoting one or
 - If you promote a replica to be a standalone server, you cannot establish replication back to the old primary server. If you want to go back to the old primary region, you can either establish a new replica server with a new name (or) delete the old primary and create a replica using the old primary name.
 - If you have multiple read replicas, and if you promote one of them to be your primary server, other replica servers are still connected to the old primary. You may have to recreate replicas from the new, promoted server.
 - During the create, delete and promote operations of replica, primary server will be in upgrading state.
-- **Power operations**: You can perform power operations (start/stop) on replica but primary server should be stopped before stopping read replicas and primary server should be started before starting the replicas.
+- **Power operations**: Power operations (start/stop) are currently not supported for any node, either replica or primary, in the replication cluster.
 - If server has read replicas then read replicas should be deleted first before deleting the primary server.
 
 When you promote a replica, the replica loses all links to its previous primary and other replicas.
