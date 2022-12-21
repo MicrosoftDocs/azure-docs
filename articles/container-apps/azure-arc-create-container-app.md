@@ -34,7 +34,7 @@ Next, add the required Azure CLI extensions.
 
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
-az extension remove --name containerapps
+az extension remove --name containerapp
 az extension add -s https://download.microsoft.com/download/5/c/2/5c2ec3fc-bd2a-4615-a574-a1b7c8e22f40/containerapp-0.0.1-py2.py3-none-any.whl --yes
 ```
 
@@ -77,7 +77,9 @@ A connected environment is largely the same as a standard Container Apps environ
 
 ```azure-interactive
 myContainerApp="my-container-app"
-myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
+myConnectedEnvironmentName="<NAME_OF_CONNECTED_ENVIRONMENT>"
+myConnectedEnvironmentResourceGroup="<RESOURCE_GROUP_NAME_OF_CONNECTED_ENVIRONMENT>"
+myConnectedEnvironment=$(az containerapp connected-env show --resource-group $myConnectedEnvironmentResourceGroup --name $myConnectedEnvironmentName -o tsv --query id)
 ```
 
 ## Create an app
@@ -85,7 +87,7 @@ myConnectedEnvironment=$(az containerapp connected-env list --custom-location $c
 The following example creates a Node.js app.
 
 ```azurecli-interactive
- az container app create \
+ az containerapp create \
     --resource-group $myResourceGroup \
     --name $myContainerApp \
     --environment $myConnectedEnvironment \
@@ -94,8 +96,7 @@ The following example creates a Node.js app.
     --target-port 80 \
     --ingress 'external'
 
-az containerapp browse --resource-group $myResourceGroup \
-    --name $myContainerApp
+az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
 ```
 
 ## Get diagnostic logs using Log Analytics
