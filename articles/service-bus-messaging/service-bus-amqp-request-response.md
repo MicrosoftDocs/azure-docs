@@ -555,12 +555,12 @@ Each map entry in the list includes the following properties:
 |---------|----------------|--------------|--------------------|  
 |rule-description| described object |Yes|`com.microsoft:rule-description` with AMQP described code 0x0000013700000004| 
 
-`com.microsoft.rule-description` itself is a desired object. It has the following properties:
+`com.microsoft.rule-description` itself is a described list. It has the following properties:
 
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
-| 0 | list of described objects | Yes | `filter` as specified in the next table. |
-| 1 | list of described objects | Yes | `ruleAction` as specified later in this section. |
+| 0 | described list | Yes | `filter` as specified in the next table. |
+| 1 | described list | Yes | `ruleAction` as specified later in this section. |
 | 2 | string | Yes | name of the rule. |
 | 3 | timestamp | Yes | time stamp. |
 
@@ -578,6 +578,7 @@ Each map entry in the list includes the following properties:
 |Index|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 | 0 | string | Yes | Sql Filter expression |
+| 1 | int | Yes | always 20 | 
 
 `com.microsoft:correlation-filter:list` is a described list, which includes:
 
@@ -600,7 +601,7 @@ Each map entry in the list includes the following properties:
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Empty Rule Action - No rule action present |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | SQL Rule Action |
 
-`com.microsoft:sql-rule-action:list` is a list of described objects whose first entry is a string, which contains the SQL rule action's expression.
+`com.microsoft:sql-rule-action:list` is a described list that has two elements. The first element is a string, which contains the SQL rule action's expression. The second element is a 32-bit signed integer and its value is always 20. 
 
 ## Deferred message operations  
   
@@ -615,7 +616,7 @@ The request message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |operation|string|Yes|`com.microsoft:receive-by-sequence-number`|  
-|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  
+|`com.microsoft:server-timeout`|uint|No|Operation server timeout in milliseconds.|  int
   
 The request message body must consist of an **amqp-value** section containing a **map** with the following entries:  
   
