@@ -1,0 +1,54 @@
+---
+title: How to run Multivariate Anomaly Detection API (GA version) in Postman?
+titleSuffix: Azure Cognitive Services
+description: Learn how to detect anomalies in your data either as a batch, or on streaming data with Postman.
+services: cognitive-services
+author: mrbullwinkle
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: anomaly-detector
+ms.topic: how-to
+ms.date: 12/20/2022
+ms.author: mbullwin
+---
+
+# How to run Multivariate Anomaly Detection API in Postman?
+
+Select this button to fork the API collection in Postman and follow the steps below to test.
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18763802-b90da6d8-0f98-4200-976f-546342abcade?action=collection%2Ffork&collection-url=entityId%3D18763802-b90da6d8-0f98-4200-976f-546342abcade%26entityType%3Dcollection%26workspaceId%3De1370b45-5076-4885-884f-e9a97136ddbc#?env%5BMVAD%5D=W3sia2V5IjoibW9kZWxJZCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJlNjQxZTJlYy01Mzg5LTExZWQtYTkyMC01MjcyNGM4YTZkZmEiLCJzZXNzaW9uSW5kZXgiOjB9LHsia2V5IjoicmVzdWx0SWQiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiOGZkZTAwNDItNTM4YS0xMWVkLTlhNDEtMGUxMGNkOTEwZmZhIiwic2Vzc2lvbkluZGV4IjoxfSx7ImtleSI6Ik9jcC1BcGltLVN1YnNjcmlwdGlvbi1LZXkiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJzZWNyZXQiLCJzZXNzaW9uVmFsdWUiOiJjNzNjMGRhMzlhOTA0MjgzODA4ZjBmY2E0Zjc3MTFkOCIsInNlc3Npb25JbmRleCI6Mn0seyJrZXkiOiJlbmRwb2ludCIsInZhbHVlIjoiIiwiZW5hYmxlZCI6dHJ1ZSwidHlwZSI6ImRlZmF1bHQiLCJzZXNzaW9uVmFsdWUiOiJodHRwczovL211bHRpLWFkLXRlc3QtdXNjeC5jb2duaXRpdmVzZXJ2aWNlcy5henVyZS5jb20vIiwic2Vzc2lvbkluZGV4IjozfSx7ImtleSI6ImRhdGFTb3VyY2UiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJkZWZhdWx0Iiwic2Vzc2lvblZhbHVlIjoiaHR0cHM6Ly9tdmFkZGF0YXNldC5ibG9iLmNvcmUud2luZG93cy5uZXQvc2FtcGxlLW9uZXRhYmxlL3NhbXBsZV9kYXRhXzVfMzAwMC5jc3YiLCJzZXNzaW9uSW5kZXgiOjR9XQ==)
+
+1. Select environment as **MVAD**.
+
+    ![Screenshot of Postman UI with MVAD selected](../media/postman/postman-initial.png)
+
+2. Select **Environment**, paste your Anomaly Detector `endpoint`, `key` and dataSource `url` into the **CURRENT VALUE** column, select **Save** to let the variables take effect.
+
+    ![Screenshot of Postman UI with key, endpoint, and datasource filled in](../media/postman/postman-key.png)
+
+3. Select **Collections**, and click on the first API - **Create and train a model**, then click **Send**.
+
+    > [!NOTE]
+    > If your data is one CSV file, please set the dataSchema as **OneTable**, if your data is multiple CSV files in a folder, please set the dataSchema as **MultiTable.**
+
+    ![Screenshot of create and train POST request](../media/postman/create-and-train.png)
+
+4. In the response of the first API, copy the modelId and paste it in the `modelId` in **Environments**, click **Save**. Then go to **Collections**, click on the second API - **Get model status**, and click **Send**.
+    ![GIF of process of copying model identifier](../media/postman/model.gif)
+
+5. Select the third API - **Batch Detection**, and click **Send**. This API will trigger a synchronous inference task, and you should use the Get batch detection results API several times to get the status and the final results.
+
+    ![Screenshot of batch detection POST request](../media/postman//result.png)
+
+6. In the response of the third API, copy the resultId and paste it in the `resultId` in **Environments**, click **Save**. Then go to **Collections**, click on the fourth API - Get batch detection results, and click **Send**.
+
+    ![GIF of process of copying result identifier](../media/postman/result.gif)
+
+7. For the rest of the APIs, click on each and click Send to test on their request and response.
+
+    ![Screenshot of detect last POST result](../media/postman/detection.png)
+
+## Next Steps
+
+* [Create an Anomaly Detector resource](create-resource.md)
+* [Quickstart: Detect anomalies in your time series data using the Anomaly Detector](../quickstarts/client-libraries.md)
