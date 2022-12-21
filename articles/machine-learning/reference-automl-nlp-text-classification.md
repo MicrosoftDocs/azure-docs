@@ -1,7 +1,7 @@
 ---
-title: 'CLI (v2) command job YAML schema'
+title: 'CLI (v2) Automated ML Text Classification job YAML schema'
 titleSuffix: Azure Machine Learning
-description: Reference documentation for the CLI (v2) command job YAML schema.
+description: Reference documentation for the CLI (v2) Automated ML Text Classification job YAML schema.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,11 +14,11 @@ ms.date: 10/11/2022
 ms.reviewer: ssalgado
 ---
 
-# CLI (v2) command job YAML schema
+# CLI (v2) Automated ML text classification job YAML schema
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-The source JSON schema can be found at https://azuremlschemas.azureedge.net/latest/commandJob.schema.json.
+The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net/preview/0.0.1/autoMLNLPTextClassificationJob.schema.json.schema.json.
 
 
 
@@ -28,65 +28,44 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of your file enables you to invoke schema and resource completions. | | |
-| `type` | const | The type of job. | `command` | `command` |
+| `$schema` | string | Represents the location/url to load the YAML schema. If the user uses the Azure Machine Learning VS Code extension to author the YAML file, including `$schema` at the top of the file enables the user to invoke schema and resource completions. | | |
+| `type` | const | **Required.** The type of job. | `automl` | `automl` |
+| `task` | const | **Required.** The type of AutoML task. | `text_classification` |  |
 | `name` | string | Name of the job. Must be unique across all jobs in the workspace. If omitted, Azure ML will autogenerate a GUID for the name. | | |
 | `display_name` | string | Display name of the job in the studio UI. Can be non-unique within the workspace. If omitted, Azure ML will autogenerate a human-readable adjective-noun identifier for the display name. | | |
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `command` | string | **Required (if not using `component` field).** The command to execute. | | |
-| `code` | string | Local path to the source code directory to be uploaded and used for the job. | | |
-| `environment` | string or object | **Required (if not using `component` field).** The environment to use for the job. This can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment use the `azureml:<environment_name>:<environment_version>` syntax or `azureml:<environment_name>@latest` (to reference the latest version of an environment). <br><br> To define an environment inline please follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline environments. | | |
-| `environment_variables` | object | Dictionary of environment variable key-value pairs to set on the process where the command is executed. | | |
-| `distribution` | object | The distribution configuration for distributed training scenarios. One of [MpiConfiguration](#mpiconfiguration), [PyTorchConfiguration](#pytorchconfiguration), or [TensorFlowConfiguration](#tensorflowconfiguration). | | |
-| `compute` | string | Name of the compute target to execute the job on. This can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. **Note:** jobs in pipeline didn't support `local` as `compute` | | `local` |
-| `resources.instance_count` | integer | The number of nodes to use for the job. | | `1` |
-| `resources.instance_type` | string | The instance type to use for the job. Applicable for jobs running on Azure Arc-enabled Kubernetes compute (where the compute target specified in the `compute` field is of `type: kubernentes`). If omitted, this will default to the default instance type for the Kubernetes cluster. For more information, see [Create and select Kubernetes instance types](how-to-attach-kubernetes-anywhere.md). | | |
-| `limits.timeout` | integer | The maximum time in seconds the job is allowed to run. Once this limit is reached the system will cancel the job. | | |
-| `inputs` | object | Dictionary of inputs to the job. The key is a name for the input within the context of the job and the value is the input value. <br><br> Inputs can be referenced in the `command` using the `${{ inputs.<input_name> }}` expression. | | |
-| `inputs.<input_name>` | number, integer, boolean, string or object | One of a literal value (of type number, integer, boolean, or string) or an object containing a [job input data specification](#job-inputs). | | |
-| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. <br><br> Outputs can be referenced in the `command` using the `${{ outputs.<output_name> }}` expression. | |
-| `outputs.<output_name>` | object | You can leave the object empty, in which case by default the output will be of type `uri_folder` and Azure ML will system-generate an output location for the output. File(s) to the output directory will be written via read-write mount. If you want to specify a different mode for the output, provide an object containing the [job output specification](#job-outputs). | |
+| `compute` | string | Name of the compute target to execute the job on. This compute can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. The 'local' here means that compute instance created in user's AzureML Studio workspace.   <br> *Note:* jobs in pipeline don't support `local` as `compute`. * |1. pattern `azureml:<compute_name>` to use existing compute, <br> <br> 2.`local` to use local execution | `local` |
+| `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
+| `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`,<br> `auc_weighted`,<br> `norm_macro_recall`, <br> `norm_macro_recall`,<br>  `average_precision_score_weighted`, <br> `precision_score_weighted` | `accuracy` |
+| `target_column_name` | string |  **Required.** The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
+| `training_data` | object |  **Required.** The data to be used within the job. For multi-class classification, the dataset can contain several text columns and exactly one label column. | |  |
+| `validation_data` | object |  The validation data to be used within the job. It should be consistent with the training data in terms of the set of columns, data type for each column, order of columns from left to right and at least two unique labels. <br> *Note*: the column names within each dataset should be unique.| | |
+| `limits` | object | Dictionary of limit configurations of the job. Parameters in this section: `max_concurrent_trials`, `max_nodes`, `max_trials`, `timeout_minutes`, `trial_timeoutminutes` | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in following sections. <br> For more information, see [Supported hyperparameters](./how-to-auto-train-nlp-models.md#supported-hyperparameters) section| | |
+| `sweep` | object | Dictionary containing sweep parameters for the job. It has two keys - `sampling_algorithm` (**required**) and `early_termination`. For more information, see [model sweeping and hyperparameter tuning](./how-to-auto-train-nlp-models.md#model-sweeping-and-hyperparameter-tuning-preview) sections. | | |
+| `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. Users can find the possible hyperparameters from parameters specified for `training_parameters` key (also in [supported hyperparameters](./how-to-auto-train-nlp-models.md#supported-hyperparameters)). <br> There are two types of hyperparameters: <br> - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a [`choice`](./reference-yaml-job-sweep.md#choice) among discrete values. `choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - [`randint`](./reference-yaml-job-sweep.md#randint), [`qlognormal`, `qnormal`](./reference-yaml-job-sweep.md#qlognormal-qnormal), [`qloguniform`, `quniform`](./reference-yaml-job-sweep.md#qloguniform-quniform). For more information, see this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters). <br> - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions are - [`lognormal`, `normal`](./reference-yaml-job-sweep.md#lognormal-normal), [`loguniform`](./reference-yaml-job-sweep.md#loguniform), [`uniform`](./reference-yaml-job-sweep.md#uniform). For more information, see this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters). <br> <br> See [Parameter expressions](./reference-yaml-job-sweep.md#parameter-expressions) for the set of possible expressions to use.  | | |
+| `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
+| `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
 
-### Distribution configurations
 
-#### MpiConfiguration
-
-| Key | Type | Description | Allowed values |
-| --- | ---- | ----------- | -------------- |
-| `type` | const | **Required.** Distribution type.  | `mpi` |
-| `process_count_per_instance` | integer | **Required.** The number of processes per node to launch for the job.  | |
-
-#### PyTorchConfiguration
+### Training or validation data
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `pytorch` | |
-| `process_count_per_instance` | integer | The number of processes per node to launch for the job. | |  `1` |
+| `description` | string | The detailed information that describes this input data. | | |
+| `path` | string | The path from where data should be loaded. Path can be a `file` path, `folder` path or `pattern` for paths. `pattern` specifies a search pattern to allow globbing(`*` and `**`) of files and folders containing data. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, and `adl`. For more information on how to use the `azureml://` URI format, see [Core yaml syntax](./reference-yaml-core-syntax.md). URI of the location of the artifact file. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created.  | | |
+| `mode` | string | Dataset delivery mechanism. | `direct` | `direct` |
+| `type` | const |  In order to generate nlp models, the user needs to bring training data in the form of an MLTable. For more information, see [preparing data](./how-to-auto-train-nlp-models.md#preparing-data) | mltable | mltable|
 
-#### TensorFlowConfiguration
+### Best model output configuration
 
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | const | **Required.** Distribution type.  | `tensorflow` |
-| `worker_count` | integer | The number of workers to launch for the job. | | Defaults to `resources.instance_count`. |
-| `parameter_server_count` | integer | The number of parameter servers to launch for the job. | | `0` |
-
-### Job inputs
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job input. Specify `uri_file` for input data that points to a single file source, or `uri_folder` for input data that points to a folder source. | `uri_file`, `uri_folder`, `mlflow_model`, `custom_model`| `uri_folder` |
-| `path` | string | The path to the data to use as input. This can be specified in a few ways: <br><br> - A local path to the data source file or folder, e.g. `path: ./iris.csv`. The data will get uploaded during job submission. <br><br> - A URI of a cloud path to the file or folder to use as the input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. <br><br> - An existing registered Azure ML data asset to use as the input. To reference a registered data asset use the `azureml:<data_name>:<data_version>` syntax or `azureml:<data_name>@latest` (to reference the latest version of that data asset), e.g. `path: azureml:cifar10-data:1` or `path: azureml:cifar10-data@latest`. | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. <br><br> For read-only mount (`ro_mount`), the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. Azure ML will resolve the input to the mount path. <br><br> For `download` mode the data will be downloaded to the compute target. Azure ML will resolve the input to the downloaded path. <br><br> If you only want the URL of the storage location of the data artifact(s) rather than mounting or downloading the data itself, you can use the `direct` mode. This will pass in the URL of the storage location as the job input. Note that in this case you are fully responsible for handling credentials to access the storage. | `ro_mount`, `download`, `direct` | `ro_mount` |
-
-### Job outputs
-
-| Key | Type | Description | Allowed values | Default value |
-| --- | ---- | ----------- | -------------- | ------------- |
-| `type` | string | The type of job output. For the default `uri_folder` type, the output will correspond to a folder. | `uri_folder` , `mlflow_model`, `custom_model`| `uri_folder` |
-| `mode` | string | Mode of how output file(s) will get delivered to the destination storage. For read-write mount mode (`rw_mount`) the output directory will be a mounted directory. For upload mode the file(s) written will get uploaded at the end of the job. | `rw_mount`, `upload` | `rw_mount` |
+| Key | Type | Description | Allowed values |Default value |
+| --- | ---- | ----------- | -------------- | ------------ |
+| `type` | string | **Required.** Type of best model. AutoML allows only mlflow models. | `mlflow_model` | `mlflow_model` |
+| `path` | string | **Required.** URI of the location where the model-artifact file(s) are stored. If this URI doesn't have a scheme (for example, http:, azureml: etc.), then it's considered a local reference and the file it points to is uploaded to the default workspace blob-storage as the entity is created. |  |  |
+| `storage_uri` | string | The HTTP URL of the Model. Use this URL with `az storage copy -s THIS_URL -d DESTINATION_PATH --recursive` to download the data.  | | |
 
 ## Remarks
 
@@ -94,75 +73,15 @@ The `az ml job` command can be used for managing Azure Machine Learning jobs.
 
 ## Examples
 
-Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Several are shown below.
+Examples are available in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs). Examples relevant to image classification job are linked below.  
 
-## YAML: hello world
+## YAML: AutoML text classification job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-newsgroup/cli-automl-text-classification-newsgroup.yml":::
 
-## YAML: display name, experiment name, description, and tags
+## YAML: AutoML text classification pipeline job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-org.yml":::
-
-## YAML: environment variables
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-env-var.yml":::
-
-## YAML: source code
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-code.yml":::
-
-## YAML: literal inputs
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-input.yml":::
-
-## YAML: write to default outputs
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output.yml":::
-
-## YAML: write to named data output
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world-output-data.yml":::
-
-## YAML: datastore URI file input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-file.yml":::
-
-## YAML: datastore URI folder input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-datastore-folder.yml":::
-
-## YAML: URI file input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-file.yml":::
-
-## YAML: URI folder input
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-iris-folder.yml":::
-
-## YAML: Notebook via papermill
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-notebook.yml":::
-
-## YAML: basic Python model training
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job.yml":::
-
-## YAML: basic R model training with local Docker build context
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/r/iris/job.yml":::
-
-## YAML: distributed PyTorch
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/pytorch/cifar-distributed/job.yml":::
-
-## YAML: distributed TensorFlow
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed/job.yml":::
-
-## YAML: distributed MPI
-
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/cli-automl-text-classification-newsgroup-pipeline/pipeline.yml":::
 
 ## Next steps
 
