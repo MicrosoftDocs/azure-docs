@@ -44,7 +44,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for API for NoSQL which su
 
 ## Release notes
 ### <a name="2.6.5"></a>2.6.5
-* Removed dependency `com.google.guava/guava` due to vulnerabilities
+* Removed test dependency `com.google.guava/guava` due to security vulnerabilities
 * Upgraded dependency `com.fasterxml.jackson.core/jackson-databind` to 2.14.0
 * Upgraded dependency `commons-codec/commons-codec` to 1.15
 * Upgraded dependency `org.json/json` to 20180130
