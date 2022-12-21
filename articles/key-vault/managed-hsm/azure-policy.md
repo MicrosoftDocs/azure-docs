@@ -16,22 +16,17 @@ ms.topic: how-to
 
 Example Usage Scenarios:
 
-- You want to improve the security posture of your company by implementing requirements around minimum key sizes and maximum validity periods of certificates in your company's key vaults but you don't know which teams will be compliant and which are not.
 - You currently don't have a solution to perform an audit across your organization, or you are conducting manual audits of your environment by asking individual teams within your organization to report their compliance. You are looking for a way to automate this task, perform audits in real time, and guarantee the accuracy of the audit.
-- You want to enforce your company security policies and stop individuals from creating self-signed certificates, but you don't have an automated way to block their creation. 
+- You want to enforce your company security policies and stop individuals from creating certain cryptographic keys, but you don't have an automated way to block their creation. 
 - You want to relax some requirements for your test teams, but you want to maintain tight controls over your production environment. You need a simple automated way to separate enforcement of your resources.
 - You want to be sure that you can roll-back enforcement of new policies in the event of a live-site issue. You need a one-click solution to turn off enforcement of the policy. 
 - You are relying on a 3rd party solution for auditing your environment and you want to use an internal Microsoft offering.
 
 ## Types of policy effects and guidance
 
-**Audit**: When the effect of a policy is set to audit, the policy will not cause any breaking changes to your environment. It will only alert you to components such as certificates that do not comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
+**Audit**: When the effect of a policy is set to audit, the policy will not cause any breaking changes to your environment. It will only alert you to components such as keys that do not comply with the policy definitions within a specified scope, by marking these components as non-compliant in the policy compliance dashboard. Audit is default if no policy effect is selected.
 
-**Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as certificates as well as block new versions of existing components that do not comply with the policy definition. Existing non-compliant resources within a key vault are not affected. The 'audit' capabilities will continue to operate.
-
-## Available "Built-In" Policy Definitions
-
-Key Vault has created a set of policies, which can be used to manage key vaults and its key, certificate, and secret objects. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs.
+**Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as weaker keys as well as block new versions of existing keys that do not comply with the policy definition. Existing non-compliant resources within a Managed HSM are not affected. The 'audit' capabilities will continue to operate.
 
 # [Data plane policies](#tab/data-plane)
 
@@ -46,7 +41,7 @@ If you use elliptic curve cryptography or ECC keys, you can customize an allowed
 
 ### Keys should have expirations dates set
 
-This policy audits all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant. You can also use this policy to block the creation of keys that do not have an expiration date set.
+This policy audits all keys in your Managed HSMs and flags keys that do not have an expiration date set as non-compliant. You can also use this policy to block the creation of keys that do not have an expiration date set.
 
 ### Keys should have more than the specified number of days before expiration
 
@@ -54,103 +49,56 @@ If a key is too close to expiration, an organizational delay to rotate the key m
 
 ### Keys using RSA cryptography should have a specified minimum key size
 
-Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your key vault. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation of new keys that do not meet the minimum key size requirement.
-
-# [Control plane policies](#tab/control-plane)
-
-### Key Vault should use a virtual network service endpoint
-
-This policy audits any Key Vault not configured to use a virtual network service endpoint.
-
-### Resource logs in Key Vault should be enabled
-
-Audit enabling of resource logs. This enables you to recreate activity trails to use for investigation purposes when a security incident occurs or when your network is compromised
-
-### Key vaults should have purge protection enabled
-
-Malicious deletion of a key vault can lead to permanent data loss. A malicious insider in your organization can potentially delete and purge key vaults. Purge protection protects you from insider attacks by enforcing a mandatory retention period for soft deleted key vaults. No one inside your organization or Microsoft will be able to purge your key vaults during the soft delete retention period.
+Using RSA keys with smaller key sizes is not a secure design practice. You may be subject to audit and certification standards that mandate the use of a minimum key size. The following policy allows you to set a minimum key size requirement on your Managed HSM. You can audit keys that do not meet this minimum requirement. This policy can also be used to block the creation of new keys that do not meet the minimum key size requirement.
 
 ---
 
-## Example Scenario
+## Enabling and managing a Managed HSM policy through the Azure CLI
 
-You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
+1. Register preview feature in your subscription.
+   In the subscription that customer owns, run the following Azure CLI command line as Contributor or Owner role of the subscription,
 
-1. You assign the **Certificates should have the specified maximum validity period** policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit".
-1. You view the [compliance report on the Azure portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
-1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
-1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years.
+        az feature register --namespace Microsoft.KeyVault --name MHSMGovernance
+   
+   If there is existing HSM pools in this subscription, update will be carried to these pools. Full enablement of the policy may take upto 30 mins.
+   Reference: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/preview-features?tabs=azure-cli 
 
-## Enabling and managing a Key Vault policy through the Azure portal
+2. Giving permission to scan daily.
 
-### Select a Policy Definition
+    To check the compliance of the pool's inventory keys, customer need to assign "Managed HSM Crypto Auditor" role to "Azure Key Vault Managed HSM Key Governance Service"(App Id: a1b76039-a76c-499f-a2dd-846b4cc32627) so it can access key's metadata. Without the grant of permission, inventory keys are not going to be reported on Azure Policy compliance report, only new keys, updated keys, imported keys and rotated keys will be checked on compliance. To do this, a user who has role of "Managed HSM Administrator" to the Managed HSM needs to run the following Azure CLI commands:
 
-1. Log in to the Azure portal. 
-1. Search "Policy" in the Search Bar and Select **Policy**.
+On windows:
+az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query objectId
+Copy the id printed, paste it in the following command:
 
-    ![Screenshot that shows the Search Bar.](../media/policy-img1.png)
+az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id "the id printed in previous command" --hsm-name <hsm name>
 
-1. In the Policy window, select **Definitions**.
+On Linux or Windows Subsystem of Linux:
+spId=$(az ad sp show --id a1b76039-a76c-499f-a2dd-846b4cc32627 --query objectId|cut -d "\"" -f2)
+echo $spId
+az keyvault role assignment create --scope / --role "Managed HSM Crypto Auditor" --assignee-object-id $spId --hsm-name <hsm name>
 
-    ![Screenshot that highlights the Definitions option.](../media/policy-img2.png)
+3. Create policy assignments - define rules of audit and/or deny.
 
-1. In the Category Filter, Unselect **Select All** and select **Key Vault**.
+   Policy assignments have concrete values defined for policy definitions' parameters. In Azure Portal [https://portal.azure.com/?Microsoft_Azure_ManagedHSM_assettypeoptions=%7B%22ManagedHSM%22:%7B%22options%22:%22%22%7D%7D&Microsoft_Azure_ManagedHSM=true&feature.canmodifyextensions=true} (also in private preview), go to "Policy" blade, filter on the "Key Vault" category, find these 4 preview key governance policy definitions. Click on one of them, then click "Assign" button on top, fill in each field (If this is a denying policy assignment, better put good name about the policy, because when a request is denied, the policy assignment's name will appear in the error), click Next,
+   Uncheck "Only show parameters that need input or review", and enter values for parameters of the policy definition. Skip the "Remediation", and create the assignment. The service will need up to 30 minutes to enforce "Deny" assignments.
+   
+[Preview]: Azure Key Vault Managed HSM keys should have an expiration date
+[Preview]: Azure Key Vault Managed HSM keys using RSA cryptography should have a specified minimum key size
+[Preview]: Azure Key Vault Managed HSM Keys should have more than the specified number of days before expiration
+[Preview]: Azure Key Vault Managed HSM keys using elliptic curve cryptography should have the specified curve names
 
-    ![Screenshot that shows the Category Filter and the selected Key Vault category.](../media/policy-img3.png)
+  You can also do this by Azure CLI, see document
+  https://learn.microsoft.com/en-us/azure/governance/policy/assign-policy-azurecli 
 
-1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
+4. Test your setup
 
-    ![Screenshot that shows the policies that are available for Public Preview.](../media/policy-img4.png)
+    Try to update/create a key that violates the rule, if you have a policy assignment with effect "Deny", it will return 403 to your request.
+    Review the scan result of inventory keys of auditing policy assignments. After 12 hours, check the Policy blade's Compliance menu, filter on the "Key Vault" category, and find your assignments. Click on each of them, to check the compliance result report.
 
-### Assign a Policy to a Scope 
-
-1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner.
-
-    ![Screenshot that shows the Manage Certificate Validity Period policy.](../media/policy-img5.png)
+## Troubleshooting
   
-1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
-
-    ![Screenshot that shows where you can choose to restrict the scope to only a single resource group within a subscription.](../media/policy-img6.png)
-
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. If you need to input the parameters, you can uncheck 'Only show parameters that need input or review' option. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
-
-    ![Screenshot that shows the Parameters tab where you can specify the maximum validity period in months that you want.](../media/policy-img7.png)
-
-### View Compliance Results
-
-1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
-
-    ![Screenshot that shows the Compliance tab where you can select the policy assignment you want to view compliance results for.](../media/policy-img8.png)
-
-1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
-
-
-    ![Screenshot that shows a list of non-compliant key vaults within the scope of the policy assignment.](../media/policy-img9.png)
-
-1. View the name of the components within a vault that are non-compliant
-
-
-    ![Screenshot that shows where you can view the name of the components within a vault that are non-compliant.](../media/policy-img10.png)
-
-1. If you need to check whether users are being denied the ability to create resources within key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
-
-
-    ![Overview of how Azure Key Vault works](../media/policy-img11.png)
-
-## Feature Limitations
-
-Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. The delay refers to following scenarios -
-1.	A new policy is assigned
-2.	An existing policy assignment is modified
-3.	A new KeyVault (resource) is created in a scope with existing policies.
-
-The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI. 
-If the compliance results show up as "Not Started" it may be due to the following reasons:
-- The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
-- There are no key vaults in the scope of the policy assignment.
-- There are no key vaults with certificates within the scope of the policy assignment.
-
-
+    If there is no compliance results of a pool after 1 day. Check if the role assignment has been done on step 2 successfully. Without Step 2, the key governance service won't be able to access key's metadata. "az keyvault role assignment list" cli command can verify whether the role has been assigned.
 
 
 > [!NOTE]
