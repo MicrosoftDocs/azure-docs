@@ -20,6 +20,9 @@ The entity linking feature can be used to identify and disambiguate the identity
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
+> [!Note]
+> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
+
 ## Determine how to process the data (optional)
 
 ### Specify the entity linking model
