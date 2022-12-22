@@ -21,7 +21,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 
 ### Azure SQL DB and SQL Server 2022
 * Source tables must have primary keys.
-* Secondary databases are not supported as a data source for Synapse Link
+* Only a writeable, primary replica is supported as the data source for Synapse Link for SQL.
 * The following data types aren't supported for primary keys in the source tables:
   * real
   * float
