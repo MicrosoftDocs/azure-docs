@@ -24,7 +24,7 @@ The first time your organization uses these cmdlets for this scenario, you need 
 1. Connect to Azure AD:
 
    ```powershell
-   $msg = Connect-MgGraph -ContextScope Process -Scopes "User.Read.All,Application.Read.All,AppRoleAssignment.ReadWrite.All,EntitlementManagement.ReadWrite.All"
+   $msg = Connect-MgGraph -ContextScope Process -Scopes "User.Read.All,Application.ReadWrite.All,AppRoleAssignment.ReadWrite.All,EntitlementManagement.ReadWrite.All"
    ```
 
 1. Read the list of users obtained from the application's data store into the PowerShell session. If the list of users was in a CSV file, you can use the PowerShell cmdlet `Import-Csv` and provide the name of the file from the previous section as an argument. 

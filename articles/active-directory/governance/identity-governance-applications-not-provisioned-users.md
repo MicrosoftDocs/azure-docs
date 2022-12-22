@@ -79,7 +79,39 @@ Now that you have a list of all the users obtained from the application, you'll 
 
 If the application is already registered in Azure AD, then continue to the next step.
 
-1. Register the application, if it does not already exist in Azure AD.
+The account you're using must have permission to manage applications in Azure AD. Any of the following Azure AD roles include the required permissions:
+  - [Application administrator](../roles/permissions-reference.md#application-administrator)
+  - [Application developer](../roles/permissions-reference.md#application-developer)
+  - [Cloud application administrator](../roles/permissions-reference.md#cloud-application-administrator)
+
+1. Create the application and service principal.
+
+   For example, if the enterprise application is named `CORPDB1`, enter the following commands:
+
+   ```powershell
+   $azuread_app_name = "CORPDB1"
+   $azuread_app = New-MgApplication -DisplayName $azuread_app_name
+   $azuread_sp = New-MgServicePrincipal -DisplayName $azuread_app_name -AppId $azuread_app.AppId
+   ```
+
+1. Add a role to the application, and tag the application as integrated with Azure AD so that its assignments can be reviewed. For example, if the role name is `General`, provide that value in the following PowerShell commands:
+
+   ```powershell
+   $ar0 = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAppRole
+   $ar0.AllowedMemberTypes += "User"
+   $ar0.Description = "General role"
+   $ar0.DisplayName = "General"
+   $ar0.id = New-Guid
+   $ar0.IsEnabled = $true
+   $ar0.Value = "General"
+   $ara = @()
+   $ara += $ar0
+
+   $azuread_app_tags = @()
+   $azuread_app_tags += "WindowsAzureActiveDirectoryIntegratedApp"
+
+   $azuread_app_update = Update-MgApplication -ApplicationId $azuread_app.Id -AppRoles $ara -Tags $azuread_app_tags
+   ```
 
 ## Check for users who are not already assigned to the application
 
@@ -132,10 +164,10 @@ The previous steps have confirmed that all the users in the application's data s
    $azuread_sp.AppRoles | where-object {$_.AllowedMemberTypes -contains "User"} | ft DisplayName,Id
    ```
 
-   Select the appropriate role from the list, and obtain its role ID. For example, if the role name is `Admin`, provide that value in the following PowerShell commands:
+   Select the appropriate role from the list, and obtain its role ID. For example, if the role name is `General`, provide that value in the following PowerShell commands:
 
    ```powershell
-   $azuread_app_role_name = "Admin"
+   $azuread_app_role_name = "General"
    $azuread_app_role_id = ($azuread_sp.AppRoles | where-object {$_.AllowedMemberTypes -contains "User" -and $_.DisplayName -eq $azuread_app_role_name}).Id
    if ($null -eq $azuread_app_role_id) { write-error "role $azuread_app_role_name not located in application manifest"}
    ```
@@ -190,6 +222,23 @@ When an application role assignment is created in Azure AD for a user to an appl
 ## Select appropriate reviewers
 
 [!INCLUDE [active-directory-identity-governance-applications-select-reviewers.md](../../../includes/active-directory-identity-governance-applications-select-reviewers.md)]
+
+## Create the review of the application role assignments
+
+Once the users are in the application roles, and you have the the reviewers identified, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).
+
+Follow the instructions in the [guide for creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.  Configure the review to apply results when it completes.
+
+## Retrieve the assignments that are updated when the reviews are complete
+
+   1. When the review completes, you can retrieve the updated list of users with application role assignments.
+
+   ```powershell
+   $res = (Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
+   ```
+
+   1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Azure AD user IDs of each user who retains an application role assignment.
+
 
 ## Next steps
 
