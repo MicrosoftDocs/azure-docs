@@ -44,7 +44,7 @@ Before ARM based accounts were added to Azure Video Indexer, there was a "classi
 
 * If you are using a classic (paid) account and interested in moving to an ARM-based account, see [connect an existing classic Azure Video Indexer account to an ARM-based account](connect-classic-account-to-arm.md).
  
-For more information on the difference between regular unlimited accounts and classic accounts, see https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/azure-video-indexer-is-now-available-as-an-azure-resource/ba-p/2912422
+For more information on the difference between regular unlimited accounts and classic accounts, see [Azure Video Indexer as an Azure resource](https://techcommunity.microsoft.com/t5/ai-applied-ai-blog/azure-video-indexer-is-now-available-as-an-azure-resource/ba-p/2912422_.
 
 ## Limited access features
 
