@@ -87,7 +87,7 @@ SaaS offers are a good fit if your customers just want to subscribe to your serv
 
 Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own Azure cloud infrastructure.
 
-![Screenshot of the commercial marketplace plans offer types and pricing plan flowchat.](media/marketplace-commercial-transaction-capabilities-and-considerations/plans-offer-type-and-pricing-plan-flowchart-updated-15.png)
+![Screenshot of the commercial marketplace plans offer types and pricing plan flowchat.](media/marketplace-commercial-transaction-capabilities-and-considerations/plans-offer-type-and-pricing-plan-flowchart-updated-12-21-2022.png)
 
 
 [1] Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).
