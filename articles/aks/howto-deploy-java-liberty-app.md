@@ -167,7 +167,7 @@ You can now run and test the project locally before deploying to Azure. For conv
 
 ### Build image for AKS deployment
 
-After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image. 
+You can now run the `docker build` command to build the image. 
 
 ```bash
 cd <path-to-your-repo>/java-app/target
