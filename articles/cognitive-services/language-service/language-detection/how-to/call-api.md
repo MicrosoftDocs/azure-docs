@@ -24,6 +24,9 @@ The Language Detection feature can detect a wide range of languages, variants, d
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
+> [!Note]
+> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
+>
 ## Determine how to process the data (optional)
 
 ### Specify the language detection model
