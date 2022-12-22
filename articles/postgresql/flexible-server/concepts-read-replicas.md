@@ -78,13 +78,13 @@ At the prompt, enter the password for the user account.
 
 Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
-The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode or when replication becomes inactive.
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replicas is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary, during replica creation, or when replication becomes inactive. The lag information will not be available in case replication switches from using streaming replication to the archive recovery mode using archived files from primary.
 
-The **Read Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available on replicas only. 
+The **Read Replica Lag** metric shows the time since the last replayed transaction. For instance if there are no transactions occurring on your primary server, and the last transaction was replayed 5 seconds ago, then the Read Replica Lag will show 5 second delay. This metric is applicable and available on replicas only. 
 
 Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
 
-For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.
+For additional insight, query the primary server directly to get the replication lag on all replicas.  
 
 > [!NOTE]
 > If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
