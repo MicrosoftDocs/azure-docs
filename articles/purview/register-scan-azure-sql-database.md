@@ -16,7 +16,7 @@ This article outlines the process to register an Azure SQL database source in Mi
 
 |Metadata extraction| Full scan |Incremental scan|Scoped scan|Classification|Access policy|Lineage|Data sharing|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (preview)](#access-policy) | [Yes (preview)](#lineagepreview) | No |
+| [Yes](#register-the-data-source) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan) | [Yes](#scope-and-run-the-scan)|[Yes](#scope-and-run-the-scan)| [Yes (preview)](#set-up-access-policies) | [Yes (preview)](#extract-lineage-preview) | No |
 
 > [!NOTE]
 > Data lineage extraction is currently supported only for stored procedure runs. Lineage is also supported if Azure SQL tables or views are used as a source/sink in [Azure Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md). 
@@ -341,7 +341,7 @@ For scanning steps, select your method of authentication from the following tabs
 
     The new scan rule set then appears in the list of available rule sets.
    
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sel-scan-rule.png" alt-text="Screenshot shat shows the selection of a new scan rule set.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sel-scan-rule.png" alt-text="Screenshot that shows the selection of a new scan rule set.":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
@@ -379,9 +379,9 @@ After you run a scan, you can use the run history to manage it:
 
 If you have problems with scanning, try these tips:
 
-- Confirm that you have followed all [prerequisites](#prerequisites).
-- Check the network by confirming [firewall](#firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#self-hosted-integration-runtime) settings.
-- Confirm that [authentication](#authentication-for-a-scan) is properly set up.
+- Confirm that you followed all [prerequisites](#prerequisites).
+- Check the network by confirming [firewall](#update-firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#install-a-self-hosted-integration-runtime) settings.
+- Confirm that [authentication](#configure-authentication-for-a-scan) is properly set up.
 
 For more information, review [Troubleshoot your connections in Microsoft Purview](troubleshoot-connections.md).
 
