@@ -1,6 +1,6 @@
 ---
 title: Azure Communication Services - Raw ID use cases
-description: Learn more about use cases for choosing Raw ID in SDKs
+description: Learn how to use Raw ID in SDKs
 author: ostoliarova-msft
 manager: rajuanitha88
 services: azure-communication-services
@@ -13,12 +13,9 @@ ms.service: azure-communication-services
 ---
 
 # Raw ID use cases in Communication SDKs
-
 This article provides use cases for choosing a Raw ID as a [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over other types of CommunicationIdentifier.
 
 ## Use cases for choosing an identifier
-                                                                                  
-
 When using Communication Services SDKs and REST APIs, you need to identify the actors who are communicating. Using a *CommunicationIdentifier* is a way for tracking and managing users.
 
 CommunicationIdentifier has the following advantages:
@@ -26,7 +23,7 @@ CommunicationIdentifier has the following advantages:
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, MicrosoftTeamsUserIdentifier, PhoneNumberIdentifier etc.) you can implement even more scenarios:
+In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, MicrosoftTeamsUserIdentifier, PhoneNumberIdentifier, etc.) you can implement even more scenarios:
 - Store identifiers in a database and use them as keys.
 - Use identifiers as key in dictionaries.
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
@@ -36,7 +33,7 @@ In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or r
 *CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a certain type of *CommunicationIdentifier*. It removes the need of any custom serialization methods that might use or omit certain object properties. For example, the MicrosoftTeamsUserIdentifier has multiple properties such as IsAnonymous or Cloud. Using methods provided by Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
 
 ## Storing CommunicationIdentifier in a database
-Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is either set when instantiating it or incurred from other properties. Identity SDK guarantees that the value is consistent in both options.
+Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is either set when instantiating it or derived from other properties. Identity SDK guarantees that the value is consistent in both options.
 
 Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Identity, Calling, Chat API or another API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
 ```csharp
@@ -72,10 +69,10 @@ public void GetFromDatabase()
     CommunicationIdentifier communicationIdentifier = CommunicationIdentifier.FromRawId(user.CommunicationIdentifier);
 }
 ```
-It will return CommunicationUserIdentifier, PhoneNumberIdentifier, MicrosoftTeamsUserIdentifier or UnknownIdentifier based on the identifier type.
+It will return `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, `MicrosoftTeamsUserIdentifier` or `UnknownIdentifier` based on the identifier type.
   
 ## Storing CommunicationIdentifier in collections
-If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them to a collection (dictionary, list, hash set etc.). As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The next example demonstrates adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for any custom identifiers that are converted to an *UnknownIdentifier* type.
+If your scenario requires working with several *CommunicationIdentifier* objects in memory, you may want to store them in a collection (dictionary, list, hash set, etc.). As the hashing logic relies on the value of a Raw ID, you can use *CommunicationIdentifier* in collections that require elements to have a reliable hashing behavior. The next example demonstrates adding *CommunicationIdentifier* objects to different types of collections and checking if they're contained in a collection by instantiating new identifiers from a Raw ID value. The same approach also works for any custom identifiers that are converted to an *UnknownIdentifier* type.
 ```csharp
 public void RawIdGeneratedIdentifiersSupportedAsKeysInCollections()
     {
@@ -111,7 +108,7 @@ public async Task DeserializationExample()
 {
     ContosoUser user = GetFromDb("john@doe.com");
     
-    using HttpResponseMessage response = await client.GetAsync($"https://contoso.com/v1.0/users/{user.RawId}/profile");
+    using HttpResponseMessage response = await client.GetAsync($"https://contoso.com/v1.0/users/{user.CommunicationIdentifier}/profile");
     response.EnsureSuccessStatusCode();
 }
 ```
@@ -154,6 +151,7 @@ setContainerProps({
 });
 ```
 
+## Using Raw IDs in mobile applications to identify participants
 You can inject the participant view data for remote participant if you want to handle this information locally in the UI library without sending it to Azure Communication Services.
 This view data can contain a UIImage that represents the avatar to render, and a display name they can optionally display instead. 
 Both the participant CommunicationIdentifier and Raw ID retrieved from it can be used to uniquely identify a remote participant.
@@ -179,7 +177,6 @@ callComposite.events.onRemoteParticipantJoined = { identifiers in
 ---
 
 ## Next steps
-
 In this article, you learned how to:
 
 > [!div class="checklist"]
