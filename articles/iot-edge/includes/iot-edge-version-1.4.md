@@ -1,5 +1,5 @@
 ---
- title: IoT Edge one supported versions - 1.4
+ title: IoT Edge one supported version - 1.4 only
  description: include file
  services: iot-edge
  author: PatAltimore
