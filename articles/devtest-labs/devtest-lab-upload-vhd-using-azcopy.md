@@ -1,5 +1,5 @@
 ---
-title: Upload VHD file to Azure DevTest Labs using AzCopy
+title: Upload a VHD file to Azure DevTest Labs by using AzCopy
 description: This article provides a walkthrough to use the AzCopy command-line utility to upload a VHD file to a lab's storage account in Azure DevTest Labs.
 ms.topic: how-to
 ms.author: rosemalcolm
@@ -11,20 +11,20 @@ ms.date: 06/26/2020
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
+In Azure DevTest Labs, you can use VHD files to create custom images, which are used to provision virtual machines. 
 The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/managed-disks-overview.md)
 
-> [!NOTE] 
+> [!NOTE]
 >  
 > AzCopy is a Windows-only command-line utility.
 
 ## Step-by-step instructions
 
-The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](https://aka.ms/downloadazcopy). 
+The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](https://aka.ms/downloadazcopy).
 
 1. Get the name of the lab's storage account using the Azure portal:
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 
@@ -51,23 +51,19 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 
 1. Make note of the full URI as it is used in later steps.
 
-1. Upload the VHD file using AzCopy:
- 
-1. [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy).
+1. Upload the VHD file by using AzCopy:
 
-1. Open a command window and navigate to the AzCopy installation directory. Optionally, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to the following directory:
+   1. [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy).
 
-	```command-line
-	%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
-	```
+   1. Open a command window and go to the AzCopy installation directory. Optionally, you can add the AzCopy installation location to your system path. By default, AzCopy is installed in `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy`.
 
-1. Using the storage account key and blob container URI, run the following command at the command prompt. The *vhdFileName* value needs to be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.   
+1. Using the storage account key and blob container URI, run the following command at the command prompt. The value for `vhdFileName` must be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.
 
-	```command-line
-	AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
-	```
+    ```cmd
+    AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
+    ```
 
 ## Next steps
 
-- [Create a custom image in Azure DevTest Labs from a VHD file using the Azure portal](devtest-lab-create-template.md)
-- [Create a custom image in Azure DevTest Labs from a VHD file using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Create a custom image in Azure DevTest Labs from a VHD file by using the Azure portal](devtest-lab-create-template.md)
+- [Create a custom image in Azure DevTest Labs from a VHD file by using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
