@@ -77,9 +77,7 @@ A connected environment is largely the same as a standard Container Apps environ
 
 ```azure-interactive
 myContainerApp="my-container-app"
-myConnectedEnvironmentName="<NAME_OF_CONNECTED_ENVIRONMENT>"
-myConnectedEnvironmentResourceGroup="<RESOURCE_GROUP_NAME_OF_CONNECTED_ENVIRONMENT>"
-myConnectedEnvironment=$(az containerapp connected-env show --resource-group $myConnectedEnvironmentResourceGroup --name $myConnectedEnvironmentName -o tsv --query id)
+myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
 ```
 
 ## Create an app
