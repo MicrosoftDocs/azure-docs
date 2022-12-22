@@ -24,9 +24,11 @@ To use the Retention workbook, in your Application Insights resources go to **Us
 
 :::image type="content" source="./media/usage-retention/retention.png" alt-text="Screenshot that shows the Retention workbook showing a line chart." lightbox="./media/usage-retention/retention.png":::
 
+Workbook capabilities:
+
 - By default, retention shows all users who did anything and then came back and did anything else over a defined period. You can select different combinations of events to narrow the focus on specific user activities.
 - To add one or more filters on properties, select **Add Filters**. For example, you can focus on users in a particular country or region.
-- The overall retention chart shows a summary of user retention across the selected time period.
+- The **Overall Retention** chart shows a summary of user retention across the selected time period.
 - The grid shows the number of users retained. Each row represents a cohort of users who performed any event in the time period shown. Each cell in the row shows how many of that cohort returned at least once in a later period. Some users might return in more than one period.
 - The insights cards show the top five initiating events and the top five returned events. This information gives users a better understanding of their retention report.
 

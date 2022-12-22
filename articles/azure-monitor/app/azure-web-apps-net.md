@@ -70,12 +70,12 @@ Client-side monitoring is an opt-in for ASP.NET. To enable client-side monitorin
 1. Select **Settings** > **Configuration**.
 1. Under **Application settings**, create a new application setting:
 
-     - **Name**: `APPINSIGHTS_JAVASCRIPT_ENABLED`
-     - **Value**: `true`
+     - **Name**: Enter **APPINSIGHTS_JAVASCRIPT_ENABLED**.
+     - **Value**: Enter **true**.
 
 1. Save the settings and restart your app.
 
-To disable client-side monitoring, either remove the associated key value pair from **Application settings** or set the value to `false`.
+To disable client-side monitoring, either remove the associated key value pair from **Application settings** or set the value to **false**.
 
 ## Automate monitoring
 
