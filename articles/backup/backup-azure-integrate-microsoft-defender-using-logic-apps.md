@@ -11,9 +11,9 @@ ms.author: v-amallick
 
 # Integrate Microsoft Defender for Cloud and Azure Backup using Azure Logic Apps
 
-Microsoft Defender for Cloud (MDC) helps detect and resolve threats on resources and services. During a malware or a ransomware attack, MDC helps detect malicious activities against the resource and raise [Security Alerts](../defender-for-cloud/managing-and-responding-alerts.md). When this helps identify malicious activities, backups play a crucial role to help you to recover the workload to a clean state and ensure business continuity.
-
 This article describes how the deployed logic app helps prevent the loss of recovery points in a malware attack by disabling the backup policy (Stop Backup and Retain Data). This ensures that the recovery points don’t expire or are cleaned up based on the schedule  for retention. When the operation on the backup item is complete, the Backup admin receives a notification via email. 
+
+Microsoft Defender for Cloud (MDC) helps detect and resolve threats on resources and services. During a malware or a ransomware attack, MDC helps detect malicious activities against the resource and raise [Security Alerts](../defender-for-cloud/managing-and-responding-alerts.md). When this helps identify malicious activities, backups play a crucial role to help you to recover the workload to a clean state and ensure business continuity.
 
 >[!Note]
 >This feature is currently supported only for Azure VMs.
