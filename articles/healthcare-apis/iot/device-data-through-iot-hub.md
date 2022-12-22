@@ -6,13 +6,19 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 12/15/2022
+ms.date: 12/22/2022
 ms.author: jasteppe
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub
 
 For enhanced workflows and ease of use, you can use the MedTech service to receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template creates an IoT hub to create and manage devices, and then routes device messages to an event hub in Azure Event Hubs for the MedTech service to pick up.
+
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png":::
+
+> [!TIP]
+> To learn more about how the MedTech service transforms and persists device messages into the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR Observations, see [The MedTech service data flow](data-flow.md). 
+
 
 In this tutorial, you learn how to:
 
@@ -25,12 +31,6 @@ In this tutorial, you learn how to:
 
 > [!TIP]
 > To learn more about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md)
-
-## Device message flow
-
-The following diagram demonstrates the IoT device message flow when you use an IoT hub in Azure IoT Hub with the MedTech service in Azure Health Data Services. Devices send messages to your IoT hub. Your IoT hub routes the device messages to the device message event hub in Azure Event Hubs for the MedTech service to pick up. The MedTech service transforms the device messages and persists them in the Fast Healthcare Interoperability Resources (FHIR&#174;) service as FHIR observations. For more information, see [MedTech service data flow](data-flow.md).
-
-:::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" border="false" alt-text="Diagram of the IoT message data flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png":::
 
 ## Prerequisites
 
