@@ -18,6 +18,9 @@ ms.custom: language-service-pii, ignite-fall-2021
 
 The PII feature can evaluate unstructured text, extract and redact sensitive information (PII) and health information (PHI) in text across several [pre-defined categories](concepts/entity-categories.md).
 
+> [!Note]
+> You can use this feature in an [power automate flow](../tutorials/power-automate.md)
+
 ## Determine how to process the data (optional)
 
 ### Specify the PII detection model
