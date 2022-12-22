@@ -49,7 +49,7 @@ Your notebook is now ready for you to run R commands.
 
 You can upload files to your workspace file storage and access them in R.  But for larger files, stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you first need to install a few packages.
 
-This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](https://learn.microsoft.com/en-us/python/api/azure-ai-mlfs/azure.ai.mlfs.spec?view=azure-ml-py) Python package and the `reticulate` R package. 
+This section describes how to use Python and the `reticulate` package to load your data assets and datastores into R from an interactive session. You'll read tabular data as Pandas DataFrames using the [`azureml-fsspec`](/python/api/azure-ai-mlfs/azure.ai.mlfs.spec?view=azure-ml-py) Python package and the `reticulate` R package. 
 
 To install these packages:
 

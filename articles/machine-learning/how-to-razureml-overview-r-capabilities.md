@@ -19,7 +19,9 @@ There's no Azure Machine Learning SDK for R.  Instead, you'll use either the CLI
 
 This article outlines the key scenarios for R that are supported in Azure Machine Learning and known limitations.
 
-A typical workflow for R in Azure Machine Learning is:
+## Typical R workflow
+
+A typical workflow for using R with Azure Machine Learning is:
 
 - [Develop R scripts interactively](how-to-razureml-interactive-development.md) using Jupyter Notebooks on a compute instance
     - Read tabular data from a registered data asset or datastore
@@ -31,7 +33,8 @@ A typical workflow for R in Azure Machine Learning is:
     - Include and source the `azureml_utils.R` script in the same working directory of the R script to be executed
     - Use `crate` to package the model
     - Include the R/MLflow functions in the script to **log** artifacts, models, parameters, and/or tags to the job on MLflow.
-- Build an environment and [submit remote asynchronous R jobs](how-to-razureml-train-model.md) (you submit jobs via the CLI or Python SDK, not R)
+- [Submit remote asynchronous R jobs](how-to-razureml-train-model.md) (you submit jobs via the CLI or Python SDK, not R)
+    - Build an environment
     - Log job artifacts, parameters, tags and models
 - [Register your model](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-ui) using Azure Machine Learning studio
 - [Deploy registered R models](how-to-razureml-deploy-r-model.md) to managed online endpoints
