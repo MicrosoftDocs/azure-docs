@@ -41,7 +41,7 @@ You'll use a notebook in your Azure Machine Learning workspace, on a compute ins
 1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
 1. On the notebook toolbar, switch the kernel to **R**.
 
-    :::image type="content" source="media/how-to-razureml-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R.":::
+    :::image type="content" source="media/how-to-razureml-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R." lightbox="media/how-to-razureml-interactive-development/r-kernel.png":::
 
 Your notebook is now ready for you to run R commands.
 
