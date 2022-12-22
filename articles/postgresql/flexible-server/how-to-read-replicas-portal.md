@@ -145,7 +145,7 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 2. Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Monitor the replica lag.":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="  screenshot of the Metrics blade showing Read Replica Lag metric.":::
       screenshot of the Metrics blade showing Read Replica Lag metric.
    :::image-end:::
 
