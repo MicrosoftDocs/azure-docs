@@ -37,6 +37,9 @@ During Azure Synapse Link connection creation, the link creation process may han
 
 If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) for the Azure SQL Database logical server. If enabled, refresh the SAMI. Use either of the two following methods:
 
+Caution: Please draw caution before turning off SAMI for your Azure SQL Database logical server as removing a system-assigned identity will also delete it from Azure AD. Also, consider other applications or resources that may be using the current SAMI and plan for refreshing other resources that may be using the SAMI for your Azure SQL Database.
+
+
 ### Solution 1 via the Azure portal
 
 1. In the Azure portal, navigate to your Azure SQL Server. Select **Identity** under **Security** on the left side bar.
