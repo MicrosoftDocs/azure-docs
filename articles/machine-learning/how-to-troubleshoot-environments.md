@@ -814,8 +814,7 @@ This issue can happen when there's no package found for the version that you spe
 
 **Potential causes:**
 * The package was spelled incorrectly
-* The package can't be found on the channels or feeds that you specified
-* The version can't be found on the channels or feeds that you specified
+* The package and version can't be found on the channels or feeds that you specified
 * The version you specified doesn't exist
 
 **Affected areas (symptoms):**
