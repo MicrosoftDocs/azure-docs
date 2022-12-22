@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: zhengchang
 ms.service: container-service
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 12/21/2022
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks, devx-track-azurecli
 ---
