@@ -13,8 +13,6 @@ Each storage location affords a certain storage capacity and retention times. Th
 
 ## Devices retention periods
 
-<!--need to understand if this data retention is only OT devices or also Enterprise IoT devices. Can you ask Theo? Also - are there any differences for the EIoT sensor?-->
-
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | Device inventory data is stored for 90 days from last seen/activity field. <br><br> For more information, see [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md). |
@@ -23,27 +21,21 @@ Each storage location affords a certain storage capacity and retention times. Th
 
 ## Alert data retention
 
-<!--need to understand if this data retention is only OT alerts or also Enterprise IoT alerts, which are coming up. Can you ask Theo? Also are there any differences for the EIoT sensor?-->
-
 Alert data is retained as listed below, regardless of the alert's status, or whether it's been learned or muted.
 
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | Alerts are stored on the Azure portal for 90 days from their first detection time. <br><br> For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md). |
-| **OT network sensor** | Alerts are stored on the local sensor for 90 days from their first detection time. <br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
+| **OT network sensor** | Alerts are stored on the OT sensor for 90 days from their first detection time. <br><br> For more information, see [View alerts on your sensor](how-to-view-alerts.md). |
 | **On-premises management console** |  Alerts are stored on the on-premises management console for 90 days from their first detection time. <br><br> For more information, see [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md). |
 
 ### OT alert PCAP data retention
 
-<!--i'm pretty sure that PCAP files are OT only-->
-
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
-| **OT network sensor** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
-| **On-promises management console** | PCAP files aren't stored on the on-premises management console. <br><br> Access PCAP files from the on-premises management console using a direct link to hte sensor, for as long as the on premises sensor stores them. |
-
-<!--we say later that these are configurable. where? -->
+| **OT network sensor** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is set by default to 133,120 MB, but configurable in the `filtered.cache.dir.size.megabytes.max` property in the *pcap.properties* file.<br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **On-promises management console** | PCAP files aren't stored on the on-premises management console. <br><br> Access PCAP files from the on-premises management console using a direct link to the sensor, for as long as the on premises sensor stores them. |
 
 ## Security recommendation retention
 
@@ -77,15 +69,12 @@ Only service and processing log files are stored on the Azure portal, and are re
 
 Other OT network monitoring log files are stored only on the OT network sensor and on-premises management console.
 
-On both the OT sensor and the on-premises management console, older log files are overridden when the appliance's storage has reached its maximum capacity. Log file sizes differ depending on the amount of content, but the average size per log file is 100-150 MB. <!--you'd written log here, not log file. I assume it's log file since each indidvidual log would be much, much smaller, no?-->
+On both the OT sensor and the on-premises management console, older log files are overridden when the appliance's storage has reached its maximum capacity. Log file sizes differ depending on the amount of content, but the average size per log file is 100-150 MB.
 
-<!-- `There are numerous different kinds of log files, and they have different storage capacities.` Is there other data we're not including here? Why aren't we including it? I think we should if we can. This statement leaves me with questions.-->
+For more information, see:
 
-<!-- `Some of the logs have rotation and the data isn't overridden immediately.` Not sure what this means? Also, lets avoid words like "some" - which just leaves me with the question of "which"? can we clarify what this means?-->
-
-<!--for more information, see ... what? Maybe the troubleshooting article?-->
-
-<!--what about log files on the Enterprise IoT sensor? Can you ask Nimrod / Theo?-->
+- [Troubleshoot the sensor and on-premises management console](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md).
+- [Download a diagnostics log for support](how-to-manage-individual-sensors.md#download-a-diagnostics-log-for-support).
 
 ## On-premises backup file capacity
 
@@ -93,17 +82,14 @@ Both the OT network sensor and the on-premises management console have automated
 
 | Storage type | Details |
 |---------|---------|
-| **OT network sensor** | The maximum size of sensor backup files stored on the sensor itself is 100 GB. Older backup files are deleted if the total backup file size passes this limit. <br><br>However, each sensor also has its own, extra backup directory on the on-premises management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
-| **On-promises management console** | The following types of backup files are stored on the on-premises management console, each with their own maximum file size: <br><br> - **On-premises management console backup file**: Set by default to 10 GB, but configurable in the `backup.max_directory_size.gb` property.<br> - **OT sensor backup files**: Set by default to 40 GB, but configurable in the `sensors_backup.total_size_allowed.gb` property.|
+| **OT network sensor** | The maximum size of sensor backup files stored on the sensor itself is set by default to 100 GB, but configurable in the `max_directory_size_in_gb` property in the *backup.properties.configurable* file. <br><br> Older backup files are deleted if the total backup file size passes this limit. <br><br> However, each sensor also has its own, extra backup directory on the on-premises management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
+| **On-promises management console** | The following types of backup files are stored on the on-premises management console, each with their own maximum file size: <br><br> - **On-premises management console backup file**: Set by default to 10 GB, but configurable in the `backup.max_directory_size.gb` property in the *backup.properties.configurable* file.<br> - **OT sensor backup files**: Set by default to 40 GB, but configurable in the `sensors_backup.total_size_allowed.gb` property in the *backup.properties.configurable* file. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)|
 
 For more information, see:
 
 - [Configure backup settings for an OT network sensor](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)
 - [Configure OT sensor backup settings from an on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md#backup-storage-for-sensors)
 - [Configure backup settings for an on-premises management console](how-to-manage-the-on-premises-management-console.md#define-backup-and-restore-settings)
-
-<!--what about backup files on the Enterprise IoT sensor? Can you ask Nimrod / Theo?-->
-<!-- these parameter names. we don't mention them anywhere else in the docs. are we sure we want to mention them now? I'd almost prefer to open a separate user story to add how-tos to the docs for how to configure these values, and leave this now as the default only. please check with the SMEs on this one-->
 
 ## Next steps
 
