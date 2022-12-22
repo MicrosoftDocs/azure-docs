@@ -56,7 +56,7 @@ Refer to [Understand guidelines for Active Directory Domain Services site design
 
     `sudo realm join CONTOSO.COM -U ad_admin --computer-ou="CN=Computers"`
 
-## Next Steps
+## Next steps
 
 * [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
 * [Modify an Active Directory Connection](modify-active-directory-connections.md)
