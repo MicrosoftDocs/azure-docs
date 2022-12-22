@@ -125,7 +125,7 @@ A log alert rule monitors a resource by using a Log Analytics query to evaluate 
 The target of the log alert rule can be:
 - A single resource, such as a VM. 
 - A single container of resources, like a resource group or subscription.
-- Multiple resources using [cross-resource query](../logs/cross-workspace-query). 
+- Multiple resources using [cross-resource query](../logs/cross-workspace-query.md). 
 
 Log alerts can measure two different things, which can be used for different monitoring scenarios:
 - Table rows: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions.
