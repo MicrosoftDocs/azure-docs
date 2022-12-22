@@ -1,6 +1,6 @@
 ---
 title: Deploy a Zero Trust Virtual Network for Web Applications
-description: Learn how-to deploy a Zero Trust virtual network configuration for web applications in Azure using Azure Firewall, Azure Application Gateway, Web Application Firewall, and other virtual network services.
+description: Deploy a Zero Trust virtual network configuration for web applications in Azure using Azure Firewall, Azure Application Gateway, Web Application Firewall, and other virtual network services.
 author: mbender
 ms.author: chplut
 ms.service: virtual-network
@@ -12,13 +12,14 @@ ms.custom: template-how-to
 # Deploy a Zero Trust Network for web applications
 
 ## Introduction
+
 This how-to follows the [Zero Trust Network for Web Applications reference architecture](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall) from the Azure Architecture Center. The reference architecture's intention is to guide you to publish a web application with secure access through a Web Application Firewall (WAF) and a traditional stateful firewall. In this scenario, the WAF is provided by the application gateway to inspect traffic for SQL injection, cross-site scripting, and other common Open Web Application Security Project (OWASP) rulesets. The stateful packet inspection performed by the Azure Firewall provides extra protection from malicious packets. All communication between services is secured with end-to-end TLS using trusted certificates.
 
 :::image type="content" source="media/create-zero-trust-network-web-apps/zero-trust-diagram.png" alt-text="Diagram of secure virtual network architecture for a web app.":::
 
 ## Prerequisites
 
-To complete this how-to, you'll need:
+To complete the Zero Trust deployment, you'll need:
 - A Custom domain name
 - A Trusted wildcard certificate for your custom domain
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -41,21 +42,23 @@ To complete this how-to, you'll need:
 > [!NOTE]
 > The web application in the reference architecture is visualized with a Virtual Machine. This could also be an App Service, Kubernetes cluster or other container environment, or Virtual Machine scale set. In this walk through, we will replace the virtual machine with an App Service.
 
-Other Azure services that will be deployed and configured that aren't explicitly listed or displayed in the reference architecture include:
+Other Azure services that will be deployed and configured and not explicitly listed in the reference architecture include:
+
 - [Azure Key Vault](../key-vault/general/overview.md)
 - [Managed identity](../active-directory/managed-identities-azure-resources/overview.md)
-- [Public IP addresses](ip-services/public-ip-addresses.md)
-- [Network security groups](network-security-groups-overview.md)
+- [Public IP addresses](../virtual-network/ip-services/public-ip-addresses.md)
+- [Network security groups](../virtual-network/network-security-groups-overview.md)
 - [Private endpoints](../private-link/private-endpoint-overview.md)
 - [Route tables](../virtual-network/manage-route-table.md)
 
 
 ### Deploying the resource group
 
-First up, you create a resource group to store all of the created resources. This is a good practice for keeping track of resources used, and makes it easier to clean up a demonstration or non-production environment.
+First up, you create a resource group to store all of the created resources. 
 
 > [!IMPORTANT]
 > You may use your own resource group name and desired region. For this how-to, we will deploy all resources to the same resource group, **myResourceGroup**, deploy all resources to the **East US** Azure region. Use these and your Azure subscription as the default settings throughout the article.
+> Creating all your resources in the same resource group is good practice for keeping track of resources used, and makes it easier to clean up a demonstration or non-production environment. 
 
 1. From the **Azure portal**, search for and select **Resource groups**.
 1. On the **Resource groups** page, select **Create**.
@@ -72,7 +75,7 @@ First up, you create a resource group to store all of the created resources. Thi
 
 ### Deploying the Azure Key Vault
 
-In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) which provides a secure repository to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
+In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
 
 > [NOTE!]
 > By default, [soft-delete](../key-vault/general/soft-delete-overview.md) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
@@ -197,7 +200,7 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
 1. In the **Add peering** page, enter theIn This virtual network section, specify the following settings:
     
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | **This virtual network** | |
     | Peering link name | Enter **hub-to-spoke**. |
     | Traffic to remote virtual network | Set to **Allow**. |
@@ -217,7 +220,7 @@ You'll deploy a hub and spoke architecture for your web application. The hub net
 
 ### Deploying the Azure  DNS zone
 
-To securely access the web app, a fully qualified DNS name must be configured in DNS that matches the listener on the application gateway **and** the certificate that is uploaded to the Key Vault. To accomplish this, you'll create a Azure DNS zone for your domain that will be used later to create the [DNS record](../dns/dns-zones-records.md) for your web app.
+To securely access the web app, a fully qualified DNS name must be configured in DNS that matches the listener on the application gateway **and** the certificate that is uploaded to the Key Vault. To accomplish this, you'll create an Azure DNS zone for your domain that will be used later to create the [DNS record](../dns/dns-zones-records.md) for your web app.
 
 1. Select **+ Create a resource** in the upper left-hand corner of the portal.
 1. In the Search box, enter **DNS Zone**.
@@ -225,7 +228,7 @@ To securely access the web app, a fully qualified DNS name must be configured in
 1. On the **Basics** tab, enter the following settings:
     
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Subscription | Select your subscription |
     | Resource Group | **myResourceGroup** |
     | Name | Enter your domain name |    
@@ -242,7 +245,7 @@ You'll deploy [Azure App Service](../app-service/overview.md).for hosting the se
 1. In the **Create Web App** page, enter or select the following on the **Basics** tab:
 
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | **Project Details** |  |
     | Resource group | Select **myResourceGroup**. |
     | **Instance Details** |  |
@@ -263,7 +266,7 @@ You'll deploy [Azure App Service](../app-service/overview.md).for hosting the se
 1. In the **Add Private Endpoint** pane, enter or select the following settings:
 
     | Setting | Value            |
-    | -- | - |
+    |--| - |
     | Name | **pe-appservice** |
     | Subscription | Select your subscription |
     | Virtual network | **mySpokeVNet** |
@@ -280,7 +283,7 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 1. On the **Basics** tab, enter these settings for the following application gateway settings:
 
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | **Project details** |   |
     | Resource group | Select **myResourceGroup**.|
     | **Instance details** |  |
@@ -299,7 +302,7 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 1. Select **Next: Frontends >** and configure the Frontends with the following settings:
     
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Frontend IP address type | Select **Public**. |
     | Public IP address | Select **Add new**. <br/> Enter **myAppGWpip** for public IP name and select **Ok**. |
 
@@ -308,7 +311,7 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 1. In the **Add a backend pool** pane, enter or select the following settings:
     
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Name | Enter **myBackendPool**. |
     | Target type | Select **App Services**. |
     | Target | Select **myWebAppZT1**. |
@@ -318,13 +321,13 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 1. On the Add a routing rule pane, enter the following settings:
     
     | Setting            | Value                      |
-    | -- | - |    
+    |--| - |    
     | Rule name: **myRouteRule1** |
     | Priority: **100** |
 1. Under the **Listener** tab, enter the following settings:
     
     | Setting            | Value                      |
-    | -- | - | 
+    |--| - | 
     | Listener name | Enter **myListener**. |
     | Frontend IP | Select **Public**. |
     | Protocol | Select **HTTPS**. |
@@ -347,7 +350,7 @@ You'll deploy an application gateway and the edge ingress solution for the app t
 1. Select the **Backend targets** tab and enter the following settings:
     
     | Setting            | Value                      |
-    | -- | - |   
+    |--| - |   
     | Target type | Select **Backend pool**. |
     | Backend target | Enter **myBackendPool**. |
     | Backend settings | Select **Add new**. |
@@ -373,7 +376,7 @@ Now, you'll add a custom health probe for your backend pool.
 1. On the Add health probe page, specify the following settings:
 
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Name | Enter **myHealthProbe**. |
     | Protocol | Select **HTTPS**. |
     | Host | Enter the URL of your App Service. For example, **myWebAppZT1.azurewebsites.net**. |
@@ -396,7 +399,7 @@ Now, you'll add a custom health probe for your backend pool.
 1. On the **Add record set** pane, enter or select the following settings:
     
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Name | Enter **mywebapp**. |
     | Type | Select **A - Alias record to IPv4 address**. |
     | Alias record set | Select **No**. |
@@ -418,7 +421,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 1. On the Firewalls page, select **+ Create**.
 1. On the **Create a firewall** page, specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Subscription | Select your subscription. |
     | Resource group | Enter **myResourceGroup**. |
     | Name | Enter **myFirewall**. |
@@ -447,7 +450,7 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. Select **TLS inspection** under **Settings**
 1. On the TLS inspection page, select **Enabled** and then specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Managed identity | Enter **myManagedIDappGW**. |
     | Key vault | Select **myKeyVaultZT**. |
     | Certificate | Select **myTrustedWildCard**. |
@@ -465,7 +468,7 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. In the **Add a rule collection** page, enter or select the following settings:
     
 | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Name | Enter **myRuleCollection**. |
     | Rule collection type | Select **Network**. |
     | Priority | Enter **500**. |
@@ -497,7 +500,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. In the Route tables page, select **+ Create**.
 1. On the Create Route table page, specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | Region | Select **East US**. |
@@ -507,7 +510,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. Navigate back to the Route Tables page and then select **+ Create**.
 1. On the **Create Route** table page, specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. |
     | Region | Select **East US**. |
@@ -521,7 +524,7 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. From the Route Table, select the **Routes** page under **Settings** and select **+ Add**.
 1. On the **Add Route** pane, specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Route name | Enter **ToAppService**. |
     | Address prefix destination | Select **IP addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **172.16.1.0/24**. |
@@ -537,12 +540,12 @@ You'll create a route table with user-defined route force traffic all App Servic
 1. From the **Route Table** page, select **Routes** under **Settings**.
 1. In the Add Route pane, specify the following settings:
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Route name | Enter **ToAppGW**. |   
     | Address prefix destination | Select **IP addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **172.16.0.0/24**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enterthe  private IP address of the Azure Firewall. For example, **192.168.100.4**. |
+    | Next hop address | Enter the  private IP address of the Azure Firewall. For example, **192.168.100.4**. |
 1. Select **Add**.
 1. Select the **Subnets** page under settings, and select **+ Associate**.
 1. On the **Associate subnet** pane, select the **mySpokeVNet** virtual network, and then select the **App1** subnet.
@@ -555,34 +558,38 @@ You'll create a route table with user-defined route force traffic all App Servic
 
 ### Test again
 
-At this point, you should be able to connect to the App Service through the application gateway. Navigate to the URL of the DNS record that you created to validate that it resolves to the application gateway and that the default App Service page is displayed. If the application gateway page loads with a gateway error, check the Backend Health page of the gateway for any errors relating to the backend pool and check your backend settings. Also verify that you have the routes configured correctly. 
+At this point, you should be able to connect to the App Service through the application gateway. Navigate to the URL of the DNS record that you created to validate that it resolves to the application gateway and that the default App Service page is displayed. If the page loads with an error, check the **Backend Health** page of the gateway for any errors relating to the backend pool, and then check your backend settings. Also verify that you have the routes configured correctly. 
 
 The application gateway should be sending traffic to the private IP address of the firewall. The firewall can communicate with the private endpoint through the virtual network peering connection. The route table on the subnet the private endpoint is connected to points back to the firewall to get back to the application gateway.
 
-If you would like to test that the Firewall is actually inspecting or filtering traffic, modify the Network rule that you created in the Firewall Policy from **TCP** to **ICMP**. This will then implicitly block TCP traffic from the application gateway and the website access will be denied.
+If you would like to test that the Firewall is actually inspecting or filtering traffic, modify the network rule that you created in the Firewall Policy from **TCP** to **ICMP**. This will then implicitly block TCP traffic from the application gateway and the website access will be denied.
 
 ### Deploy the network security groups - Optional
+
 You'll deploy network security groups to prevent other subnets from accessing the private endpoint used by the app service.
 
 > [NOTE!]
-> In this deployment, network security groups aren't explicitly required. We have configured Route Tables to force the flow of traffic from the defined subnets through an Azure Firewall. However, in a production environment, most organizations have other subnets that might be in the same virtual network or peered to the network that didn't have user-defined routes defined. Network security groups would be beneficial to ensure that other subnets can't access the Private Endpoint of the App Service. Learn more about [network security groups](network-security-groups-overview.md).
+> In this deployment, network security groups aren't explicitly required. We have configured Route Tables to force the flow of traffic from the defined subnets through an Azure Firewall. However, in a production environment, most organizations have other subnets that might be in the same virtual network or peered to the network that didn't have user-defined routes defined. Network security groups would be beneficial to ensure that other subnets can't access the Private Endpoint of the App Service. Learn more about [network security groups](../virtual-network/network-security-groups-overview.md).
 
 1. From the Azure portal, search for and select **Network security groups**.
 1. In the **Network security groups** page, select **Create**.
 1. On the Basics tab, enter or select the following settings:
+    
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Subscription | Select your subscription. |
     | Resource group | Enter **myResourceGroup**. |
     | Name | Enter **nsg-app1**. |
     | Region | Select **East US**. |
+
 1. Select **Review + Create** and then select **Create**.
 1. Navigate to the newly deployed network security group.
 1. In the **network security group** page, select **Inbound security rules** under **Settings**.
 1. From **Inbound security rules** page, select **Add**.
 1. On the **Add inbound security rule** pane, enter or select the following settings:
+    
     | Setting            | Value                      |
-    | -- | - |
+    |--| - |
     | Source | Select **IP addresses**. |   
     | Source IP addresses/CIDR ranges | Enter **192.168.100.0/24**. |
     | Source Port ranges | Enter **\***.
@@ -591,29 +598,32 @@ You'll deploy network security groups to prevent other subnets from accessing th
     | Action | Select **Allow**. |
     | Priority | Enter **300**. |
     | Name | Enter **Allow_HTTPS_From_Firewall**. |
+
 1. Select **Add**.
 1. From **Inbound security rules** page, select **Add**.
 1. On the **Add inbound security rule** pane, enter or select the following settings:
-        | Setting            | Value                      |
-    | -- | - |
-    - - Source: **Any**
-    - Source Port ranges: **\***
-    - Destination: **Any**
-    - Service: **Custom**
-    - Destination port ranges: **\***
-    - Protocol: **Any**
-    - Action: **Deny**
-    - Priority: **310**
-    - Name: **Deny_All_Traffic**
+        
+    | Setting            | Value                      |
+    |--| - |
+    | Source | Select **Any**. |
+    | Source Port ranges | Enter **\***. |
+    | Destination | Select **Any**. |
+    | Service | Select **Custom**. |
+    | Destination port ranges | Enter **\***. |
+    | Protocol | Select **Any**. |
+    | Action | Select **Deny**. |
+    | Priority | Enter **310**. |
+    | Name | Enter **Deny_All_Traffic**. |
+
 1. Select **Add**.
 1. From the **Network security group** page, select **Subnets** under **Settings**.
-1. On the Subnets page, select **Associate**.
-1. In the Associate subnet pane, select the **mySpokeVNet** virtual network.
+1. On the **Subnets** page, select **Associate**.
+1. In the **Associate subnet** pane, select the **mySpokeVNet** virtual network.
 1. In the Subnet drop-down, select the **App1** subnet.
 1. Select **OK**.
 
 ## Clean Up
-You'll clean up your environment by deleting the resource group containing all resources. Due to soft delete rules, Azure Key Vault may not be deleted. Learn how to delete [Azure Key Vault]
+You'll clean up your environment by deleting the resource group containing all resources, **myResourceGroup**. Due to soft delete rules, Azure Key Vault may not be deleted. Learn how to delete [Azure Key Vault]
 
 ## Next steps
 
