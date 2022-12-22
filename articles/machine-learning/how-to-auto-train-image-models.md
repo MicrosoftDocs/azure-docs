@@ -562,6 +562,9 @@ training_parameters:
     {"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}
 ```
 In our experiments, we found that these augmentations help the model to generalize better. Therefore, when these augmentations are switched off, we recommend the users to combine them with other offline augmentations to get better results.
+
+---
+
 ##  Incremental training (optional)
 
 Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
