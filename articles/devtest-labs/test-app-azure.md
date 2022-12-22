@@ -84,7 +84,7 @@ You can now test your app on your lab VM.
 
 See the following articles to learn how to use VMs in a lab.
 
-- Learm more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).
+- Learn more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).
 - [Add a VM to a lab](devtest-lab-add-vm.md)
 - [Restart a lab VM](devtest-lab-restart-vm.md)
 - [Resize a lab VM](devtest-lab-resize-vm.md)
