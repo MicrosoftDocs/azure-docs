@@ -152,9 +152,9 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
+You can now run and test the project locally before deploying to Azure. For convenience, we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application, you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start the application using `liberty:run`. `liberty:run` will also leverage the environment variables defined in the above step.
+1. Start the application using `liberty:run`. `liberty:run` will also use the environment variables defined in the above step.
 
    ```bash
    cd <path-to-your-repo>/java-app
@@ -183,7 +183,7 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 
 You can now test the Docker image locally before deploying to Azure.
 
-1. Run the image using the following command. Note we are leveraging the environment variables defined previously.
+1. Run the image using the following command. Note we are using the environment variables defined previously.
 
 ```bash
 docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD} javaee-cafe:v1
