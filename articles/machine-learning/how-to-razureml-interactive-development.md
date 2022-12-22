@@ -99,9 +99,7 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     from azure.ai.ml import MLClient
     credential = DefaultAzureCredential()
     ml_client = MLClient.from_config(credential=credential)
-    
-    import pandas as pd
-    
+        
     # get a handle to the data asset, then get the uri
     data_asset = ml_client.data.get(name='<DATA_NAME>', version='<VERSION_NUMBER>')
     data_uri = data_asset.path"
