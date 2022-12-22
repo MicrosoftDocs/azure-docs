@@ -17,20 +17,14 @@ This article explains how to move Azure resources to a different Azure region, u
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Check prerequisites and requirements.
-> * Set up the move collection.
-> * Add resources to the move collection, and resolve dependencies.
-> * Prepare and move the source resource group.
-> * Prepare and move the other resources.
-> * Decide whether you want to discard or commit the move.
-> * Optionally remove resources in the source region after the move.
+> * Move Azure resources to a different Azure region
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario and use default options.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
-
 ## Prerequisites
+
+Verify the following requirements:
 
 | Requirement | Description |
 | --- | --- |
@@ -70,6 +64,8 @@ We're using these values in our script examples:
 | VM to move | PSDemoVM |
 
 ## Sign in to Azure
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
 
 Sign in to your Azure subscription with the Connect-AzAccount cmdlet:
 
@@ -425,13 +421,4 @@ After committing the move, and verifying that resources work as expected in the 
 
 ## Next steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Moved Azure VMs to another Azure region using PowerShell.
-> * Moved resources associated with VMs to another region.
-
-Now, try moving Azure VMs using the portal:
-
-> [!div class="nextstepaction"]
-> [Move Azure VMs in the portal](./tutorial-move-region-virtual-machines.md)
+[Learn more](./tutorial-move-region-virtual-machines.md) about move Azure VMs in the portal.
