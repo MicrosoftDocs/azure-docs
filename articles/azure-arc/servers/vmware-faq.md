@@ -13,7 +13,7 @@ This article addresses frequently asked questions about Arc-enabled servers on v
 
 Azure Arc is the overarching brand for a suite of Azure hybrid products that extend specific Azure public cloud services and/or management capabilities beyond Azure to on-premises environments and 3rd-party clouds. Azure Arc-enabled server, for example, allows you to use the same Azure management tools you would with a VM running in Azure with a VM running on-premises in a VMware cluster. 
 
-## What's the difference between Arc-enabled server and Arc-enabled<hypervisor>? (e.g., Arc-enabled VMware vSphere) (Currently in Public Preview)
+## What's the difference between Arc-enabled server and Arc-enabled\<hypervisor\>? (e.g., Arc-enabled VMware vSphere) (Currently in Public Preview)
 
 The easiest way to think of this is as follows:
 
@@ -31,10 +31,10 @@ Yes, Azure Arc-enabled server works with VMs running on VMware vSphere as well a
 
 ## Which operating systems does Azure Arc work with?
 
-To address this question properly, we need to specify which Arc service the question applies to. Let’s assume the question applies to Arc-enabled server and/or Arc-enabled <hypervisor>: it works with all supported versions of Windows Server and major distributions of Linux. 
+To address this question properly, we need to specify which Arc service the question applies to. Let’s assume the question applies to Arc-enabled server and/or Arc-enabled \<hypervisor\>: it works with all supported versions of Windows Server and major distributions of Linux. 
 
-## Should I use Arc-enabled server, Arc-enabled<hypervisor>, and can I use both?
+## Should I use Arc-enabled server, Arc-enabled\<hypervisor\>, and can I use both?
 
-Arc-enabled server and Arc-enabled<hypervisor> can be used in conjunction with one another.
+Arc-enabled server and Arc-enabled\<hypervisor\> can be used in conjunction with one another.
 
 
