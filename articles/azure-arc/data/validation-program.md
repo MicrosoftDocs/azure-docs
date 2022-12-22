@@ -45,6 +45,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
 |HPE Superdome Flex 280|1.20.0|1.8.0_2022-06-14|16.0.41.7339|12.3 (Ubuntu 12.3-1)
+|HPE Apollo 4200 Gen10 Plus|1.10.0|1.8.0_2022-06-14|16.0.312.4243|12.3 (Ubuntu 12.3-1)
 
 ### Kublr
 
