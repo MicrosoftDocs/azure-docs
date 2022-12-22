@@ -17,6 +17,7 @@ To contact a satellite, it must be registered as a spacecraft resource with the 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Must be a Contributer at the subscription level.
 - A [Basic Support Plan](https://azure.microsoft.com/support/plans/) or higher is required for a spacecraft authorization request.
 
 ## Sign in to Azure

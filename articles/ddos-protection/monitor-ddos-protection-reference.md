@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: conceptual 
-ms.date: 12/1/2022
+ms.date: 12/19/2022
 ms.custom: template-concept
 ---
 
@@ -56,7 +56,7 @@ The following [Azure Monitor metrics](../azure-monitor/essentials/metrics-suppor
 | UDPPacketsDroppedDDoS​ | Inbound UDP packets dropped DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets dropped DDoS​ |
 | UDPPacketsForwardedDDoS​ | Inbound UDP packets forwarded DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets forwarded DDoS​ |
 | UDPPacketsInDDoS​ | Inbound UDP packets DDoS​ | CountPerSecond​ | Maximum​ | Inbound UDP packets DDoS​ |
-### Diagnostic logs
+## Diagnostic logs
 
 See [Tutorial: View and configure Azure DDoS Protection diagnostic logging](diagnostic-logging.md) for details on attack insights and visualization with DDoS Attack Analytics.
 
@@ -67,7 +67,7 @@ The following diagnostic logs are available for Azure DDoS Protection:
 - **DDoSMitigationReports**: Attack mitigation reports use the Netflow protocol data, which is aggregated to provide detailed information about the attack on your resource. Anytime a public IP resource is under attack, the report generation will start as soon as the mitigation starts. There will be an incremental report generated every 5 mins and a post-mitigation report for the whole mitigation period. This is to ensure that in an event the DDoS attack continues for a longer duration of time, you'll be able to view the most current snapshot of mitigation report every 5 minutes and a complete summary once the attack mitigation is over.
 - **AllMetrics**: Provides all possible metrics available during the duration of a DDoS attack.
 
-### Log schemas
+## Log schemas
 
 The following table lists the field names and descriptions:
 
