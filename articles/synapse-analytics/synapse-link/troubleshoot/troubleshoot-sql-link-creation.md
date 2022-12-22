@@ -24,7 +24,7 @@ During Azure Synapse Link connection creation, the link creation process may han
 
 2. The system assigned managed identity (SAMI) for the Azure SQL Database logical server has not been configured properly or not enabled.
 
-3. An incorrect managed identity was provided in the Synapse Link creation, for example, by manually providing an incorrect principal id or Azure Key vault information.
+3. An incorrect managed identity was provided in the Synapse Link creation, for example, by manually providing an incorrect principal ID or Azure Key vault information.
 
 To confirm these potential causes, query the [changefeed.change_feed_errors](/sql/relational-databases/system-tables/changefeed-change-feed-errors-transact-sql) dynamic management view and look for error number 22739. 
    ```sql
