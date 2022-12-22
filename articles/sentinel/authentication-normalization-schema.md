@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # The Advanced Security Information Model (ASIM) Authentication normalization schema reference (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The Microsoft Sentinel Authentication schema is used to describe events related to user authentication, sign-in, and sign-out. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events. For example, Windows sends several authentication events alongside other OS activity events.
 
 Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.

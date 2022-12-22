@@ -152,3 +152,21 @@ Each type of resource is represented by one or more associated Java classes. The
 | [BlobClient](/java/api/com.azure.storage.blob.blobclient) | Allows you to manipulate Azure Storage blobs.|
 | [AppendBlobClient](/java/api/com.azure.storage.blob.specialized.appendblobclient) | Allows you to perform operations specific to append blobs such as periodically appending log data.|
 | [BlockBlobClient](/java/api/com.azure.storage.blob.specialized.blockblobclient)| Allows you to perform operations specific to block blobs such as staging and then committing blocks of data.|
+
+The following guides show you how to use each of these classes to build your application.
+
+| Guide | Description |
+|--|---|
+| [Create a container](storage-blob-container-create-java.md) | Create containers. |
+| [Delete and restore containers](storage-blob-container-delete-java.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
+| [List containers](storage-blob-containers-list-java.md) | List containers in an account and the various options available to customize a listing. |
+| [Manage properties and metadata (containers)](storage-blob-container-properties-metadata-java.md) | Get and set properties and metadata for containers. |
+| [Create and manage container leases](storage-blob-container-lease-java.md) | Establish and manage a lock on a container. |
+| [Create and manage blob leases](storage-blob-lease-java.md) | Establish and manage a lock on a blob. |
+| [Upload blobs](storage-blob-upload-java.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
+| [Download blobs](storage-blob-download-java.md) | Download blobs by using strings, streams, and file paths. |
+| [Copy blobs](storage-blob-copy-java.md) | Copy a blob from one location to another. |
+| [List blobs](storage-blobs-list-java.md) | List blobs in different ways. |
+| [Delete and restore](storage-blob-delete-java.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Find blobs using tags](storage-blob-tags-java.md) | Set and retrieve tags as well as use tags to find blobs. |
+| [Manage properties and metadata (blobs)](storage-blob-properties-metadata-java.md) | Get and set properties and metadata for blobs. |

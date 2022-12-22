@@ -2,7 +2,7 @@
   href: ./index.yml
 - name: Overview
   items:
-    - name: About AKS
+    - name: What is AKS?
       href: intro-kubernetes.md
     - name: Quotas and regional limits
       href: quotas-skus-regions.md

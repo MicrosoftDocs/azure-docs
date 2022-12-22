@@ -21,6 +21,8 @@
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
+  - name: Automatically enrich incident information
+    href: tutorial-enrich-ip-information.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
