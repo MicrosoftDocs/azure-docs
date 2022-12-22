@@ -8,7 +8,7 @@ ms.date: 12/01/2022
 ms.custom: references_regions
 ---
 
-Create a new SQL database, or use an existing one, in one of the currently available regions for this preview feature. You can [follow this guide to create a SQL database](/azure/azure-sql/database/single-database-create-quickstart).
+Create a new SQL database, or use an existing one, in one of the currently available regions for this preview feature. You can follow [this guide to create a SQL database](/azure/azure-sql/database/single-database-create-quickstart).
 
 #### Region support
 All [Microsoft Purview regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=purview) are supported.

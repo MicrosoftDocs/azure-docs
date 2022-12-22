@@ -60,11 +60,11 @@ Before you scan, it's important to register the data source in Microsoft Purview
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-open-purview-studio.png" alt-text="Screenshot that shows the area for opening a Microsoft Purview governance portal.":::
 
-1. Create the [collection hierarchy](./quickstart-create-collection.md) by using the **Collections** menu. Assign permissions to individual subcollections as required.
+1. Create the [collection hierarchy](./quickstart-create-collection.md) by going to **Collections** and then selecting **Add a collection**. Assign permissions to individual subcollections as required.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-collections.png" alt-text="Screenshot that shows the collection menu to assign access control permissions to the collection hierarchy.":::
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-collections.png" alt-text="Screenshot that shows selections for assigning access control permissions to the collection hierarchy.":::
 
-1. Go to the appropriate collection under the **Sources** menu, and then select the **Register** icon to register a new SQL database.
+1. Go to the appropriate collection under **Sources**, and then select the **Register** icon to register a new SQL database.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-data-source.png" alt-text="Screenshot that shows the collection that's used to register the data source.":::
 
@@ -134,7 +134,7 @@ Microsoft Purview supports the following options:
 
   For more information, see the [service principal documentation](../active-directory/develop/app-objects-and-service-principals.md).
 
-* **SQL authentication**. Connect to the SQL database with a username and password. For more information about SQL authentication, see the [SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). 
+* **SQL authentication**. Connect to the SQL database with a username and password. For more information, see the [SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). 
 
   If you need to create a login, follow [this guide to query a SQL database](/azure/azure-sql/database/connect-query-portal). Use [this guide to create a login by using T-SQL](/sql/t-sql/statements/create-login-transact-sql).
     
@@ -146,9 +146,9 @@ For steps to authenticate with your SQL database, select your chosen method of a
 # [SQL authentication](#tab/sql-authentication)
 
 > [!Note]
-> Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. About 15 minutes after the Microsoft Purview account gets permissions, it should be able to scan the resources.
+> Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. The Microsoft Purview account should be able to scan the resources about 15 minutes after it gets permissions.
 
-1. You need a SQL login with at least `db_datareader` permissions to be able to access the information that Microsoft Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign-in for Azure SQL Database. Save the *username* and *password* for the next steps.
+1. You need a SQL login with at least `db_datareader` permissions to be able to access the information that Microsoft Purview needs to scan the database. You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a sign-in for Azure SQL Database. Save the username and password for the next steps.
 
 1. Go to your key vault in the Azure portal.
 
@@ -190,7 +190,7 @@ The managed identity needs permission to get metadata for the database, schemas,
     ```
 
     > [!Note]
-    > The `Username` value is your managed identity name from Microsoft Purview. You can [read more about fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+    > The `[Username]` value is your managed identity name from Microsoft Purview. You can [read more about fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
 
 ### Configure portal authentication
 
@@ -201,7 +201,7 @@ It's important to give your Microsoft Purview account's system-assigned managed 
 
 1. From the [Azure portal](https://portal.azure.com), find the subscription, resource group, or resource (for example, a SQL database) that the catalog should scan.
 
-1. Select **Access Control (IAM)** on the left menu, and then select **+ Add** > **Add role assignment**.
+1. Select **Access control (IAM)** on the left menu, and then select **+ Add** > **Add role assignment**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-ds.png" alt-text="Screenshot that shows selections for adding a role assignment for access control.":::
 
@@ -213,7 +213,7 @@ It's important to give your Microsoft Purview account's system-assigned managed 
 
 ### Create a new service principal
 
-If you don't have a service principal, you can [follow the service principal guide to create one](./create-service-principal-azure.md).
+If you don't have a service principal, you can follow the [service principal guide](./create-service-principal-azure.md) to create one.
 
 > [!NOTE]
 > To create a service principal, you must register an application in your Azure AD tenant. If you don't have the required access, your Azure AD Global Administrator or Application Administrator can perform this operation.
@@ -235,7 +235,7 @@ The service principal needs permission to get metadata for the database, schemas
     ```
 
     > [!Note]
-    > The `Username` value is your own service principal's name. You can [read more about fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+    > The `[Username]` value is your own service principal's name. You can [read more about fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
 
 ### Create the credential
 
@@ -279,7 +279,7 @@ The service principal needs permission to get metadata for the database, schemas
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan.png" alt-text="Screenshot that shows the pane for creating a new scan.":::
 
-To learn more about data lineage in Azure SQL Database, see the [Extract lineage (preview)](#extract-lineage-preview) section.
+To learn more about data lineage in Azure SQL Database, see the [Extract lineage (preview)](#extract-lineage-preview) section of this article.
 
 For scanning steps, select your method of authentication from the following tabs.
 
@@ -313,7 +313,7 @@ For scanning steps, select your method of authentication from the following tabs
 
 1. For **Name**, provide a name for the scan.
 
-1. Choose the appropriate collection for the scan, and select credential that you created earlier under **Credential**.
+1. Choose the appropriate collection for the scan, and select the credential that you created earlier under **Credential**.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Screenshot that shows collection and credential information for the service principal option to enable scanning.":::
 
@@ -349,7 +349,7 @@ For scanning steps, select your method of authentication from the following tabs
 
 ### View a scan
 
-To check the status of a scan, go to the data source in the collection, and then select **View Details**.
+To check the status of a scan, go to the data source in the collection, and then select **View details**.
 
 :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan.png" alt-text="Screenshot that shows the button for viewing details of a scan.":::
 
@@ -426,7 +426,7 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 
 ### Prerequisites for setting up a scan with lineage extraction
 
-1. Follow the steps in the [Configure authentication for a scan](#configure-authentication-for-a-scan) section to authorize Microsoft Purview to scan your SQL database.
+1. Follow the steps in the [Configure authentication for a scan](#configure-authentication-for-a-scan) section of this article to authorize Microsoft Purview to scan your SQL database.
 
 2. Sign in to Azure SQL Database with your Azure AD account, and assign `db_owner` permissions to the Microsoft Purview managed identity. 
 
@@ -451,7 +451,7 @@ Microsoft Purview supports lineage from Azure SQL Database. When you're setting 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction.png" alt-text="Screenshot that shows the pane for creating a new scan, with lineage extraction turned on." lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-expanded.png":::
 
-2. Select your method of authentication by following the steps in the [Create the scan](#create-the-scan) section.
+2. Select your method of authentication by following the steps in the [Create the scan](#create-the-scan) section of this article.
 3. After you successfully set up the scan, a new scan type called **Lineage extraction** will run incremental scans every six hours to extract lineage from Azure SQL Database. Lineage is extracted based on the stored procedure runs in the SQL database.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs.png" alt-text="Screenshot that shows the screen that runs lineage extraction every six hours."lightbox="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage-extraction-runs-expanded.png":::
@@ -465,7 +465,7 @@ You can [browse through the data catalog](how-to-browse-catalog.md) or [search t
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-lineage.png" alt-text="Screenshot that shows lineage details from stored procedures.":::
 
-    For information about supported Azure SQL Database lineage scenarios, refer to the earlier [Supported capabilities](#supported-capabilities) section. For more information about lineage in general, see [Data lineage in Microsoft Purview](concept-data-lineage.md) and [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md).
+    For information about supported Azure SQL Database lineage scenarios, refer to the [Supported capabilities](#supported-capabilities) section of this article. For more information about lineage in general, see [Data lineage in Microsoft Purview](concept-data-lineage.md) and [Microsoft Purview Data Catalog lineage user guide](catalog-lineage-user-guide.md).
 
 2. Go to the stored procedure asset. On the **Properties** tab, go to **Related assets** to get the latest run details of stored procedures.
 

@@ -53,7 +53,7 @@ For more information about managing Microsoft Purview role assignments, see [Cre
 >[!NOTE]
 > Currently, Microsoft Purview roles related to publishing Data Owner policies must be configured at the root collection level.
 
-#### Delegation of access provisioning responsibility to roles in Microsoft Purview
+#### Delegate access provisioning responsibility to roles in Microsoft Purview
 
 After a resource has been enabled for **Data use management**, any Microsoft Purview user with the *Policy author* role at the root collection level can provision access to that data source from Microsoft Purview.
 
