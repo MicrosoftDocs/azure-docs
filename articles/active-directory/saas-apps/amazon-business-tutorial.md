@@ -123,9 +123,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. Click **Save**.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/copy-metadataurl.png)
 
 1. On the **Set up Amazon Business** section, copy the appropriate URL(s) based on your requirement.
 
@@ -221,7 +221,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows New user account defaults with Microsoft S S O, Requisitioner, and Next selected.](media/amazon-business-tutorial/group.png)
 
-1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **Metadata XML** link, which you have downloaded from Azure portal and click **Validate**.
+1. On the **Upload your metadata file** wizard, choose **Paste XML Link** option to paste the **App Federation Metadata URL** value, which you have copied from Azure portal and click **Validate**.
 
     ![Screenshot shows Upload your metadata file, which allows you to browse to an x m l file and upload it.](media/amazon-business-tutorial/connection-data.png)
 
