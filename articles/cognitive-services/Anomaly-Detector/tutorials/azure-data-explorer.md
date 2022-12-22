@@ -36,7 +36,7 @@ These two functions are user-defined [tabular functions](/azure/data-explorer/
 
 These two functions are available to use either in Azure Data Explorer website or in the Kusto Explorer application.  
 
-![Screenshot of Azure Data Explorer and Kusto Explorer](../media/data-explorer/way-of-use.png)
+:::image type="content" source="../media/data-explorer/way-of-use.png" alt-text="Screenshot of Azure Data Explorer and Kusto Explorer" lightbox="../media/data-explorer/way-of-use.png":::
 
 ## Create resources
 
@@ -62,7 +62,7 @@ Then ingest the sample data to Azure Data Explorer by following the [ingestion g
 
 Once ingested, your data should look as follows:
 
-![Screenshot of Kusto query with sample data](../media/data-explorer/project.png)
+:::image type="content" source="../media/data-explorer/project.png" alt-text="Screenshot of Kusto query with sample data" lightbox="../media/data-explorer/project.png":::
 
 ## Detect anomalies in an entire time series
 
