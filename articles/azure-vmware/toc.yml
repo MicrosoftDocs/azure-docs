@@ -160,7 +160,7 @@
       href: disaster-recovery-using-vmware-site-recovery-manager.md
     - name: Deploy Zerto disaster recovery
       href: deploy-zerto-disaster-recovery.md
-     - name: Deploy disaster recovery using JetStream DR software
+    - name: Deploy disaster recovery using JetStream DR software
       href: deploy-disaster-recovery-using-jetstream.md
   - name: Deploy virtual desktops
     items:
