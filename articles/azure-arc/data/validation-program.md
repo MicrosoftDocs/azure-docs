@@ -40,7 +40,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 | PowerStore X|1.20.6|1.0.0_2021-07-30|15.0.2148.140 |postgres 12.3 (Ubuntu 12.3-1) |
 | PowerStore T|1.23.5|1.9.0_2022-07-12|16.0.312.4243 |postgres 12.3 (Ubuntu 12.3-1)|
 
-### HPE - 
+### HPE
 
 |Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL engine version | PostgreSQL server version
 |-----|-----|-----|-----|-----|
