@@ -35,7 +35,7 @@ To find the New Relic offering in Azure and to set up, you must have registered 
 
 ### Logs not being emitted to New Relic
 
-Only resource types listed in the list of [supported categories](/azure/azure-monitor/essentials/resource-logs-categories), emit logs to New Relic through the integration. To verify whether the resource is emitting logs to New Relic, navigate to [Azure diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings) for the specific resource and verify that there's a New Relic diagnostic setting.
+Only resource types listed in the list of [supported categories](/azure/azure-monitor/essentials/resource-logs-categories), emit logs to New Relic through the integration. To verify whether the resource is emitting logs to New Relic, navigate to [Azure diagnostic setting](/azure/azure-monitor/platform/diagnostic-settings) for that resource. Then, verify that there's a New Relic diagnostic setting.
 
 ### Install extension/ Uninstall extension on Virtual Machines inactive
 
@@ -45,7 +45,7 @@ Only virtual machines that currently have the New Relic agent installed should b
 
 ### Resource monitoring stopped working
 
-Resource monitoring in New Relic is enabled through the `ingest API key`, which was set-up at the time of resource creation. Revoking the `ingest API key` from New Relic portal disrupts logs and metrics monitoring for all resources including virtual machines and app services. You should NOT revoke the `ingest API key`. If the API key is already revoked, contact New Relic support.
+Resource monitoring in New Relic is enabled through the `ingest API key`, which was set up at the time of resource creation. Revoking the `ingest API key` from New Relic portal disrupts logs and metrics monitoring for all resources including virtual machines and app services. You should NOT revoke the `ingest API key`. If the API key is already revoked, contact New Relic support.
 
 In case your Azure subscription got suspended or deleted due to payment related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method.](/azure/cost-management-billing/manage/change-credit-card)
 

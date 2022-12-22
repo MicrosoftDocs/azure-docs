@@ -3,13 +3,13 @@ title: Partner services
 description: Learn about services  offered by partners on Azure. 
 
 ms.topic: conceptual
-ms.date: 09/24/2022
+ms.date: 12/31/2022
 
 ---
 
 # Extend Azure with Azure Native ISV Services
 
-Partner organizations use Azure Native ISV Services to offer solutions that you can use in Azure to enhance your cloud infrastructure. These Azure Native ISV Services are fully integrated into Azure. You work with these solutions in much the same way you would work with solutions from Microsoft. You use a resource provider, resource types, and SDKs to manage the solution.
+Partner organizations create an Azure Native ISV Service to offer solutions in Azure to enhance cloud infrastructure. An Azure Native ISV Service is fully integrated into Azure. You work with these services in much the same way you would work with services from Microsoft. You use a resource provider, resource types, and SDKs to manage the service.
 
 Azure Native ISV Services are available through the Marketplace.
 
