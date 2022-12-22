@@ -11,6 +11,28 @@ This article describes how to upgrade a Microsoft Defender for IoT micro agent w
 
 For more information, see our [release notes for device builders](release-notes.md).
 
+## Upgrade a standalone micro agent from version 4.2.* to 4.6.2
+
+When upgrading the micro agent from version 4.2.* to 4.6.2, you would first need to remove the package and then reinstall it.
+
+1. Remove the current package. Run:
+
+    ```bash
+    sudo apt-get remove defender-iot-micro-agent
+    ```
+
+1. Ensure that you've upgraded the apt. Run:
+
+    ```bash
+    sudo apt-get update
+    ```
+
+1. Install the Defender for IoT micro agent on Debian or Ubuntu-based Linux distributions. Run:
+
+    ```bash
+    sudo apt-get install defender-iot-micro-agent
+    ```
+
 ## Upgrade a standalone micro agent
 
 1. Ensure that you've upgraded the apt. Run:
