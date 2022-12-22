@@ -20,7 +20,7 @@ To automate repetative tasks and bring efficiencies to any organization, you can
 * Analyze the sentiment of new tweets
 * Extract entities from incoming documents 
 * Summarize meetings 
-* Rmeove personal data before saving the files
+* Remove personal data before saving the files
 
 ## Prerequisites
 * Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.* Trained model (if using custom capabilites)
