@@ -325,7 +325,7 @@ Now that you've prepared the resources prepared, you can initiate the move.
     :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
-## Discard or Commit the move
+## Discard or commit the move
 
 After the initial move, you can decide whether to commit the move or discard it. 
 

@@ -202,7 +202,7 @@ To prepare a database for the move, follow these steps:
 
 During the prepare stage, the target database is created in the target region and the data replication starts. After Prepare, the database is in an *Initiate move pending* state. 
 
-    :::image type="content" source="./media/tutorial-move-region-sql/initiate-move-pending.png" alt-text="Screenshot displays button to prepare the selected database in the elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-move-pending.png":::
+:::image type="content" source="./media/tutorial-move-region-sql/initiate-move-pending.png" alt-text="Screenshot displays button to prepare the selected database in the elastic pool." lightbox="./media/tutorial-move-region-sql/initiate-move-pending.png":::
 
 ## Move databases
 
