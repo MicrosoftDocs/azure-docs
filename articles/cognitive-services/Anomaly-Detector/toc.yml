@@ -68,6 +68,8 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
+    - name: Azure Data Explorer integration
+      href: tutorials/azure-data-explorer.md
     - name: Visualize anomalies as a batch using Power BI (univariate)
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Azure Synapse with Multivariate Anomaly Detection
