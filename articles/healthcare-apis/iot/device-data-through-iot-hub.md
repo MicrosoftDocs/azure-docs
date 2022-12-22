@@ -119,7 +119,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - An event hub consumer group. In this deployment, the consumer group is named *$Default*.
 
-- The Azure Event Hubs Data Sender role. In this deployment, the role is named *devicedatasender*. The Azure Event Hubs Data Sender role isn't used in this tutorial. To learn more about the role, see [Review of deployed resources and access permissions](deploy-new-button.md#required-post-deployment-tasks).
+- An Azure Event Hubs Data Sender role. In this deployment, the role is named *devicedatasender*. The Azure Event Hubs Data Sender role isn't used in this tutorial.
 
 - An instance of Azure IoT Hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
 
