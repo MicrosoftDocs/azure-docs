@@ -74,34 +74,20 @@ psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 
 At the prompt, enter the password for the user account.
 
-[//]: # (## Monitor replication)
+## Monitor replication
 
-[//]: # ()
-[//]: # (Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article]&#40;how-to-read-replicas-portal.md&#41;.)
+Azure Database for PostgreSQL - Flexible Server provides [two metrics](concepts-monitoring.md#replication) for monitoring replication. The two metrics are **Max Physical Replication Lag** and **Read Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](how-to-read-replicas-portal.md#monitor-a-replica).
 
-[//]: # ()
-[//]: # (The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary and the primary is in streaming replication mode. The lag information does not show details when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode.)
+The **Max Physical Replication Lag** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is applicable and available on the primary server only, and will be available only if at least one of the read replica is connected to the primary. The lag information is present also when the replica is in the process of catching up with the primary using the archived logs of the primary in a file-shipping replication mode or when replication becomes inactive.
 
-[//]: # ()
-[//]: # (The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:)
+The **Read Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is applicable and available on replicas only. 
 
-[//]: # ()
-[//]: # (```SQL)
+Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.
 
-[//]: # (SELECT EXTRACT &#40;EPOCH FROM now&#40;&#41; - pg_last_xact_replay_timestamp&#40;&#41;&#41;;)
+For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.
 
-[//]: # (```)
-
-[//]: # ()
-[//]: # (Set an alert to inform you when the replica lag reaches a value that isn’t acceptable for your workload.)
-
-[//]: # ()
-[//]: # (For additional insight, query the primary server directly to get the replication lag in bytes on all replicas.)
-
-[//]: # ()
-[//]: # (> [!NOTE])
-
-[//]: # (> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.)
+> [!NOTE]
+> If a primary server or read replica restarts, the time it takes to restart and catch up is reflected in the Replica Lag metric.
 
 ## Promote replicas
 
