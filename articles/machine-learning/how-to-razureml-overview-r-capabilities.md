@@ -27,7 +27,7 @@ A typical workflow for using R with Azure Machine Learning:
     - Read tabular data from a registered data asset or datastore
     - Install additional R libraries
     - Save artifacts to the workspace file storage
-- [Adapt your interactive script](how-to-razureml-modify-script-for-prod.md) to run as a production job in Azure Machine Learning
+- [Adapt your script](how-to-razureml-modify-script-for-prod.md) to run as a production job in Azure Machine Learning
     - Remove any code that may require user interaction
     - Add command line input parameters to the script as necessary
     - Include and source the `azureml_utils.R` script in the same working directory of the R script to be executed
@@ -48,7 +48,9 @@ A typical workflow for using R with Azure Machine Learning:
 - Scoring using an R model with batch endpoints isn't supported.
 - Programmatic model registering/recording from a running job with R isn't supported.
 - Interactive querying of workspace MLflow registry from R isn't supported.
+- Nested MLflow runs in R are not supported.
 - Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input .parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
+
 
 ## Next steps
 
