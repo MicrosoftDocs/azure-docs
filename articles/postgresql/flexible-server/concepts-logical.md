@@ -66,7 +66,7 @@ Here's some sample code you can use to try out logical replication.
 
 1. Connect to the publisher database. Create a table and add some data.
    ```SQL
-   CREATE TABLE basic(id SERIAL, name varchar(40));
+   CREATE TABLE basic(id SERIAL, name TEXT);
    INSERT INTO basic(name) VALUES ('apple');
    INSERT INTO basic(name) VALUES ('banana');
    ```
@@ -150,7 +150,7 @@ Here is an example of configuring pglogical at the provider database server and 
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
    
->[!NOTE]
+>[!CAUTION]
 > Pglogical does not currently support an automatic DDL replication. The initial schema can be copied manually using pg_dump --schema-only. DDL statements can be executed on the provider and subscriber at the same time by using the pglogical.replicate_ddl_command function. Please be aware of other limitations of the extension listed [here](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions).
 
 
