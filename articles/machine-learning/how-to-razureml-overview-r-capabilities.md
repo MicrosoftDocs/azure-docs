@@ -21,7 +21,7 @@ This article outlines the key scenarios for R that are supported in Azure Machin
 
 ## Typical R workflow
 
-A typical workflow for using R with Azure Machine Learning is:
+A typical workflow for using R with Azure Machine Learning:
 
 - [Develop R scripts interactively](how-to-razureml-interactive-development.md) using Jupyter Notebooks on a compute instance
     - Read tabular data from a registered data asset or datastore
@@ -42,14 +42,13 @@ A typical workflow for using R with Azure Machine Learning is:
 
 ## Known limitations
  
-- There's no R _control-plane_ SDK, instead you use the Azure CLI or Python control script to submit jobs
-- RStudio running as a custom application within a container on the compute instance can't access workspace assets or MLflow
+- There's no R _control-plane_ SDK. Instead you use the Azure CLI or Python control script to submit jobs
+- RStudio running as a custom application within a container on the compute instance can't access workspace assets or MLflow.
 - Zero code deployment (that is, automatic deployment) of an R MLflow model is currently not supported.  Instead, you'll need to use a custom container with `plumber` for deployment.
-- Scoring using an R model with batch endpoints isn't supported
-- Programmatic model registering/recording from a running job with R isn't supported
-- Interactive querying of workspace MLflow registry from R isn't supported
-- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
-
+- Scoring using an R model with batch endpoints isn't supported.
+- Programmatic model registering/recording from a running job with R isn't supported.
+- Interactive querying of workspace MLflow registry from R isn't supported.
+- Parallel job step isn't supported.  As a workaround, you can run a script in parallel `n` times using different input .parameters.  But you'd have to meta-program to generate `n` YAML or CLI calls to do it.
 
 ## Next steps
 
