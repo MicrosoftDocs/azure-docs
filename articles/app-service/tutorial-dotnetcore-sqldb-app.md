@@ -28,8 +28,6 @@ git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.g
 cd msdocs-app-service-sqldb-dotnetcore
 ```
 
-:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-browse-app-2.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
-
 ## 1. Create App Service and Azure SQL Database
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure SQL Database. For the creation process, you'll specify:
