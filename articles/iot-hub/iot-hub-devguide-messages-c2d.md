@@ -26,7 +26,7 @@ Each device queue holds, at most, 50 cloud-to-device messages. An error occurs i
 
 ## The cloud-to-device message life cycle
 
-To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. For the IoT hub to remove the messages from the queue, the devices must explicitly acknowledge *completion*. This approach guarantees resiliency against connectivity and device failures.
+To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* of a message before the IoT hub removes the message from the queue. This approach guarantees resiliency against connectivity and device failures.
 
 The life-cycle state graph is displayed in the following diagram:
 
@@ -46,7 +46,7 @@ The **max delivery count** property on the IoT hub determines the maximum number
 
 The [How to send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) article shows you how to send cloud-to-device messages from the cloud and receive them on a device.
 
-A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this might be when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
+A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this completion might be when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
 
 * Complete the cloud-to-device message after the device has persisted the task description in local storage.
 
@@ -54,12 +54,12 @@ A device ordinarily completes a cloud-to-device message when the loss of the mes
 
 ## Message expiration (time to live)
 
-Every cloud-to-device message has an expiration time. This time is set by either of the following:
+Every cloud-to-device message has an expiration time. This time is set by either of the following options:
 
 * The **ExpiryTimeUtc** property in the service
 * The IoT hub, by using the default *time to live* that's specified as an IoT hub property
 
-For more information, see [Cloud-to-device configuration options](#cloud-to-device-configuration-options).
+For more information about message expiration, see [Cloud-to-device configuration options](#cloud-to-device-configuration-options).
 
 A common way to take advantage of a message expiration and to avoid sending messages to disconnected devices is to set short *time to live* values. This approach achieves the same result as maintaining the device connection state, but it is more efficient. When you request message acknowledgments, the IoT hub notifies you which devices are:
 
@@ -68,7 +68,7 @@ A common way to take advantage of a message expiration and to avoid sending mess
 
 ## Message feedback
 
-When you send a cloud-to-device message, the service can request the delivery of per-message feedback about the final state of that message. You do this by setting the **iothub-ack** application property in the cloud-to-device message that's being sent to one of the following four values:
+When you send a cloud-to-device message, the service can request the delivery of per-message feedback about the final state of that message. You can configure message feedback by setting the **iothub-ack** application property in the cloud-to-device message that's being sent to one of the following four values:
 
 | Ack property value | Behavior |
 | ------------ | -------- |
@@ -83,7 +83,7 @@ As explained in [Endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers
 
 | Property     | Description |
 | ------------ | ----------- |
-| EnqueuedTime | A timestamp that indicates when the feedback message was received by the hub |
+| EnqueuedTime | A timestamp that indicates when the feedback message was received by the hub. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
@@ -93,14 +93,14 @@ The body is a JSON-serialized array of records, each with the following properti
 
 | Property           | Description |
 | ------------------ | ----------- |
-| enqueuedTimeUtc    | A timestamp that indicates when the outcome of the message happened (for example, the hub received the feedback message or the original message expired) |
-| originalMessageId  | The *MessageId* of the cloud-to-device message to which this feedback information relates |
+| enqueuedTimeUtc    | A timestamp that indicates when the outcome of the message happened. For example, a timestamp that indicates when the hub received the feedback message or the original message expired. |
+| originalMessageId  | The *MessageId* of the cloud-to-device message to which this feedback information relates. |
 | statusCode         | A required string, used in feedback messages that are generated by the IoT hub: <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purged* |
-| description        | String values for *StatusCode* |
-| deviceId           | The *DeviceId* of the target device of the cloud-to-device message to which this piece of feedback relates |
-| deviceGenerationId | The *DeviceGenerationId* of the target device of the cloud-to-device message to which this piece of feedback relates |
+| description        | String values for *StatusCode*. |
+| deviceId           | The *DeviceId* of the target device of the cloud-to-device message to which this piece of feedback relates. |
+| deviceGenerationId | The *DeviceGenerationId* of the target device of the cloud-to-device message to which this piece of feedback relates. |
 
-For the cloud-to-device message to correlate its feedback with the original message, the service must specify a *MessageId*.
+The service must specify a *MessageId* so that the cloud-to-device message can correlate its feedback with the original message.
 
 The body of a feedback message is shown in the following code example:
 
@@ -123,7 +123,7 @@ The body of a feedback message is shown in the following code example:
 
 **Pending feedback for deleted devices**
 
-When a device is deleted, any pending feedback is deleted as well. Device feedback is sent in batches. If a device is deleted in the narrow window (often less than 1 second) between when the device confirms receipt of the message and when the next feedback batch is prepared, the feedback will not occur.
+When a device is deleted, any pending feedback is deleted as well. Device feedback is sent in batches. A narrow window, often less than one second, can occur between when a device confirms receipt of the message and when the next feedback batch is prepared. If a device is deleted in that narrow window, the feedback doesn't occur.
 
 You can address this behavior by waiting a period of time for pending feedback to arrive before deleting your device. Related message feedback should be assumed lost once a device is deleted.
 
@@ -133,11 +133,11 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 | Property                  | Description | Range and default |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | Default TTL for cloud-to-device messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
+| defaultTtlAsIso8601       | Default TTL for cloud-to-device messages | ISO_8601 interval up to two days (minimum one minute); default: one hour |
 | maxDeliveryCount          | Maximum delivery count for cloud-to-device per-device queues | 1 to 100; default: 10 |
-| feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
+| feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to two days (minimum one minute); default: one hour |
 | feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 10 |
-| feedback.lockDurationAsIso8601 | Lock duration for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum 5 seconds); default: 60 seconds. |
+| feedback.lockDurationAsIso8601 | Lock duration for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum five seconds); default: 60 seconds. |
 
 You can set the configuration options in one of the following ways:
 
