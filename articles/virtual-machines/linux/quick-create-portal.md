@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 08/01/2022
+ms.date: 12/21/2022
 ms.author: cynthn
 ms.custom: mvc, mode-ui
 ---
@@ -104,8 +104,8 @@ sudo zypper --non-interactive install nginx
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 ```bash
-sudo zypper --non-interactive update
-sudo zypper --non-interactive install nginx
+sudo dnf update
+sudo dnf install nginx
 ```
 ---
 When done, type `exit` to leave the SSH session.
