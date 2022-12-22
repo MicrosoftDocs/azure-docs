@@ -37,9 +37,9 @@ When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. Click **Built-in endpoints**.
+1. Select **Built-in endpoints** from the resource menu, under **Hub settings**.
 
-1. The **Build-in endpoints** blade contains three sections:
+1. The **Build-in endpoints** working pane contains three sections:
     
     - The **Event Hub Details** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Retain for**, and **Consumer Groups**.
     - The **Event Hub compatible endpoint** section contains the following values: **Shared access policy** and **Event Hub-compatible endpoint**.
@@ -47,7 +47,7 @@ When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub
 
     :::image type="content" source="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png" alt-text="Screen capture showing device-to-cloud settings." lightbox="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png":::
 
-In the portal, the **Event Hub-compatible endpoint** field contains a complete Event Hubs connection string that looks like the following example:
+In the working pane, the **Event Hub-compatible endpoint** field contains a complete Event Hubs connection string that looks like the following example:
 
 *Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456*
 
