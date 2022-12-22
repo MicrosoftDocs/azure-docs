@@ -241,7 +241,7 @@ Next, you'll connect your AWS tunnels to Azure. For each of the four tunnels, yo
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-connection.png" alt-text="Modifying connection" :::
 
 9. From the **Connections** page for your VPN gateway, select the connection you created and navigate to the **Configuration** page.
-10. Select **ResponderOnly** for the **Connection Mode** and select **Save**.
+10. Select **InitiatorOnly** for the **Connection Mode** and select **Save**.
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/responder-only.png" alt-text="Make connections ResponderOnly" :::
 
 
