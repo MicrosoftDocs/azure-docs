@@ -575,8 +575,7 @@ The customer won't be billed if a subscription is canceled within 72 hours from 
 
 The customer will be billed if a subscription is canceled after the preceding grace period.  The customer will lose access to the SaaS subscription on the Microsoft side immediately after cancellation.
 
-### Delete 
-`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+### Delete `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
