@@ -56,7 +56,7 @@ Running a training script remotely requires the creation of a Docker image.
 ### Vulnerabilities
 
 Vulnerabilities can be addressed by upgrading to a newer version of a dependency or migrating to a different dependency that satisfies security
-requirements. Mitigating vulnerabilities is time consuming and costly since it can require refractoring of code and infrastructure. With the prevalence
+requirements. Mitigating vulnerabilities is time consuming and costly since it can require refactoring of code and infrastructure. With the prevalence
 of open source software and the use of complicated nested dependencies, it's important to manage and keep track of vulnerabilities.
 
 There are some ways to decrease the impact of vulnerabilities:
@@ -94,7 +94,7 @@ for your jobs or model deployments while using system-managed environments.
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
 materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
-Machine Learning does not delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
+Machine Learning doesn't delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
 can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
 to help scan images for vulnerabilities. To
 automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
@@ -589,12 +589,12 @@ If you haven't provided credentials for a private registry you're trying to pull
 
 ### I/O Error
 <!--issueDescription-->
-This can happen when a Docker image pull fails due to a network issue.  
+This issue can happen when a Docker image pull fails due to a network issue.  
 
 **Potential causes:**
 * Network connection issue, which could be temporary
 * Firewall is blocking the connection
-* ACR is unreachable and there's network isolation. For additional details, please see [ACR unreachable](#acr-unreachable). 
+* ACR is unreachable and there's network isolation. For more details, see [ACR unreachable](#acr-unreachable). 
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -610,7 +610,7 @@ Assess your workspace set-up. Are you using a virtual network, or are any of the
 * Ensure that you've followed the steps in this article on [securing a workspace with virtual networks](https://aka.ms/azureml/environment/acr-private-endpoint)
 * Azure Machine Learning requires both inbound and outbound access to the public internet. If there's a problem with your virtual network setup, there might be an issue with accessing certain repositories required during your image build  
 
-If you aren't using a virtual network, or if you have configured it correctly
+If you aren't using a virtual network, or if you've configured it correctly
 * Try rebuilding your image. If the timeout was due to a network issue, the problem might be transient, and a rebuild could fix the problem
 
 ### *Conda issues during build*
@@ -660,11 +660,11 @@ If the conda channels/repositories are correct
 
 ### Compile error
 <!--issueDescription-->
-This can happen when there's a failure building a package required for the conda environment due to a compiler error.
+This issue can happen when there's a failure building a package required for the conda environment due to a compiler error.
 
 **Potential causes:**
 * A package was spelled incorrectly and therefore wasn't recognized
-* There is something wrong with the compiler
+* There's something wrong with the compiler
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -682,16 +682,16 @@ If you're using a compiler
 Ensure that all packages you've listed are spelled correctly and that any pinned versions are correct
 
 **Resources**
-* [Dockerfile reference](Dockerfile reference | Docker Documentation)
-* [Example compiler issue](python - gcc compiler not recognizing -fno-plt option - Stack Overflow)
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
+* [Example compiler issue](https://stackoverflow.com/questions/46504700/gcc-compiler-not-recognizing-fno-plt-option)
 
 ### Missing command
 <!--issueDescription-->
-This can happen a command is not recognized during an image build.
+This issue can happen a command isn't recognized during an image build.
 
 **Potential causes:**
 * The command was spelled incorrectly and therefore wasn't recognized
-* The command cannot be executed because the necessary package is not installed
+* The command can't be executed because the necessary package isn't installed
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -701,11 +701,11 @@ This can happen a command is not recognized during an image build.
 **Troubleshooting steps**
 
 * Ensure that the command is spelled correctly
-* Ensure that any package needed to execute the command you are trying to perform is installed
+* Ensure that any package needed to execute the command you're trying to perform is installed
 * If needed, add an installation step to your Dockerfile
 
 **Resources**
-* [Dockerfile reference](Dockerfile reference | Docker Documentation)
+* [Dockerfile reference on running commands](https://docs.docker.com/engine/reference/builder/#run)
 
 ### Conda timeout
 <!--issueDescription-->
@@ -810,7 +810,7 @@ Name: my_environment
 
 ### No matching distribution 
 <!--issueDescription-->
-This can happen when there is no package found for the version that you specified.
+This issue can happen when there's no package found for the version that you specified.
 
 **Potential causes:**
 * The package was spelled incorrectly
@@ -847,11 +847,11 @@ Name: my_environment
 
 ### Can't build mpi4py
 <!--issueDescription-->
-This can happen when building wheels for mpi4py fails.
+This issue can happen when building wheels for mpi4py fails.
 
 **Potential causes:**
 * Requirements for a successful mpi4py installation aren't met
-* There is something wrong with the method you've chosen to install mpi4py
+* There's something wrong with the method you've chosen to install mpi4py
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -862,7 +862,7 @@ This can happen when building wheels for mpi4py fails.
 
 Ensure that you have a working MPI installation (preference for MPI-3 support and for MPI being built with shared/dynamic libraries) 
 * See [mpi4py installation](https://aka.ms/azureml/environment/install-mpi4py)
-* If needed, follow these [steps on building MPI](Appendix — MPI for Python 3.1.4 documentation (mpi4py.readthedocs.io))
+* If needed, follow these [steps on building MPI](https://mpi4py.readthedocs.io/en/stable/appendix.html#building-mpi-from-sources)
 
 Ensure that you're using a compatible python version
 * Python 2.5 or 3.5+ is required, but Python 3.7+ is recommended
