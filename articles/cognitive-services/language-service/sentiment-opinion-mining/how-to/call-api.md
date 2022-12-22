@@ -20,6 +20,8 @@ Sentiment analysis and opinion mining are two ways of detecting positive and neg
 > [!TIP]
 > If you want to start using this feature, you can follow the [quickstart article](../quickstart.md) to get started. You can also make example requests using [Language Studio](../../language-studio.md) without needing to write code.
 
+> [!Note]
+> You can use this feature in an [power automate flow](../../tutorials/power-automate.md)
 
 ## Sentiment Analysis
 
