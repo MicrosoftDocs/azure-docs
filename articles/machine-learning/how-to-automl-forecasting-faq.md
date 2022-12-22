@@ -28,7 +28,7 @@ You can start by reading our guide on [setting up AutoML to train a time-series 
 
 We're always working to make it faster and more scalable! To work as a general forecasting platform, AutoML does extensive data validations, complex feature engineering, and searches over a large model space. This complexity can require a lot of time, depending on the data and the configuration. 
 
-One common source of slow runtime is training AutoML with default settings on data containing numerous time series. The cost of many forecasting methods scales with the number of series. For example, methods like Exponential Smoothing and Prophet train a model for each time series in the training data. See the [model grouping](./how-to-automl-forecasting-methods.md#model-grouping) section for more information. **The Many Models feature of AutoML is designed for these cases** and has been successfully applied to data with millions of time series. See the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) section for more information. You can also read about [the success of our scaling approach](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
+One common source of slow runtime is training AutoML with default settings on data containing numerous time series. The cost of many forecasting methods scales with the number of series. For example, methods like Exponential Smoothing and Prophet [train a model for each time series](./how-to-automl-forecasting-methods.md#model-grouping) in the training data. **The Many Models feature of AutoML scales to these scenarios** by distributing training jobs across a compute cluster and has been successfully applied to data with millions of time series. For more information, see the [forecasting at scale](./how-to-auto-train-forecast.md#forecasting-at-scale) article. You can also read about [the success of Many Models](https://techcommunity.microsoft.com/t5/ai-machine-learning-blog/automated-machine-learning-on-the-m5-forecasting-competition/ba-p/2933391) on a high-profile competition data set.
 
 #### How can I made AutoML faster?
 See the ["why is AutoML slow on my data"](#why-is-automl-slow-on-my-data) answer to understand why it may be slow in your case.
@@ -153,13 +153,13 @@ See the [advanced forecasting scenarios notebook](https://github.com/Azure/Machi
 
 #### How do I view metrics from forecasting training jobs?
 
-See our [metrics in studio UI](./how-to-log-view-metrics.md#view-run-metrics-in-the-studio-ui) guide for finding training and validation metric values. Note that you can view metrics for any forecasting model trained in AutoML by navigating to a model from the AutoML job UI in the studio and clicking on the "metrics" tab.
+See our [metrics in studio UI](./v1/how-to-log-view-metrics.md#view-run-metrics-in-the-studio-ui) guide for finding training and validation metric values. Note that you can view metrics for any forecasting model trained in AutoML by navigating to a model from the AutoML job UI in the studio and clicking on the "metrics" tab.
 
 :::image type="content" source="media/how-to-automl-forecasting-faq/metrics_UI.png" alt-text="A view of the metric interface for an AutoML forecasting model.":::
 
 #### How do I debug failures with forecasting training jobs?
 
-If your AutoML forecasting job fails, you will see an error message in the studio UI that may help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. Check out the [run logs](./how-to-log-view-metrics.md#view-and-download-log-files-for-a-run) guide for instructions on finding driver logs.
+If your AutoML forecasting job fails, you will see an error message in the studio UI that may help to diagnose and fix the problem. The best source of information about the failure beyond the error message is the driver log for the job. Check out the [run logs](./v1/how-to-log-view-metrics.md#view-and-download-log-files-for-a-run) guide for instructions on finding driver logs.
 
 > [!NOTE]
 > For Many Models or HTS job, training is usually on multi-node compute clusters. Logs for these jobs are present for each node IP address. You will need to search for error logs in each node in this case. The error logs, along with the driver logs, are in the `user_logs` folder for each node IP. 

@@ -15,14 +15,15 @@ ms.date: 12/15/2022
 
 # Calendar features for time series forecasting in AutoML
 
+This article focuses on the calendar-based features that AutoML creates to increase the accuracy of forecasting regression models. See the [methods overview article](./how-to-automl-forecasting-methods.md) for more general information about forecasting methodology in AutoML. Instructions and examples for training forecasting models in AutoML can be found in our [set up AutoML for time series forecasting](./how-to-auto-train-forecast.md) article.
+
 In a forecasting job, the time index is the column in the data set, which corresponds to the time axis, that is, the time at which each observation has occurred. Each observation or row within the time series should have a unique (non-overlapping) time index and observed at uniform frequency. Please note that time feature can consist of only date (for example, date formats like "DD/MM/YYYY") or both date and time (for example, formats like "DD/MM/YYYY HH:MM:SS"), but the format should be uniform and parsable in datetime format.<br>
-As a part of feature engineering, we use the `time_column_name` parameter provided in forecast settings of the AutoML job to generate [standard calendar features](#standard-calendar-features) and [holiday features](#holiday-features) as these features help to capture some information on more granular level.<br> 
+As a part of feature engineering, we use the `time_column_name` parameter provided in forecast settings of the AutoML job to generate [standard calendar features](#standard-calendar-features) and [holiday features](#holiday-features) as these features help to capture some information on more granular level.
 
-Please check out [reference links](#quick-reference-links) at the bottom of document for more details.
-<br>
-<br>
+Check out [reference links](#quick-reference-links) for more details.
 
-## Standard Calendar Features
+
+## Standard calendar features
 
 In an AutoML forecasting job, the given time index is decomposed into more granular level consisting of time information. The AutoML job creates features (outof full set of features mntioned below) having variance.
 
@@ -52,10 +53,7 @@ For the given timestamp "2011-01-01 00:25:30" of parsable format ('YY-mm-dd %H-%
 
 The AutoML forecasting job generates these calender features for time index/axis of time series. If the dataset contains other datetime columns besides time index, then the job also use those columns to create a subset of calender features from such columns: "Year", "Month", "Day", "DayOfWeek", "DayOfYear", "QuarterOfYear", "WeekOfMonth", "Hour", "Minute", "Second". Unlike time index, the datetime values in such columns need not be specified at uniform frequency. 
 
-<br>
-<br>
-
-## Holiday Features
+## Holiday features
 
 As mentioned earlier, the Azure AutoML job also creates some features to represent holiday mentioned below:
 
@@ -102,9 +100,6 @@ Once we submit the job for execution, the AutoML will generate the holiday featu
 The output is shown below:
 
 <a name='output'><img src='./media/how-to-automl-forecasting-calendar-features/sample_dataset_holiday_feature_generated.png' alt='sample_data_output' width=75%></img></a>
-
-<br>
-<br>
 
 #### **Quick reference links:**
 
