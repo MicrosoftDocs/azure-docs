@@ -14,6 +14,7 @@ As a developer, you may need to validate that your application build runs correc
 
 Visual Studio enables you to deploy an application, service, or component to other computers, devices, servers, or in the cloud. To deploy an application to a lab VM in Azure DevTest Labs, you first publish the application files to an Azure file share, which you then access from within the lab VM. Learn more about [deployment in Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components).
 
+:::image type="content" source="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png" alt-text="Diagram that shows how to publish an app from Visual Studio to an Azure file share, which is accessed from a lab VM." lightbox="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png":::
 
 Instead of deploying the application directly from the developer workstation, you might [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 
