@@ -36,7 +36,7 @@ To find faces and get their locations in an image, call the [DetectWithUrlAsync]
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for their unique IDs and a rectangle that gives the pixel coordinates of the face. This way, you can tell which face ID maps to which face in the original image.
+You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for the rectangles that gives the pixel coordinates of each face. If you set _returnFaceId_ to `true` (approved customers only), you can get the unique ID for each face, which you can use in later face recognition tasks.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 
