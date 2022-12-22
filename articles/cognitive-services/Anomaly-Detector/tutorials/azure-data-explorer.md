@@ -62,7 +62,7 @@ Then ingest the sample data to Azure Data Explorer by following the [ingestion g
 
 Once ingested, your data should look as follows:
 
-:::image type="content" source="../media/data-explorer/project.png" alt-text="Screenshot of Kusto query with sample data" lightbox="../media/data-explorer/project.png":::
+:::image type="content" source="../media/data-explorer/project.png" alt-text="Screenshot of Kusto query with sample data." lightbox="../media/data-explorer/project.png":::
 
 ## Detect anomalies in an entire time series
 
@@ -113,7 +113,7 @@ ts
 
 After you run the code, you'll render a chart like this:
 
-:::image type="content" source="../media/data-explorer/anomaly.png" alt-text="Screenshot of line chart of anomalies" lightbox="../media/data-explorer/anomaly.png":::
+:::image type="content" source="../media/data-explorer/anomaly.png" alt-text="Screenshot of line chart of anomalies." lightbox="../media/data-explorer/anomaly.png":::
 
 ## Next steps
 
