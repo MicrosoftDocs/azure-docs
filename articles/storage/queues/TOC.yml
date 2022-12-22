@@ -17,10 +17,10 @@
       href: storage-quickstart-queues-dotnet.md
     - name: Java
       href: storage-quickstart-queues-java.md
-    - name: Python
-      href: storage-quickstart-queues-python.md
     - name: JavaScript
       href: storage-quickstart-queues-nodejs.md
+    - name: Python
+      href: storage-quickstart-queues-python.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues

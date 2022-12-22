@@ -1,8 +1,8 @@
 ---
 title: Overview of high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of high availability with Azure Database for PostgreSQL - Flexible Server
-ms.author: srranga
-author: sr-msft
+ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -229,7 +229,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * Restarting the primary database server also restarts standby replica. 
 
-* Configuring additional read replicas are not supported.
+* Configuring additional standbys is not supported.
 
 * Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 

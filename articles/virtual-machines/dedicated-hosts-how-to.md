@@ -1,8 +1,8 @@
 ---
 title: Deploy Azure dedicated hosts
 description: Deploy VMs and scale sets to dedicated hosts.
-author: brittanyrowe
-ms.author: brittanyrowe
+author: vamckMS
+ms.author: vakavuru
 ms.service: azure-dedicated-host
 ms.topic: how-to
 ms.workload: infrastructure
@@ -616,21 +616,20 @@ Tags                   : {}
 
 ---
 
-## Restart a host (Preview)
+## Restart a host
 
 You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
 
-Note: Host restart is in preview.
 
 ### [Portal](#tab/portal)
 1. Search for and select the host.
-1. In the top menu bar, select the **Restart** button. Note, this feature is in Preview.
+1. In the top menu bar, select the **Restart** button. 
 1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
 1. Once the restart has completed, the Host Status will return to **Host available**.
 
 ### [CLI](#tab/cli)
 
-Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart) (Preview).
+Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
 
 ```azurecli-interactive
 az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
@@ -644,7 +643,7 @@ az vm host get-instance-view --resource-group myResourceGroup --host-group myHos
 
 ### [PowerShell](#tab/powershell)
 
-Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) (Preview) command.
+Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) command.
 
 ```azurepowershell-interactive
 Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost
