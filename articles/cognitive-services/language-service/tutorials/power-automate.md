@@ -32,34 +32,34 @@ To automate repetative tasks and bring efficiencies to any organization, you can
 1- [Signin to power automate](https://make.powerautomate.com/)
 
 2- From the left side menu, choose *My flows* and create a *Automated cloud flow*
-:::image type="content" source="../../media/create-flow.png" alt-text="A screenshot of the flow creation." lightbox="../../media/create-flow.png":::
+:::image type="content" source="../media/create-flow.png" alt-text="A screenshot of the flow creation." lightbox="../media/create-flow.png":::
 
 3- Name your flow as *Languageflow*
-:::image type="content" source="../../media/language-flow.png" alt-text="A screenshot of the language flow." lightbox="../../media/language-flow.png":::
+:::image type="content" source="../media/language-flow.png" alt-text="A screenshot of the language flow." lightbox="../media/language-flow.png":::
 
 4- Start by adding a *Manually trigger flow*
-:::image type="content" source="../../media/trigger-flow.png" alt-text="A screenshot of how to manually trigger a flow." lightbox="../../media/trigger-flow.png":::
+:::image type="content" source="../media/trigger-flow.png" alt-text="A screenshot of how to manually trigger a flow." lightbox="../media/trigger-flow.png":::
 
 5- To add a Language connector, search for *Azure Language* 
-:::image type="content" source="../../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../../media/language-connector.png":::
+:::image type="content" source="../media/language-connector.png" alt-text="A screenshot of azure language connectors." lightbox="../media/language-connector.png":::
 
 6- For this tutorial, we will work on extracting named entities from text. To do so, search for *Named entity recognition*
-:::image type="content" source="../../media/entity-connector.png" alt-text="A screenshot of NER connector." lightbox="../../media/entity-connector.png":::
+:::image type="content" source="../media/entity-connector.png" alt-text="A screenshot of NER connector." lightbox="../media/entity-connector.png":::
 
 7- Add your language endpoint and key to be used for authentication 
-:::image type="content" source="../../media/language-auth.png" alt-text="A screenshot of language key and endpoint." lightbox="../../media/language-auth.png":::
+:::image type="content" source="../media/language-auth.png" alt-text="A screenshot of language key and endpoint." lightbox="../media/language-auth.png":::
 
 8- Add the data in the connector
-:::image type="content" source="../../media/ner-connector.png" alt-text="A screenshot of the NER connector." lightbox="../../media/ner-connector.png":::
+:::image type="content" source="../media/ner-connector.png" alt-text="A screenshot of the NER connector." lightbox="../media/ner-connector.png":::
 
 > [!NOTE]
 > You will need deployment name and project name if you are using custom language capabilites
 
 9- From the top bar, save and test the flow
-:::image type="content" source="../../media/test-connector.png" alt-text="A screenshot of how to run the flow." lightbox="../../media/test-connector.png":::
+:::image type="content" source="../media/test-connector.png" alt-text="A screenshot of how to run the flow." lightbox="../media/test-connector.png":::
 
 10- After the flow runs, you should see the response in the outputs field
-:::image type="content" source="../../media/response-connector.png" alt-text="A screenshot of flow response." lightbox="../../media/response-connector.png":::
+:::image type="content" source="../media/response-connector.png" alt-text="A screenshot of flow response." lightbox="../media/response-connector.png":::
 
 
 
