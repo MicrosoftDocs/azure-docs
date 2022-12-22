@@ -33,7 +33,7 @@ These pre-created environments also allow for faster deployment time.
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target.
 Also be sure to include any dependencies needed for model deployment.
-These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring a Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
+These types of environments are represented by two subtypes. For the first type, BYOC (bring your own container), you bring an existing Docker image to AzureML. For the second type, Docker build context based environments, AzureML materializes the image from the context that you provide.
 
 System-managed environments are used when you want conda to manage the Python environment for you.
 A new isolated conda environment is materialized from your conda specification on top of a base Docker image. By default, common properties are added to the derived image.
@@ -94,7 +94,7 @@ for your jobs or model deployments while using system-managed environments.
 
 Associated to your Azure Machine Learning workspace is an Azure Container Registry instance that's used as a cache for container images. Any image
 materialized is pushed to the container registry and used if experimentation or deployment is triggered for the corresponding environment. Azure
-Machine Learning doesn't delete any image from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. Users
+Machine Learning doesn't delete images from your container registry, and it's your responsibility to evaluate which images you need to maintain over time. You
 can monitor and maintain environment hygiene with [Microsoft Defender for Container Registry](../defender-for-cloud/defender-for-containers-vulnerability-assessment-azure.md)
 to help scan images for vulnerabilities. To
 automate this process based on triggers from Microsoft Defender, see [Automate responses to Microsoft Defender for Cloud triggers](../defender-for-cloud/workflow-automation.md).
@@ -687,11 +687,11 @@ Ensure that all packages you've listed are spelled correctly and that any pinned
 
 ### Missing command
 <!--issueDescription-->
-This issue can happen a command isn't recognized during an image build.
+This issue can happen when a command isn't recognized during an image build.
 
 **Potential causes:**
-* The command was spelled incorrectly and therefore wasn't recognized
-* The command can't be executed because the necessary package isn't installed
+* The command wasn't spelled correctly
+* The command can't be executed because a required package isn't installed
 
 **Affected areas (symptoms):**
 * Failure in building environments from UI, SDK, and CLI.
@@ -810,10 +810,10 @@ Name: my_environment
 
 ### No matching distribution 
 <!--issueDescription-->
-This issue can happen when there's no package found for the version that you specified.
+This issue can happen when there's no package found that matches the version you specified.
 
 **Potential causes:**
-* The package was spelled incorrectly
+* The package name was spelled incorrectly
 * The package and version can't be found on the channels or feeds that you specified
 * The version you specified doesn't exist
 
