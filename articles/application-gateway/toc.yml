@@ -41,6 +41,8 @@
     href: tutorial-ingress-controller-add-on-new.md
   - name: Ingress Controller add-on for AKS (Brownfield)
     href: tutorial-ingress-controller-add-on-existing.md
+  - name: Deploy Application Gateway with DDoS protection
+    href: tutorial-protect-application-gateway.md
 - name: Samples
   items:
   - name: Azure PowerShell
