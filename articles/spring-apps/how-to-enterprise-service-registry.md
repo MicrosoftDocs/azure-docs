@@ -451,6 +451,37 @@ This command produces the following output.
 
 In this way, you can obtain detailed information from the program as needed.
 
+## Enable/Disable Service Registry after service creation
+
+You can enable/disable Service Registry after service creation using Azure portal or Azure CLI. Please unbind all of your apps to Service Registry before deleting it.
+
+### [Azure portal](#tab/Portal)
+
+Use the following steps to enable/disable Service Registry using the Azure portal:
+
+1. Navigate to your service resource, and then select **Service Registry**.
+1. Select **Manage tools**.
+
+1. Check/Uncheck the **Enable Service Registry** checkbox, and then select **Save**.
+
+1. You can then view the state of Service Registry on the **Service Registry**.
+
+### [Azure CLI](#tab/Azure-CLI)
+
+Use the following Azure CLI commands to enable/disable Service Registry:
+
+```azurecli
+az spring service-registry create \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
+```azurecli
+az spring service-registry delete \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name>
+```
+
 ## Next steps
 
 - [Create Roles and Permissions](./how-to-permissions.md)
