@@ -9,8 +9,6 @@ ms.author: yelevin
 
 # Migrate your Microsoft Sentinel alert-trigger playbooks to automation rules
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article explains how (and why) to take your existing playbooks built on the alert trigger and migrate them from being invoked by analytics rules to being invoked by automation rules.
 
 ## Why to migrate
