@@ -19,6 +19,9 @@ This article will show you how to use R on a compute instance in Azure Machine L
 
 Many R users also use RStudio, a popular IDE. You can install RStudio or Posit Workbench in a custom container on a compute instance.  However, there are limitations with the container in reading and writing to your Azure Machine Learning workspace.  
 
+> [!IMPORTANT]
+> The code shown in this article works on an Azure Machine Learning compute instance.  The compute instance has environment and configuration file necessary for the code to run successfully.  
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
@@ -70,6 +73,12 @@ The install script performs the following steps:
 ### Read tabular data from registered _data assets_ or _datastores_
 
 Use these steps to read a tabular file data asset [created in Azure Machine Learning](how-to-create-data-assets.md?tabs=cli#create-a-uri_file-data-asset) into an R `data.frame`:
+
+1. Ensure you have the correct version of `reticulate`.  If the version is less than 1.26, try to run on a newer compute instance.
+
+    ```r
+    packageVersion("reticulate")
+    ``` 
 
 1. Load `reticulate`
 
