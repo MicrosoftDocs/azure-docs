@@ -85,7 +85,7 @@ The user account that creates the clusters must have the standard Azure resource
 
 After you create your cluster resource, you can edit additional properties such as *sku*, *keyVaultProperties, or *billingType*. See more details below.
 
-You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to seven active and reserved clusters per subscription per region.
+You can have up to five active clusters per subscription per region. If the cluster is deleted, it is still reserved for 14 days. You can have up to seven clusters per subscription and region, five active, plus two deleted in past 14 days.
 
 > [!NOTE]
 > Cluster creation triggers resource allocation and provisioning. This operation can take a few hours to complete.
@@ -594,7 +594,7 @@ The cluster's billing stops when deleted, regardless the 30 days commitment tier
 If you delete your cluster while workspaces are linked, Workspaces get automatically unlinked from the cluster before the cluster delete, and new data sent to workspaces gets ingested to Log Analytics store instead. If the retention of data in workspaces older than the period it was linked to the cluster, you can query workspace for the time range before the link to cluster and after the unlink, and the service performs cross-cluster queries seamlessly.
 
 > [!NOTE] 
-> - There is a limit of seven clusters per subscription, five active, plus two deleted in past 14 days.
+> - There is a limit of seven clusters per subscription and region, five active, plus two deleted in past 14 days.
 > - Cluster's name remain reserved for 14 days after deletion, and can't be used for creating a new cluster.
 
 Use the following commands to delete a cluster:
@@ -636,7 +636,7 @@ Authorization: Bearer <token>
 
 - A maximum of five active clusters can be created in each region and subscription.
 
-- A maximum number of seven reserved clusters (active or recently deleted) can exist in each region and subscription.
+- A maximum of seven cluster allowed per subscription and region, five active, plus two deleted in past 14 days.
 
 - A maximum of 1,000 Log Analytics workspaces can be linked to a cluster.
 
