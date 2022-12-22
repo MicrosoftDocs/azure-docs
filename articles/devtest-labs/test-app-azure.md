@@ -54,9 +54,9 @@ To publish your app to your Azure file share from Visual Studio:
 
 1. On the **Additional information** page, keep the defaults and select **Create**.
 
-1. In Visual Studio **Solution Explorer**, right-click your project name, and select **Build**.
+1. In Visual Studio **Solution Explorer**, select and hold your project name, and select **Build**.
 
-1. When the build succeeds, in **Solution Explorer**, right-click your project name, and select **Publish**.
+1. When the build succeeds, in **Solution Explorer**, select and hold your project name, and select **Publish**.
 
    :::image type="content" source="./media/test-app-in-azure/publish-application.png" alt-text="Screenshot of selecting Publish from Solution Explorer." lightbox="./media/test-app-in-azure/publish-application.png":::
 
