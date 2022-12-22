@@ -72,12 +72,16 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-* [Azure Functions](../azure-functions/index.yml). See [Azure IoT Hub bindings for Azure Functions](../azure-functions/functions-bindings-event-iot.md).
-* [Azure Stream Analytics](../stream-analytics/index.yml). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series Insights](../time-series-insights/index.yml). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
-* [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
-* [Apache Kafka](https://kafka.apache.org/). For more information, see the [Apache Kafka developer guide for Event Hubs](../event-hubs/apache-kafka-developer-guide.md).
-* [Azure Databricks](/azure/azure-databricks/).
+* [Azure Functions](../azure-functions/index.yml)
+    For more information, see [Azure IoT Hub bindings for Azure Functions](../azure-functions/functions-bindings-event-iot.md).
+* [Azure Stream Analytics](../stream-analytics/index.yml)
+    For more information, see [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Azure Time Series Insights](../time-series-insights/index.yml)
+    For more information, see [Add an IoT hub event source to your Azure Time Series Insight environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
+* [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Kafka](https://kafka.apache.org/)
+    For more information, see the [Apache Kafka developer guide for Azure Event Hubs](../event-hubs/apache-kafka-developer-guide.md).
+* [Azure Databricks](/azure/databricks/)
 
 ## Use AMQP-WS or a proxy with Event Hubs SDKs
 
@@ -93,9 +97,6 @@ You can use the Event Hubs SDKs to read from the built-in endpoint in environmen
 ## Next steps
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
-
 * The [Quickstarts](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. 
-
-For more detail, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
-
+    For more information, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
 * If you want to route your device-to-cloud messages to custom endpoints, see [Use message routes and custom endpoints for device-to-cloud messages](iot-hub-devguide-messages-read-custom.md).
