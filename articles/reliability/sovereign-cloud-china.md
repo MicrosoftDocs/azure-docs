@@ -30,6 +30,15 @@ This section outlines variations and considerations when using Azure Bot Service
 | Cognitive Services: Speech|For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../cognitive-services/translator/sovereign-clouds.md?tabs=china).|
 
 
+### Azure AD External Identities
+
+This section outlines variations and considerations when using Azure AD External Identities B2B collaboration.  
+
+| Product | Unsupported, limited, and/or modified features | Notes |
+|---------|--------|------------|
+| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Azure China, see [Azure AD B2B in national clouds](/azure/active-directory/external-identities/b2b-government-national-clouds) and [Microsoft cloud settings (Preview)](/azure/active-directory/external-identities/cross-cloud-settings).  |
+
+
 ### Media
 
 This section outlines variations and considerations when using Media services.
