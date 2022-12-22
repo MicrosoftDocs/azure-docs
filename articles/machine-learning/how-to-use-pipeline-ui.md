@@ -108,7 +108,7 @@ You can edit your pipeline and then submit again. After submitting, you can see 
 
 ## Compare different pipelines to debug failure or other unexpected issues (preview)
 
-Pipeline comparison identifies the differences (including topology, component properties, and job properties) between multiple jobs, for example: a successful one and a failed one, which helps you find what modifications make your pipeline fail.
+Pipeline comparison identifies the differences (including topology, component properties, and job properties) between multiple jobs. For example you can compare a successful pipeline and a failed pipeline, which helps you find what modifications make your pipeline fail.
 
 Two major scenarios where you can use pipeline comparison to help with debugging:
 
@@ -123,7 +123,7 @@ To enable this feature:
 
 :::image type="content" source="./media/how-to-use-pipeline-ui/enable-preview.png" alt-text="Screenshot of manage preview features toggled on." lightbox= "./media/how-to-use-pipeline-ui/enable-preview.png":::
 
-### How to debug your failed pipeline job by comparing to a completed one
+### How to debug your failed pipeline job by comparing it to a completed one
 
 During iterative model development, you may have a baseline pipeline, and then do some modifications such as changing a parameter, dataset or compute resource, etc. If your new pipeline failed, you can use pipeline comparison to identify what has changed by comparing it to the baseline pipeline, which could help with figuring out why it failed.
 
@@ -144,7 +144,7 @@ For example, you may get an error message showing that your pipeline failed due 
 
 ### Compare topology
 
-Once the two pipelines are added to the comparison list, you'll have two options: **Compare detail** and **Compare graph**. The **Compare graph** is to compare pipeline topology.
+Once the two pipelines are added to the comparison list, you'll have two options: **Compare detail** and **Compare graph**. **Compare graph** allows you to compare pipeline topology.
 
 **Compare graph** shows you the graph topology changes between pipeline A and B. The special nodes in pipeline A are highlighted in red and marked with "A only". The special nodes in pipeline B are in green and marked with "B only". The shared nodes are in gray. If there are differences on the shared nodes, what has been changed is shown on the top of node.
 
@@ -182,7 +182,7 @@ If you only updated node properties and changed nothing in the pipeline, then yo
 1. Find a successful job to compare with by viewing all runs submitted from the same component.
     1. Right select the failed node and select *View Jobs*. This will give you a list of all the jobs.
   
-    :::image type="content" source="./media/how-to-use-pipeline-ui/view-jobs.png" alt-text="Screenshot that shows a failed node with view jobs highlighted." lightbox= "./media/how-to-use-pipeline-ui/view-jobs.png":::
+        :::image type="content" source="./media/how-to-use-pipeline-ui/view-jobs.png" alt-text="Screenshot that shows a failed node with view jobs highlighted." lightbox= "./media/how-to-use-pipeline-ui/view-jobs.png":::
 
     1. Choose a completed job as a comparison target.
 1. After you found a failed and completed job to compare with, add the two jobs to the comparison candidate list.
@@ -230,7 +230,7 @@ To enable this feature:
 
     If you select the log icon next the node name it will open the detail page, which shows parameter, code, outputs, logs etc.
 
-    :::image type="content" source="./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page. " lightbox= "./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png":::
+    :::image type="content" source="./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page." lightbox= "./media/how-to-use-pipeline-ui/detail-page-from-log-icon.png":::
 
     If you're trying to make the queue time shorter for a node, you can change the compute node number and modify job priority to get more compute resources on this one.
 
