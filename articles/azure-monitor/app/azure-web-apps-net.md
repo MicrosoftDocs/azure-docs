@@ -8,7 +8,7 @@ ms.custom: devx-track-dotnet
 ms.reviewer: abinetabate
 ---
 
-# Application Monitoring for Azure App Service and ASP.NET
+# Application monitoring for Azure App Service and ASP.NET
 
 Enabling monitoring on your ASP.NET-based web applications running on [Azure App Service](../../app-service/index.yml) is now easier than ever. Previously, you needed to manually instrument your app. Now the latest extension/agent is built into the App Service image by default. This article will walk you through enabling Azure Monitor Application Insights monitoring and provide preliminary guidance for automating the process for large-scale deployments.
 
