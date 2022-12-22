@@ -39,11 +39,19 @@ When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub
 
 1. Click **Built-in endpoints**.
 
-1. The **Events** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Event Hub-compatible endpoint**, **Retention time**, and **Consumer groups**.
+1. The **Build-in endpoints** blade contains three sections:
+    
+    - The **Event Hub Details** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Retain for**, and **Consumer Groups**.
+    - The **Event Hub compatible endpoint** section contains the following values: **Shared access policy** and **Event Hub-compatible endpoint**.
+    - The **Cloud to device messaging** section contains the following values: **Default TTL**, **Feedback retention time**, and **Maximum delivery count**.
 
     :::image type="content" source="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png" alt-text="Screen capture showing device-to-cloud settings." lightbox="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png":::
 
-In the portal, the Event Hub-compatible endpoint field contains a complete Event Hubs connection string that looks like: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. If the SDK you're using requires other values, then they would be:
+In the portal, the **Event Hub-compatible endpoint** field contains a complete Event Hubs connection string that looks like the following example:
+
+*Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456*
+
+If the SDK you're using requires other values, then they would be:
 
 | Name | Value |
 | ---- | ----- |
@@ -51,7 +59,7 @@ In the portal, the Event Hub-compatible endpoint field contains a complete Event
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
-You can then choose any shared access policy from the drop-down, as shown in the previous screenshot. It only shows policies that have the **ServiceConnect** permissions to connect to the specified event hub.
+You can then choose any shared access policy from the **Shared access policy** drop-down, as shown in the previous screenshot. It only shows policies that have the **ServiceConnect** permissions to connect to the specified event hub.
 
 The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
