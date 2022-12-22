@@ -68,8 +68,8 @@ The following table provides a summary of known issues carried over from the pre
   |No.  |Feature  | Issue |
   |-----|-----|-----|
   | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
-  | 2 | Packet forwarding  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
-  | 3 | Local dashboards  | Azure Private 5G Core local dashboards may show incorrect values in some graphs (e.g. session counts) after a power cycle of the server.   | 
+  | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
+
 
 
 

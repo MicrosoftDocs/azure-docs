@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Normalization and the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
 

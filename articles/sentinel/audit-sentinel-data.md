@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # Audit Microsoft Sentinel queries and activities
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article describes how you can view audit data for queries run and activities performed in your Microsoft Sentinel workspace, such as for internal and external compliance requirements in your Security Operations (SOC) workspace.
 
 Microsoft Sentinel provides access to:
