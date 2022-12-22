@@ -39,7 +39,7 @@ When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub
 
 1. Select **Built-in endpoints** from the resource menu, under **Hub settings**.
 
-1. The **Build-in endpoints** working pane contains three sections:
+1. The **Built-in endpoints** working pane contains three sections:
     
     - The **Event Hub Details** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Retain for**, and **Consumer Groups**.
     - The **Event Hub compatible endpoint** section contains the following values: **Shared access policy** and **Event Hub-compatible endpoint**.
