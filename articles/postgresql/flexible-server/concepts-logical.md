@@ -29,6 +29,7 @@ Logical replication and logical decoding have several similarities. They both:
 
 
 The two technologies have their differences:
+
 Logical replication: 
 * Allows you to specify a table or set of tables to be replicated.
 
