@@ -36,7 +36,7 @@ These two functions are user-defined [tabular functions](/azure/data-explorer/
 
 These two functions are available to use either in Azure Data Explorer website or in the Kusto Explorer application.  
 
-:::image type="content" source="../media/data-explorer/way-of-use.png" alt-text="Screenshot of Azure Data Explorer and Kusto Explorer" lightbox="../media/data-explorer/way-of-use.png":::
+![Screenshot of Azure Data Explorer and Kusto Explorer](../media/data-explorer/way-of-use.png)
 
 ## Create resources
 
@@ -113,7 +113,7 @@ ts
 
 After you run the code, you'll render a chart like this:
 
-![Screenshot of line chart of anomalies](../media/data-explorer/anomaly.png)
+:::image type="content" source="../media/data-explorer/anomaly.png" alt-text="Screenshot of line chart of anomalies" lightbox="../media/data-explorer/anomaly.png":::
 
 ## Next steps
 
