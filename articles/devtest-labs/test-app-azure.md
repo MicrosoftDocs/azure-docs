@@ -1,15 +1,21 @@
 ---
-title: Set up an app for testing on a lab VM
-description: Learn how to publish an app to an Azure file share for testing from a DevTest Labs virtual machine.
+title: Publish apps from Visual Studio to a lab VM
+titleSuffix: Azure DevTest Labs
+description: Learn how to publish an app from Visual Studio to an Azure file share for testing from a DevTest Labs virtual machine.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/29/2022
+ms.date: 12/22/2022
 ---
 
-# Set up an app for testing on an Azure DevTest Labs VM
+# Publish app for testing on an Azure DevTest Labs VM
 
-This article shows how to set up an application for testing from an Azure DevTest Labs virtual machine (VM). In this example, you use Visual Studio to publish an app to an Azure file share. Then you access the file share from a lab VM for testing.
+As a developer, you may need to validate that your application build runs correctly on another operating system than your developer workstation. You might also distribute an application build for installation and testing by the test team. In this article, you learn how to publish an application from Visual Studio for testing from an Azure DevTest Labs virtual machine (VM).
+
+Visual Studio enables you to deploy an application, service, or component to other computers, devices, servers, or in the cloud. To deploy an application to a lab VM in Azure DevTest Labs, you first publish the application files to an Azure file share, which you then access from within the lab VM. Learn more about [deployment in Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components).
+
+
+Instead of deploying the application directly from the developer workstation, you might [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 
 ## Prerequisites
 
@@ -75,8 +81,11 @@ You can now test your app on your lab VM.
 
 ## Next steps
 
-See the following articles to learn how to use VMs in a lab. 
+See the following articles to learn how to use VMs in a lab.
 
+- Learm more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).
 - [Add a VM to a lab](devtest-lab-add-vm.md)
 - [Restart a lab VM](devtest-lab-restart-vm.md)
 - [Resize a lab VM](devtest-lab-resize-vm.md)
+- 
+- 
