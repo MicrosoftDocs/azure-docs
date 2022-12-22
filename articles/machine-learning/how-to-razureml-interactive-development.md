@@ -25,6 +25,26 @@ Many R users also use RStudio, a popular IDE. You can install RStudio or Posit W
 - An [Azure Machine Learning workspace and a compute instance](quickstart-create-resources.md)
 - A basic understand of using Jupyter notebooks in Azure Machine Learning studio.  For more information, see [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md)
 
+## Run R in a notebook in studio
+
+You'll use a notebook in your Azure Machine Learning workspace, on a compute instance.  
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
+1. Open your workspace it if isn't already open
+1. On the left navigation, select **Notebooks**
+1. Create a new notebook, named **RunR.ipynb**
+
+    > [!TIP]
+    > If you're not sure how to create and work with notebooks in studio, review [Quickstart: Run Jupyter notebooks in studio](quickstart-run-notebooks.md).
+
+1. Select the notebook
+1. On the notebook toolbar, make sure your compute instance is running.  If not, start it now.
+1. On the notebook toolbar, switch the kernel to **R**.
+
+    :::image type="content" source="media/how-to-razureml-interactive-development/r-kernel.png" alt-text="Screenshot: Switch the notebook kernel to use R.":::
+
+Your notebook is now ready for you to run R commands.
+
 ## Access data
 
 You can upload files to your workspace file storage and access them in R.  But for larger files, stored in Azure [_data assets_ or data from _datastores_](concept-data.md), you first need to install a few packages.
@@ -33,12 +53,11 @@ This section describes how to use Python and the `reticulate` package to load yo
 
 To install these packages:
 
-1. Create a new file on the compute instance, called setup.sh.  
+1. Create a new file on the compute instance, called **setup.sh**.  
 1. Copy this code into the file:
 
     :::code language="bash" source="~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/01-setup-env-for-r-azureml/ci-setup-interactive-r.sh":::
 
-    @@MARCK: NEED TO UPDATE TO USE azureml_py310_sdkv2
 
 1. Select  **Save and run script in terminal** to run the script
 
@@ -87,17 +106,12 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     py_run_string(py_code)
     # your uri is now available in the variable py$data_uri
     ```
-
-    > [!TIP]
-    > The above code assumes you are running a notebook on the compute instance, using the R kernel.  Authentication is accomplished by reading a file, **config.json**, that is stored on the compute instance file storage. If you are running the code locally, you'll need to [download the configuraion file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
     
 1. Use Pandas read functions to read in the file(s) into the R environment
 
     ```r
     r_dataframe <- pd$read_csv(py$data_uri)
     ```
-
-You've now created a Python virtual environment with the appropriate Python packages to be able to read data.
 
 ## Install R packages
 
