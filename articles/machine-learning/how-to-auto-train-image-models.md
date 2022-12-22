@@ -541,9 +541,8 @@ Currently the augmentations defined above are applied by default for an Automate
 For Yolo model, this flag turns off the random affine and horizontal flip augmentation.
 
 These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
-# [Azure CLI](#tab/cli)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+ [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
