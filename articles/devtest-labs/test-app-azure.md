@@ -79,11 +79,17 @@ Visual Studio publishes your application to the file share.
 
 ## Mount the file share to your lab VM
 
+To access the application files in the Azure file share, you need to first mount the share to your lab VM.
+
+Follow these steps to [mount the Azure file share to your lab VM](/azure/storage/files/storage-how-to-use-files-windows#mount-the-azure-file-share).
+
 ## Access the app on your lab VM
 
-1. Connect to your lab test VM.
+When you connect to your lab VM, you can now access the application files from the mounted file share.
 
-1. On the lab VM, start up **File Explorer**, select **This PC**, and find the file share you mounted earlier.
+1. [Connect to your lab test VM by using RDP](./connect-windows-virtual-machine.md).
+
+1. On the lab VM, start **File Explorer**, select **This PC**, and find the file share you mounted earlier.
 
    :::image type="content" source="./media/test-app-in-azure/find-share-on-vm.png" alt-text="Screenshot of the file share in the V M's File Explorer.":::
 
@@ -91,15 +97,11 @@ Visual Studio publishes your application to the file share.
 
    :::image type="content" source="./media/test-app-in-azure/open-file-share.png" alt-text="Screenshot of contents of file share.":::
 
-You can now test your app on your lab VM.
+You can now run and test your app on your lab VM.
 
 ## Next steps
 
-See the following articles to learn how to use VMs in a lab.
+You have published an application directly from Visual Studio on your developer workstation into your lab VM.
 
+- Learn how you can [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 - Learn more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).
-- [Add a VM to a lab](devtest-lab-add-vm.md)
-- [Restart a lab VM](devtest-lab-restart-vm.md)
-- [Resize a lab VM](devtest-lab-resize-vm.md)
-- 
-- 
