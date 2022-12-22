@@ -186,7 +186,7 @@ You complete the steps by using Visual Studio Code with the Azure IoT Hub extens
    - **Edit**: Clear any existing text, and then paste the following JSON.
 
      > [!TIP]
-     > You can use the **Copy** option in in the right corner of the test message, and then paste it in **Edit**.
+     > You can use the **Copy** option in in the right corner of the below test message, and then paste it in **Edit** option.
 
      ```json
      {
