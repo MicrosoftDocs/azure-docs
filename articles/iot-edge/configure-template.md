@@ -11,7 +11,9 @@ ms.service: iot-edge
 
 # Configure the template
 
-This article shows best practices and options for configuring the `template-toml` file found in a Debian package. Each of the sections of the `template.toml` file has several options and those will be explained.
+This article shows best practices and options for configuring the `template-toml` file found in a Debian package. Each of the sections of the `template.toml` file has several options and those will be explained. Not all options are mandatory, as they apply to specific scenarios.
+
+The complete template can be found in GitHub: [template.toml](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
 
 ## Device names
 
