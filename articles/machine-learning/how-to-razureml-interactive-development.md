@@ -90,6 +90,9 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     ```
 
 1. Find the URI path to the data file. In the code below, replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
+
+    > [!TIP]
+    > In studio, select **Data** in the left navigation to find your data asset's name and version number.
     
     ```r
     py_code <- "from azure.identity import DefaultAzureCredential
