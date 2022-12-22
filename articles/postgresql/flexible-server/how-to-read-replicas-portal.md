@@ -130,7 +130,7 @@ The **Max Physical Replication Lag** metric shows the lag in bytes between the p
 
 2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics blade showing Max Physical Replication Lag metric. :::
+    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Screenshot of the Metrics blade showing Max Physical Replication Lag metric.":::
        
     :::image-end:::
 
