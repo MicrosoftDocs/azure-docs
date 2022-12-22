@@ -3,7 +3,7 @@ title: Concepts - Network design considerations
 description: Learn about network design considerations for Azure VMware Solution
 ms.topic: conceptual
 ms.service: azure-vmware
-ms.date: 08/19/2022
+ms.date: 12/22/2022
 ---
 
 # Azure VMware Solution network design considerations
@@ -12,14 +12,14 @@ Azure VMware Solution offers a VMware private cloud environment accessible for u
 
 ## Azure VMware Solution compatibility with AS-Path Prepend
 
-Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises.  If you're running 2 or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are true; you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses ECMP to send traffic towards your environment over both ExR circuits. That action causes issues with stateful firewall inspection.
+Azure VMware Solution is incompatible with AS-Path Prepend for redundant ExpressRoute configurations and doesn't honor the outbound path selection from Azure towards on-premises. If you're running two or more ExpressRoute paths between on-premises and Azure, and the listed [Prerequisites](#prerequisites) are not met, you may experience impaired connectivity or no connectivity between your on-premises networks and Azure VMware Solution. The connectivity issue is caused when Azure VMware Solution doesn't see the AS-Path Prepend and uses equal cost multi-pathing (ECMP) to send traffic towards your environment over both ExpressRoute circuits. That action causes issues with stateful firewall inspection.
 
 ### Prerequisites
 
 For AS-Path Prepend, you'll need to verify that all of the following listed connections are true:
 
 > [!div class="checklist"]
-> * Both or all circuits are connected to Azure VMware Solution with global reach.
+> * Both or all circuits are connected to Azure VMware Solution with ExpressRoute Global Reach.
 > * The same netblocks are being advertised from two or more circuits.
 > * Stateful firewalls are in the network path.
 > * You're using AS-Path Prepend to force Azure to prefer one path over others.
@@ -29,7 +29,7 @@ Either 2 or 4 byte Public ASN numbers should be used and be compatible with Azur
 ## Management VMs and default routes from on-premises
 
 > [!IMPORTANT]
-> Azure VMware Solution Management VMs don't honor a default route from on-premises.
+> Azure VMware Solution Management VMs will not honor a default route from on-premises.
 
 If you're routing back to your on-premises networks using only a default route advertised towards Azure, the vCenter Server and NSX-T Manager VMs won't be compatible with that route.
 
