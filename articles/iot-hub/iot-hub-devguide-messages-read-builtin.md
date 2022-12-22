@@ -2,7 +2,6 @@
 title: Understand the Azure IoT Hub built-in endpoint | Microsoft Docs
 description: This article describes how to use the built-in, Event Hub-compatible endpoint to read device-to-cloud messages.
 author: kgremban
-
 ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
@@ -20,11 +19,11 @@ By default, messages are routed to the built-in service-facing endpoint (**messa
 | **Partition count** | Set this property at creation to define the number of [partitions](../event-hubs/event-hubs-features.md#partitions) for device-to-cloud event ingestion. |
 | **Retention time**  | This property specifies how long in days messages are retained by IoT Hub. The default is one day, but it can be increased to seven days. |
 
-IoT Hub allows data retention in the built-in Event Hubs for a maximum of 7 days. You can set the retention time during creation of your IoT hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in Event Hubs can retain messages of the maximum message size up to at least 24 hours of quota. For example, for 1 S1 unit IoT hub provides enough storage to retain at least 400K messages of 4k size each. If your devices are sending smaller messages, they may be retained for longer (up to 7 days) depending on how much storage is consumed. We guarantee retaining the data for the specified retention time as a minimum. Messages will expire and will not be accessible after the retention time has passed. 
+IoT Hub allows data retention in the built-in Event Hubs for a maximum of seven days. You can set the retention time during creation of your IoT hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in Event Hubs can retain messages of the maximum message size up to at least 24 hours of quota. For example, one S1 unit IoT hub provides enough storage to retain at least 400 K messages, at 4 Kb per message. If your devices are sending smaller messages, they may be retained for longer (up to seven days) depending on how much storage is consumed. We guarantee to retain the data for the specified retention time as a minimum. After the retention time has passed, messages expire and become inaccessible. 
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint. You can have up to 20 consumer groups for each IoT hub.
 
-If you're using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, all messages that don't match a query on any route go to the built-in endpoint. If you disable this fallback route, messages that don't match any query are dropped.
+If you're using [message routing](iot-hub-devguide-messages-d2c.md) and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, all messages which don't match a query on any route go to the built-in endpoint. If you disable this fallback route, all messages which don't match any query are dropped.
 
 You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource), or with the [Azure portal](https://portal.azure.com).
 
@@ -42,7 +41,7 @@ When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub
 
 1. The **Events** section contains the following values: **Partitions**, **Event Hub-compatible name**, **Event Hub-compatible endpoint**, **Retention time**, and **Consumer groups**.
 
-    ![Device-to-cloud settings](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    :::image type="content" source="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png" alt-text="Screen capture showing device-to-cloud settings." lightbox="./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png":::
 
 In the portal, the Event Hub-compatible endpoint field contains a complete Event Hubs connection string that looks like: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. If the SDK you're using requires other values, then they would be:
 
@@ -52,7 +51,7 @@ In the portal, the Event Hub-compatible endpoint field contains a complete Event
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
-You can then choose any shared access policy from the drop-down as shown in the screenshot above. It only shows policies that have the **ServiceConnect** permissions to connect to the specified event hub.
+You can then choose any shared access policy from the drop-down, as shown in the previous screenshot. It only shows policies that have the **ServiceConnect** permissions to connect to the specified event hub.
 
 The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
