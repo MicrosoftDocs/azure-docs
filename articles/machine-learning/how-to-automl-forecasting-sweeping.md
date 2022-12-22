@@ -45,20 +45,12 @@ The model with the top ranked metric value at the end of phase 3 is designated t
 > [!IMPORTANT]
 > AutoML's final phase of model selection always calculates metrics on **out-of-sample** data. That is, data that was not used to fit the models. This helps to protect against over-fitting.
 
-AutoML has two validation configurations - cross-validation and explicit validation data. In the cross-validation case, AutoML uses the input configuration to create data splits into training and validation folds. Time order must be preserved in these splits, so AutoML uses so-called **Rolling Origin Cross Validation** which divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and mitigates the risk of information leakage.  
+AutoML has two validation configurations - cross-validation and explicit validation data. In the cross-validation case, AutoML uses the input configuration to create data splits into training and validation folds. Time order must be preserved in these splits, so AutoML uses so-called **Rolling Origin Cross Validation** which divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. Each validation fold contains the next horizon of observations immediately following the position of the origin for the given fold. This strategy preserves the time series data integrity and mitigates the risk of information leakage.  
 
 :::image type="content" source="media/how-to-auto-train-forecast/rolling-origin-cross-validation.png" alt-text="Diagram showing cross validation folds separating the training and validation sets based on the cross validation step size.":::
 
-Cross-validation for forecasting jobs is configured by setting the number of cross-validation folds and, optionally, the number of time periods between two consecutive cross-validation folds. These are respectively named `n_cross_validations` and `cv_step_size` in the AutoML SDK. Both parameters have "auto" settings wherein AutoML determines their values based on data heuristics. For example, here we can create an [AutoMLConfig](#configure-experiment) object with automatic cross-validation settings:
+AutoML follows the usual cross-validation procedure, training a separate model on each fold and averaging validation metrics from all folds. 
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+Cross-validation for forecasting jobs is configured by setting the number of cross-validation folds and, optionally, the number of time periods between two consecutive cross-validation folds. See the [training and validation data](./how-to-auto-train-forecast.md#training-and-validation-data) guide for more information and an example of configuring cross-validation for forecasting.
 
-```python
-automl_config = AutoMLConfig(task='forecasting',
-                             training_data= training_data,
-                             n_cross_validations="auto", # Can also be a positive integer
-                             cv_step_size = "auto", # Can also be a positive integer
-                             ...
-                             **time_series_settings)
-```
-You can also bring your own validation data, and specify it in `AutoMLConfig`. Learn more in [Configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+You can also bring your own validation data. Learn more in the [configure data splits and cross-validation in AutoML](how-to-configure-cross-validation-data-splits.md#provide-validation-data) article.
