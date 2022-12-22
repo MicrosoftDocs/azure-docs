@@ -534,7 +534,7 @@ In general, deep learning model performance can often improve with more data. Da
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
 Currently the augmentations defined above are applied by default for an Automated ML job. To provide control over augmentations, Automated ML expose flags to turn-off certain augmentations. Currently, these flags are only supported for object detection and instance segmentation tasks. We expose following two flags to turn-off the augmentations.
- 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model and turns off the mosaic data augmentation which is applied at the train time.
+ 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model. Setting it to False turns off the mosaic data augmentation which is applied at the training time.
  2. **apply_automl_train_augmentations:** This flag turns off the augmentation applied at the train time to the object detection and instance segmentation models. For augmentations, please see the details in the table above. Please note that for non-yolo object detection model and instance segmentation model, this flag turns off only first three augmentations i.e. *Random crop around bounding boxes, expand, horizontal flip*. The normalization and resize augmentation is still applied regardless of this flag.
 For Yolo model, this flag turns off the random affine and horizontal flip augmentation.
 
