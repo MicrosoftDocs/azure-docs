@@ -130,7 +130,9 @@ The **Max Physical Replication Lag** metric shows the lag in bytes between the p
 
 2.	Select **Metrics**. In the **Metrics** window, select **Max Physical Replication Lag**.
 
-    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Monitor the max lag across replicas":::
+    :::image type="content" source="./media/how-to-read-replicas-portal/metrics_max_physical_replication_lag.png" alt-text="Monitor the max lag across replicas.":::
+       screenshot of the Metrics blade showing Max Physical Replication Lag metric.
+    :::image-end:::
 
 3.	For your **Aggregation**, select **Max**.
 
@@ -143,7 +145,9 @@ The **Read Replica Lag** metric shows the time since the last replayed transacti
 
 2. Select **Metrics**. In the **Metrics** window, select **Read Replica Lag**.
 
-   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Monitor the replica lag":::
+   :::image type="content" source="./media/how-to-read-replicas-portal/metrics_read_replica_lag.png" alt-text="Monitor the replica lag.":::
+      screenshot of the Metrics blade showing Read Replica Lag metric.
+   :::image-end:::
 
 3. For your **Aggregation**, select **Max**.
 
