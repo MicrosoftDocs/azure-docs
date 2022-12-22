@@ -23,19 +23,35 @@ CommunicationIdentifier has the following advantages:
 - Allows using a switch case by type to address different application flows.
 - Allows restricting communication to specific types.
 
-In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, MicrosoftTeamsUserIdentifier, PhoneNumberIdentifier, etc.) you can implement even more scenarios:
+In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or retrieving an underlying Raw ID of a *CommunicationIdentifier* of a certain type (for example, `MicrosoftTeamsUserIdentifier`, `PhoneNumberIdentifier`, etc.) you can implement even more scenarios:
 - Store identifiers in a database and use them as keys.
 - Use identifiers as key in dictionaries.
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
 - Map Raw IDs to Microsoft Azure Active Director (Azure AD) object IDs to enable calling Graph API and provide a rich experience for calling participants.
 - Use them as a key in declarative UI frameworks such as React to avoid unnecessary re-rendering.
 
-*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a certain type of *CommunicationIdentifier*. It removes the need of any custom serialization methods that might use or omit certain object properties. For example, the MicrosoftTeamsUserIdentifier has multiple properties such as IsAnonymous or Cloud. Using methods provided by Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
+*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a certain type of *CommunicationIdentifier*. It removes the need of any custom serialization methods that might use or omit certain object properties. For example, the `MicrosoftTeamsUserIdentifier` has multiple properties such as `IsAnonymous` or `Cloud` or methods to retrieve these values (depending on a platform). Using methods provided by Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Raw ID in the JavaScript SDK](./includes/raw-ids/raw-ids-js.md)]
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Raw ID in the .NET SDK](./includes/raw-ids/raw-ids-net.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Raw ID in the Python SDK](./includes/raw-ids/raw-ids-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Raw ID in the Java SDK](./includes/raw-ids/raw-ids-java.md)]
+::: zone-end
 
 ## Storing CommunicationIdentifier in a database
 Depending on your scenario, you may want to store CommunicationIdentifier in a database. Each type of CommunicationIdentifier has an underlying Raw ID, which is either set when instantiating it or derived from other properties. Identity SDK guarantees that the value is consistent in both options.
 
-Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Identity, Calling, Chat API or another API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
+Assuming a `ContosoUser` is a class that represents a user of your application, and you want to save it along with a corresponding CommunicationIdentifier to the database. The original value for a `CommunicationIdentifier` can come from the Identity, Calling, Chat API or a custom Contoso API but can be represented as a `string` data type in your programming language no matter what the underlying type is:
 ```csharp
 public class ContosoUser
 {
@@ -140,6 +156,8 @@ You can access specific properties and methods for a specific type of *Communica
 ## Using Raw IDs as key in UI frameworks
 It's possible to use Raw ID of an identifier as a key in UI components to track a certain user and avoid unnecessary re-rendering and API calls.
 ```react
+import { getIdentifierRawId } from '@azure/communication-common';
+
 const user = await addUserToThread(
     token,
     botId
