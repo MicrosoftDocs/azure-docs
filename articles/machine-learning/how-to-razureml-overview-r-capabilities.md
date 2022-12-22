@@ -5,8 +5,8 @@ description: 'Learn about the R capabilities in Azure Machine Learning'
 ms.service: machine-learning
 ms.date: 12/21/2022
 ms.topic: conceptual
-author: samuel100, wahalulu
-ms.author: samkemp, mavaisma
+author: wahalulu
+ms.author: mavaisma
 ms.reviewer: sgilley
 ms.devlang: r
 ---
