@@ -578,9 +578,9 @@ You can browse and clone the GitHub repository for each library.
 Check out the following guides if you're looking for instructions on how to install and get started with the Azure Storage client libraries.
 
 - [Getting Started with Azure Blob Service in Python](../blobs/storage-quickstart-blobs-python.md)
+- [Getting Started with Azure File Service in Python](../files/storage-python-how-to-use-file-storage.md)
 - [Getting Started with Azure Queue Service in Python](../queues/storage-quickstart-queues-python.md)
 - [Getting Started with Azure Table Service in Python](../../cosmos-db/table-storage-how-to-use-python.md)
-- [Getting Started with Azure File Service in Python](../files/storage-python-how-to-use-file-storage.md)
 
 ## Next steps
 
