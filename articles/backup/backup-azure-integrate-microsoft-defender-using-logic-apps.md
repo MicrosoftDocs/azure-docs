@@ -47,9 +47,10 @@ To deploy Azure Logic Apps, follow these steps:
 
      Learn about [how to create a User-defined Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
 
-   - Managed Identity Subscription: Input the name of a Subscription that the Managed Identity should reside in. 
-   - Managed Identity Resource Group: Input the name of a Resource Group that the Managed Identity should reside in.
-     - **Owner access on the subscription**
+   - **Managed Identity Subscription**: Enter the name of a Subscription that the Managed Identity should reside in.
+   - **Managed Identity Resource Group**: Enter the name of a Resource Group that the Managed Identity should reside in.
+     >[!Note]
+     > You need Owner access on the subscription.
 
    :::image type="content" source="./media/backup-azure-integrate-microsoft-defender-using-logic-apps/enter-details-for azure-logic-apps-deployment.png" alt-text="Screenshot shows how to enter details to deploy Azure Logic Apps.":::
 
