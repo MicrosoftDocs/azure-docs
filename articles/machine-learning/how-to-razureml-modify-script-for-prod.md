@@ -38,7 +38,7 @@ The following snippet shows how to:
 * add all your inputs as options
 * parse the inputs with the appropriate data types
 
-You can also add defaults (which is handy for testing.) We recommend that you add an `--output` parameter with a default value of `./outputs` so that any output of the script 
+You can also add defaults (which is handy for testing.) We recommend that you add an `--output` parameter with a default value of `./outputs` so that any output of the script will be stored.
 
 ```r
 library(optparse)
@@ -95,7 +95,7 @@ When you run an R script as a job, Azure Machine Learning takes the data you spe
 * Pass the data asset by name in the job submission parameters
 * Read the files as you normally would
 
-In the [parameters section](#add-parsing-of-input-parameters), you defined an input parameter called `--data_file`. You can read 
+In the [parameters section](#add-parsing-of-input-parameters), you defined an input parameter called `--data_file`. The data_file parameter is a whole path, so that you can  use `read_csv(args$data_file)` to read the data asset.
 
 ## Save job artifacts (images, data, etc.)
 
