@@ -58,7 +58,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `max_trials` | integer | Represents the maximum number of trials an automl job can try to run a training algorithm with different combination of hyperparameters. It's default value is set to 1000. If `enable_early_termination` is defined, then the number of trials used to run training algorithms can be smaller.| | `1000` |
 | `max_cores_per_trial` | integer | Represents the maximum number of cores per that can be used by each trial. It's default value is set to -1 which means all cores will be used in the process.| | `-1` |
 | `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. | | `360` |
-| `trial_timeout_minutes ` | integer | Represents the maximum amount of time in minutes that each trial (child job) in the submitted automl job can take run. After this, the child job will get terminated.  | | `20` |
+| `trial_timeout_minutes ` | integer | Represents the maximum amount of time in minutes that each trial (child job) in the submitted automl job can take run. After this, the child job will get terminated.  | | |
 | `exit_score` | float | Represents the score to achieve by an experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the defined `primary metric`. | | |
 
 
