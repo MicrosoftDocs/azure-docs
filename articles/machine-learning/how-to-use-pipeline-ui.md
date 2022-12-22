@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/20/2022
+ms.date: 12/22/2022
 ms.custom: designer, event-tier1-build-2022
 ---
 
@@ -148,7 +148,7 @@ Once the two pipelines are added to the comparison list, you'll have two options
 
 **Compare graph** shows you the graph topology changes between pipeline A and B. The special nodes in pipeline A are highlighted in red and marked with "A only". The special nodes in pipeline B are in green and marked with "B only". The shared nodes are in gray. If there are differences on the shared nodes, what has been changed is shown on the top of node.
 
-There are 3 categories of changes with summaries viewable in the detail page, parameter change, input source, pipeline component. When the pipeline component is changed this this means that there's a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details. Other changes can be detected by viewing the colored nodes in the compare graph.
+There are three categories of changes with summaries viewable in the detail page, parameter change, input source, pipeline component. When the pipeline component is changed this means that there's a topology change inside or an inner node parameter change, you can select the folder icon on the pipeline component node to dig down into the details. Other changes can be detected by viewing the colored nodes in the compare graph.
 
    :::image type="content" source="./media/how-to-use-pipeline-ui/parameter-changed.png" alt-text="Screenshot showing the parameter changed and the component information tab." lightbox= "./media/how-to-use-pipeline-ui/parameter-changed.png":::
 
@@ -226,7 +226,7 @@ To enable this feature:
 
     In the Gantt chart, the length of each bar shows how long the step takes, steps with a longer bar length take more time. You can also filter the table below by "total duration". When you select a row in the table, it will show you the node in the Gantt chart too. When you select a bar on the Gantt chart it will also highlight it in the table.
 
-    In the table reuse is denoted with the recycling icon.
+    In the table, reuse is denoted with the recycling icon.
 
     If you select the log icon next the node name it will open the detail page, which shows parameter, code, outputs, logs etc.
 
@@ -247,7 +247,7 @@ Status and definitions:
 | Not started | Job is submitted from client side and accepted in Azure ML services. Time spent in this stage is mainly in Azure ML service scheduling and preprocessing. | If there's no backend service issue, this time should be very short.| Open support case via Azure portal. |
 |Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you're using curated or registered custom environment, this time should be very short. | Check image building log. |
 |Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster or job yield policy for scope job.| If you're using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
-|Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
+|Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if there's any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
 | Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up.| It will be short for command job. However, might be very long for PRS/MPI job because for a distributed job, the finalizing status is from the first node starting finalizing to the last node done finalizing. | Change your step run output mode from upload to mount if you find unexpected long finalizing time, or open support case via Azure portal. |
 
 
