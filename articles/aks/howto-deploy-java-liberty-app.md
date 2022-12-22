@@ -35,7 +35,7 @@ This article uses the Azure Marketplace offer for Open/WebSphere Liberty to acce
   * Install a Java SE implementation (for example, [Eclipse Open J9](https://www.eclipse.org/openj9/)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-* Make sure you have been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
+* Make sure you've been assigned either the `Owner` role or the `Contributor` and `User Access Administrator` roles in the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group).
 
 ## Create a Liberty on AKS deployment using the portal
 
@@ -49,8 +49,8 @@ The following steps guide you to create a Liberty runtime on AKS. After completi
 1. This section allows you to select an existing AKS cluster and Azure Container Registry (ACR), instead of causing the deployment to create a new one, if desired. This capability enables you to use the sidecar pattern, as shown in the [Azure architecture center](/azure/architecture/patterns/sidecar). You can also adjust the settings for the size and number of the virtual machines in the AKS node pool. Leave all other values at the defaults and select **Next: Networking**.
 1. Next to **Connect to Azure Application Gateway?** select **Yes**. This pane lets you customize the following deployment options.
    1. You can customize the virtual network and subnet into which the deployment will place the resources. Leave these values at their defaults.
-   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Do not go to production using a self-certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
-   1. You can enable cookie based affinity, also known as sticky sessions. We want this enabled for this article, so ensure this option is selected.
+   1. You can provide the TLS/SSL certificate presented by the Azure Application Gateway. Leave the values at the default to cause the offer to generate a self-signed certificate. Don't go to production using a self-signed certificate. For more information about self-signed certificates, see [Create a self-signed public certificate to authenticate your application](../active-directory/develop/howto-create-self-signed-certificate.md).
+   1. You can enable cookie based affinity, also known as sticky sessions. We want sticky sessions enabled for this article, so ensure this option is selected.
       ![Screenshot of the enable cookie-based affinity checkbox.](./media/howto-deploy-java-liberty-app/enable-cookie-based-affinity.png)
 1. Select **Review + create** to validate your selected options.
 1. When you see the message **Validation Passed**, select **Create**. The deployment may take up to 20 minutes.
@@ -183,7 +183,7 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 
 You can now test the Docker image locally before deploying to Azure.
 
-1. Run the image using the following command. Note we are using the environment variables defined previously.
+1. Run the image using the following command. Note we're using the environment variables defined previously.
 
 ```bash
 docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD} javaee-cafe:v1
