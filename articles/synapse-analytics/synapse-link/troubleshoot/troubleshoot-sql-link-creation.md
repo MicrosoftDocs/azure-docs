@@ -35,7 +35,13 @@ During Azure Synapse Link connection creation, the link creation process may han
 
 ## Resolution
 
-If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) for the Azure SQL Database logical server. If enabled, refresh the SAMI. Use either of the two following methods:
+
+## Solution 1: Enable the SAMI
+
+1. If disabled, enable the [system assigned managed identity (SAMI)](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) for the Azure SQL Database logical server. 
+1. In the Azure portal, navigate to your Synapse Link for SQL connection in Azure Synapse Workspace. In the **Integrate** hub, under **Link connection**, select your link connection. In the General window, expand the **Advanced** section. Select the **Refresh** button. You will see a message with checked green tick indicating the SQL logical server resource ID and Managed identity ID have been refreshed.
+   :::image type="content" source="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png" alt-text="A screenshot of the Azure portal in the Synapse workspace. In the General section under Advanced, the Refresh button is highlighted." lightbox="media/troubleshoot-sql-link-creation/synapse-workspace-link-connection-running.png":::
+
 
 Caution: Please draw caution before turning off SAMI for your Azure SQL Database logical server as removing a system-assigned identity will also delete it from Azure AD. Also, consider other applications or resources that may be using the current SAMI and plan for refreshing other resources that may be using the SAMI for your Azure SQL Database.
 
