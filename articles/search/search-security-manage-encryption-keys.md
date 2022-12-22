@@ -349,7 +349,7 @@ Azure Cognitive Search has a [built-in policy](https://portal.azure.com/#view/Mi
 
 1. Finish creating the policy.
 
-1. Call the [Services - Create or Update API](https://learn.microsoft.com/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to enable CMK policy enforcement
+1. Call the [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to enable CMK policy enforcement
 
 ```http
 PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2021-04-01-preview
