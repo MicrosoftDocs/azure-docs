@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 12/21/2022
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
@@ -17,13 +17,15 @@ ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 
 ## IoT Hub names
 
-You can find the hostname of the IoT hub that hosts your endpoints in the portal on your hub's  **Overview** page. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
+You can find the hostname of the IoT hub that hosts your endpoints in the Azure portal, on your IoT hub's **Overview** working pane. By default, the DNS name of an IoT hub looks like the following example: 
+
+`{your iot hub name}.azure-devices.net`
 
 ## List of built-in IoT Hub endpoints
 
 Azure IoT Hub is a multi-tenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
-![IoT Hub endpoints](./media/iot-hub-devguide-endpoints/endpoints.png)
+:::image type="content" source="./media/iot-hub-devguide-endpoints/endpoints.png" alt-text="Diagram showing the list of build-in IoT Hub endpoints." border="false":::
 
 The following list describes the endpoints:
 
