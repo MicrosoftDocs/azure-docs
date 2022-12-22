@@ -121,7 +121,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - An Azure Event Hubs Data Sender role. In this deployment, the role is named *devicedatasender*. The Azure Event Hubs Data Sender role isn't used in this tutorial.
 
-- An instance of Azure IoT Hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
+- An Azure IoT Hub with [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) configured to send device messages to the device message event hub.
 
 - A [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) that provides send access from the IoT hub to the device message event hub. The managed identity has the Azure Event Hubs Data Sender role in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.  
 
@@ -129,7 +129,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - A Health Data Services FHIR service.
 
-- An instance of the MedTech service for Health Data Services, with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+- A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles:
 
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
