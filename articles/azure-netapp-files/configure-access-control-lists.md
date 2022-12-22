@@ -19,13 +19,19 @@ ACLs contain access control entities (ACEs), which specify the permissions (read
 - ACLs can only be configured on NFS4.1 volumes. You can [convert a volume from NFSv3 to NFSv4.1](convert-nfsv3-nfsv41.md).
 
 - You must have two packages installed:
-    -  `nfs-utils` to mount NFS volumes 
-    - `nfs-acl-tools` to view and modify NFSv4 ACLs. 
-    If you do not have either, you can install them:
-    ```bash
-    sudo yum install -y nfs-utils
-    sudo yum install -y nfs4-acl-tools
-    ```
+    1.  `nfs-utils` to mount NFS volumes 
+    1. `nfs-acl-tools` to view and modify NFSv4 ACLs. 
+    If you do not have either, install them:
+        - On a Red Hat Enterprise Linux or SuSE Linux instance:
+        ```bash
+        sudo yum install -y nfs-utils
+        sudo yum install -y nfs4-acl-tools
+        ```
+        - On Ubuntu or Debian instance:
+        ```bash
+        sudo apt-get install nfs-common
+        sudo apt-get install nfs4-acl-tools
+        ```
 
 ## Configure ACLs
 
