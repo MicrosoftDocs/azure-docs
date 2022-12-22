@@ -189,7 +189,7 @@ You can now test the Docker image locally before deploying to Azure.
 docker run -it --rm -p 9080:9080 -e DB_SERVER_NAME=${DB_SERVER_NAME} -e DB_NAME=${DB_NAME} -e DB_USER=${DB_USER} -e DB_PASSWORD=${DB_PASSWORD} javaee-cafe:v1
 ```
 
-1. Once the containers starts, go to `http://localhost:9080/` in your browser to access the application.
+1. Once the container starts, go to `http://localhost:9080/` in your browser to access the application.
 
 1. Press `Ctrl+C` to stop.
 
