@@ -1,5 +1,5 @@
 ---
-title: Structure of transformation in Azure Monitor (preview)
+title: Structure of transformation in Azure Monitor
 description: Structure of transformation in Azure Monitor including limitations of KQL allowed in a transformation.
 ms.topic: conceptual
 ms.date: 06/29/2022
@@ -7,7 +7,7 @@ ms.reviwer: nikeist
 
 ---
 
-# Structure of transformation in Azure Monitor (preview)
+# Structure of transformation in Azure Monitor
 [Transformations in Azure Monitor](./data-collection-transformations.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. They are implemented as a Kusto Query Language (KQL) statement in a [data collection rule (DCR)](data-collection-rule-overview.md). This article provides details on how this query is structured and limitations on the KQL language allowed.
 
 

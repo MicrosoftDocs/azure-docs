@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 12/06/2022
 ---
 
 # Browse the Microsoft Purview Data Catalog
@@ -75,6 +75,7 @@ A native browsing experience with hierarchical namespace is provided for each co
 
 ## Next steps
 
-- [How to create, import, and export glossary terms](how-to-create-import-export-glossary.md)
+- [How to create and manage glossary terms](how-to-create-manage-glossary-term.md)
+- [How to import and export glossary terms](how-to-import-export-glossary.md)
 - [How to manage term templates for business glossary](how-to-manage-term-templates.md)
 - [How to search the Microsoft Purview Data Catalog](how-to-search-catalog.md)

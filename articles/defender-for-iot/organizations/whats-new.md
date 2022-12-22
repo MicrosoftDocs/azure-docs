@@ -15,11 +15,39 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## December 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+
+### New purchase experience for OT plans
+
+The **Pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+
+For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
+
 ## November 2022
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes) |
+|**OT networks**     |- **Sensor versions 22.x and later**:  [Site-based access control on the Azure portal (Public preview)](#site-based-access-control-on-the-azure-portal-public-preview)  <br><br>- **All OT sensor versions**: [New OT monitoring software release notes](#new-ot-monitoring-software-release-notes)     |
+
+### Site-based access control on the Azure portal (Public preview)
+
+For sensor software versions 22.x, Defender for IoT now supports *site-based access control*, which allows customers to control user access to Defender for IoT features on the Azure portal at the *site* level.
+
+For example, apply the [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Owner](../../role-based-access-control/built-in-roles.md#owner) roles to determine user access to Azure resources such as the **Alerts**, **Device inventory**, or **Workbooks** pages.
+
+To manage site-based access control, select the site in the **Sites and sensors** page, and then select the **Manage site access control (Preview)** link. For example:
+
+:::image type="content" source="media/release-notes/site-based-access.png" alt-text="Screenshot of the site-based access link in the Sites and sensors page." lightbox="media/release-notes/site-based-access.png":::
+
+For more information, see [Manage OT monitoring users on the Azure portal](manage-users-portal.md) and [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md).
+
+> [!NOTE]
+> *Sites*, and therefore site-based access control, are relevant only for OT network monitoring.
+>
 
 ### New OT monitoring software release notes
 
@@ -75,7 +103,7 @@ From either location, select a recommendation to drill down further and view lis
 
 :::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
 
-For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory).
+For more information, see [View the device inventory](how-to-manage-device-inventory-for-organizations.md#view-the-device-inventory) and [Enhance security posture with security recommendations](recommendations.md).
 
 ### Device vulnerabilities from the Azure portal (Public preview)
 
@@ -526,7 +554,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
-    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-a-report).
+    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report)
 
 - The **System settings** area has been reorganized in to sections for *Basic* settings, settings for *Network monitoring*, *Sensor management*, *Integrations*, and *Import settings*.
 

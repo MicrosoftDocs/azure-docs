@@ -1,7 +1,9 @@
 ---
 title: SFTP support for Azure Blob Storage
+titleSuffix: Azure Storage
 description: Blob storage now supports the SSH File Transfer Protocol (SFTP). 
 author: normesta
+
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
@@ -9,15 +11,12 @@ ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
-
 ---
 
 # SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
 Blob storage now supports the SSH File Transfer Protocol (SFTP). This support lets you securely connect to Blob Storage via an SFTP endpoint, allowing you to use SFTP for file access, file transfer, and file management. 
 
-> [!IMPORTANT]
-> SFTP support for Azure Blob Storage is not yet generally available in the West Europe region. 
 
 Here's a video that tells you more about it.
 
@@ -68,7 +67,7 @@ You can't set custom passwords, rather Azure generates one for you. If you choos
 
 #### SSH key pairs
 
-A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the private key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
+A public-private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret and should be known only to the local user. The public key is stored in Azure. When an SSH client connects to the storage account using a local user identity, it sends a message with the public key and signature. Azure validates the message and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](../../virtual-machines/linux/ssh-from-windows.md#).
 
 If you choose to authenticate with private-public key pair, you can either generate one, use one already stored in Azure, or provide Azure the public key of an existing public-private key pair. 
 
@@ -143,6 +142,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Moveit 12.7
 - OpenSSH 7.4+
 - paramiko 2.8.1+
+- phpseclib 1.0.13+
 - PuTTY 0.74+
 - QualysML 12.3.41.1+
 - RebexSSH 5.0.7119.0+
@@ -154,6 +154,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - Workday
 - XFB.Gateway
 - JSCH 0.1.54+
+- curl 7.85.0+
 
 The supported client list above isn't exhaustive and may change over time.
 

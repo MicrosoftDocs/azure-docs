@@ -3,11 +3,16 @@ title: Enable Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to enable the Start/Stop VMs during off-hours feature for your Azure VMs.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/18/2021
+ms.date: 11/29/2022
 ms.topic: conceptual
+ms.custom: engagement-fy23
 ---
 
 # Enable Start/Stop VMs during off-hours
+
+> [!NOTE]
+> Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now. We recommend that you start using [version 2](../azure-functions/start-stop-vms/overview.md), which is now generally available.
+The new version offers all existing capabilities and provides new features, such as multi-subscription support from a single Start/Stop instance. If you have the version 1 solution already deployed, you can still use the feature, and we will provide support until further announcement.
 
 Perform the steps in this topic in sequence to enable the Start/Stop VMs during off-hours feature for VMs using a new or existing Automation account and linked Log Analytics workspace. After completing the setup process, configure the variables to customize the feature.
 

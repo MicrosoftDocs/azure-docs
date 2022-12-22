@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: how-to, devx-track-python, sdkv2, event-tier1-build-2022
 ---
 
 # Train ML models with MLflow Projects and Azure Machine Learning (Preview)
@@ -215,7 +215,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Delete in the Azure portal](./v1/media/how-to-use-mlflow/delete-resources.png)
+    :::image type="content" source="media/how-to-use-mlflow-azure-databricks/delete-resources.png" alt-text="Image showing how to delete an Azure resource group.":::    
 
 1. From the list, select the resource group you created.
 

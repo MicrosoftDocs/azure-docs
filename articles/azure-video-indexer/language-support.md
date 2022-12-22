@@ -6,7 +6,7 @@ manager: femila
 ms.topic: conceptual
 ms.custom: ignite-2022
 ms.author: juliako
-ms.date: 09/14/2022
+ms.date: 12/12/2022
 ---
 
 # Language support in Azure Video Indexer

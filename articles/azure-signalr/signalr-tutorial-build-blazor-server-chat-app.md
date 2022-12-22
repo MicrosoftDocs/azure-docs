@@ -185,7 +185,7 @@ Beginning in Visual Studio 2019 version 16.2.0, Azure SignalR Service is built i
               _messages.Add(new Message(name, message, isMine));
       
               // Inform blazor the UI needs updating
-              StateHasChanged();
+              InvokeAsync(StateHasChanged);
           }
       
           private async Task DisconnectAsync()

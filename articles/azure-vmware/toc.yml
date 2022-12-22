@@ -14,10 +14,12 @@
     href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 4 - Install the VMware HCX Connector
+  - name: 4 - Install and activate VMware HCX in Azure VMware Solution
     href: install-vmware-hcx.md
   - name: 5 - Configure on-premises HCX Connector
     href: configure-vmware-hcx.md
+  - name: 6 - Uninstall VMware HCX in Azure VMware Solution
+    href: uninstall-vmware-hcx.md
 - name: Tutorials
   items:
   - name: 1 - Network planning checklist
@@ -180,8 +182,6 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: Send logs to log analytics
-    href: send-logs-to-log-analytics.md
   - name: Partner solution ecosystem
     items:
     - name: Operating system support for VMs
@@ -198,8 +198,6 @@
       href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
-    - name: Send logs to Log Analytics
-      href: send-logs-to-log-analytics.md
   - name: VMware solutions
     items:
     - name: Configure HCX network extension
@@ -279,31 +277,7 @@
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
   - name: FAQ
-    items:
-    - name: General
-      href: ./faq.yml
-    - name: Billing
-      href: ./faq.yml
-    - name: Customer communication
-      href: ./faq.yml
-    - name: Configuration and setup
-      href: ./faq.yml
-    - name: VMware software
-      href: ./faq.yml
-    - name: Third-party backup solutions
-      href: ./faq.yml
-    - name: Compute
-      href: ./faq.yml
-    - name: Networking and interconnectivity
-      href: ./faq.yml
-    - name: Storage
-      href: ./faq.yml
-    - name: Hosts, clusters, and private clouds
-      href: ./faq.yml
-    - name: Identity management
-      href: ./faq.yml
-    - name: CSP and multi-tenancy
-      href: ./faq.yml
+    href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

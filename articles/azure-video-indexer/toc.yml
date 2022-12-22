@@ -39,8 +39,6 @@
   items:
   - name: Sign up and upload your first video
     href: video-indexer-get-started.md
-  - name: Invite users
-    href: invite-users.md
 - name: Tutorials
   items:
   - name: Create an ARM-based account
@@ -69,6 +67,8 @@
     href: manage-multiple-tenants.md
   - name: Using at scale 
     href: considerations-when-use-at-scale.md
+  - name: Insights
+    href: insights-overview.md          
   - name: Customizing content models
     items:
     - name: Overview
@@ -85,8 +85,6 @@
       href: customize-language-model-overview.md
     - name: Person
       href: customize-person-model-overview.md
-  - name: Insights
-    href: insights-overview.md      
   - name: Post-production insights
     items:
     - name: Slate detection
@@ -113,8 +111,6 @@
       href: upload-index-videos.md   
     - name: Index a video from OneDrive
       href: odrv-download.md        
-  - name: Examine Azure Video Indexer output
-    href: video-indexer-output-json-v2.md  
   - name: Use insights
     items:
     - name: View and edit insights
@@ -212,6 +208,8 @@
     href: https://api-portal.videoindexer.ai/
   - name: Azure Video Indexer ARM REST API
     href: /rest/api/videoindexer/preview/accounts
+  - name: Azure Video Indexer output json
+    href: video-indexer-output-json-v2.md      
   - name: Monitor Video Indexer data reference
     href: monitor-video-indexer-data-reference.md
 - name: Resources

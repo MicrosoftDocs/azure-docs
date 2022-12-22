@@ -81,7 +81,7 @@ To access the PostgreSQL database server using SCRAM method of authentication, y
 8. You can then connect from the client that supports SCRAM authentication to your server.
 
 > [!Note] 
-> SCRAM authentication is not supported when connected to the built-in managed [PgBouncer](concepts-pgbouncer.md).
+> SCRAM authentication is also supported when connected to the built-in managed [PgBouncer](concepts-pgbouncer.md). Above tutorial is valid for setting up connectivity using SCRAM authentication via built-in PgBouncer feature. 
 
 ## Next steps
 - [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).

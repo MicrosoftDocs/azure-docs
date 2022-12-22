@@ -116,7 +116,7 @@ This procedure describes how **Admin** users can change local user passwords. **
 
     - At least eight characters
     - Both lowercase and uppercase alphabetic characters
-    - At least one numbers
+    - At least one number
     - At least one symbol
 
 1. Select **Save** when you're done.

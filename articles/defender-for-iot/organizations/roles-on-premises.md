@@ -26,8 +26,8 @@ The following table describes each default privileged user in detail:
 
 |Username  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring.  <br><br>Can recover or change passwords for users with any roles. <!--check this abt passwords-->       |
-|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools.<br><br>Has no filesystem access.<br><br>Can access only dedicated CLI commands for controlling OT monitoring. <br><br>Can recover or change passwords for the *support* user, and any user with the **Admin**, **Security Analyst**, and **Read-only** roles. <!--check this abt passwords--> |
+|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring.  <br><br>Can recover or change passwords for users with any roles. |
+|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools.<br><br>Has no filesystem access.<br><br>Can access only dedicated CLI commands for controlling OT monitoring. <br><br>Can recover or change passwords for the *support* user, and any user with the **Admin**, **Security Analyst**, and **Read-only** roles.  |
 |**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS.<br><br>Used for support scenarios with containers and filesystem access.        |
 
 ## On-premises user roles
@@ -68,7 +68,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **Manage certificates** | - | - | ✔ |
 
 > [!NOTE]
-> <a name="pw-sensor"></a>**Admin** users can only change passwords for other users with the **Security Analyst** and **Read-only** roles. To change the password of an **Admin** user, sign in to your sensor as [a privileged user](#default-privileged-on-premises-users). <!--verify this -->
+> <a name="pw-sensor"></a>**Admin** users can only change passwords for themselves or for other users with the **Security Analyst** and **Read-only** roles.
 
 ## Role-based permissions for the on-premises management console
 
@@ -90,7 +90,7 @@ Permissions applied to each role differ between the sensor and the on-premises m
 | **Manage certificates** | - | - | ✔ |
 
 > [!NOTE]
-> <a name="pw-cm"></a>**Admin** users can only change passwords for other users with the **Security Analyst** and **Read-only** roles. To change the password of an **Admin** user, sign in to your sensor as [a privileged user](#default-privileged-on-premises-users). <!--verify this-->
+> <a name="pw-cm"></a>**Admin** users can only change passwords for themselves or for other users with the **Security Analyst** and **Read-only** roles.
 
 ## Next steps
 

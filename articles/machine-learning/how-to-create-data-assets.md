@@ -67,7 +67,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 ## Data asset types
  - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
 
- - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+ - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in Python you could use `uri_file`, `uri_folder`.
 
  The ideal scenarios to use `mltable` are:
  - The schema of your data is complex and/or changes frequently.
@@ -255,7 +255,7 @@ An *example* MLTable file for Delta Lake is provided below:
 type: mltable
 
 paths:
-  - abfss://my_delta_files
+  - folder: ./
 
 transformations:
   - read_delta_lake:
@@ -281,34 +281,7 @@ For more transformations available in `mltable`, please look into [reference-yam
 > ```
 > Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
-
-### Create an MLTable artifact via Python SDK: from_*
-If you would like to create an MLTable object in memory via Python SDK, you could use from_* methods. 
-The from_* methods do not materialize the data, but rather stores it as a transformation in the MLTable definition.
-
-For example you can use from_delta_lake() to create an in-memory MLTable artifact to read delta lake data from the path `delta_table_path`. 
-```python
-import mltable as mlt
-mltable = from_delta_lake(delta_table_path, timestamp_as_of="2021-01-01T00:00:00Z")
-df = mltable.to_pandas_dataframe()
-print(df.to_string())
-```
-Please find more details about [MLTable Python functions here](/python/api/mltable/mltable).
-
-
-In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
-
-```python
-import mltable
-
-tbl = mltable.load(uri="./my_data")
-df = tbl.to_pandas_dataframe()
-```
-
-The `uri` parameter in `mltable.load()` should be a valid path to a local or cloud **folder** which contains a valid MLTable file.
-
-> [!NOTE]
-> You will need the `mltable` library installed in your Environment (`pip install mltable`).
+### Creating the data asset
 
 Below shows you how to create a `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 

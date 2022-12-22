@@ -11,6 +11,7 @@ ms.date: 07/08/2020
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 

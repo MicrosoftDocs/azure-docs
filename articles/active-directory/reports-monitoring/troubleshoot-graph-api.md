@@ -30,7 +30,7 @@ Accessing sign-in reports requires an Azure Active Directory premium 1 (P1) lice
 
 ### Error: User isn't in the allowed roles 
 
-If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Report Reader** role in your Azure Active Directory tenant. 
+If you see this error message while trying to access audit logs or sign-ins using the API, make sure that your account is part of the **Security Reader** or **Reports Reader** role in your Azure Active Directory tenant. 
 
 ### Error: Application missing Azure AD 'Read directory data' permission 
 

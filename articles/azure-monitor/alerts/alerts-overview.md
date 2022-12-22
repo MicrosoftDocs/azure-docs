@@ -61,7 +61,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-manage-alert-rules.md#enable-recommended-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
-> The alert rule recommendations feature is currently in preview and is only enabled for unmonitored:
+> The alert rule recommendations feature is currently in preview and is only enabled for:
 > - Virtual machines
 > - AKS resources
 > - Log Analytics workspaces
@@ -94,6 +94,9 @@ For stateful alerts, the alert is considered resolved when:
 |Log alerts| In log alerts, the alert is resolved at different rates based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5-15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
+
+> [!NOTE]
+> Log search alert is resolved after time range that teh alert wasn't met. Threrefore the resolve evaluation window is based on last unhealthy window.  
 
 ## Manage your alerts programmatically
 

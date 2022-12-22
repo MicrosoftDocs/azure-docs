@@ -38,6 +38,11 @@ This article summarizes new releases and features in Azure Database for MySQL - 
     - USGov Arizona
     - USGov Texas
 
+  
+- **Known issues**
+  
+  In specific scenario wherein if the source server if configured as Zone redundant HA and also enabled for Geo-redundancy, the geo-restore workflow will fail if the target region doesn't have availability zone support.
+
 ## October 2022
 
 - **AMD compute SKUs for General Purpose and Business Critical tiers in in Azure Database for MySQL - Flexible Server**

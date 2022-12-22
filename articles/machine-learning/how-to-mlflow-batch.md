@@ -310,7 +310,7 @@ For testing our endpoint, we are going to use a sample of unlabeled data located
    c. Refresh the object to reflect the changes:
    
    ```python
-   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name)
+   heart_dataset_unlabeled = ml_client.data.get(name=dataset_name, label="latest")
    ```
    
 2. Now that the data is uploaded and ready to be used, let's invoke the endpoint:

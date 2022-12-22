@@ -69,7 +69,8 @@ You can have up to five active clusters per subscription per region. If the clus
 > - A list of initial workspace to be linked to cluster is identified
 > - You have permissions to subscription intended for the cluster and any workspace to be linked
 
-**CLI**
+#### [CLI](#tab/cli)
+
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
@@ -80,7 +81,7 @@ $clusterResourceId = az monitor log-analytics cluster list --resource-group "res
 az resource wait --created --ids $clusterResourceId --include-response-body true
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -91,7 +92,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
-**REST API**
+#### [REST API](#tab/restapi)
 
 *Call* 
 
@@ -119,11 +120,13 @@ Content-type: application/json
 
 Should be 202 (Accepted) and a header.
 
+---
+
 ### Check cluster provisioning status
 
 The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
-**CLI**
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
@@ -131,7 +134,7 @@ az account set --subscription "cluster-subscription-id"
 az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -139,7 +142,7 @@ Select-AzSubscription "cluster-subscription-id"
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
  
-**REST API**
+#### [REST API](#tab/restapi)
 
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
@@ -208,7 +211,8 @@ Linking a workspace can be performed only after the completion of the Log Analyt
 
 Use the following commands to link a workspace to a cluster:
 
-**CLI**
+#### [CLI](#tab/cli)
+
 ```azurecli
 # Find cluster resource ID
 az account set --subscription "cluster-subscription-id"
@@ -223,7 +227,7 @@ $workspaceResourceId = az monitor log-analytics workspace list --resource-group 
 az resource wait --deleted --ids $workspaceResourceId --include-response-body true
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -240,7 +244,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-**REST API**
+#### [REST API](#tab/restapi)
 
 Use the following REST call to link to a cluster:
 
@@ -268,14 +272,15 @@ Content-type: application/json
   
 When a cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state by sending Get request to workspace and observe if *clusterResourceId* property is present in the response under *features*.
 
-**CLI**
+#### [CLI](#tab/cli)
+
 ```azurecli
 az account set --subscription "workspace-subscription-id"
 
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "workspace-subscription-id"
@@ -283,7 +288,7 @@ Select-AzSubscription "workspace-subscription-id"
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-**REST API**
+#### [REST API](#tab/restapi)
 
 *Call*
 
@@ -346,7 +351,7 @@ After you create your cluster resource and it's fully provisioned, you can edit 
 
 ## Get all clusters in resource group
 
-**CLI**
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
@@ -354,7 +359,7 @@ az account set --subscription "cluster-subscription-id"
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -362,7 +367,7 @@ Select-AzSubscription "cluster-subscription-id"
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
-**REST API**
+#### [REST API](#tab/restapi)
 
 *Call*
 
@@ -414,7 +419,7 @@ Authorization: Bearer <token>
 
 ## Get all clusters in subscription
 
-**CLI**
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
@@ -422,14 +427,14 @@ az account set --subscription "cluster-subscription-id"
 az monitor log-analytics cluster list
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
 
 Get-AzOperationalInsightsCluster
 ```
-**REST API**
+#### [REST API](#tab/restapi)
 
 *Call*
 
@@ -449,7 +454,7 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Note that you don't have to provide the full REST request body but should include the sku.
 
-**CLI**
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "cluster-subscription-id"
@@ -457,7 +462,7 @@ az account set --subscription "cluster-subscription-id"
 az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
-### PowerShell
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -465,7 +470,7 @@ Select-AzSubscription "cluster-subscription-id"
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
-### REST API
+#### [REST API](#tab/restapi)
 
 *Call*
 
@@ -487,7 +492,15 @@ Content-type: application/json
 
 ### Update billingType in cluster
 
-### PowerShell
+The *billingType* property determines the billing attribution for the cluster and its data:
+- *Cluster* (default) -- billing is attributed to the Cluster resource
+- *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
+
+#### [CLI](#tab/cli)
+
+N/A
+
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -495,11 +508,7 @@ Select-AzSubscription "cluster-subscription-id"
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -BillingType "Workspaces"
 ```
 
-The *billingType* property determines the billing attribution for the cluster and its data:
-- *Cluster* (default) -- billing is attributed to the Cluster resource
-- *Workspaces* -- billing is attributed to linked workspaces proportionally. When data volume from all linked workspaces is below Commitment Tier level, the bill for the remaining volume is attributed to the cluster
-
-**REST**
+#### [REST API](#tab/restapi)
 
 *Call*
 
@@ -516,16 +525,18 @@ Content-type: application/json
 }
 ```
 
+---
+
 ### Unlink a workspace from cluster
 
 You can unlink a workspace from a cluster at any time. The workspace pricing tier is changed to per-GB, data ingested to cluster before the unlink operation remains in the cluster, and new data to workspace get ingested to Log Analytics. You can query data as usual and the service performs cross-cluster queries seamlessly. If cluster was configured with Customer-managed key (CMK), data remains encrypted with your key and accessible, while your key and permissions to Key Vault remain.  
 
-> [!NOT] 
+> [!NOTE] 
 > There is a limit of two link operations for a specific workspace within a month to prevent data distribution across clusters. Contact support if you reach limit.
 
 Use the following commands to unlink a workspace from cluster:
 
-**CLI**
+#### [CLI](#tab/cli)
 
 ```azurecli
 az account set --subscription "workspace-subscription-id"
@@ -533,7 +544,7 @@ az account set --subscription "workspace-subscription-id"
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "workspace-subscription-id"
@@ -541,6 +552,10 @@ Select-AzSubscription "workspace-subscription-id"
 # Unlink a workspace from cluster
 Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
+
+#### [REST API](#tab/restapi)
+
+N/A
 
 ---
 
@@ -560,14 +575,15 @@ If you delete your cluster while workspaces are linked, Workspaces get automatic
 
 Use the following commands to delete a cluster:
 
-**CLI**
+#### [CLI](#tab/cli)
+
 ```azurecli
 az account set --subscription "cluster-subscription-id"
 
 az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
 ```
 
-**PowerShell**
+#### [PowerShell](#tab/powershell)
 
 ```powershell
 Select-AzSubscription "cluster-subscription-id"
@@ -575,7 +591,7 @@ Select-AzSubscription "cluster-subscription-id"
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
 
-**REST API**
+#### [REST API](#tab/restapi)
 
 Use the following REST call to delete a cluster:
 

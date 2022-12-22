@@ -2,7 +2,7 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 12/13/2022
 ms.custom: devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
@@ -33,6 +33,10 @@ It's important to remember that once soft delete is disabled, the feature is dis
 
 >[!Tip]
 >To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
+
+>[!Note]
+>- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
+>- MUA for soft delete is currently supported for Recovery Services vaults only.
 
 ### Disabling soft delete using Azure portal
 

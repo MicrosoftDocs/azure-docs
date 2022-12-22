@@ -1775,16 +1775,6 @@ Comparison not equals operator. Same as != operator.
 ___
 
 
-<a name="notNull" ></a>
-
-### <code>notNull</code>
-<code><b>notNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
-Checks if the value isn't NULL.  
-* ``notNull(NULL()) -> false``  
-* ``notNull('') -> true``  
-___
-
-
 <a name="nTile" ></a>
 
 ### <code>nTile</code>

@@ -47,8 +47,8 @@ that support **DeployIfNotExists**.
 | Assignment type | Behavior |
 |-|-|
 | Audit | Report on the state of the machine, but don't make changes. |
-| ApplyandMonitor | Applied to the machine once and then monitored for changes. If the configuration drifts and becomes NonCompliant, it won't be automatically corrected unless remediation is triggered. |
-| ApplyandAutoCorrect | Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation. |
+| ApplyAndMonitor | Applied to the machine once and then monitored for changes. If the configuration drifts and becomes NonCompliant, it won't be automatically corrected unless remediation is triggered. |
+| ApplyAndAutoCorrect | Applied to the machine. If it drifts, the local service inside the machine makes a correction at the next evaluation. |
 
 In each of the three assignment types, when a new policy assignment is assigned
 to an existing machine, a guest assignment is automatically created to

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/05/2022
+ms.date: 11/17/2022
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -38,16 +38,7 @@ The SAP CDC connector supports basic authentication or Secure Network Communicat
 
 ## Prerequisites
 
-To use this SAP CDC connector, you need to:
-
-- Set up a self-hosted integration runtime. The most recent version can be found in [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
-
-- Download the 64-bit [SAP Connector for Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) from SAP's website, and install it on the self-hosted integration runtime machine. During installation, make sure you select the **Install Assemblies to GAC** option in the **Optional setup steps** window.
-
-  :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png" alt-text="Screenshot showing installation of SAP Connector for .NET.":::
-
-- The SAP user who's being used in the SAP table connector must have the permissions described in [User Configuration](sap-change-data-capture-prerequisites-configuration.md#set-up-the-sap-user):
-
+To use this SAP CDC connector, refer to [Prerequisites and setup for the SAP CDC connector](sap-change-data-capture-prerequisites-configuration.md).
 
 ## Get started
 

@@ -36,7 +36,7 @@ Create a virtual network, subnet, and bastion host. The virtual network and subn
 
 The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual network** in the search results.
 
 2. Select **+ Create**.
 

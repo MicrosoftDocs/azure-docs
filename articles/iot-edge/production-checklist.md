@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -201,26 +201,79 @@ IoT Edge does not remove volumes attached to module containers. This behavior is
 
 ### Store runtime containers in your private registry
 
-You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your private registry. You will need to specify the container version during the pull operation, find the latest container version at container description page as below, and replace the version in the pull command if needed. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+The following steps illustrate how to pull a Docker image of **edgeAgent** and **edgeHub** to your local machine, retag it, push it to your private registry, then update your configuration file so your devices know to pull the image from your private registry.
 
-| IoT Edge runtime container | Docker pull command |
-| --- | --- |
-| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
-| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
+1. Pull the **edgeAgent** Docker image from the Microsoft registry. Update the version number if needed.
 
-Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+   ```bash
+   # Pull edgeAgent image
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.4
 
-* edgeAgent:
+   # Pull edgeHub image
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.4
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
+1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
 
-* edgeHub:
+   ```bash
+   docker images
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
+1. Retag your **edgeAgent** and **edgeHub** images. Replace the values in brackets with your own.
+
+   ```bash
+   # Retag your edgeAgent image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.4
+
+   # Retag your edgeHub image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
+
+   ```bash
+   # Push your edgeAgent image to your private registry
+   docker push <registry-name/server>/azureiotedge-agent:1.4
+
+   # Push your edgeHub image to your private registry
+   docker push <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
+
+1. Open a text editor on your IoT Edge device to change the configuration file so it knows about your private registry image. 
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
+
+   ```bash
+   [agent.config]
+   Image = "<registry-name/server>/azureiotedge-agent:1.4"
+   ```
+
+1. Save your changes and exit your text editor.
+
+1. Apply the IoT Edge configuration change.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+   Your IoT Edge runtime restarts.
+
+For more information, see:
+
+* [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent)
+* [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
+* [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
 
 ::: moniker range=">=iotedge-1.4"
+
 ### Configure image garbage collection
 Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
 

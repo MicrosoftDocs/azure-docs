@@ -8,9 +8,6 @@ ms.reviewer: abinetabate
 
 # Deploy Azure Monitor Application Insights Agent for on-premises servers
 
-> [!IMPORTANT]
-> This guidance is recommended for on-premises and non-Azure cloud deployments of Application Insights Agent. We recommend a [different deployment approach for Azure virtual machines and Azure virtual machine scale sets](./azure-vm-vmss-apps.md).
-
 Application Insights Agent (formerly named Status Monitor V2) is a PowerShell module published to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.

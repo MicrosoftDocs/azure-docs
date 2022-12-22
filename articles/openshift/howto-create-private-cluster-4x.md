@@ -198,6 +198,26 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 >
 > By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom certificate for your ingress controller](https://docs.openshift.com/container-platform/4.8/security/certificates/replacing-default-ingress-certificate.html) and [custom certificate for your API server](https://docs.openshift.com/container-platform/4.8/security/certificates/api-server.html).
 
+
+### Create a private cluster without a public IP address
+
+Typically, private clusters are created with a public IP address and load balancer, providing a means for outbound connectivity to other services. However, you can create a private cluster without a public IP address. This may be required in situations in which security or policy requirements prohibit the use of public IP addresses.
+
+To create a private cluster without a public IP address, register for the feature flag `UserDefinedRouting` using the following command structure:
+
+```
+az feature register --namespace Microsoft.RedHatOpenShift --name UserDefinedRouting
+```
+After you've registered the feature flag, [create the private ARO cluster](#create-the-cluster).
+
+Enabling this User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
+[Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
+
+> [!NOTE]
+> Be sure to specify the correct subnet with the properly configured routing table when creating your private cluster. 
+
+For egress, the User Defined Routing option ensures that the newly created cluster has the egress lockdown feature enabled to allow you to secure outbound traffic from your new private cluster. See [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress.md) to learn more.
+
 ## Connect to the private cluster
 
 You can log into the cluster using the `kubeadmin` user.  Run the following command to find the password for the `kubeadmin` user.
