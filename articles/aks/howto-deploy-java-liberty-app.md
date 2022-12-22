@@ -152,11 +152,9 @@ mvn clean install
 
 ### (Optional) Test your project locally
 
-Use your local ide, or `liberty:run` command to run and test the project locally before deploying to Azure. and the `liberty-maven-plugin`.  To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
+You can now run and test the project locally before deploying to Azure. For convenience we use the `liberty-maven-plugin`. To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html). For your application you can do something similar using any other mechanism such as your local IDE. You can also consider using the `liberty:devc` option intended for development with containers. You can read more about `liberty:devc` in the [Liberty docs](https://openliberty.io/docs/latest/development-mode.html#_container_support_for_dev_mode).
 
-1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system. `liberty:run` will also leverage the environment variables defined in the above step. 
-
-1. Start the application in `liberty:run` mode
+1. Start the application using `liberty:run`. `liberty:run` will also leverage the environment variables defined in the above step.
 
    ```bash
    cd <path-to-your-repo>/java-app
@@ -165,7 +163,7 @@ Use your local ide, or `liberty:run` command to run and test the project locally
 
 1. Verify the application works as expected. You should see a message similar to `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
-1. Press `Ctrl+C` to stop `liberty:run` mode.
+1. Press `Ctrl+C` to stop.
 
 ### Build image for AKS deployment
 
@@ -180,6 +178,9 @@ docker build -t javaee-cafe:v1 --pull --file=Dockerfile .
 # If you're running with WebSphere Liberty
 docker build -t javaee-cafe:v1 --pull --file=Dockerfile-wlp .
 ```
+
+### (Optional) Test the Docker image locally
+
 
 ### Upload image to ACR
 
