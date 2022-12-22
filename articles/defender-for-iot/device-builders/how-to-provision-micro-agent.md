@@ -1,15 +1,15 @@
 ---
-title: Provision Microsoft Defender micro agent using DPS
-description: Learn how to install, and authenticate the Microsoft Defender Micro agent for Edge.
-ms.date: 02/08/2022
+title: Provision Microsoft Defender for IoT micro agent using DPS
+description: Learn how to provision the Microsoft Defender for IoT micro agent using DPS. 
+ms.date: 12/22/2022
 ms.topic: how-to
 ---
 
-# Provision Microsoft Defender micro agent using DPS
+# Provision Microsoft Defender for IoT micro agent using DPS
 
-This article explains how to provision the standalone Defender micro agent using [Azure IoT Hub Device Provisioning Service](https://learn.microsoft.com/azure/iot-dps/) with [X.509 certificate attestation](https://learn.microsoft.com/azure/iot-dps/concepts-x509-attestation).
+This article explains how to provision the standalone Microsoft Defender for IoT micro agent using [Azure IoT Hub Device Provisioning Service](https://learn.microsoft.com/azure/iot-dps/) with [X.509 certificate attestation](https://learn.microsoft.com/azure/iot-dps/concepts-x509-attestation).
 
-To learn how to configure an Edge Defender micro agent please see [Create and provision IoT Edge devices at scale](https://learn.microsoft.com/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fiot-dps%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=iotedge-1.4&tabs=physical-device%2Cubuntu).
+To learn how to configure the Microsoft Defender for IoT micro agent for Edge devices see [Create and provision IoT Edge devices at scale](https://learn.microsoft.com/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fiot-dps%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=iotedge-1.4&tabs=physical-device%2Cubuntu).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To learn how to configure an Edge Defender micro agent please see [Create and pr
 1. Run the agent that you configured in step 4 to see it connects to the device.
 
 > [!NOTE]
-> Note that using this procedure, while you don't need the device to exists before configuring the agent, you do need to know the device name in advance in order to issue the certificate for the final module correctly.
+> Using this procedure, while you don't need the device to exists before configuring the agent, you do need to know the device name in advance in order to issue the certificate for the final module correctly.
 
 ## Next steps
 

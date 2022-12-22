@@ -1,8 +1,8 @@
 ---
-title: DMI Decoder configurations 
+title: How to configure DMI Decoder
 description: Learn how to configure your DMI decoder on your device, or use other alternatives. 
-ms.date: 02/08/2022
-ms.topic: concepts
+ms.date: 12/22/2022
+ms.topic: how-to
 ---
 
 # DMI Decoder configurations
@@ -21,7 +21,7 @@ The DMI decoder is used to fetch data on the hardware and firmware of the device
 - Hardware serial number
 - Hardware vendor
 
-To learn more on the DMI Decoder please see [dmidecode(8): DMI table decoder - Linux man page (die.net)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinux.die.net%2Fman%2F8%2Fdmidecode&data=05%7C01%7Cmiashapan%40microsoft.com%7C07f0384fdcf14dd8cdb808dae0be41a4%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638069405000113003%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=%2FSFH0ALDDf6OPMsXW99gEP%2Bvu%2F1eIXyunIQth682NbQ%3D&reserved=0).
+For more information on the DMI Decoder see [dmidecode(8): DMI table decoder - Linux man page (die.net)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flinux.die.net%2Fman%2F8%2Fdmidecode&data=05%7C01%7Cmiashapan%40microsoft.com%7C07f0384fdcf14dd8cdb808dae0be41a4%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638069405000113003%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=%2FSFH0ALDDf6OPMsXW99gEP%2Bvu%2F1eIXyunIQth682NbQ%3D&reserved=0).
 
 ## How to populates SMBIOS tables for dmidecode
 
@@ -34,7 +34,7 @@ For device that do not support DMI decoder, below are two options for fetching a
 
 ### JSON file
 
-If you wish to manually set the values on the device, you can create a JSON file the micro agent will read the values from and send them to the cloud.
+To manually set the values on the device, you can create a JSON file the micro agent will read the values from and send them to the cloud.
 
 To configure the file, use the details below:
 
@@ -56,7 +56,7 @@ To configure the file, use the details below:
 
 ### Module twin configurations
 
-If you wish to manually set the values on the cloud, you can use the module twin configuration by setting the following properties:
+To manually set the values on the cloud, you can use the module twin configuration by setting the following properties:
 
 ```bash
     “properties”:{
