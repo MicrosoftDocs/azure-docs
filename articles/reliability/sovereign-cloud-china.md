@@ -36,7 +36,7 @@ This section outlines variations and considerations when using Azure AD External
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Azure China, see [Azure AD B2B in national clouds](/azure/active-directory/external-identities/b2b-government-national-clouds) and [Microsoft cloud settings (Preview)](/azure/active-directory/external-identities/cross-cloud-settings).  |
+| Azure AD External Identities | For Azure AD External Identities B2B feature variations in Azure China, see [Azure AD B2B in national clouds](../active-directory/external-identities/b2b-government-national-clouds.md) and [Microsoft cloud settings (Preview)](../active-directory/external-identities/cross-cloud-settings.md).  |
 
 
 ### Media
