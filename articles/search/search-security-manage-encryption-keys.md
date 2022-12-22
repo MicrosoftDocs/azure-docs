@@ -335,18 +335,18 @@ Once you create the encrypted object on the search service, you can use it as yo
 
 <a name="encryption-enforcement-policy"></a>
 
-## 6 Setup policy to enforce encryption
+## 6 Set up policy
 
-Azure Cognitive Search has an optional [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) to enforce usage of CMK on individual objects defined in a search service. In this step, you'll apply this policy to your search service and setup your search service to enforce this policy.
+Azure Cognitive Search has an optional [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) to enforce usage of CMK on individual objects defined in a search service. In this step, you'll apply this policy to your search service and set up your search service to enforce this policy.
 
 > [!NOTE]
-> Policy setup requires the preview [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+> Policy set up requires the preview [Services - Create or Update API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
 1. Navigate to the [built-in policy](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F76a56461-9dc0-40f0-82f5-2453283afa2f) in your web browser. Select **Assign**
 
    :::image type="content" source="media/search-security-manage-encryption-keys/assign-policy.png" alt-text="Screenshot of assigning built-in CMK policy." border="true":::
 
-1. Setup the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to **Deny**
+1. Set up the [policy scope](../governance/policy/concepts/scope.md). In the **Parameters** section, uncheck **Only show parameters...** and set **Effect** to **Deny**
 
    :::image type="content" source="media/search-security-manage-encryption-keys/effect-deny.png" alt-text="Screenshot of changing built-in CMK policy effect to deny." border="true":::
 
