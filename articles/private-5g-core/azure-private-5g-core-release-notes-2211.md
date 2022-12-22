@@ -68,7 +68,6 @@ The following table provides a summary of known issues carried over from the pre
   |-----|-----|-----|
   | 1 | Policy configuration  | Azure Private 5G Core may ignore non-default QoS and Policy configuration when handling 4G subscribers.  | 
   | 2 | Packet forwarding  | Azure Private 5G Core may not forward buffered packets if NAT is enabled.   | 
-  | 3 | Packet forwarding | If Azure Private 5G Core is placed on the same subset as the RAN node (gNodeB / eNodeB) without an intervening/available router, there are two limitations. <br> - Only one RAN node can be used.  It is not possible to connect multiple RAN nodes without an intervening router. <br> - The IP address of the RAN node must be supplied in the gateway field, for both N2/S1-MME and N3/S1-U when configuring the ASE Virtual Networks on AKS Hybrid.  | 
 
 
 ## Next steps
