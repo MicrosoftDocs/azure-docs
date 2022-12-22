@@ -190,6 +190,8 @@ az spring api-portal delete \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)

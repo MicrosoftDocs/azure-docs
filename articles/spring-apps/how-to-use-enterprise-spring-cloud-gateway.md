@@ -285,6 +285,8 @@ az spring spring-cloud-gateway delete \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)

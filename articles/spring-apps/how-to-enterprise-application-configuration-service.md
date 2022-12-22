@@ -236,6 +236,8 @@ az spring application-configuration-service delete \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ## Next steps
 
 - [Azure Spring Apps](index.yml)

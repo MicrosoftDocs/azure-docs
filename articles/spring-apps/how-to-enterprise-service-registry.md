@@ -482,6 +482,8 @@ az spring service-registry delete \
     --service <Azure-Spring-Apps-service-instance-name>
 ```
 
+---
+
 ## Next steps
 
 - [Create Roles and Permissions](./how-to-permissions.md)
