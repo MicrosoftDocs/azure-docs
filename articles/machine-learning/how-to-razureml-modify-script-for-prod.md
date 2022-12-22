@@ -157,23 +157,23 @@ When you log a model, you log the _crated model_ you created as described in the
 
 To log a model, and/or parameter:
 
-    1. Start the run with `MLflow_start_run()`
-    1. Log artifacts with `MLflow_log_model`, `MLflow_log_param`, or `MLflow_log_batch`
+    1. Start the run with `mlflow_start_run()`
+    1. Log artifacts with `mlflow_log_model`, `mlflow_log_param`, or `mlflow_log_batch`
     1. End the run with `mflow
 
 For example, to log the `crated_model` object as created in the [previous section](#crate-your-models-with-the-carrier-package), you would include the following code in your R script:
 
 ```r
-MLflow_start_run()
+mlflow_start_run()
 
-MLflow_log_model(
+mlflow_log_model(
   model = crated_model, # the crate model object
   artifact_path = "model" # a path to save the model object to
   )
 
-MLflow_log_param(<key-name>, <value>)
+mlflow_log_param(<key-name>, <value>)
 
-MLflow_end_run()
+mlflow_end_run()
 ```
 
 ## Script structure and example
@@ -231,16 +231,16 @@ if (!dir.exists(args$output)) {
 }
 
 # log models and parameters to MLflow
-MLflow_start_run()
+mlflow_start_run()
 
-MLflow_log_model(
+mlflow_log_model(
   model = crated_model, # the crate model object
   artifact_path = "model" # a path to save the model object to
   )
 
-MLflow_log_param(<key-name>, <value>)
+mlflow_log_param(<key-name>, <value>)
 
-MLflow_end_run()
+mlflow_end_run()
 
 ## END OF R SCRIPT
 ```
