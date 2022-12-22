@@ -18,6 +18,10 @@ ms.custom: language-service-ner, ignite-fall-2021
 
 The NER feature can evaluate unstructured text, and extract named entities from text in several pre-defined categories, for example: person, location, event, product, and organization.  
 
+
+> [!Note]
+> You can use this feature in an [power automate flow](../tutorials/power-automate.md)
+
 ## Determine how to process the data (optional)
 
 ### Specify the NER model
