@@ -57,7 +57,6 @@ $net = @{
     Location = 'eastus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig
-    DDoSProtectionPlan = $ddosplan.Id
 }
 $vnet = New-AzVirtualNetwork @net
 

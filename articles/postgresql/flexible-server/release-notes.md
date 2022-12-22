@@ -16,6 +16,11 @@ ms.date: 11/05/2022
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
+## Release: December 2022
+
+* Support for [extensions](concepts-extensions.md) pg_hint_plan with new servers<sup>$</sup> 
+* General availability of [Customer Managed Key feature](./concepts-data-encryption.md) with Azure Database for PostgreSQL - Flexible Server in Canada East, Canada Central, Southeast Asia, Switzerland North, Switzerland West, Brazil South and East Asia Azure regions
+
 ## Release: November 2022
 
 * Support for [minor versions](./concepts-supported-versions.md) 14.5, 13.8, 12.12, 11.17. <sup>$</sup>
