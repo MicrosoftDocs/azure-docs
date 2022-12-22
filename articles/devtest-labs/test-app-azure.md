@@ -76,7 +76,7 @@ To publish your app to your Azure file share from Visual Studio:
 
    :::image type="content" source="./media/test-app-in-azure/final-publish.png" alt-text="Screenshot of selecting Publish.":::
 
-Visual Studio publishes your application to the file share.
+When the publish operation finishes, the application files are avaiable on the Azure file share. You can now mount the file share from another computer, server, or lab VM, to access the application.
 
 ## Mount the file share to your lab VM
 
