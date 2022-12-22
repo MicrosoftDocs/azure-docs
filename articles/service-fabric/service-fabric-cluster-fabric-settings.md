@@ -774,6 +774,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ActivateNode |string, default is "Admin" |Dynamic| Security configuration for activation a node. |
+|BlockAccessToWireServer | bool, default is false |Static| Block access to ports of the WireServer endpoint from Docker containers deployed as Service Fabric applications| 
 |CancelTestCommand |string, default is "Admin" |Dynamic| Cancels a specific TestCommand - if it is in flight. |
 |CodePackageControl |string, default is "Admin" |Dynamic| Security configuration for restarting code packages. |
 |CreateApplication |string, default is "Admin" | Dynamic|Security configuration for application creation. |
