@@ -12,9 +12,11 @@ ms.date: 12/22/2022
 
 As a developer, you may need to validate that your application build runs correctly on another operating system than your developer workstation. You might also distribute an application build for installation and testing by the test team. In this article, you learn how to publish an application from Visual Studio for testing from an Azure DevTest Labs virtual machine (VM).
 
-Visual Studio enables you to deploy an application, service, or component to other computers, devices, servers, or in the cloud. To deploy an application to a lab VM in Azure DevTest Labs, you first publish the application files to an Azure file share, which you then access from within the lab VM. Learn more about [deployment in Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components).
+Visual Studio enables you to deploy an application, service, or component to other computers, devices, servers, or in the cloud. To deploy an application to a lab VM in Azure DevTest Labs, you first [publish the application files](#publish-your-app-from-visual-studio) to an Azure file share, which you then [access from within the lab VM](#access-the-app-on-your-lab-vm).
 
 :::image type="content" source="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png" alt-text="Diagram that shows how to publish an app from Visual Studio to an Azure file share, which is accessed from a lab VM." lightbox="./media/test-app-in-azure/visual-studio-publish-app-to-lab-vm.png":::
+
+Learn more about the [deployment options in Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components).
 
 Instead of deploying the application directly from the developer workstation, you might [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 
@@ -23,7 +25,6 @@ Instead of deploying the application directly from the developer workstation, yo
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Windows-based [DevTest Labs VM](devtest-lab-add-vm.md) to use for testing the app.
 - [Visual Studio](https://visualstudio.microsoft.com/free-developer-offers/) installed on a different workstation.
-- The [file share mounted](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) to your Visual Studio workstation, and to the lab VM you want to use for testing.
 
 ## Create an Azure file share
 
@@ -101,7 +102,7 @@ You can now run and test your app on your lab VM.
 
 ## Next steps
 
-You have published an application directly from Visual Studio on your developer workstation into your lab VM.
+You've published an application directly from Visual Studio on your developer workstation into your lab VM.
 
 - Learn how you can [integrate the lab creation and application deployment into your CI/CD pipeline](./use-devtest-labs-build-release-pipelines.md).
 - Learn more about [deploying an application to a folder with Visual Studio](/visualstudio/deployment/deploying-applications-services-and-components-resources#folder).
