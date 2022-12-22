@@ -21,21 +21,37 @@ Storage Explorer supports several connection options. This article describes con
 
 - Get the name of the lab's storage account by using the Azure portal:
 
-  1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), search for and select **DevTest Labs**, and then select your lab from the list.
-  1. On the lab page, select **Configuration and policies** from the left navigation. 
-  1. On the **Configuration and policies** page, under **Virtual machine bases**, select **Custom images**.
-  1. On the **Custom images** page, select **Add**. 
-  1. On the **Custom image** page, under **VHD**, select the **Upload a VHD using PowerShell** link.
-     ![Screenshot that shows the Upload VHD using PowerShell link.](media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-using-psh.png)
-  1. On the **Upload an image using PowerShell** page, in the call to the **Add-AzureVhd** cmdlet, the `Destination` parameter shows the lab's storage account name in the following format:
-     `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/`.
-  1. Copy the storage account name to use in the following steps.
+   1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-## Step-by-step instructions
+   1. Select **All resources**, and then select your lab.  
 
-1. When you open Storage Explorer, the left **Explorer** pane shows all the Azure subscriptions you're signed in to.
+   1. In the lab menu under **Settings**, select **Configuration and policies**.
 
-   If you need to add a different account, select the **Account Management** icon, and in the **Account Management** pane, select **Add an account**.
+   1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
+
+   1. In **Custom images**, select **Add**.
+
+   1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
+
+       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
+
+   1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
+
+       The `-Destination` parameter contains the URI for a blob container in the following format:
+
+       `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
+
+       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
+
+       Copy the full `-Destination` URI to use in a later step.
+
+   1. Copy the storage account name to use in the following steps.
+
+## Upload a VHD file
+
+1. When you open Storage Explorer, the Explorer pane shows all the Azure subscriptions you're signed in to.
+
+   If you need to add a different account, select the **Account Management** icon. In the **Account Management** pane, select **Add an account**.
 
    ![Screenshot that shows Add an account in the Account Management pane.](media/devtest-lab-upload-vhd-using-storage-explorer/add-account-link.png)
 
@@ -71,4 +87,3 @@ The **Activities** pane at the bottom shows upload status. Uploading the VHD fil
 
 - [Create a custom image in Azure DevTest Labs from a VHD file using the Azure portal](devtest-lab-create-template.md)
 - [Create a custom image in Azure DevTest Labs from a VHD file using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-
