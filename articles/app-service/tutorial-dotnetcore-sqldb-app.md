@@ -28,7 +28,7 @@ git clone https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore.g
 cd msdocs-app-service-sqldb-dotnetcore
 ```
 
-:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
+:::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-browse-app-2.png" alt-text="This is an architecture diagram about how the solution works in Azure":::
 
 ## 1. Create App Service and Azure SQL Database
 
@@ -195,6 +195,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
         **Step 8.**
         1. Select the **Source Control** extension.
         1. In the textbox, type a commit message like `change connection string name & add migration bundle`.
+        1. Select **Commit and Push**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-8.png":::
@@ -204,7 +205,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
     :::column span="2":::
         **Step 9.** Back in the Deployment Center page in the Azure portal:
         1. Select **Logs**. A new deployment run is already started from your committed changes.
-        1. In the log item for the deployment run, select **Build/Deploy Logs**. 
+        1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-9.png" alt-text="A screenshot showing how to open deployment logs in the deployment center." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-9.png":::
