@@ -61,7 +61,7 @@ To create an environment from a template:
 
 1. Once the environment creation completes, expand the environment under **My environments** to see the list of VMs and other resources that the template provisioned.
 
-    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/my-vm-list.png" alt-text="Screenshot that shows the list of V Ms under an environment." lightbox="./media/devtest-lab-create-environment-from-arm/my-vm-list.png":::
+    :::image type="content" source="./media/devtest-lab-create-environment-from-arm/my-vm-list.png" alt-text="Screenshot that shows the list of VMs under an environment." lightbox="./media/devtest-lab-create-environment-from-arm/my-vm-list.png":::
 
    The deployment creates a new resource group to provision all the environment resources that the ARM template defined. Select the environment name under **My environments** to view the resource group and all the resources the template created.
 

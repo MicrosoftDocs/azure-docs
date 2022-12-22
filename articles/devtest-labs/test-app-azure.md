@@ -77,7 +77,7 @@ To publish your app to your Azure file share from Visual Studio:
 
    :::image type="content" source="./media/test-app-in-azure/final-publish.png" alt-text="Screenshot of selecting Publish.":::
 
-When the publish operation finishes, the application files are avaiable on the Azure file share. You can now mount the file share from another computer, server, or lab VM, to access the application.
+When the publish operation finishes, the application files are available on the Azure file share. You can now mount the file share from another computer, server, or lab VM, to access the application.
 
 ## Mount the file share to your lab VM
 
@@ -93,7 +93,7 @@ When you connect to your lab VM, you can now access the application files from t
 
 1. On the lab VM, start **File Explorer**, select **This PC**, and find the file share you mounted earlier.
 
-   :::image type="content" source="./media/test-app-in-azure/find-share-on-vm.png" alt-text="Screenshot of the file share in the V M's File Explorer." lightbox="./media/test-app-in-azure/find-share-on-vm.png":::
+   :::image type="content" source="./media/test-app-in-azure/find-share-on-vm.png" alt-text="Screenshot of the file share in the VM's File Explorer." lightbox="./media/test-app-in-azure/find-share-on-vm.png":::
 
 1. Open the file share, and confirm that you see the app you deployed from Visual Studio.
 
