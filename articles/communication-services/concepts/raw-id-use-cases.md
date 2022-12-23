@@ -10,7 +10,7 @@ ms.date: 12/15/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 #Customer intent: As a developer, I want to learn how to correctly use Raw ID so that I can build applications that run efficiently.
----
+zone_pivot_groups: acs-js-csharp-python-java
 
 # Raw ID use cases in Communication SDKs
 This article provides use cases for choosing a Raw ID as a [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over other types of CommunicationIdentifier.
