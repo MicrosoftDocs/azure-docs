@@ -240,7 +240,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot shows Attribute mapping, where you can edit your Amazon data SAML attribute names.](media/amazon-business-tutorial/attribute-mapping.png)
 
-1. On the **Amazon connection data** wizard, click **Continue**.
+1. On the **Amazon connection data** wizard, please confirm your IDP has configured and click **Continue**.
 
     ![Screenshot shows Amazon connection data, where you can click next to continue.](media/amazon-business-tutorial/amazon-connect.png)
 
