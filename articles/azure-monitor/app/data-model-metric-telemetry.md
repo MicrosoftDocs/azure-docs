@@ -28,7 +28,7 @@ Metric representing system and process counters:
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time`   | Work in progress... | average requests execution time
 | `\ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue` | Work in progress... | number of requests waiting for the processing in a queue
 
-See [Metrics - Get] (/rest/api/application-insights/metrics/get) for more information on the Metrics REST API.
+See [Metrics - Get](/rest/api/application-insights/metrics/get) for more information on the Metrics REST API.
 
 ## Name
 
