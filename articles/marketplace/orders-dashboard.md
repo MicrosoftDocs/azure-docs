@@ -4,7 +4,7 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: saurasharma
+author: saurabhsharmaa
 ms.author: saurasharma
 ms.reviewer: sroy
 ms.date: 12/23/2022
