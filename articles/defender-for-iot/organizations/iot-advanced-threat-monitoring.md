@@ -323,19 +323,19 @@ This playbook updates the incident severity according to the importance level of
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize data](/azure/sentinel/get-visibility.md)
+> [Visualize data](/azure/sentinel/get-visibility)
 
 > [!div class="nextstepaction"]
-> [Create custom analytics rules](/azure/sentinel/detect-threats-custom.md)
+> [Create custom analytics rules](/azure/sentinel/detect-threats-custom)
 
 > [!div class="nextstepaction"]
-> [Investigate incidents](/sentinel/investigate-cases)
+> [Investigate incidents](/azure/sentinel/investigate-cases)
 
 > [!div class="nextstepaction"]
-> [Investigate entities](/azure/sentinel/entity-pages.md)
+> [Investigate entities](/azure/sentinel/entity-pages)
 
 > [!div class="nextstepaction"]
-> [Use playbooks with automation rules](/azure/sentinel/tutorial-respond-threats-playbook.md)
+> [Use playbooks with automation rules](/azure/sentinel/tutorial-respond-threats-playbook)
 
 For more information, see our blog: [Defending Critical Infrastructure with the Microsoft Sentinel: IT/OT Threat Monitoring Solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/defending-critical-infrastructure-with-the-microsoft-sentinel-it/ba-p/3061184)
 
