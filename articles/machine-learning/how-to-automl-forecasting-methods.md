@@ -138,3 +138,10 @@ Each Series in Own Group (1:1) | All Series in Single Group (N:1)
 Naive, Seasonal Naive, Average, Seasonal Average, Exponential Smoothing, ARIMA, ARIMAX, Prophet | Linear SGD, LARS LASSO, Elastic Net, K Nearest Neighbors, Decision Tree, Random Forest, Extremely Randomized Trees, Gradient Boosted Trees, LightGBM, XGBoost, Temporal Convolutional Network
 
 More general model groupings are possible via AutoML's Many-Models solution; see our [Many Models- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-many-models/auto-ml-forecasting-many-models.ipynb) and [Hierarchical time series- Automated ML notebook](https://github.com/Azure/azureml-examples/blob/main/v1/python-sdk/tutorials/automl-with-azureml/forecasting-hierarchical-timeseries/auto-ml-forecasting-hierarchical-timeseries.ipynb).
+
+## Next Steps
+
+* Learn more about [model sweeping and selection](./how-to-automl-forecasting-sweeping.md) for forecasting in AutoML.
+* Learn about how AutoML creates [features from the calendar](./how-to-automl-forecasting-calendar-features.md).
+* Learn about how AutoML creates [lag features](./how-to-automl-forecasting-lags.md).
+* Read answers to [frequently asked questions](./how-to-automl-forecasting-faq.md) about forecasting in AutoML.
