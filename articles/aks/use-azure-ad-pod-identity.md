@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 8/27/2022
+ms.date: 11/01/2022
 
 ---
 
@@ -17,7 +17,7 @@ Azure Active Directory (Azure AD) pod-managed identities use Kubernetes primitiv
 > Kubernetes native capabilities to federate with any external identity providers on behalf of the
 > application.
 >
-> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022.
+> The open source Azure AD pod-managed identity (preview) in Azure Kubernetes Service has been deprecated as of 10/24/2022, the AKS Managed add-on is still supported at this time.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -288,7 +288,7 @@ metadata:
 
 ## Clean up
 
-To remove an Azure AD pod-managed identity from your cluster, remove the sample application and the pod-managed identity from the cluster. Then remove the identity.
+To remove an Azure AD pod-managed identity from your cluster, remove the sample application and the pod-managed identity from the cluster. Then remove the identity and the role assignment of cluster identity.
 
 ```bash
 kubectl delete pod demo --namespace $POD_IDENTITY_NAMESPACE
@@ -300,6 +300,10 @@ az aks pod-identity delete --name ${POD_IDENTITY_NAME} --namespace ${POD_IDENTIT
 
 ```azurecli
 az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
+```
+
+```azurecli
+az role assignment delete --role "Managed Identity Operator" --assignee "$IDENTITY_CLIENT_ID" --scope "$IDENTITY_RESOURCE_ID"
 ```
 
 ## Next steps

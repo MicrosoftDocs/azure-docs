@@ -1,6 +1,6 @@
 ---
-title: Change approval settings for an access package in Azure AD entitlement management - Azure Active Directory
-description: Learn how to change approval and requestor information settings for an access package in Azure Active Directory entitlement management.
+title: Change approval settings for an access package in entitlement management - Microsoft Entra
+description: Learn how to change approval and requestor information settings for an access package in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# Change approval and requestor information settings for an access package in Azure AD entitlement management
+# Change approval and requestor information settings for an access package in entitlement management
 
 As an access package manager, you can change the approval and requestor information settings for an access package at any time by editing an existing policy or adding a new policy for requesting access.
 
@@ -202,6 +202,7 @@ In order to make sure users are getting access to the right access packages, you
 
 1. If you would like to include a syntax check for text answers to questions, you can also specify a custom regex pattern.  
     :::image type="content" source="media/entitlement-management-access-package-approval-policy/add-regex-localization.png" alt-text="Screenshot of the add regex localization policy." lightbox="media/entitlement-management-access-package-approval-policy/add-regex-localization.png":::
+ If you would like to include a syntax check for text answers to questions, you can also specify a custom regex pattern.
 1. To require requestors to answer this question when requesting access to an access package, select the check box under **Required**.
 
 1. Fill out the remaining tabs (for example, Lifecycle) based on your needs.

@@ -181,8 +181,8 @@ KubePodInventory
 | summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
 //Below lines are to parse the labels to identify the impacted service/component name
 | extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
-| extend parseLabel = replace(@'app.kubernetes.io/component', @'appkubernetesiocomponent', parseLabel)
-| extend parseLabel = replace(@'app.kubernetes.io/instance', @'appkubernetesioinstance', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io\\/component', @'appkubernetesiocomponent', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io\\/instance', @'appkubernetesioinstance', parseLabel)
 | extend tags = todynamic(parseLabel)
 | extend tag01 = todynamic(tags[0].app)
 | extend tag02 = todynamic(tags[0].k8sapp)
@@ -224,8 +224,8 @@ KubePodInventory
 | summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
 //Below lines are to parse the labels to identify the impacted service/component name
 | extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
-| extend parseLabel = replace(@'app.kubernetes.io/component', @'appkubernetesiocomponent', parseLabel)
-| extend parseLabel = replace(@'app.kubernetes.io/instance', @'appkubernetesioinstance', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io\\/component', @'appkubernetesiocomponent', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io\\/instance', @'appkubernetesioinstance', parseLabel)
 | extend tags = todynamic(parseLabel)
 | extend tag01 = todynamic(tags[0].app)
 | extend tag02 = todynamic(tags[0].k8sapp)

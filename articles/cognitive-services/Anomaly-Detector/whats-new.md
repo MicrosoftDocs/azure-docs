@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 11/01/2022
+ms.date: 12/15/2022
 ---
 
 # What's new in Anomaly Detector
@@ -15,9 +15,21 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### Dec 2022
+* Multivariate Anomaly Detection SDK is updated to match with GA API for four languages.
+
+    |SDK Package  |Sample Code  |
+    |---------|---------|
+    | [Python](https://pypi.org/project/azure-ai-anomalydetector/3.0.0b6/)|[sample_multivariate_detect.py](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_multivariate_detect.py)|
+    | [.NET](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.6) | [Sample4_MultivariateDetect.cs](https://github.com/Azure/azure-sdk-for-net/blob/40a7d122ac99a3a8a7c62afa16898b7acf82c03d/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/Sample4_MultivariateDetect.cs)|
+    | [JAVA](https://search.maven.org/artifact/com.azure/azure-ai-anomalydetector/3.0.0-beta.5/jar) | [MultivariateSample.java](https://github.com/Azure/azure-sdk-for-java/blob/e845677d919d47a2c4837153306b37e5f4ecd795/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)|
+    | [JS/TS](https://www.npmjs.com/package/@azure-rest/ai-anomaly-detector/v/1.0.0-beta.1) |[sample_multivariate_detection.ts](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/anomalydetector/ai-anomaly-detector-rest/samples-dev/sample_multivariate_detection.ts)|
+
+* Check out this AI Show video to learn more about the GA version of Multivariate Anomaly Detection: [AI Show | Multivariate Anomaly Detection is Generally Available](https://learn.microsoft.com/shows/ai-show/ep-70-the-latest-from-azure-multivariate-anomaly-detection).
+
 ### Nov 2022
 
-* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with a better user experience and better model performance. Learn more about [how to use latest Multivariate Anomaly Detection](quickstarts/client-libraries-multivariate.md).
+* Multivariate Anomaly Detection is now a generally available feature in Anomaly Detector service, with a better user experience and better model performance. Learn more about [how to get started using the latest release of Multivariate Anomaly Detection](how-to/create-resource.md).
 
 ### June 2022
 
@@ -88,6 +100,7 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Videos
 
+* Nov 12, 2022 AI Show: [Multivariate Anomaly Detection is GA](https://learn.microsoft.com/shows/ai-show/ep-70-the-latest-from-azure-multivariate-anomaly-detection) (Seth with Louise Han).
 * May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
 * April 20, 2021 AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities - AI Show live recording with Tony Xing and Seth Juarez
 * May 18, 2020 [Inside Anomaly Detector](/shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez

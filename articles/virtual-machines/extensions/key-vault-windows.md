@@ -20,6 +20,7 @@ The Key Vault VM extension provides automatic refresh of certificates stored in 
 
 The Key Vault VM extension supports below versions of Windows:
 
+- Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
@@ -62,7 +63,7 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 
 ## Extension schema
 
-The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
+The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
 
 ```json
     {
@@ -163,7 +164,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
 ```
 
 ### Extension Dependency Ordering
-The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates install before they start, then enabling this setting will allow those extension to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
+The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates installed before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
 
 To turn this on set the following:
 ```
@@ -271,7 +272,7 @@ Please be aware of the following restrictions/requirements:
 
 ### Frequently Asked Questions
 
-* Is there is a limit on the number of observedCertificates you can setup?
+* Is there a limit on the number of observedCertificates you can set up?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 
 ### Troubleshoot

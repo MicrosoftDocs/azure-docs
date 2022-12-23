@@ -1,5 +1,5 @@
----
-title: Quickstart - Create an Azure private DNS resolver using the Azure portal
+--- 
+title: Quickstart - Create an Azure DNS Private Resolver using the Azure portal
 description: In this quickstart, you create and test a private DNS resolver in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS resolver using the Azure portal.
 services: dns
 author: greg-lindsay
@@ -11,7 +11,7 @@ ms.custom: mode-ui, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
 
-# Quickstart: Create an Azure Private DNS Resolver using the Azure portal
+# Quickstart: Create an Azure DNS Private Resolver using the Azure portal
 
 This quickstart walks you through the steps to create an Azure DNS Private Resolver using the Azure portal. If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md).
 
@@ -179,4 +179,4 @@ You should now be able to send DNS traffic to your DNS resolver and resolve reco
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Azure private DNS Resolver?](dns-private-resolver-overview.md)
+> [What is Azure DNS Private Resolver?](dns-private-resolver-overview.md)

@@ -55,7 +55,7 @@ az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id Ru
 To check expiration date of certificate on one virtual machine scale set agent node, run the following command:
 
 ```azurecli
-az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+az vmss run-command invoke --resource-group "MC_rg_myAKSCluster_region" --name "vmss-name " --command-id RunShellScript --instance-id 1 --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate" --query "value[0].message"
 ```
 
 ## Certificate Auto Rotation

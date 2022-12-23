@@ -171,7 +171,7 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
 1. To get the ID of the private endpoint network interface, use the following command:
 
     ```azurecli
-    az network private-endpoint show --endpoint-name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
+    az network private-endpoint show --name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
     ```
 
 1. To get the IP address and FQDN information, use the following command. Replace `<resource-id>` with the ID from the previous step:

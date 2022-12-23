@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Computer Vision Image Analysis 4.0 public preview
 
-Version 4.0 of Computer Vision has been released in public preview. The new API includes image captioning, image tagging, object detection people detection, and Read OCR functionality, available in the same Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
+Image Analysis 4.0 has been released in public preview. The new API includes image captioning, image tagging, object detection, smart crops, people detection, and Read OCR functionality, all available through one Analyze Image operation. The OCR is optimized for general, non-document images in a performance-enhanced synchronous API that makes it easier to embed OCR-powered experiences in your workflows.
 
 ## September 2022
 

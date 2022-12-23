@@ -29,7 +29,7 @@ Several open-source tools can help with your migration, depending on your scenar
 
 * [Velero](https://velero.io/) (Requires Kubernetes 1.7+)
 * [Azure Kube CLI extension](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+
 
 In this article we will summarize migration details for:
 
@@ -56,7 +56,7 @@ AKS is a managed service offering unique capabilities with lower management over
 
 We recommend using AKS clusters backed by [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml) and the [Azure Standard Load Balancer](./load-balancer-standard.md) to ensure you get features such as:
 * [Multiple node pools](./use-multiple-node-pools.md),
-* [Availability Zones](../availability-zones/az-overview.md),
+* [Availability Zones](../reliability/availability-zones-overview.md),
 * [Authorized IP ranges](./api-server-authorized-ip-ranges.md),
 * [Cluster Autoscaler](./cluster-autoscaler.md),
 * [Azure Policy for AKS](../governance/policy/concepts/policy-for-kubernetes.md), and

@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.date: 10/27/2022
 ms.author: pafarley
 ---
 
@@ -95,6 +95,10 @@ Detailed information about supported regions for Custom Neural Voice and Speaker
 ### What happens to my data if my application is denied? 
 
 If you're an existing customer and your application for access is denied, you will no longer be able to use Limited Access features after June 30, 2023. Your data is subject to Microsoft's data retention [policies](https://www.microsoft.com/trust-center/privacy/data-management#:~:text=If%20you%20terminate%20a%20cloud,data%20or%20renew%20your%20subscription.). 
+
+### How long will the registration process take?
+
+You'll receive communication from us about your application within 10 business days. In some cases, reviews can take longer. You'll receive an email as soon as your application is reviewed.
 
 ## Help and support 
 

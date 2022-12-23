@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/01/2022
 ---
 
 # Plan and manage costs of an Azure Cognitive Search service
@@ -37,7 +37,6 @@ Billing is based on capacity (SUs) and the costs of running premium features, su
 
 | Meter | Unit |
 |-------|------|
-| Indexer usage | Per 1000 API calls |
 | Image extraction (AI enrichment) <sup>1, 2</sup> | Per 1000 images. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
 | Custom Entity Lookup skill (AI enrichment) <sup>1</sup> | Per 1000 text records. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) |
 | Built-in skills  (AI enrichment) <sup>1</sup> | Number of transactions, billed at the same rate as if you had performed the task by calling Cognitive Services directly. You can process 20 documents per indexer per day for free. Larger or more frequent workloads require a multi-resource Cognitive Services key. |

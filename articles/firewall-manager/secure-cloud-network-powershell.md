@@ -6,7 +6,7 @@ author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh 
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 - PowerShell 7
 
-   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
+   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7).
 
 - "Az.Network" module version must be 4.17.0 or higher.
 
@@ -82,7 +82,7 @@ $AzFWHubIPs = New-AzFirewallHubIpAddress -PublicIP $AzFWPIPs
 $AzFW = New-AzFirewall -Name "azfw1" -ResourceGroupName $RG -Location $Location `
             -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
             -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
-            -SkuTier $FirewallTier 
+            -SkuTier $FirewallTier
 ```
 
 > [!NOTE]
@@ -132,7 +132,7 @@ $AzFWRoute = New-AzVHubRoute -Name "all_traffic" -Destination @("0.0.0.0/0", "10
 $DefaultRT = Update-AzVHubRouteTable -Name "defaultRouteTable" -ResourceGroupName $RG -VirtualHubName  $HubName -Route @($AzFWRoute)
 ```
 > [!NOTE]
-> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure Portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure Portal. 
+> String "***all_traffic***" as value for parameter "-Name" in the New-AzVHubRoute command above has a special meaning: if you use this exact string, the configuration applied in this article will be properly reflected in the Azure Portal (Firewall Manager --> Virtual hubs --> [Your Hub] --> Security Configuration). If a different name will be used, the desired configuration will be applied, but will not be reflected in the Azure Portal.
 
 ## Test connectivity
 
@@ -233,16 +233,16 @@ The easiest way to verify the packets are dropped by the firewall is to check th
 ```azurepowershell
 # Getting Azure Firewall network rule Logs
 $LogWS = Get-AzOperationalInsightsWorkspace -ResourceGroupName $RG
-$LogQuery = 'AzureDiagnostics 
-| where Category == "AzureFirewallNetworkRule" 
-| where TimeGenerated >= ago(5m) 
-| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int * 
-| parse msg_s with * ". Action: " Action1a 
-| parse msg_s with * " was " Action1b " to " NatDestination 
-| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2 
-| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt) 
-| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination) 
-| project TimeGenerated, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination, Resource 
+$LogQuery = 'AzureDiagnostics
+| where Category == "AzureFirewallNetworkRule"
+| where TimeGenerated >= ago(5m)
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action1a
+| parse msg_s with * " was " Action1b " to " NatDestination
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| project TimeGenerated, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination, Resource
 | take 25 '
 $(Invoke-AzOperationalInsightsQuery -Workspace $LogWS -Query $LogQuery).Results | ft
 ```
@@ -287,7 +287,7 @@ Remove-AzResourceGroup -Name $RG
 
 The previous procedure uses Azure PowerShell to create a **new** Azure Virtual WAN Hub, and then immediately converts it to a Secured Hub using Azure Firewall.
 A similar approach can be applied to an **existing** Azure Virtual WAN Hub. Firewall Manager can be also used for the conversion, but it isn't possible to deploy Azure Firewall across Availability Zones without a script-based approach.
-You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones.  
+You can use the following code snippet to convert an existing Azure Virtual WAN Hub to a Secured Hub, using an Azure Firewall deployed across all three Availability Zones.
 
 ```azurepowershell
 # Variable definition
@@ -315,7 +315,7 @@ $AzFW = New-AzFirewall -Name $FirewallName -ResourceGroupName $RG -Location $Loc
             -VirtualHubId $Hub.Id -FirewallPolicyId $FWPolicy.Id `
             -SkuName "AZFW_Hub" -HubIPAddress $AzFWHubIPs `
             -SkuTier $FirewallTier `
-            -Zone 1,2,3 
+            -Zone 1,2,3
 ```
 After you run this script, Availability Zones should appear in the secured hub properties as shown in the following screenshot:
 

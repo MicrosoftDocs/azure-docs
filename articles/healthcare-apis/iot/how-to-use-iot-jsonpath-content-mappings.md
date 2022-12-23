@@ -1,17 +1,17 @@
 ---
-title: IotJsonPathContentTemplate mappings in MedTech service device mapping - Azure Health Data Services
-description: This article describes how to use IotJsonPathContentTemplate mappings with MedTech service device mapping. 
+title: How to use IotJsonPathContentTemplate mappings in the MedTech service device mapping - Azure Health Data Services
+description: This article describes how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 10/25/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
 # How to use IotJsonPathContentTemplate mappings
 
-This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-use-device-mappings.md).
+This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-configure-device-mappings.md).
 
 ## IotJsonPathContentTemplate
 
@@ -265,13 +265,15 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](iot-troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
+> See the MedTech service article [Troubleshoot MedTech service Device and FHIR destination mappings](troubleshoot-mappings.md) for assistance fixing common errors and issues related to MedTech service mappings.
 
 ## Next steps
 
-In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. To learn how to use MedTech service FHIR destination mapping, see
+In this article, you learned how to use IotJsonPathContentTemplate mappings with the MedTech service device mapping. 
+
+To learn how to configure the MedTech service FHIR destination mapping, see
 
 > [!div class="nextstepaction"]
-> [How to use the FHIR destination mapping](how-to-use-fhir-mappings.md)
+> [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

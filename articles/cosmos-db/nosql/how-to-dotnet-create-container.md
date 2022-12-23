@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to
 ms.date: 07/06/2022
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devguide-csharp, cosmos-db-dev-journey
 ---
 
 # Create a container in Azure Cosmos DB for NoSQL using .NET
@@ -23,9 +23,9 @@ In Azure Cosmos DB, a container is analogous to a table in a relational database
 
 Here are some quick rules when naming a container:
 
-* Keep container names between 3 and 63 characters long
-* Container names can only contain lowercase letters, numbers, or the dash (-) character.
-* Container names must start with a lowercase letter or number.
+- Keep container names between 3 and 63 characters long
+- Container names can only contain lowercase letters, numbers, or the dash (-) character.
+- Container names must start with a lowercase letter or number.
 
 Once created, the URI for a container is in this format:
 
@@ -35,14 +35,14 @@ Once created, the URI for a container is in this format:
 
 To create a container, call one of the following methods:
 
-* [``CreateContainerAsync``](#create-a-container-asynchronously)
-* [``CreateContainerIfNotExistsAsync``](#create-a-container-asynchronously-if-it-doesnt-already-exist)
+- [``CreateContainerAsync``](#create-a-container-asynchronously)
+- [``CreateContainerIfNotExistsAsync``](#create-a-container-asynchronously-if-it-doesnt-already-exist)
 
 ### Create a container asynchronously
 
 The following example creates a container asynchronously:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/226-create-container-options/Program.cs" id="create_container" highlight="2":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/226-create-container-options/Program.cs" id="create_container" highlight="2":::
 
 The [``Database.CreateContainerAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync) method will throw an exception if a database with the same name already exists.
 
@@ -50,7 +50,7 @@ The [``Database.CreateContainerAsync``](/dotnet/api/microsoft.azure.cosmos.datab
 
 The following example creates a container asynchronously only if it doesn't already exist on the account:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/226-create-container-options/Program.cs" id="create_container_check" highlight="2":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/226-create-container-options/Program.cs" id="create_container_check" highlight="2":::
 
 The [``Database.CreateContainerIfNotExistsAsync``](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) method will only create a new container if it doesn't already exist. This method is useful for avoiding errors if you run the same code multiple times.
 
@@ -60,7 +60,7 @@ In all examples so far, the response from the asynchronous request was cast imme
 
 The following example shows the **Database.CreateContainerIfNotExistsAsync** method returning a **ContainerResponse**. Once returned, you can parse response properties and then eventually get the underlying **Container** object:
 
-:::code language="csharp" source="~/azure-cosmos-dotnet-v3/226-create-container-options/Program.cs" id="create_container_response" highlight="2,6":::
+:::code language="csharp" source="~/cosmos-db-nosql-dotnet-samples/226-create-container-options/Program.cs" id="create_container_response" highlight="2,6":::
 
 ## Next steps
 

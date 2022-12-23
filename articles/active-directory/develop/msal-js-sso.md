@@ -78,13 +78,13 @@ const request = {
 
 #### Using a login hint
 
-To bypass the account selection prompt typically shown during interactive authentication requests (or for silent requests when you haven't configured the `sid` optional claim), provide a `loginHint`. In multi-tenant applications, also include a `domain_hint`.
+To bypass the account selection prompt typically shown during interactive authentication requests (or for silent requests when you haven't configured the `sid` optional claim), provide a `loginHint`. In multi-tenant applications, also include a `domainHint`.
 
 ```javascript
 const request = {
   scopes: ["user.read"],
-  loginHint: preferred_username,
-  extraQueryParameters: { domain_hint: "organizations" },
+  loginHint: "preferred_username",
+  domainHint: "preferred_tenant_id"
 };
 
 try {
@@ -100,11 +100,11 @@ try {
 }
 ```
 
-Get the values for `loginHint` and `domain_hint` from the user's **ID token**:
+Get the values for `loginHint` and `domainHint` from the user's **ID token**:
 
 - `loginHint`: Use the ID token's `preferred_username` claim value.
 
-- `domain_hint`: Use the ID token's `tid` claim value. Required in requests made by multi-tenant applications that use the */common* authority. Optional for other applications.
+- `domainHint`: Use the ID token's `tid` claim value. Required in requests made by multi-tenant applications that use the */common* authority. Optional for other applications.
 
 For more information about login hint and domain hint, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
 

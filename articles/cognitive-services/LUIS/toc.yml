@@ -230,7 +230,7 @@ items:
       - name: Go
         items:
         - name: SDK - authoring
-          href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/authoring
+          href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS/Authoring
         - name: SDK - runtime
           href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis/runtime
         - name: Reference

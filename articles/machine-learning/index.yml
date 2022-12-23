@@ -63,8 +63,8 @@ landingContent:
         links:
         - text: Streamline model deployment with endpoints 
           url: concept-endpoints.md
-        - text: Real-time scoring with a managed online endpoint
-          url: how-to-deploy-managed-online-endpoints.md
+        - text: Real-time scoring with online endpoints
+          url: how-to-deploy-online-endpoints.md
         - text: Batch scoring with batch endpoints 
           url: batch-inference/how-to-use-batch-endpoint.md
 

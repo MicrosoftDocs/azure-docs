@@ -3,18 +3,20 @@ title: Understand Device Update for Azure IoT Hub diagnostic features | Microsof
 description: Understand what diagnostic features Device Update for IoT Hub has, including deployment error codes in UX and remote log collection.
 author: chrisjlin
 ms.author: lichris
-ms.date: 1/26/2021
+ms.date: 9/2/2022
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
 # Device Update for IoT Hub diagnostics overview
 
-Device Update for IoT Hub has several features that help you to diagnose and troubleshoot device-side errors. With the release of the v0.8.0 agent, there are two diagnostic features available:
+Device Update for IoT Hub has several features that help you to diagnose and troubleshoot device-side errors. With the release of the v0.9.0 agent, there are three diagnostic features available:
 
-* **Deployment error codes** can be viewed directly in the latest preview version of the Device Update user interface
+* **Deployment error codes** can be viewed directly in the Device Update user interface
 
 * **Remote log collection** enables the creation of log operations, which instruct targeted devices to upload on-device diagnostic logs to a linked Azure Blob storage account
+
+* **Agent Check** runs validation checks on devices registered to your Device Update instance with the goal of diagnosing devices that are registered in the connected IoT Hub, but are not showing up in Device Update
 
 ## Deployment error codes in UI
 
@@ -37,7 +39,7 @@ When a device reports a deployment failure to the Device Update service, the Dev
 
 When more information from the device is necessary to diagnose and troubleshoot an error, you can use the log collection feature to instruct targeted devices to upload on-device diagnostic logs to a linked Azure Blob storage account. You can start using this feature by following the instructions in [Remotely collect diagnostic logs from devices](device-update-log-collection.md).
 
-Device Update's remote log collection is a service-driven, operation-based feature. To take advantage of log collection, a device need only be able to implement the Diagnostics interface and configuration file, and be able to upload files to Azure Blob storage via SDK.
+Device Update's remote log collection is a service-driven, operation-based feature. To take advantage of log collection, a device need only be able to implement the [Diagnostics interface](device-update-plug-and-play.md#device-update-models) and configuration file, and be able to upload files to Azure Blob storage via SDK.
 
 From a high level, the log collection feature works as follows:
 
@@ -54,6 +56,23 @@ From a high level, the log collection feature works as follows:
    > [!NOTE]
    > Since the log operation is carried out in parallel by the targeted devices, it is possible that some targeted devices successfully uploaded logs, but the overall log operation is marked as failed. You can see which devices succeeded and which failed by viewing the log operation details through the user interface or APIs.
 
+## Agent Check
+
+When your device is registered in IoT Hub but is not appearing in your Device Update instance, you can use the Agent Check feature to run pre-made validation checks to help you diagnose the underlying issue. You can start using this feature by following these [Agent Check instructions](device-update-agent-check.md).
+
+From a high level, the agent check feature works as follows:
+
+- The user registers a device with IoT Hub. If the device reports a Model ID that matches those compatible with Device Update for IoT Hub, the user's connected Device Update instance will automatically register the device with Device Update.
+
+- In order for a device to be properly managed by Device Update, it must meet certain criteria that can be verified using Agent Check's pre-made validation checks. More information on these criteria can be found [here](device-update-agent-check.md).
+
+- If a device does not meet all of these criteria, it cannot be properly managed by Device Update and will not show up in the Device Update interface or API responses. Users can use Agent Check to find this device and attempt to identify which criteria is not being met by using Agent Check.
+
+- Once the user has identified which criteria is not being met, the user may correct the issue and the device should then properly appear in the Device Update interface.
+
 ## Next steps
 
-Learn how to use Device Update's remote log collection feature: [Remotely collect diagnostic logs from devices using Device Update for IoT Hub](device-update-log-collection.md)
+Learn how to use Device Update's remote log collection and Agent Check features:
+
+ - [Remotely collect diagnostic logs from devices using Device Update for IoT Hub](device-update-log-collection.md)
+ - [Find and fix devices missing from Device Update for IoT Hub](device-update-agent-check.md)

@@ -40,4 +40,4 @@ Learn how to set up the localization correctly using the UI Library in your appl
 
 ## Next steps
 
-- [Learn more about UI Library](../../quickstarts/ui-library/get-started-composites.md)
+- [Learn more about UI Library](../../concepts/ui-library/ui-library-overview.md)

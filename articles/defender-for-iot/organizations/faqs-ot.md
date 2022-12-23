@@ -37,9 +37,10 @@ For example:
 
 ## How can I change a user's passwords
 
-Learn how to [Change a user's password](how-to-create-and-manage-users.md#change-a-users-password) for either the sensor or the on-premises management console.
+You can change user passwords or recover access to privileged users on both the OT network sensor and the on-premises management console. For more information, see:
 
-You can also [Recover the password for the on-premises management console, or the sensor](how-to-create-and-manage-users.md#recover-the-password-for-the-on-premises-management-console-or-the-sensor).
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
 
 ## How do I activate the sensor and on-premises management console
 

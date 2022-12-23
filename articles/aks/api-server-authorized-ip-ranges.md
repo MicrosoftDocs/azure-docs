@@ -3,7 +3,7 @@ title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/20/2022
+ms.date: 11/04/2022
 
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
@@ -11,23 +11,22 @@ ms.date: 07/20/2022
 
 # Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)
 
-In Kubernetes, the API server receives requests to perform actions in the cluster such as to create resources or scale the number of nodes. The API server is the central way to interact with and manage a cluster. To improve cluster security and minimize attacks, the API server should only be accessible from a limited set of IP address ranges.
+The Kubernetes API server is the core of the Kubernetes control plane and is the central way to interact with and manage your clusters. To improve the security of your clusters and minimize the risk of attacks, we recommend limiting the IP address ranges that can access the API server. To do this, you can use the *API server authorized IP ranges* feature.
 
-This article shows you how to use API server authorized IP address ranges, using the Azure CLI, to limit which IP addresses and CIDRs can access control plane.
+This article shows you how to use *API server authorized IP address ranges* feature to limit which IP addresses and CIDRs can access control plane.
 
 ## Before you begin
 
 - You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
 - To learn what IP addresses to include when integrating your AKS cluster with Azure DevOps, see the Azure DevOps [Allowed IP addresses and domain URLs][azure-devops-allowed-network-cfg] article.  
 
 ### Limitations
 
-The API server Authorized IP ranges feature has the following limitations:
+The *API server authorized IP ranges* feature has the following limitations:
 
-- On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is, but they cann't be migrated to a *Standard* SKU load balancer. Existing clusters will also continue to work if their Kubernetes version or control plane are upgraded.
-- API server authorized IP address ranges aren't supported with private clusters.
-- When using this feature with clusters that use [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools), those node pools with public IP per node enabled must use public IP prefixes, and those prefixes must be added as authorized ranges.
+- The *API server authorized IP ranges* feature was moved out of preview in October 2019. For clusters created after the feature was moved out of preview, this feature is only supported on the *Standard* SKU load balancer. Any existing clusters on the *Basic* SKU load balancer with the *API server authorized IP ranges* feature enabled will continue to work as is. However, these clusters cannot be migrated to a *Standard* SKU load balancer. Existing clusters will continue to work if the Kubernetes version and control plane are upgraded.
+- The *API server authorized IP ranges* feature isn't supported on private clusters.
+- When using this feature with clusters that use [Node Public IP](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools), the node pools using Node Public IP must use public IP prefixes. The public IP prefixes must be added as authorized ranges.
 
 ## Overview of API server authorized IP ranges
 
@@ -59,6 +58,7 @@ az aks create \
 
 > [!NOTE]
 > You should add these ranges to an allow list:
+>
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
 >

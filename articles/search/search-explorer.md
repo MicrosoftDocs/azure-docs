@@ -61,7 +61,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
 Free-form queries, with or without operators, are useful for simulating user-defined queries sent from a custom app to Azure Cognitive Search. Only those fields attributed as **Searchable** in the index definition are scanned for matches. 
 
-Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search.
+Notice that when you provide search criteria, such as query terms or expressions, search rank comes into play. The following example illustrates a free text search. The "@search.score" is a relevance score computed for the match using the [default scoring algorithm](index-ranking-similarity.md#default-scoring-algorithm).
 
    ```http
    Seattle apartment "Lake Washington" miele OR thermador appliance
@@ -75,7 +75,7 @@ Notice that when you provide search criteria, such as query terms or expressions
 
 ## Count of matching documents 
 
-Add **$count=true** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so you might have more matches in the index than what's included in the results.
+Add **$count=true** to get the number of matches found in an index. On an empty search, count is the total number of documents in the index. On a qualified search, it's the number of documents matching the query input. Recall that the service returns the top 50 matches by default, so the count might indicate more matches in the index than what's returned in the results.
 
    ```http
    $count=true
@@ -87,7 +87,7 @@ Add **$count=true** to get the number of matches found in an index. On an empty 
 
 ## Limit fields in search results
 
-Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the search string and **$count=true**, prefix arguments with **&**. 
+Add [**$select**](search-query-odata-select.md) to limit results to the explicitly named fields for more readable output in **Search explorer**. To keep the previously mentioned parameters in the query, use **&** to separate each parameter.
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

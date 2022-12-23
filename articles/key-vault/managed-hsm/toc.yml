@@ -29,7 +29,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
@@ -39,6 +39,8 @@ items:
     href: backup-restore.md
   - name: Recovery management with soft-delete and purge protection
     href: recovery.md
+  - name: Enable Multi-Region Replication on Managed HSM (Preview)
+    href: multi-region-replication.md 
 
 
 - name: Concepts 

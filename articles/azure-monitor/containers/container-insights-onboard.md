@@ -57,7 +57,7 @@ You can let the onboarding experience create a Log Analytics workspace in the de
 
 ### Azure Monitor workspace (preview)
 
-If you're going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus-metrics-addon.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you must have an Azure Monitor workspace where Prometheus metrics are stored. You can let the onboarding experience create an Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
+If you're going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), you must have an Azure Monitor workspace where Prometheus metrics are stored. You can let the onboarding experience create an Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
 
 ### Permissions
 
@@ -75,10 +75,6 @@ To view data after container monitoring is enabled, you require the following pe
 The containerized Linux agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet secure port (10250) within the cluster to collect node and container performance-related metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows node and container performance-related metrics collection to work.
 
 If you have a Kubernetes cluster with Windows nodes, review and configure the network security group and network policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in the cluster's virtual network.
-
-### Network firewall requirements
-
-For information on the firewall requirements for the AKS cluster, see [Network firewall requirements](#network-firewall-requirements).
 
 ## Authentication
 

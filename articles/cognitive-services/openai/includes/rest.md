@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 12/14/2022
 keywords: 
 ---
 
@@ -50,7 +50,7 @@ Create a new Python file called quickstart.py. Then open it up in your preferred
     base_url = "REPLACE_WITH_YOUR_ENDPOINT_HERE"
     deploymentName ="REPLACE_WITH_YOUR_DEPLOYMENT_NAME_HERE"
 
-    url = base_url + "openai/deployments/" + deploymentName + "/completions?api-version=2022-06-01-preview"
+    url = base_url + "/openai/deployments/" + deploymentName + "/completions?api-version=2022-12-01"
     prompt = "Once upon a time"
     payload = {        
         "prompt":prompt

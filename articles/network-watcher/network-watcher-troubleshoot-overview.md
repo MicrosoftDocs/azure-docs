@@ -9,8 +9,9 @@ ms.service: network-watcher
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 06/19/2017
+ms.date: 03/31/2022
 ms.author: damendo
+ms.custom: engagement-fy23
 ---
 
 # Introduction to resource troubleshooting in Azure Network Watcher

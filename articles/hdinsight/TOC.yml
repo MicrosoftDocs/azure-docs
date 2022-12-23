@@ -179,6 +179,8 @@ items:
       items:
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
+      - name: Disable auto logout from Ambari Web UI
+        href: ./ambari-web-ui-auto-logout.md   
       - name: Optimize with Apache Ambari
         items:
         - name: Optimize clusters
@@ -695,6 +697,8 @@ items:
         href: ./kafka/apache-kafka-mirroring.md
       - name: Analyze Apache Kafka logs
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
+      - name: Secure Spark and Kafka streaming integration scenario
+        href: ./kafka/secure-spark-kafka-streaming-integration-scenario.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
       - name: Kafka MirrorMaker 2.0 guide

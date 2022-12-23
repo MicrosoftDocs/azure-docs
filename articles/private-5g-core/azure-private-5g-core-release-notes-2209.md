@@ -4,7 +4,7 @@ description: Discover what's new in the Azure Private 5G Core 2209 release
 author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
-ms.topic: how-to 
+ms.topic: release-notes
 ms.date: 09/30/2022
 ---
 
@@ -13,6 +13,10 @@ ms.date: 09/30/2022
 The following release notes identify the new features, critical open issues, and resolved issues for the 2209 release for the Azure Private 5G Core. The release notes are continuously updated, and critical issues requiring a workaround are added here as they're discovered. Before deploying this new version, carefully review the information contained in these release notes.
 
 This article applies to the Azure Private 5G Core 2209 release (PMN-4-17-2). This release is compatible with the Azure Stack Edge Pro GPU running the 2209 release and is supported by the 2022-04-01-preview [Microsoft.MobileNetwork API version](/rest/api/mobilenetwork).
+
+## What's new
+
+- **Updated template for Log Analytics** - There is a new version of the Log Analytics Dashboard Quickstart template. This is required to view metrics on Packet Core versions 4.17 and above. To continue using your Log Analytics Dashboard, you must redeploy it with the new template. See [Create an overview Log Analytics dashboard using an ARM template](/azure/private-5g-core/create-overview-dashboard).
 
 ## Issues fixed in the 2209 release
 

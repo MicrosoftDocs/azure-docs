@@ -1,5 +1,5 @@
 ---
-title: Authorize access to blobs with AzCopy & Azure Active Directory | Microsoft Docs
+title: Authorize access to blobs with AzCopy & Azure Active Directory
 description: You can provide authorization credentials for AzCopy operations by using Azure Active Directory (Azure AD).
 author: normesta
 ms.service: storage

@@ -3,6 +3,8 @@ title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Common questions about VMware to Azure replication
 
@@ -15,7 +17,6 @@ This article answers common questions that might come up when you deploy disaste
 
 ### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
 
-
 A new and more reliable way to protect VMware virtual machines using the Azure Site Recovery replication appliance is now generally available. When a new Recovery Services vault is created, by default the modernized experience will be selected. 
 
 
@@ -24,7 +25,7 @@ To change the experience -
 1. Open the vault on Azure portal. 
 2. Click on **Site Recovery** in the **Getting started** section. 
 3. Click on the banner on top of this page. 
-    
+
     [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 
@@ -34,6 +35,9 @@ To change the experience -
 > [!NOTE]
 > Note that once the experience type has been switched to classic from modernized, it cannot be switched again in the same Recovery Services vault. Ensure that the desired experience is selected, before saving this change.
 
+### Can I migrate to the modernized experience? 
+
+All VMware VMs or Physical servers which are being replicated using the classic experience can be migrated to the modernized experience. Check the details [here](move-from-classic-to-modernized-vmware-disaster-recovery.md) and follow the [tutorial](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
 ### What do I need for VMware VM disaster recovery?
 

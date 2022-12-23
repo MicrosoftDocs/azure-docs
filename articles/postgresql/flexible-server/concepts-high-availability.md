@@ -1,12 +1,12 @@
 ---
 title: Overview of high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of high availability with Azure Database for PostgreSQL - Flexible Server
-ms.author: srranga
-author: sr-msft
+ms.author: sunila
+author: sunilagarwal
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 11/05/2022
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -116,7 +116,7 @@ Unplanned outages include software bugs or infrastructure component failures tha
 >[!NOTE]
 > Flexible servers configured with zone-redundant high availability provide a recovery point objective (RPO) of **Zero** (no data loss). The recovery time objective (RTO) is expected to be **less than 120s** in typical cases. However, depending on the activity in the primary database server at the time of the failover, the failover may take longer. 
 
-After the failover, while a new standby server is being provisioned, applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
+After the failover, while a new standby server is being provisioned (which usually takes 5-10 minutes), applications can still connect to the primary server and proceed with their read/write operations. Once the standby server is established, it will start recovering the logs that were generated after the failover. 
 
 :::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="high availability - failover"::: 
 
@@ -229,7 +229,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 * Restarting the primary database server also restarts standby replica. 
 
-* Configuring additional read replicas are not supported.
+* Configuring additional standbys is not supported.
 
 * Configuring customer initiated management tasks cannot be scheduled during managed maintenance window.
 
