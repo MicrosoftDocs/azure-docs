@@ -196,7 +196,7 @@ Before you proceed, review the information about [matching users in the source a
 If the application is already registered in Azure AD, then continue to the next step.
 
 - If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md#configure-the-on-premises-ecma-app) section to create a new registration for an on-premises ECMA app in Azure AD.  
-- If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md#4-configure-the-on-premises-ecma-app) section to to create a new registration for an on-premises ECMA app in Azure AD.
+- If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md#4-configure-the-on-premises-ecma-app) section to create a new registration for an on-premises ECMA app in Azure AD.
 - If it is a cloud application that supports the SCIM protocol, then you can add the application from the [application gallery](../manage-apps/overview-application-gallery.md).
 - If the application is on-premises and supports the SCIM protocol, then follow the [guide for configuring Azure AD to provision users into on-premises SCIM-based applications](../app-provisioning/on-premises-scim-provisioning.md).
 
@@ -351,7 +351,7 @@ After the Azure AD provisioning service has matched the users based on the appli
 
 ## Configure access reviews or entitlement management
 
-Once the users are in the application roles, and you have the the reviewers identified, then you can govern those users and any additional users who will need access.
+Once the users are in the application roles, and you have the reviewers identified, then you can govern those users and any additional users who will need access.
 
 If the application only has a single application role, the application is represented by a single service principal in your directory, and no additional users will need access to the application, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).  Follow the instructions in the [guide for creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.  Configure the review to apply results when it completes.
 
