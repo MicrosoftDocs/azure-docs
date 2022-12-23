@@ -155,7 +155,7 @@ After the command finishes running, your setup is complete. You can now use the 
 
 ## Recovering from failed deployments
 
-If the Azure Arc resource bridge deployment fails, consult the Arc resource bridge troubleshooting doc (../resource-bridge/troubleshoot-resource-bridge.md). While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../resource-bridge/troubleshoot-resource-bridge.md#kva-timeout-error).
+If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting document](../resource-bridge/troubleshoot-resource-bridge.md). While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../resource-bridge/troubleshoot-resource-bridge.md#kva-timeout-error).
 
 To clean up the installation and retry the deployment, use the following commands.
 
