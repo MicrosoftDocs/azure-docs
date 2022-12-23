@@ -30,6 +30,7 @@ The following table shows the mapping:
 |   occlusionFactor   |   occlusion                |
 |   occlusionTexture  |   occlusionMap             |
 |   normalTexture     |   normalMap                |
+|   normalTextureInfo.scale |   normalMapScale     |
 |   alphaCutoff       |   alphaClipThreshold       |
 |   alphaMode.OPAQUE  |   alphaClipEnabled = false, isTransparent = false |
 |   alphaMode.MASK    |   alphaClipEnabled = true, isTransparent = false  |

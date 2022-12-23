@@ -17,6 +17,8 @@ PBR stands for **P**hysically **B**ased **R**endering and means that the materia
 
 PBR materials aren't a universal solution, though. There are materials that reflect color differently depending on the viewing angle. For example, some fabrics or car paints. These kinds of materials aren't handled by the standard PBR model, and are currently not supported by Azure Remote Rendering. This limitation includes PBR extensions, such as *Thin-Film* (multi-layered surfaces) and *Clear-Coat* (for car paints).
 
+The following sub-paragraphs list the material properties for PBR materials as exposed in the [material override file](../../how-tos/conversion/override-materials.md#json-schema). For the corresponding property names in the runtime API, refer to the [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial) or the [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial), respectively.
+
 ## Common material properties
 
 These properties are common to all materials:
@@ -36,7 +38,7 @@ These properties are common to all materials:
 
 * **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
-* **TransparencyWritesDepth:** If the TransparencyWritesDepth flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material flag *transparent* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
+* **transparencyWritesDepth:** If the TransparencyWritesDepth flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the PBR material flag *transparent* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
 
 * **FresnelEffect:** This material flag enables the additive [fresnel effect](../../overview/features/fresnel-effect.md) on the respective material. The appearance of the effect is governed by the other fresnel parameters explained in the following. 
 
