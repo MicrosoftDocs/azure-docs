@@ -12,25 +12,26 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Tutorial: Run applications in Azure Kubernetes Service (AKS)
 
-Kubernetes provides a distributed platform for containerized applications. You build and deploy your own applications and services into a Kubernetes cluster, and let the cluster manage the availability and connectivity. In this tutorial, part four of seven, a sample application is deployed into a Kubernetes cluster. You learn how to:
+Kubernetes provides a distributed platform for containerized applications. You build and deploy your own applications and services into a Kubernetes cluster and let the cluster manage the availability and connectivity. In this tutorial, part four of seven, you deploy a sample application into a Kubernetes cluster. You learn how to:
 
 > [!div class="checklist"]
-> * Update a Kubernetes manifest file
-> * Run an application in Kubernetes
-> * Test the application
+>
+> * Update a Kubernetes manifest file.
+> * Run an application in Kubernetes.
+> * Test the application.
 
-In later tutorials, this application is scaled out and updated.
+In later tutorials, you'll scale out and update your application.
 
-This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
+This quickstart assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 > [!TIP]
-> AKS clusters can use GitOps for configuration management. This enables declarations of your cluster's state, which are pushed to source control, to be applied to the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
+> AKS clusters can use GitOps for configuration management. GitOp enables declarations of your cluster's state, which are pushed to source control, to be applied to the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
 
 ## Before you begin
 
-In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created.
+In previous tutorials, you packaged an application into a container image, uploaded the image to Azure Container Registry, and created a Kubernetes cluster.
 
-To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yaml` Kubernetes manifest file. This file was downloaded with the application source code in a previous tutorial. Verify that you've cloned the repo, and that you have changed directories into the cloned repo. If you haven't done these steps, and would like to follow along, start with [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
+To complete this tutorial, you need the pre-created `azure-vote-all-in-one-redis.yaml` Kubernetes manifest file. This file download was included with the application source code in a previous tutorial. Verify that you've cloned the repo and changed directories into the cloned repo. If you haven't done these steps and would like to follow along, start with [Tutorial 1: Prepare an application for AKS][aks-tutorial-prepare-app].
 
 ### [Azure CLI](#tab/azure-cli)
 
