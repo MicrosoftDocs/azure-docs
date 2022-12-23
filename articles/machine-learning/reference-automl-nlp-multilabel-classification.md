@@ -54,7 +54,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | --- | ---- | ----------- | -------------- | ------------- |
 | `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | `1` |
 | `max_trials` | integer | Represents the maximum number of trials an automl nlp job can try to run a training algorithm with different combination of hyperparameters.  | | `1` |
-| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. The default timeout in AutoML NLP jobs are 7 days.  | | |
+| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. The default timeout in AutoML NLP jobs are 7 days.  | | `10080`|
 | `trial_timeout_minutes ` | integer | Represents the maximum amount of time in minutes that each trial (child job) in the submitted automl job can take run. After this, the child job will get terminated.  | | |
 |`max_nodes`| integer | The maximum number of nodes from the backing compute cluster to leverage for the job.| | `1` |
 
