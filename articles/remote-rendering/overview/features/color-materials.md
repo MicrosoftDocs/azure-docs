@@ -9,7 +9,7 @@ ms.topic: article
 
 # Color materials
 
-*Color materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They are used for [meshes](../../concepts/meshes.md) that should not receive any kind of lighting, but rather be full brightness at all times. This might be the case for 'glowing' materials, such as car dashboards, light bulbs, or for data that already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
+*Color materials* are one of the supported [material types](../../concepts/materials.md) in Azure Remote Rendering. They're used for [meshes](../../concepts/meshes.md) that shouldn't receive any kind of lighting, but rather always appear at full brightness. This might be the case for 'glowing' materials, such as car dashboards, light bulbs, or for data that already incorporates static lighting, such as models obtained through [photogrammetry](https://en.wikipedia.org/wiki/Photogrammetry).
 
 Color materials are more efficient to render than [PBR materials](pbr-materials.md) because of their simpler shading model. They also support different transparency modes.
 
@@ -30,7 +30,7 @@ The following material properties are exposed in the runtime API, for instance o
 
 * `AlbedoMap`: A [2D texture](../../concepts/textures.md) for per-pixel albedo values.
 
-* `AlphaClipThreshold`: If the `AlphaClipped` bit is set on the `ColorFlags` property, all pixels where the albedo alpha value is lower than `AlphaClipThreshold` won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
+* `AlphaClipThreshold`: If the `AlphaClipped` bit is set on the `ColorFlags` property, all pixels where the albedo alpha value is lower than the value of `AlphaClipThreshold` won't be drawn. Alpha clipping can be used even without enabling transparency and is much faster to render. Alpha clipped materials are still slower to render than fully opaque materials, though. By default alpha clipping is disabled.
 
 * `TexCoordScale` and `TexCoordOffset`: The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
@@ -62,7 +62,6 @@ The following table shows the mapping between runtime property documented above 
 | `TexCoordOffset`            | `textureCoordinateOffset` |
 | `ColorTransparencyMode`     | `transparent` |
 | `AlphaClipThreshold`        | `alphaClipThreshold` |
-
 
 ## API documentation
 
