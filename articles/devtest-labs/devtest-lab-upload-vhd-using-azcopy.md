@@ -21,45 +21,55 @@ For more information about disks and VHDs in Azure, see [Introduction to managed
 
 ## Prerequisites
 
-- [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy)
+- Download and install the [latest version of AzCopy](https://aka.ms/downloadazcopy).
 
-- Get the name of the lab's storage account by using the Azure portal:
+To upload a VHD file to a lab storage account by using Storage Explorer, first, get the lab storage account name via the Azure portal. Then, use Storage Explorer to upload the file.
 
-   1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+## Get the lab storage account name
 
-   1. Select **All resources**, and then select your lab.  
+To get the name of the lab storage account:
 
-   1. In the lab menu under **Settings**, select **Configuration and policies**.
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-   1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
+1. Select **All resources**, and then select your lab.  
 
-   1. In **Custom images**, select **Add**.
+1. In the lab menu under **Settings**, select **Configuration and policies**.
 
-   1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
+1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
 
-       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
+1. In **Custom images**, select **Add**.
 
-   1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
+1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
 
-       The `-Destination` parameter contains the URI for a blob container in the following format:
+    :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
 
-       `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
+1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
 
-       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
+    The `-Destination` parameter contains the URI for a blob container in the following format:
 
-   1. Copy the storage account name to use in the following steps.
+    `https://<storageAccountName>.blob.core.windows.net/uploads/...`
+
+    :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
+
+1. Copy the storage account URI to use in the next section.
 
 ## Upload a VHD file
 
-1. In Windows, open a Command Window and go to the AzCopy installation directory.  By default, AzCopy is installed in *ProgramFiles(x86)\Microsoft SDKs\Azure\AzCopy*.
+To upload a VHD file by using AzCopy:
+
+1. In Windows, open a Command Window and go to the AzCopy installation directory.
+
+    By default, AzCopy is installed in *ProgramFiles(x86)\Microsoft SDKs\Azure\AzCopy*.
 
     Optionally, you can add the AzCopy installation location to your system path.
 
-1. Using the storage account key and blob container URI, run the following command at the command prompt. The value for `vhdFileName` must be in quotes. The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
+1. At the command prompt, run the following command. Use the storage account key and blob container URI you copied from the Azure portal. The value for `vhdFileName` must be in quotes.
 
     ```cmd
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
     ```
+
+   The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
 
 ## Next steps
 

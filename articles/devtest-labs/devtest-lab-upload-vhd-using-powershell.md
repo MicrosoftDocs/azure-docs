@@ -15,9 +15,15 @@ In this article, learn how to use PowerShell to upload a VHD file to a lab stora
 
 For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/managed-disks-overview.md).
 
-## Upload a VHD file
+## Prerequisites
 
-To upload a VHD file to Azure DevTest Labs by using PowerShell:
+- Download and install the [latest version of PowerShell](/powershell/scripting/install/installing-powershell?).
+
+To upload a VHD file to a lab storage account by using PowerShell, first, get the lab storage account name via the Azure portal. Then, use a PowerShell cmdlet to upload the file.
+
+## Get the lab storage account name
+
+To get the name of the lab storage account:
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -31,16 +37,21 @@ To upload a VHD file to Azure DevTest Labs by using PowerShell:
 
 1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
 
-    :::image type="content" source="media/devtest-lab-upload-vhd-using-powershell/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
+    :::image type="content" source="media/devtest-lab-upload-vhd-using-powershell/upload-image-powershell.png" alt-text="Screenshot that shows the link to upload a VHD by using PowerShell on the Custom image pane.":::
 
-1. In **Upload an image using PowerShell** > **Add VHD**, copy the generated PowerShell script to a text editor.
+   1. In **Upload an image using PowerShell**, select and copy the the generated PowerShell script to use in the next section.
+
+## Upload a VHD file
+
+To upload a VHD file by using PowerShell:
+
+1. In a text editor, paste the generated PowerShell script you copied from the Azure portal.
 
 1. Modify the `-LocalFilePath` parameter of the Add-AzureRmVhd cmdlet to point to the location of the VHD file you want to upload.
 
-1. At a PowerShell prompt, run the Add-AzureRmVhd cmdlet with the modified `-LocalFilePath` parameter.
+1. At a PowerShell command prompt, run the Add-AzureRmVhd cmdlet with the modified `-LocalFilePath` parameter.
 
-> [!WARNING]
-> The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
+   The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
 
 ## Next steps
 

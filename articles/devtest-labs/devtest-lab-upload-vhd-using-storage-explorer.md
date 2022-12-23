@@ -19,9 +19,13 @@ Storage Explorer supports several connection options. This article describes how
 
 ## Prerequisites
 
-- [Download and install the latest version of Azure Storage Explorer](https://www.storageexplorer.com).
+- Download and install the [latest version of Storage Explorer](https://www.storageexplorer.com).
 
-- Get the name of the lab's storage account by using the Azure portal:
+To upload a VHD file to a lab storage account by using Storage Explorer, first, get the lab storage account name via the Azure portal. Then, use Storage Explorer to upload the file.
+
+## Get the lab storage account name
+
+To get the name of the lab storage account:
 
    1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -41,11 +45,11 @@ Storage Explorer supports several connection options. This article describes how
 
        The `-Destination` parameter contains the URI for a blob container in the following format:
 
-       `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
+       `https://<storageAccountName>.blob.core.windows.net/uploads/...`
 
-       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
+       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a storage account name in the Add VHD box.":::
 
-   1. Copy the storage account name to use in the following steps.
+   1. Copy the storage account name to use in the next section.
 
 ## Upload a VHD file
 
@@ -57,7 +61,7 @@ Storage Explorer supports several connection options. This article describes how
 
    Follow the prompts to sign in with the Microsoft account associated with your Azure subscription.
 
-1. After you sign in, the Explorer pane shows the Azure subscriptions associated with your account. Select the dropdown arrow next to the Azure subscription you want to use. The left pane shows the storage accounts associated with the selected Azure subscription.
+1. After you sign in, the Explorer pane shows the Azure subscriptions that are associated with your account. Select the dropdown arrow next to the Azure subscription you want to use. The left pane shows the storage accounts that are associated with the selected Azure subscription.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/storage-accounts-list.png" alt-text="Screenshot that shows the storage accounts for a selected Azure subscription.":::
   
@@ -71,15 +75,17 @@ Storage Explorer supports several connection options. This article describes how
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-button.png" alt-text="Screenshot that shows the Upload button and Upload Files.":::
 
-1. In the **Upload Files** dialog, select **...** next to **Selected files**. Bowse to the VHD file on your computer, select the file, and then select **Open**.
+1. In the **Upload Files** dialog:
 
-1. In **Blob type**, change **Block Blob** to **Page Blob**.
+    1. Select **...** next to **Selected files**. Bowse to the VHD file on your computer, select the file, and then select **Open**.
 
-1. Select **Upload**.
+    1. For **Blob type**, select **Page Blob**
+
+    1. Select **Upload**.
 
    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png" alt-text="Screenshot that shows the Upload Files dialog box.":::
 
-The **Activities** pane at the bottom shows upload status. Uploading the VHD file might take a long time, depending on the size of the VHD file and your connection speed.
+1. Check the **Activities** pane at the bottom of Storage Explorer to see the upload status. Uploading the VHD file might take a long time, depending on the size of the VHD file and your connection speed.
 
 :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png" alt-text="Screenshot that shows the Activities pane with upload status.":::
 
