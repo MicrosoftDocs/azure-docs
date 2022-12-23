@@ -541,9 +541,6 @@ Currently the augmentations defined above are applied by default for an Automate
 
 These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
 
-
-# [Azure CLI](#tab/cli)
-
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
@@ -563,9 +560,7 @@ training_parameters:
     {"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}
 ```
 
-# [Python SDK](#tab/python)
-
- [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
  
 ```python
 from azure.ai.ml import automl
