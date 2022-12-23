@@ -172,7 +172,7 @@ This article compares several ISV solutions that provide files services in Azure
 - White glove deployment and professional services
 
 **NetApp**
-- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/netapp.netapp-ontap-cloud?tab=Overview)
+- [Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services/devoteamsa1589968240572.dvtalfun_netapp_backup_cloud)
 - De-duplication savings passed on to customer via reduced infrastructure consumption
 
 **Panzura**
