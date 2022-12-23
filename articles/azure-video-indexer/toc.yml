@@ -96,6 +96,7 @@
   - name: Manage accounts
     items:
     - name: Manage access to your account
+      displayName: RBAC, User, Users
       href: restricted-viewer-role.md
     - name: Connect an existing account to ARM
       href: connect-classic-account-to-arm.md
