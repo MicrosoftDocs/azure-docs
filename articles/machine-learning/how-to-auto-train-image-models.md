@@ -600,9 +600,10 @@ image_object_detection_job.set_training_parameters(
 )
 ```
 
+---
+
 In our experiments, we found that these augmentations help the model to generalize better. Therefore, when these augmentations are switched off, we recommend the users to combine them with other offline augmentations to get better results.
 
----
 
 ##  Incremental training (optional)
 
