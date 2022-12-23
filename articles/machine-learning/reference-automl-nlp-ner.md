@@ -8,9 +8,9 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, event-tier1-ignite-2022
 
-ms.author: shoja
-author: shouryaj
-ms.date: 10/11/2022
+ms.author: xiaoxiaoli
+author: xiaoxiaoli
+ms.date: 12/22/2022
 ms.reviewer: ssalgado
 ---
 
@@ -36,15 +36,15 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `experiment_name` | string | Experiment name to organize the job under. Each job's run record will be organized under the corresponding experiment in the studio's "Experiments" tab. If omitted, Azure ML will default it to the name of the working directory where the job was created. | | |
 | `description` | string | Description of the job. | | |
 | `tags` | object | Dictionary of tags for the job. | | |
-| `compute` | string | Name of the compute target to execute the job on. This compute can be either a reference to an existing compute in the workspace (using the `azureml:<compute_name>` syntax) or `local` to designate local execution. The 'local' here means that compute instance created in user's AzureML Studio workspace.   <br> *Note:* jobs in pipeline don't support `local` as `compute`. * |1. pattern `azureml:<compute_name>` to use existing compute, <br> <br> 2.`local` to use local execution | `local` |
+| `compute` | string | Name of the compute target to execute the job on. To reference an existing compute in the workspace, we use syntax: `azureml:<compute_name>` | | |
 | `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
-| `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`,<br> `auc_weighted`,<br> `norm_macro_recall`, <br> `norm_macro_recall`,<br>  `average_precision_score_weighted`, <br> `precision_score_weighted` | `accuracy` |
+| `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy`| `accuracy` |
 | `training_data` | object |  **Required.** The data to be used within the job. Unlike multi-class or multi-label, which takes .csv format datasets, named entity recognition requires CoNLL format. The file must contain exactly two columns and in each row, the token and the label is separated by a single space. See [NER](./how-to-auto-train-nlp-models.md?tabs=cli#named-entity-recognition-ner) section for more detail.| | | 
-| `validation_data` | object |  The validation data to be used within the job. <br> - The file should not start with an empty line <br> - Each line must be an empty line, or follow format `{token}` `{label}`, where there is exactly one space between the token and the label and no white space after the label <br> - All labels must start with I-, B-, or be exactly O. Case sensitive <br> - Exactly one empty line between two samples <br> - Exactly one empty line at the end of the file <br> See [data validation](./how-to-auto-train-nlp-models.md?tabs=cli#data-validation) section for more detail. | | |
-| `limits` | object | Dictionary of limit configurations of the job. Parameters in this section: `max_concurrent_trials`, `max_nodes`, `max_trials`, `timeout_minutes`, `trial_timeoutminutes`. See [limits](#limits) for detail.| | |
+| `validation_data` | object | **Required.** The validation data to be used within the job. <br> - The file should not start with an empty line <br> - Each line must be an empty line, or follow format `{token}` `{label}`, where there is exactly one space between the token and the label and no white space after the label <br> - All labels must start with I-, B-, or be exactly O. Case sensitive <br> - Exactly one empty line between two samples <br> - Exactly one empty line at the end of the file <br> See [data validation](./how-to-auto-train-nlp-models.md?tabs=cli#data-validation) section for more detail. | | |
+| `limits` | object | Dictionary of limit configurations of the job. Parameters in this section: `max_concurrent_trials`, `max_nodes`, `max_trials`, `timeout_minutes`, `trial_timeout_minutes`. See [limits](#limits) for detail.| | |
 | `training_parameters` | object | Dictionary containing training parameters for the job. Provide an object that has keys as listed in following sections. <br> For more information, see [supported hyperparameters](./how-to-auto-train-nlp-models.md?tabs=cli#supported-hyperparameters) section| | |
-| `sweep` | object | Dictionary containing sweep parameters for the job. It has two keys - `sampling_algorithm` (**required**) and `early_termination`. For more information, see [model sweeping and hyperparameter tuning](./how-to-auto-train-nlp-models.md?tabs=cli#model-sweeping-and-hyperparameter-tuning-preview) sections. | | |
-| `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. Users can find the possible hyperparameters from parameters specified for `training_parameters` key (also in [supported hyperparameters](./how-to-auto-train-nlp-models.md?tabs=cli#supported-hyperparameters)). <br> There are two types of hyperparameters: <br> - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a [`choice`](./reference-yaml-job-sweep.md#choice) among discrete values. `choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - [`randint`](./reference-yaml-job-sweep.md#randint), [`qlognormal`, `qnormal`](./reference-yaml-job-sweep.md#qlognormal-qnormal), [`qloguniform`, `quniform`](./reference-yaml-job-sweep.md#qloguniform-quniform). For more information, see this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters). <br> - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions are - [`lognormal`, `normal`](./reference-yaml-job-sweep.md#lognormal-normal), [`loguniform`](./reference-yaml-job-sweep.md#loguniform), [`uniform`](./reference-yaml-job-sweep.md#uniform). For more information, see this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters). <br> <br> See [parameter expressions](./reference-yaml-job-sweep.md#parameter-expressions) for the set of possible expressions to use.  | | |
+| `training_parameters` | object | Dictionary containing training parameters for the job. <br> See [supported hyperparameters](#supported-hyperparameters) for detail. <br> *Note*: Hyperparameters set in the `training_parameters` are fixed across all sweeping runs and thus don't need to be included in the search space. | | |
+| `search_space` | object | Dictionary of the hyperparameter search space. The key is the name of the hyperparameter and the value is the parameter expression. All parameters that are fixable via training_parameters are supported here (to be instead swept over). See  [supported hyperparameters](#supported-hyperparameters) for more detail.  <br> There are two types of hyperparameters: <br> - **Discrete Hyperparameters**: Discrete hyperparameters are specified as a [`choice`](./reference-yaml-job-sweep.md#choice) among discrete values. `choice` can be one or more comma-separated values, a `range` object, or any arbitrary `list` object. Advanced discrete hyperparameters can also be specified using a distribution - [`randint`](./reference-yaml-job-sweep.md#randint), [`qlognormal`, `qnormal`](./reference-yaml-job-sweep.md#qlognormal-qnormal), [`qloguniform`, `quniform`](./reference-yaml-job-sweep.md#qloguniform-quniform). For more information, see this [section](./how-to-tune-hyperparameters.md#discrete-hyperparameters). <br> - **Continuous hyperparameters**: Continuous hyperparameters are specified as a distribution over a continuous range of values. Currently supported distributions are - [`lognormal`, `normal`](./reference-yaml-job-sweep.md#lognormal-normal), [`loguniform`](./reference-yaml-job-sweep.md#loguniform), [`uniform`](./reference-yaml-job-sweep.md#uniform). For more information, see this [section](./how-to-tune-hyperparameters.md#continuous-hyperparameters). <br> <br> See [parameter expressions](./reference-yaml-job-sweep.md#parameter-expressions) for the set of possible expressions to use.  | | |
 | `outputs` | object | Dictionary of output configurations of the job. The key is a name for the output within the context of the job and the value is the output configuration. | | |
 | `outputs.best_model` | object | Dictionary of output configurations for best model. For more information, see [Best model output configuration](#best-model-output-configuration). | | |
 
@@ -52,14 +52,27 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `enable_early_termination` | boolean | Represents whether to enable of experiment termination if the loss score does not improve after 'x' number of iterations.<br>In a AutoML job, no early stopping is applied on first 20 iterations. The early stopping window starts only after first 20 iterations. | `true`, `false` | `true` |
-| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. It is highly recommended to set the number of concurrent runs to the number of nodes in the cluster (aml compute defined in `compute`). | | `1` |
-| `max_trials` | integer | Represents the maximum number of trials an automl job can try to run a training algorithm with different combination of hyperparameters. It's default value is set to 1000. If `enable_early_termination` is defined, then the number of trials used to run training algorithms can be smaller.| | `1000` |
-| `max_cores_per_trial` | integer | Represents the maximum number of cores per that can be used by each trial. It's default value is set to -1 which means all cores will be used in the process.| | `-1` |
-| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. | | `360` |
+| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | `1` |
+| `max_trials` | integer | Represents the maximum number of trials an automl nlp job can try to run a training algorithm with different combination of hyperparameters.  | | `1000` |
+| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. The default timeout in AutoML NLP jobs are 7 days.  | | `10080` |
 | `trial_timeout_minutes ` | integer | Represents the maximum amount of time in minutes that each trial (child job) in the submitted automl job can take run. After this, the child job will get terminated.  | | |
-| `exit_score` | float | Represents the score to achieve by an experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the defined `primary metric`. | | |
+|`max_nodes`| integer | The maximum number of nodes from the backing compute cluster to leverage for the job.| | `1` |
 
+### Supported hyperparameters
+
+The following table describes the hyperparameters that AutoML NLP supports. 
+
+| Parameter name | Description | Syntax |
+|-------|---------|---------| 
+| gradient_accumulation_steps | The number of backward operations whose gradients are to be summed up before performing one step of gradient descent by calling the optimizer’s step function. <br><br> This is leveraged to use an effective batch size which is gradient_accumulation_steps times larger than the maximum size that fits the GPU. | Must be a positive integer.
+| learning_rate | Initial learning rate. | Must be a float in the range (0, 1). |
+| learning_rate_scheduler |Type of learning rate scheduler. | Must choose from `linear, cosine, cosine_with_restarts, polynomial, constant, constant_with_warmup`.  |
+| model_name | Name of one of the supported models.  | Must choose from `bert_base_cased, bert_base_uncased, bert_base_multilingual_cased, bert_base_german_cased, bert_large_cased, bert_large_uncased, distilbert_base_cased, distilbert_base_uncased, roberta_base, roberta_large, distilroberta_base, xlm_roberta_base, xlm_roberta_large, xlnet_base_cased, xlnet_large_cased`. |
+| number_of_epochs | Number of training epochs. | Must be a positive integer. |
+| training_batch_size | Training batch size. | Must be a positive integer. |
+| validation_batch_size | Validation batch size. | Must be a positive integer. |
+| warmup_ratio | Ratio of total training steps used for a linear warmup from 0 to learning_rate.  | Must be a float in the range [0, 1]. |
+| weight_decay | Value of weight decay when optimizer is sgd, adam, or adamw. | Must be a float in the range [0, 1]. |
 
 ### Training or validation data
 
