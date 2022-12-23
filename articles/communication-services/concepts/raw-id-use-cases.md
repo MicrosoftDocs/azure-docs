@@ -6,13 +6,15 @@ manager: rajuanitha88
 services: azure-communication-services
 
 ms.author: ostoliarova
-ms.date: 12/15/2022
+ms.date: 12/23/2022
 ms.topic: conceptual
 ms.service: azure-communication-services
 #Customer intent: As a developer, I want to learn how to correctly use Raw ID so that I can build applications that run efficiently.
 zone_pivot_groups: acs-js-csharp-python-java
+---
 
 # Raw ID use cases in Communication SDKs
+
 This article provides use cases for choosing a Raw ID as a [CommunicationIdentifier type](./identifiers.md#the-communicationidentifier-type) in Azure Communication Services SDKs. Following this guidance will help you understand some use cases when you might want to choose a Raw ID over other types of CommunicationIdentifier.
 
 ## Use cases for choosing an identifier
@@ -29,8 +31,6 @@ In particular, when using Raw ID to instantiate a *CommunicationIdentifier* or r
 - Implement intuitive REST CRUD APIs by using identifiers as key in REST API paths, instead of having to rely on POST payloads.
 - Map Raw IDs to Microsoft Azure Active Director (Azure AD) object IDs to enable calling Graph API and provide a rich experience for calling participants.
 - Use them as a key in declarative UI frameworks such as React to avoid unnecessary re-rendering.
-
-*CommunicationIdentifier* can be created from a Raw ID and a Raw ID can be retrieved from a certain type of *CommunicationIdentifier*. It removes the need of any custom serialization methods that might use or omit certain object properties. For example, the `MicrosoftTeamsUserIdentifier` has multiple properties such as `IsAnonymous` or `Cloud` or methods to retrieve these values (depending on a platform). Using methods provided by Identity SDK guarantees that the way of serializing identifiers will stay canonical and consistent even if more properties will be added.
 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [Raw ID in the JavaScript SDK](./includes/raw-ids/raw-ids-js.md)]
