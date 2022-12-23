@@ -39,7 +39,7 @@ To deploy Azure Logic Apps, follow these steps:
    - **Name**: Enter a suitable name for the logic app.
    - **Region**: Choose the region with which the subscription is associated.
    - **Email**: Enter the email address of the Backup admin for them to receive alerts when policy is suspended.
-   - **Resource Group**: Select the resource group with which logic apps need to be associated for deployment. 
+   - **Resource group**: Select the resource group with which logic apps need to be associated for deployment. 
    - **Managed Identity**: [Create and assign a Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) with the below minimum permissions for the service to perform the *Stop backup and retain data* operation on the backup item automatically during a malware alert.
 
      - Virtual Machine Contributor on the subscription 
