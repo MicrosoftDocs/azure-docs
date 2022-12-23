@@ -574,7 +574,7 @@ image_object_detection_job = automl.image_object_detection(...)
 
 image_object_detection_job.set_training_parameters(
     ...,
-    advanced_settings='{"apply_mosaic_for_yolo":False}'
+    advanced_settings='{"apply_mosaic_for_yolo": false}'
 )
 ```
 
@@ -585,7 +585,7 @@ image_object_detection_job = automl.image_object_detection(...)
 
 image_object_detection_job.set_training_parameters(
     ...,
-    advanced_settings='{"apply_automl_train_augmentations":False}'
+    advanced_settings='{"apply_automl_train_augmentations": false}'
 )
 ```
  Please note that these two flags are independent of each other and can also be used in combination using the following settings.
@@ -597,7 +597,7 @@ image_object_detection_job = automl.image_object_detection(...)
 
 image_object_detection_job.set_training_parameters(
     ...,
-    advanced_settings='{"apply_automl_train_augmentations":False, "apply_mosaic_for_yolo": False}'
+    advanced_settings='{"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}'
 )
 ```
 
