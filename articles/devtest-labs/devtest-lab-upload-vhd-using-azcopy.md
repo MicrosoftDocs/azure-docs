@@ -19,35 +19,37 @@ For more information about disks and VHDs in Azure, see [Introduction to managed
 >  
 > AzCopy is a Windows-only command-line utility.
 
+## Prerequisites
+
+- [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy)
+
+- Get the name of the lab's storage account by using the Azure portal:
+
+   1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+   1. Select **All resources**, and then select your lab.  
+
+   1. In the lab menu under **Settings**, select **Configuration and policies**.
+
+   1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
+
+   1. In **Custom images**, select **Add**.
+
+   1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
+
+       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
+
+   1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
+
+       The `-Destination` parameter contains the URI for a blob container in the following format:
+
+       `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
+
+       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
+
+   1. Copy the storage account name to use in the following steps.
+
 ## Upload a VHD file
-
-To upload a VHD file to Azure DevTest Labs by using [AzCopy](https://aka.ms/downloadazcopy):
-
-1. [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy).
-
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Select **All resources**, and then select your lab.  
-
-1. In the lab menu under **Settings**, select **Configuration and policies**.
-
-1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
-
-1. In **Custom images**, select **Add**.
-
-1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
-
-    :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
-
-1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
-
-   The `-Destination` parameter contains the URI for a blob container in the following format:
-
-   `https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...`
-
-   :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a URI in the Add VHD box.":::
-
-   Copy the full `-Destination` URI to use in a later step.
 
 1. In Windows, open a Command Window and go to the AzCopy installation directory.  By default, AzCopy is installed in *ProgramFiles(x86)\Microsoft SDKs\Azure\AzCopy*.
 
