@@ -17,7 +17,7 @@ Use an Azure container registry to store and manage a graph of supply chain arti
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) tool to push and pull a graph of supply chain artifacts to an Azure container registry. 
 
-Supply chain artifact is a type of [OCI Artifact Manifest](oci-artifact-manifest). OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
+Supply chain artifact is a type of [OCI Artifact Manifest][oci-artifact-manifest]. OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
 
 ## Prerequisites
 
@@ -384,8 +384,9 @@ az acr manifest list-metadata \
 [docker-windows]:       https://docs.docker.com/docker-for-windows/
 [oras-install-docs]:    https://oras.land/cli/
 [oras-docs]:       https://oras.land/
-[oci-artifacts-referrers]: https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers
-[oci-artifact-manifest]:     https://github.com/opencontainers/image-spec/blob/main/artifact.md
+[oci-artifacts-referrers]: https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
+[oci-artifact-manifest]:  https://github.com/opencontainers/image-spec/blob/main/artifact.md/
+[oci-spec]: https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 <!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
