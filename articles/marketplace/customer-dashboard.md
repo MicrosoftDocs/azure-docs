@@ -4,8 +4,8 @@ description: Learn how to access information about your customers, including gro
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: smannepalle
-ms.author: smannepalle
+author: saurasharma
+ms.author: saurasharma
 ms.reviewer: sroy
 ms.date: 12/23/2022
 ---
