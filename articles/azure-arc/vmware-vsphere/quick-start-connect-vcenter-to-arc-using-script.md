@@ -154,7 +154,7 @@ After the command finishes running, your setup is complete. You can now use the 
 > [!IMPORTANT]
       > - If the Azure Arc resource bridge deployment fails, clean up the installation and retry the deployment. Run the following cmdlet in Azure Command Line Interface(CLI) to clean up the installation:
       > 
-      >   ```azurecli
+      >   ```azurecli-interactive
       >   az arcappliance delete vmware --config-file $csv_path\ResourceBridge\vmware-appliance.yaml --yes
       >   ```
       >
