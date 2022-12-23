@@ -43,7 +43,7 @@ More details around using these options are shared below:
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 > [!NOTE]
-> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
+> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for Azure AD so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
 
 #### NSG tags
 
@@ -82,7 +82,7 @@ You can also use the following FQDNs to allow access to the required services fr
 > [!NOTE]
 > Currently, we only support HTTP Proxy for Azure Active Directory (Azure AD) traffic for SAP HANA. If you need to remove outbound connectivity requirements (for Azure Backup and Azure Storage traffic) for database backups via Azure Backup in HANA VMs, use other options, such as private endpoints.
 
-##### Using an HTTP proxy server for AAD traffic
+##### Using an HTTP proxy server for Azure AD traffic
 
 1. Go to the "opt/msawb/bin" folder
 2. Create a new JSON file named "ExtensionSettingsOverrides.json"
@@ -104,7 +104,7 @@ You can also use the following FQDNs to allow access to the required services fr
     chown root:msawb ExtensionSettingsOverrides.json
     ```
 
-5. No restart of any service is required. The Azure Backup service will attempt to route the AAD traffic via the proxy server mentioned in the JSON file.
+5. No restart of any service is required. The Azure Backup service will attempt to route the Azure AD traffic via the proxy server mentioned in the JSON file.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -116,11 +116,11 @@ At the Recovery Services vault, you can enable Cross Region Restore. You must tu
 
 ## Discover the databases
 
-1. In the Azure portal, go to **Backup center** and click **+Backup**.
+1. In the Azure portal, go to **Backup center** and select **+Backup**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/backup-center-configure-inline.png" alt-text="Screenshot showing to start checking for SAP HANA databases." lightbox="./media/backup-azure-sap-hana-database/backup-center-configure-expanded.png":::
 
-1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then click **Continue**.
+1. Select **SAP HANA in Azure VM** as the datasource type, select a Recovery Services vault to use for backup, and then select **Continue**.
 
    :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-vault.png" alt-text="Screenshot showing to select an SAP HANA database in Azure VM.":::
 

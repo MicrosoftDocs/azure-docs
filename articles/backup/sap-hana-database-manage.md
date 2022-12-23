@@ -274,4 +274,4 @@ The Azure Backup service currently doesn't modify the HANA backup catalog as per
 
 ## Next steps
 
-[Troubleshoot common issues with SAP HANA database backups](./backup-azure-sap-hana-database-troubleshoot.md)
+- [Troubleshoot common issues with SAP HANA database backups](./backup-azure-sap-hana-database-troubleshoot.md)
