@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
-In this article, you learn how how to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either signs in or create an account if they don't already have one.
+In this article, you learn how  to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either sign in into or creates an Azure AD B2C local account. A local account refers to an account that is created in your Azure AD B2C tenant when a user signs up for your application. 
 
 ## Overview
 
@@ -52,7 +52,7 @@ To configure an OpenID Connect Technical Profile you need to perform three steps
 
 ### Step 1.1 - Declare additional claims
 
-In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section and then, add additional claims by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section, and then add additional claims by using the following code:
 
 ```xml
     <ClaimType Id="grant_type">
@@ -363,6 +363,8 @@ You can sign in by entering the **Email Address** and **Password** of an existin
 
 ## Next steps
 
-- Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md). 
+- Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md).
+
+- Learn how to [Remove the sign-up link](add-sign-in-policy.md), so users can just sign in.  
 
 - Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
