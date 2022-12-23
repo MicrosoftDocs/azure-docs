@@ -61,12 +61,13 @@ AutoML can optionally create features representing holidays from a specific coun
 > Holiday features can only be made for time series with daily frequency.
 
 The following table summarizes the holiday features:
-| Feature name | Description |
-| --- | ----------- |
-|`Holiday`| String feature that specifies whether a date is a regional or national holiday. Days within some range of a holiday are also marked. |
-|`isPaidTimeOff`| Binary feature that takes value 1 if the day is a "paid time-off holiday" in the given country or region. |
 
-AutoML uses Azure Open Datasets to generate holiday information. For more information, see the [PublicHolidays](/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays) documentation.
+Feature name | Description
+ --- | ----------- |
+`Holiday`| String feature that specifies whether a date is a regional or national holiday. Days within some range of a holiday are also marked. 
+`isPaidTimeOff`| Binary feature that takes value 1 if the day is a "paid time-off holiday" in the given country or region.
+
+AutoML uses Azure Open Datasets as a source for holiday information. For more information, see the [PublicHolidays](/python/api/azureml-opendatasets/azureml.opendatasets.publicholidays) documentation.
 
 To better understand the holiday feature generation, consider the following example data: 
 
