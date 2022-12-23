@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/24/2022
+ms.date: 12/22/2022
 ms.author: mwahl
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -55,7 +55,7 @@ If the user is updated in Azure AD, no changes will be sent to the application. 
 
 For some legacy applications it might not be feasible to remove other identity providers or local credential authentication from the application, or enable support for provisioning protocols for those applications.
 
-That scenario is covered in a separate article, [Govern the existing users of an application that does not support provisioning](identity-governance-applications-not-provisioned-users.md).
+That scenario of an application which does not support provisioning protocols, is covered in a separate article, [Govern the existing users of an application that does not support provisioning](identity-governance-applications-not-provisioned-users.md).
 
 ## Terminology
 
@@ -63,11 +63,11 @@ This article illustrates the process for managing application role assignments b
 
 ![Diagram that illustrates Microsoft Graph terminology.](./media/identity-governance-applications-existing-users/data-model-terminology.png)
 
-In Azure AD, a service principal (`ServicePrincipal`) represents an application in a particular organization's directory. `ServicePrincipal` has a property called `AppRoles` that lists the roles that an application supports, such as `Marketing specialist`. `AppRoleAssignment` links a user to a service principal and specifies which role that user has in that application.
+In Azure AD, a service principal (`ServicePrincipal`) represents an application in a particular organization's directory. `ServicePrincipal` has a property called `AppRoles` that lists the roles that an application supports, such as `Marketing specialist`. `AppRoleAssignment` links a user to a service principal and specifies which role that user has in that application.  An application may have more than one service principal, if single sign-on to the application and provisioning to the application are handled separately.
 
-You might also be using [Microsoft Entra entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package. 
+You might also be using [Microsoft Entra entitlement management](entitlement-management-overview.md) access packages to give users time-limited access to the application. In entitlement management, `AccessPackage` contains one or more resource roles, potentially from multiple service principals. `AccessPackage` also has assignments (`Assignment`) for users to the access package.
 
-When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
+When you create an assignment for a user to an access package, Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` instances for the user to each application's service principal in the access package. For more information, see the [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management) tutorial on how to create access packages through PowerShell.
 
 ## Before you begin
 
@@ -77,7 +77,7 @@ When you create an assignment for a user to an access package, Azure AD entitlem
   - Enterprise Mobility + Security E5 license
 
 - You need to have an appropriate administrative role. If this is the first time you're performing these steps, you need the Global Administrator role to authorize the use of Microsoft Graph PowerShell in your tenant.
-- Your application needs a service principal in your tenant:
+- Your application needs at least one service principal in your tenant:
 
   - If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
   - If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md) through the section to download, install, and configure the Azure AD Connect Provisioning Agent package.
@@ -195,7 +195,7 @@ Before you proceed, review the information about [matching users in the source a
 
 If the application is already registered in Azure AD, then continue to the next step.
 
-- If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md#configure-the-on-premises-ecma-app) section to create a new registration for an on-premises ECMA app in Azure AD.
+- If the application uses an LDAP directory, follow the [guide for configuring Azure AD to provision users into LDAP directories](../app-provisioning/on-premises-ldap-connector-configure.md#configure-the-on-premises-ecma-app) section to create a new registration for an on-premises ECMA app in Azure AD.  
 - If the application uses a SQL database, follow the [guide for configuring Azure AD to provision users into SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md#4-configure-the-on-premises-ecma-app) section to to create a new registration for an on-premises ECMA app in Azure AD.
 - If it is a cloud application that supports the SCIM protocol, then you can add the application from the [application gallery](../manage-apps/overview-application-gallery.md).
 - If the application is on-premises and supports the SCIM protocol, then follow the [guide for configuring Azure AD to provision users into on-premises SCIM-based applications](../app-provisioning/on-premises-scim-provisioning.md).
@@ -204,7 +204,7 @@ If the application is already registered in Azure AD, then continue to the next 
 
 The previous steps have confirmed that all the users in the application's data store exist as users in Azure AD. However, they might not all currently be assigned to the application's roles in Azure AD. So the next steps are to see which users don't have assignments to application roles.
 
-1. Look up the service principal ID for the application's service principal.
+1. Look up the service principal ID for the application's service principal.  If you recently created a service principal for an application that uses an LDAP directory or a SQL database, then use the name of that service principal.
 
    For example, if the enterprise application is named `CORPDB1`, enter the following commands:
 
@@ -245,7 +245,7 @@ The previous steps have confirmed that all the users in the application's data s
 
 1. Select the role of the application to assign the remaining users to.
 
-   An application might have more than one role. Use this command to list the available roles:
+   An application might have more than one role, and a service principal may have additional roles. Use this command to list the available roles of a service principal:
 
    ```powershell
    $azuread_sp.AppRoles | where-object {$_.AllowedMemberTypes -contains "User"} | ft DisplayName,Id
@@ -261,7 +261,7 @@ The previous steps have confirmed that all the users in the application's data s
 
 ## Configure application provisioning
 
-If your application uses an LDAP directory, a SQL database, or supports SCIM, then before you create new assignments, configure [provisioning of Azure AD users](../app-provisioning/user-provisioning.md) to the application. Configuring provisioning before creating assignments will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.  If your application does not support provisioning, then continue reading in the next section.
+If your application uses an LDAP directory, a SQL database, or supports SCIM, then before you create new assignments, configure [provisioning of Azure AD users](../app-provisioning/user-provisioning.md) to the application. Configuring provisioning before creating assignments will enable Azure AD to match up the users in Azure AD with the application role assignments to the users already in the application's data store.  If your application has an on-premises directory or database to be provisioned, and also supports federated SSO, then you may need two service principals to represent the application in your directory: one for provisioning and one for SSO.   If your application does not support provisioning, then continue reading in the next section.
 
 1. Ensure that the application is configured to require users to have application role assignments, so that only selected users will be provisioned to the application.
 1. If provisioning hasn't been configured for the application, configure it now (but don't start provisioning):
@@ -280,11 +280,11 @@ If your application uses an LDAP directory, a SQL database, or supports SCIM, th
 
 ## Create app role assignments in Azure AD
 
-For Azure AD to match the users in the application with the users in Azure AD, you need to create application role assignments in Azure AD.
+For Azure AD to match the users in the application with the users in Azure AD, you need to create application role assignments in Azure AD.  Each application role assignment associates one user to one application role of one service principal.
 
 When an application role assignment is created in Azure AD for a user to an application, and the application supports provisioning, then:
 
-- Azure AD will query the application to determine if the user already exists.
+- Azure AD will query the application via SCIM, or its directory or database, to determine if the user already exists.
 - Subsequent updates to the user's attributes in Azure AD will be sent to the application.
 - The user will remain in the application indefinitely unless they're updated outside Azure AD, or until the assignment in Azure AD is removed.
 - On the next review of that application's role assignments, the user will be included in the review.
@@ -335,7 +335,7 @@ If the application does not support provisioning, then
 
    If any users aren't assigned to application roles, check the Azure AD audit log for an error from a previous step.
 
-1. If **Provisioning Status** for the application is **Off**, turn it to **On**.  You can also start provisioning [using Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#step-4-start-the-provisioning-job).
+1. If the application service principal is for provisioning, and the **Provisioning Status** for the service principal is **Off**, turn it to **On**.  You can also start provisioning [using Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#step-4-start-the-provisioning-job).
 1. Based on the guidance for [how long will it take to provision users](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users), wait for Azure AD provisioning to match the existing users of the application to those users just assigned.
 1. Monitor the [provisioning status](../app-provisioning/check-status-user-account-provisioning.md) through the Portal or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-the-provisioning-job-status) to ensure that all users were matched successfully.
 
@@ -343,13 +343,21 @@ If the application does not support provisioning, then
 
 1. Check the provisioning log through the [Azure portal](../reports-monitoring/concept-provisioning-logs.md) or [Graph APIs](../app-provisioning/application-provisioning-configuration-api.md#monitor-provisioning-events-using-the-provisioning-logs).  Filter the log to the status **Failure**.  If there are failures with an ErrorCode of **DuplicateTargetEntries**,  this indicates an ambiguity in your provisioning matching rules, and you'll need to update the Azure AD users or the mappings that are used for matching to ensure each Azure AD user matches one application user.  Then filter the log to the action **Create** and status **Skipped**.  If users were skipped with the SkipReason code of **NotEffectivelyEntitled**, this may indicate that the user accounts in Azure AD were not matched because the user account status was **Disabled**.
 
-After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes will be sent to the application.
+After the Azure AD provisioning service has matched the users based on the application role assignments you've created, subsequent changes to those users will be sent to the application.
 
 ## Select appropriate reviewers
 
 [!INCLUDE [active-directory-identity-governance-applications-select-reviewers.md](../../../includes/active-directory-identity-governance-applications-select-reviewers.md)]
 
+## Configure access reviews or entitlement management
+
+Once the users are in the application roles, and you have the the reviewers identified, then you can govern those users and any additional users who will need access.
+
+If the application only has a single application role, the application is represented by a single service principal in your directory, and no additional users will need access to the application, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).  Follow the instructions in the [guide for creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.  Configure the review to apply results when it completes.
+
+In other situations, such as wanting to have different reviewers for each application role, the application is represented by multiple service principals, or you want to have a process for users to request or be assigned access to the application, then you can configure Azure AD with an [access package](/powershell/microsoftgraph/tutorial-entitlement-management) for each application role.  Each access package can have a policy for recurring review of assignments made to that access package.  Once the access packages and policies are created, then you can assign the users who have existing application role assignments to the access packages, so their assignments can be reviewed.
 
 ## Next steps
 
  - [Prepare for an access review of users' access to an application](access-reviews-application-preparation.md)
+ - [Manage access to resources in Azure AD entitlement management](/powershell/microsoftgraph/tutorial-entitlement-management)
