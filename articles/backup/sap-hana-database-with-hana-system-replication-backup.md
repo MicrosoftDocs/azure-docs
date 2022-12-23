@@ -76,7 +76,7 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
    `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`
    
-   If the password of this custom backup key expires, it could lead to backup and restore failures.
+   If the password of this custom backup key expires, it could lead to the backup and restore operations failure.
 
 1. Create the same customer backup user (with the same password) and key (in *hdbuserstore*) on both VMs/nodes.
 

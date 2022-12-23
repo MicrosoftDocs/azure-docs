@@ -43,7 +43,7 @@ More details around using these options are shared below:
 Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 > [!NOTE]
-> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. Refer to the [proxy support section](#use-an-http-proxy-server-to-route-traffic) for more details.
+> Private endpoints are supported for Azure Backup and Azure storage. Azure AD has support private end-points in private preview. Until they are generally available, Azure backup supports setting up proxy for AAD so that no outbound connectivity is required for HANA VMs. For more information, see the [proxy support section](#use-an-http-proxy-server-to-route-traffic).
 
 #### NSG tags
 
@@ -86,7 +86,7 @@ You can also use the following FQDNs to allow access to the required services fr
 
 1. Go to the "opt/msawb/bin" folder
 2. Create a new JSON file named "ExtensionSettingsOverrides.json"
-3. Add a key-value pairs to the JSON file as follows:
+3. Add a key-value pair to the JSON file as follows:
 
     ```json
     {
