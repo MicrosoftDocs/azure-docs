@@ -151,16 +151,16 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
 
 > [!IMPORTANT]
-    > If the Azure Arc resource bridge deployment fails, clean up the installation and retry the deployment. Run the following cmdlet in Azure Command Line Interface(CLI) to clean up the installation:
-    > 
-    >```azurecli-interactive
-    >az arcappliance delete vmware --config-file $csv_path\ResourceBridge\vmware-appliance.yaml --yes
-    >```
-    >
-    > While there can be a number of reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../manage/troubleshoot-arc-enabled-vms.md#kva-timeout-error).
+> If the Azure Arc resource bridge deployment fails, clean up the installation and retry the deployment. Run the following cmdlet in Azure Command Line Interface(CLI) to clean up the installation:
+> 
+>```azurecli-interactive
+>az arcappliance delete vmware --config-file $csv_path\ResourceBridge\vmware-appliance.yaml --yes
+>```
+>
+> While there can be a number of reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../manage/troubleshoot-arc-enabled-vms.md#kva-timeout-error).
 
 > [!IMPORTANT]
-    > After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files and the kubeconfig file safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands to perform management operations on the resource bridge.
+> After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files and the kubeconfig file safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands to perform management operations on the resource bridge.
 
 ## Next steps
 
