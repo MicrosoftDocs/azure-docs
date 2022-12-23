@@ -25,9 +25,9 @@ ms.collection: M365-identity-device-management
 
 There are three common scenarios in which it's necessary to populate Azure Active Directory (Azure AD) with existing users of an application before you use the application with a Microsoft Entra identity governance feature such as [access reviews](access-reviews-application-preparation.md).
 
- 1. Application migrated to Azure AD after using its own identity provider
- 1. Application that doesn't use Azure AD as its only identity provider
- 1. Application does not use Azure AD as its identity provider nor does it support provisioning
+ - Application migrated to Azure AD after using its own identity provider
+ - Application that doesn't use Azure AD as its only identity provider
+ - Application does not use Azure AD as its identity provider nor does it support provisioning
 
 For more information on those first two scenarios, where the application supports provisioning, or uses an LDAP directory, SQL database or relies upon Azure AD as its identity provider, see the article [govern an application's existing users](identity-governance-applications-existing-users.md). That article covers how to use identity governance features for existing users of those categories of applications.
 
@@ -225,19 +225,19 @@ When an application role assignment is created in Azure AD for a user to an appl
 
 ## Create the review of the application role assignments
 
-Once the users are in the application roles, and you have the the reviewers identified, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).
+Once the users are in the application roles, and you have the reviewers identified, then you can configure Azure AD to [start a review](access-reviews-application-preparation.md#create-the-reviews).
 
 Follow the instructions in the [guide for creating an access review of groups or applications](create-access-review.md), to create the review of the application's role assignments.  Configure the review to apply results when it completes.
 
 ## Retrieve the assignments that are updated when the reviews are complete
 
-   1. When the review completes, you can retrieve the updated list of users with application role assignments.
+1. When the review completes, you can retrieve the updated list of users with application role assignments.
 
    ```powershell
    $res = (Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
    ```
 
-   1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Azure AD user IDs of each user who retains an application role assignment.
+1. The columns `PrincipalDisplayName` and `PrincipalId` contain the display names and Azure AD user IDs of each user who retains an application role assignment.
 
 
 ## Next steps
