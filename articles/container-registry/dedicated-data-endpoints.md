@@ -9,13 +9,13 @@ ms.date: 12/22/2022
 ---
 # Azure Container Registry mitigating data exfiltration with dedicated data endpoints
 
-Azure Container Registry introduces dedicated data endpoints, by enabling tightly scoped client firewall rules to specific registries, minimizing data exfiltration concerns.
+Azure Container Registry introduces dedicated data endpoints. The feature enables tightly scoped client firewall rules to specific registries, minimizing data exfiltration concerns.
 
 Dedicated data endpoints feature is available in **Premium** service tier. For pricing information, see[container-registry-pricing.](https://azure.microsoft.com/pricing/details/container-registry/)
 
 Pulling content from a registry involves two endpoints:
 
-*Registry endpoint*, often referred to as the login URL, used for authentication and content discovery. A command like docker pull `contoso.azurecr.io/hello-world` makes a REST request which authenticates and negotiates the layers which represent the requested artifact.
+*Registry endpoint*, often referred to as the login URL, used for authentication and content discovery. A command like docker pulls `contoso.azurecr.io/hello-world` makes a REST request, which authenticates and negotiates the layers, which represent the requested artifact.
 *Data endpoints* serve blobs representing content layers.
 
 
@@ -24,7 +24,7 @@ Pulling content from a registry involves two endpoints:
 
 ## Registry managed storage accounts
 
-Azure Container Registry is a multi-tenant service. The registry service manages the data endpoint storage accounts. The benefits of the managed storage accounts, include load balancing, contentious content splitting, multiple copies for higher concurrent content delivery, and also multi-region support with [geo-replication.](container-registry-geo-replication.md).
+Azure Container Registry is a multi-tenant service. The registry service manages the data endpoint storage accounts. The benefits of the managed storage accounts, include load balancing, contentious content splitting, multiple copies for higher concurrent content delivery, and multi-region support with [geo-replication.](container-registry-geo-replication.md).
 
 ## Azure Private Link virtual network support
 
@@ -43,7 +43,7 @@ Unfortunately, virtual network connection isn’t always an option.
 
 ## Client firewall rules and data exfiltration risks
 
-Client firewall rules limits access to specific resources and applies while connecting to a registry from on-prem hosts, IoT devices, custom build agents, or when the Private Link support is not an option. 
+Client firewall rules limits access to specific resources. The firewall rules apply while connecting to a registry from on-prem hosts, IoT devices, custom build agents. The rules also apply when the Private Link support isn't an option. 
 
 
 :::image type="content" source="./media/dedicated-data-endpoints/client-firewall-0.png" alt-text="Diagram to illustrate client firewall rules.":::
@@ -59,7 +59,7 @@ So, to address the data-exfiltration concerns, Azure Container Registry is makin
 
 ## Dedicated data endpoints
 
-By enabling dedicated data endpoints, layers are retrieved from the Azure Container Registry service, with fully qualified domain names representing the registry domain. 
+Dedicated data endpoints, help retrieve layers from the Azure Container Registry service, with fully qualified domain names representing the registry domain. 
 
 As any registry may become geo-replicated, a regional pattern is used: `[registry].[region].data.azurecr.io`.
 
