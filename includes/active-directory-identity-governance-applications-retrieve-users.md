@@ -1,3 +1,10 @@
+---
+author: markwahl-msft
+ms.service: active-directory
+ms.topic: include
+ms.date: 12/22/2022
+ms.author: mwahl
+---
 
 ### Retrieve the IDs of the users in Azure AD
 

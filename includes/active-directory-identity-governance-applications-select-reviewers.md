@@ -1,3 +1,10 @@
+---
+author: markwahl-msft
+ms.service: active-directory
+ms.topic: include
+ms.date: 12/22/2022
+ms.author: mwahl
+---
 
 When you create each access review, administrators can choose one or more reviewers. The reviewers can carry out a review by choosing users for continued access to a resource or removing them.
 
