@@ -79,7 +79,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US**, **West Europe**, **Australia East** and **Canada Central**.
 
-9. Provide a name for **Custom location**. This is the name that you'll see when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
+9. Provide a name for **Custom location**. You'll see this name when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
 
 10. Leave **Use the same subscription and resource group as your resource bridge** selected.
 
@@ -155,9 +155,9 @@ After the command finishes running, your setup is complete. You can now use the 
 
 ## Recovering from failed deployments
 
-If the Azure Arc resource bridge deployment fails, consult the Arc resource bridge troubleshooting doc (../resource-bridge/troubleshoot-resource-bridge.md). While there can be a number of reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../resource-bridge/troubleshoot-resource-bridge.md#kva-timeout-error).
+If the Azure Arc resource bridge deployment fails, consult the Arc resource bridge troubleshooting doc (../resource-bridge/troubleshoot-resource-bridge.md). While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. For more information about the KVA timeout error and how to troubleshoot it, see [KVA timeout error](../resource-bridge/troubleshoot-resource-bridge.md#kva-timeout-error).
 
-To cleanup the installation and retry the deployment, use the following commands.
+To clean up the installation and retry the deployment, use the following commands.
 
 ### Retry command - Windows
 
