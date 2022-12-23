@@ -183,7 +183,7 @@ oras attach $IMAGE \
 
 ## Discovering artifact references
 
-The [OCI v1.1 Specification](oci-spec) defines a [referrers API][oci-artifacts-referrers] for discovering references to a `subject` artifact. The `oras discover` command can show the list of references to the container image.
+The [OCI v1.1 Specification][oci-spec] defines a [referrers API][oci-artifacts-referrers] for discovering references to a `subject` artifact. The `oras discover` command can show the list of references to the container image.
 
 Using `oras discover`, view the graph of artifacts now stored in the registry.
 
@@ -384,9 +384,9 @@ az acr manifest list-metadata \
 [docker-windows]:       https://docs.docker.com/docker-for-windows/
 [oras-install-docs]:    https://oras.land/cli/
 [oras-docs]:       https://oras.land/
-[oci-artifacts-referrers]: https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
+[oci-artifacts-referrers]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
 [oci-artifact-manifest]:  https://github.com/opencontainers/image-spec/blob/main/artifact.md/
-[oci-spec]: https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
+[oci-spec]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
 <!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
