@@ -44,7 +44,7 @@ The columns in the table denote important information for your resource:
 - **Total resources** - Count of all resources for the resource type.
 - **Logs to Dynatrace** - Count of resources sending logs to Dynatrace through the integration.
 
-## Reconfigure rules for logs
+## Reconfigure rules for Metrics and logs
 
 To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
 
