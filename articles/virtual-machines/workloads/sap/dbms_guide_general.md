@@ -4,9 +4,9 @@ description: Considerations for Azure Virtual Machines DBMS deployment for SAP w
 author: msjuergent
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.date: 09/20/2020
+ms.date: 09/22/2020
 ms.author: juergent
-ms.reviewer: cynthn
+ms.reviewer: juergent
 
 ---
 
@@ -20,7 +20,7 @@ This guide is part of the documentation on how to implement and deploy SAP softw
 
 The paper complements the SAP installation documentation and SAP Notes, which represent the primary resources for installations and deployments of SAP software on given platforms.
 
-In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead, the specific DBMS systems are handled within this paper, after this document.
+In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this document. Instead, the specific DBMS systems are handled in other database system specific documents. 
 
 ## Resources
 There are other articles available on SAP workload on Azure. Start with [SAP workload on Azure: Get started](./get-started.md) and then choose your area of interest.
@@ -48,7 +48,7 @@ The following SAP Notes are related to SAP on Azure in regard to the area covere
 | [2171857](https://launchpad.support.sap.com/#/notes/2171857) | Oracle Database 12c: File system support on Linux |
 | [1114181](https://launchpad.support.sap.com/#/notes/1114181) | Oracle Database 11g: File system support on Linux |
 | [2969063](https://launchpad.support.sap.com/#/notes/2969063) | Microcode Validation Failed in HCMT on Azure |
-| [3246210](https://launchpad.support.sap.com/#/notes/3246210) | Azure - HCMT Fails During Some Disk Perfomance Tests |
+| [3246210](https://launchpad.support.sap.com/#/notes/3246210) | Azure - HCMT Fails During Some Disk Performance Tests |
 
 
 For information on all the SAP Notes for Linux, see the [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
@@ -66,19 +66,19 @@ To follow this chapter, read and understand the information presented in:
 - [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
 - [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) 
 
-You need to understand and know about the different VM-Series and the differences between standard and premium storage before you read this chapter. 
-
-For Azure block storage, the usage of Azure managed disks is highly recommended. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../managed-disks-overview.md).
+For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](../../managed-disks-overview.md).
 
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend having separate Azure disks for:
 
 - The operating system (base VHD or OS VHD)
 - Database management system executables
 - SAP executables like /usr/sap
+- DBMS data files
+- DBMS redo log files
 
-A configuration that separates these components in three different Azure disks can result in higher resiliency since excessive log or dump writes by the DBMS or SAP executables are not interfering with the disk quotas of the OS disk. 
+A configuration that separates these components into five different volumes can result in higher resiliency since excessive usage on one volume does not necessarily itnerfere with the usage of other volumes as long as VM storage quota and limits aren't exceeded. 
 
-The DBMS data and transaction/redo log files are stored in Azure supported block storage or Azure NetApp Files. Azure Files or Azure Premium Files is not supported as storage for DBSM data and/or redo log files with SAP workload. They're stored in separate disks and attached as logical disks to the original Azure operating system image VM. For Linux deployments, different recommendations are documented. Read the article [Azure Storage types for SAP workload](./planning-guide-storage.md) for the capabilities and the support of the different storage types for your scenario. Specifically for SAP HANA start with the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
+The DBMS data and transaction/redo log files are stored in Azure supported block storage or Azure NetApp Files. Azure Files or Azure Premium Files isn't supported as storage for DBSM data and/or redo log files with SAP workload. They're stored in separate disks and attached as logical disks to the original Azure operating system image VM. For Linux deployments, different recommendations are documented. Read the article [Azure Storage types for SAP workload](./planning-guide-storage.md) for the capabilities and the support of the different storage types for your scenario. Specifically for SAP HANA start with the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 When you plan your disk layout, find the best balance between these items:
 
@@ -89,24 +89,26 @@ When you plan your disk layout, find the best balance between these items:
 * The number of additional data disks possible per VM size.
 * The overall storage or network throughput a VM can provide.
 * The latency different Azure Storage types can provide.
+- VM storage IOPS and throughput quota.
+- VM network quota in case you are using NFS - traffic to NFS shares is counting against the VM's network quouta and **NOT** the storage quota.
 * VM SLAs.
 
 Azure enforces an IOPS quota per data disk or NFS share. These quotas are different for disks hosted on the different Azure block storage solutions or shares. I/O latency is also different between these different storage types as well. 
 
-Each of the different VM types has a limited number of data disks that you can attach. Another restriction is that only certain VM types can use, for example, premium storage. Typically, you decide to use a certain VM type based on CPU and memory requirements. You also might consider the IOPS, latency, and disk throughput requirements that usually are scaled with the number of disks or the type of premium storage disks v1. The number of IOPS and the throughput to be achieved by each disk might dictate disk size, especially with premium storage v1. Whereas, you can select provisioned IOPS and throughput indpendent of the disk capacity with premium storage v2 or Ultra disk.
+Each of the different VM types has a limited number of data disks that you can attach. Another restriction is that only certain VM types can use, for example, premium storage. Typically, you decide to use a certain VM type based on CPU and memory requirements. You also need to consider the IOPS, latency, and disk throughput requirements that usually are scaled with the number of disks or the type of premium storage disks v1. The number of IOPS and the throughput to be achieved by each disk might dictate disk size, especially with premium storage v1. Whereas you can select provisioned IOPS and throughput independent of the disk capacity with premium storage v2 or Ultra disk.
 
 > [!NOTE]
-> For DBMS deployments, we recommend Azure premium storage (v1 and v2), Ultra disk or Azure NetApp Files based NFS shares for any data, transaction log, or redo files. It doesn't matter whether you want to deploy production or nonproduction systems.
+> For DBMS deployments, we highly recommend Azure premium storage (v1 and v2), Ultra disk or Azure NetApp Files based NFS shares for any data, transaction log, or redo files. It doesn't matter whether you want to deploy production or nonproduction systems. Latency of Azure standard HDD or SSD isn't acceptable for any type of production system.
 
 > [!NOTE]
-> To maximize Azure's [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), all disks that are attached must be Azure premium storage or Azure Ultra disk type, which includes the base VHD (Azure premium storage).
+> To maximize Azure's [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), all disks that are attached must be Azure premium storage (v1 or v2) or Azure Ultra disk type, which includes the base VHD (Azure premium storage).
 
 > [!NOTE]
 > Hosting main database files, such as data and log files, of SAP databases on storage hardware that's located in co-located third-party data centers adjacent to Azure data centers isn't supported. Storage provided through software appliances hosted in Azure VMs, are also not supported for this use case. For SAP DBMS workloads, only storage that's represented as native Azure service is supported for the data and transaction log files of SAP databases in general. Different DBMS might support different Azure storage types. For more details check the article [Azure Storage types for SAP workload](./planning-guide-storage.md)
 
 The placement of the database files and the log and redo files and the type of Azure Storage you use, is defined by IOPS, latency, and throughput requirements. Specifically for Azure premium storage v1, to achieve enough IOPS, you might be forced to use multiple disks or use a larger premium storage disk. If you use multiple disks, build a software stripe across the disks that contain the data files or the log and redo files. In such cases, the IOPS and the disk throughput SLAs of the underlying premium storage disks or the maximum achievable IOPS of standard storage disks are accumulative for the resulting stripe set.
 
-If your IOPS requirement exceeds what a single VHD can provide, balance the number of IOPS that are needed for the database files across a number of VHDs. The easiest way to distribute the IOPS load across disks is to build a software stripe over the different disks. Then place a number of data files of the SAP DBMS on the LUNs carved out of the software stripe. The number of disks in the stripe is driven by IOPS demands, disk throughput demands, and volume demands.
+If your IOPS requirement exceeds what a single VHD can provide, balance the IOPS that are needed for the database files across a number of VHDs. The easiest way to distribute the IOPS load across disks is to build a software stripe over the different disks. Then place a number of data files of the SAP DBMS on the LUNs carved out of the software stripe. The number of disks in the stripe is driven by IOPS demands, disk throughput demands, and volume demands.
 
 
 ---
@@ -125,7 +127,7 @@ If your IOPS requirement exceeds what a single VHD can provide, balance the numb
 
 ---
 
-For Azure Ultra disk, striping is not necessary since you can define IOPS and disk throughput independent of the size of the disk.
+For Azure premium storage v2 and Ultra disk, striping may not necessary since you can define IOPS and disk throughput independent of the size of the disk.
 
 
 > [!NOTE]
@@ -133,13 +135,14 @@ For Azure Ultra disk, striping is not necessary since you can define IOPS and di
 >
 
 ### Managed or nonmanaged disks
-An Azure storage account is an administrative construct and also a subject of limitations. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. Balance VHDs for the larger SAP landscape across different storage accounts to avoid hitting the limits of these storage accounts. As of 2017, azure introduced the concepts of [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) that relief you of taking care of any storage account administration. Using Azure managed disks is the default to deploy for SAP workload in Azure. 
+An Azure storage account is an administrative construct and also a subject of limitations. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription. 
+As of 2017, Azure introduced the concepts of [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) that relief you of taking care of any storage account administration. Using Azure managed disks is the default to deploy for SAP workload in Azure. 
 
 > [!IMPORTANT]
-> Given the advantages of Azure Managed Disks, we highly recommend that you use Azure Managed Disks for your DBMS deployments and SAP deployments in general.
+> Given the advantages of Azure Managed Disks, it is mandatory that you use Azure Managed Disks for your DBMS deployments and SAP deployments in general.
 >
 
-If you happen to have SAP workload that is not yet using managed disks, to convert from unmanaged to managed disks, see:
+If you happen to have SAP workload that isn't yet using managed disks, to convert from unmanaged to managed disks, see:
 
 - [Convert a Windows virtual machine from unmanaged disks to managed disks](../../windows/convert-unmanaged-to-managed-disks.md).
 - [Convert a Linux virtual machine from unmanaged disks to managed disks](../../linux/convert-unmanaged-to-managed-disks.md).
@@ -164,15 +167,15 @@ For Azure premium storage v1, the following caching options exist:
 * None + Write Accelerator, which is only for Azure M-Series VMs
 * Read + Write Accelerator, which is only for Azure M-Series VMs
 
-For premium storage, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
+For premium storage v1, we recommend that you use **Read caching for data files** of the SAP database and choose **No caching for the disks of log file(s)**.
 
-For M-Series deployments, we recommend that you use Azure Write Accelerator for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../how-to-enable-write-accelerator.md).
+For M-Series deployments, we recommend that you use Azure Write Accelerator only for the disks of your log files. For details, restrictions, and deployment of Azure Write Accelerator, see [Enable Write Accelerator](../../how-to-enable-write-accelerator.md).
 
 For premium storage v2, Ultra disk and Azure NetApp Files, no caching options are offered.
 
 
 ### Azure nonpersistent disks
-Azure VMs offer nonpersistent disks after a VM is deployed. In the case of a VM reboot, all content on those drives is wiped out. It's a given that data files and log and redo files of databases should under no circumstances be located on those nonpersisted drives. There might be exceptions for some databases, where these nonpersisted drives could be suitable for tempdb and temp tablespaces. 
+Azure VMs offer nonpersistent disks after a VM is deployed. If a VM reboots, all content on those drives can be wiped out. It's a given that data files and log and redo files of databases should under no circumstances be located on those nonpersisted drives. There might be exceptions for some databases, where these nonpersisted drives could be suitable for tempdb and temp tablespaces. 
 
 For more information, see [Understand the temporary drive on Windows VMs in Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines).
 
@@ -197,7 +200,7 @@ Microsoft Azure Storage stores the base VHD, with OS and attached disks or blobs
 There are other redundancy methods. For more information, see [Azure Storage replication](../../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 > [!NOTE]
-> Azure premium storage, Ultra disk and Azure NetApp Files (exclusively for SAP HANA) are the recommended type of storage for DBMS VMs and disks that store database and log and redo files. The only available redundancy method for these storage types is LRS. As a result, you need to configure database methods to enable database data replication into another Azure region or availability zone. Database methods include SQL Server Always On, Oracle Data Guard, and HANA System Replication.
+> Azure premium storage v1 and v2, Ultra disk and Azure NetApp Files are the recommended type of storage for DBMS VMs and disks that store database and log and redo files. With exception of premium storage v1, the only available redundancy method for these storage types is LRS. As a result, you need to configure database methods to enable database data replication into another Azure region or availability zone. Database methods include SQL Server Always On, Oracle Data Guard, and HANA System Replication. 
 
 
 
@@ -260,7 +263,7 @@ The use of private virtual IP addresses used in functionalities like SQL Server 
 
 If there's a failover of the database node, there's no need for the SAP application to reconfigure. Instead, the most common SAP application architectures reconnect against the private virtual IP address. Meanwhile, the load balancer reacts to the node failover by redirecting the traffic against the private virtual IP address to the second node.
 
-Azure offers two different [load balancer SKUs](../../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic is not routed through the load balancer itself.
+Azure offers two different [load balancer SKUs](../../../load-balancer/load-balancer-overview.md): a basic SKU and a standard SKU. Based on the advantages in setup and functionality, you should use the Standard SKU of the Azure load balancer. One of the large advantages of the Standard version of the load balancer is that the data traffic isn't routed through the load balancer itself.
 
 An example how you can configure an internal load balancer can be found in the article [Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet#create-an-azure-load-balancer)
 
