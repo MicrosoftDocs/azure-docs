@@ -1,5 +1,5 @@
 ---
-title: Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy
+title: Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
 titleSuffix: Azure AD B2C
 description: Learn how to configure a sign-up and sign-in flow for a local account, using email and password, by using Azure Active Directory B2C custom policy.  
 services: active-directory-b2c
@@ -16,20 +16,17 @@ ms.subservice: B2C
 ---
 
 
-# Set up a sign-up and sign-in flow by using Azure Active Directory B2C custom policy
+# Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy
 
+In [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) article, a user creates a new user account but doesn't sign in to it. 
 
-Refer to [Create a user account by using Azure Active Directory B2C custom policy](custom-policies-series-store-user.md) and [Read or update a user account by using Azure Active Directory B2C custom policy](custom-policies-series-read-update-user.md) - user creates an account
-
-In this article, user signs in or create an account if they don't already have one 
-
-We use local account identity provider (email and passoword)
-
+In this article, you learn how how to write an Azure Active Directory B2C (Azure AD B2C) custom policy that allows a user to either signs in or create an account if they don't already have one.
 
 ## Overview
 
-Discuss how we use OpenIdConnect to verify credentials 
-Federate authentication to Azure AD 
+Azure AD B2C uses OpenID Connect authentication protocol to verify user credentials. In Azure AD B2C, you send the user credentials alongside other information to a secure endpoint, which then determines if the credentials are valid or not. In a nutshell, when you use Azure AD B2C's implementation of OpenID Connect, you can outsource sign-up, sign in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). 
+
+Azure AD B2C custom policy provides a OpenID Connect technical profile, which you use to make a call to a secure Microsoft endpoint. Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
 
 ## Prerequisites
 
@@ -47,16 +44,15 @@ Federate authentication to Azure AD
 
 ## Step 1 - Configure OpenID Connect Technical Profile
 
-You require three steps 
+To configure an OpenID Connect Technical Profile you need to perform three steps: 
 
-- Declare additional claims 
-- Register apps in portal
-- Configure OpenID Connect Technical Profile itself
-
+- Declare additional claims. 
+- Register apps in your Azure portal.
+- Finally, configure OpenID Connect Technical Profile itself
 
 ### Step 1.1 - Declare additional claims
 
-In the `ContosoCustomPolicy.XML` Add claims in the Claims Schema section
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsSchema* section and then, add additional claims by using the following code:
 
 ```xml
     <ClaimType Id="grant_type">
@@ -98,12 +94,11 @@ Azure AD B2C requires you to register two applications that it uses to sign up a
 
 1. Follow the steps in [Register the IdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-identityexperienceframework-application) to register the Identity Experience Framework application. Copy the **Application (client) ID**, *appID*, for the Identity Experience Framework application registration for use on the next step.  
 
-1. For low the steps in [Register the ProxyIdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-proxyidentityexperienceframework-application) to register Proxy Identity Experience Framework application. Copy the **Application (client) ID**, *proxyAppID*, for the Proxy Identity Experience Framework application registration for use on the next step.  
-
+1. For low the steps in [Register the ProxyIdentityExperienceFramework application](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-the-proxyidentityexperienceframework-application) to register Proxy Identity Experience Framework application. Copy the **Application (client) ID**, *proxyAppID*, for the Proxy Identity Experience Framework application registration for use on the next step.
 
 ### Step 1.3 - Configure OpenID Connect Technical Profile
 
-In the `ContosoCustomPolicy.XML`, add [OpenID Connect Technical Profile](openid-connect-technical-profile.md) in the ClaimsProviders section by using the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimsProviders* section, and then add a  Claims Provider element, that holds your OpenID Connect Technical Profile by using the following code: 
 
 ```xml
     <ClaimsProvider>
@@ -147,20 +142,21 @@ In the `ContosoCustomPolicy.XML`, add [OpenID Connect Technical Profile](openid-
 
 Replace both instances of: 
 
-- *appID* with **Application (client) ID** of the Identity Experience Framework application registration you copied in [step 1.2](#step-12---register-identity-experience-framework-applications). 
+- *appID* with **Application (client) ID** of the Identity Experience Framework application you copied in [step 1.2](#step-12---register-identity-experience-framework-applications). 
 
-- *proxyAppID* with **Application (client) ID** of the Proxy Identity Experience Framework application registration you copied in [step 1.2](#step-12---register-identity-experience-framework-applications).  
+- *proxyAppID* with **Application (client) ID** of the Proxy Identity Experience Framework application you copied in [step 1.2](#step-12---register-identity-experience-framework-applications).  
 
-## Step 2 - Configure the sign-in interface 
+## Step 2 - Configure the sign-in user interface 
 
-You need to: 
-- configure a self-asserted TP 
-- add content definition for the sign-in interface 
+When your policy runs, the user needs to see a user interface that allows them to sign in. The user interface also has an option to sign up if they don't already have an account. To do so, you need to perform two steps: 
 
+- Configure a SelfAsserted Technical Profile, which displays the sign-in form UI to the user.  
+- Configure content definition for the sign-in user interface.
 
-### Step 2.1 - Sign-in user interface Technical Profile 
+### Step 2.1 - Configure a sign-in user interface Technical Profile 
 
-Add after `SignInUser` TP
+In the `ContosoCustomPolicy.XML` file, locate the *SignInUser* technical profile and add a SelfAsserted Technical Profile after it by using the following code:   
+
 
 ```xml
     <TechnicalProfile Id="UserSignInCollector">
@@ -182,11 +178,15 @@ Add after `SignInUser` TP
     </TechnicalProfile>
 ```
 
-<Explain the items in the metadata>
+We've added a SelfAsserted Technical Profile, *UserSignInCollector*, which displays the sign-in form UI to the user. We've configured the technical profile to collect the user’s email address as their sign-in name as indicated in the `setting.operatingMode` metadata. The sign in form UI includes a sign-up link, which leads the user to a sign-up form as indicated by the `SignUpTarget` metadata. You'll see how we set up the *SignUpWithLogonEmailExchange* `ClaimsExchange` in the orchestration steps.
 
-### Step 2.2 - Add sign-in Content Definition
+Also, we've added the *SignInUser* OpenID Connect Technical Profile as a *ValidationTechnicalProfile*. SO, the *SignInUser* Technical Profile execute when the user selects the **Sign in** button.    
 
-Locate the *ContentDefinitions* section, and the sign-in [Content Definition](contentdefinitions.md) by using the following code: 
+In the next step ([step 2.2](#step-22---configure-sign-in-interface-content-definition)), we configure a content definition that we'll use in this SelfAsserted Technical Profile.    
+
+### Step 2.2 - Configure sign-in interface Content Definition
+
+In the `ContosoCustomPolicy.XML` file, locate the *ContentDefinitions* section, and then sign-in [Content Definition](contentdefinitions.md) by using the following code: 
 
 ```xml
     <ContentDefinition Id="SignupOrSigninContentDefinition">
@@ -198,20 +198,14 @@ Locate the *ContentDefinitions* section, and the sign-in [Content Definition](co
         </Metadata>
     </ContentDefinition>
 ``` 
-We'll specify that the sign-in user interface SelfAsserted Technical Profile uses this content definition later in the orchestration steps. 
+We've configured a content definition for our SelfAsserted Technical Profile, *SignupOrSigninContentDefinition*. We can specify it in the technical profile using the metadata element or specify it when we reference the technical profile in the orchestration steps. Previously, we learnt how to specify a content definition directly in the SelfAsserted Technical Profile, so in this article, we'll learn how to specify it when we reference the technical profile in the orchestration steps, [step 5](#step-5---update-the-user-journey-orchestration-steps).
 
 ## Step 3 - Update the ClaimGenerator Technical Profile
 
-currently, it runs three **ClaimsTransformations**,  *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation* and *CreateMessageTransformation*.
+We use the *ClaimGenerator* Technical Profile to execute three **ClaimsTransformations**, *GenerateRandomObjectIdTransformation*, *CreateDisplayNameTransformation* and *CreateMessageTransformation*.
 
-We remove *GenerateRandomObjectIdTransformation* as the objectId is returned after an account is created, so we don't need to generate it within the policy 
-
-
-Separate CreateDisplayNameTransformation* and *CreateMessageTransformation* so that they're executed by separate technical profiles.
-
-Replace the *ClaimGenerator* technical profile with the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *ClaimGenerator* Technical Profile and replace it with the following code: 
  
-
 ```xml
     <TechnicalProfile Id="UserInputMessageClaimGenerator">
         <DisplayName>User Message Claim Generator Technical Profile</DisplayName>
@@ -237,14 +231,13 @@ Replace the *ClaimGenerator* technical profile with the following code:
         </OutputClaimsTransformations>
     </TechnicalProfile>
 ```
+We've broken the technical profile into two separate technical profile, *UserInputMessageClaimGenerator* and *UserInputDisplayNameGenerator*. Each technical profile runs a **ClaimsTransformations**. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the *objectId* is returned after an account is created, so we don't need to generate it ourselves within the policy.
 
 ## Step 4 - Update AAD-UserRead Technical Profile 
 
-When users sign in, they don't input all the details they input when they sign up. But we need to return more account details in the token. 
+When users sign in, they don't input all the details they input when they sign up. However, we need to return more account details in the token, than is input by the user during sign in. Therefore, we need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
 
-We need to add more output claims in out *AAD-UserRead* technical profile. At the moment, we only have *objectId* and *userPrincipalName* as output claims.     
-
-Locate the *AAD-UserRead* technical profile, and add three more output claims, *givenName*, *surname* and *displayName* by using the following code:
+In the `ContosoCustomPolicy.XML` file, locate the *AAD-UserRead* technical profile, and then add three more output claims, *givenName*, *surname* and *displayName*, by using the following code:
 
 ```xml
     <OutputClaim ClaimTypeReferenceId="givenName"/>
@@ -254,7 +247,7 @@ Locate the *AAD-UserRead* technical profile, and add three more output claims, *
 
 ## Step 5 - Update the User Journey Orchestration Steps
 
-Locate your *HelloWorldJourney* user journey and replace all it's Orchestration Steps with the following code: 
+In the `ContosoCustomPolicy.XML` file, locate the *HelloWorldJourney* user journey and replace all it's Orchestration Steps with the following code: 
 
 ```xml
     <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="SignupOrSigninContentDefinition">
@@ -284,6 +277,11 @@ Locate your *HelloWorldJourney* user journey and replace all it's Orchestration 
             <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
                 <Value>objectId</Value>
                 <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>accountType</Value>
+              <Value>company</Value>
+              <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
         </Preconditions>
         <ClaimsExchanges>
@@ -330,6 +328,27 @@ Locate your *HelloWorldJourney* user journey and replace all it's Orchestration 
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
 ```
 
+In Orchestration Steps two to five, we've used Preconditions to determine if Orchestration Step should run. We need to determine if the user is signing in or signing up.    
+
+When the custom policy runs: 
+
+- **Orchestration Steps 1** - Displays sign-in page, so the user can sign in or select the **Sign up now** link. Notice that we specify the content definition that the *UserSignInCollector* SelfAsserted Technical profile uses to display the sign-in form.
+  
+- **Orchestration Steps 2** - This step runs if the user signs up (objectId doesn't exist), so we display the sign-up form by invoking the  
+*UserInformationCollector* SelfAsserted Technical Profile.
+
+- **Orchestration Steps 3** - This step runs if the user signs up (objectId doesn't exist), and that a user doesn't select a company `accountType`. So we've to ask the user to input an `accessCode` by invoking the *AccessCodeInputCollector* SelfAsserted Technical Profile.
+
+- **Orchestration Steps 4** - This step runs if the user signs up (objectId doesn't exist), so we invoke the ClaimsTransformations Technical Profile, *UserInputDisplayNameGenerator* to create the `displayName` value.
+
+- **Orchestration Steps 5** - This step runs if the user signs up (objectId doesn't exist), so we invoke the *AAD-UserWrite* Azure AD Technical Profile to add the user account into Azure AD.
+
+- **Orchestration Steps 6** - This step reads account information from Azure AD (we invoke *AAD-UserRead* Azure AD Technical Profile), so it runs whether a user signs up or signs in.   
+
+- **Orchestration Steps 7** -  This step invokes the *UserInputMessageClaimGenerator* Technical Profile to assemble the user’s greeting message.
+
+-  **Orchestration Steps 8** - Finally, step 8 assembles and returns the JWT token at the end of the policy’s execution
+
 ## Step 6 - Upload policy
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file) to upload your policy file. If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
@@ -340,10 +359,10 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 :::image type="content" source="media/custom-policies-series-sign-up-or-sign-in/screenshot-sign-up-or-sign-in-interface.png" alt-text="screenshot of sign up or sign in interface."::: 
 
-You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't have an account, you need to select the **Sign up now** link to create a new user account. 
+You can sign in by entering the **Email Address** and **Password** of an existing account. If you don't already have an account, you need to select the **Sign up now** link to create a new user account. 
 
 ## Next steps
 
-- Learn how to [](). 
+- Learn how to [Set up a sign-up and sign-in flow with a social account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in-federation.md). 
 
 - Learn more about [OpenID Connect technical profile](openid-connect-technical-profile.md).
