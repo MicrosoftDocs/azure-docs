@@ -77,7 +77,7 @@ To get the name of the lab storage account:
 
 1. In the **Upload Files** dialog:
 
-    1. Select **...** next to **Selected files**. Bowse to the VHD file on your computer, select the file, and then select **Open**.
+    1. Select **...** next to **Selected files**. Go to the VHD file on your computer, select the file, and then select **Open**.
 
     1. For **Blob type**, select **Page Blob**
 

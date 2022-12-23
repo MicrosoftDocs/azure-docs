@@ -39,7 +39,7 @@ To get the name of the lab storage account:
 
     :::image type="content" source="media/devtest-lab-upload-vhd-using-powershell/upload-image-powershell.png" alt-text="Screenshot that shows the link to upload a VHD by using PowerShell on the Custom image pane.":::
 
-   1. In **Upload an image using PowerShell**, select and copy the the generated PowerShell script to use in the next section.
+   1. In **Upload an image using PowerShell**, select and copy the generated PowerShell script to use in the next section.
 
 ## Upload a VHD file
 
