@@ -112,7 +112,7 @@ Sample output:
 ## Next Steps
 
 >* Configure to access an Azure container registry from behind a [firewall rules.](container-registry-firewall-access-rules.md) 
->* Connect Azure container registry using [Azure Private Link](container-registry-private-link.md)
+>* Connect Azure Container Registry using [Azure Private Link](container-registry-private-link.md)
 
 
 
