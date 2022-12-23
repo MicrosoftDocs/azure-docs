@@ -1,8 +1,8 @@
 ---
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 08/09/2022
+ms.topic: how-to
+ms.date: 12/23/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -10,17 +10,9 @@ ms.author: v-amallick
 
 # Back up SAP HANA databases in Azure VMs
 
+This article describes how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
+
 SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SAP HANA databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
-
-This article shows how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
-
-In this article, you'll learn how to:
-> [!div class="checklist"]
->
-> * Create and configure a vault
-> * Discover databases
-> * Configure backups
-> * Run an on-demand backup job
 
 >[!NOTE]
 >See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
@@ -233,36 +225,11 @@ Specify the policy settings as follows:
 
 ## Run an on-demand backup
 
-Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
+Backups run in accordance with the policy schedule. Learn how to [run an on-demand backup](sap-hana-database-manage.md#run-on-demand-backups).
 
-1. In the vault menu, select **Backup items**.
-1. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
-1. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**.
+## Run SAP HANA native clients backup on a database with Azure Backup
 
-   The retention period of this backup is determined by the type of on-demand backup you have run.
-
-   - *On-demand full backups* are retained for a minimum of *45 days* and a maximum of *99 years*.
-   - *On-demand differential backups* are retained as per the *log retention set in the policy*.
-   - *On-demand incremental backups* aren't currently supported.
-
-1. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
-
-## Run SAP HANA Studio backup on a database with Azure Backup enabled
-
-If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
-
-1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio / Cockpit.
-1. Disable log backups, and set the backup catalog to the file system for relevant database.
-1. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-1. Set **enable_auto_log_backup** to **No**.
-1. Set **log_backup_using_backint** to **False**.
-1. Set **catalog_backup_using_backint** to **False**.
-1. Take an on-demand full backup of the database.
-1. Wait for the full backup and catalog backup to finish.
-1. Revert the previous settings back to those for Azure:
-    * Set **enable_auto_log_backup** to **Yes**.
-    * Set **log_backup_using_backint** to **True**.
-    * Set **catalog_backup_using_backint** to **True**.
+You can run an on-demand backup using SAP HANA native clients to local file-system instead of Backint. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
 
 ## Next steps
 
