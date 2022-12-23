@@ -541,7 +541,10 @@ Currently the augmentations defined above are applied by default for an Automate
 
 These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
 
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 training_parameters:
@@ -559,6 +562,45 @@ training_parameters:
   advanced_settings: >
     {"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}
 ```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ 
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_mosaic_for_yolo":False}'
+)
+```
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_automl_train_augmentations":False}'
+)
+```
+ Please note that these two flags are independent of each other and can also be used in combination using the following settings.
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_automl_train_augmentations":False, "apply_mosaic_for_yolo": False}'
+)
+```
+
 In our experiments, we found that these augmentations help the model to generalize better. Therefore, when these augmentations are switched off, we recommend the users to combine them with other offline augmentations to get better results.
 
 ##  Incremental training (optional)
