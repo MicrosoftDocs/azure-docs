@@ -17,7 +17,7 @@ Use an Azure container registry to store and manage a graph of supply chain arti
 
 To demonstrate this capability, this article shows how to use the [OCI Registry as Storage (ORAS)](https://oras.land) tool to push and pull a graph of supply chain artifacts to an Azure container registry. 
 
-Supply chain artifact is a type of [OCI Artifact Manifest](oci-artifact-manifest). OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). It requires [zone redundancy](zone-redundancy.md), which is available in the Premium service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+Supply chain artifact is a type of [OCI Artifact Manifest](oci-artifact-manifest). OCI Artifact Manifest support is a preview feature and subject to [limitations](#preview-limitations). 
 
 ## Prerequisites
 
