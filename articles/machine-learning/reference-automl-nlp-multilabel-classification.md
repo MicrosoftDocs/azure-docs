@@ -38,7 +38,7 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 | `tags` | object | Dictionary of tags for the job. | | |
 | `compute` | string | Name of the compute target to execute the job on. To reference an existing compute in the workspace, we use syntax: `azureml:<compute_name>` | | |
 | `log_verbosity` | number | Different levels of log verbosity. |`not_set`, `debug`, `info`, `warning`, `error`, `critical` | `info` |
-| `primary_metric` | string |  The metric that AutoML will optimize for model selection. | | `accuracy` |
+| `primary_metric` | string |  The metric that AutoML will optimize for model selection. |`accuracy` <br> `precision_score_weighted` <br> `auc_weighted` | `accuracy` |
 | `target_column_name` | string |  **Required.** The name of the column to target for predictions. It must always be specified. This parameter is applicable to `training_data` and `validation_data`. | |  |
 | `training_data` | object |  **Required.** The data to be used within the job. See [multi label](./how-to-auto-train-nlp-models.md?tabs=cli#multi-label) section for more detail. | |  |
 | `validation_data` | object | **Required.** The validation data to be used within the job. It should be consistent with the training data in terms of the set of columns, data type for each column, order of columns from left to right and at least two unique labels. <br> *Note*: the column names within each dataset should be unique. See [data validation](./how-to-auto-train-nlp-models.md?tabs=cli#data-validation) section for more information.| | |
@@ -53,13 +53,11 @@ The source JSON schema can be found at https://azuremlsdk2.blob.core.windows.net
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
-| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. It is highly recommended to set the number of concurrent runs to the number of nodes in the cluster (aml compute defined in `compute`). | | `1` |
-| `max_trials` | integer | Represents the maximum number of trials an automl job can try to run a training algorithm with different combination of hyperparameters. It's default value is set to 1000. If `enable_early_termination` is defined, then the number of trials used to run training algorithms can be smaller.| | `1000` |
-| `max_cores_per_trial` | integer | Represents the maximum number of cores per that can be used by each trial. It's default value is set to -1 which means all cores will be used in the process.| | `-1` |
-| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. | | `360` |
+| `max_concurrent_trials` | integer | Represents the maximum number of trials (children jobs) that would be executed in parallel. | | `1` |
+| `max_trials` | integer | Represents the maximum number of trials an automl nlp job can try to run a training algorithm with different combination of hyperparameters.  | | `1000` |
+| `timeout_minutes ` | integer | Represents the maximum amount of time in minutes that the submitted AutoML job can take to run . After this, the job will get terminated. The default timeout in AutoML NLP jobs are 7 days.  | | `10080` |
 | `trial_timeout_minutes ` | integer | Represents the maximum amount of time in minutes that each trial (child job) in the submitted automl job can take run. After this, the child job will get terminated.  | | |
-| `exit_score` | float | Represents the score to achieve by an experiment. The experiment terminates after this score is reached. If not specified (no criteria), the experiment runs until no further progress is made on the defined `primary metric`. | | |
-
+|`max_nodes`| integer | The maximum number of nodes from the backing compute cluster to leverage for the job.| | `1` |
 
 ### Supported hyperparameters
 
