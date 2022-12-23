@@ -51,7 +51,7 @@ This section outlines variations and considerations when using Microsoft Authent
 
 | Product | Unsupported, limited, and/or modified features | Notes |
 |---------|--------|------------|
-| Microsoft Authentication Library (MSAL)  | For feature variations and limitations see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).  |  
+| Microsoft Authentication Library (MSAL)  | For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).  |  
 
 ### Networking
 
