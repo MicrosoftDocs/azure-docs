@@ -387,6 +387,7 @@ az acr manifest list-metadata \
 [oci-artifacts-referrers]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md#listing-referrers/
 [oci-artifact-manifest]:  https://github.com/opencontainers/image-spec/blob/main/artifact.md/
 [oci-spec]:  https://github.com/opencontainers/distribution-spec/blob/main/spec.md/
+
 <!-- LINKS - internal -->
 [az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
