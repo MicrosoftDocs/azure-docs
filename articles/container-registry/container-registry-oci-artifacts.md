@@ -17,7 +17,7 @@ To demonstrate this capability, this article shows how to use the [OCI Registry 
 ## Prerequisites
 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
-* **ORAS tool** - Download and install ORAS CLI v0.16.0 for your operating system from the [ORAS installation guide](https://oras.land/cli/). The tool is released as a compressed tarball (`.tar.gz` file). Extract and install the file using standard procedures for your operating system.
+* **ORAS tool** - Download and install ORAS CLI v0.16.0 for your operating system from the [ORAS installation guide](https://oras.land/cli/). 
 * **Azure Active Directory service principal (optional)** - To authenticate directly with ORAS, create a [service principal](container-registry-auth-service-principal.md) to access your registry. Ensure that the service principal is assigned a role such as AcrPush so that it has permissions to push and pull artifacts.
 * **Azure CLI (optional)** - To use an individual identity, you need a local installation of the Azure CLI. Version 2.0.71 or later is recommended. Run `az --version `to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * **Docker (optional)** - To use an individual identity, you must also have Docker installed locally, to authenticate with the registry. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
@@ -47,7 +47,7 @@ This section shows options to sign into the registry. Choose one method below ap
 
 Run  `oras login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, user identity, or a repository-scoped token (preview).
 
-- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to use an AD token.
+- Authenticate with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to use an AD token. Always use "000..." as the token is parsed through the `PASSWORD` variable.
 
   ```azurecli
   USER_NAME="00000000-0000-0000-0000-000000000000"
@@ -101,7 +101,7 @@ Use the `oras push` command to push this text file to your registry. The followi
 
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
-    --config /dev/null:application/vnd.unknown.config.v1+json \
+    --config /dev/null:application/vnd.unknown.v1\
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
@@ -109,7 +109,7 @@ oras push myregistry.azurecr.io/samples/artifact:1.0 \
 
 ```cmd
 .\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
-    --config NUL:application/vnd.unknown.config.v1+json ^
+    --config NUL:application/vnd.unknown.v1 ^
     .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
