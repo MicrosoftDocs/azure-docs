@@ -27,31 +27,33 @@ To upload a VHD file to a lab storage account by using Storage Explorer, first, 
 
 To get the name of the lab storage account:
 
-   1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-   1. Select **All resources**, and then select your lab.  
+1. Select **All resources**, and then select your lab.  
 
-   1. In the lab menu under **Settings**, select **Configuration and policies**.
+1. In the lab menu under **Settings**, select **Configuration and policies**.
 
-   1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
+1. In **Activity log**, in the resource menu under **Virtual machine bases**, select **Custom images**.
 
-   1. In **Custom images**, select **Add**.
+1. In **Custom images**, select **Add**.
 
-   1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
+1. In **Custom image**, under **VHD**, select the **Upload an image using PowerShell** link.
 
-       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
+    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/upload-image-powershell.png" alt-text="Screenshot that shows settings to upload a VHD by using PowerShell on the Custom image pane.":::
 
-   1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
+1. In **Upload an image using PowerShell**, scroll right to see a call to the Add-AzureRmVhd cmdlet.
 
-       The `-Destination` parameter contains the URI for a blob container in the following format:
+    The `-Destination` parameter contains the URI for a blob container in the following format:
 
-       `https://<storageAccountName>.blob.core.windows.net/uploads/...`
+    `https://<storageAccountName>.blob.core.windows.net/uploads/...`
 
-       :::image type="content" source="media/devtest-lab-upload-vhd-using-azcopy/destination-parameter.png" alt-text="Screenshot that shows an example of a storage account name in the Add VHD box.":::
+    :::image type="content" source="media/devtest-lab-upload-vhd-using-storage-explorer/destination-parameter.png" alt-text="Screenshot that shows an example of a storage account name in the Add VHD box.":::
 
-   1. Copy the storage account name to use in the next section.
+1. Copy the storage account name to use in the next section.
 
 ## Upload a VHD file
+
+To upload a VHD file by using Storage Explorer:
 
 1. When you open Storage Explorer, the Explorer pane shows all the Azure subscriptions you're signed in to.
 

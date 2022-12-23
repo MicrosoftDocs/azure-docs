@@ -23,7 +23,7 @@ For more information about disks and VHDs in Azure, see [Introduction to managed
 
 - Download and install the [latest version of AzCopy](https://aka.ms/downloadazcopy).
 
-To upload a VHD file to a lab storage account by using Storage Explorer, first, get the lab storage account name via the Azure portal. Then, use Storage Explorer to upload the file.
+To upload a VHD file to a lab storage account by using AzCopy, first, get the lab storage account name via the Azure portal. Then, use AzCopy to upload the file.
 
 ## Get the lab storage account name
 
@@ -57,7 +57,7 @@ To get the name of the lab storage account:
 
 To upload a VHD file by using AzCopy:
 
-1. In Windows, open a Command Window and go to the AzCopy installation directory.
+1. In Windows, open a Command Prompt window and go to the AzCopy installation directory.
 
     By default, AzCopy is installed in *ProgramFiles(x86)\Microsoft SDKs\Azure\AzCopy*.
 
@@ -69,7 +69,7 @@ To upload a VHD file by using AzCopy:
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
     ```
 
-   The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
+The process of uploading a VHD file might be lengthy depending on the size of the VHD file and your connection speed.
 
 ## Next steps
 
