@@ -93,20 +93,20 @@ To use the Azure CLI steps in this article, Azure CLI version 2.4.0 or later is 
 Sample output:
 
     ```
-    {
-      "loginServer": "contoso.azurecr.io",
-      "dataEndpoints": [
         {
-          "region": "eastus",
-          "endpoint": "contoso.eastus.data.azurecr.io",
-        },
-        {
-          "region": "westus",
-          "endpoint": "contoso.westus.data.azurecr.io",
+          "loginServer": "contoso.azurecr.io",
+          "dataEndpoints": [
+            {
+              "region": "eastus",
+              "endpoint": "contoso.eastus.data.azurecr.io",
+            },
+            {
+              "region": "westus",
+              "endpoint": "contoso.westus.data.azurecr.io",
+            }
+          ]
         }
-      ]
-    }
- 
+     
     ```
 
 ## Next Steps
