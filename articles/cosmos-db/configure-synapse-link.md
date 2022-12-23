@@ -41,15 +41,11 @@ The first step to use Synapse Link is to enable it for your Azure Cosmos DB data
 
 1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
-1. Navigate to your Azure Cosmos DB account and open the **Features** pane.
+1. Navigate to your Azure Cosmos DB account and open the **Azure Synapse Link** under Intergrations in the left pane.
 
-1. Select **Synapse Link** from the features list.
+1. Select **Enable**. This process can take 1 to 5 minutes to complete.
 
-   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Find Synapse Link feature":::
-
-1. Next it prompts you to enable Synapse Link on your account. Select **Enable**. This process can take 1 to 5 minutes to complete.
-
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Enable Synapse Link feature":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link.png" alt-text="Enable Synapse Link feature":::
 
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
