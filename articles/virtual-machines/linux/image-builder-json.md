@@ -974,7 +974,7 @@ az resource show \
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder.
+The `source` section contains information about the source image that will be used by Image Builder. Azure Image Builder only supports generalized images as source images, specialized images are not supported at this time.
 
 The API requires a `SourceType` that defines the source for the image build, currently there are three types:
 

@@ -36,6 +36,8 @@
         href: entitlement-management-group-licenses.md
       - name: Onboard external users to Azure AD through an approval process
         href: entitlement-management-onboard-external-user.md
+      - name: Migrate an organizational role model
+        href: identity-governance-organizational-roles.md
     - name: Access Reviews
       items:
       - name: Review access to Microsoft 365 groups - Microsoft Graph

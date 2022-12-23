@@ -7,13 +7,16 @@ ms.topic: how-to
 
 # Get resource configuration changes
 
-Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. For the last 14 days of changes, you can:
+Resources change through the course of daily use, reconfiguration, and even redeployment. Most change is by design, but sometimes it isn't. You can:
 
 - Find when changes were detected on an Azure Resource Manager property
 - View property change details
 - Query changes at scale across your subscriptions, management group, or tenant
 
 This article shows how to query resource configuration changes through Resource Graph.
+
+> [!WARNING]
+> There has been a temporary reduction in lookback retention to **seven days**.
 
 ## Prerequisites
 

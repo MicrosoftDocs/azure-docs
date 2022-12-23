@@ -239,6 +239,11 @@
         "source_path_from_root": "/articles/purview/concept-default-purview-account.md",
         "redirect_url": "/azure/purview/concept-best-practices-accounts",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/how-to-monitor-scan-runs.md",
+        "redirect_url": "/azure/purview/how-to-monitor-data-map-population",
+        "redirect_document_id": true
       }
 ]
 }

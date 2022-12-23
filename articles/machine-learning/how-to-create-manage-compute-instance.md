@@ -152,7 +152,9 @@ A compute instance is considered inactive if the below conditions are met:
 * No SSH connections
 * No VS code connections; you must close your VS Code connection for your compute instance to be considered inactive. Sessions are auto-terminated if VS code detects no activity for 3 hours. 
 
-Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days.
+Activity on custom applications installed on the compute instance isn't considered. There are also some basic bounds around inactivity time periods; CI must be inactive for a minimum of 15 mins and a maximum of three days. 
+
+Also, if a CI has already been idle for a certain amount of time, and the idle shutdown settings are updated to shut the CI off after an amount of time shorter than the current idle duration, then the idle time clock on the CI will be reset to 0. For example, if the CI has already been idle for 20 minutes, and the idle shutdown settings are updated to shut the CI off after 15 minutes of idle time, the idle time clock will be reset to 0.
 
 This setting can be configured during CI creation or for existing CIs via the following interfaces:
 * AzureML Studio
@@ -555,7 +557,7 @@ You can set up other applications, such as RStudio, or Posit Workbench (formerly
 
 ### Setup Posit Workbench (formerly RStudio Workbench)
 
-Posit is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers.
+RStudio is one of the most popular IDEs among R developers for ML and data science projects. You can easily set up Posit Workbench, which provides access to RStudio along with other development tools, to run on your compute instance, using your own Posit license, and access the rich feature set that Posit Workbench offers
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **Posit Workbench (bring your own license)** in the **Application** dropdown and enter your Posit Workbench license key in the **License key** field. You can get your Posit Workbench license or trial license [from posit](https://posit.co). 
@@ -568,7 +570,6 @@ Posit is one of the most popular IDEs among R developers for ML and data science
 > [!NOTE]
 > * Support for accessing your workspace file store from Posit Workbench is not yet available.
 > * When accessing multiple instances of Posit Workbench, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
-> * Shiny applications are not currently supported on Posit Workbench.
  
 
 ### Setup RStudio (open source)

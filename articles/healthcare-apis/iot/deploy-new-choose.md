@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
@@ -62,6 +62,6 @@ In this quickstart, you learned about the different types of deployment methods 
 To learn more about the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [What is the MedTech service?](iot-connector-overview.md)
+> [What is the MedTech service?](overview.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

@@ -6,6 +6,8 @@
     href: about-iot-develop.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
+  - name: Get started with IoT device development
+    href: about-getting-started-device-development.md
 - name: Quickstarts
   expanded: true
   items:
@@ -47,8 +49,6 @@
       href: tutorial-migrate-device-to-module.md
 - name: Concepts
   items:
-  - name: Connection options for device developers
-    href: concepts-overview-connection-options.md
   - name: C SDK and Embedded C SDK usage scenarios
     href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types

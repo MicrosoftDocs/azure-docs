@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/backup/backup-afs.md",
+            "redirect_url": "/azure/backup/backup-azure-files",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
             "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
             "redirect_document_id": false
@@ -9814,11 +9819,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/backup/backup-azure-files.md",
-            "redirect_url": "/azure/backup/backup-afs",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/backup/tutorial-backup-azure-files.md",
             "redirect_url": "/azure/backup/backup-afs",
             "redirect_document_id": false
@@ -13236,6 +13236,11 @@
         {
             "source_path_from_root": "/articles/expressroute/working-remotely-support.md",
             "redirect_url": "/azure/expressroute/work-remotely-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/expressroute/howto-linkvnet-cli.md",
+            "redirect_url": "/azure/expressroute/expressroute-howto-linkvnet-cli",
             "redirect_document_id": false
         },
         {
@@ -27723,6 +27728,26 @@
             "redirect_url": "/azure/backup/sap-hana-db-about",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-guide.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/high-availability-multi-sid.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-high-availability-multi-sid.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk",
+            "redirect_document_id": false
+        },    
         {
             "source_path_from_root": "/articles/migrate/how-to-scale-assessment.md",
             "redirect_url": "scale-hyper-v-assessment",

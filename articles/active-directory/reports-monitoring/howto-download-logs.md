@@ -47,6 +47,10 @@ Azure AD stores activity logs for a specific period. For more information, see [
 - Timestamps in the downloaded files are based on UTC.
 - For large data sets (> 250,000 records), you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
 
+  > [!NOTE]
+   > **Issues downloading large data sets**  
+   > The Azure Portal downloader will time out if you attempt to download large data sets. Generally, data sets smaller than 250,000 records work well with the browser download feature. If you face issues completing large downloads in the browser, you should use the [reporting API](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-1.0) to download the data.
+
 ## How to download activity logs
 
 You can access the activity logs from the **Monitoring** section of Azure AD or from the **Users** page of Azure AD. If you view the audit logs from the **Users** page, the filter category will be set to **UserManagement**. Similarly, if you view the audit logs from the **Groups** page, the filter category will be set to **GroupManagement**. Regardless of how you access the activity logs, your download is based on the filter you've set. 
