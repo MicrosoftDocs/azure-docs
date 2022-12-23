@@ -79,13 +79,17 @@ An example JSON response is:
 
 ```json
 [
-  {
-    "sentLen": [ 13, 11, 22 ]
-    "detectedLanguage": {
-      "language": "en",
-      "score": 401
-    },
-  }
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "sentLen": [
+            13,
+            11,
+            22
+        ]
+    }
 ]
 ```
 
