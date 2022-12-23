@@ -76,7 +76,7 @@ In a basic configuration, we usually recommend a deployment structure where the 
 - DBMS data files
 - DBMS redo log files
 
-A configuration that separates these components into five different volumes can result in higher resiliency since excessive usage on one volume does not necessarily itnerfere with the usage of other volumes as long as VM storage quota and limits aren't exceeded. 
+A configuration that separates these components into five different volumes can result in higher resiliency since excessive usage on one volume doesn't necessarily interfere with the usage of other volumes as long as VM storage quota and limits aren't exceeded. 
 
 The DBMS data and transaction/redo log files are stored in Azure supported block storage or Azure NetApp Files. Azure Files or Azure Premium Files isn't supported as storage for DBSM data and/or redo log files with SAP workload. They're stored in separate disks and attached as logical disks to the original Azure operating system image VM. For Linux deployments, different recommendations are documented. Read the article [Azure Storage types for SAP workload](./planning-guide-storage.md) for the capabilities and the support of the different storage types for your scenario. Specifically for SAP HANA start with the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
@@ -90,12 +90,12 @@ When you plan your disk layout, find the best balance between these items:
 * The overall storage or network throughput a VM can provide.
 * The latency different Azure Storage types can provide.
 - VM storage IOPS and throughput quota.
-- VM network quota in case you are using NFS - traffic to NFS shares is counting against the VM's network quouta and **NOT** the storage quota.
+- VM network quota in case you're using NFS - traffic to NFS shares is counting against the VM's network quota and **NOT** the storage quota.
 * VM SLAs.
 
 Azure enforces an IOPS quota per data disk or NFS share. These quotas are different for disks hosted on the different Azure block storage solutions or shares. I/O latency is also different between these different storage types as well. 
 
-Each of the different VM types has a limited number of data disks that you can attach. Another restriction is that only certain VM types can use, for example, premium storage. Typically, you decide to use a certain VM type based on CPU and memory requirements. You also need to consider the IOPS, latency, and disk throughput requirements that usually are scaled with the number of disks or the type of premium storage disks v1. The number of IOPS and the throughput to be achieved by each disk might dictate disk size, especially with premium storage v1. Whereas you can select provisioned IOPS and throughput independent of the disk capacity with premium storage v2 or Ultra disk.
+Each of the different VM types has a limited number of data disks that you can attach. Another restriction is that only certain VM types can use, for example, premium storage. Typically, you decide to use a certain VM type based on CPU and memory requirements. You also need to consider the IOPS, latency, and disk throughput requirements that usually are scaled with the number of disks or the type of premium storage disks v1. The number of IOPS and the throughput to be achieved by each disk might dictate disk size, especially with premium storage v1. With premium storage v2 or Ultra disk, you can select provisioned IOPS and throughput independent of the disk capacity.
 
 > [!NOTE]
 > For DBMS deployments, we highly recommend Azure premium storage (v1 and v2), Ultra disk or Azure NetApp Files based NFS shares for any data, transaction log, or redo files. It doesn't matter whether you want to deploy production or nonproduction systems. Latency of Azure standard HDD or SSD isn't acceptable for any type of production system.
@@ -108,7 +108,7 @@ Each of the different VM types has a limited number of data disks that you can a
 
 The placement of the database files and the log and redo files and the type of Azure Storage you use, is defined by IOPS, latency, and throughput requirements. Specifically for Azure premium storage v1, to achieve enough IOPS, you might be forced to use multiple disks or use a larger premium storage disk. If you use multiple disks, build a software stripe across the disks that contain the data files or the log and redo files. In such cases, the IOPS and the disk throughput SLAs of the underlying premium storage disks or the maximum achievable IOPS of standard storage disks are accumulative for the resulting stripe set.
 
-If your IOPS requirement exceeds what a single VHD can provide, balance the IOPS that are needed for the database files across a number of VHDs. The easiest way to distribute the IOPS load across disks is to build a software stripe over the different disks. Then place a number of data files of the SAP DBMS on the LUNs carved out of the software stripe. The number of disks in the stripe is driven by IOPS demands, disk throughput demands, and volume demands.
+If your IOPS requirement exceeds what a single VHD can provide, balance the IOPS that is needed for the database files across a number of VHDs. The easiest way to distribute the IOPS load across disks is to build a software stripe over the different disks. Then place a number of data files of the SAP DBMS on the LUNs carved out of the software stripe. The number of disks in the stripe is driven by IOPS demands, disk throughput demands, and volume demands.
 
 
 ---
@@ -227,7 +227,7 @@ These best practices are the result of thousands of customer deployments:
 - The virtual networks the SAP application is deployed into don't have access to the internet.
 - The database VMs run in the same virtual network as the application layer, separated in a different subnet from the SAP application layer.
 - The VMs within the virtual network have a static allocation of the private IP address. For more information, see [IP address types and allocation methods in Azure](../../../virtual-network/ip-services/public-ip-addresses.md).
-- Routing restrictions to and from the DBMS VMs are *not* set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../../virtual-network/network-security-groups-overview.md).
+- Routing restrictions to and from the DBMS VMs **aren't** set with firewalls installed on the local DBMS VMs. Instead, traffic routing is defined with [network security groups (NSGs)](../../../virtual-network/network-security-groups-overview.md).
 - To separate and isolate traffic to the DBMS VM, assign different NICs to the VM. Every NIC gets a different IP address, and every NIC is assigned to a different virtual network subnet. Every subnet has different NSG rules. The isolation or separation of network traffic is a measure for routing. It's not used to set quotas for network throughput.
 
 > [!NOTE]
