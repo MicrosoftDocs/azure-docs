@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/20/2022
+ms.date: 12/23/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -131,9 +131,6 @@ Use the following steps to assign static IP pools in the local UI of your device
    
    1. Specify a contiguous range of static IPs for Kubernetes pods in the virtual network. In this example, a range of one IP address was provided for each of the three virtual networks that we created.
 
-      ```azurepowershell
-      Enable-HcsAzureKubernetesService –f
-      ```
 1. Select **Apply** to apply the changes for all virtual networks. 
  
    > [!NOTE]
@@ -153,15 +150,15 @@ You’ll now configure the virtual switch that you create for Kubernetes compute
 
 1. For Kubernetes nodes, specify a contiguous range of six static IPs in the same subnet as the network for this port. 
 
-As part of the AKS deployment, two clusters are created, a management cluster and a target cluster. The IPs that you specified are used as follows:
+   As part of the AKS deployment, two clusters are created, a management cluster and a target cluster. The IPs that you specified are used as follows:
 
- - The management cluster needs two IPs = 1 IP for management control plane network interface + 1 IP for API server (VIP).
+   - The management cluster needs two IPs = 1 IP for management control plane network interface + 1 IP for API server (VIP).
 
- - The target cluster needs (2+n) IPs = 1 IP for target cluster control plane network interface + 1 IP for API server (VIP) + number of nodes, n.
+   - The target cluster needs (2+n) IPs = 1 IP for target cluster control plane network interface + 1 IP for API server (VIP) + number of nodes, n.
 
- - An extra IP is used for rolling updates.
+   - An extra IP is used for rolling updates.
 
-   For a single node device, the above results in six IPs to deploy a Kubernetes cluster. For a 2-node cluster, you need seven IPs.
+     For a single node device, the above results in six IPs to deploy a Kubernetes cluster. For a 2-node cluster, you need seven IPs.
 
 1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service would need one IP. 
 
