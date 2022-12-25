@@ -7,17 +7,17 @@ ms.topic: how-to
 
 # Provision the Microsoft Defender for IoT micro agent using DPS
 
-This article explains how to provision the standalone Microsoft Defender for IoT micro agent using [Azure IoT Hub Device Provisioning Service](https://learn.microsoft.com/azure/iot-dps/) with [X.509 certificate attestation](https://learn.microsoft.com/azure/iot-dps/concepts-x509-attestation).
+This article explains how to provision the standalone Microsoft Defender for IoT micro agent using [Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md) with [X.509 certificate attestation](../../iot-dps/concepts-x509-attestation.md).
 
-To learn how to configure the Microsoft Defender for IoT micro agent for Edge devices see [Create and provision IoT Edge devices at scale](https://learn.microsoft.com/azure/iot-edge/how-to-provision-devices-at-scale-linux-tpm?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fiot-dps%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=iotedge-1.4&tabs=physical-device%2Cubuntu).
+To learn how to configure the Microsoft Defender for IoT micro agent for Edge devices see [Create and provision IoT Edge devices at scale]../../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free]https://azure.microsoft).
 
-- An [IoT hub](https://learn.microsoft.com/azure/iot-hub/iot-hub-create-through-portal).
+- An [IoT hub](../../iot-hub/iot-hub-create-through-portal.md).
 
-- [IoT Hub Device Provisioning Service](https://learn.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
+- [IoT Hub Device Provisioning Service](../../iot-dps/quick-setup-auto-provision.md).
 
 ## Provision
 
