@@ -30,7 +30,7 @@ For more information on the DMI Decoder, see [dmidecode(8): DMI table decoder - 
 To support dmidecode(8), SMBIOS tables needs to be present and valid.
 To implement, please refer to the [System Management BIOS specifications](https://lwn.net/Articles/451967/).
 
-## Other options
+## Alternative configurations
 
 For device that do not support DMI decoder, below are two options for fetching and settings the firmware and hardware fields.
 
