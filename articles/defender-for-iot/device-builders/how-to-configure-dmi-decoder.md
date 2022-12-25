@@ -58,7 +58,7 @@ To configure the file, use the following path and format details:
 
 ### Module twin configurations
 
-To manually set the values on the cloud, you can use the module twin configuration by setting the following properties:
+To manually set the values on the cloud, use the module twin configuration by setting the following properties:
 
 ```bash
     “properties”:{
