@@ -16,66 +16,114 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Microsoft Defender for IoT support for end-user organizations
+    - title: Welcome to Defender for IoT
       itemType: overview # controls the icon image and super-title text
       url: organizations/overview.md
-    - title: What's new for end-user organizations?
+    - title: What's new in Defender for IoT?
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Agentless system architecture
-      itemType: architecture
+    - title: Subscription billing
+      itemType: concept
+      url: organizations/concept-billing.md
+    - title: Manage sensors in the Azure portal
+      itemType: concept
+      url: organizations/how-to-manage-sensors-on-the-cloud.md
+
+    - title: Agentless monitoring for OT networks
+      itemType: concept
       url: organizations/architecture.md
-    - title: Microsoft Defender for IoT support for device builders
+    - title: Modernize your SOC with OT network monitoring
       itemType: overview
-      url: device-builders/overview.md
-    - title: What's new for device builders?
-      itemType: whats-new
-      url: device-builders/release-notes.md
-    - title: Configure Microsoft Defender for IoT on your Azure IoT Hub
-      itemType: quickstart
-      url: device-builders/quickstart-onboard-iot-hub.md
+      url: organizations/concept-sentinel-integration.md
+    - title: Secure Enterprise IoT devices
+      itemType: concept
+      url: organizations/concept-enterprise.md
+    - title: Defender for IoT users and roles
+      itemType: concept
+      url: organizations/manage-users-overview.md
+
+    - title: View detected devices
+      itemType: how-to-guide
+      url: organizations/how-to-to-manage-device-inventory-for-organizations.md
+    - title: View alerts
+      itemType: how-to-guide
+      url: organizations/how-to-manages-cloud-alerts.md
+    - title: View security recommendations
+      itemType: how-to-guide
+      url: organizations/how-to-manage-security-recommendations.md
+    - title: Visualize data with workbooks
+      itemType: how-to-guide
+      url: organizations/workbooks.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Microsoft Defender for IoT documentation for end-user organizations
-      links:
-        - url: organizations/getting-started.md
-          itemType: quickstart
-          text: Get started with Defender for IoT
-        - url: organizations/tutorial-onboarding.md
-          itemType: tutorial
-          text: Get started with for OT security monitoring
-        - url: organizations/concept-enterprise.md
-          itemType: concept
-          text: Securing IoT devices in the enterprise
-        - url: organizations/best-practices/understand-network-architecture.md
-          itemType: concept
-          text: Understand your OT network architecture
-        - url: organizations/concept-sentinel-integration.md
-          itemType: concept
-          text: OT threat monitoring in enterprise SOCs
-      footerLink:
-        url: organizations/index.yml
-        text: See more
+  - title: OT network monitoring
+    links:
+    - url: organizations/how-to-manage-subscriptions.md
+      itemType: how-to-guide
+      text: Manage Defender for IoT plans for OT network monitoring
+    - url: organizations/best-practices/traffic-mirroring-methods.md
+      itemType: concept
+      text: Configure traffic mirroring
+    - url: organizations/ot-appliance-sizing.md
+      itemType: concept
+      text: Which appliances do I need?
+    - url: organizations/onboard-sensors.md
+      itemType: how-to-guide
+      text: Onboard OT network sensors
+    - url: organizations/how-to-install-software.md
+      itemType: how-to-guide
+      text: Install monitoring software
+    - url: organizations/how-to-activate-and-set-up-your-sensor.md
+      itemType: how-to-guide
+      text: Activate and set up your OT network sensor
+    footerLink:
+      url: organizations/index.yml
+      text: See more
 
-    - title: Microsoft Defender for IoT documentation for device builders
-      links:
-        - url: device-builders/tutorial-configure-your-solution.md
-          itemType: tutorial
-          text: Add a resource group to your IoT solution
-        - url: device-builders/tutorial-create-micro-agent-module-twin.md
-          itemType: tutorial
-          text: Create a DefenderIotMicroAgent module twin
-        - url: device-builders/tutorial-standalone-agent-binary-installation.md
-          itemType: tutorial
-          text: Install the Defender for IoT micro agent
-        - url: device-builders/tutorial-investigate-security-recommendations.md
-          itemType: tutorial
-          text: Investigate security recommendations
-        - url: device-builders/tutorial-investigate-security-alerts.md
-          itemType: tutorial
-          text: Investigate security alerts
-      footerLink:
-        url: device-builders/index.yml
-        text: See more
+
+  - title: Enterprise IoT network monitoring
+    links:
+    - url: organizations/eiot-defender-for-endpoint.md
+      itemType: quickstart
+      text: Enable Enterprise IoT security with Defender for Endpoint
+    - url: organizations/manage-subscriptions-enterprise.md
+      itemType: how-to-guide
+      text: Manage Defender for IoT plans for Enterprise IoT security monitoring
+    - url: organizations/eiot-sensor.md
+      itemType: how-to-guide
+      text: Discover Enterprise IoT devices with an Enterprise IoT network sensor
+    - url: organizations/extra-deploy-enterprise-iot.md
+      itemType: how-to-guide
+      text: Extra steps and samples for Enterprise IoT deployment
+    - url: organizations/faqs-eiot.md
+      itemType: faq
+      text: Frequently asked questions
+  footerLink:
+    url: organizations/concept-enterprise.md
+    text: See more
+
+  - title: Defender for IoT for device builders
+    links:
+    - url: device-builders/overview.md
+      itemType: quickstart
+      text: Defender for IoT security agent
+    - url: device-builders/release-notes.md
+      itemType: whats-new
+      text: What's new for the Defender for IoT security agent
+    - url: quickstart-onboard-iot-hub.md
+      itemType: quickstart
+      text: Enable Defender for IoT on your Azure IoT Hub
+    - url: device-builders/tutorial-configure-your-solution.md
+      itemType: tutorial
+      text: Add a resource group to your IoT solution
+    - url: device-builders/tutorial-create-micro-agent-module-twin.md
+      itemType: tutorial
+      text: Create a DefenderIotMicroAgent module twin
+    - url: device-builders/tutorial-standalone-agent-binary-installation.md
+      itemType: tutorial
+      text: Install the Defender for IoT micro agent
+  footerLink:
+    url: device-builders/index.yml
+    text: See more
