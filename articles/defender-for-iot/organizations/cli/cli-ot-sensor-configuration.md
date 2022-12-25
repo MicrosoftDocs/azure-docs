@@ -11,6 +11,9 @@ This article lists the CLI commands available for monitoring OT networks with Mi
 
 Command syntax differs depending on the user performing the command, as indicated below for each activity.
 
+> [!NOTE]
+> The *cyberx* and *cyberx_host* users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
+
 ## Prerequisites
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
@@ -46,16 +49,21 @@ In such cases, use include and/or exclude lists to create and configure capture 
 
 Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 
-Configure capture filters on each of the following sensor components, or on all sensor components at once:
+### Basic vs advanced configuration
+
+The capture filter CLI commands support both the *support* user for recommended use, and the *cyberx* user for advanced user.
+
+However, even when using the *support* user, you have the option to configure capture filters specific Defender for IoT components individually, or all components at once. We recommend configuring capture filters on all components at once whenever possible.
+
+Configuring capture filters per component is recommended only for rare and advanced cases. Capture filters are supported for the following Defender for IoT components:
 
 - `horizon`: Captures deep packet inspection (DPI) data
 - `collector`: Captures PCAP data
 - `traffic-monitor`: Captures communication statistics
 
-If you configure capture filters for specific components, you can use your initial include and exclude files as a base, or template, capture filter. Then, configure extra filters for each component on top of the base as needed.
+When configuring capture filters for specific components, you can use your initial include and exclude files as a base, or template, capture filter. Then, configure extra filters for each component on top of the base as needed.
 
-> [!TIP]
-> We recommend configuring capture filters on all components at once, and this is the method most often used.
+To configure capture filters for each component individually, you'll need to run the commands and prompts for each component separately.
 
 ### Creating a new capture filter
 
@@ -83,10 +91,10 @@ Supported attributes for the *cyberx* user are defined as follows:
 |`-itp <INCLUDE_TCP_PORT>`, `--include-tcp-port <INCLUDE_TCP_PORT>`     |   Includes TCP traffic on any specified ports, where the `<INCLUDE_TCP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                   |
 |`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                    |
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple VLAN IDs by commas, with no spaces.                          |
-|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the [component](#applying-capture-filters-for-incoming-traffic) for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Recommended, and creates a single capture filter for all components       |
-|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines the base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
-|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    Defines the basic capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
-|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | Defines the basic capture filter for the `collector` component.  <br> Default value = `""`             |
+|`-p <PROGRAM>`, `--program <PROGRAM>`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Recommended, and creates a single capture filter for all components       |
+|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | [Advanced use only](#basic-vs-advanced-configuration) Defines the base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
+|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    [Advanced use only](#basic-vs-advanced-configuration) Defines the basic capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
+|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | [Advanced use only](#basic-vs-advanced-configuration) Defines the basic capture filter for the `collector` component.  <br> Default value = `""`             |
 |`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
 
 #### Create a new capture filter using the support user
@@ -139,9 +147,10 @@ Reply to the prompts displayed as follows:
 
 1. `In which component do you wish to apply this capture filter?`
 
-    Enter one of the following values to configure a capture filter for a specific component only. If you select a specific component, you'll need to run the commands and prompts again to configure other capture filters for the other components.
+    We recommend entering `all` to configure your filter for all components.
 
-    - `all` (Recommended)
+    Configuring capture filters for specific components is an [advanced use case](#basic-vs-advanced-configuration). To configure a filter for a specific component, enter one of the following values:
+
     - `horizon`
     - `traffic-monitor`
     - `collector`

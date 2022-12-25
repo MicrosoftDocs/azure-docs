@@ -30,7 +30,7 @@ The following table describes the access available to each privileged user:
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
 > [!NOTE]
-> We recommend that you use the *support* user for CLI access whenever possible.
+> The *cyberx* and *cyberx_host* users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
 > Other CLI users cannot be added.
 
 ## Access the CLI

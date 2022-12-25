@@ -11,6 +11,10 @@ This article lists the CLI commands available for managing the OT network sensor
 
 Command syntax differs depending on the user performing the command, as indicated below for each activity.
 
+> [!NOTE]
+> The *cyberx* and *cyberx_host* users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
+
+
 ## Prerequisites
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
