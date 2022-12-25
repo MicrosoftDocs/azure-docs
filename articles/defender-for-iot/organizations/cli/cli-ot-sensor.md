@@ -19,7 +19,7 @@ Before you can run any of the following CLI commands, you'll need access to the 
 Each activity listed below is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
 
 >[!IMPORTANT]
-> The *cyberx* and *cyberx_host* users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
+> We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
