@@ -1,5 +1,5 @@
 ---
-title: Provision Microsoft Defender for IoT micro agent using DPS
+title: Provision the Microsoft Defender for IoT micro agent using DPS
 description: Learn how to provision the Microsoft Defender for IoT micro agent using DPS. 
 ms.date: 12/22/2022
 ms.topic: how-to
