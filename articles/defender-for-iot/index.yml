@@ -87,7 +87,8 @@ conceptualContent:
         url: organizations/concept-enterprise.md
         text: See more
 
-- title: Defender for IoT for device builders
+
+    - title: Defender for IoT for device builders
       links:
         - url: device-builders/overview.md
           itemType: quickstart
