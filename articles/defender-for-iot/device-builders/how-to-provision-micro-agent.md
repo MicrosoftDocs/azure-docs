@@ -5,7 +5,7 @@ ms.date: 12/22/2022
 ms.topic: how-to
 ---
 
-# Provision Microsoft Defender for IoT micro agent using DPS
+# Provision the Microsoft Defender for IoT micro agent using DPS
 
 This article explains how to provision the standalone Microsoft Defender for IoT micro agent using [Azure IoT Hub Device Provisioning Service](https://learn.microsoft.com/azure/iot-dps/) with [X.509 certificate attestation](https://learn.microsoft.com/azure/iot-dps/concepts-x509-attestation).
 
