@@ -87,22 +87,7 @@ conceptualContent:
         url: organizations/concept-enterprise.md
         text: See more
 
-    - title: Cloud security value
-      links:
-        - url: organizations/how-to-to-manage-device-inventory-for-organizations.md
-          itemType: how-to-guide
-          text: View detected devices
-        - url: organizations/how-to-manages-cloud-alerts.md
-          itemType: how-to-guide
-          text: View alerts
-        - url: organizations/recommendations.md
-          itemType: how-to-guide
-          text: View security recommendations
-        - url: organizations/workbooks.md
-          itemType: how-to-guide
-          text: Visualize data with workbooks
-
-    - title: Defender for IoT for device builders
+- title: Defender for IoT for device builders
       links:
         - url: device-builders/overview.md
           itemType: quickstart
