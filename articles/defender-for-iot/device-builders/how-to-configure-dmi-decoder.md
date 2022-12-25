@@ -1,5 +1,5 @@
 ---
-title: How to configure DMI Decoder
+title: How to configure the DMI Decoder
 description: Learn how to configure your DMI decoder on your device, or use other alternatives. 
 ms.date: 12/22/2022
 ms.topic: how-to
