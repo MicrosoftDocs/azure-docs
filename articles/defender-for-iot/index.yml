@@ -16,44 +16,44 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Welcome to Defender for IoT
-      itemType: overview # controls the icon image and super-title text
-      url: organizations/overview.md
-    - title: What's new in Defender for IoT?
-      itemType: whats-new
-      url: organizations/release-notes.md
-    - title: Subscription billing
-      itemType: concept
-      url: organizations/concept-billing.md
-    - title: Manage sensors in the Azure portal
-      itemType: concept
-      url: organizations/how-to-manage-sensors-on-the-cloud.md
+        - title: Welcome to Defender for IoT
+          itemType: overview # controls the icon image and super-title text
+          url: organizations/overview.md
+        - title: What's new in Defender for IoT?
+          itemType: whats-new
+          url: organizations/release-notes.md
+        - title: Subscription billing
+          itemType: concept
+          url: organizations/concept-billing.md
+        - title: Manage sensors in the Azure portal
+          itemType: concept
+          url: organizations/how-to-manage-sensors-on-the-cloud.md
 
-    - title: Agentless monitoring for OT networks
-      itemType: concept
-      url: organizations/architecture.md
-    - title: Modernize your SOC with OT network monitoring
-      itemType: overview
-      url: organizations/concept-sentinel-integration.md
-    - title: Secure Enterprise IoT devices
-      itemType: concept
-      url: organizations/concept-enterprise.md
-    - title: Defender for IoT users and roles
-      itemType: concept
-      url: organizations/manage-users-overview.md
+        - title: Agentless monitoring for OT networks
+          itemType: concept
+          url: organizations/architecture.md
+        - title: Modernize your SOC with OT network monitoring
+          itemType: overview
+          url: organizations/concept-sentinel-integration.md
+        - title: Secure Enterprise IoT devices
+          itemType: concept
+          url: organizations/concept-enterprise.md
+        - title: Defender for IoT users and roles
+          itemType: concept
+          url: organizations/manage-users-overview.md
 
-    - title: View detected devices
-      itemType: how-to-guide
-      url: organizations/how-to-to-manage-device-inventory-for-organizations.md
-    - title: View alerts
-      itemType: how-to-guide
-      url: organizations/how-to-manages-cloud-alerts.md
-    - title: View security recommendations
-      itemType: how-to-guide
-      url: organizations/how-to-manage-security-recommendations.md
-    - title: Visualize data with workbooks
-      itemType: how-to-guide
-      url: organizations/workbooks.md
+        - title: View detected devices
+          itemType: how-to-guide
+          url: organizations/how-to-to-manage-device-inventory-for-organizations.md
+        - title: View alerts
+          itemType: how-to-guide
+          url: organizations/how-to-manages-cloud-alerts.md
+        - title: View security recommendations
+          itemType: how-to-guide
+          url: organizations/how-to-manage-security-recommendations.md
+        - title: Visualize data with workbooks
+          itemType: how-to-guide
+          url: organizations/workbooks.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -97,7 +97,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Extra steps and samples for Enterprise IoT deployment
         - url: organizations/faqs-eiot.md
-          itemType: faq
+          itemType: reference
           text: Frequently asked questions
       footerLink:
         url: organizations/concept-enterprise.md
