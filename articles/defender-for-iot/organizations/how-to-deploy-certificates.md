@@ -11,10 +11,10 @@ This article provides information needed when creating and deploying certificate
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
 
-- Between users and the web console of the appliance. 
-- Between the sensors and an on-premises management console. 
+- Between users and the web console of the appliance.
+- Between the sensors and an on-premises management console.
 - Between a management console and a High Availability management console.
-- To the REST API on the sensor and on-premises management console. 
+- To the REST API on the sensor and on-premises management console.
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
@@ -24,8 +24,8 @@ Defender for IoT Admin users can upload a certificate  to sensor consoles and th
 
 All certificate generation methods are supported using:  
 
-- Private and Enterprise Key Infrastructures (Private PKI) 
-- Public Key Infrastructures (Public PKI) 
+- Private and Enterprise Key Infrastructures (Private PKI). 
+- Public Key Infrastructures (Public PKI). 
 - Certificates locally generated on the appliance (locally self-signed). 
 
 > [!Important]
@@ -52,7 +52,7 @@ Validation is carried out twice:
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-## About certificate upload to Defender for IoT
+## About certificate upload to Defender for IoT appliances
 
 Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application.
 
@@ -62,7 +62,7 @@ If the certificate isn't created properly by the certificate lead or there are c
 
 The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
 
-## Certificate deployment tasks
+## Certificate deployment
 
 This section describes the steps you need to take to ensure that certificate deployment runs smoothly.
 
@@ -73,23 +73,23 @@ This section describes the steps you need to take to ensure that certificate dep
 - You meet certificate creation requirements. See [Certificate creation requirements](#certificate-creation-requirements).
 - Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
-## Certificate creation requirements
+## Supported SSL certificates
 
-This section covers certificate creation requirement, including:
+This section covers requirements for successful certificate deployment, including:
 
-- [Port access requirements for certificate validation](#port-access-requirements-for-certificate-validation)
+- [CRL server access for certificate validation](#crl-server-access-for-certificate-validation)
 
-- [File type requirements](#file-type-requirements)
+- [Supported certificate file types](#supported-certificate-file-types)
 
 - [Key file requirements](#key-file-requirements)
 
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+- [Use a certificate chain (optional)](#use-a-certificate-chain-optional)
 
-### Port access requirements for certificate validation
+### CRL server access for certificate validation
 
 If you are working with certificate validation, verify access to port 80 is available.
 
-Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
+Certificate validation is evaluated against a Certificate Revocation List, and the certificate expiration date. This means the appliance should be able to establish connection to the CRL server defined by the certificate. By default, the certificate will reference the CRL URL on HTTP port 80. 
 
 Some organizational security policies may block access to this port. If your organization doesn't have access to port 80, you can: 
 
@@ -101,7 +101,7 @@ Some organizational security policies may block access to this port. If your org
 
 1. Use a proxy server that will access the CRL on port 80.
 
-### File type requirements
+### Supported certificate file types
 
 Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT doesn't require this file type.
 
@@ -125,7 +125,7 @@ Verify that you've met the following parameter requirements before creating a ce
 
 - [CRT file requirements](#crt-file-requirements)
 - [Key file requirements](#key-file-requirements)
-- [Certificate chain file requirements (if .pem is used)](#certificate-chain-file-requirements-if-pem-is-used)
+- [Use a certificate chain (optional)](#use-a-certificate-chain-optional)
 
 ### CRT file requirements
 
@@ -142,7 +142,9 @@ This section covers .crt field requirements.
 - Subject (OU) Org Unit = defined, for example, Contoso Labs 
 - Subject (O)rganization = defined, for example, Contoso Inc. 
 
-Certificates with other parameters might work, but Microsoft doesn't support them.  
+> [!IMPORTANT]
+> Certificates with other parameters might work, but Microsoft doesn't support them.
+> Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN
 
 ### Key file requirements
 
@@ -150,13 +152,13 @@ Use either RSA 2048 bits or 4096 bits.
 
 When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. in addition, there is an increase in CPU usage during handshakes.
 
-### Certificate chain file requirements (if .pem is used)
+### Use a certificate chain (optional)
 
 A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
 Bag attributes are supported in the certificate chain file.
 
-## Create certificates
+## Create SSL certificates
 
 Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. See Test certificates for information on testing the files you create.
 
