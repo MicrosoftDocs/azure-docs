@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # DMI Decoder configurations
 
-This article explains how to configure the DMI decoder and what are the alternatives for devices that do not support it.
+This article explains how to configure the DMI decoder, and alternative configurations for devices that do not support it.
 
 ## Overview
 
