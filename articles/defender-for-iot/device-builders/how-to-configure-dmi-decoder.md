@@ -32,7 +32,7 @@ To implement, please refer to the [System Management BIOS specifications](https:
 
 ## Alternative configurations
 
-For device that do not support DMI decoder, below are two options for fetching and settings the firmware and hardware fields.
+For devices that do not support the DMI decoder, there are two alternative options for retrieving and setting the firmware and hardware fields.
 
 ### JSON file
 
