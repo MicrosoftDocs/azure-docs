@@ -36,7 +36,7 @@ For devices that do not support the DMI decoder, there are two alternative optio
 
 ### JSON file
 
-To manually set the values on the device, you can create a JSON file the micro agent will read the values from and send them to the cloud.
+To manually set the values on the device, create a JSON file. The micro agent will read the values from the JSON file and send them to the cloud.
 
 To configure the file, use the details below:
 
