@@ -24,7 +24,7 @@ highlightedContent:
           url: organizations/whats-new.md
         - title: Subscription billing
           itemType: concept
-          url: organizations/concept-billing.md
+          url: organizations/billing.md
 
         - title: Modernize your SOC with OT network monitoring
           itemType: overview
@@ -95,7 +95,7 @@ conceptualContent:
         - url: organizations/how-to-manages-cloud-alerts.md
           itemType: how-to-guide
           text: View alerts
-        - url: organizations/how-to-manage-security-recommendations.md
+        - url: organizations/recommendations.md
           itemType: how-to-guide
         - url: organizations/workbooks.md
           itemType: how-to-guide
