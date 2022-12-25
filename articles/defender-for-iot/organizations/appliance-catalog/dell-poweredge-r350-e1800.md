@@ -13,7 +13,7 @@ The Dell PowerEdge R350 is also available for the on-premises management console
 |Appliance characteristic  | Description|
 |---------|---------|
 |**Hardware profile** | E1800|
-|**Performance** | Max bandwidth: 1 Gbp/s<br>Max devices: 10,000<br>Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
+|**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000<br>Up to 8x RJ45 monitoring ports or 6x SFP (OPT) |
 |**Physical Specifications** | Mounting: 1U<br>Dimensions (H x W x D) 1.70 in x 17.09 in x 22.18 in<br>Dimensions (H x W x D) 4.28 cm x 43.4 cm x 56.3 cm|
 |**Status** | Supported, available as a pre-configured appliance|
 
@@ -88,8 +88,12 @@ Optional modules for additional monitoring ports can be installed:
 
 |Location |Type |Specifications |
 |----|---|----|
-| Optional Slot 1 | Quad Port Ethernet NIC | Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
-| Optional Slot 1 | Dual Port | 540-BBVI - Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
+| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDV<br>Intel QP i350 4 x 1Gbe Copper, PCIe Low Profile  |
+| PCIe Expansion <br>Slot 1 or 2 | Quad Port Ethernet | 540-BBDF<br>Broadcom 5719 Quad Port 1GbE BASE-T Adapter, PCIe Low Profile |
+| PCIe Expansion <br>Slot 1 or 2 | Dual Port Ethernet | 540-BCSE<br>Intel X710-T2L DP 2 x 10Gbe Copper, PCIe Low Profile  |
+| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBML<br>Intel X710 DP 2 x 10Gbe SFP+, PCIe Low Profile  |
+| PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBVI<br>Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
+
 
 ## Dell PowerEdge R350 installation
 
