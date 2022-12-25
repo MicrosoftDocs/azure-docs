@@ -13,7 +13,8 @@ ms.author: duau
 
 Azure DDoS Protection Standard enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your public load balancers from large scale DDoS attacks.
 
-For more information about Azure DDoS Protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
+> [!IMPORTANT]
+> Azure DDoS protection Standard incurs a cost per public IP address in the virtual network where you enable the service. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](/azure/ddos-protection/ddos-protection-overview).
 
 In this tutorial, you learn how to:
 
@@ -364,7 +365,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 3. Copy the item in **IP address**. Paste the public IP into the address bar of your browser. The custom VM page of the IIS Web server is displayed in the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/load-balancer-test.png" alt-text="Screenshot of load balancer test.":::
 
 ## Clean up resources
 
