@@ -251,9 +251,18 @@ The following steps illustrate how to pull a Docker image of **edgeAgent** and *
 
 1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
 
-   ```bash
+   ```toml
    [agent.config]
-   Image = "<registry-name/server>/azureiotedge-agent:1.4"
+   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   ```
+
+1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.
+
+   ```toml
+   [agent.config.auth]
+   serveraddress = "<login-server>" # Almost always equivalent to <registry-name/server>
+   username = "<username>"
+   password = "<password>"
    ```
 
 1. Save your changes and exit your text editor.

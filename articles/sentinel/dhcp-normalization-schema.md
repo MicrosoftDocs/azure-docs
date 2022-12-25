@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # The Advanced Security Information Model (ASIM) DHCP normalization schema reference (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The DHCP information model is used to describe events reported by a DHCP server, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
 For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).

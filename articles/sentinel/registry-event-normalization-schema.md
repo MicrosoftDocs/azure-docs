@@ -10,8 +10,6 @@ ms.custom: ignite-fall-2021
 
 # The Advanced Security Information Model (ASIM) Registry Event normalization schema reference (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.

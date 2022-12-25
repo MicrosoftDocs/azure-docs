@@ -28,7 +28,7 @@ A [workload identity](../develop/workload-identities-overview.md) is an identity
 These differences make workload identities harder to manage and put them at higher risk for compromise.
 
 > [!IMPORTANT]
-> Conditional Access policies can be scoped to to service principals in Azure AD with Workload Identities Premium licenses. 
+> Conditional Access policies can be scoped to service principals in Azure AD with Workload Identities Premium licenses. 
 
 > [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. Third party SaaS and multi-tenanted apps are out of scope. Managed identities are not covered by policy. 
