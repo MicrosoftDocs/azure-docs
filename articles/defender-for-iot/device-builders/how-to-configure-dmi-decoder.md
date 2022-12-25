@@ -28,7 +28,7 @@ For more information on the DMI Decoder, see [dmidecode(8): DMI table decoder - 
 ## Populate SMBIOS tables for dmidecode
 
 To support dmidecode(8), SMBIOS tables needs to be present and valid.
-To implement, please refer to the System Management BIOS specification in the link: [System Firmware and SMBIOS Support](https://lwn.net/Articles/451967/).
+To implement, please refer to the [System Management BIOS specifications](https://lwn.net/Articles/451967/).
 
 ## Other options
 
