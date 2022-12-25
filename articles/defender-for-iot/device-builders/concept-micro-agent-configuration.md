@@ -35,6 +35,8 @@ For example:
 
 `"CollectorsCore_PriorityIntervals"` : `"30,120,1440"`
 
+
+
 ## Collector types and properties
 
 Configure the micro agent using the following collector-specific properties and settings:
