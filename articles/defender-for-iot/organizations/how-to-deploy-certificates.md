@@ -70,7 +70,7 @@ This section describes the steps you need to take to ensure that certificate dep
 
 - A security, PKI or certificate specialist is creating or overseeing certificate creation. 
 - You create a unique certificate for each sensor, management console and HA machine.
-- You meet certificate creation requirements. See [Certificate creation requirements](#certificate-creation-requirements).
+- You meet certificate creation requirements. See [Supported SSL certificates](#supported-ssl-certificates).
 - Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
 ## Supported SSL certificates
@@ -224,7 +224,7 @@ Your file conversion may not create a valid certificate. For example, the file s
 If the conversion fails:  
 
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
-- Make sure the file parameters are accurate. See, [File type requirements](#file-type-requirements) and  [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
+- Make sure the file parameters are accurate. See [Supported certificate file types](#supported-certificate-file-types) and [Certificate File Parameter Requirements](#certificate-file-parameter-requirements) for details.  
 - Consult your certificate lead.
 
 ## Next steps
