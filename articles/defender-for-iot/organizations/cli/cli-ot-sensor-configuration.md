@@ -53,7 +53,7 @@ A basic capture filter applies for all Defender for IoT service components. Conf
 The method used to configure a basic capture filter differs, depending on the user performing the command:
 
 - **cyberx** user: Run the specified command with specific attributes to configure your capture filter.
-- **support** user: Run the specified command, and then enter values as [prompted by the CLI](#create-a-new-capture-filter-using-the-support-user), editing your include and exclude lists in a nano editor.
+- **support** user: Run the specified command, and then enter values as [prompted by the CLI](#create-a-basic-capture-filter-using-the-support-user), editing your include and exclude lists in a nano editor.
 
 Use the following commands to create a new capture filter:
 
@@ -74,11 +74,12 @@ Supported attributes for the *cyberx* user are defined as follows:
 |`-itp <INCLUDE_TCP_PORT>`, `--include-tcp-port <INCLUDE_TCP_PORT>`     |   Includes TCP traffic on any specified ports, where the `<INCLUDE_TCP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                   |
 |`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                    |
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple VLAN IDs by commas, with no spaces.                          |
+|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter. Use `all` for basic use cases, to create a single capture filter for all components. <br><br>For advanced use cases, create separate capture filters for each component. For more information, see [Creating a capture filter: Advanced configuration](#creating-a-capture-filter-advanced-configuration).|
 |`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
 
 #### Create a basic capture filter using the support user
 
-If you are creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#creating-a-new-capture-filter-basic-configuration). Instead, a series of prompts are displayed to help you create the capture filter interactively.
+If you are creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#creating-a-capture-filter-basic-configuration). Instead, a series of prompts are displayed to help you create the capture filter interactively.
 
 Reply to the prompts displayed as follows:
 
@@ -164,10 +165,10 @@ The following extra attributes are used for the *cyberx* user to create capture 
 
 |Attribute  |Description  |
 |---------|---------|
-|`-p <PROGRAM>`, `--program <PROGRAM>`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Recommended, and creates a single capture filter for all components       |
-|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
-|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    [Advanced use only](#basic-vs-advanced-configuration). Defines the basic capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
-|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the basic capture filter for the `collector` component.  <br> Default value = `""`             |
+|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Creates a single capture filter for all components. For more information, see [Creating a capture filter: Basic configuration](#creating-a-capture-filter-basic-configuration).|
+|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines a base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
+|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |     Defines a base capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
+|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     |  Defines a base capture filter for the `collector` component.  <br> Default value = `""`             |
 
 Other attribute values have the same descriptions as in the basic use case, described [above](#creating-a-capture-filter-basic-configuration).
 
@@ -219,9 +220,9 @@ Use the following command to reset your sensor to the default capture configurat
 |---------|---------|---------|
 | **cyberx**  | `cyberx-xsense-capture-filter -p all -m all-connected` | No attributes |
 
-If you want to modify the existing capture filters, run the [earlier](#creating-a-new-capture-filter) command again, with new attribute values.
+If you want to modify the existing capture filters, run the [earlier](#creating-a-capture-filter-basic-configuration) command again, with new attribute values.
 
-To reset all capture filters using the *support* user, run the [earlier](#creating-a-new-capture-filter) command again, and respond `N` to all [prompts](#create-a-new-capture-filter-using-the-support-user) to reset all capture filters.
+To reset all capture filters using the *support* user, run the [earlier](#creating-a-capture-filter-basic-configuration) command again, and respond `N` to all [prompts](#create-a-basic-capture-filter-using-the-support-user) to reset all capture filters.
 
 The following example shows the command syntax and response for the *cyberx* user:
 

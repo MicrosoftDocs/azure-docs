@@ -496,7 +496,7 @@ root@xsense:/#
 
 ## Update sensor software from CLI
 
-For more information, see [Update your sensors](../update-ot-software?tabs=cli#update-your-sensors).
+For more information, see [Update your sensors](../update-ot-software#update-your-sensors?tabs=cli).
 
 ## Back up and restore appliance snapshot
 
