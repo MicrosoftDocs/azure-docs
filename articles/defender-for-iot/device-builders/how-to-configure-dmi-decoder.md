@@ -11,7 +11,7 @@ This article explains how to configure the DMI decoder, and alternative configur
 
 ## Overview
 
-Microsoft Defender for IoT device inventory provides an overview of all IoT devices in your environment. The device inventory table can be customized to your preferences by adding or removing information fields, filtering, etc.
+The Microsoft Defender for IoT **Device inventory** provides an overview of all IoT devices in your environment. The device inventory table can be customized to your preferences by adding or removing information fields, and filtering the fields.
 
 The DMI decoder is used to fetch data on the hardware and firmware of the device; the retrieved fields are:
 
