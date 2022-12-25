@@ -97,10 +97,10 @@ conceptualContent:
           text: View alerts
         - url: organizations/recommendations.md
           itemType: how-to-guide
+          text: View security recommendations
         - url: organizations/workbooks.md
           itemType: how-to-guide
           text: Visualize data with workbooks
-
 
     - title: Defender for IoT for device builders
       links:
