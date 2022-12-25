@@ -11,9 +11,6 @@ This article lists the CLI commands available for monitoring OT networks with Mi
 
 Command syntax differs depending on the user performing the command, as indicated below for each activity.
 
-> [!NOTE]
-> The *cyberx* and *cyberx_host* users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible.
-
 ## Prerequisites
 
 Before you can run any of the following CLI commands, you'll need access to the CLI on your OT network sensor as a privileged user.
@@ -21,7 +18,7 @@ Before you can run any of the following CLI commands, you'll need access to the 
 Each activity listed below is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
 
 >[!IMPORTANT]
-> We recommend that you use the *support* user for CLI access whenever possible.
+> The cyberx and cyberx_host users are intended for advanced CLI use. We recommend that customers using the Defender for IoT CLI use the support user whenever possible.
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
@@ -92,9 +89,9 @@ Supported attributes for the *cyberx* user are defined as follows:
 |`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                    |
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple VLAN IDs by commas, with no spaces.                          |
 |`-p <PROGRAM>`, `--program <PROGRAM>`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Recommended, and creates a single capture filter for all components       |
-|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | [Advanced use only](#basic-vs-advanced-configuration) Defines the base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
-|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    [Advanced use only](#basic-vs-advanced-configuration) Defines the basic capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
-|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | [Advanced use only](#basic-vs-advanced-configuration) Defines the basic capture filter for the `collector` component.  <br> Default value = `""`             |
+|`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
+|`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |    [Advanced use only](#basic-vs-advanced-configuration). Defines the basic capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
+|`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     | [Advanced use only](#basic-vs-advanced-configuration). Defines the basic capture filter for the `collector` component.  <br> Default value = `""`             |
 |`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
 
 #### Create a new capture filter using the support user
