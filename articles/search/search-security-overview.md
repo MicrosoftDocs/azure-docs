@@ -166,7 +166,7 @@ Currently, the only external resource that a search service writes customer data
 
 ### Exceptions to data residency commitments
 
-Although customer data isn't stored outside of your region, object names (considered as customer data), will appear in the telemetry logs used by Microsoft Support to troubleshoot your service issues. Telemetry logs includes names of indexes, indexers, data sources, skillsets, containers, and key vault store.
+Although customer data isn't stored outside of your region, object names (considered as customer data), will appear in the telemetry logs used by Microsoft Support to troubleshoot your service issues. Telemetry logs include names of indexes, indexers, data sources, skillsets, containers, and key vault store.
 
 >[!IMPORTANT]
 >Object names aren't obfuscated in the telemetry logs. If possible, please avoid using names that convey sensitive information.
@@ -177,7 +177,7 @@ Telemetry logs are retained for one and a half years. During that period, suppor
 
 + Proactively suggest to the original customer a workaround or alternative. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
 
-Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft will reduce the ability to troubleshoot with historical information related to the object in question.
+Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, Microsoft won't have a full history of your service, which could impede troubleshooting of the object in question.
 
 To remove references to specific objects, or to change the data retention period, [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for your search service.
 
