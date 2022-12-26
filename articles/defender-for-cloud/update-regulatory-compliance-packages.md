@@ -2,7 +2,7 @@
 title: The regulatory compliance dashboard in Microsoft Defender for Cloud
 description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Defender for Cloud
 ms.topic: how-to
-ms.date: 12/11/2022
+ms.date: 12/26/2022
 ms.custom: ignite-2022
 ---
 # Customize the set of standards in your regulatory compliance dashboard
@@ -73,7 +73,7 @@ To add regulatory compliance standards on AWS accounts:
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-**GCP**: When users onboard, every GCP project has the GCP standard assigned. 
+**GCP**: When users onboard, every GCP project has the GCP Default standard assigned. 
 
 Users that have one Defender bundle enabled can enable additional standards. 
 
