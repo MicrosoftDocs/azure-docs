@@ -219,11 +219,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the config file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the full-chain certificate and key files on the parent IoT Edge device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -241,7 +241,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-gateway-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
@@ -386,11 +386,11 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the certificate and key files on the IoT Edge downstream device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
+01. Find or add the **Edge CA certificate** section in the configuration file. Update the certificate `cert` and private key `pk` parameters with the file URI paths for the full-chain certificate and key files on the IoT Edge downstream device. IoT Edge requires the certificate and private key to be in text-based privacy-enhanced mail (PEM) format. For example:
 
     ```toml
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
@@ -408,7 +408,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     trust_bundle_cert = "file:///var/aziot/certs/azure-iot-test-only.root.ca.cert.pem"
     
     [edge_ca]
-    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream.cert.pem"
+    cert = "file:///var/aziot/certs/iot-edge-device-ca-downstream-full-chain.cert.pem"
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-downstream.key.pem"
     ```
 
@@ -448,46 +448,46 @@ You should already have IoT Edge installed on your device. If not, follow the st
 01. Verify the TLS/SSL connection from the child to the parent by running the following `openssl` command on the downstream device. Replace `<parent hostname>` with the FQDN or IP address of the parent.
 
     ```bash
-    echo | openssl s_client -connect <parent hostname>:8883 2>/dev/null | openssl x509 -text
+    openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
     ```
 
-    The command should return the certificate chain similar to the following example.
+    The command should assert successful validation of the parent certificate chain similar to the following example:
 
     ```Output
-    azureUser@child-vm:~$ echo | openssl s_client -connect 10.0.0.4:8883 2>/dev/null | openssl x509 -text
+    azureUser@child-vm:~$ openssl s_client -connect <parent hostname>:8883 </dev/null 2>&1 >/dev/null
 
-    Certificate:
-        Data:
-            Version: 3 (0x2)
-            Serial Number: 0 (0x0)
-            Signature Algorithm: sha256WithRSAEncryption
-            Issuer: CN = gateway.ca
-            Validity
-                Not Before: Apr 27 16:25:44 2022 GMT
-                Not After : May 26 14:43:24 2022 GMT
-            Subject: CN = 10.0.0.4
-            Subject Public Key Info:
-                Public Key Algorithm: rsaEncryption
-                    RSA Public-Key: (2048 bit)
-                    Modulus:
-                        00:b2:a6:df:d9:91:43:4e:77:d8:2c:2a:f7:01:b1:
-                        ...
-                        33:bd:c8:f0:de:07:36:2c:0d:06:9e:89:22:95:5e:
-                        3b:43
-                    Exponent: 65537 (0x10001)
-            X509v3 extensions:
-                X509v3 Extended Key Usage:
-                    TLS Web Server Authentication
-                X509v3 Subject Alternative Name:
-                    DNS:edgehub, IP Address:10.0.0.4
-        Signature Algorithm: sha256WithRSAEncryption
-             76:d4:5b:4a:d5:c4:80:7d:32:bc:c0:a8:ce:4f:69:5d:4d:ee:
-             ...
-        ```
+    Can't use SSL_get_servername
+    depth=3 CN = Azure_IoT_Hub_CA_Cert_Test_Only
+    verify return:1
+    depth=2 CN = Azure_IoT_Hub_Intermediate_Cert_Test_Only
+    verify return:1
+    depth=1 CN = gateway.ca
+    verify return:1
+    depth=0 CN = <parent hostname>
+    verify return:1
+    DONE
+    ```
 
-        The `Subject: CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+    The "Can't use SSL_get_servername" message can be ignored.
 
-        If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+    The `depth=0 CN = ` value should match the **hostname** parameter specified in the parent's `config.toml` configuration file.
+
+    If the command times out, there may be blocked ports between the child and parent devices. Review the network configuration and settings for the devices.
+
+    > [!WARNING]
+    > A previous version of this document directed users to copy the `iot-edge-device-ca-gateway.cert.pem` certificate for use in the gateway `[edge_ca]` section. This was incorrect, and results in certificate validation errors from the downstream device. For example, the `openssl s_client ...` command above will produce:
+    >
+    > ```
+    > Can't use SSL_get_servername
+    > depth=1 CN = gateway.ca
+    > verify error:num=20:unable to get local issuer certificate
+    > verify return:1
+    > depth=0 CN = <parent hostname>
+    > verify return:1
+    > DONE
+    > ```
+    >
+    > The same issue will appear for TLS-enabled devices connecting to the downstream Edge device if `iot-edge-device-ca-downstream.cert.pem` is copied to the device instead of `iot-edge-device-ca-downstream-full-chain.cert.pem`.
 
 ## Network isolate downstream devices
 
