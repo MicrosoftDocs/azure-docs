@@ -41,7 +41,11 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 1. In the **Plan settings** pane, define the following settings:
 
-   - **Subscription**: Select the Azure subscription where you want to add a plan.
+   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+
+        > [!TIP]
+        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
+
    - **Price plan**: For the sake of this quickstart, select **Trial - 30 days - 1000 assets limit**.
 
     For example:
@@ -52,7 +56,7 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 1. Select the **I accept the terms and conditions** option, and then select **Purchase**.
 
-Your OT networks plan will be shown under the associated subscription in the **Plans** grid. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+Your new plan is listed under the relevant subscription in the **Plans** grid. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Next steps
 
@@ -64,3 +68,7 @@ Your OT networks plan will be shown under the associated subscription in the **P
 
 > [!div class="nextstepaction"]
 > [Understand Defender for IoT subscription billing](billing.md)
+
+> [!div class="nextstepaction"]
+> [Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/)
+
