@@ -2,7 +2,7 @@
 title: Data retention across Microsoft Defender for IoT
 description: Learn about the data retention periods and capacities for Microsoft Defender for IoT data stored in Azure, the OT sensor, and on-premises management console.
 ms.topic: reference
-ms.date: 12/14/2022
+ms.date: 12/26/2022
 ---
 
 # Data retention across Microsoft Defender for IoT
@@ -34,7 +34,7 @@ Alert data is retained as listed below, regardless of the alert's status, or whe
 | Storage type | Details |
 |---------|---------|
 | **Azure portal** | PCAP files are available for download from the Azure portal for as long as the OT network sensor stores them. <br><br> Once downloaded, the files are cached on the Azure portal for 48 hours. <br><br> For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview). |
-| **OT network sensor** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is set by default to 133,120 MB, but configurable in the `filtered.cache.dir.size.megabytes.max` property in the *pcap.properties* file.<br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
+| **OT network sensor** | PCAP files are stored on the OT sensor for up to 90 days, depending on the sensor's storage capacity. <br><br> Maximum size of filtered PCAPs allowed is set by default to 133,120 MB. <br> If you exceed this size, the oldest backed-up file is deleted to accommodate the new one. <br><br> For more information, see [Download PCAP files](how-to-view-alerts.md#download-pcap-files). |
 | **On-promises management console** | PCAP files aren't stored on the on-premises management console. <br><br> Access PCAP files from the on-premises management console using a direct link to the sensor, for as long as the on premises sensor stores them. |
 
 ## Security recommendation retention
@@ -82,8 +82,8 @@ Both the OT network sensor and the on-premises management console have automated
 
 | Storage type | Details |
 |---------|---------|
-| **OT network sensor** | The maximum size of sensor backup files stored on the sensor itself is set by default to 100 GB, but configurable in the `max_directory_size_in_gb` property in the *backup.properties.configurable* file. <br><br> Older backup files are deleted if the total backup file size passes this limit. <br><br> However, each sensor also has its own, extra backup directory on the on-premises management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
-| **On-promises management console** | The following types of backup files are stored on the on-premises management console, each with their own maximum file size: <br><br> - **On-premises management console backup file**: Set by default to 10 GB, but configurable in the `backup.max_directory_size.gb` property in the *backup.properties.configurable* file.<br> - **OT sensor backup files**: Set by default to 40 GB, but configurable in the `sensors_backup.total_size_allowed.gb` property in the *backup.properties.configurable* file. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)|
+| **OT network sensor** | The maximum size of sensor backup files stored on the sensor itself is set by default to 100 GB. <br><br> Older backup files are deleted if the total backup file size passes this limit. <br><br> However, each sensor also has its own, extra backup directory on the on-premises management console. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files). |
+| **On-promises management console** | The following types of backup files are stored on the on-premises management console, each with their own maximum file size: <br><br> - **On-premises management console backup file**: Set by default to 10 GB. <br> - **OT sensor backup files**: Set by default to 40 GB. <br><br> For more information, see [Set up backup and restore files](how-to-manage-individual-sensors.md#set-up-backup-and-restore-files)|
 
 For more information, see:
 
