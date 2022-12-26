@@ -40,7 +40,7 @@ Move your workspace to an availability zone by [creating a new dedicated cluster
 
 Transitioning to a new cluster can be a gradual process. Don't remove the previous cluster until it has been purged of any data. For example, if your workspace retention is set 60 days, you may want to keep your old cluster running for that period before removing it. To learn more, see [Migrate Log Analytics workspaces to availability zone support](../../availability-zones/migrate-monitor-log-analytics.md).
 
-Any queries against your workspace will query both clusters as required to provide you with a single, unified result set. That allows Azure Monitor experiences such as workbooks and dashboards to keep getting the full result set, based on data from both clusters.
+Any queries against your workspace will query both clusters to provide you with a single, unified result set. This allows Azure Monitor experiences, such as workbooks and dashboards, to keep getting the full result set, based on data from both clusters.
 
 ## Billing
 There's a [cost for using a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 500 GB. 
