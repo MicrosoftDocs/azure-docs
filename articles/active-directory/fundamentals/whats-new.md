@@ -1229,4 +1229,3 @@ For more information, see [Claims mapping policy - Microsoft Entra | Microsoft D
  
 
 ---
- 
