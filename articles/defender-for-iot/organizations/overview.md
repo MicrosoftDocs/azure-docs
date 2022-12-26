@@ -47,7 +47,7 @@ Install OT network sensors on-premises, at strategic locations in your network t
 
     From the Azure portal, view data from all connected sensors in a central location, and integrate with other Microsoft services, like Microsoft Sentinel.
 
-  - **Air-gapped and on-premises services**:
+- **Air-gapped and on-premises services**:
 
     If you have an air-gapped environment and want to keep all your OT network data fully on-premises, connect your OT network sensors to an on-premises management console for central visibility and control.
 

@@ -3,7 +3,7 @@
   items:
 - name: Overview
   items:
-  - name: About Defender for IoT
+  - name: Welcome to Microsoft Defender for IoT
     href: overview.md
   - name: What's new?
     items:

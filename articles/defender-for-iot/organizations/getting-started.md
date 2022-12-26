@@ -21,9 +21,7 @@ Before you start, make sure that you have:
 
 ## Identify and plan your OT solution architecture
 
-We recommend that you identify system requirements and plan your OT network monitoring architecture before you start. Do these steps even if you plan to start with a trial subscription.
-
-For example:
+We recommend that you identify system requirements and plan your OT network monitoring architecture before you start, even if you're starting with a trial subscription.
 
 - Make sure that you have network switches that support [traffic monitoring](best-practices/traffic-mirroring-methods.md) via a SPAN port and TAPs  (Test Access Points).
 
