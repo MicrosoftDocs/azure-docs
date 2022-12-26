@@ -29,7 +29,7 @@ The Azure portal now provides the following additional security data for traffic
 |Data type  |Description  |
 |---------|---------|
 |**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br><br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
-|**Recommendations**     | The Enterprise IoT network sensor now shows the following recommendation for detected devices, as relevant: **Disable insecure administration protocol**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: **Disable insecure administration protocol**        |
 
 For more information, see:
 
