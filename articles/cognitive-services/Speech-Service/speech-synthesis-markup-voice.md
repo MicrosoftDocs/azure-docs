@@ -441,6 +441,35 @@ The supported values for attributes of the `mstts:backgroundaudio` element were 
 </speak>
 ```
 
+## Audio effect
+
+The `effect` element is an effect processor that is used to enhance the auditory quality of the synthesized speech output from various device. In a practical environment, the audience's auditory experience may be degraded due to the distortion of playback from various devices in different scenarios. For example, the synthesized speech from car speaker may sound dull and muffled due to environmental factors such as speaker response, room reverberation, and background noise. The driver usually has to turn up the volume to hear more clearly. In such a case, the `effect` processor can make the sound clearer by compensating the distortion of playback without any manual operation.
+
+You can configure the `effect` element's attributes within the `voice` element to optimize the auditory experience of synthesized speech. For example, if you are in a car scenario, you can use the value `eq_car` to make the synthesized speech from the car speaker clearer. 
+
+> [!NOTE]
+> This feature is disabled by default. We recommend that you use this feature in the scenarios supported by the following list to obtain a better auditory experience.
+
+Usage of the `effect` element's attributes are described in the following table.
+
+| Attribute | Description | Required or optional |
+| ---------- | ---------- | ---------- |
+| `effect` |A voice-specific effect processor. You can choose a specific value according to the corresponding scenarios. The following values are supported:<br/><ul><li>`eq_car` – Optimize the auditory experience in the car scenarios, such as small cars, buses, or other small/medium vehicles.</li><li>`eq_telecomhp8k` – Optimize the auditory experience in telecom or telephone scenarios. This feature is only designed for narrowband speech (sampling rate = 8kHz). If the sample rate of the output speech is not 8kHz, although this attribute will work, the effect obtained with this attribute will not be as good as speech with 8kHz. We recommend that you select 8kHz for your output speech to get a better result with this attribute in telecom scenarios. </li></ul><br/>If the value is missing or invalid, the `effect` element will be ignored and the service will use the default neutral speech.| Required |
+
+### Audio effect examples
+
+The supported values for attributes of the `effect` element were [described previously](#audio-effect).
+
+You use the `effect` element within the `voice` element to optimize the auditory experience for different voices. The following SSML example uses the `effect` element with the configuration in car scenarios.
+    
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-JennyNeural" effect="eq_car">
+        This is the text that is spoken.
+    </voice>
+</speak>
+```
+
 ## Next steps
 
 - [SSML overview](speech-synthesis-markup.md)
