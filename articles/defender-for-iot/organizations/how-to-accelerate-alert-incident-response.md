@@ -12,7 +12,7 @@ Microsoft Defender for IoT alerts enhance your network security and operations w
 
 This article describes the following methods for reducing alert fatigue in your team:
 
-- **Create custom alert comments** for your teams to add to individual alerts, streamlining communication and record-keeping across your alerts.
+- **Create alert comments** for your teams to add to individual alerts, streamlining communication and record-keeping across your alerts.
 
 - **Create custom alert rules** to identify specific traffic in your network
 
@@ -20,7 +20,7 @@ This article describes the following methods for reducing alert fatigue in your 
 
 ## Prerequisites
 
-- To create custom alert comments or alert rules on an OT network sensor, you must have:
+- To create alert comments or alert rules on an OT network sensor, you must have:
 
     - An OT network sensor installed
     - Access to the sensor as an **Admin** user.
@@ -32,7 +32,7 @@ This article describes the following methods for reducing alert fatigue in your 
 
 For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-## Create custom alert comments on an OT sensor
+## Create alert comments on an OT sensor
 
 1. Sign into your OT sensor and select **System Settings** > **Network Monitoring**> **Alert Comments**.
 
@@ -44,7 +44,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 1. Select **Submit** to add your comment to the list of available comments in each alert on your sensor.
 
-Custom comments are available in each alert on your sensor for team members to add. For more information, see [Add custom alert comments](how-to-view-alerts.md#add-custom-alert-comments).
+Custom comments are available in each alert on your sensor for team members to add. For more information, see [Add alert comments](how-to-view-alerts.md#add-custom-alert-comments).
 
 ## Create custom alert rules on an OT sensor
 

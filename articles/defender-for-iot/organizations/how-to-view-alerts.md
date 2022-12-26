@@ -151,9 +151,9 @@ Do one of the following:
 
 The file is generated, and you're prompted to save it locally.
 
-## Add custom alert comments
+## Add alert comments
 
-Custom alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
+Alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
 
 If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-custom-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
 
