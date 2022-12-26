@@ -886,6 +886,16 @@ There are two options available to circumvent this error:
 
 Our engineering team is currently working on a full support for Spark 3.3.
 
+### Delta table created in Spark is not shown in serverless pool
+
+> [!NOTE]  
+> Replication of Delta tables that are created in Spark is still in public preview.
+
+If you created a Delta table in Spark, and it is not shown in the serverless SQL pool, check the following:
+- Wait some time (usually 30 seconds) because the Spark tables are synchronized with delay.
+- If the table didn't appear in the serverless SQL pool after some time, check the schema of the Spark Delta table. Spark tables with complex types or the types that are not supported in serverless are not available. Try to create a Spark Parquet table with the same schema in a lake database and check would that table appears in the serverless SQL pool.
+- Check could workspace Managed Identity access Delta Lake folder that is referenced by the table. Serverless SQL pool uses workspace Managed Identity to get the table column information from the storage to create the table.
+
 ## Lake database
 
 The Lake database tables that are created using Spark or Synapse designer are automatically available in serverless SQL pool for querying. You can use serverless SQL pool to query the Parquet, CSV, and Delta Lake tables that are created using Spark pool, and add additional schemas, views, procedures, table-value functions, and Azure AD users in `db_datareader` role to your Lake database. Possible issues are listed in this section.

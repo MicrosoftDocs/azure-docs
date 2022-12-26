@@ -5,11 +5,11 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/21/2022
+ms.date: 12/15/2022
 ms.author: jasteppe
 ---
 
-# Quickstart: Part 3: Manual deployment and post-deployment of MedTech service
+# Quickstart: Part 3: Manual deployment and post-deployment of the MedTech service
 
 When you're satisfied with your configuration and it has been successfully validated, you can complete the deployment and post-deployment process.
 
@@ -94,10 +94,12 @@ Now that you have granted access to the device message event hub and the FHIR se
 
 ## Next steps
 
-In this article, you learned how to perform the manual deployment and post-deployment steps to implement your MedTech service. To learn more about other methods of deployment, see
+In this article, you learned how to perform the manual deployment and post-deployment steps to implement your MedTech service. 
+
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
-> [Choosing a method of deployment for MedTech service in Azure](deploy-new-choose.md)
+> [Choose a deployment method for the MedTech service](deploy-new-choose.md)
 
 > [!div class="nextstepaction"]
 > [Deploy the MedTech service with an Azure Resource Manager template](deploy-new-button.md)

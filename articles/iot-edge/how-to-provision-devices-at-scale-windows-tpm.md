@@ -12,7 +12,7 @@ monikerRange: "=iotedge-2018-06"
 
 # Create and provision IoT Edge devices at scale with a TPM on Windows
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Windows device by using a Trusted Platform Module (TPM). You can automatically provision IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 
@@ -51,7 +51,7 @@ The tasks are as follows:
 The prerequisites are the same for physical TPM and virtual TPM solutions.
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### Device requirements
 
@@ -112,7 +112,7 @@ Simulated TPM samples:
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
 <!-- Install IoT Edge on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
+[!INCLUDE [install-iot-edge-windows.md](includes/iot-edge-install-windows.md)]
 
 ## Provision the device with its cloud identity
 
