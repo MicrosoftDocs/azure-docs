@@ -186,5 +186,5 @@ Learn more about deploying and managing AKS.
 [aks-monitor]: monitor-aks.md
 [azure-monitor]: ../azure-monitor/containers/containers.md
 [azure-logs]: ../azure-monitor/logs/log-analytics-overview.md
-[helm]: /quickstart-helm.md
-[aks-best-practices]: /best-practices.md
+[helm]: /azure/aks/quickstart-helm
+[aks-best-practices]: /azure/aks/best-practices
