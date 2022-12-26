@@ -25,7 +25,7 @@ We recommend that you identify system requirements and plan your OT network moni
 
 For example:
 
-- Make sure that you have network switches that support [traffic monitoring](best-practices/traffic-mirroring-methods.md) via a SPAN port.
+- Make sure that you have network switches that support [traffic monitoring](best-practices/traffic-mirroring-methods.md) via a SPAN port and TAPs  (Test Access Points).
 
 - Research your own network architecture and decide which and how much data you'll want to monitor. Check any requirements for creating certificates and other details, and [understand where on your network](best-practices/understand-network-architecture.md) you'll want to place your OT network sensors.
 

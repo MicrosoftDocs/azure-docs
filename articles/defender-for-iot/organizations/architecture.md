@@ -75,7 +75,7 @@ OT network sensors include the following analytics engines:
 |**Protocol violation detection engine**     |  Identifies the use of packet structures and field values that violate ICS protocol specifications. <br><br>For example, Modbus exceptions or the initiation of an obsolete function code alerts.       |
 |**Industrial malware detection engine**     |  Identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry, NotPetya, and Triton.       |
 |**Anomaly detection engine**     | Detects unusual machine-to-machine (M2M) communications and behaviors. <br><br>This engine models ICS networks and therefore requires a shorter learning period than analytics developed for IT, and detects anomalies faster, with minimal false positives. <br><br>For example, Excessive SMB sign-in attempts, and PLC Scan Detected alerts.        |
-|**Operational incident detection**     |   Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. <br><br> For example, the device might be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.      |
+|**Operational incident detection**     |   Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. <br><br> For example, the device might be disconnected (unresponsive), or the Siemens S7 stop PLC command was sent alerts.      |
 
 
 ## Management options
