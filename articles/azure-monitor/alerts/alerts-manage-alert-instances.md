@@ -38,4 +38,4 @@ The **alerts details** page provides details about the selected alert.
 
 - [Learn about Azure Monitor alerts](./alerts-overview.md)
 - [Create a new alert rule](alerts-log.md)
-- [Manage your alerts programmatically](alerts-overview#manage-your-alerts-programmatically.md)
+- [Manage your alerts programmatically](alerts-overview.md#manage-your-alerts-programmatically)
