@@ -121,10 +121,7 @@ Make sure to update your alert status once you've taken remediation steps so tha
 
 You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
 
-To access raw traffic files for your alert, select one of the following in the top-left corner of your alert details page:
-
-- **Download Full PCAP**
-- **Download Filtered PCAP**
+To access raw traffic files for your alert, select **Download PCAP** from the top-left corner of your alert details page:
 
 For example:
 
