@@ -88,7 +88,7 @@ In this article, you'll learn how to enable the diagnostic settings for the MedT
 
 ## Use the Log Analytics workspace to view the MedTech service logs - Optional
 
-If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of the MedTech service **HealthCheck** process that runs continuously in the background.
+If you choose to include your Log Analytics workspace as a destination option for your diagnostic setting, you can view the error logs within **Logs** in your MedTech service. If there are any error logs, they'll be a result of exceptions for your MedTech service (for example: *HealthCheck* exceptions).
 
 1. To access your Log Analytics workspace, select the **Logs** button within your MedTech service.
 
