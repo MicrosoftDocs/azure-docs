@@ -47,7 +47,7 @@ There's a [cost for using a dedicated cluster](logs-dedicated-clusters.md#create
 
 If you already have a dedicated cluster and choose to retain it to access its data, you’ll be charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters is reduced from 1000 GB/Daily to 500 GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
 
-The new cluster isn’t billed during its first day to avoid double billing during configuration. Only logs ingested before the migration completes will be billed on the date of migration. 
+The new cluster isn’t billed during its first day to avoid double billing during configuration. On the date of migration, you'll be billed only for logs ingested before the migration completes.
 
 
 ## Next steps
