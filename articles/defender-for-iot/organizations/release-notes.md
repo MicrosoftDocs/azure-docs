@@ -53,8 +53,8 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | 22.1.3|03/2022 |Patch | 10/2022|
 | 22.1.2| 02/2022 | Major|10/2022  |
 | **10.5** | | | |
-|10.5.5 |12/2022 |Patch |  09/2022|
-|10.5.4 |12/2022 |Patch |  09/2022|
+|10.5.5 |12/2021 |Patch |  09/2022|
+|10.5.4 |12/2021 |Patch |  09/2022|
 | 10.5.3| 10/2021 |Patch | 07/2022|
 | 10.5.2| 10/2021 | Major| 07/2022|
 
@@ -276,7 +276,7 @@ To update your software to the latest version available, first update to version
 
 ### 10.5.5
 
-**Release date**: 12/2022
+**Release date**: 12/2021
 
 **Supported until**: 9/2022
 
