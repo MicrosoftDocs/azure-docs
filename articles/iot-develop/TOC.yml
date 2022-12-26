@@ -140,7 +140,7 @@
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
-      href: /dotnet/api/overview/azure/iot
+      href: /dotnet/api/overview/azure/resourcemanager.iothub-readme
     - name: Java (Device)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
