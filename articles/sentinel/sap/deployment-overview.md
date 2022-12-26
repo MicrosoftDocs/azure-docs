@@ -24,7 +24,7 @@ This article introduces you to the process of deploying the Microsoft Sentinel S
 - Watchlists for customization of the built-in solution parameters.  
 
 > [!NOTE]
-> The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting March 2023. 
+> The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting May 2023. 
 >
 > - The additional hourly charge applies to connected production systems only. 
 > - Production systems are systems with a production entry in the SAP client table (T000). 
