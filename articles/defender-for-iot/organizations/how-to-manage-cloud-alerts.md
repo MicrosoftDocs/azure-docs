@@ -12,7 +12,7 @@ ms.topic: how-to
 
 This article describes how to manage alerts generated from OT and Enterprise IoT network sensors on the Azure portal.
 
-If you're integrating with Microsoft Sentinel, OT alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
+If you're integrating with Microsoft Sentinel, alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
 
 ## About alerts
 

@@ -72,10 +72,10 @@ The following recommendations are displayed for devices detected by OT and Enter
 
 |Name  |Description  |
 |---------|---------|
-| **OT network devices** | |
+| **OT network sensors** | |
 |**Review PLC operating mode**     | Devices with this recommendation are found with PLCs set to unsecure operating mode states. <br><br>We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.        |
 |**Review unauthorized devices**     | Devices with this recommendation must be identified and authorized as part of the network baseline. <br><br>We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.        |
-| **Enterprise IoT network devices** | |
+| **Enterprise IoT network sensors** | |
 | **Disable insecure administration protocol**| Devices with this recommendation are exposed to malicious threats because they use Telnet, which isn't a secured and encrypted communication protocol. <br><br>We recommend that you switch to a more secure protocol, such as SSH, disable the server altogether, or apply network access restrictions.|
 
 Other recommendations you may see in the **Recommendations** page are relevant for the  [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/).

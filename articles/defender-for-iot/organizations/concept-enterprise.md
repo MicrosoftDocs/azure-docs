@@ -67,7 +67,13 @@ The Enterprise IoT network sensor is a low-touch appliance, with automatic updat
 > [!NOTE]
 > Deploying a network sensor is optional and is *not* a prerequisite for integrating Defender for Endpoint and Defender for IoT.
 
-Add an Enterprise IoT sensor from Defender for IoT in the Azure portal. For more information, see [Enhance IoT security monitoring with an Enterprise IoT network sensor](eiot-sensor.md) and [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md).
+Add an Enterprise IoT sensor from Defender for IoT in the Azure portal. For more information, see:
+
+- [Enhance IoT security monitoring with an Enterprise IoT network sensor](eiot-sensor.md)
+- [Manage your device inventory from the Azure portal](how-to-manage-device-inventory-for-organizations.md)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Microsoft Defender for IoT alert types and descriptions](alert-engine-messages.md)
+- [Enhance security posture with security recommendations](recommendations.md)
 
 ### Device visibility with Enterprise IoT sensors only
 

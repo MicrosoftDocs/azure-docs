@@ -15,7 +15,7 @@ Customers that have set up an Enterprise IoT network sensor can see all discover
 
 **If you're a Defender for IoT customer** working solely in the Azure portal, an Enterprise IoT network sensor provides extra device visibility to Enterprise IoT devices, such as Voice over Internet Protocol (VoIP) devices, printers, and cameras, which may not be covered by your OT network sensors.
 
-Defender for IoT alerts and recommendations for devices discovered by the Enterprise IoT sensor only are available only in the [Azure portal](how-to-manage-cloud-alerts.md).
+Defender for IoT [alerts](how-to-manage-cloud-alerts.md) and [recommendations](recommendations.md) for devices discovered by the Enterprise IoT sensor only are available only in the Azure portal.
 
 For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
 
