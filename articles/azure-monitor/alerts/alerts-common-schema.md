@@ -2,7 +2,7 @@
 title: Common alert schema for Azure Monitor alerts
 description: Understand the common alert schema, why you should use it, and how to enable it.
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 12/22/2022
 ms.reviewer: ofmanor
 ---
 
