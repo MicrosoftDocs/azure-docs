@@ -9,13 +9,22 @@ ms.author: ofshezaf
 
 # List of Microsoft Sentinel Advanced Security Information Model (ASIM) parsers (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This document provides a list of Advanced Security Information Model (ASIM) parsers. For an overview of ASIM parsers refer to the [parsers overview](normalization-parsers-overview.md). To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
 > [!IMPORTANT]
 > ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+## Audit event parsers
+
+To use ASIM audit event parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuditEvent). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
+
+
+| **Source** | **Notes** | **Parser**
+| --- | --------------------------- | ---------- |
+| **Azure Activity administrative events** | Azure Activity events (in the `AzureActivity` table) in the category `Administrative`. | `ASimAuditEventAzureActivity` |
+| **Exchange 365 administrative events** | Exchange Administrative events collected using the Office 365 connector (in the `OfficeActivity` table). | `ASimAuditEventMicrosoftOffice365` |
+| **Windows Log clear event** | Windows Event 1102 collected using the Log Analytics agent Security Events connector or the Azure monitor agent Security Events and WEF connectors (using the `SecurityEvent`, `WindowsEvent`, or `Event` tables). | `ASimAuditEventMicrosoftWindowsEvents` |
+ 
 ## Authentication parsers
 
 To use ASIM authentication parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
