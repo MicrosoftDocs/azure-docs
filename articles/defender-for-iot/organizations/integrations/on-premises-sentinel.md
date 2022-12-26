@@ -1,25 +1,10 @@
 ---
-title: How to connect on-premises OT network sensors to Microsoft Sentinel - Microsoft Defender for IoT
-description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor.
+title: How to connect on-premises Defender for IoT resources to Microsoft Sentinel
+description: Learn how to stream data into Microsoft Sentinel from an on-premises and locally-managed Microsoft Defender for IoT OT network sensor or an on-premises management console.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 12/26/2022
 ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 ---
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
-
-This template provides the basic structure of a how-to article pattern.
-See the [how-to pattern](article-how-to-guide.md) in the pattern library.
-
--->
-
-<!-- 1. H1 -----------------------------------------------------------------------------
-
-Required: Start your H1 with a verb. Pick an H1 that clearly conveys the task the user 
-will complete.
--->
 
 # Connect on-premises OT network sensors to Microsoft Sentinel
 
@@ -50,10 +35,7 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 1. If you're using TLS encryption, make sure to select **Enable encryption** and upload your certificate and key files.
 
-Select **Save** when you're done. Make sure to test the rule to make sure that it works as expected. For more information, see:
-
-- [Create forwarding rules on an OT sensor](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-ot-sensor)
-- [Create forwarding rules on an on-premises management console](../how-to-forward-alert-information-to-partners.md#create-forwarding-rules-on-an-on-premises-management-console)
+Select **Save** when you're done. Make sure to test the rule to make sure that it works as expected.
 
 > [!IMPORTANT]
 > To forward alert details to multiple Microsoft Sentinel instances, make sure to create a separate forwarding rule for each instance. Don't use the **Add server** option in the same forwarding rule to send data to multiple Microsoft Sentinel instances.

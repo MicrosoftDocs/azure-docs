@@ -145,7 +145,7 @@
     - name: Micro Focus ArcSight
       href: integrations/arcsight.md
     - name: Microsoft Sentinel (on-premises data)
-      href: on-premises-sentinel.md
+      href: integrations/on-premises-sentinel.md
     - name: Palo Alto
       href: tutorial-palo-alto.md
     - name: RSA NetWitness
