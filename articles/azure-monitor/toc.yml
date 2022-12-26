@@ -1368,7 +1368,7 @@ items:
       - name: Alert processing rules
         href: alerts/alerts-processing-rules.md
         displayName: Azure CLI, az monitor action rule
-      - name: Create action group
+      - name: Create an action group
         href: alerts/action-groups.md
       - name: Create action groups with Resource Manager
         href: alerts/action-groups-create-resource-manager-template.md
@@ -1376,10 +1376,8 @@ items:
         href: alerts/alerts-rate-limiting.md
       - name: SMS alert behavior
         href: alerts/alerts-sms-behavior.md
-      - name: Common alert schema
+      - name: Common schema for alerts
         href: alerts/alerts-common-schema.md
-      - name: Common alert schema definition
-        href: alerts/alerts-common-schema-definitions.md
       - name: Common alert schema definition for Test action group
         href: alerts/alerts-common-schema-test-action-definitions.md
       - name: Configure the schema to get activity log alerts
