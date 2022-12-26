@@ -25,7 +25,7 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 ## Schema overview
 
 The main fields of an audit event are:
-- The object, which may be, for examplem a managed resource or policy rule, that the event focuses on, represented by the field [Object](#object). The field [ObjectType](#objecttype) specifies the type of the object.
+- The object, which may be, for example a managed resource or policy rule, that the event focuses on, represented by the field [Object](#object). The field [ObjectType](#objecttype) specifies the type of the object.
 - The application context of the object, represented by the field [TargetAppName](#targetappname), which is aliased by [Application](#application).
 - The operation performed on the object, represented by the fields [EventType](#eventtype) and [Operation](#operation). While [Operation](#operation) is the value the source reported, [EventType](#eventtype) is a normalized version, that is more consistent across sources.
 - The old and new values for the object, if applicable, represented by [OldValue](#oldvalue) and [NewValue](#newvalue) respectively.
