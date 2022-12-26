@@ -47,7 +47,7 @@ This model defines a name and a unique ID for the patient room, and properties t
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
 > [!NOTE]
-> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
+> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Service-specific DTDL notes](concepts-models.md#service-specific-dtdl-notes).
 
 ### Validate syntax
 
@@ -57,7 +57,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true):
+When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 

@@ -26,7 +26,7 @@ In this article, you'll learn how to:
 
 - For preview features, ensure that your subscription is allowlisted for the target region.
 
-- DevTest Labs doesn't store them nor expose passwords from the exported ARM template. You will need to know the passwords/secrets for:
+- DevTest Labs doesn't store or expose passwords from the exported ARM template. You will need to know the passwords/secrets for:
 
   - the VMs
   - the Stored Secrets

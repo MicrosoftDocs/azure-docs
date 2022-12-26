@@ -9,14 +9,14 @@ zone_pivot_groups: anomaly-detector-quickstart-multivariate
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 10/27/2022
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
 ms.devlang: csharp, java, javascript, python
 ms.custom: mode-api
 ---
 
-# Quickstart: Use the Anomaly Detector multivariate client library
+# Quickstart: Use the Multivariate Anomaly Detector client library
 
 ::: zone pivot="programming-language-csharp"
 

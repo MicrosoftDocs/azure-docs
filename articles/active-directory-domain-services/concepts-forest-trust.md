@@ -3,7 +3,7 @@ title: How trusts work for Azure AD Domain Services | Microsoft Docs
 description: Learn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services

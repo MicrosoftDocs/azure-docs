@@ -27,6 +27,8 @@ Object replication requires that blob versioning is enabled for both the source 
 
 To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
+Object replication is not yet supported in accounts that have a hierarchical namespace enabled.
+
 ## Configure object replication with access to both storage accounts
 
 If you have access to both the source and destination storage accounts, then you can configure the object replication policy on both accounts. The following examples show how to configure object replication with the Azure portal, PowerShell, or Azure CLI.

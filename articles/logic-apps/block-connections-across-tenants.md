@@ -1,15 +1,15 @@
 ---
-title: Block access from other tenants
-description: Block connections shared by other tenants in Azure Logic Apps.
+title: Block access to and from other tenants
+description: Block connections between your tenant and other Azure Active Directory (Azure AD) tenants in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/01/2022
-# Customer intent: As a developer, I want to prevent shared connections with other Azure Active Directory tenants.
+# Customer intent: As a developer, I want to prevent access to and from other Azure Active Directory tenants.
 ---
 
-# Block connections shared from other tenants in Azure Logic Apps (Preview)
+# Block connections to and from other tenants in Azure Logic Apps (Preview)
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
@@ -45,7 +45,7 @@ As a security measure to prevent this scenario, you can block access to and from
     
     - The choice whether to allow inbound connections to your tenant from each allowed tenant.
 
-    - The choice whether to allow inbound connections from your tenant to each allowed tenant.
+    - The choice whether to allow outbound connections from your tenant to each allowed tenant.
 
 - To test the tenant isolation policy, you need a second Azure AD tenant. From this tenant, you'll try connecting to and from the isolated tenant after the isolation policy takes effect.
 

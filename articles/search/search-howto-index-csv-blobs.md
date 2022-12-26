@@ -1,22 +1,22 @@
 ---
 title: Search over CSV blobs 
 titleSuffix: Azure Cognitive Search
-description: Extract and import CSV from Azure Blob Storage using the delimitedText parsing mode.
+description: Extract CSV blobs from Azure Blob Storage and import as search documents into Azure Cognitive Search using the delimitedText parsing mode.
 
 manager: nitinme
 author: HeidiSteen 
 ms.author: heidist
 
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 02/01/2021
+ms.topic: how-to
+ms.date: 10/03/2022
 ---
 
-# How to index CSV blobs and files using delimitedText parsing mode
+# Index CSV blobs and files using delimitedText parsing mode
 
 **Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
 
-In Azure Cognitive Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, `delimitedText` would result in two documents in the search index: 
+In Azure Cognitive Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, the `delimitedText` parsing mode would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags
@@ -26,7 +26,7 @@ id, datePublished, tags
 
 Without the `delimitedText` parsing mode, the entire contents of the CSV file would be treated as one search document.
 
-Whenever you are creating multiple search documents from a single blob, be sure to review [Indexing blobs to produce multiple search documents](search-howto-index-one-to-many-blobs.md) to understand how document key assignments work. The blob indexer is capable of finding or generating values that uniquely define each new document. Specifically, it can create a transitory `AzureSearch_DocumentKey` that generated when a blob is parsed into smaller parts, where the value is then used as the search document's key in the index.
+Whenever you're creating multiple search documents from a single blob, be sure to review [Indexing blobs to produce multiple search documents](search-howto-index-one-to-many-blobs.md) to understand how document key assignments work. The blob indexer is capable of finding or generating values that uniquely define each new document. Specifically, it can create a transitory `AzureSearch_DocumentKey` that generated when a blob is parsed into smaller parts, where the value is then used as the search document's key in the index.
 
 ## Setting up CSV indexing
 
@@ -57,12 +57,12 @@ You can customize the delimiter character using the `delimitedTextDelimiter` con
 > Currently, only the UTF-8 encoding is supported. If you need support for other encodings, vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
 
 > [!IMPORTANT]
-> When you use the delimited text parsing mode, Azure Cognitive Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
+> When you use the delimited text parsing mode, Azure Cognitive Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8). Otherwise, considering using [file extension filters](search-blob-storage-integration.md#controlling-which-blobs-are-indexed) to control which files are imported on each indexer run.
 >
 
 ## Request examples
 
-Putting this all together, here are the complete payload examples. 
+Putting it all together, here are the complete payload examples. 
 
 Datasource: 
 
@@ -94,4 +94,7 @@ api-key: [admin key]
 }
 ```
 
+## See also
 
++ [Index data from Blob Storage](search-howto-indexing-azure-blob-storage.md)
++ [Index data from File Storage](search-file-storage-integration.md)

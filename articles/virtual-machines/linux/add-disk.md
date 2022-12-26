@@ -2,11 +2,11 @@
 title: Add a data disk to Linux VM using the Azure CLI 
 description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 12/05/2022
 ms.author: rogarana
 ---
 
@@ -154,7 +154,7 @@ In this example, we are using the nano editor, so when you are done editing the 
 
 ### TRIM/UNMAP support for Linux in Azure
 
-Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful to inform Azure that deleted pages are no longer valid and can be discarded. This feature can save money on disks that are billed based on the amount of consumed storage, such as unmanaged standard disks and disk snapshots. Managed disks are billed based on the size of the disk and hence don't benefit.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 

@@ -4,7 +4,7 @@ description: Learn how to assign eligible owners or members of a role-assignable
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: conceptual
 ms.tgt_pltfrm: na

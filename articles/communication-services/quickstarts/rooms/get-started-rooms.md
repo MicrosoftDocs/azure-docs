@@ -6,18 +6,22 @@ services: azure-communication-services
 author: radubulboaca
 manager: mariusu
 
-ms.author: radubulboaca
-ms.date: 07/27/2022
+ms.author: antonsamson
+ms.date: 09/01/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other
-zone_pivot_groups: acs-js-csharp-java-python
+zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Create and manage a room resource
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This quickstart will help you get started with Azure Communication Services Rooms. A `room` is a server-managed communications space for a known, fixed set of participants to collaborate for a pre-determined duration. The [rooms conceptual documentation](../../concepts/rooms/room-concept.md) covers more details and use cases for `rooms`.
+
+::: zone pivot="platform-azcli"
+[!INCLUDE[Use rooms with Azure CLI](./includes/rooms-quickstart-az-cli.md)]
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Use rooms with .NET SDK](./includes/rooms-quickstart-net.md)]
@@ -28,11 +32,11 @@ This quickstart will help you get started with Azure Communication Services Room
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-python.md)]
+[!INCLUDE [Use rooms with Python SDK](./includes/rooms-quickstart-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Use rooms with Java SDK](./includes/rooms-quickstart-javascript.md)]
+[!INCLUDE [Use rooms with JavaScript SDK](./includes/rooms-quickstart-javascript.md)]
 ::: zone-end
 
 ## Object model

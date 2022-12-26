@@ -2,11 +2,11 @@
 title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: v-pgaddala
+author: ankitaduttaMSFT
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/27/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Manage the configuration server for physical server disaster recovery
@@ -254,7 +254,7 @@ Upgrade the server as follows:
    * Microsoft Azure Site Recovery Provider
    * Microsoft Azure Site Recovery Configuration Server/Process Server
    * Microsoft Azure Site Recovery Configuration Server Dependencies
-   * MySQL Server 5.5
+   * MySQL Server 5.7
 4. Run the following command from and admin command prompt.
    ```
    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration

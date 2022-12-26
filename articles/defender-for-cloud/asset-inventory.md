@@ -1,7 +1,7 @@
 ---
 title: Microsoft Defender for Cloud's asset inventory  
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
-ms.date: 11/09/2021
+ms.date: 11/14/2022
 ms.topic: how-to
 ms.author: benmansheim
 author: bmansheim
@@ -31,9 +31,9 @@ The asset management possibilities for this tool are substantial and continue to
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Free*<br>* Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
+|Pricing:|Free<br> Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) <br> <br> Software inventory is not currently supported in national clouds.|
 
 
 ## What are the key features of asset inventory?
@@ -123,7 +123,13 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
 ## Access a software inventory
 
-If you've enabled the integration with Microsoft Defender for Endpoint and enabled Microsoft Defender for Servers, you'll have access to the software inventory.
+To access the software inventory, you'll need one of the following **paid** solutions:
+
+- [Agentless machine scanning](concept-agentless-data-collection.md) from [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md).
+- [Agentless machine scanning](concept-agentless-data-collection.md) from [Defender for Servers P2](plan-defender-for-servers-select-plan.md#plan-features).
+- [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) from [Defender for Servers](defender-for-servers-introduction.md).
+
+If you've already enabled the integration with Microsoft Defender for Endpoint and enabled Microsoft Defender for Servers, you'll have access to the software inventory.
 
 :::image type="content" source="media/asset-inventory/software-inventory-filters.gif" alt-text="If you've enabled the threat and vulnerability solution, Defender for Cloud's asset inventory offers a filter to select resources by their installed software.":::
 

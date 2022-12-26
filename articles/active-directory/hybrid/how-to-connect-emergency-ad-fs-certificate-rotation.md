@@ -2,7 +2,7 @@
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -97,7 +97,7 @@ Now that you have added the first certificate and made it primary and removed th
 ## Update Azure AD with the new token-signing certificate
 Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell and then run the command `Import-Module msonline`
 
-Connect to Azure AD by running the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
+Connect to Azure AD by running the following command: `Connect-MsolService`, and then, enter your Hybrid Identity Administrator credentials.
 
 >[!Note]
 > If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace \<servername\> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.

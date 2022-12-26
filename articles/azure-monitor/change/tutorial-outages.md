@@ -6,7 +6,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
 ms.reviewer: cawa
-ms.date: 05/12/2022
+ms.date: 12/15/2022
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,21 +15,61 @@ ms.custom: devx-track-azurepowershell
 
 When issues happen, one of the first things to check is what changed in application, configuration and resources to triage and root cause issues. Change Analysis provides a centralized view of the changes in your subscriptions for up to the past 14 days to provide the history of changes for troubleshooting issues.  
 
-In this tutorial, you learn how to: 
+In this tutorial, you will: 
 
 > [!div class="checklist"]
-> * Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
-> * Troubleshoot a Web App issue using Change Analysis
+> - Clone, create, and deploy a [sample web application](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample) with a storage account.
+> - Enable Change Analysis to track changes for Azure resources and for Azure Web App configurations
+> - Troubleshoot a Web App issue using Change Analysis
 
 ## Pre-requisites
 
-An Azure Web App with a Storage account dependency. Follow instructions at [ChangeAnalysis-webapp-storage-sample](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample) if you haven't already deployed one. 
+- Install [.NET 7.0 or above](https://dotnet.microsoft.com/download). 
+- Install [the Azure CLI](/cli/azure/install-azure-cli). 
+
+## Set up the test application
+
+### Clone
+
+1. In your preferred terminal, log in to your Azure subscription.
+
+```bash
+az login
+az account set --s {azure-subscription-id}
+```
+
+1. Clone the [sample web application with storage to test Change Analysis](https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample).
+
+```bash
+git clone https://github.com/Azure-Samples/changeanalysis-webapp-storage-sample.git
+```
+
+1. Change the working directory to the project folder.
+
+```bash
+cd changeanalysis-webapp-storage-sample
+``` 
+
+### Run the PowerShell script
+
+1. Open `Publish-WebApp.ps1`.
+
+1. Edit the `SUBSCRIPTION_ID` and `LOCATION` environment variables.
+
+   | Environment variable | Description |
+   | -------------------- | ----------- | 
+   | `SUBSCRIPTION_ID`    | Your Azure subscription ID. |
+   | `LOCATION`           | The location of the resource group where you'd like to deploy the sample application. |
+
+1. Run the script from the `./changeanalysis-webapp-storage-sample` directory.
+
+```bash
+./Publish-WebApp.ps1
+```
 
 ## Enable Change Analysis
 
-In the Azure portal, navigate to theChange Analysis service home page.  
-
-If this is your first time using Change Analysis service, the page may take up to a few minutes to register the `Microsoft.ChangeAnalysis` resource provider in your selected subscriptions.
+In the Azure portal, [navigate to the Change Analysis standalone UI](./change-analysis-visualizations.md). Page loading may take a few minutes as the `Microsoft.ChangeAnalysis` resource provider is registered. 
 
 :::image type="content" source="./media/change-analysis/change-analysis-blade.png" alt-text="Screenshot of Change Analysis in Azure portal.":::
 
@@ -62,14 +102,14 @@ In the Azure portal, navigate to the Change Analysis overview page. Since you've
 
 :::image type="content" source="./media/change-analysis/entry-of-outage.png" alt-text="Screenshot of outage entry on the Change Analysis pane.":::
 
-Since the connection string is a secret value, we hide this on the overview page for security purposes. With sufficient permission to read the web app, you can select the change to view details around the old and new values: 
+Since the connection string is a secret value, we hide it on the overview page for security purposes. With sufficient permission to read the web app, you can select the change to view details around the old and new values: 
 
 :::image type="content" source="./media/change-analysis/view-change-details.png" alt-text="Screenshot of viewing change details for troubleshooting.":::
 
-The change details blade also shows important information, including who made the change. 
+The change details pane also shows important information, including who made the change. 
 
 Now that you've discovered the web app in-guest change and understand next steps, you can proceed with troubleshooting the issue. 
 
 ## Next steps
 
-Learn more about [Change Analysis](./change-analysis.md). 
+Learn more about [Change Analysis](./change-analysis.md).

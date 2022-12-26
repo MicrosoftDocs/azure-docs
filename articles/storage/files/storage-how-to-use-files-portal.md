@@ -4,25 +4,28 @@ description: Learn how to create and use Azure file shares with the Azure portal
 author: khdownie
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/05/2022
+ms.date: 10/24/2022
 ms.author: kendownie
 ms.subservice: files
-ms.custom: mode-ui, devx-track-azurecli 
+ms.custom: engagement-fy23, mode-ui, devx-track-azurecli 
 ms.devlang: azurecli
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure Files so I can determine whether I want to subscribe to the service.
 ---
 
 # Quickstart: Create and use an Azure file share
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted in Windows, Linux, and macOS. This guide shows you how to create an SMB Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell module.
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. You can mount Azure file shares in Windows, Linux, and macOS operating systems. This article shows you how to create an SMB Azure file share using either the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Applies to
+
+This Quickstart only applies to SMB Azure file shares. Standard and premium SMB file shares support locally redundant storage (LRS) and zone-redundant storage (ZRS). Standard file shares also support geo-redundant storage (GRS) and geo-zone-redundant storage (GZRS) options. For more information, see [Azure Storage redundancy](../common/storage-redundancy.md).
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-## Pre-requisites
+## Getting started
 
 # [Portal](#tab/azure-portal)
 
@@ -34,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you'd like to install and use PowerShell locally, this guide requires the Azure PowerShell module Az version 7.0.0 or later. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
+If you'd like to install and use PowerShell locally, you'll need the Azure PowerShell module Az version 7.0.0 or later. We recommend installing the latest available version. To find out which version of the Azure PowerShell module you're running, execute `Get-InstalledModule Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Login-AzAccount` to log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID, such as `Login-AzAccount -TenantId <TenantId>`.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -42,7 +45,7 @@ If you'd like to install and use PowerShell locally, this guide requires the Azu
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- By default, Azure CLI commands return JavaScript Object Notation (JSON). JSON is the standard way to send and receive messages from REST APIs. To facilitate working with JSON responses, some of the examples in this article use the *query* parameter on Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) to parse JSON. To learn more about how to use the results of Azure CLI commands by following the JMESPath query language, see the [JMESPath tutorial](http://jmespath.org/tutorial.html).
+- By default, Azure CLI commands return JavaScript Object Notation (JSON), which is the standard way to send and receive messages from REST APIs. To facilitate working with JSON responses, some of the examples in this article use the *query* parameter on Azure CLI commands. This parameter uses the [JMESPath query language](http://jmespath.org/) to parse JSON. To learn more about how to use the results of Azure CLI commands by following the JMESPath query language, see the [JMESPath tutorial](http://jmespath.org/tutorial.html).
 
 ---
 
@@ -138,7 +141,7 @@ To create an Azure file share:
 	
     ![A screenshot of the data storage section of the storage account; select file shares.](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-1. On the menu at the top of the **File service** page, click **+ File share**. The **New file share** page drops down.
+1. On the menu at the top of the **File service** page, select **+ File share**. The **New file share** page drops down.
 1. In **Name** type *myshare*. Leave **Transaction optimized** selected for **Tier**.
 1. Select **Create** to create the Azure file share.
 
@@ -184,7 +187,7 @@ To create a new directory named *myDirectory* at the root of your Azure file sha
 
 1. On the **File share settings** page, select the **myshare** file share. The page for your file share opens, indicating *no files found*.
 1. On the menu at the top of the page, select **+ Add directory**. The **New directory** page drops down.
-1. Type *myDirectory* and then click **OK**.
+1. Type *myDirectory* and then select **OK**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -217,7 +220,7 @@ az storage directory create \
 # [Portal](#tab/azure-portal)
 
 
-To demonstrate uploading a file, you first need to create or select a file to be uploaded. You may do this by whatever means you see fit. Once you've decided on the file you would like to upload:
+First, you need to create or select a file to upload. Do this by whatever means you see fit. When you've decided on the file you'd like to upload, follow these steps:
 
 1. Select the **myDirectory** directory. The **myDirectory** panel opens.
 1. In the menu at the top, select **Upload**. The **Upload files** panel opens.  
@@ -226,7 +229,7 @@ To demonstrate uploading a file, you first need to create or select a file to be
 
 1. Select the folder icon to open a window to browse your local files. 
 1. Select a file and then select **Open**. 
-1. In the **Upload files** page, verify the file name and then select **Upload**.
+1. In the **Upload files** page, verify the file name, and then select **Upload**.
 1. When finished, the file should appear in the list on the **myDirectory** page.
 
 # [PowerShell](#tab/azure-powershell)
@@ -250,7 +253,7 @@ Set-AzStorageFileContent `
 
 If you're running PowerShell locally, substitute `~/CloudDrive/` with a path that exists on your machine.
 
-After uploading the file, you can use [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet to check to make sure that the file was uploaded to your Azure file share. 
+After uploading the file, you can use the [Get-AzStorageFile](/powershell/module/Az.Storage/Get-AzStorageFile) cmdlet to check to make sure that the file was uploaded to your Azure file share. 
 
 ```azurepowershell-interactive
 Get-AzStorageFile `
@@ -316,7 +319,7 @@ Get-AzStorageFileContent `
     -Destination "SampleDownload.txt"
 ```
 
-After downloading the file, you can use the `Get-ChildItem` to see that the file has been downloaded to your PowerShell Cloud Shell's scratch drive.
+After downloading the file, you can use the `Get-ChildItem` cmdlet to see that the file has been downloaded to your PowerShell Cloud Shell's scratch drive.
 
 ```azurepowershell-interactive
 Get-ChildItem | Where-Object { $_.Name -eq "SampleDownload.txt" }
@@ -348,7 +351,7 @@ az storage file download \
 
 # [PowerShell](#tab/azure-powershell)
 
-When you are done, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group and all resources contained in the resource group. 
+When you're done, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to delete the resource group and all resources contained in the resource group. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
@@ -356,7 +359,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-When you are done, you can use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group: 
+When you're done, you can use the [`az group delete`](/cli/azure/group) command to delete the resource group and all resources contained in the resource group: 
 
 ```azurecli-interactive 
 az group delete --name $resourceGroupName

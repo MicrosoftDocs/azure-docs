@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 09/21/2022
 ms.author: cherylmc
 
 ---
@@ -19,11 +19,18 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 
 * Point-to-site users connecting to a virtual network gateway can use ExpressRoute (via the Site-to-Site tunnel) to access on-premises resources.
 
-* It is possible to deploy Site-to-Site VPN connections over ExpressRoute private peering at the same time as Site-to-Site VPN connections via the Internet on the same VPN gateway.
+* It's possible to deploy Site-to-Site VPN connections over ExpressRoute private peering at the same time as Site-to-Site VPN connections via the Internet on the same VPN gateway.
 
->[!NOTE]
->This feature is supported on gateways with a Standard Public IP only.
->
+This feature is available for the following SKUs:
+
+* VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5 with standard public IP with no zones
+* VpnGw1AZ, VpnGw2AZ, VpnGw3AZ, VpnGw4AZ, VpnGw5AZ with standard public IP with one or more zones
+
+  >[!NOTE]
+  >This feature is supported on gateways with a standard public IP only.
+  >
+
+## Prerequisites
 
 To complete this configuration, verify that you meet the following prerequisites:
 
@@ -94,7 +101,7 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -EnablePrivateIpAddress $true
    ```
 
-   You should see a public and a private IP address. Write down the IP address under the “TunnelIpAddresses” section of the output. You will use this information in a later step.
+   You should see a public and a private IP address. Write down the IP address under the “TunnelIpAddresses” section of the output. You'll use this information in a later step.
 1. Set the connection to use the private IP address by using the following PowerShell command:
 
    ```azurepowershell-interactive

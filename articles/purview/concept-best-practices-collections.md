@@ -6,12 +6,12 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 09/13/2022
 ---
 
 # Microsoft Purview collections architectures and best practices  
 
-At the core of Microsoft Purview, the data map is a platform as a service (PaaS) component that keeps an up-to-date map of assets and their metadata across your data estate. To hydrate the data map, you need to register and scan your data sources. In an organization, there might be thousands of sources of data that are managed and governed by either centralized or decentralized teams.  
+At the core of [Microsoft Purview unified data governance solutions](/purview/purview#microsoft-purview-unified-data-governance-solutions), the data map is a platform as a service (PaaS) component that keeps an up-to-date map of assets and their metadata across your data estate. To hydrate the data map, you need to register and scan your data sources. In an organization, there might be thousands of sources of data that are managed and governed by either centralized or decentralized teams.  
 
 [Collections](./how-to-create-and-manage-collections.md) in Microsoft Purview support organizational mapping of metadata. By using collections, you can manage and maintain data sources, scans, and assets in a hierarchy instead of a flat structure. Collections allow you to build a custom hierarchical model of your data landscape based on how your organization plans to use Microsoft Purview to govern your landscape.
 
@@ -42,7 +42,9 @@ Consider deploying collections in Microsoft Purview to fulfill the following req
 
 - Consider security and access management as part of your design decision-making process when you build collections in Microsoft Purview. 
 
-- Each collection has a name attribute and a friendly name attribute. If you use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+- Each collection has a name attribute and a friendly name attribute. If you use [the Microsoft Purview governance portal](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.
+
+- Currently, a collection name can contain up to 36 characters and a collection friendly name can have up to 100 characters.
 
 - When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
 

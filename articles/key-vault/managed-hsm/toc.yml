@@ -13,7 +13,8 @@ items:
     href: quick-create-cli.md
   - name: PowerShell
     href: quick-create-powershell.md
-  - name: Azure Resource Manager template
+  - name: ARM template
+    displayName: Resource Manager
     href: quick-create-template.md
 
 - name: Tutorials 
@@ -28,7 +29,7 @@ items:
     href: private-link.md
   - name: Set up logging for managed HSM
     href: logging.md
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: key-rotation.md
   - name: Disaster recovery
     href: disaster-recovery-guide.md
@@ -38,6 +39,8 @@ items:
     href: backup-restore.md
   - name: Recovery management with soft-delete and purge protection
     href: recovery.md
+  - name: Enable Multi-Region Replication on Managed HSM (Preview)
+    href: multi-region-replication.md 
 
 
 - name: Concepts 
@@ -59,6 +62,8 @@ items:
   items:
   - name: Secure key release policy grammar 
     href: policy-grammar.md
+  - name: Key management in Azure
+    href: ../../security/fundamentals/key-management.md
   - name: Azure PowerShell
     href: /powershell/azure#key_vault
   - name: Azure CLI
@@ -81,8 +86,8 @@ items:
   items:
   - name: Third party solutions
     href: third-party-solutions.md
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-key-vault
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability

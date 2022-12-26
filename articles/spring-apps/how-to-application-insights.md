@@ -15,7 +15,7 @@ zone_pivot_groups: spring-apps-tier-selection
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard tier ❌️ Enterprise tier
 
 This article explains how to monitor applications by using the Application Insights Java agent in Azure Spring Apps.
 
@@ -46,34 +46,34 @@ When the **Application Insights** feature is enabled, you can:
 * In the left navigation pane, select **Application Insights** to view the **Overview** page of Application Insights. The **Overview** page will show you an overview of all running applications.
 * Select **Application Map** to see the status of calls between applications.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-map.png" alt-text="Screenshot of Azure portal Application Insights with Application map page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-map.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-map.png" alt-text="Screenshot of Azure portal Application Insights with Application map page showing." lightbox="media/how-to-application-insights/insights-process-agent-map.png":::
 
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
 * In the left navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-performance.png" alt-text="Screenshot of Azure portal Application Insights with Performance page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-performance.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-performance.png" alt-text="Screenshot of Azure portal Application Insights with Performance page showing." lightbox="media/how-to-application-insights/insights-process-agent-performance.png":::
 
 * In the left navigation pane, select **Failures** to see any unexpected failures or exceptions from your applications.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of Azure portal Application Insights with Failures page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-failures.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-failures.png" alt-text="Screenshot of Azure portal Application Insights with Failures page showing." lightbox="media/how-to-application-insights/insights-process-agent-failures.png":::
 
 * In the left navigation pane, select **Metrics** and select the namespace, you'll see both Spring Boot metrics and custom metrics, if any.
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Metrics page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-metrics.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Metrics page showing." lightbox="media/how-to-application-insights/insights-process-agent-metrics.png":::
 
 * In the left navigation pane, select **Live Metrics** to see the real-time metrics for different dimensions.
 
-   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Live Metrics page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-live-metrics.png":::
+   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-live-metrics.png" alt-text="Screenshot of Azure portal Application Insights with Live Metrics page showing." lightbox="media/how-to-application-insights/petclinic-microservices-live-metrics.png":::
 
 * In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
 
-   :::image type="content" source="media/spring-cloud-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of Azure portal Application Insights with Availability page showing." lightbox="media/spring-cloud-application-insights/petclinic-microservices-availability.png":::
+   :::image type="content" source="media/how-to-application-insights/petclinic-microservices-availability.png" alt-text="Screenshot of Azure portal Application Insights with Availability page showing." lightbox="media/how-to-application-insights/petclinic-microservices-availability.png":::
 
 * In the left navigation pane, select **Logs** to view all applications' logs, or one application's logs when filtering by `cloud_RoleName`.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of Azure portal Application Insights with Logs page showing." lightbox="media/enterprise/how-to-application-insights/application-insights-application-logs.png":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-application-logs.png" alt-text="Screenshot of Azure portal Application Insights with Logs page showing." lightbox="media/how-to-application-insights/application-insights-application-logs.png":::
 
 ## Manage Application Insights using the Azure portal
 
@@ -86,7 +86,7 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select an existing instance of Application Insights or create a new one.
 1. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
-   :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/spring-cloud-application-insights/insights-process-agent.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and 'Enable Application Insights' checkbox highlighted." lightbox="media/how-to-application-insights/insights-process-agent.png":::
 
 1. Select **Save** to save the change.
 
@@ -104,7 +104,7 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Enable Application Insights by selecting **Edit binding**, or the **Unbound** hyperlink.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-binding-enable.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Edit binding' option.":::
 
 1. Edit **Application Insights** or **Sampling rate**, then select **Save**.
 
@@ -113,13 +113,13 @@ You can use the Portal to check or update the current settings in Application In
 1. Select **Application Insights**.
 1. Select **Unbind binding** to disable Application Insights.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-unbind-binding.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing and drop-down menu visible with 'Unbind binding' option.":::
 
 ### Change Application Insights Settings
 
 Select the name under the *Application Insights* column to open the Application Insights section.
 
-:::image type="content" source="media/enterprise/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing.":::
+:::image type="content" source="media/how-to-application-insights/application-insights-change-settings.png" alt-text="Screenshot of Azure portal Azure Spring Apps instance with Application Insights page showing.":::
 
 ### Edit Application Insights buildpack bindings in Build Service
 
@@ -133,11 +133,11 @@ Application Insights settings are found in the *ApplicationInsights* item listed
 
 1. Select the **Bound** hyperlink, or select **Edit Binding** under the ellipse, to open and edit the Application Insights buildpack bindings.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-builder-settings.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-builder-settings.png" alt-text="Screenshot of Azure portal 'Edit bindings for default builder' pane.":::
 
 1. Edit the binding settings, then select **Save**.
 
-   :::image type="content" source="media/enterprise/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane.":::
+   :::image type="content" source="media/how-to-application-insights/application-insights-edit-binding.png" alt-text="Screenshot of Azure portal 'Edit binding' pane.":::
 
 ::: zone-end
 

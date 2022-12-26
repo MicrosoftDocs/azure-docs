@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/13/2022 #Required; mm/dd/yyyy format.
+  ms.date: 11/03/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -32,8 +32,8 @@ landingContent:
             url: whats-new.md
       - linkListType: learn
         links:
-          - text: Microsoft Learn
-            url: /learn/modules/classify-images-custom-vision/
+          - text: Microsoft Learn training
+            url: /training/modules/classify-images-custom-vision/
       - linkListType: video
         links:
           - text: Train and identify unique images

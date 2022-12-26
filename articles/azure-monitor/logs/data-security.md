@@ -178,9 +178,9 @@ You can use these additional security features to further secure your Azure Moni
 
 ## Tamper-proofing and immutability 
 
-Azure Monitor is an append-only data platform that includes provisions to delete data for compliance purposes. [Set a lock on your Log Analytics workspace](../../azure-resource-manager/management/lock-resources.md) to block all activities that could delete data: purge, table delete, and table- or workspace-level data retention changes. 
+Azure Monitor is an append-only data platform, but includes provisions to delete data for compliance purposes. You can [set a lock on your Log Analytics workspace](../../azure-resource-manager/management/lock-resources.md) to block all activities that could delete data: purge, table delete, and table- or workspace-level data retention changes. However, this lock can still be removed. 
 
-To tamper-proof your monitoring solution, we recommend you [export data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
+To fully tamper-proof your monitoring solution, we recommend you [export your data to an immutable storage solution](../../storage/blobs/immutable-storage-overview.md).
 
 
 ## Next steps

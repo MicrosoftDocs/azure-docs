@@ -7,8 +7,8 @@ metadata:
   ms.author: franlanglois
   ms.service: cache
   ms.topic: faq
-  ms.date: 04/12/2022
-  
+  ms.date: 09/29/2022
+
 title: Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.
@@ -41,25 +41,14 @@ sections:
 
       - question: How do I know if a cache is affected? 
         answer: |
-          Affected caches fit into one of three groups: 
+          Please check Azure Advisor Recommendations. If your cache is affected, you see a recommendation in your subscription. 
 
-          - Caches using Classic Virtual Network (VNet) injection
+          :::image type="content" source="media/cache-faq/cache-advisor-upgrade.png" alt-text="Screenshot that Advisor recommendation to migrate cache from cloud services.":::
 
-             Any cache injected into a Classic VNet defaults to being built on Cloud Services.
 
-          - Caches in an Azure Resource Manager (ARM) VNet subnet that once contained a Cloud Services-based cache. 
-            
-             Once a Cloud Services-based cache is contained in a VNet subnet, all other caches in that subnet must also rely on Cloud Services 
-
-          -  Caches using geo-replication that were once replicated with a cache built on Cloud Services. 
-          
-               This case is rare, but there are a few caches that are use Cloud Services because they were originally geo-replicated with a Cloud Services-based cache.  
-        
-          Emails will go out to customers identifying the specific subscriptions and cache names affected. If you’d like to confirm whether your cache is affected, send an email to [azurecachemigration@microsoft.com](mailto:azurecachemigration@microsoft.com). 
-     
-      - question: What is the solution? 
+      - question: How do I migrate Cloud Services (classic) caches to Azure Virtual Machine Scale Sets? 
         answer: |
-          We have migrated most  caches from being built on Cloud Services (class) to being built on virtual machine scale sets. Migrating to virtual machine scale sets removes the dependency. There are two ways to initiate this process for caches in a VNet: 
+          We have migrated most  caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. Migrating to Azure Virtual Machine Scale Sets removes the dependency. There are two ways to initiate this process for caches in a VNet: 
 
           - Migrate to a new cache using Private Links (recommended). 
 
@@ -67,7 +56,7 @@ sections:
             
           - Migrate to a new cache in a new Azure Resource Manager VNet subnet.  
 
-             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We have migrated most caches from being built on Cloud Services (class) to being built on virtual machine scale sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
+             This option will fix the underlying dependency on Cloud Services while maintaining a similar VNet experience. We have migrated most caches from being built on Cloud Services (class) to being built on Azure Virtual Machine Scale Sets. To migrate, delete the existing cache and create a new cache in a new Azure Resource Manager VNet subnet. For recommended options for migrating the data in the cache, see [Migrate to Azure Cache for Redis](cache-migration-guide.md).  
 
       - question: My cache isn't using VNet injection, but I received notice that I need to migrate. What should I do? 
         answer: |

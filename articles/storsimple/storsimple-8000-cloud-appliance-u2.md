@@ -12,13 +12,13 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Deploy and manage a StorSimple Cloud Appliance in Azure (Update 3 and later)
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

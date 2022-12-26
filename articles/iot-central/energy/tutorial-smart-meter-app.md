@@ -23,8 +23,7 @@ App's key functionalities:
 - Built-in visualization and dashboards
 - Extensibility for custom solution development
 
-
-:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="Diagram of smart meter application architecture." border="false":::
 
 This architecture consists of the following components. Some solutions may not require every component listed here.
 
@@ -42,20 +41,19 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 
 In this tutorial, you learn how to:
 
-- Create the Smart Meter App for free
+- Create the smart meter app
 - Application walk-through
 - Clean up resources
 
 ## Prerequisites
 
-* There are no specific prerequisites required to deploy this app.
-* You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a smart meter monitoring application
 
 1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Energy** tab:
 
-    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-build.png" alt-text="Smart meter template":::
+    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-build.png" alt-text="Screenshot showing the Azure IoT Central build site with the energy app templates.":::
 
 1. Select **Create app** under **Smart meter monitoring**.
 
@@ -78,32 +76,31 @@ Adatum is a fictitious energy company, who monitors and manages smart meters. On
 * Track the total energy consumption for planning and billing purposes.
 * Command and control operations such as reconnect meter and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
-:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Smart meter monitoring dashboard.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png" alt-text="Screenshot showing the smart meter monitoring dashboard." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png":::
 
 ### Devices
 
 The app comes with a sample smart meter device. You can see the device details by clicking on the **Devices** tab.
 
-:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Smart meter devices.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-devices.png" alt-text="Screenshot showing the smart meter devices." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-devices.png":::
 
 Click on the sample device **SM0123456789** link to see the device details. You can update the writable properties of the device on the **Update Properties** page, and visualize the updated values on the dashboard.
 
-:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png" alt-text="Smart meter properties.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png" alt-text="Screenshot showing the smart meter device properties." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-device-properties.png":::
 
 ### Device Template
 
 Click on the **Device templates** tab to see the smart meter device model. The model has pre-define interface for Data, Property, Commands, and Views.
 
-:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="Smart meter device templates.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png" alt-text="Screenshot showing the smart meter device template." lightbox="media/tutorial-iot-central-smart-meter/smart-meter-device-template.png":::
+
+## Customize your application
+
+[!INCLUDE [iot-central-customize-appearance](../../../includes/iot-central-customize-appearance.md)]
 
 ## Clean up resources
 
-If you decide to not continue using this application, delete your application with the following these steps:
-
-1. From the left pane, open the **Application** tab.
-1. Select **Management** and then the **Delete** button.
-
-    :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Delete application.":::
+[!INCLUDE [iot-central-clean-up-resources-industry](../../../includes/iot-central-clean-up-resources-industry.md)]
 
 ## Next steps
 

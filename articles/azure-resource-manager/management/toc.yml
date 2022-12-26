@@ -22,6 +22,8 @@
     href: resources-without-resource-group-limit.md
   - name: Security
     items:
+    - name: TLS support
+      href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
     - name: Security controls by Azure Policy
@@ -196,8 +198,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-resource-manager
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-resource-manager
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=monitoring-management
   - name: Pricing calculator

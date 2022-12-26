@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 04/27/2022
+ms.date: 08/20/2022
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
 

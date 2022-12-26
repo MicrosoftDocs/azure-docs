@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.date: 05/24/2022 #Required; mm/dd/yyyy format.
+  ms.date: 08/09/2022 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -43,10 +43,16 @@ landingContent:
             url: ../index.yml
           - text: Azure Synapse SQL architecture
             url: ../sql/overview-architecture.md
+          - text: Cloud Adoption Framework guidance
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-overview
       - linkListType: reference
         links: 
           - text: "Customer story: Co-op"
             url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
+          - text: "Customer story: Neogrid"
+            url: https://customers.microsoft.com/en-GB/story/816187-neogrid-professional-services-azure-synapse-analytics
+          - text: "Customer story: Walgreens"
+            url: https://customers.microsoft.com/en-us/story/778746-walgreens-retailers-azure-analytics
       - linkListType: deploy
         links:
           - text: "Preferred migration accelerator: Next Pathway"
@@ -69,6 +75,8 @@ landingContent:
             url: netezza/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: netezza/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza
   - title: From Teradata
     linkLists: 
       - linkListType: overview
@@ -87,3 +95,26 @@ landingContent:
             url: teradata/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: teradata/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata            
+  - title: From Oracle
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: 1. Design and performance for Oracle migrations
+            url: oracle/1-design-performance-migration.md
+          - text: 2. ETL and load migration considerations
+            url: oracle/2-etl-load-migration-considerations.md     
+          - text: 3. Security access operations
+            url: oracle/3-security-access-operations.md
+          - text: 4. Visualization and reporting
+            url: oracle/4-visualization-reporting.md
+          - text: 5. Minimize SQL issues
+            url: oracle/5-minimize-sql-issues.md
+          - text: 6. Microsoft and third-party migration tools
+            url: oracle/6-microsoft-third-party-migration-tools.md
+          - text: 7. Beyond migration implementation 
+            url: oracle/7-beyond-data-warehouse-migration.md
+          - text: "Cloud adoption framework: Migration solutions"
+            url: /azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata            
+

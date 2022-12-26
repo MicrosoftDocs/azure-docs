@@ -2,8 +2,8 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/16/2022
-ms.custom: devx-track-azurepowershell
+ms.date: 09/09/2022
+ms.custom: devx-track-azurepowershell, ignite-2022
 ---
 
 # Resource functions for ARM templates
@@ -173,9 +173,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2022-05-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2022-05-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/domains/list-shared-access-keys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2022-06-15/topics/list-shared-access-keys) |
@@ -201,9 +201,9 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2022-05-01/compute/list-keys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2022-05-01/compute/list-nodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2022-05-01/workspaces/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/2022-10-01/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/2022-10-01/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/2022-10-01/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -398,7 +398,7 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
+Azure Cosmos DB isn't a zonal resource, but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 
@@ -477,7 +477,7 @@ Use `'Full'` when you need resource values that aren't part of the properties sc
 
 ### Valid uses
 
-The `reference` function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
+The `reference` function can only be used in the outputs section of a template or deployment and properties object of a resource definition. It cannot be used for resource properties such as `type`, `name`, `location` and other top level properties of the resource definition. When used with [property iteration](copy-properties.md), you can use the `reference` function for `input` because the expression is assigned to the resource property.
 
 You can't use the `reference` function to set the value of the `count` property in a copy loop. You can use to set other properties in the loop. Reference is blocked for the count property because that property must be determined before the `reference` function is resolved.
 

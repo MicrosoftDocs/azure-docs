@@ -4,7 +4,7 @@ description: Learn how to view the audit log history for Azure AD roles in Azure
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to

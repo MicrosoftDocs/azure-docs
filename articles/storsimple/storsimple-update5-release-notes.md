@@ -5,11 +5,13 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 5 release notes
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

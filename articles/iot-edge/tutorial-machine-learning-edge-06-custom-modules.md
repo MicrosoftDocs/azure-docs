@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create and deploy custom modules - Machine Learning on Azure IoT Edge'
-description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from leaf devices through a machine learning model and then send the insights to IoT Hub.'
+description: 'This tutorial shows how to create and deploy IoT Edge modules that process data from downstream devices through a machine learning model and then send the insights to IoT Hub.'
 author: PatAltimore
 
 ms.author: patricka
@@ -9,21 +9,22 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: devx-track-csharp
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
-In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
+In this article, we create three IoT Edge modules that receive messages from downstream IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
 
 We want the IoT Edge device to accomplish four things for us:
 
-* Receive data from the leaf devices.
+* Receive data from the downstream devices.
 * Predict the remaining useful life (RUL) for the device that sent the data.
 * Send a message with the RUL for the device to IoT Hub. This function could be modified to send data only if the RUL drops below a specified level.
-* Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub to refine the training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
+* Save the downstream device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub to refine the training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
 
 To accomplish these tasks, we use three custom modules:
 
@@ -31,10 +32,10 @@ To accomplish these tasks, we use three custom modules:
 
 * **Avro writer:** This module receives messages on the "avroModuleInput" input and persists the message in Avro format to disk for later upload to IoT Hub.
 
-* **Router Module:** The router module receives messages from downstream leaf devices, then formats and sends the messages to the classifier. The module then receives the messages from the classifier and forwards the message onto the Avro writer module. Finally, the module sends just the RUL prediction to the IoT Hub.
+* **Router Module:** The router module receives messages from downstream devices, then formats and sends the messages to the classifier. The module then receives the messages from the classifier and forwards the message onto the Avro writer module. Finally, the module sends just the RUL prediction to the IoT Hub.
 
   * Inputs:
-    * **deviceInput**: receives messages from leaf devices
+    * **deviceInput**: receives messages from downstream devices
     * **rulInput:** receives messages from the "amlOutput"
 
   * Outputs:
@@ -65,7 +66,7 @@ This article is part of a series for a tutorial about using Azure Machine Learni
 
 During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module.
 
-In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+In this step, we are going to create an Azure IoT Edge solution using the "Azure Machine Learning" module and point the module to the image we published using Azure Notebooks.
 
 1. Open a remote desktop session to your development VM.
 
@@ -154,7 +155,7 @@ In this step, we are going to create an Azure IoT Edge solution using the “Azu
 
 Next, we add the Router module to our solution. The Router module handles several responsibilities for our solution:
 
-* **Receive messages from leaf devices:** as messages arrive to the IoT Edge device from downstream devices, the Router module receives the message and begins orchestrating the routing of the message.
+* **Receive messages from downstream devices:** as messages arrive to the IoT Edge device from downstream devices, the Router module receives the message and begins orchestrating the routing of the message.
 * **Send messages to the RUL Classifier module:** when a new message is received from a downstream device, the Router module transforms the message to the format that the RUL Classifier expects. The Router sends the message to the RUL Classifier for a RUL prediction. Once the classifier has made a prediction, it sends the message back to the Router module.
 * **Send RUL messages to IoT Hub:** when the Router receives messages from the classifier, it transforms the message to contain only the essential information, device ID and RUL, and sends the abbreviated message to the IoT hub. A further refinement, which we have not done here, would send messages to the IoT Hub only when the RUL prediction falls below a threshold (for example, when the RUL is fewer than 100 cycles). Filtering in this way would reduce volume of messages and reduce cost of the IoT hub.
 * **Send message to the Avro Writer module:** to preserve all the data sent by the downstream device, the Router module sends the entire message received from the classifier to the Avro Writer module, which will persist and upload the data using IoT Hub file upload.
@@ -234,7 +235,7 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromClassifier, ClassifierCallbackMessageHandler, ioTHubModuleClient);
    ```
 
-2. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any leaf device to this input. In the *deployment.template.json* file, add a route that tells the edge hub to route any message received by the IoT Edge device that was not sent by an IoT Edge module into the input called "deviceInput" on the turbofanRouter module:
+2. The first callback listens for messages sent to the **deviceInput** sink. From the diagram above, we see that we want to route messages from any downstream device to this input. In the *deployment.template.json* file, add a route that tells the edge hub to route any message received by the IoT Edge device that was not sent by an IoT Edge module into the input called "deviceInput" on the turbofanRouter module:
 
    ```json
    "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")"
@@ -274,7 +275,7 @@ Add four additional routes to the $edgeHub route parameter, to handle outputs fr
    "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
    ```
 
-With all the routes taken together your “$edgeHub” node should look like
+With all the routes taken together your "$edgeHub" node should look like
 the following JSON:
 
 ```json
@@ -303,7 +304,7 @@ the following JSON:
 
 The Avro Writer module has two responsibilities in our solution, to store messages and upload files.
 
-* **Store messages**: when the Avro Writer module receives a message, it writes the message to the local file system in Avro format. We use a bind mount, which mounts a directory (in this case /data/avrofiles) into a path in the module’s container. This mount allows the module to write to a local path (/avrofiles) and have those files accessible directly from the IoT Edge device.
+* **Store messages**: when the Avro Writer module receives a message, it writes the message to the local file system in Avro format. We use a bind mount, which mounts a directory (in this case /data/avrofiles) into a path in the module's container. This mount allows the module to write to a local path (/avrofiles) and have those files accessible directly from the IoT Edge device.
 
 * **Upload files**: the Avro Writer module uses the Azure IoT Hub file upload feature to upload files to an Azure storage account. Once a file is successfully uploaded, the module deletes the file from disk
 
@@ -336,7 +337,7 @@ The Avro Writer module has two responsibilities in our solution, to store messag
 
 ### Bind mount for data files
 
-As mentioned previously, the writer module relies on the presence of a bind mount to write Avro files to the device’s file system.
+As mentioned previously, the writer module relies on the presence of a bind mount to write Avro files to the device's file system.
 
 #### Add directory to device
 
@@ -346,7 +347,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
    ssh -l <user>@<vm name>.<region>.cloudapp.azure.com
    ```
 
-1. After logging in, create the directory that will hold the saved leaf device messages.
+1. After logging in, create the directory that will hold the saved downstream device messages.
 
    ```bash
    sudo mkdir -p /data/avrofiles
@@ -368,7 +369,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
 
 #### Add directory to the module
 
-To add the directory to the module’s container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
+To add the directory to the module's container, we will modify the Dockerfiles associated with the avroFileWriter module. There are three Dockerfiles associated with the module: Dockerfile.amd64, Dockerfile.amd64.debug, and Dockerfile.arm32v7. These files should be kept in sync in case we wish to debug or deploy to an arm32 device. For this article, focus only on Dockerfile.amd64.
 
 1. On your development VM, open the **C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avoFileWriter\Dockerfile.amd64** file.
 
@@ -514,7 +515,7 @@ We need to add one more bind for the writer module. This bind gives the module a
 
 ## Install dependencies
 
-The writer module takes a dependency on two Python libraries, fastavro and PyYAML. We need to install the dependencies on our development machine and instruct the Docker build process to install them in our module’s image.
+The writer module takes a dependency on two Python libraries, fastavro and PyYAML. We need to install the dependencies on our development machine and instruct the Docker build process to install them in our module's image.
 
 ### PyYAML
 
@@ -582,7 +583,7 @@ By introducing the IoT Edge device and modules to the system, we have changed ou
 
 ### Set up route for RUL messages in IoT Hub
 
-With the router and classifier in place, we expect to receive regular messages containing only the device ID and the RUL prediction for the device. We want to route the RUL data to its own storage location where we can monitor the status of the devices, build reports and fire alerts as needed. At the same time, we want any device data that is still being sent directly by a leaf device that has not yet been attached to our IoT Edge device to continue to route to the current storage location.
+With the router and classifier in place, we expect to receive regular messages containing only the device ID and the RUL prediction for the device. We want to route the RUL data to its own storage location where we can monitor the status of the devices, build reports and fire alerts as needed. At the same time, we want any device data that is still being sent directly by a downstream device that has not yet been attached to our IoT Edge device to continue to route to the current storage location.
 
 #### Create a RUL message route
 
@@ -623,7 +624,7 @@ With the router and classifier in place, we expect to receive regular messages c
     }
     ```
 
-1. Select **Test route**. If the test is successful, you see “The message matched the query.”
+1. Select **Test route**. If the test is successful, you see "The message matched the query."
 
 1. Click **Save**.
 
@@ -675,7 +676,7 @@ We don't want to route the new prediction data to our old storage location, so u
    }
    ```
 
-1. Select **Test route**. If the test is successful, you see “The message matched the query.”
+1. Select **Test route**. If the test is successful, you see "The message matched the query."
 
 1. Select **Save**.
 
@@ -702,7 +703,7 @@ Now that we have made the configuration changes, we are ready to build the image
 
 * **Deployment lag:** since the IoT Edge runtime must recognize the change to its desired properties before it starts to reconfigure, it can take some amount of time after you deploy your modules until the runtime picks them up and starts to update the IoT Edge device.
 
-* **Module versions matter:** if you publish a new version of a module’s container to your container registry using the same version tags as the previous module, the runtime will not download the new version of the module. It does a comparison of the version tag of the local image and the desired image from the deployment manifest. If those versions match, the runtime takes no action. Therefore, it is important to increment the version of your module each time you wish to deploy new changes. Increment the version by changing the **version** property under the **tag** property in the module.json file for the module you are changing. Then build and publish the module.
+* **Module versions matter:** if you publish a new version of a module's container to your container registry using the same version tags as the previous module, the runtime will not download the new version of the module. It does a comparison of the version tag of the local image and the desired image from the deployment manifest. If those versions match, the runtime takes no action. Therefore, it is important to increment the version of your module each time you wish to deploy new changes. Increment the version by changing the **version** property under the **tag** property in the module.json file for the module you are changing. Then build and publish the module.
 
     ```json
     {
@@ -792,7 +793,7 @@ the device.
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-1. List all running containers. We expect to see a container for each module with a name that corresponds to the module. Also, this command lists the exact image for the container including version so you can match with your expectation. You can also list images by substituting “image” for “container” in the command.
+1. List all running containers. We expect to see a container for each module with a name that corresponds to the module. Also, this command lists the exact image for the container including version so you can match with your expectation. You can also list images by substituting "image" for "container" in the command.
 
    ```bash
    sudo docker container ls
@@ -822,7 +823,7 @@ This tutorial is part of a set where each article builds on the work done in the
 
 ## Next steps
 
-In this article, we created an IoT Edge Solution in Visual Studio Code with three modules: a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device. We modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules’ containers. 
+In this article, we created an IoT Edge Solution in Visual Studio Code with three modules: a classifier, a router, and a file writer/uploader. We set up the routes to allow the modules to communicate with each other on the edge device. We modified the configuration of the edge device, and updated the Dockerfiles to install dependencies and add bind mounts to the modules' containers. 
 
 Next, we updated the configuration of the IoT Hub to route our messages based on type and to handle file uploads. With everything in place, we deployed the modules to the IoT Edge device and ensured the modules were running correctly.
 

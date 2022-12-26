@@ -28,10 +28,10 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 
       `npm install azure-maps-rest`
 
-      Then, add a script reference to the `<head>` element of the file:
+      Then, use an import declaration to add the module into a source file:
 
-      ```html
-      <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
+      ```js
+      import * as service from "azure-maps-rest";
       ```
 
 1. Create an authentication pipeline. The pipeline must be created before you can initialize a service URL client endpoint. Use your own Azure Maps account key or Azure Active Directory (Azure AD) credentials to authenticate an Azure Maps Search service client. In this example, the Search service URL client will be created. 

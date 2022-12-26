@@ -18,20 +18,11 @@ This article shows you how to use the migration tool in the Azure portal to migr
 >[!NOTE]
 > The migration tool is in public preview.
 
-## Prerequisites
+## Getting started
 
-1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings. 
-2. Register your subscription for Azure Database Migration Service:
+1. If you're new to Microsoft Azure, [create an account](https://azure.microsoft.com/free/) to evaluate the offerings.
 
-   1. On the Azure portal, go to your subscription.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png" alt-text="Screenshot of Azure portal subscription details." lightbox="./media/concepts-single-to-flexible/single-to-flex-azure-portal.png":::
-
-   1. On the left menu, select **Resource Providers**. Search for **Microsoft.DataMigration**, and then select **Register**.
-
-      :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png" alt-text="Screenshot of the Register button for Azure Data Migration Service." lightbox="./media/concepts-single-to-flexible/single-to-flex-register-data-migration.png":::
-
-3. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#prerequisites). You need them to get started with the migration tool.
+2. Complete the prerequisites listed in [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites). It is very important to complete the prerequisite steps before you initiate a migration using this tool.
 
 ## Configure the migration task
 
@@ -83,7 +74,7 @@ Alternatively, you can initiate the migration process from the Azure Database fo
 
 ### Setup tab
 
-The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md) article. 
+The first tab is **Setup**. It has basic information about the migration and the list of prerequisites for getting started with migrations. These prerequisites are the same as the ones listed in the [Migrate from Azure Database for PostgreSQL Single Server to Flexible Server](./concepts-single-to-flexible.md#migration-prerequisites) article.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of the details belonging to Setup tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
@@ -153,6 +144,9 @@ After you choose a subnet, select the **Next** button.
 
 ### Review + create tab
 
+>[!NOTE]
+> Gentle reminder to complete the [prerequisites](./concepts-single-to-flexible.md#migration-prerequisites) before you click **Create** in case it is not yet complete.
+
 The **Review + create** tab summarizes all the details for creating the migration. Review the details and select the **Create** button to start the migration.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-review.png" alt-text="Screenshot of details to review for the migration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-review.png":::
@@ -173,7 +167,7 @@ You can use the refresh button to refresh the status of the migrations.
 
 You can also select the migration name in the grid to see the details of that migration.
 
-:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of the the migration grid containing all migrations." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
+:::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png" alt-text="Screenshot of the migration grid containing all migrations." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-grid.png":::
 
 As soon as the migration is created, the migration moves to the **InProgress** state and **PerformingPreRequisiteSteps** substate. It takes up to 10 minutes for the migration workflow to move out of this substate. The reason is that it takes time to create and deploy Database Migration Service, add the IP address on the firewall list of source and target servers, and perform maintenance tasks.
 

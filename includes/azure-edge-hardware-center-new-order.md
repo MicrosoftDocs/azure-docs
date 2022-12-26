@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 02/18/2022
+ms.date: 11/04/2022
 ms.author: alkohli
 ---
 
@@ -30,7 +30,19 @@ To place an order through the Azure Edge Hardware Center, do these steps:
 
     ![Screenshot for selecting a hardware product for an Azure Edge Hardware Center order. The Select button for a product is highlighted.](media/azure-edge-hardware-center-new-order/edge-hardware-center-new-resource-05.png)
 
-    After you select a hardware product, you'll select the device configuration to order. For example, if you chose Azure Stack Edge Pro - GPU, you can chose from Azure Stack Edge Pro - 1 GPU and Azure Stack Edge Pro - 2 GPU models. 
+    After you select a hardware product, you'll select the device configuration to order. For example, if you chose Azure Stack Edge Pro - GPU, you can choose from Azure Stack Edge Pro - 1 GPU and Azure Stack Edge Pro - 2 GPU models.
+
+    If you are placing a first-time order for Azure Stack Edge, select **Sign-up** and fill out the web form as part of the Azure Edge Hardware Center ordering experience.
+
+    The web form collects the following details about your deployment:
+   - Total deployment scale 
+   - Cluster size 
+   - Hardware requirements 
+   - Geographic presence 
+
+   Microsoft will evaluate the deployment details you provide and may contact you by email for more information. We have certain requirements in place for new customers to ensure that Azure Stack Edge is the right fit for the use case; not all requests will be fulfilled. If you have questions, you can send email to [AzureStack1Pinquiry@microsoft.com](mailto:AzureStack1Pinquiry@microsoft.com).
+
+   ![Screenshot of web form for first-time customer Azure Stack Edge hardware orders. The Sign-up button for a product is highlighted.](media/azure-edge-hardware-center-new-order/azure-edge-hardware-center-new-customer-hardware-order.png)
 
 7. Select the device configuration, and then choose **Select**. The available configurations depend on the hardware you selected. The screen below shows available configurations for Azure Stack Edge Pro - GPU devices.
 

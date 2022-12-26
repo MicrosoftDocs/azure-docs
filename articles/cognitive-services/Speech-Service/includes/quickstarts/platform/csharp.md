@@ -16,7 +16,7 @@ Code samples in the documentation are written in C# 8 and run on .NET standard 2
 
 [!INCLUDE [Requirements](csharp-requirements.md)]
 
-## Install the Speech SDK
+## Install the Speech SDK for C#
 
 The Speech SDK for C# is available as a NuGet package and implements .NET Standard 2.0. For more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech</a>.
 

@@ -229,7 +229,7 @@ var feature = new atlas.data.Feature(new atlas.data.Point([0, 0]), {
     subValue: 'Pizza'
     },
     arrayValue: [3, 4, 5, 6],
-    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg'
+    imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg'
 });
 
 var popup = new atlas.Popup({

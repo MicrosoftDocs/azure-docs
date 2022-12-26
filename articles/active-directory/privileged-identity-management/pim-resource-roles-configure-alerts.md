@@ -4,7 +4,7 @@ description: Learn how to configure security alerts for Azure resource roles in 
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na

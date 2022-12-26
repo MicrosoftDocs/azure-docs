@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 03/24/2022
+ ms.date: 09/07/2022
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -23,7 +23,7 @@ The following limits apply to Azure Event Grid **topics** (system,  custom, and 
 | Event size | 1 MB<br/>This limit can't be increased. |
 | Number of incoming events per batch | 5,000<br/>This limit can't be increased. | 
 | Private endpoint connections per topic  | 64<br/>This limit can't be increased. | 
-| IP Firewall rules per topic | 16 | 
+| IP Firewall rules per topic | 128 | 
 
 The following limits apply to Azure Event Grid **domains**. 
 
@@ -35,6 +35,6 @@ The following limits apply to Azure Event Grid **domains**.
 | Publish rate for an event domain (ingress) | 5,000 events/sec or 5 MB/sec (whichever is met first) |
 | Event Domains per Azure Subscription | 100 |
 | Private endpoint connections per domain | 64 | 
-| IP Firewall rules per domain | 16 | 
+| IP Firewall rules per domain | 128 | 
 
 

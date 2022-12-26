@@ -4,7 +4,7 @@ description: This document describes the cause of "Health service data is not up
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid

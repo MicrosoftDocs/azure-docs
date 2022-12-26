@@ -3,7 +3,7 @@ title: App consent permissions for custom roles in Azure Active Directory | Micr
 description: Preview app consent permissions for custom Azure AD roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

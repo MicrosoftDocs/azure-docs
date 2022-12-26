@@ -3,7 +3,7 @@ title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 08/15/2022
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
@@ -22,11 +22,12 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > - Autoscale doesn't support scaling of ephemeral disks.
 > - Autoscale doesn't support scaling of generalized VMs.
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
+> - Autoscale is available in Azure and Azure Government.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager (ARM) templates or first-party tools from Microsoft.
 
 >[!IMPORTANT]
->Deploying scaling plans with autoscale is currently limited to the following Azure regions:
+>Deploying scaling plans with autoscale in Azure is currently limited to the following regions:
 >
 >   - Australia East
 >   - Canada Central
@@ -34,13 +35,17 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >   - Central US
 >   - East US
 >   - East US 2
+>   - Japan East
 >   - North Central US
 >   - North Europe
 >   - South Central US
+>   - UK South
+>   - UK West
 >   - West Central US
 >   - West Europe
 >   - West US
 >   - West US 2
+>   - West US 3
 
 ## How a scaling plan works
 
@@ -57,9 +62,9 @@ Before you create your plan, keep the following things in mind:
 - Make sure you understand usage patterns before defining your schedule. You'll need to schedule around the following times of day:
 
     - Ramp-up: the start of the day, when usage picks up.
-    - Peak hours: the time of day when usage is highest.
+    - Peak hours: the time of day when usage is expected to be at its highest.
     - Ramp-down: when usage tapers off. This is usually when you shut down your VMs to save costs.
-    - Off-peak hours: the time with the lowest possible usage. You can define the maximum number of VMs that can be active during this time.
+    - Off-peak hours: the time of the day when usage is expected to be at its lowest.
 
 - The scaling plan will take effect as soon as you enable it.
 

@@ -4,7 +4,7 @@ description: Understand the body frame, joints, joint coordinates, and joint hie
 author: qm13
 ms.author: quentinm
 ms.reviewer: cedmonds, abalan
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, porting, body, tracking, joint, hierarchy, bone, connection

@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 05/04/2022
+  ms.date: 12/15/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -92,15 +92,15 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: About MedTech service
-            url: ./iot/iot-connector-overview.md
+          - text: About the MedTech service
+            url: ./iot/overview.md
       - linkListType: quickstart
         links:
-          - text: Get started with MedTech service
-            url: ./iot/get-started-with-iot.md
+          - text: Get started with the MedTech service
+            url: ./iot/get-started.md
       - linkListType: deploy
         links:
-          - text: Deploy MedTech service using portal
+          - text: Deploy the MedTech service using portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:

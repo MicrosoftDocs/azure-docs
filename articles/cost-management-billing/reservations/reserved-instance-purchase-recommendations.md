@@ -1,13 +1,13 @@
 ---
 title: Azure reservation recommendations
 description: Learn about Azure reservation recommendations.
-author: banders
+author: bandersmsft
 ms.author: banders
-ms.reviewer: yashar
+ms.reviewer: nitinarora
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 12/13/2022
 ---
 
 # Reservation recommendations
@@ -20,7 +20,8 @@ The following steps define how recommendations are calculated:
 2. Based on the usage data, the engine simulates your costs with and without reservations.
 3. The costs are simulated for different quantities, and the quantity that maximizes the savings is recommended.
 4. If your resources are shut down regularly, the simulation won't find any savings, and no purchase recommendation is provided.
-5. The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
+5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates, such as Microsoft Azure Consumption Commitment (MACC) and Azure Commitment Discount (ACD) based solely on historic usage.
+    - The recommendations don’t account for existing reservations or savings plans.
 
 ## Recommendations in the Azure portal
 

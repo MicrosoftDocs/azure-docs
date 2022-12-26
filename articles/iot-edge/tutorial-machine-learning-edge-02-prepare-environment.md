@@ -8,10 +8,11 @@ ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Set up an environment for machine learning on IoT Edge
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
@@ -39,7 +40,7 @@ The development VM will be set up with:
 * [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop)
 * [Git for Windows](https://gitforwindows.org/)
 * [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.NET Core SDK](https://dotnet.microsoft.com/)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](/powershell/azure/)

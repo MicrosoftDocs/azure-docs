@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Manage access to resources in Azure AD entitlement management
-description: Step-by-step tutorial for how to create your first access package using the Azure portal in Azure Active Directory entitlement management.
+title: Tutorial - Manage access to resources in entitlement management
+description: Step-by-step tutorial for how to create your first access package using the Azure portal in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Manage access to resources in Azure AD entitlement management
+# Tutorial: Manage access to resources in entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it's no longer needed.
 
@@ -39,11 +39,11 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management. 
+This rest of this article uses the Azure portal to configure and demonstrate entitlement management. 
 
 ## Prerequisites
 
-To use Azure AD entitlement management, you must have one of the following licenses:
+To use entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
@@ -262,7 +262,7 @@ To set up group writeback for Microsoft 365 groups in access packages, you must 
 
 - Set up group writeback in the Azure Active Directory admin center. 
 - The Organizational Unit (OU) that will be used to set up group writeback in Azure AD Connect Configuration.
-- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-v2.md#enable-group-writeback-using-azure-ad-connect) for Azure AD Connect. 
+- Complete the [group writeback enablement steps](../hybrid/how-to-connect-group-writeback-enable.md) for Azure AD Connect. 
  
 Using group writeback, you can now sync Microsoft 365 groups that are part of access packages to on-premises Active Directory. To sync the groups, follow the steps below: 
 

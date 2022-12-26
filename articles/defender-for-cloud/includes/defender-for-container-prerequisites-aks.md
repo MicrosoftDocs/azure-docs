@@ -2,9 +2,11 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/19/2022
+ms.author: benmansheim
+author: bmansheim
 ---
 
-## Network requirements - AKS
+## Network requirements
 
 Validate the following endpoints are configured for outbound access so that the Defender profile can connect to Microsoft Defender for Cloud to send security data and events:
 

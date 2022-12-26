@@ -69,7 +69,7 @@ This is a workbook with a data types over time tab:
 
 ## Replicate the View Designer overview tile
 
-In View Designer, you can use the overview tile to represent and summarize the overall state. These are presented in seven tiles, ranging from numbers to charts. In workbooks, you can create similar visualizations and pin them to your [Azure portal Dashboard](/azure/azure-portal/azure-portal-dashboards). Just like the overview tiles in the Workspace summary, pinned workbook items will link directly to the workbook view.
+In View Designer, you can use the overview tile to represent and summarize the overall state. These are presented in seven tiles, ranging from numbers to charts. In workbooks, you can create similar visualizations and pin them to your [Azure portal Dashboard](../../azure-portal/azure-portal-dashboards.md). Just like the overview tiles in the Workspace summary, pinned workbook items will link directly to the workbook view.
 
 You can also take advantage of the high level of customization features provided with Azure Dashboard, which allows auto refresh, moving, sizing, and more filtering for your pinned items and visualizations.
 

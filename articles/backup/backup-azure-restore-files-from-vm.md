@@ -1,9 +1,12 @@
 ---
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
-ms.topic: conceptual
-ms.date: 02/22/2022
+ms.topic: how-to
+ms.date: 11/04/2022
 ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Recover files from Azure virtual machine backup
 
@@ -90,6 +93,7 @@ The following table shows the compatibility between server and computer operatin
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2022    | Windows 11 and Windows 10 |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |

@@ -1,9 +1,9 @@
 ---
-title: How to Revoke a Verifiable Credential as an Issuer - Azure Active Directory Verifiable Credentials (preview)
+title: How to Revoke a Verifiable Credential as an Issuer - Entra Verified ID
 description: Learn how to revoke a Verifiable Credential that you've issued
 documentationCenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,18 +13,13 @@ ms.author: barclayn
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
 ---
 
-# Revoke a previously issued verifiable credential (preview)
+# Revoke a previously issued verifiable credential
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 As part of the process of working with verifiable credentials (VCs), you not only have to issue credentials, but sometimes you also have to revoke them. In this article, we go over the **Status** property part of the VC specification and take a closer look at the revocation process, why we may want to revoke credentials and some data and privacy implications.
 
-> [!IMPORTANT]
-> Microsoft Entra Verified ID is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Why you may want to revoke a VC?
+## Why you may want to revoke a verifiable credential?
 
 Each customer will have their own unique reason's for wanting to revoke a verifiable credential, but here are some of the common themes we've heard thus far. 
 
@@ -36,18 +31,21 @@ Each customer will have their own unique reason's for wanting to revoke a verifi
 
 Using the indexed claim in verifiable credentials, you can search for issued verifiable credentials by that claim in the portal and revoke it.
 
-1. Navigate to the verifiable credentials blade in Azure Active Directory.
+1. Navigate to the Verified ID blade in the Azure portal as an admin user with sign key permission on Azure KeyVault.
 1. Select the verifiable credential type
 1. On the left-hand menu, choose **Revoke a credential**
    ![Revoke a credential](media/how-to-issuer-revoke/settings-revoke.png) 
-1. Search for the index claim of the user you want to revoke. If you haven't indexed a claim, search won't work, and you won't be able to revoke the verifiable credential.
+1. Search for the index claim of the user you want to revoke. If you haven't indexed a claim, search will not work, and you will not be able to revoke the verifiable credential.
 
    ![Screenshot of the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
 
     >[!NOTE]
-    >Since we are only storing a hash of the indexed claim from the verifiable credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database.
+    >Since only a hash of the indexed claim from the verifiable credential is stored, only an exact match will populate the search results. What is entered in the textbox is hashed using the same algorithm and used as a search criteria to match the stored, hashed, value.
     
-1. Once you've found a match, select the **Revoke** option to the right of the credential you want to revoke.
+1. When a match is found, select the **Revoke** option to the right of the credential you want to revoke. 
+ 
+    >[!NOTE]
+    >The admin user performing the revoke operation needs to have **sign** key permission on Azure KeyVault or you will get error message ***Unable to access KeyVault resource with given credentials***.
 
    ![Screenshot of a warning letting you know that after revocation the user still has the credential](media/how-to-issuer-revoke/warning.png) 
 
@@ -109,7 +107,7 @@ Verifiable credential data isn't stored by Microsoft. Therefore, the issuer need
 ```
 
 >[!NOTE]
->Only one claim can be indexed from a rules claims mapping.  
+>Only one claim can be indexed from a rules claims mapping. If you accidentally have no indexed claim in your rules definition, and you later correct this, already issued verifiable credentials will not be searchable since they were issued when no index existed. 
 
 
 ## How does revocation work?
@@ -119,6 +117,9 @@ Microsoft Entra Verified ID implements the [W3C StatusList2021](https://github.c
 ### Verifiable credential data 
 
 In every Microsoft issued verifiable credential, there is a claim called `credentialStatus`. This data is a navigational map to where in a block of data this VC has its revocation flag.
+
+>[!NOTE]
+>If the verifiable credential is old and was issued during the preview period, this claim may not exist. Revocation will not work for this credential and you have to reissue it.
 
 ```json
 ...

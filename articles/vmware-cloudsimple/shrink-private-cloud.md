@@ -5,7 +5,7 @@ author: suzizuber
 ms.author: v-szuber
 ms.date: 07/01/2019 
 ms.topic: article 
-ms.service: azure-vmware-cloudsimple 
+ms.service: azure-vmware
 ms.reviewer: cynthn 
 manager: dikamath 
 ---

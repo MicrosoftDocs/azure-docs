@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions, devx-track-azurepowershell]
-ms.date: 07/28/2021
+ms.date: 08/18/2022
 ---
 
 # Diagnostic tool for self-hosted integration runtime

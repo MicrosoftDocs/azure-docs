@@ -17,7 +17,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 ```json
 {
     "properties": { 
-        "dataCollectionEndpointId": "https://my-dcr.westus2-1.ingest.monitor.azure.com",
+        "dataCollectionEndpointId": "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/my-resource-groups/providers/Microsoft.Insights/dataCollectionEndpoints/my-data-collection-endpoint",
         "streamDeclarations": {
             "Custom-MyTableRawData": {
                 "columns": [

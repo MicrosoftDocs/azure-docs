@@ -12,7 +12,7 @@ In a bash-based shell on Linux or [Windows Subsystem for Linux][install-wsl], us
 
 ```bash
 # Specify the OSM version that will be leveraged throughout these instructions
-OSM_VERSION=v1.1.1
+OSM_VERSION=v1.2.0
 
 curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-linux-amd64.tar.gz" | tar -vxzf -
 ```

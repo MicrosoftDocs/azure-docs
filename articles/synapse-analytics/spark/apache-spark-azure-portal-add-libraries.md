@@ -4,7 +4,7 @@ description: Learn how to add and manage libraries used by Apache Spark in Azure
 author: shuaijunye
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 11/03/2022
 ms.author: shuaijunye
 ms.subservice: spark
 ms.custom: kr2b-contr-experiment
@@ -38,7 +38,7 @@ When a Spark instance starts, these libraries are included automatically. More p
 
 ## Workspace packages
 
-When your team develops custom applications or models, you might develop various code artifacts like *.whl* or *.jar* files to package your code.
+When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *tar.gz* files to package your code.
 
 In Synapse, workspace packages can be custom or private *.whl* or *.jar* files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions.
 
@@ -60,7 +60,39 @@ To learn more about these capabilities, see [Manage Spark pool packages](./apach
 >
 > - If the package you are installing is large or takes a long time to install, this fact affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from PyPI is not supported within DEP-enabled workspaces.
+
+### Manage dependencies for DEP-enabled Synapse Spark pools
+
+> [!NOTE]
+>
+> - Installing packages from public repo is not supported within [DEP-enabled workspaces](../security/workspace-data-exfiltration-protection.md), you should upload all your dependencies as workspace libraries and install to your Spark pool.
+>
+Please follow the steps below if you have trouble to identify the required dependencies:
+
+- **Step1: Run the following script to set up a local Python environment same with Synapse Spark environment**
+The setup script requires [Synapse-Python38-CPU.yml](https://github.com/Azure-Samples/Synapse/blob/main/Spark/Python/Synapse-Python38-CPU.yml) which is the list of libraries shipped in the default python env in Synapse spark.
+
+ ```powershell
+    # one-time synapse python setup
+    wget Synapse-Python38-CPU.yml
+    sudo bash Miniforge3-Linux-x86_64.sh -b -p /usr/lib/miniforge3
+    export PATH="/usr/lib/miniforge3/bin:$PATH"
+    sudo apt-get -yq install gcc g++
+    conda env create -n synapse-env -f Synapse-Python38-CPU.yml 
+    source activate synapse-env
+```
+
+- **Step2: Run the following script to identify the required dependencies**
+The below snippet can be used to pass your requirement.txt which has all the packages and version you intend to install in the spark 3.1/spark3.2 spark pool. It will print the names of the *new* wheel files/dependencies needed for your input library requirements. Note this will list out only the dependencies that are not already present in the spark pool by default.
+
+ ```python
+    # command to list out wheels needed for your input libraries
+    # this command will list out only *new* dependencies that are
+    # not already part of the built-in synapse environment
+    pip install -r <input-user-req.txt> > pip_output.txt
+    cat pip_output.txt | grep "Using cached *"
+```
+
 
 ## Session-scoped packages
 
@@ -70,8 +102,11 @@ Session-scoped packages allow users to define package dependencies at the start 
 
 To learn more about how to manage session-scoped packages, see the following articles:
 
-- [Python session packages: ](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories. 
-- [Scala/Java session packages: ](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
+- [Python session packages:](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories.
+
+- [Scala/Java session packages:](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
+
+- [R session packages:](./apache-spark-manage-session-packages.md#session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`.
 
 ## Manage your packages outside Synapse Analytics UI
 
@@ -83,5 +118,6 @@ To learn more about Azure PowerShell cmdlets and package management REST APIs, s
 - Package management REST APIs: [Manage your Spark pool libraries through REST APIs](apache-spark-manage-packages-outside-ui.md#manage-packages-through-rest-apis)
 
 ## Next steps
+
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
 - Troubleshoot library installation errors: [Troubleshoot library errors](apache-spark-troubleshoot-library-errors.md)

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/15/2021
+ms.date: 11/28/2022
 ms.author: jeedes
 ---
 
@@ -46,6 +46,8 @@ To configure the integration of Cloud Academy into Azure AD, you need to add Clo
 1. To add an application, select **New application**.
 1. In the **Add from the gallery** section, enter **Cloud Academy** in the search box.
 1. Select **Cloud Academy** in the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Cloud Academy
 
@@ -156,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting t
 
     1. In the **SAML Attributes Mapping** section, fill in the required fields with the source attribute values:
   
-       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`
+       `http://schemas.microsoft.com/identity/claims/objectidentifier`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
        `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`

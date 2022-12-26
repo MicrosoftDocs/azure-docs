@@ -4,7 +4,7 @@ description: Learn how to extend or renew Azure Active Directory role assignment
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.workload: identity

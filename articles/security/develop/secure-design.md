@@ -61,7 +61,7 @@ with security best practices on Azure:
     assess your own DevOps progression.
 
   - [Top 5 security items to consider before pushing to
-    production](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
+    production](/training/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
     shows you how to help secure your web applications on Azure and
     protect your apps against the most common and dangerous web
     application attacks.
@@ -247,10 +247,10 @@ GitHub, Docker Hub, and other sources.
 Azure offers other services that you can use to host websites and web
 applications. For most scenarios, Web Apps is the best choice. For a
 micro service architecture, consider [Azure Service
-Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
+Fabric](../../service-fabric/index.yml).
 If you need more control over the VMs that your code runs on, consider
 [Azure Virtual
-Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Machines](../../virtual-machines/index.yml).
 For more information about how to choose between these Azure services,
 see a [comparison of Azure App Service, Virtual Machines, Service
 Fabric, and Cloud
@@ -552,7 +552,7 @@ identities for Azure resources, your Azure web app can access secret
 configuration values easily and securely without storing any secrets in
 your source control or configuration. To learn more, see [Manage secrets
 in your server apps with Azure Key
-Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
+Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 

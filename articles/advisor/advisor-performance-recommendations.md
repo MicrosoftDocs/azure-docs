@@ -48,7 +48,7 @@ Azure Premium Storage delivers high-performance, low-latency disk support for vi
 
 ## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
-Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
+Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-is-a-good-choice).
 
 ## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
@@ -186,7 +186,7 @@ Learn more about [Azure Communication Services](../communication-services/overvi
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.	On the Advisor dashboard, select the **Performance** tab.
+2.    On the Advisor dashboard, select the **Performance** tab.
 
 ## Next steps
 

@@ -5,7 +5,7 @@
  author: msmbaldwin
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/06/2019
+ ms.date: 08/18/2022
  ms.author: mbaldwin
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -13,10 +13,11 @@
 
 *If you already have a resource group, you can skip to [Create a key vault](#create-a-key-vault).*
 
-A resource group is a logical container into which Azure resources are deployed and managed. 
+A resource group is a logical container into which Azure resources are deployed and managed.
 
 Create a resource group using the [az group create](/cli/azure/group#az-group-create) Azure CLI command, the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Azure PowerShell command, or from the [Azure portal](https://portal.azure.com).
 
+# [Azure portal](#tab/azure-portal)
 ### Azure CLI
 
 ```azurecli-interactive
@@ -61,19 +62,22 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 You can also create a key vault by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create).
 
 1. On the Azure Quickstart Template, click **Deploy to Azure**.
-2. Select the subscription, resource group, resource group location, Key Vault name, Object ID, legal terms, and agreement, and then click **Purchase**. 
+2. Select the subscription, resource group, resource group location, Key Vault name, Object ID, legal terms, and agreement, and then click **Purchase**.
 
-##  Set key vault advanced access policies
+## Set key vault advanced access policies
 
-The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes. 
+> [!IMPORTANT]
+> Newly-created key vaults have soft-delete on by default. If you are using a pre-existing key vault, you **must** enable soft-delete. See [Azure Key Vault soft-delete overview](../articles/key-vault/general/soft-delete-overview.md).
+
+The Azure platform needs access to the encryption keys or secrets in your key vault to make them available to the VM for booting and decrypting the volumes.
 
 If you didn't enable your key vault for disk encryption, deployment, or template deployment at the time of creation (as demonstrated in the previous step), you must update its advanced access policies.  
 
 ### Azure CLI
 
-Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk encryption for the key vault. 
+Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk encryption for the key vault.
 
- - **Enable Key Vault for disk encryption:** Enabled-for-disk-encryption is required. 
+ - **Enable Key Vault for disk encryption:** Enabled-for-disk-encryption is required.
 
      ```azurecli-interactive
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-disk-encryption "true"
@@ -91,11 +95,11 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
 
-###  Azure PowerShell
+### Azure PowerShell
  Use the key vault PowerShell cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) to enable disk encryption for the key vault.
 
   - **Enable Key Vault for disk encryption:** EnabledForDiskEncryption is required for Azure Disk encryption.
-      
+
      ```azurepowershell-interactive
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForDiskEncryption
      ```

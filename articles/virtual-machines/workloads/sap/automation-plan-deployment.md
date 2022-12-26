@@ -1,6 +1,6 @@
 ---
 title: Plan your SAP deployment with the automation framework on Azure
-description: Prepare for using the SAP deployment automation framework on Azure. Steps include planning for credentials management, DevOps structure, and deployment scenarios.
+description: Prepare for using the SAP on Azure Deployment Automation Framework. Steps include planning for credentials management, DevOps structure, and deployment scenarios.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -11,12 +11,12 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running the [SAP deployment automation framework on Azure](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
 
 For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Credentials management
 
@@ -29,6 +29,19 @@ The automation framework also defines the credentials for the default virtual ma
 | Local user | Deployer     | -       | Current user | Bootstraps the deployer. |
 | [Service principal](#service-principal-creation) | Environment | Deployer's key vault | Environment identifier | Deployment credentials. |
 | VM credentials | Environment | Workload's key vault | Environment identifier | Sets the default VM user information. |
+
+### SAP and Virtual machine Credentials management
+
+The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
+
+| Credential         | Name                            | Example                         |
+| ------------------ | ------------------------------- | ------------------------------- | 
+| Private key        | [IDENTIFIER]-sshkey             | DEV-WEEU-SAP01-sid-sshkey       | 
+| Public key         | [IDENTIFIER]-sshkey-pub         | DEV-WEEU-SAP01-sid-sshkey-pub   | 
+| Username           | [IDENTIFIER]-username           | DEV-WEEU-SAP01-sid-username     | 
+| Password           | [IDENTIFIER]-password           | DEV-WEEU-SAP01-sid-password     | 
+| sidadm Password    | [IDENTIFIER]-[SID]-sap-password | DEV-WEEU-SAP01-X00-sap-password | 
+
 
 ### Service principal creation
 
@@ -58,9 +71,9 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 ## DevOps structure
 
-The Terraform automation templates are in the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
+The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP deployment automation framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
+For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
@@ -148,6 +161,7 @@ You'll be creating or granting access to the following services in each workload
 * Azure Virtual Networks, for virtual networks, subnets and network security groups.
 * Azure Key Vault, for system credentials and the deployment Service Principal.
 * Azure Storage accounts, for Boot Diagnostics and Cloud Witness.
+* Shared storage for the SAP Systems either Azure Files or Azure NetApp Files.
 
 Before you design your workload zone layout, consider the following questions:
 
@@ -184,20 +198,23 @@ When planning a deployment, it's important to consider the overall flow. There a
     1. Creating the deployment environment
     1. Creating shared storage for Terraform state files
     1. Creating shared storage for SAP installation media
-1. Preparing the workload zone. This step deploys the [workload zone components](#workload-zone-structure), such as the virtual network and key vaults.
-1. Deploying the system. This step includes the [infrastructure for the SAP system](#sap-system-setup).
+
+1. Deploy the workload zone. This step deploys the [workload zone components](#workload-zone-structure), such as the virtual network and key vaults.
+
+1. Deploy the system. This step includes the [infrastructure for the SAP system](#sap-system-setup) deployment and the SAP configuration [configuration and SAP installation](automation-run-ansible.md).
 
 ## Orchestration environment
 
 For the automation framework, you must execute templates and scripts from one of the following supported environments:
 
-* Azure Cloud Shell
+* Azure DevOps
 * An Azure-hosted Linux VM
+* Azure Cloud Shell
 * PowerShell on your local Windows computer
 
 ## Naming conventions
 
-The automation framework uses a default naming convention. If you'd like to use a custom naming convention, plan and define your custom names before deployment.
+The automation framework uses a default naming convention. If you'd like to use a custom naming convention, plan and define your custom names before deployment. For more information, see [how to configure the naming convention](automation-naming-module.md). 
 
 ## Disk sizing
 

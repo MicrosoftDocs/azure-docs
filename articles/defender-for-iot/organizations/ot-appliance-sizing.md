@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs.
+This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs. Performance values are upper thresholds and dependent on the analyzed traffic protocols, assuming that intermittent traffic profiles are typical of M2M systems.
 
-You can use both physical or virtual appliances.
+Physical or virtual appliances can be used; results depend on hardware and resources available to the monitoring sensor.
 
-## C5600: IT/OT mixed environments
+## IT/OT mixed environments
 
 Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
 
@@ -19,9 +19,9 @@ Use the following hardware profiles for high bandwidth corporate IT/OT mixed net
 |---------|---------|---------|---------|
 |C5600   | 3 Gbps        | 12 K        |Physical / Virtual         |
 
-## E1800, E1000, E500:  monitoring at the site level
+## Monitoring at the site level
 
-Use the following  hardware profiles for enterprise monitoring at the site level:
+Use the following hardware profiles for enterprise monitoring at the site level, typically collecting multiple traffic feeds:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
@@ -31,13 +31,13 @@ Use the following  hardware profiles for enterprise monitoring at the site level
 
 ## Production line monitoring
 
-Use the following hardware profiles for production line monitoring:
+Use the following hardware profiles for production line monitoring, typically in the production/mission-critical environments:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
 |L500   | 200 Mbps        |   1,000      |Physical / Virtual         |
 |L100    | 60 Mbps        |   800      | Physical / Virtual        |
-|L64    | 10 Mbps        |   100      |Physical / Virtual|
+|L60    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 

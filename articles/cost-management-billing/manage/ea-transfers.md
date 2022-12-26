@@ -37,10 +37,7 @@ When you request an account transfer with a support request, provide the followi
 Other points to keep in mind before an account transfer:
 
 - Approval from a full EA Administrator, not a read-only EA administrator, is required for the target and source enrollment.
-    - If you have only UPN (User Principal Name) entities configured as full EA administrators without access to e-mail, you must perform one of the following actions:
-        - Create a temporary full EA administrator account in the EA portal  
-    &mdash; Or &mdash; 
-        - Provide EA portal screenshot evidence of a user account associated with the UPN account
+    - If you have only UPN (User Principal Name) entities configured as full EA administrators without access to e-mail, you must **either** create a temporary full EA administrator account in the EA portal **or** provide EA portal screenshot evidence of a user account associated with the UPN account.
 - You should consider an enrollment transfer if an account transfer doesn't meet your requirements.
 - Your account transfer moves all services and subscriptions related to the specific accounts.
 - Your transferred account appears inactive under the source enrollment and appears active under the target enrollment when the transfer is complete.

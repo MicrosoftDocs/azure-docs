@@ -1,6 +1,6 @@
 ---
 title: Configure canary deployments for Azure Linux virtual machines
-description: Learn how to set up a continuous deployment (CD) pipeline. This pipeline updates a group of Azure Linux virtual machines using the blue-green deployment strategy.
+description: Learn how to set up a classic release pipeline and deploy to Linux virtual machines using the blue-green deployment strategy.
 author: moala
 tags: azure-devops-pipelines
 ms.service: virtual-machines
@@ -8,83 +8,61 @@ ms.collection: linux
 ms.topic: how-to
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
-ms.date: 4/10/2020
+ms.date: 08/08/2022
 ms.author: moala
 ms.custom: devops
-
-#Customer intent: As a developer, I want to learn about CI/CD features in Azure so that I can use Azure DevOps services like Azure Pipelines to build and deploy my applications automatically.
 ---
 
 # Configure the blue-green deployment strategy for Azure Linux virtual machines
 
-**Applies to:** :heavy_check_mark: Linux VMs 
+**Applies to:** :heavy_check_mark: Linux VMs
 
-## Infrastructure as a service (IaaS) - Configure CI/CD
+Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. This article will show you how to set up a classic release pipeline that uses the blue-green strategy to deploy to Linux virtual machines. Azure also supports other strategies like [rolling](./tutorial-devops-azure-pipelines-classic.md) and [canary](./tutorial-azure-devops-canary-strategy.md) deployments.
 
-Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
+## Blue-green deployments
 
-This article shows how to set up a CI/CD pipeline that uses the blue-green strategy for multimachine deployments. The Azure portal also supports other strategies like [rolling](./tutorial-devops-azure-pipelines-classic.md) and [canary](./tutorial-azure-devops-canary-strategy.md).
+A blue-green deployment is a deployment strategy where you create two separate and identical environments but only one is live at any time. This strategy is used to increase availability and reduce downtime by switching between the blue/green environments. The blue environment is usually set to run the current version of the application while the green environment is set to host the updated version. When all updates are completed, traffic is directed to the green environment and blue environment is set to idle.
 
-### Configure CI/CD on virtual machines
+Using the **Continuous-delivery** feature, you can use the blue-green deployment strategy to deploy to your virtual machines from Azure portal.
 
-You can add virtual machines as targets to a [deployment group](/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
+1. Sign in to [Azure portal](https://portal.azure.com/) and navigate to a virtual machine.
 
-### Blue-green deployments
+1. ISelect **Continuous delivery**, and then select **Configure**.
 
-A blue-green deployment reduces downtime by having an identical standby environment. Only one environment is live at any time.
+   ![A screenshot showing how to navigate to the continuous delivery feature.](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-As you prepare for a new release, complete the final stage of testing in the green environment. After the software works in the green environment, switch traffic so that all incoming requests go to the green environment. The blue environment is idle.
+1. In the configuration panel, select **Use existing** and select your organization/project or select **Create** and create new ones.
 
-Using the continuous-delivery option, you can configure blue-green deployments to your virtual machines from the Azure portal. Here is the step-by-step walk-through:
+1. Select your **Deployment group name** from the dropdown menu or create a new one.
 
-1. Sign in to the Azure portal and navigate to a virtual machine.
-1. In the leftmost pane of the VM settings, select **Continuous delivery**. Then select **Configure**.
+1. Select your **Build pipeline** from the dropdown menu.
 
-   ![The Continuous delivery pane with the Configure button](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
+1. Select the **Deployment strategy** dropdown menu, and then select **Blue-Green**.
 
-1. In the configuration panel, select **Azure DevOps Organization** to choose an existing account or create a new one. Then select the project under which you want to configure the pipeline.  
+   ![A screenshot showing how to configure a blue green continuous delivery strategy.](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-   ![The Continuous delivery panel](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
+1. Add a "blue" or "green" tag to VMs that are used for blue-green deployments. If a VM is for a standby role, tag it as "green". Otherwise, tag it as "blue".
 
-1. A deployment group is a logical set of deployment target machines that represent the physical environments. Dev, Test, UAT, and Production are examples. You can create a new deployment group or select an existing one.
-1. Select the build pipeline that publishes the package to be deployed to the virtual machine. The published package should have a deployment script named deploy.ps1 or deploy.sh in the deployscripts folder in the package's root folder. The pipeline runs this deployment script.
-1. In **Deployment strategy**, select **Blue-Green**.
-1. Add a "blue" or "green" tag to VMs that are to be part of blue-green deployments. If a VM is for a standby role, tag it as "green". Otherwise, tag it as "blue".
+   ![A screenshot showing a blue-green deployment strategy tagged green.](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
 
-   ![The Continuous delivery panel, with the Deployment strategy value Blue-Green chosen](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-configure.png)
+1. Select **OK** to configure the classic release pipeline to deploy to your virtual machine.
 
-1. Select **OK** to configure the continuous-delivery pipeline to deploy to the virtual machine.
+   ![A screenshot showing the classic release pipeline.](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
 
-   ![The blue-green pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-pipeline.png)
+1. Navigate to your release pipeline and then select **Edit** to view the pipeline configuration. In this example, the *dev* stage is composed of three jobs:
 
-1. The deployment details for the virtual machine are displayed. You can select the link to go to the release pipeline in Azure DevOps. In the release pipeline, select **Edit** to view the pipeline configuration. The pipeline has these three phases:
+   1. Deploy Green: the app is deployed to a standby VM tagged "green".
+   1. Wait for manual resumption: the pipeline pauses and waits for manual intervention.
+   1. Swap Blue-Green: this job swaps the "blue" and "green" tags in the VMs. This ensures that VMs with older application versions are now tagged as "green". During the next pipeline run, applications will be deployed to these VMs.
 
-   1. This phase is a deployment-group phase. Applications are deployed to standby VMs, which are tagged as "green".
-   1. In this phase, the pipeline pauses and waits for manual intervention to resume the run. Users can resume the pipeline run once they have manually ensured stability of deployment to VMs tagged as "green".
-   1. This phase swaps the "blue" and "green" tags in the VMs. This ensures that VMs with older application versions are now tagged as "green". During the next pipeline run, applications will be deployed to these VMs.
+      ![A screenshot showing the three pipeline jobs](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
 
-      ![The Deployment group pane for the Deploy Blue-Green task](media/tutorial-devops-azure-pipelines-classic/azure-devops-blue-green-tasks.png)
+## Resources
 
-1. The Execute Deploy Script task by default runs the deployment script deploy.ps1 or deploy.sh. The script is in the deployscripts folder in the root folder of the published package. Ensure that the selected build pipeline publishes the deployment in the root folder of the package.
+- [Deploy to Azure virtual machines with Azure DevOps](../../devops-project/azure-devops-project-vms.md)
+- [Deploy to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
 
-   ![The Artifacts pane showing deploy.sh in the deployscripts folder](media/tutorial-deployment-strategy/package.png)
-
-## Other deployment strategies
+## Related articles
 
 - [Configure the rolling deployment strategy](./tutorial-devops-azure-pipelines-classic.md)
 - [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
-
-## Azure DevOps Projects
-
-You can get started with Azure easily. With Azure DevOps Projects, start running your application on any Azure service in just three steps by selecting:
-
-- An application language
-- A runtime
-- An Azure service
-
-[Learn more](https://azure.microsoft.com/features/devops-projects/).
-
-## Additional resources
-
-- [Deploy to Azure virtual machines by using Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
-- [Implement continuous deployment of your app to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

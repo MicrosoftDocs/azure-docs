@@ -14,6 +14,9 @@ ms.date: 10/04/2019
 ---
 
 # GeographyV2 prebuilt entity for a LUIS app
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 The prebuilt geographyV2 entity detects places. Because this entity is already trained, you do not need to add example utterances containing GeographyV2 to the application intents. GeographyV2 entity is supported in English [culture](luis-reference-prebuilt-entities.md).
 
 ## Subtypes

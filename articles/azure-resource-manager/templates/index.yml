@@ -61,7 +61,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Deploy with ARM templates
-            url: /learn/paths/deploy-manage-resource-manager-templates/
+            url: /training/paths/deploy-manage-resource-manager-templates/
   # Card
   - title: Develop templates
     linkLists:

@@ -191,7 +191,7 @@ Using a supported target version information, you can use following PowerShell s
 3) Invoke the API
    ```PowerShell
    $params = @{ "TargetVersion" = "<target version>"}
-   Invoke-AzResourceAction -ResourceId -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   Invoke-AzResourceAction -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
    ```
 
    Example: 

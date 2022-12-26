@@ -6,13 +6,13 @@ author: alkohli
 
 ms.service: storsimple
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 08/18/2022
 ms.author: alkohli
 ---
 
 # Compare StorSimple with Azure File Sync and Azure Stack Edge data transfer options 
 
-[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Azure Stack Edge vs. Azure File Sync vs. StorSimple 8000 series.
 

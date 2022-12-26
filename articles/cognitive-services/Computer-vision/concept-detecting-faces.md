@@ -21,6 +21,8 @@ Image Analysis can detect human faces within an image and generate rectangle coo
 > [!NOTE]
 > This feature is also offered by the dedicated [Face](./overview-identity.md) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
 
+[!INCLUDE [Sensitive attributes notice](./includes/identity-sensitive-attributes.md)]
+
 Try out the face detection features quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]

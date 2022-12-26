@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 06/14/2022
+ms.date: 09/28/2022
 ms.author: aahi
 ---
 
@@ -99,7 +99,7 @@ The response will be a JSON document with the following parameters.
           "documents": [
             {
               "id": "{DOC-ID}",
-              "classes": [
+              "class": [
                   {
                       "category": "Class_1",
                       "confidenceScore": 0.0551877357

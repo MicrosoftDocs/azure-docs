@@ -1,12 +1,12 @@
 ---
 title: Get started with the DICOM service - Azure Health Data Services
 description: This document describes how to get started with the DICOM service in Azure Health Data Services.
-author: aersoy
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/03/2022
-ms.author: aersoy
+ms.author: mmitrik
 ms.custom: mode-api
 ---
 
@@ -37,7 +37,7 @@ The DICOM service is secured by Azure Active Directory (Azure AD) that can't be 
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
+You can create or register a client application from the [Azure portal](dicom-register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 

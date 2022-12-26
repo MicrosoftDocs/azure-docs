@@ -2,11 +2,11 @@
 title: 'Tutorial: Enable ingress controller add-on for existing AKS cluster with existing Azure application gateway'
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/15/2022
-ms.author: caya
+ms.author: greglin
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -99,6 +99,11 @@ az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vne
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")
 az network vnet peering create -n AKStoAppGWVnetPeering -g $nodeResourceGroup --vnet-name $aksVnetName --remote-vnet $appGWVnetId --allow-vnet-access
 ```
+
+> [!NOTE]
+> In the "Deploy a new AKS cluster" step above we created AKS with Azure CNI, in case you have an existing AKS cluster using [Kubenet mode](../aks/configure-kubenet.md) you need to update the route table to help the packets destined for a POD IP reach the node which is hosting the pod.
+> A simple way to achieve this is by associating the same route table created by AKS to the Application Gateway's subnet. 
+
 
 ## Deploy a sample application using AGIC 
 

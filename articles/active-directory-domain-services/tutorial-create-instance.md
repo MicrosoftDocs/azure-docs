@@ -2,7 +2,7 @@
 title: Tutorial - Create an Azure Active Directory Domain Services managed domain | Microsoft Docs
 description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain using the Azure portal.
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
@@ -213,7 +213,7 @@ Before you domain-join VMs and deploy applications that use the managed domain, 
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
-[availability-zones]: ../availability-zones/az-overview.md
+[availability-zones]: ../reliability/availability-zones-overview.md
 [concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

@@ -8,9 +8,9 @@ author: moagra
 ms.service: network-watcher
 ms.topic: article
 ms.workload:  infrastructure-services
-ms.date: 07/11/2021
+ms.date: 02/09/2022
 ms.author: moagra
-
+ms.custom: engagement-fy23
 ---
 
 # Deploy and manage Traffic Analytics using Azure Policy 

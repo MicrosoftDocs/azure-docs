@@ -27,7 +27,7 @@ ISV app license management currently supports:
 
 To manage your ISV app licenses, you need to comply with the following pre-requisites.
 
-1. Have a valid [Microsoft Partner Network account](/partner-center/mpn-create-a-partner-center-account).
+1. Have a valid [Microsoft Cloud Partner Program account](/partner-center/mpn-create-a-partner-center-account).
 1. Be signed up for commercial marketplace program. For more information, see [Create a commercial marketplace account in Partner Center](create-account.md).
 1. Your developer team has the development environments and tools required to create Power BI visuals solutions. See [Develop your own Power BI visual and Tutorial: Develop a Power BI circle card visual](/power-bi/developer/visuals/develop-power-bi-visuals).
 

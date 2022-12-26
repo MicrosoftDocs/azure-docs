@@ -77,7 +77,7 @@ Note in the following scenarios, single copy activity execution can leverage mul
 
 ## Parallel copy
 
-You can set parallel copy (`parallelCopies` property) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel.
+You can set parallel copy (`parallelCopies` property in the JSON definition of the Copy activity, or `Degree of parallelism` setting in the **Settings** tab of the Copy activity properties in the user interface) on copy activity to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that read from your source or write to your sink data stores in parallel.
 
 The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 

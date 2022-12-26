@@ -4,10 +4,10 @@ description: Show how to architect end-to-end geospatial data on Azure.
 author: rovin-ms
 ms.service: orbital
 ms.topic: conceptual
-ms.custom: ga
+ms.custom: ga, ignite-2022
 ms.date: 06/13/2022
 ms.author: rovin
-# Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
+#Customer intent: As a geospatial architect, I'd like to understand how to architecture a solution on Azure.
 ---
 # End-to-end geospatial storage, analysis, and visualization
 
@@ -36,7 +36,7 @@ Azure has many native geospatial capabilities. In this diagram and the ones that
 
    :::image type="content" source="media/geospatial-overview.png" alt-text="Geospatial On Azure" lightbox="media/geospatial-overview.png":::
 
-This architecture flow assumes that the data may be coming from databases, files or streaming sources and not stored in a native GIS format. Once the data is ingested with Azure Data Factory, or via Azure IoT, Event Hubs and Stream Analytics, it could then be stored permanently in warm storage with Azure SQL, Azure SQL Managed Instance, Azure Database for PostgreSQL or Azure Data Lake Storage. From there, the data can be transformed and processed in batch with Azure Batch or Synapse Spark Pool, of which both can be automated through the usage of an Azure Data Factory or Synapse pipeline. For real-time data, it can be further transformed or processed with Stream Analytics, Azure Maps or brought into context with Azure Digital Twins. Once the data is transformed, it can then once again be served for additional uses in Azure SQL DB or Azure Database for PostgreSQL, Synapse SQL Pool (for abstracted non-geospatial data), Cosmos DB or Azure Data Explorer. Once ready, the data can be queried directly through the data base API, but frequently a publish layer is used. The Azure Maps Data API would suffice for small datasets, otherwise a non-native service can be introduced based on OSS or COTS, for accessing the data through web services or desktop applications. Finally, the Azure Maps Web SDK hosted in Azure App Service would allow for geovisualization. Another option is to use Azure Maps in Power BI. Lastly, HoloLens and Azure Spatial Anchors can be used to view the data and place it in the real-world for virtual reality (VR) and augmented reality (AR) experiences.
+This architecture flow assumes that the data may be coming from databases, files or streaming sources and not stored in a native GIS format. Once the data is ingested with Azure Data Factory, or via Azure IoT, Event Hubs and Stream Analytics, it could then be stored permanently in warm storage with Azure SQL, Azure SQL Managed Instance, Azure Database for PostgreSQL or Azure Data Lake Storage. From there, the data can be transformed and processed in batch with Azure Batch or Synapse Spark Pool, of which both can be automated through the usage of an Azure Data Factory or Synapse pipeline. For real-time data, it can be further transformed or processed with Stream Analytics, Azure Maps or brought into context with Azure Digital Twins. Once the data is transformed, it can then once again be served for additional uses in Azure SQL DB or Azure Database for PostgreSQL, Synapse SQL Pool (for abstracted non-geospatial data), Azure Cosmos DB, or Azure Data Explorer. Once ready, the data can be queried directly through the data base API, but frequently a publish layer is used. The Azure Maps Data API would suffice for small datasets, otherwise a non-native service can be introduced based on OSS or COTS, for accessing the data through web services or desktop applications. Finally, the Azure Maps Web SDK hosted in Azure App Service would allow for geovisualization. Another option is to use Azure Maps in Power BI. Lastly, HoloLens and Azure Spatial Anchors can be used to view the data and place it in the real-world for virtual reality (VR) and augmented reality (AR) experiences.
 
 It should be noted as well that many of these options are optional and could be supplemented with OSS to reduce cost while also maintaining scalability, or 3rd party tools to utilize their specific capabilities. The next session addresses this need.
 

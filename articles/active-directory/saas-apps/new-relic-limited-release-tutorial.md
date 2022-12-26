@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2022
+ms.date: 11/21/2022
 ms.author: jeedes
 ---
 
@@ -48,6 +48,8 @@ To configure the integration of New Relic into Azure AD, you need to add **New R
 1. Select **Enterprise applications** > **New application**.
 1. On the **Browse Azure AD Gallery** page, type **New Relic (By Organization)** in the search box.
 1. Select **New Relic (By Organization)** from the results, and then select **Create**. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for New Relic
 

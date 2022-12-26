@@ -15,7 +15,7 @@ A solution described in this article, allows customers to use Azure Video Indexe
 
 *Figure 1 – Sample player displaying the Azure Video Indexer metadata on the live stream*
 
-The [stream analysis solution](https://aka.ms/livestreamanalysis) at hand, uses Azure Functions and two Logic Apps to process a live program from a live channel in Azure Media Services with Azure Video Indexer and displays the result with Azure Media Player showing the near real-time resulted stream.
+The [stream analysis solution](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/LiveStreamAnalysis/README.MD) at hand, uses Azure Functions and two Logic Apps to process a live program from a live channel in Azure Media Services with Azure Video Indexer and displays the result with Azure Media Player showing the near real-time resulted stream.
 
 In high level, it is comprised of two main steps. The first step runs every 60 seconds, and takes a subclip of the last 60 seconds played, creates an asset from it and indexes it via Azure Video Indexer. Then the second step is called once indexing is complete. The insights captured are processed, sent to Azure Cosmos DB, and the subclip indexed is deleted.
 
@@ -27,7 +27,7 @@ The sample player plays the live stream and gets the insights from Azure Cosmos 
 
 ## Step-by-step guide 
 
-The full code and a step-by-step guide to deploy the results can be found in [GitHub project for Live media analytics with Azure Video Indexer](https://aka.ms/livestreamanalysis). 
+The full code and a step-by-step guide to deploy the results can be found in [GitHub project for Live media analytics with Azure Video Indexer](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/LiveStreamAnalysis/README.MD). 
 
 ## Next steps
 

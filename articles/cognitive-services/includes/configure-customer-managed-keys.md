@@ -34,8 +34,6 @@ When you use customer-managed keys, you need to set two properties in the key va
 
 To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](../../key-vault/general/key-vault-recovery.md).
 
-Only RSA keys of size 2048 are supported with Azure Storage encryption. For more information about keys, see [Azure Key Vault keys, secrets and certificates overview](../../key-vault/general/about-keys-secrets-certificates.md).
-
 ## Enable customer-managed keys for your resource
 
 To enable customer-managed keys in the Azure portal, follow these steps:

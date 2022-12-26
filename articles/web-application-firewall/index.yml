@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 05/26/2022
+  ms.date: 08/29/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -42,7 +42,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Web Application Firewall
-            url: /learn/modules/introduction-azure-web-application-firewall/
+            url: /training/modules/introduction-azure-web-application-firewall/
 
 
   # Card
@@ -76,3 +76,13 @@ landingContent:
             url: ./afds/waf-front-door-policy-configure-bot-protection.md
           - text: Configure a custom response
             url: ./afds/waf-front-door-configure-custom-response-code.md
+
+# Card
+  - title: Learn about Azure Web Application Firewall architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Securely managed web applications
+            url: /azure/architecture/example-scenario/apps/fully-managed-secure-apps
+          - text: Network-hardened web app
+            url: /azure/architecture/example-scenario/security/hardened-web-app

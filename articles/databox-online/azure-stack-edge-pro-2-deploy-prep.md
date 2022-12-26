@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/03/2022
+ms.date: 11/04/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -99,7 +99,6 @@ Ordering through Azure Edge Hardware Center will create an Azure resource that w
 #### Create a management resource for each device
 
 [!INCLUDE [Create management resource](../../includes/azure-edge-hardware-center-create-management-resource.md)]
-
 
 ## Get the activation key
 

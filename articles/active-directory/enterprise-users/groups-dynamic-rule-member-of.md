@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Group membership in a dynamic group (preview) in Azure Active Directory
 
-This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
+This feature preview in Azure Active Directory (Azure AD), part of Microsoft Entra, enables admins to create dynamic groups and administrative units that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignments. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
  
 :::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the memberOf attribute works.":::
 
@@ -37,6 +37,7 @@ Only administrators in the Global Administrator, Intune Administrator, or User A
 - MemberOf can't be used with other rules. For example, a rule that states dynamic group A should contain members of group B and also should contain only users located in Redmond will fail.
 - Dynamic group rule builder and validate feature can't be used for memberOf at this time.
 - MemberOf can't be used with other operators. For example, you can't create a rule that states “Members Of group A can't be in Dynamic group B.”
+- The objects specified in the rule can't be administrative units.
 
 ## Getting started
 

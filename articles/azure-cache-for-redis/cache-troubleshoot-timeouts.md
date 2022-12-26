@@ -50,7 +50,7 @@ Monitor how your `ThreadPool` statistics change over time using [an example `Thr
 In the preceding exception, there are several issues that are interesting:
 
 - Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
-- You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
+- You can also see `in: 64221`. This value indicates that 64,221 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
 
 You can [configure your `ThreadPool` Settings](cache-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
 

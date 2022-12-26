@@ -237,7 +237,7 @@ Here's how to deploy Azure Virtual Desktop using the getting started feature whe
 
 ## Connect to the desktop
 
-Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](user-documentation/connect-windows-7-10.md).
+Once the deployment has completed successfully, if you created a test account or assigned an existing user during deployment, you can connect to it following the steps for one of the supported Remote Desktop clients. For example, you can follow the steps to [Connect with the Windows Desktop client](users/connect-windows.md).
 
 If you didn't create a test account or assigned an existing user during deployment, you'll need to add users to the **AVDValidationUsers** security group before you can connect.
 

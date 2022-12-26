@@ -3,12 +3,12 @@ title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Applic
 description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 11/17/2022
 ms.author: kenwith
 ms.reviewer: ashishj
 ms.custom: contperf-fy21q2

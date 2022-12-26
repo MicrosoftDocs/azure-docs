@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: hybrid
 ms.topic: conceptual
-ms.date: 04/15/2022
+ms.date: 08/26/2022
 
 ms.author: jricketts
 author: janicericketts
@@ -42,7 +42,7 @@ Before you begin your migration, ensure that you meet these prerequisites.
 
 ### Required roles
 
-For staged rollout, you need to be a global administrator on your tenant. 
+For staged rollout, you need to be a Hybrid Identity Administrator on your tenant. 
 
 To enable seamless SSO on a specific Windows Active Directory Forest, you need to be a domain administrator.
 
@@ -86,13 +86,16 @@ Proactively communicate with your users how their experience will change, when i
 
 ### Plan the maintenance window
 
-After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for [legacy applications authentication](../fundamentals/concept-fundamentals-block-legacy-authentication.md) can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
+After the domain conversion, Azure AD might continue to send some legacy authentication requests from Exchange Online to your AD FS servers for up to four hours. The delay is because the Exchange Online cache for legacy applications authentication can take up to 4 hours to be aware of the cutover from federation to cloud authentication.
 
 During this four-hour window, you may prompt users for credentials repeatedly when reauthenticating to applications that use legacy authentication. Although the user can still successfully authenticate against AD FS, Azure AD no longer accepts the user's issued token because that federation trust is now removed.
 
 Existing Legacy clients (Exchange ActiveSync, Outlook 2010/2013) aren't affected because Exchange Online keeps a cache of their credentials for a set period of time. The cache is used to silently reauthenticate the user. The user doesn't have to return to AD FS. Credentials stored on the device for these clients are used to silently reauthenticate themselves after the cached is cleared. Users aren't expected to receive any password prompts as a result of the domain conversion process.
 
 Modern authentication clients (Office 2016 and Office 2013, iOS, and Android apps) use a valid refresh token to obtain new access tokens for continued access to resources instead of returning to AD FS. These clients are immune to any password prompts resulting from the domain conversion process. The clients will continue to function without extra configuration.
+
+>[!NOTE] 
+>When you migrate from federated to cloud authentication, the process to convert the domain from federated to managed may take up to 60 minutes. During this process, users might not be prompted for credentials for any new logins to Azure portal or other browser based applications protected with Azure AD. We recommend that you include this delay in your maintenance window.
 
 ### Plan for rollback
 
@@ -188,6 +191,8 @@ The members in a group are automatically enabled for staged rollout. Nested and 
 The version of SSO that you use is dependent on your device OS and join state.
 
 - **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) and [Azure AD registered devices](../devices/concept-azure-ad-register.md). 
+
+- **For macOS and iOS devices**, we recommend using SSO via the [Microsoft Enterprise SSO plug-in for Apple devices](../develop/apple-sso-plugin.md). This feature requires that your Apple devices are managed by an MDM. If you use Intune as your MDM then follow the [Microsoft Enterprise SSO plug-in for Apple Intune deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos). If you use another MDM then follow the [Jamf Pro / generic MDM deployment guide](/mem/intune/configuration/use-enterprise-sso-plug-in-ios-ipados-macos-with-jamf-pro). 
 
 - **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](how-to-connect-staged-rollout.md#pre-work-for-seamless-sso).
 
@@ -399,7 +404,7 @@ To learn how to verify or turn on this feature, see [Sync userPrincipalName upda
 
 We recommend that you roll over the Kerberos decryption key at least every 30 days to align with the way that Active Directory domain members submit password changes. There is no associated device attached to the AZUREADSSO computer account object, so you must perform the rollover manually.
 
-See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso.md).
+See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](how-to-connect-sso-faq.yml#how-can-i-roll-over-the-kerberos-decryption-key-of-the--azureadsso--computer-account-).
 
 ### Monitoring and logging
 

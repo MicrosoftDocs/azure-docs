@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 08/26/2022
 
 # Generated from YAML source.
 ---

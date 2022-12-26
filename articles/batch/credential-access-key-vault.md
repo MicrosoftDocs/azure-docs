@@ -6,9 +6,14 @@ ms.date: 06/22/2022
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use certificates and securely access Azure Key Vault with Batch
+# Use certificates to securely access Azure Key Vault with Batch
 
-In this article, you'll learn how to set up Batch nodes to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
+> [!WARNING]
+> Batch account certificates as detailed in this article are [deprecated](batch-certificate-migration-guide.md). To securely access Azure Key Vault, simply use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the user-assigned managed identity to access your Key Vault. If you need to provision certificates on Batch nodes, please utilize the available Azure Key Vault VM extension in conjunction with pool Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates from Azure Key Vault with Managed Identity on Batch pools, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
+> 
+> `CloudServiceConfiguration` pools do not provide the ability to specify either Managed Identity or the Azure Key Vault VM extension, and these pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). You should migrate to `VirtualMachineConfiguration` pools which provide the aforementioned alternatives.
+
+In this article, you'll learn how to set up Batch nodes with certificates to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
 
 To authenticate to Azure Key Vault from a Batch node, you need:
 
@@ -16,9 +21,6 @@ To authenticate to Azure Key Vault from a Batch node, you need:
 - A certificate
 - A Batch account
 - A Batch pool with at least one node
-
-> [!IMPORTANT]
-> Batch now offers an improved option for accessing credentials stored in Azure Key Vault. By creating your pool with a user-assigned managed identity that can access the certificate in Azure Key Vault, you don't need to send the certificate content to the Batch Service, which enhances security. We recommend using automatic certificate rotation instead of the method described in this topic. For more information, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
 ## Obtain a certificate
 

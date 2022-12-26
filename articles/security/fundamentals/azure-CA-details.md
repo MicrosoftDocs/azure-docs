@@ -5,11 +5,11 @@ services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 04/28/2022
+ms.date: 10/21/2022
 
 ms.author: sarahlipsey
 author: shlipsey3
-manager: rachelkarlin
+manager: amycolannino
 ms.reviewer: quentinb
 ---
 

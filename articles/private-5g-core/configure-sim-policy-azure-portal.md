@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Configure a SIM policy for Azure Private 5G Core Preview - Azure portal
 
-*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to one or more SIMs. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
+*SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. The SIM policy also defines the default Quality of Service settings for any services that use the policy. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ ms.custom: template-how-to
 
 ## Configure the SIM policy
 
-1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to configure a SIM policy.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
@@ -42,7 +42,8 @@ ms.custom: template-how-to
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-basics-tab.png" alt-text="Screenshot of the Azure portal. It shows the basics tab for a SIM policy. The Add a network scope button is highlighted.":::
 
-1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).
+1. Under **Add a network scope** on the right, fill out each of the fields using the information you collected from [Collect information for the network scope](collect-required-information-for-sim-policy.md#collect-information-for-the-network-scope).  
+SIM policies also define the default QoS settings for any services that use the policy. You can override the default SIM policy QoS settings on a per-service basis - see [Configure basic settings for the service](configure-service-azure-portal.md#configure-basic-settings-for-the-service).
 1. Select **Add**.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/add-a-network-scope.png" alt-text="Screenshot of the Azure portal. It shows the Add a network scope screen. The Add button is highlighted.":::

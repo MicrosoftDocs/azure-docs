@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Connect to an Azure Cosmos account using an Azure Private endpoint'
+title: 'Tutorial: Connect to an Azure Cosmos DB account using an Azure Private endpoint'
 titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to an Azure Cosmos DB account privately.
 author: asudbring
@@ -7,10 +7,10 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 06/22/2022
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom: template-tutorial, ignite-2022
 ---
 
-# Tutorial: Connect to an Azure Cosmos account using an Azure Private Endpoint
+# Tutorial: Connect to an Azure Cosmos DB account using an Azure Private Endpoint
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to privately and securely communicate with Private Link resources such as Azure Cosmos DB.
 
@@ -19,8 +19,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create a Cosmos DB account with a private endpoint.
-> * Test connectivity to Cosmos DB account private endpoint.
+> * Create an Azure Cosmos DB account with a private endpoint.
+> * Test connectivity to the private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -130,15 +130,15 @@ In this section, you'll create a virtual machine that will be used to test the p
 
 [!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
-## Create a Cosmos DB account with a private endpoint
+## Create an Azure Cosmos DB account with a private endpoint
 
-In this section, you'll create a Cosmos DB account and configure the private endpoint.
+In this section, you'll create an Azure Cosmos DB account and configure the private endpoint.
 
 1. In the left-hand menu, select **Create a resource** > **Databases** > **Azure Cosmos DB**, or search for **Azure Cosmos DB** in the search box.
 
-2. In **Select API option** page, Select **Create** under **Core (SQL)**.
+2. In **Select API option** page, Select **Create** under **Azure Cosmos DB for NoSQL**.
 
-2. In the **Basics** tab of **Create Cosmos DB account** enter or select the following information:
+2. In the **Basics** tab of **Create Azure Cosmos DB account** enter or select the following information:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -173,7 +173,7 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | Resource Group | Select **myResourceGroup**. |
     | Location | Select **East US**. |
     | Name | Enter **myPrivateEndpoint**. |
-    | CosmosDB sub-resource | Leave the default **Core (SQL) - Recommended**. |
+    | Azure Cosmos DB sub-resource | Leave the default **Azure Cosmos DB for NoSQL - Recommended**. |
     | **Networking** |  |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select **mySubnet**. |
@@ -206,13 +206,13 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
 5. Select **OK**.
 
-6. In the **Settings** section of the Cosmos DB account, select **Keys**.
+6. In the **Settings** section of the Azure Cosmos DB account, select **Keys**.
 
 7. Select copy on the **PRIMARY CONNECTION STRING**. A valid connection string is in the format: `AccountEndpoint=https://<cosmosdb-account-name>.documents.azure.com:443/;AccountKey=<accountKey>;`
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous steps to connect to the Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
+In this section, you'll use the virtual machine you created in the previous steps to connect to the Azure Cosmos DB account across the private endpoint using **Azure Cosmos DB Explorer**.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -228,7 +228,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Open Windows PowerShell on the server after you connect.
 
-1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Cosmos DB account you created in the previous steps. You'll receive a message similar to what is displayed below:
+1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Azure Cosmos DB account you created in the previous steps. You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -239,17 +239,17 @@ In this section, you'll use the virtual machine you created in the previous step
     Address:  10.1.0.5
     Aliases:  mycosmosdb.documents.azure.com
     ```
-    A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
+    A private IP address of **10.1.0.5** is returned for the Azure Cosmos DB account name.  This address is in **mySubnet** subnet of **myVNet** virtual network you created previously.
 
-1. Go to https://cosmos.azure.com/. Select **Connect to your account with connection string**, then paste the connection string that you copied in the previous steps and select **Connect**.
+1. Go to [Azure Cosmos DB](https://cosmos.azure.com/). Select **Connect to your account with connection string**, then paste the connection string that you copied in the previous steps and select **Connect**.
 
-1. Under the SQL API left-hand menu, you see **mydatabaseid** and **mycontainerid** that you previously created in **mycosmosdb**.
+1. Under the **Azure Cosmos DB for NoSQL** menu on the left, you see **mydatabaseid** and **mycontainerid** that you previously created in **mycosmosdb**.
 
 1. Close the connection to **myVM**.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and Cosmos DB account with the following steps:
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and Azure Cosmos DB account with the following steps:
 
 1. From the left-hand menu, select **Resource groups**.
 
@@ -267,7 +267,7 @@ In this tutorial, you learned how to create:
 
 * Virtual network and bastion host.
 * Virtual Machine.
-* Cosmos DB Account.
+* Azure Cosmos DB account.
 
 Learn how to connect to a web app using an Azure Private Endpoint:
 > [!div class="nextstepaction"]

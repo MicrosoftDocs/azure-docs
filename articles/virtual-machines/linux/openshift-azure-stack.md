@@ -27,7 +27,7 @@ You can use one of several methods to deploy OpenShift Container Platform or OKD
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform) or [OKD documentation](https://docs.okd.io).
 - You can also use an existing [Azure Resource Manager template](https://github.com/Microsoft/openshift-container-platform/) that simplifies the deployment of the OpenShift Container Platform cluster.
-- You can also use an existing [Azure Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OKD cluster.
+- You can also use an existing [Azure Resource Manager template](https://github.com/openshift/origin) that simplifies the deployment of the OKD cluster.
 
 If using the Azure Resource Manager template, select the proper branch (azurestack-release-3.x). The templates for Azure won't work as the API versions are different between Azure and Azure Stack Hub. The RHEL image reference is currently hard-coded as a variable in the azuredeploy.json file and will need to be changed to match your image.
 

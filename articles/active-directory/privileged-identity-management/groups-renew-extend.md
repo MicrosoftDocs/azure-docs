@@ -4,7 +4,7 @@ description: Learn how to extend or renew role-assignable group assignments in A
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

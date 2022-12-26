@@ -15,7 +15,7 @@ ms.reviewer: vvasic, jovanpop, wiassaf
 # How to set up access control on synchronized objects in serverless SQL pool
 
 In Azure Synapse Analytics, Spark [databases](../metadata/database.md) and [tables](../metadata/table.md) are shared with serverless SQL pool. [Lake databases](../database-designer/concepts-lake-database.md), [Parquet](query-parquet-files.md), and [CSV](query-single-csv-file.md) backed tables created with Spark are automatically available in serverless SQL pool. This feature allows using serverless SQL pool to explore and query data prepared by using Spark pools.
-On below diagram, you can see a high-level architecture overview to utilize this feature. First, Azure Synapse Pipelines are moving data from on-premise (or other) storage to Azure Data Lake Storage. Spark can now enrich the data, and create databases, and tables that are getting synchronized to serverless Synapse SQL. Later, user can execute ad-hoc queries on top of the enriched data or serve it to Power BI for example. 
+On below diagram, you can see a high-level architecture overview to utilize this feature. First, Azure Synapse Pipelines are moving data from on-premises (or other) storage to Azure Data Lake Storage. Spark can now enrich the data, and create databases, and tables that are getting synchronized to serverless Synapse SQL. Later, user can execute ad-hoc queries on top of the enriched data or serve it to Power BI for example. 
 
 ![Enrich in Spark, serve with SQL diagram.](./media/shared-databases-access-control/enrich-in-spark-serve-sql.png)
 
@@ -46,7 +46,8 @@ After executing the code script below, it will allow non-admin users to have ser
     GRANT SELECT ALL USER SECURABLES to [login@contoso.com];
     GO;
 ```
-`CONNECT ANY DATABASE` permission will allow a user to access connection to any database, but it doesn't grant any permission in any database beyond connect. When `SELECT ALL USER SECURABLES` permission is granted, a login can view data from all schema-level objects, such as external tables and views (any schema except sys and INFORMATION_SCHEMA). This permission has effect in all databases that the user can connect to. Read more about [GRANT SERVER permissions](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-ver15#remarks&preserve-view=true).
+> [!NOTE]
+> These statements should be executed on master database, as these are all server-level permissions.
 
 After creating a login and granting permissions, users can run queries on top of the synchronized external tables. This mitigation can also be applied to Azure AD security groups.
 

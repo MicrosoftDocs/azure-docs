@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2021
+ms.date: 10/07/2022
 ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
@@ -122,7 +122,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
     {
         // If you use a CancellationToken, and call the Cancel() method on it, then this *may* be triggered
         // to indicate that the operation was cancelled.
-        // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
+        // See https://learn.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
         // for more detailed information on how C# supports cancellation in managed threads.
     }
     catch (MsalClientException ex)
@@ -136,57 +136,57 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
 
 # [Java](#tab/java)
 
-This extract is from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/).
+This extract is from the [MSAL Java code samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/msal4j-sdk/src/samples/public-client/DeviceCodeFlow.java).
 
 ```java
-private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
+ private static IAuthenticationResult acquireTokenDeviceCode() throws Exception {
 
-    // Load token cache from file and initialize token cache aspect. The token cache will have
-    // dummy data, so the acquireTokenSilently call will fail.
-    TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
+        // Load token cache from file and initialize token cache aspect. The token cache will have
+        // dummy data, so the acquireTokenSilently call will fail.
+        TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
 
-    PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
-            .authority(AUTHORITY)
-            .setTokenCacheAccessAspect(tokenCacheAspect)
-            .build();
+        PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
+                .authority(AUTHORITY)
+                .setTokenCacheAccessAspect(tokenCacheAspect)
+                .build();
 
-    Set<IAccount> accountsInCache = pca.getAccounts().join();
-    // Take first account in the cache. In a production application, you would filter
-    // accountsInCache to get the right account for the user authenticating.
-    IAccount account = accountsInCache.iterator().next();
+        Set<IAccount> accountsInCache = pca.getAccounts().join();
+        // Take first account in the cache. In a production application, you would filter
+        // accountsInCache to get the right account for the user authenticating.
+        IAccount account = accountsInCache.iterator().next();
 
-    IAuthenticationResult result;
-    try {
-        SilentParameters silentParameters =
-                SilentParameters
-                        .builder(SCOPE, account)
-                        .build();
-
-        // try to acquire token silently. This call will fail since the token cache
-        // does not have any data for the user you are trying to acquire a token for
-        result = pca.acquireTokenSilently(silentParameters).join();
-    } catch (Exception ex) {
-        if (ex.getCause() instanceof MsalException) {
-
-            Consumer<DeviceCode> deviceCodeConsumer = (DeviceCode deviceCode) ->
-                    System.out.println(deviceCode.message());
-
-            DeviceCodeFlowParameters parameters =
-                    DeviceCodeFlowParameters
-                            .builder(SCOPE, deviceCodeConsumer)
+        IAuthenticationResult result;
+        try {
+            SilentParameters silentParameters =
+                    SilentParameters
+                            .builder(SCOPE, account)
                             .build();
 
-            // Try to acquire a token via device code flow. If successful, you should see
-            // the token and account information printed out to console, and the sample_cache.json
-            // file should have been updated with the latest tokens.
-            result = pca.acquireToken(parameters).join();
-        } else {
-            // Handle other exceptions accordingly
-            throw ex;
+            // try to acquire token silently. This call will fail since the token cache
+            // does not have any data for the user you are trying to acquire a token for
+            result = pca.acquireTokenSilently(silentParameters).join();
+        } catch (Exception ex) {
+            if (ex.getCause() instanceof MsalException) {
+
+                Consumer<DeviceCode> deviceCodeConsumer = (DeviceCode deviceCode) ->
+                        System.out.println(deviceCode.message());
+
+                DeviceCodeFlowParameters parameters =
+                        DeviceCodeFlowParameters
+                                .builder(SCOPE, deviceCodeConsumer)
+                                .build();
+
+                // Try to acquire a token via device code flow. If successful, you should see
+                // the token and account information printed out to console, and the sample_cache.json
+                // file should have been updated with the latest tokens.
+                result = pca.acquireToken(parameters).join();
+            } else {
+                // Handle other exceptions accordingly
+                throw ex;
+            }
         }
+        return result;
     }
-    return result;
-}
 ```
 
 # [macOS](#tab/macOS)

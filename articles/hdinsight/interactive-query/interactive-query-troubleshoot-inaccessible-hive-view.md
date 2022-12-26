@@ -15,7 +15,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 The Hive View is inaccessible, and the logs in `/var/log/hive` show an error similar to the following:
 
 ```
-ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (<zookeepername1>.cloud.wbmi.com:2181,<zookeepername2>.cloud.wbmi.com:2181,<zookeepername3>.cloud.wbmi.com:2181) and timeout (15000) / elapsed (21852)
+ERROR [Curator-Framework-0]: curator.ConnectionState (ConnectionState.java:checkTimeouts(200)) - Connection timed out for connection string (<zookeepername1>.contoso.com:2181,<zookeepername2>.contoso.com:2181,<zookeepername3>.contoso.com:2181) and timeout (15000) / elapsed (21852)
 ```
 
 ## Cause

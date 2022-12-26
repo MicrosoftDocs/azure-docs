@@ -6,7 +6,7 @@ ms.subservice: authoring
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 01/31/2022
+ms.date: 09/26/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -118,7 +118,7 @@ $dataFactory.GlobalParameters = $newGlobalParameters
 
 Write-Host "Updating" $newGlobalParameters.Count "global parameters."
 
-Set-AzDataFactoryV2 -InputObject $dataFactory -Force
+Set-AzDataFactoryV2 -InputObject $dataFactory -Force -PublicNetworkAccess $dataFactory.PublicNetworkAccess
 ```
 
 ## Next steps

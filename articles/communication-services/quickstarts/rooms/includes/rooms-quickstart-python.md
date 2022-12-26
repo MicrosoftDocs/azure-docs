@@ -18,11 +18,15 @@ ms.author: radubulboaca
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - Two or more Communication User Identities. [Create and manage access tokens](../../access-tokens.md?pivots=programming-language-csharp) or [Quick-create identities for testing](../../identity/quick-create-identity.md).
-- [Python](https://www.python.org/downloads/) 3.6+ for your operating system.
+- [Python](https://www.python.org/downloads/) 3.7+ for your operating system.
+
+## Sample code
+
+You can review and download the sample code for this quick start on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/rooms-quickstart).
 
 ## Setting up
 
-### Create a new python application
+### Create a new Python application
 
 In a terminal or console window, create a new folder for your application and navigate to it.
 
@@ -49,6 +53,8 @@ if __name__ == '__main__':
 ```
 
 ### Install the packages
+
+You'll need to use the Azure Communication Rooms client library for Python [version 1.0.0b2](https://pypi.org/project/azure-communication-rooms/) or above. 
 
 From a console prompt, navigate to the directory containing the rooms.py file, then execute the following command:
 
@@ -160,3 +166,7 @@ If you wish to disband an existing `room`, you may issue an explicit delete requ
 ```python
 self.rooms_client.delete_room(room_id=room)
 ```
+
+## Reference documentation
+
+Read about the full set of capabilities of Azure Communication Services rooms from the [Python SDK reference](/python/api/overview/azure/communication-rooms-readme) or [REST API reference](/rest/api/communication/rooms).

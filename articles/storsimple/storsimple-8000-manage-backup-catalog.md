@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to manage your backup catalog
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 ## Overview
 The StorSimple Device Manager service **Backup Catalog** blade displays all the backup sets that are created when manual or scheduled backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
 

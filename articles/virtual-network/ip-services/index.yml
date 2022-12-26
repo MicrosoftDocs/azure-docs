@@ -90,4 +90,9 @@ landingContent:
           - text: Assign multiple IP addresses to virtual machines
             url: virtual-network-multiple-ip-addresses-portal.md
  
-          
+  - title: Learn about IP services architecture
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Add IP address spaces to peered virtual networks
+            url: /azure/architecture/networking/prefixes/add-ip-space-peered-vnet

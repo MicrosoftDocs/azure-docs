@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sehan
 author: dem108
-ms.date: 07/14/2022
+ms.date: 11/04/2022
 ms.topic: conceptual
-ms.reviewer: larryfr
+ms.reviewer: mopeakande
 ms.custom: deploy, docker, prebuilt
 ---
 
@@ -37,6 +37,6 @@ Prebuilt Docker container images for inference are used when deploying a model w
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md)
+* [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-online-endpoints.md)
 * [Learn more about custom containers](how-to-deploy-custom-container.md)
 * [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online)

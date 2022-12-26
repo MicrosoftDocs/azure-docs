@@ -12,7 +12,7 @@ ms.custom: mode-other
 
 This quickstart covers how to deploy and run the quickstart sample app for Unity to a HoloLens 2.
 
-In this quickstart you will learn how to:
+In this quickstart you'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -22,9 +22,10 @@ In this quickstart you will learn how to:
 
 ## Prerequisites
 
-In this quickstart we will deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
-
+In this quickstart, we'll deploy the sample project from [Quickstart: Render a model with Unity](render-model.md).
 Make sure your credentials are saved properly with the scene and you can connect to a session from within the Unity editor.
+
+The HoloLens 2 must be in developer mode and paired with the desktop machine. Refer to [using the device portal](/windows/mixed-reality/develop/advanced-concepts/using-the-windows-device-portal#setting-up-hololens-to-use-windows-device-portal) for further instructions.
 
 ## Build the sample project
 
@@ -35,7 +36,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 1. Set *Build Type* to **D3D Project**\
     ![Build settings](./media/unity-build-settings.png)
 1. Select **Switch to Platform**
-1. When pressing **Build** (or 'Build And Run'), you will be asked to select some folder where the solution should be stored
+1. When pressing **Build** (or 'Build And Run'), you'll be asked to select some folder where the solution should be stored
 1. Open the generated **Quickstart.sln** with Visual Studio
 1. Change the configuration to **Release** and **ARM64**
 1. Switch the debugger mode to **Remote Machine**\
@@ -56,7 +57,7 @@ If you want to launch the sample a second time later, you can also find it from 
 
 ## Next steps
 
-In the next quickstart, we will take a look at converting a custom model.
+In the next quickstart, we'll take a look at converting a custom model.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Convert a model for rendering](convert-model.md)

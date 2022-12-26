@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/24/2022
+ms.date: 08/10/2022
 ---
 
 # Manage Azure Data Factory settings and preferences
