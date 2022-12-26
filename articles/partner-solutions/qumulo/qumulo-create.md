@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an instance of Azure Native
 
 ms.topic: quickstart 
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
-ms.date: 12/31/2022
+ms.date: 01/11/2023
 
 ---
 

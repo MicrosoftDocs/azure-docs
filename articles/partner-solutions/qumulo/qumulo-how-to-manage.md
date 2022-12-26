@@ -4,7 +4,7 @@ description: This article describes how to manage Azure Native Qumulo Scalable F
 
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
-ms.date: 12/31/2022
+ms.date: 01/11/2023
 ---
 
 
