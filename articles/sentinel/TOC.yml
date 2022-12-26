@@ -386,7 +386,9 @@
     items:
     - name: Use tasks to handle incident workflow
       href: work-with-tasks.md
-    - name: Investigate incidents
+    - name: Investigate incidents NEW
+      href: investigate-incidents.md
+    - name: Investigate incidents OLD
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
