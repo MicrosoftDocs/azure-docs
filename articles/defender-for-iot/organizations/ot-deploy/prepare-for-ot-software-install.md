@@ -7,9 +7,11 @@ ms.topic: how-to
 
 # Prepare for OT agentless monitoring software installation
 
-This article describes how to prepare to install agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
+This article describes how to prepare to install Microsoft Defender for IoT agentless monitoring software for OT sensors and on-premises management consoles. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 
 ## Prerequisites
+
+Before preparing to install the software, make sure you've completed the following:
 
 - [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
 
