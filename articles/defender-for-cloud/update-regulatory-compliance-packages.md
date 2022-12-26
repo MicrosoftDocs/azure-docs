@@ -114,7 +114,7 @@ To add standards to your dashboard:
 1. Expand the Industry & regulatory standards section and select **Add more standards**.
 
 1. From the **Add regulatory compliance standards** page, you can search for any of the available standards:
-:::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
+:::image type="content" source="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png" alt-text="Screenshot showing adding regulatory standards to regulatory compliance dashboard. "lightbox="media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png":::
 
 1. Select **Add** and enter all the necessary details for the specific initiative such as scope, parameters, and remediation.
 
@@ -125,7 +125,7 @@ To add standards to your dashboard:
     > [!NOTE]
     > It may take a few hours for a newly added standard to appear in the compliance dashboard.
 
-    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="screenshot showing regulatory compliance dashboard."  lightbox="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png":::
+    :::image type="content" source="media/concept-regulatory-compliance/compliance-dashboard.png" alt-text="Screenshot showing regulatory compliance dashboard."  lightbox="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png":::
 
 ### Add a standard to your AWS resources
 
@@ -159,7 +159,7 @@ To remove a standard:
 
 1. For the standard you want to remove, select **Disable**. A confirmation window appears.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected." lightbox="media/update-regulatory-compliance-packages/remove-standard-confirm.png":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Screenshot showing to confirm that you really want to remove the regulatory standard you selected." lightbox="media/update-regulatory-compliance-packages/remove-standard-confirm.png":::
 
 1. Select **Yes**. The standard will be removed.
 
