@@ -142,6 +142,17 @@ The following tables list the built-in [analytics rules](deploy-sap-security-con
 | **SAP - Sensitive Roles Changes** |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist. | Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log | Impact, Privilege Escalation, Persistence |
 
 
+### Built-in SAP analytics rules for data exfiltration 
+
+| Rule name | Description | Source action | Tactics |
+| --------- | --------- | --------- | --------- |
+| **SAP - (Preview) File Downloaded From a Malicious IP Address** | User has downloaded a file from an SAP system using an IP address known to be malicious. Malicious IP addresses are obtained from threat intelligence services. | User downloaded a file from a malicious IP. <br><br>**Data sources**: SAP security Audit log, Threat Intelligence | Exfiltration |
+| **SAP - (Preview) Data exported from a production system using a transport** | Transports are like pull requests and are normally created in a dev system. This alert rule triggers incidents with medium severity when a transport is released from a prod system, bearing data taken from any table, and will create a high severity incident when the export includes data from a sensitive table.  | Transport is released from a prod system. <br><br>**Data sources**: SAP CR log, [SAP - Sensitive Tables](#tables) | Exfiltration |
+| **SAP - (Preview) Sensitive data saved into a USB drive** | SAP data exported via files and saved into a recently mounted USB drive in proximity to an execution of a sensitive transaction, a sensitive program or direct access to a sensitive table. | SAP data exported via files and saved into a USB drive. <br><br>**Data sources**: SAP Security Audit Log, DeviceFileEvents (Microsoft Defender for Endpoint) | Exfiltration |
+| **SAP - (Preview) Printing of potentially sensitive data** | User has requested printing or has printed data which is potentially sensitive. Data is considered sensitive if it is obtained by using a sensitive transaction, by executing a sensitive program or by directly accessing a sensitive table.  | User has requested printing or has printed sensitive data. <br><br>**Data sources**:  SAP Security Audit Log, SAP Spool logs | Exfiltration |
+| **SAP - (Preview) High volume of potentially sensitive data exported** | High volume of data exported via files in proximity to an execution of a sensitive transaction, a sensitive program or direct access to sensitive table. | High volume of data exported via files. <br><br>**Data sources**:  SAP Security Audit Log | Exfiltration |
+
+
 ## Available watchlists
 
 The following table lists the [watchlists](deploy-sap-security-content.md) available for the Microsoft Sentinel Solution for SAP, and the fields in each watchlist.
