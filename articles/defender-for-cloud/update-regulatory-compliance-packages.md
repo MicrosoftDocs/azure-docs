@@ -73,7 +73,7 @@ To add regulatory compliance standards on AWS accounts:
 
 More standards will be added to the dashboard and included in the information on [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-**GCP**: When users onboard, every GCP project has the GCP Default standard assigned. 
+**GCP**: When users onboard, every GCP project has the "GCP Default" standard assigned. 
 
 Users that have one Defender bundle enabled can enable additional standards. 
 
