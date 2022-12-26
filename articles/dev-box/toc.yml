@@ -41,6 +41,8 @@
       href: how-to-manage-dev-box-projects.md
     - name: Manage network connections
       href: how-to-manage-network-connection.md
+    - name: Manage a dev box auto-stop schedule
+      href: how-to-manage-stop-schedule.md
     - name: Microsoft Dev Box CLI
       href: how-to-install-dev-box-cli.md  
     - name: Provision a Custom Image with Azure Image Builder

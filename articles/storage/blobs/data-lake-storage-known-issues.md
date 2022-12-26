@@ -1,9 +1,11 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
-ms.subservice: data-lake-storage-gen2
+
 ms.service: storage
+ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
 ms.date: 11/03/2022
 ms.author: normesta

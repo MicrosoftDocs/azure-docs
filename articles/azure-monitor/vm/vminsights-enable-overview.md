@@ -4,6 +4,7 @@ description: Learn how to deploy and configure VM insights and find out about th
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
+ms.reviewer: xpathak
 ms.date: 06/24/2022
 ms.custom: references_regions
 
@@ -11,7 +12,7 @@ ms.custom: references_regions
 
 # Enable VM insights overview
 
-This article provides an overview of the options available to enable VM insights to monitor the health and performance of:
+This article provides an overview of how to enable VM insights to monitor the health and performance of:
 
 - Azure virtual machines.
 - Azure Virtual Machine Scale Sets.
@@ -52,7 +53,7 @@ See the following list of considerations on Linux support of the Dependency agen
 - For Debian distros other than version 9.4, the Map feature isn't supported. The Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
 
-The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
+The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. For more information, consult with your Linux distribution vendor. Run the following command to check for availability if Spectre/Meltdown has been mitigated:
 
 ```
 $ grep . /sys/devices/system/cpu/vulnerabilities/*

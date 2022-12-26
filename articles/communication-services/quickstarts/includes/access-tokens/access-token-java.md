@@ -134,7 +134,7 @@ System.out.println("\nCreated an identity with ID: " + user.getId());
 
 The created identity is required later for issuing access tokens. Store the received identity with mapping to your application's users (for example, by storing it in your application server database). 
 
-## Issue access tokens
+## Issue an access token
 
 Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). 
 
@@ -179,7 +179,7 @@ String token = accessToken.getToken();
 System.out.println("\nIssued an access token with 'chat' scope that expires at: " + expiresAt + ": " + token);
 ```
 
-## Refresh access tokens
+## Refresh an access token
 
 To refresh an access token, use the `CommunicationUserIdentifier` object to reissue it:
 
