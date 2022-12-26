@@ -427,6 +427,10 @@ Keep in mind the following points about the prefix match string:
 
 Unfortunately, there's no way to track the time at which the policy will be executing, as it's a background scheduling process. However, the platform will run the policy once per day.
 
+### How does policy evaluates the blobs which were created prior to lastaccesstime tacking was enabled but not accessed?
+
+In this particular sceanrion, the blobs will be evaluated against the time when this last-access tracking was enabled on the account.
+
 ## Next steps
 
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
