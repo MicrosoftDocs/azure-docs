@@ -22,7 +22,7 @@ ms.custom: devx-track-java, mode-api
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
+Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure.Search.Documents client library in the Azure SDK for Java.](/java/api/overview/azure/search). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 We used the following software and services to build and test this quickstart:
 
-+ [Visual Studio Code](https://www.jetbrains.com/idea/)
++ [Visual Studio Code](https://code.visualstudio.com/)
+
++ [Java extension for Visual Studio Code](https://vscode.trafficmanager.net/docs/java/extensions)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -52,12 +54,12 @@ Every request sent to your service requires an API key. Having a valid key estab
 
 ## Set up your environment
 
-Begin by opening Visual Studio Code and setting up a new project
+Begin by opening Visual Studio Code and setting up a new project.
 
 ### Create the project
 
-1. Open Visual Studio Code
-1. Install the [Extension Pack For Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+1. Open Visual Studio Code.
+1. Install the [Extension Pack For Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P**. Search for **Create Java Project**.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-create-project.png" alt-text="Screenshot of a create a java project." border="true":::
@@ -84,7 +86,7 @@ Begin by opening Visual Studio Code and setting up a new project
 
 1. Select the folder to create the project in.
 
-1. Finish project creation in the [terminal](https://code.visualstudio.com/docs/terminal/basics). Press enter, then type **y** and press enter again
+1. Finish project creation in the [integrated terminal](https://code.visualstudio.com/docs/terminal/basics). Press enter to accept the default for "1.0-SNAPSHOT" and then type "y" to confirm the properties for your project.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-finish-setup-terminal.png" alt-text="Screenshot of a finish setup in terminal." border="true":::
 
@@ -105,6 +107,12 @@ Begin by opening Visual Studio Code and setting up a new project
           <groupId>com.azure</groupId>
           <artifactId>azure-core</artifactId>
           <version>1.34.0</version>
+        </dependency>
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.11</version>
+          <scope>test</scope>
         </dependency>
       </dependencies>
     ```
@@ -143,7 +151,7 @@ Begin by opening Visual Studio Code and setting up a new project
     import com.azure.search.documents.util.SearchPagedIterable;
     ```
 
-1. Create two clients: [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/java/api/com.azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
+1. The following example includes placeholders for a search service name, admin API key that grants create and delete permissions, and index name. Substitute valid values for all three placeholders. Create two clients: [SearchIndexClient](/java/api/com.azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/java/api/com.azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create and delete rights.
 
 
     ```java
@@ -281,7 +289,7 @@ In this example, synchronous methods of the azure-search-documents library are u
     }
     ```
 
-In the azure-search-documents client library, you can use [SearchableField](/java/api/com.azure.search.documents.indexes.searchablefield) and [SimpleField](/java/api/com.azure.search.documents.indexes.simplefield) to streamline field definitions.
+In the Azure.Search.Documents client library, you can use [SearchableField](/java/api/com.azure.search.documents.indexes.searchablefield) and [SimpleField](/java/api/com.azure.search.documents.indexes.simplefield) to streamline field definitions.
 
    * `SimpleField` can be any data type, is always non-searchable (it's ignored for full text search queries), and is retrievable (it's not hidden). Other attributes are off by default, but can be enabled. You might use a SimpleField for document IDs or fields used only in filters, facets, or scoring profiles. If so, be sure to apply any attributes that are necessary for the scenario, such as IsKey = true for a document ID.
    * `SearchableField` must be a string, and is always searchable and retrievable. Other attributes are off by default, but can be enabled. Because this field type is searchable, it supports synonyms and the full complement of analyzer properties.
@@ -611,13 +619,13 @@ The previous queries show multiple ways of matching terms in a query: full-text 
 
 Full text search and filters are performed using the [SearchClient.search](/java/api/com.azure.search.documents.searchclient#com-azure-search-documents-searchclient-search(java-lang-string)) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the `filter` property of the [SearchOptions](/java/api/com.azure.search.documents.models.searchoptions) class. To filter without searching, just pass "*" for the `searchText` parameter of the `search` method. To search without filtering, leave the `filter` property unset, or don't pass in a `SearchOptions` instance at all.
 
-### Run the program
+## Run the program
 
 Press F5 to rebuild the app and run the program in its entirety.
 
 Output includes messages from System.out.println, with the addition of query information and results.
 
-### Clean up resources
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -625,7 +633,7 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
-### Next Steps
+## Next Steps
 
 In this Java quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. Now that you're familiar with the basic concepts, try the next tutorial to call Cognitive Search APIs in the context of a web app.
 
