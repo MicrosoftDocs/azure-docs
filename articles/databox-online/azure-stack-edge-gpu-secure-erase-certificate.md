@@ -1,5 +1,5 @@
 ---
-title: Erase data from Azure Stack Edge device and generate a certificate of proof
+title: Erase data from your Azure Stack Edge
 description: Describes the process to erase data from an Azure Stack Edge device and generate a certificate of proof that data has been removed.
 services: databox
 author: alkohli
@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2022
+ms.date: 12/27/2022
 ms.author: alkohli
 ---
-# Erase data from Azure Stack Edge device and generate a certificate of proof
+# Erase data from your Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
