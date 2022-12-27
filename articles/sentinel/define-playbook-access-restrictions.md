@@ -17,18 +17,20 @@ This article shows how to define an [access restriction policy](../app-service/o
 
 ## Define an access restriction policy
 
-1. From the Azure portal, enter **Logic apps**.
-
-    :::image type="content" source="media/define-playbook-access-restrictions/select-logic-apps.png" alt-text="Screenshot showing how to enter logic apps from the Azure portal.":::
+1. From the Microsoft Sentinel navigation menu, select **Automation**. Select the **Active playbooks** tab.
 
 1. Filter the list for Standard-plan apps.
-    1. Select **+ Add filter**.
-    1. For **Filter**, select **Plan**. For **Value**, leave only **Standard** selected.
-    1. Select **Apply**.
+    1. Select the **Plan** filter.
+    1. Clear the **Consumption** checkbox.
+    1. Select **OK**.
 
         :::image type="content" source="media/define-playbook-access-restrictions/filter-list-for-standard.png" alt-text="Screenshot showing how to filter the list of apps for the standard plan type.":::
 
-1. Select the logic app that contains the workflows to which you want to restrict access.
+1. Select a playbook to which you want to restrict access.
+
+    :::image type="content" source="media/define-playbook-access-restrictions/select-playbook.png" alt-text="Screenshot showing how to select logic app from the list of apps.":::
+
+1. Select the logic app link on the playbook screen.
 
     :::image type="content" source="media/define-playbook-access-restrictions/select-logic-app.png" alt-text="Screenshot showing how to select logic app from the list of apps.":::
 
