@@ -129,13 +129,9 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or virtual machine scale sets. The schema and configuration are common to both template types. 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or Virtual Machine Scale Sets. The schema and configuration are common to both template types. 
 
-The JSON configuration for a virtual machine extension must be nested inside the virtual machine resource fragment of the template, specifically `"resources": []` object for the virtual machine template and in case of virtual machine scale set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
-
- > [!NOTE]
-> The VM extension would require system or user managed identity to be assigned to authenticate to Key vault.  See [How to authenticate to Key Vault and assign a Key Vault access policy.](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-> 
+The JSON configuration for a key vault extension is nested inside the virtual machine or virtual machine scale set template. For Virtual Machine resource extension is nested under `"resources": []` virtual machine object and Virtual Machine Scale Set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
 ```json
     {
@@ -168,9 +164,9 @@ The JSON configuration for a virtual machine extension must be nested inside the
 ```
 
 ### Extension Dependency Ordering
-The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates installed before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. This will prevent those extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
+The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates installed before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. It will prevent extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
 
-To turn this on set the following:
+To enable waiting for certificate to be installed, set the following setting:
 ```
 "secretsManagementSettings": {
     "requireInitialSync": true,
@@ -191,9 +187,9 @@ To turn this on set the following:
 > $settings = @{"secretsManagementSettings" = @{"pollingIntervalInS"="<pollingInterval>"; "certificateStoreName"="<certStoreName>";"certificateStoreLocation"="<certStoreLoc>";"observedCertificates"=@("<observedCert1>", "<observedCert2>")};"authenticationSettings"=@{"msiEndpoint"="<msiEndpoint>";"msiClientId"="<msiClientId>"} }
 > ```
   
-The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
+The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or Virtual Machine Scale Set. 
 
-* To deploy the extension on a VM:
+* Deploy the extension on a VM:
     
     ```powershell
         # Build settings
@@ -214,7 +210,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-* To deploy the extension on a virtual machine scale set :
+* Deploy the extension on a Virtual Machine Scale Set :
 
     ```powershell
     
@@ -244,7 +240,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
 
 The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
  
-* To deploy the extension on a VM:
+* Deploy the extension on a VM:
     
     ```azurecli
        # Start the deployment
@@ -256,7 +252,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
     ```
 
-* To deploy the extension on a virtual machine scale set :
+* Deploy the extension on a Virtual Machine Scale Set :
 
    ```azurecli
         # Start the deployment
