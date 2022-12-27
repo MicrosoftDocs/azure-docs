@@ -119,7 +119,7 @@ The desired result should look like:
 Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 ```
 
-If the result is different, STOP deploying SAP and investigate why the setup command didn't work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned above is **NOT** supported.
+If the result is different, STOP any deployment and investigate why the setup command didn't work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned above is **NOT** supported.
 
 ## SQL Server High-Availability for SAP in Azure
 Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. Azure provides different up-time SLAs for a single VM using different Azure block storages, a pair of VMs deployed in an Azure availability set, or a pair of VMs deployed across Azure Availability Zones. For production systems, we expect you to deploy a pair of VMs within an availability set or across two Availability Zones.  One VM will run the active SQL Server Instance. The other VM will run the passive Instance
@@ -128,7 +128,7 @@ Using SQL Server in Azure IaaS deployments for SAP, you have several different p
 With Windows Server 2016, Microsoft introduced [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Based on Storage Spaces, Direct Deployment, SQL Server FCI clustering is supported in general. Azure also offers [Azure shared disks](../../disks-shared-enable.md?tabs=azure-cli) that could be used for Windows clustering. **For SAP workload, we aren't supporting these HA options.** 
 
 ### SQL Server Log Shipping
-One of the oldest high availability (HA) functionality is SQL Server log shipping. If the VMs participating in the HA configuration have working name resolution, there's no problem. The setup in Azure doesn't differ from any setup that is done on-premises related to setting up log shipping and the principles around log shipping. Details of SQL Server log shipping can be found in the article [About Log Shipping (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server). 
+One high availability functionality is SQL Server log shipping. If the VMs participating in the HA configuration have working name resolution, there's no problem. The setup in Azure doesn't differ from any setup that is done on-premises related to setting up log shipping and the principles around log shipping. Details of SQL Server log shipping can be found in the article [About Log Shipping (SQL Server)](/sql/database-engine/log-shipping/about-log-shipping-sql-server). 
 
 The SQL Server log shipping functionality was hardly used in Azure to achieve high availability within one Azure region. However in the following scenarios SAP customers were using log shipping successful with Azure:
 
@@ -163,7 +163,7 @@ Detailed documentation on deploying Always On with SQL Server in Azure VMs lists
 SQL Server Always On is the most common used high availability and disaster recovery functionality used in Azure for SAP workload deployments. Most customers use Always On for high availability within a single Azure Region. If the deployment is restricted to two nodes only, you have two choices for connectivity:
 
 - Using the Availability Group Listener. With the Availability Group Listener, you're required to deploy an Azure load balancer. 
-- Using SQL Server 2016 SP3, SQL Server 2017 CU 25, or SQL Server 2019 CU8 or more recent SQL Server releases on Windows Server 2016 or later you can use the [Direct Network Name (DNN) listener](/azure/azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure) instead. DNN is eliminating the requirement to us an Azure load balancer.
+- With SQL Server 2016 SP3, SQL Server 2017 CU 25, or SQL Server 2019 CU8 or more recent SQL Server releases on Windows Server 2016 or later you can use the [Direct Network Name (DNN) listener](/azure/azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure) instead of an Azure load balancer. DNN is eliminating the requirement to us an Azure load balancer.
 
 
 Using the connectivity parameters of SQL Server Database Mirroring should only be considered for round of investigating issues with the other two methods. In this case, you need to configure the connectivity of the SAP applications in a way where both node names are named. Exact details of such an SAP side configuration is documented in SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908). By using this option, you would have no need to configure an Availability Group listener. And with that no Azure load balancer and with that could investigate issues of those components. But recall, this option only works if you restrict your Availability Group to span two instances.  
