@@ -52,7 +52,7 @@ When triaging an alert, consider that some alerts might reflect valid network ch
 
 While triaging options from the OT sensor and the on-premises management console are available for OT alerts only, options available on the Azure portal are available for both OT and Enterprise IoT alerts.
 
-Use the following sections to understand more about each alert status and triage option.
+Use the following table to learn more about each alert status and triage option.
 
 
 |Status / triage action  |Available on  |Description  |
