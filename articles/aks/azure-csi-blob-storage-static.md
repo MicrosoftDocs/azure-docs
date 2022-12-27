@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to create a static persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2022
+ms.date: 12/27/2022
 
 ---
 
@@ -22,7 +22,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 - If you don't have a storage account that supports the NFS v3 protocol, review [NFS v3 support with Azure Blob storage][azure-blob-storage-nfs-support].
 
-- [Enable the Blob storage CSI driver][enable-blob-csi-driver] (preview) on your AKS cluster.
+- [Enable the Blob storage CSI driver][enable-blob-csi-driver] on your AKS cluster.
 
 ## Static provisioning parameters
 
