@@ -24,6 +24,8 @@
         href: identity-governance-automation.md
       - name: Governing an application's existing users - PowerShell
         href: identity-governance-applications-existing-users.md
+      - name: Governing a nonprovisionable application's users - PowerShell
+        href: identity-governance-applications-not-provisioned-users.md
     - name: Entitlement Management
       items:
       - name: Manage access to resources
