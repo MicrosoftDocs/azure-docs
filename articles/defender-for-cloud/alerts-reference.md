@@ -760,65 +760,41 @@ VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen ex
 Detected possible execution of keygen executable [seen multiple times] | Medium
 Suspicious process executed [seen multiple times] | High
 VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
-Suspicious use of PowerShell detected. [seen multiple times] | High
 VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
-High risk software detected [seen multiple times] | Medium
-VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium | Detected suspicious combination of HTA and PowerShell [seen multiple times] | Medium
+VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium 
 VM.Windows_MultipleAccountsQuery | Multiple Domain Accounts Queried | Medium
-Multiple Domain Accounts Queried [seen multiple times] | Medium
 VM.Windows_NewAccountCreation | Account creation detected | Informational
-Account creation detected [seen multiple times] | Informational
 VM.Windows_ObfuscatedCommandLine | Detected obfuscated command line. | High
-Detected obfuscated command line. [seen multiple times] | High
 VM.Windows_PcaluaUseToLaunchExecutable | Detected suspicious use of Pcalua.exe to launch executable code | Medium
-Detected suspicious use of Pcalua.exe to launch executable code [seen multiple times] | Medium
 VM.Windows_PetyaRansomware | Detected Petya ransomware indicators | High
-Detected Petya ransomware indicators [seen multiple times] | High
 VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets executed | Medium
-Suspicious PowerShell cmdlets executed [seen multiple times] | Medium
 VM.Windows_RansomwareIndication | Ransomware indicators detected | High
-Ransomware indicators detected [seen multiple times] | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
-Detected the disabling of critical services [seen multiple times] | Medium
 VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected | Medium
-Sticky keys attack detected [seen multiple times] | Medium
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
-Detected suspicious new firewall rule [seen multiple times] | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
-Detected suspicious use of FTP -s switch [seen multiple times] | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
 VM.Windows_SVCHostFromInvalidPath | Suspicious process executed | High
-Suspicious process executed [seen multiple times] | High
 VM.Windows_SystemEventLogCleared | The Windows Security log was cleared. | Informational
-The Windows Security log was cleared. [seen multiple times] | Informational
 VM.Windows_TelegramInstallation | Detected potentially suspicious use of Telegram tool | Medium
-VM.Windows_UndercoverProcess | Suspiciously named process detected Suspiciously named process detected [seen multiple times] | High
+VM.Windows_UndercoverProcess | Suspiciously named process detected | High
 VM.Windows_UserAccountControlBypass | Detected change to a registry key that can be abused to bypass UAC | Medium
-Detected change to a registry key that can be abused to bypass UAC [seen multiple times] | Medium
 VM.Windows_VBScriptEncoding | Detected suspicious execution of VBScript.Encode command | Medium
-Detected suspicious execution of VBScript.Encode command [seen multiple times] | Medium
 VM.Windows_WindowPositionRegisteryChange | Suspicious WindowPosition registry value detected | Low
-Suspicious WindowPosition registry value detected [seen multiple times] | Low
-VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant [seen multiple times] | High
+VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant | High
 VM_MaliciousSQLActivity	Malicious SQL activity | High
-Malicious SQL activity [seen multiple times] | High
 VM_ProcessWithDoubleExtensionExecution	Suspicious double extension file executed | High
-Suspicious double extension file executed [seen multiple times] | High
 VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
-Windows registry persistence method detected [seen multiple times] | Low
 VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity | High
-Suspicious Volume Shadow Copy Activity [seen multiple times] | High
-VM_SuspectExecutablePath | Executable found running from a suspicious location; Executable found running from a suspicious location [seen multiple times];
-Process loaded module from a suspicious location
+VM_SuspectExecutablePath | Executable found running from a suspicious location | 
 VM_SuspectPhp | Suspicious PHP execution detected | Medium
 VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
 VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational
 VM_SystemProcessInAbnormalContext | Suspicious system process executed | Medium
 VM_ThreatIntelCommandLineSuspectDomain | A possible connection to malicious location has been detected | Medium
 VM_ThreatIntelSuspectLogon | A logon from a malicious IP has been detected | High
-VM_VbScriptHttpObjectAllocation | High
-
+VM_VbScriptHttpObjectAllocation| VBScript HTTP object allocation detected | High
 
 
 ## Next steps
