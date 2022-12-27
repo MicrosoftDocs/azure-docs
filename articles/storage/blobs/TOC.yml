@@ -443,7 +443,9 @@ items:
             - name: Configure TLS version for a client application
               href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Configure network routing preference
-            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+          - name: Restrict scope of copy operations
+            href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
         - name: Enable threat protection with Microsoft Defender for Storage
           href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Protect blob data
@@ -618,6 +620,42 @@ items:
               href: storage-blob-append.md
           - name: Implement a retry policy
             href: storage-retry-policy.md
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download.md
+        - name: Java
+          items:
+          - name: Get started
+            href: storage-blob-java-get-started.md
+          - name: Container actions
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-java.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-java.md
+            - name: List containers
+              href: storage-blob-containers-list-java.md
+            - name: Manage container leases
+              href: storage-blob-container-lease-java.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-java.md
+          - name: Blob actions
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-java.md
+            - name: Download blobs
+              href: storage-blob-download-java.md
+            - name: Copy blobs
+              href: storage-blob-copy-java.md
+            - name: List blobs
+              href: storage-blobs-list-java.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-java.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-java.md
+            - name: Manage blob leases
+              href: storage-blob-lease-java.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-java.md
         - name: JavaScript
           items:
           - name: Get started

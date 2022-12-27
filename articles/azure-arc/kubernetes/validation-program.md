@@ -1,17 +1,17 @@
 ---
 title: "Azure Arc-enabled Kubernetes validation"
-ms.date: 03/03/2021
+ms.date: 12/07/2022
 ms.topic: how-to
 description: "Describes Arc validation program for Kubernetes distributions"
 ---
 
 # Azure Arc-enabled Kubernetes validation
 
-Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
+Azure Arc-enabled Kubernetes works with any Kubernetes clusters that are certified by the Cloud Native Computing Foundation (CNCF). The Azure Arc team has also worked with key industry Kubernetes offering providers to validate Azure Arc-enabled Kubernetes with their Kubernetes distributions. Future major and minor versions of Kubernetes distributions released by these providers will be validated for compatibility with Azure Arc-enabled Kubernetes.
 
 ## Validated distributions
 
-The following Microsoft provided Kubernetes distributions and infrastructure providers have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
+The following Microsoft-provided Kubernetes distributions and infrastructure providers have successfully passed the conformance tests for Azure Arc-enabled Kubernetes:
 
 | Distribution and infrastructure provider | Version |
 | ---------------------------------------- | ------- |
@@ -44,17 +44,16 @@ The Azure Arc team also ran the conformance tests and validated Azure Arc-enable
 
 The conformance tests run as part of the Azure Arc-enabled Kubernetes validation cover the following scenarios:
 
-1. Connect Kubernetes clusters to Azure Arc: 
+1. Connect Kubernetes clusters to Azure Arc:
     * Deploy Azure Arc-enabled Kubernetes agent Helm chart on cluster.
     * Agents send cluster metadata to Azure.
 
-2. Configuration: 
+2. Configuration:
     * Create configuration on top of Azure Arc-enabled Kubernetes resource.
     * [Flux](https://docs.fluxcd.io/), needed for setting up GitOps workflow, is deployed on the cluster.
     * Flux pulls manifests and Helm charts from demo Git repo and deploys to cluster.
 
 ## Next steps
 
-Learn how to connect your existing Kubernetes cluster to Azure Arc.
-> [!div class="nextstepaction"]
-> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
+* [Learn how to connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)
+* Learn about the [Azure Arc agents](conceptual-agent-overview.md) deployed on Kubernetes clusters when connecting them to Azure Arc.

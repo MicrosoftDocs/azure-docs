@@ -94,6 +94,8 @@
       href: /dotnet/api/overview/azure/virtualmachines
   - name: Java
     items:
+    - name: Create and manage VMs using Java
+      href: ./windows/java.md
     - name: Java SDK
       href: https://github.com/Azure/azure-sdk-for-java
     - name: Reference

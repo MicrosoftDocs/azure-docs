@@ -160,6 +160,9 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 
 ## Anomaly engine alerts
 
+>[!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 Anomaly engine alerts describe detected anomalies in network activity.
 
 | Title | Description | Severity | Category | MITRE ATT&CK <br> tactics and techniques |

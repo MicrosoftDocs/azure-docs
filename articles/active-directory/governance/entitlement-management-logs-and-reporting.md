@@ -1,6 +1,6 @@
 ---
 title: Archive & report with Azure Monitor - Microsoft Entra entitlement management
-description: Learn how to archive logs and create reports with Azure Monitor in Microsoft Entra entitlement management.
+description: Learn how to archive logs and create reports with Azure Monitor in entitlement management.
 services: active-directory
 documentationCenter: ''
 author: owinfreyatl
@@ -21,7 +21,7 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As an administrator, I want to extend data retention in entitlement management past the default period by using Azure Monitor.
 
 ---
-# Archive logs and reporting on Microsoft Entra entitlement management in Azure Monitor
+# Archive logs and reporting on entitlement management in Azure Monitor
 
 Azure AD stores audit events for up to 30 days in the audit log. However, you can keep the audit data for longer than the default retention period, outlined in [How long does Azure AD store reporting data?](../reports-monitoring/reference-reports-data-retention.md), by routing it to an Azure Storage account or using Azure Monitor. You can then use workbooks and custom queries and reports on this data.
 

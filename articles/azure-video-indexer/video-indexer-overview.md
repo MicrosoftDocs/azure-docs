@@ -2,13 +2,11 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 12/19/2022
 ms.author: juliako
 ---
 
 # What is Azure Video Indexer?
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 

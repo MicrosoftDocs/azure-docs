@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/29/2022
+ms.date: 12/27/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,23 +18,22 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Recommendation to configure dead-letter queues for Lambda functions to be deprecated](#recommendation-to-configure-dead-letter-queues-for-lambda-functions-to-be-deprecated) | November 2022 |
-| [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
-| [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
+| [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | January 2023 |
+| [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | January 2023 |
+| [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | January 2023 |
+| [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
 
-### Recommendation to configure dead-letter queues for Lambda functions to be deprecated
+### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
-**Estimated date for change: November 2022**
+**Estimated date for change: January 2023**
 
-The recommendation [`Lambda functions should have a dead-letter queue configured`](https://portal.azure.com/#view/Microsoft_Azure_Security/AwsRecommendationDetailsBlade/assessmentKey/dcf10b98-798f-4734-9afd-800916bf1e65/showSecurityCenterCommandBar~/false) is set to be deprecated.
+The [Running container images should have vulnerability findings resolved](defender-for-containers-vulnerability-assessment-azure.md#view-vulnerabilities-for-images-running-on-your-aks-clusters) recommendation is currently in preview. While a recommendation is in preview, it doesn't render a resource unhealthy and isn't included in the calculations of your secure score.
 
-| Recommendation | Description | Severity |
-|--|--|--|
-| Lambda functions should have a dead-letter queue configured | This control checks whether a Lambda function is configured with a dead-letter queue. The control fails if the Lambda function isn't configured with a dead-letter queue. As an alternative to an on-failure destination, you can configure your function with a dead-letter queue to save discarded events for further processing. A dead-letter queue acts the same as an on-failure destination. It's used when an event fails all processing attempts or expires without being processed. A dead-letter queue allows you to look back at errors or failed requests to your Lambda function to debug or identify unusual behavior. From a security perspective, it's important to understand why your function failed and to ensure that your function doesn't drop data or compromise data security as a result. For example, if your function can't communicate to an underlying resource, that could be a symptom of a denial of service (DoS) attack elsewhere in the network. | Medium |
+We recommend that you use the recommendation to remediate vulnerabilities in your containers so that the recommendation won't impact your secure score when the recommendation is released as GA. Learn about [recommendation remediation](implement-security-recommendations.md).
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
-**Estimated date for change: December 2022**
+**Estimated date for change: January 2023**
 
 The recommendation [`Diagnostic logs in Virtual Machine Scale Sets should be enabled`](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/961eb649-3ea9-f8c2-6595-88e9a3aeedeb/showSecurityCenterCommandBar~/false) is set to be deprecated. 
 
@@ -46,11 +45,19 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 ### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
 
-**Estimated date for change: December 2022**
+**Estimated date for change: January 2023**
 
 The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
 
 The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
+
+### The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed
+
+**Estimated date for change: January 2023**
+
+The secure score control `Protect your applications with Azure advanced networking solutions` will change to `Protect applications against DDoS attacks`.
+
+The updated name will be reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
 
 ## Next steps
 

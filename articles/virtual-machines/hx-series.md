@@ -21,7 +21,7 @@ During preview, HX VMs will feature up to 176 AMD EPYC™ 7004-series (Genoa) CP
 > [!Note] 
 > At General Availability, Azure HX-series VMs will automatically be upgraded to Genoa-X processors featuring 3D V-Cache. Updates to technical specifications for HX will be posted at that time. 
 
-All HX-series VMs feature 400 GB/s NDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. NDR continues to support features like Adaptive Routing and the Dynamically Connected Transport (DCT). This newest generation of InfiniBand also brings greater support for offload of MPI collectives, optimized real-world latencies due to congestion control intelligence, and enhanced adaptive routing capabilities. These features enhance application performance, scalability, and consistency, and their usage is recommended.  
+All HX-series VMs feature 400 Gb/s NDR InfiniBand from NVIDIA Networking to enable supercomputer-scale MPI workloads. These VMs are connected in a non-blocking fat tree for optimized and consistent RDMA performance. NDR continues to support features like Adaptive Routing and the Dynamically Connected Transport (DCT). This newest generation of InfiniBand also brings greater support for offload of MPI collectives, optimized real-world latencies due to congestion control intelligence, and enhanced adaptive routing capabilities. These features enhance application performance, scalability, and consistency, and their usage is recommended.  
 
 [Premium Storage](premium-storage-performance.md): Supported\
 [Premium Storage caching](premium-storage-performance.md): Supported\
@@ -33,7 +33,7 @@ All HX-series VMs feature 400 GB/s NDR InfiniBand from NVIDIA Networking to enab
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported
 <br>
 
-|Size |Physical CPU cores |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth (GB/s) |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (GB/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
+|Size |Physical CPU cores |Processor |Memory (GB) |Memory per core (GB) |Memory bandwidth (GB/s) |Base CPU frequency (GHz) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (TB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
 |Standard_HX176rs    |176 |AMD EPYC Genoa |1408 |8 |800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |
 |Standard_HX176-144rs|144 |AMD EPYC Genoa |1408 |10|800 |2.4 |3.7 |400 |All |2 * 1.8 |32 |8 |

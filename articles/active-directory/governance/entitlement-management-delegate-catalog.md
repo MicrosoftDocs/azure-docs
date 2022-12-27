@@ -1,5 +1,5 @@
 ---
-title: Delegate access governance to catalog creators in Microsoft Entra entitlement management - Azure Active Directory
+title: Delegate access governance to catalog creators in entitlement management - Microsoft Entra
 description: Learn how to delegate access governance from IT administrators to catalog creators and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Delegate access governance to catalog creators in Microsoft Entra entitlement management
+# Delegate access governance to catalog creators in entitlement management
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. By default, a Global administrator or an Identity governance administrator can [create a catalog](entitlement-management-catalog-create.md), and can add additional users as catalog owners.
 

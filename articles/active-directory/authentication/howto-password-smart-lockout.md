@@ -77,7 +77,7 @@ To check or modify the smart lockout values for your organization, complete the 
     The default is 60 seconds (one minute).
 
 > [!NOTE]
-> If the first sign-in after a lockout also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
+> If the first sign-in after a lockout period has expired also fails, the account locks out again. If an account locks repeatedly, the lockout duration increases.
 
 ![Customize the Azure AD smart lockout policy in the Azure portal](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
