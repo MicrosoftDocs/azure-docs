@@ -756,9 +756,7 @@ VM.Windows_EchoToConstructPowerShellScript | Dynamic PS script construction | Me
 VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium
 VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
 VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
-VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable | Medium
-Detected possible execution of keygen executable [seen multiple times] | Medium
-Suspicious process executed [seen multiple times] | High
+VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable <br/> Suspicious process executed | Medium <br/>  <br/> High <br/> |
 VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
 VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
 VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium 
@@ -771,7 +769,7 @@ VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets 
 VM.Windows_RansomwareIndication | Ransomware indicators detected | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
-VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected | Medium
+VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detcted  Medium <br/>  <br/> Medium <br/> |
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
@@ -786,8 +784,8 @@ VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created b
 VM_MaliciousSQLActivity	Malicious SQL activity | High
 VM_ProcessWithDoubleExtensionExecution	Suspicious double extension file executed | High
 VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
-VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity | High
-VM_SuspectExecutablePath | Executable found running from a suspicious location | 
+VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High <br/> High <br/> |
+VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomoalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
 VM_SuspectPhp | Suspicious PHP execution detected | Medium
 VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
 VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational
