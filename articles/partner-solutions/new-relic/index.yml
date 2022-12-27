@@ -23,7 +23,7 @@ landingContent:
             url: new-relic-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Complete the prerequisites for new-relic
+          - text: Complete the prerequisites for New Relic
             url: new-relic-how-to-configure-prereqs.md
           - text: Manage the new-relic resource with the portal
             url: new-relic-how-to-manage.md
