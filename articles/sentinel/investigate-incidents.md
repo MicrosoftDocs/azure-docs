@@ -51,19 +51,19 @@ Incidents are your case files that contain an aggregation of all the relevant ev
 
     :::image type="content" source="media/investigate-incidents/incident-actions.png" alt-text="Screenshot of menu of actions that can be performed on an incident from the details pane.":::
 
-1. To view the incident's details in their entirety, including the alerts and entities in the incident and selected top insights, select **View full details** in the incident page. See the next sections of this article to follow a typical investigation path, learning in the process about all the information you'll see there, and all the actions you can take.
+1. To view the incident's details in their entirety, including the alerts and entities in the incident and selected top insights, select **View full details** in the incident page. 
+
+See the next sections of this article to follow a typical investigation path, learning in the process about all the information you'll see there, and all the actions you can take.
 
 ## Investigate your incident in depth
 
-This section will simulate an investigation, describing the different sections in the new incident details page.
+Each area of the incident details page corresponds with an essential objective of your investigation.
 
 :::image type="content" source="media/investigate-incidents/incident-details-overview.png" alt-text="Screenshot of incident details page, featuring the overview tab." lightbox="media/investigate-incidents/incident-details-overview.png":::
 
+Before we get into the individual panels on this page, a quick word about one of the buttons on the banner at the top of the screen:
 
 
-Along the top of the screen, there is a task banner with the following options: 
-
-- Select **Logs** to open a blank Log Analytics sub-panel that allows you to write queries and see results without leaving the incident details page.
 
 - Select **Tasks (Preview)** to see the tasks assigned for this incident, or to add your own tasks. [Learn more about incident tasks](incident-tasks.md).
 
