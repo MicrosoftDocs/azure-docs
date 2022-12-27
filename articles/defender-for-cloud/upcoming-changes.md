@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 12/04/2022
+ms.date: 12/27/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -42,14 +42,6 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 | Recommendation | Description | Severity |
 |--|--|--|
 | Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
-
-### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
-
-**Estimated date for change: December 2022**
-
-The policy [`Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports`](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F057d6cfe-9c4f-4a6d-bc60-14420ea1f1a9) is set to be deprecated. 
-
-The Defender for SQL vulnerability assessment email report will still be available and existing email configurations won't change after the policy is deprecated.
 
 ### The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed
 
