@@ -74,7 +74,7 @@ It can take a few minutes for the network and Bastion host to deploy. Continue w
 
 ## Create virtual machine
 
-In this section, you'll create an Windows Server 2022 virtual machine for the stand-alone Docker host. The CNI plug-in supports Windows and Linux.
+In this section, you'll create a Windows Server 2022 virtual machine for the stand-alone Docker host. The CNI plug-in supports Windows and Linux.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -212,7 +212,7 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
 
 14. Select **Add**.
 
-15. To add more IP addresses that correspond with any additional IP configurations created previously, select **Add**. 
+15. To add more IP addresses that correspond with any extra IP configurations created previously, select **Add**. 
 
 16. Select **OK**.
 
@@ -247,9 +247,9 @@ Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/
 .\install-docker-ce.ps1
 ```
 
-The virtual machine will reboot to install the container support in Windows. Re-connect to the virtual machine and the Docker install will continue.
+The virtual machine will reboot to install the container support in Windows. Reconnect to the virtual machine and the Docker install will continue.
 
-For more information about Windows containers see, [Get started: Prep Windows for containers](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1).
+For more information about Windows containers, see, [Get started: Prep Windows for containers](/virtualization/windowscontainers/quick-start/set-up-environment?tabs=dockerce#windows-server-1).
 
 After Docker is installed on your virtual machine, continue with the steps in this article.
 
@@ -308,7 +308,7 @@ The script that creates the containers with the Azure CNI plugin requires the ap
     .\docker-exec.ps1 vnetdocker1 default mcr.microsoft.com/windows/servercore/iis add
     ```
 
-It can take a few minutes for the image for the container to download for the first time. When the container starts and intializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
+It can take a few minutes for the image for the container to download for the first time. When the container starts and initializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
 
 10. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
 
@@ -323,7 +323,7 @@ It can take a few minutes for the image for the container to download for the fi
     ```
     :::image type="content" source="./media/deploy-container-networking-docker-windows/ipconfig-output.png" alt-text="Screenshot of ipconfig output in PowerShell prompt of test container.":::
 
-12. Exit the container and exit the Bastion connection.
+12. Exit the container and close the Bastion connection to **myVM**.
 
 ## Clean up resources
 
