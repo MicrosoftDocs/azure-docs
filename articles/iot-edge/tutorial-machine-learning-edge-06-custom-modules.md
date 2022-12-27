@@ -13,7 +13,7 @@ monikerRange: "=iotedge-2018-06"
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 In this article, we create three IoT Edge modules that receive messages from downstream IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 

@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/15/2021
+ms.date: 12/12/2022
 ms.author: mbaldwin
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 ---
@@ -23,7 +23,7 @@ Azure role-based access control (Azure RBAC) is an authorization system built on
 
 Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults. 
 
-The Azure RBAC model provides the ability to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also provides the ability to have separate permissions on individual keys, secrets, and certificates
+The Azure RBAC model allows uses to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
@@ -35,7 +35,7 @@ Our recommendation is to use a vault per application per environment
 Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
--   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
+-   Sharing individual secrets between multiple applications, for example, one application needs to access data from the other application
 
 More about Azure Key Vault management guidelines, see:
 
@@ -260,7 +260,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
       ![Secret view with access](../media/rbac/image-10.png)
 
-   1. Create new secret ( Secrets \> +Generate/Import) should show below error:
+   1. Create new secret ( Secrets \> +Generate/Import) should show this error:
 
       ![Create new secret](../media/rbac/image-11.png)
 
@@ -278,7 +278,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
    1. Go to key vault resource group Access control (IAM) tab and remove "Key Vault Reader" role assignment.
 
-   1. Navigating to key vault's Secrets tab should show below error:
+   1. Navigating to key vault's Secrets tab should show this error:
 
       ![Secret tab - error](../media/rbac/image-13.png)
 
@@ -342,7 +342,7 @@ For more Information about how to create custom roles, see:
 ## Frequently Asked Questions:
 
 ### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
-No. RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions which will then expose secure information to operators across application teams.
+No. RBAC permission model allows you to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions, which will then expose secure information to operators across application teams.
 
 ## Learn more
 

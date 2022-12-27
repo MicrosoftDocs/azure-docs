@@ -16,7 +16,7 @@ This article describes the different ways that Azure Monitor charges for usage. 
 
 Azure Monitor uses consumption-based pricing, which is also known as pay-as-you-go pricing. With this billing model, you only pay for what you use. Features of Azure Monitor that are enabled by default don't incur any charge. These features include collection and alerting on the [Activity log](essentials/activity-log.md) and collection and analysis of [platform metrics](essentials/metrics-supported.md).
 
-Several other features don't have a direct cost, but you instead pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed pricing for each type is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+Several other features don't have a direct cost, but instead you pay for the ingestion and retention of data that they collect. The following table describes the different types of usage that are charged in Azure Monitor. Detailed pricing for each type is provided in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 | Type | Description |
 |:---|:---|

@@ -456,12 +456,15 @@ Webhook action groups use the following rules:
 
 - The first call waits 10 seconds for a response.
 
-- The second and third attempts wait 30 seconds for a response.
+- Between the first and second call it waits 20 seconds for a response.
+
+- Between the second and third call it waits 40 seconds for a response.
 
 - The call is retried if any of the following conditions are met:
 
   - A response isn't received within the timeout period.
-  - One of the following HTTP status codes is returned: 408, 429, 503, or 504.
+  - One of the following HTTP status codes is returned: 408, 429, 503, 504 or TaskCancellationException.
+  - If any one of the above errors is encountered an additonal 5 seconds wait for the response.
 
 - If three attempts to call the webhook fail, no action group calls the endpoint for 15 minutes.
 

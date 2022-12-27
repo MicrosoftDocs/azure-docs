@@ -209,7 +209,7 @@ For more information, see [Manage sensors with Defender for IoT in the Azure por
 If you want to cancel your Enterprise IoT plan and stop the integration with Defender for Endpoint, use one of the following methods carefully:
 
 - **To cancel your plan for Enterprise IoT networks only**, do so from [Microsoft 365 Defender](manage-subscriptions-enterprise.md#cancel-your-enterprise-iot-plan).
-- **To cancel a plan for both OT and Enterprise IoT networks together**, use the [**Pricing** page in Defender for IoT](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) in the Azure portal.
+- **To cancel a plan for both OT and Enterprise IoT networks together**, use the [**Plans and pricing** page in Defender for IoT](how-to-manage-subscriptions.md#cancel-a-defender-for-iot-plan) in the Azure portal.
 
 ## Move existing sensors to a different subscription
 

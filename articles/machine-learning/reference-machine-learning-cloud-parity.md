@@ -64,7 +64,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Public Preview       | NO                 | NO          |
 | ACR behind VNet                                                            | GA       | YES                 | YES          |
 | Private IP of AKS cluster                                                  | Public Preview       | NO                 | NO          |
-| Network isolation for managed online endpoints                             | Public Preview       | NO                 | NO          |
+| Network isolation for managed online endpoints                             | GA       | NO                 | NO          |
 | **Compute** |   | | |
 | [quota management across workspaces](how-to-manage-quotas.md)                                         | GA                   | YES                | YES         |
 | [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |
@@ -177,7 +177,7 @@ The information in the rest of this document provides information on what featur
 | ACI behind VNet                                                            | Preview   | NO        | N/A        |
 | ACR behind VNet                                                            | GA   | YES       | N/A        |
 | Private IP of AKS cluster                                                  | Preview   | NO        | N/A        |
-| Network isolation for managed online endpoints                             | Preview       | NO                 | N/A          |
+| Network isolation for managed online endpoints                             | GA     | NO                 | N/A          |
 | **Compute** |   | | |
 | quota management across workspaces                                         | GA               | YES       | N/A        |
 | [Kubernetes compute](./how-to-attach-kubernetes-anywhere.md)                                         | GA                   | NO                | NO         |

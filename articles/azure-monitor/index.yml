@@ -78,6 +78,8 @@ landingContent:
         links:
           - text: Learning path
             url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Analyze logs in Azure Monitor with KQL
+            url: /training/modules/analyze-logs-with-kql/
 
   # Card
   - title: Reference - CLI

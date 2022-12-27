@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 12/16/2022
 ms.author: jasteppe
 ---
 
@@ -35,7 +35,7 @@ To begin your deployment and complete the quickstart, you must have the followin
 
 When you have these prerequisites, you're ready to configure the ARM template by using the **Deploy to Azure** button.
 
-## Review the ARM template
+## Review the ARM template - Optional
 
 The ARM template used to deploy the resources in this quickstart is available at [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/iotconnectors-with-iothub/) by using the *azuredeploy.json* file on [GitHub](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors-with-iothub). 
 
@@ -121,15 +121,15 @@ When deployment is completed, the following resources and access roles are creat
 
 After you've successfully deployed an instance of the MedTech service, you'll still need to provide conforming and valid device and FHIR destination mappings.
 
- - To learn about device mappings, see [How to configure device mappings](how-to-use-device-mappings.md).
+ - To learn about device mappings, see [How to configure device mappings](how-to-configure-device-mappings.md).
 
- - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-use-fhir-mappings.md).
+ - To learn about FHIR destination mappings, see [How to configure FHIR destination mappings](how-to-configure-fhir-mappings.md).
 
 ## Next steps
 
 In this quickstart, you learned how to deploy an instance of the MedTech service in the Azure portal using an ARM template with a **Deploy to Azure** button. 
 
-To learn more about other methods of deploying the MedTech service, see
+To learn about other methods of deploying the MedTech service, see
 
 > [!div class="nextstepaction"]
 > [Choose a deployment method for the MedTech service](deploy-new-choose.md)
