@@ -28,11 +28,11 @@ This article shows how to define an [access restriction policy](../app-service/o
 
 1. Select a playbook to which you want to restrict access.
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-playbook.png" alt-text="Screenshot showing how to select logic app from the list of apps.":::
+    :::image type="content" source="media/define-playbook-access-restrictions/select-playbook.png" alt-text="Screenshot showing how to select playbook from the list of playbooks.":::
 
 1. Select the logic app link on the playbook screen.
 
-    :::image type="content" source="media/define-playbook-access-restrictions/select-logic-app.png" alt-text="Screenshot showing how to select logic app from the list of apps.":::
+    :::image type="content" source="media/define-playbook-access-restrictions/select-logic-app.png" alt-text="Screenshot showing how to select logic app from the playbook screen.":::
 
 1. From the navigation menu of your logic app, under **Settings**, select **Networking**.
 
