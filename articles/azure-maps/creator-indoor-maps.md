@@ -308,7 +308,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [basemap]: supported-map-styles.md
 [style]: /rest/api/maps/v20220901preview/style
 [tileset]: /rest/api/maps/v20220901preview/tileset
-[routeset]: /rest/api/maps/v20220901preview/routestset
+[routeset]: /rest/api/maps/v20220901preview/routeset
 [wayfind]: /rest/api/maps/v20220901preview/wayfinding
 [wayfinding path] /rest/api/maps/v20220901preview/wayfinding/path
 [style-picker-control]: choose-map-style.md#add-the-style-picker-control
