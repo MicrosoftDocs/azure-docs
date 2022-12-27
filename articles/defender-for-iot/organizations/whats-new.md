@@ -15,20 +15,20 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Pending
+## January 2023
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - **Sensor versions 22.2.3**: [Remote sensor configuration from the Azure portal](#remote-sensor-configuration-from-the-azure-portal)   |
+|**OT networks**     | - **Sensor versions 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview)   |
 
 
-### Remote sensor configuration from the Azure portal
+### Configure OT sensor settings from the Azure portal (Public preview)
 
-For sensor versions 22.2.3 and higher, you can configure sensor settings directly from the **Sites and sensors** page on the Azure portal.
+For sensor versions 22.2.3 and higher, you can now configure selected settings for cloud-connected sensors from the Azure portal using the new **Sensor settings (Preview)** page. For example:
 
-To create and apply settings across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
+:::image type="content" source="media/define-sensor-settings-portal/view-settings.png" alt-text="Screenshot of the OT sensor settings on the Azure portal.":::
 
-For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
+For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](define-sensor-settings-portal.md).
 
 ## December 2022
 

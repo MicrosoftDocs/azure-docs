@@ -206,6 +206,8 @@
       href: extra-deploy-enterprise-iot.md
   - name: Manage sensors from the Azure portal
     href: how-to-manage-sensors-on-the-cloud.md
+  - name: Define OT sensor settings from the Azure portal
+    href: define-sensor-settings-portal.md
   - name: Create and manage users
     items:
     - name: Azure portal

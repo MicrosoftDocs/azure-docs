@@ -59,7 +59,7 @@ When you're done, select **Save** to save your changes.
 
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a specific sensor name to drill down to more details for that sensor.
 
-Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page. 
+Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
 
 |Task |Description  |
 |---------|---------|
@@ -76,6 +76,8 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 | **Download SNMP MIB file** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Set up SNMP MIB monitoring](how-to-set-up-snmp-mib-monitoring.md).|
 | **Recover an on-premises management console password** | Available from the **Sites and sensors** toolbar **More actions** menu. <br><br>For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). |
 | **Download endpoint details** (Public preview) | Available from the **Sites and sensors** toolbar **More actions** menu, for OT sensor versions 22.x only. <br><br>Download the list of endpoints that must be enabled as secure endpoints from OT network sensors. Make sure that HTTPS traffic is enabled over port 443 to the listed endpoints for your sensor to connect to Azure. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.<br><br>To enable this option, select a sensor with a supported software version, or a site with one or more sensors with supported versions. |
+| **Define OT network sensor settings** (Preview) | Define selected sensor settings for one or more cloud-connected OT network sensors. For more information, see [Define and view OT sensor settings from the Azure portal (Public preview)](define-sensor-settings-portal.md). Other settings are also available directly from the [OT sensor console](how-to-manage-individual-sensors.md), or the [on-premises management console](how-to-manage-sensors-from-the-on-premises-management-console.md).|
+
 
 ## Reactivate an OT sensor
 
@@ -105,115 +107,6 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
 >
 > For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
-
-## Define and view OT sensor settings (Public preview)
-
-This procedure describes how to define sensor settings from the Azure portal and apply them across your OT sensor network.
-
-> [!TIP]
-> Current settings available from the Azure portal include bandwidth caps, subnets, and VLAN naming.
->
-> You can manage other sensor settings directly from the sensor console. For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
->
-**To configure and apply a sensor setting**:
-
-1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**.
-
-1. Select **Add** and use the wizard to define values for your setting.
-
-1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
-
-1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. For more information, see [Sensor setting reference](#sensor-setting-reference) below.
-
-1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting.
-
-    > [!IMPORTANT]
-    > Selecting a site or zone applies the setting to all connected sensors. Sensors added to a site later inherit settings applied to a site or zone.
-    >
-    > If you select to apply your settings to a site, you don't also need to select its zones or sensors.
-
-1. When you're finished, select **Review and create** to create your setting and apply it as configured. If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.
-
-After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
-
-For example:
-
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings.png" alt-text="Screenshot of the sensor settings page.":::
-
-### Sensor setting reference
-
-Use the following sections to learn more about individual OT sensor settings:
-
-#### Bandwidth cap
-
-For a bandwidth cap, define the maximum bandwidth you want the sensor to use for outgoing communication from the sensor to the cloud, either in Kbps or Mbps.
-
-**Default**: 1500 Kbps
-**Minimum required for a stable connection to Azure** 350 Kbps. At this minimum setting, connections to the sensor console may be slower than usual.
-
-#### Subnet
-
-To define your sensor's subnets do any of the following:
-
-- Select **Import subnets** to import a comma-separated list of subnet IP addresses and masks. Select **Export subnets** to export a list of currently configured data, or **Clear all** to start from scratch.
-
-- Select **Auto subnet learning** to have Defender for IoT automatically learn subnets from existing network data.
-
-- Select **Resolve all Internet traffic as internal/private** to treat all public IPs as local addresses. If you select this option, your sensor will not send any alerts about unauthorized internet activity.
-
-- Select **Add subnet** to add subnet details manually, including each IP address, mask, and subnet name.
-
-For example:
-
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png":::
-
-#### VLAN naming
-
-To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
-
-### For disconnected sensors
-
-This procedure describes how to change sensor settings if your sensor is currently disconnected from Azure, such as during an ongoing security incident.
-
-By default, if you've configured any sensor settings from the Azure portal, all settings that are configurable from both the Azure portal and the sensor are set to read-only on the sensor itself. For example, if you've configured a VLAN from the Azure portal, then bandwidth cap, subnet, and VLAN settings are all set to read-only, and blocked from modifications on the sensor.
-
-If you're in a situation where the sensor is disconnected from Azure, and you need to modify one of these settings, you'll first need to gain write access.
-
-**To gain write access to blocked sensor settings**:
-
-1. In Defender for IoT on the Azure portal, update the scope of the setting so that it no longer includes the affected sensor. Settings defined on the Azure portal always overwrite settings defined on the sensor, so you'll want to make sure that your sensor changes won't be lost when it's reconnected to Azure.
-
-    For more information, see [Define and view OT sensor settings](#define-and-view-ot-sensor-settings-public-preview).
-
-1. On the sensor console, go to **Settings > Advanced configurations** and select **Azure Remote Config**.
-
-1. In the code box, modify the `block_local_config` value from `1` to `0`, and select **Close**.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option." lightbox="media/how-to-manage-individual-sensors/remote-config-sensor.png":::
-
-Continue by updating the relevant setting on the sensor as needed.
-
-### For disconnected sensors
-
-This procedure describes how to change sensor settings if your sensor is currently disconnected from Azure, such as during an ongoing security incident.
-
-By default, if you've configured any sensor settings from the Azure portal, all settings that are configurable from both the Azure portal and the sensor are set to read-only on the sensor itself. For example, if you've configured a VLAN from the Azure portal, then bandwidth cap, subnet, and VLAN settings are all set to read-only, and blocked from modifications on the sensor.
-
-If you're in a situation where the sensor is disconnected from Azure, and you need to modify one of these settings, you'll first need to gain write access.
-
-**To gain write access to blocked sensor settings**:
-
-1. In Defender for IoT on the Azure portal, update the scope of the setting so that it no longer includes the affected sensor. Settings defined on the Azure portal always overwrite settings defined on the sensor, so you'll want to make sure that your sensor changes won't be lost when it's reconnected to Azure.
-
-    For more information, see [Define and view OT sensor settings](#define-and-view-ot-sensor-settings-public-preview).
-
-1. On the sensor console, go to **Settings > Advanced configurations** and select **Azure Remote Config**.
-
-1. In the code box, modify the `block_local_config` value from `1` to `0`, and select **Close**.
-
-    :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option.":::
-
-Continue by updating the relevant setting on the sensor as needed.
 
 ## Understand sensor health (Public preview)
 
@@ -273,5 +166,11 @@ If you need to open a support ticket for a locally managed sensor, upload a diag
     :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png" alt-text="Screenshot of the send diagnostic files to support option." lightbox="media/how-to-manage-sensors-on-the-cloud/upload-diagnostics-log.png":::
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Manage OT sensors from the sensor console](how-to-manage-individual-sensors.md)
+
+> [!div class="nextstepaction"]
+> [Define and view OT sensor settings from the Azure portal (Public preview)](configure-sensors.md)
 
 [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)

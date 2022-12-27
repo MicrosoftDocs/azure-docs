@@ -158,7 +158,7 @@ This version includes the following new updates and fixes:
 
 This version includes the following new updates and fixes:
 
-- [Define and view OT sensor settings from the Azure portal](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview)
+- [Define and view OT sensor settings from the Azure portal](define-sensor-settings-portal.md)
 - [New naming convention for hardware profiles](ot-appliance-sizing.md)
 - [PCAP access from the Azure portal](how-to-manage-cloud-alerts.md)
 - [Bi-directional alert synch between sensors and the Azure portal](how-to-manage-cloud-alerts.md#managing-alerts-in-a-hybrid-deployment)
