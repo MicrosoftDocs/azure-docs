@@ -279,8 +279,6 @@ To create the data collection rule in the Azure portal:
 
 ---
 
-## Add an ingestion-time transformation
-
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
