@@ -546,7 +546,7 @@
         - name: ASIM authentication schema
           href: authentication-normalization-schema.md
         - name: ASIM DNS schema
-          href: dns-normalization-schema.md
+          href: normalization-schema-dns.md
         - name: ASIM DHCP schema
           href: dhcp-normalization-schema.md
         - name: ASIM file event schema
