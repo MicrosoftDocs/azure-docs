@@ -3,7 +3,7 @@ ms.service: devtest-lab
 ms.topic: include
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 11/09/2018
+ms.date: 12/27/2022
 
 ---
 ## Get started with Azure DevTest Labs
