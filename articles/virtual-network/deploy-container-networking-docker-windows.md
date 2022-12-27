@@ -189,11 +189,11 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
     | Setting | Value |
     | ------- | ----- |
     | Select **Use the following IP address:** |   |
-    | IP address: | Enter **10.1.0.4**. |
+    | IP address: | Enter **10.1.0.4** |
     | Subnet mask: | Enter **255.255.255.0** |
     | Default gateway | Enter **10.1.0.1** |
     | Select **Use the following DNS server addresses:** |   |
-    | Preferred DNS server: | Enter **168.63.129.16**. *This IP is the DHCP assigned IP address for the default Azure DNS* |
+    | Preferred DNS server: | Enter **168.63.129.16** *This IP is the DHCP assigned IP address for the default Azure DNS* |
 
     :::image type="content" source="./media/deploy-container-networking-docker-windows/ip-address-configuration.png" alt-text="Screenshot of the primary IP configuration in Windows.":::
 
@@ -208,8 +208,10 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
     | Setting | Value |
     | ------- | ----- |
     | **TCP/IP Address** |   |
-    | IP address: | Enter **10.1.0.5**. |
-    | Subnet mask: | Enter **255.255.255.0**. |
+    | IP address: | Enter **10.1.0.5** |
+    | Subnet mask: | Enter **255.255.255.0** |
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/secondary-ip-address.png" alt-text="Screenshot of the secondary IP configuration addition.":::
 
 14. Select **Add**.
 
@@ -243,10 +245,11 @@ Sign-in to the virtual machine you created previously with the Azure Bastion hos
 
 7. The following example installs **Docker CE/Moby**:
 
-```powershell
-Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o install-docker-ce.ps1
-.\install-docker-ce.ps1
-```
+    ```powershell
+    Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o install-docker-ce.ps1
+
+    .\install-docker-ce.ps1
+    ```
 
 The virtual machine will reboot to install the container support in Windows. Reconnect to the virtual machine and the Docker install will continue.
 
@@ -309,22 +312,22 @@ The script that creates the containers with the Azure CNI plugin requires the ap
     .\docker-exec.ps1 vnetdocker1 default mcr.microsoft.com/windows/servercore/iis add
     ```
 
-It can take a few minutes for the image for the container to download for the first time. When the container starts and initializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
+    It can take a few minutes for the image for the container to download for the first time. When the container starts and initializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
 
-10. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
+2. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
 
     ```powershell
     docker exec -it vnetdocker1 powershell
     ```
 
-11. Use the **`ipconfig`** command in the following example to verify the IP address was assigned to the container:
+3. Use the **`ipconfig`** command in the following example to verify the IP address was assigned to the container:
 
-    ```bash
+    ```powershell
     ipconfig
     ```
     :::image type="content" source="./media/deploy-container-networking-docker-windows/ipconfig-output.png" alt-text="Screenshot of ipconfig output in PowerShell prompt of test container.":::
 
-12. Exit the container and close the Bastion connection to **myVM**.
+4. Exit the container and close the Bastion connection to **myVM**.
 
 ## Clean up resources
 
