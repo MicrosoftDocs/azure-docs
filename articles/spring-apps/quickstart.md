@@ -119,6 +119,8 @@ Use the following steps to clone the Spring Boot sample project.
    ```azurecli-interactive
    mvn clean package -DskipTests
    ```
+> [!NOTE]
+> Verify your system's java version is compatible with the version specified in the 'java.version' in the pom.xml file. You can update the java version by following the instructions [here](https://learn.microsoft.com/en-us/java/openjdk/install#zip-and-targz-packages)
 
 ## Deploy the local app to Azure Spring Apps
 
