@@ -85,6 +85,11 @@ If the target action group or rule location is in a different scope than the two
 
 You can configure whether log or metric alerts are stateful or stateless. Activity log alerts are stateless. 
 - Stateless alerts fire each time the condition is met, even if fired previously.
+
+    The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:
+    - **Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.
+    - **Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.
+
 - Stateful alerts fire when the condition is met and then don't fire again or trigger any more actions until the conditions are resolved.  
 For stateful alerts, the alert is considered resolved when:
 
