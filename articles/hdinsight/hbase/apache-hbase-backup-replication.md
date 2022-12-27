@@ -30,7 +30,7 @@ HBase in HDInsight uses the default storage selected when creating the cluster, 
 
 `/hbase`
 
-* In an Azure Storage account the `hbase` folder resides at the root of the blob container:
+* In an Azure Storage account' the `hbase` folder resides at the root of the blob container:
 
   `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
@@ -84,7 +84,7 @@ This approach offers table-level granularity. You can also specify a date range 
 hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
 ```
 
-Note that you have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
+You have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
 
 ## Copy tables
 
