@@ -8,8 +8,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-ios) for iOS and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-library-quick-start)
 
 ### Local Participant View Data Injection
@@ -18,11 +16,18 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 #### Local Options
 
-`LocalOptions` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components.
+`LocalOptions` is data model that consists of `ParticipantViewData` and `SetupScreenViewData`.  By default for `ParticipantViewData`, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components. 
+
+Similarly, for 'SetupScreenViewData', by default the UI library will display 'Setup' as the title and subtitle will be set to hidden. The `title` and `subtitle` in 'SetupScreenViewData' would overwrite the navigation bar's title and subtitle in pre-meeting screen respectively. 
 
 #### Participant View Data
 
 `ParticipantViewData` is an object that sets the `displayName` and `avatar` UIImage for avatar components. This class is injected into the UI Library to set avatar information, and it will always be locally stored and never sent up to the server.
+
+#### Setup Screen View Data
+
+`SetupScreenViewData` is an object that sets the `title` and `subtitle` for the navigationBar on pre-meeting screen (aka. Setup View). If `SetupScreenViewData` is defined, then 'title' must be provided as it's a required field. 'subtitle', however, is not required. 
+If `subtitle` is not defined, then the subtitle would always be set to hidden. This class is locally stored and its information will not be sent up to the server.
 
 #### Usage
 
@@ -30,13 +35,14 @@ The UI Library now gives developers the ability to provide a more customized exp
 // LocalOptions (data not sent to server)
 let localParticipantViewData = ParticipantViewData(avatar: <Some UIImage>,
                                                    displayName: "<DISPLAY_NAME>")
-let localOptions = LocalOptions(participantViewData: localParticipantViewData)
-
+let localSetupScreenViewData = SetupScreenViewData(title: "<NAV_TITLE>",
+                                                               subtitle: "<NAV_SUBTITLE>")
+let localOptions = LocalOptions(participantViewData: localParticipantViewData, 
+                                setupScreenViewData: localSetupScreenViewData)
 // RemoteOptions (data sent to server)
 let remoteOptions = RemoteOptions(for: .groupCall(groupId: UUID()),
                                   credential: <Some CommunicationTokenCredential>,
                                   displayName: "<DISPLAY_NAME>")
-
 // Launch
 callComposite.launch(remoteOptions: remoteOptions, localOptions: localOptions)
 ```

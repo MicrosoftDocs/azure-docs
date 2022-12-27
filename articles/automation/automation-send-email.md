@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want understand runbooks so that I can use it to automate e-mails.
 ---
 
-# Send an email from am Automation runbook
+# Send an email from an Automation runbook
 
 You can send an email from a runbook with [SendGrid](https://sendgrid.com/solutions) using PowerShell. 
 

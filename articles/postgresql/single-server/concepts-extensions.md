@@ -6,8 +6,9 @@ ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
 author: sunilagarwal
-ms.date: 03/25/2021
+ms.date: 06/24/2022
 ---
+
 # PostgreSQL extensions in Azure Database for PostgreSQL - Single Server
 
 [!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
@@ -22,7 +23,7 @@ Azure Database for PostgreSQL supports a subset of key extensions as listed belo
 
 ## Postgres 11 extensions
 
-The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 11. 
+The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 11.
 
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
@@ -65,7 +66,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
-## Postgres 10 extensions 
+## Postgres 10 extensions
 
 The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 10.
 
@@ -111,7 +112,7 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
-## Postgres 9.6 extensions 
+## Postgres 9.6 extensions
 
 The following extensions are available in Azure Database for PostgreSQL servers which have Postgres version 9.6.
 
@@ -204,36 +205,42 @@ The following extensions are available in Azure Database for PostgreSQL servers 
 > |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | text search dictionary that removes accents|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | generate universally unique identifiers (UUIDs)|
 
-
 ## pg_stat_statements
+
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL server to provide you a means of tracking execution statistics of SQL statements.
 The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter through the [Azure portal](./how-to-configure-server-parameters-using-portal.md) or the [Azure CLI](./how-to-configure-server-parameters-using-cli.md).
 
 There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 ## dblink and postgres_fdw
+
 [dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON puts all Azure IPs on the allow list.
 
 > [!NOTE]
 > Currently, outbound connections from Azure Database for PostgreSQL via foreign data wrapper extensions such as postgres_fdw  are not supported, except for connections to other Azure Database for PostgreSQL servers in the same Azure region.
 
 ## uuid
+
 If you are planning to use `uuid_generate_v4()` from the [uuid-ossp extension](https://www.postgresql.org/docs/current/uuid-ossp.html), consider comparing with `gen_random_uuid()` from the [pgcrypto extension](https://www.postgresql.org/docs/current/pgcrypto.html) for performance benefits.
 
 ## pgAudit
-The [pgAudit extension](https://github.com/pgaudit/pgaudit/blob/master/README.md) provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit.md). 
+
+The [pgAudit extension](https://github.com/pgaudit/pgaudit/blob/master/README.md) provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit.md).
 
 ## pg_prewarm
+
 The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. In Postgres 10 and below, prewarming is done manually using the [prewarm function](https://www.postgresql.org/docs/10/pgprewarm.html).
 
-In Postgres 11 and above, you can configure prewarming to happen [automatically](https://www.postgresql.org/docs/current/pgprewarm.html). You need to include pg_prewarm in your `shared_preload_libraries` parameter's list and restart the server to apply the change. Parameters can be set from the [Azure portal](how-to-configure-server-parameters-using-portal.md), [CLI](how-to-configure-server-parameters-using-cli.md), REST API, or ARM template. 
+In Postgres 11 and above, you can configure prewarming to happen [automatically](https://www.postgresql.org/docs/current/pgprewarm.html). You need to include pg_prewarm in your `shared_preload_libraries` parameter's list and restart the server to apply the change. Parameters can be set from the [Azure portal](how-to-configure-server-parameters-using-portal.md), [CLI](how-to-configure-server-parameters-using-cli.md), REST API, or ARM template.
 
 ## TimescaleDB
+
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
 
 [Learn more about TimescaleDB](https://docs.timescale.com/timescaledb/latest/), a registered trademark of [Timescale, Inc.](https://www.timescale.com/). Azure Database for PostgreSQL provides the TimescaleDB [Apache-2 edition](https://www.timescale.com/legal/licenses).
 
 ### Installing TimescaleDB
+
 To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's `shared_preload_libraries` parameter requires a **server restart** to take effect. You can change parameters using the [Azure portal](how-to-configure-server-parameters-using-portal.md) or the [Azure CLI](how-to-configure-server-parameters-using-cli.md).
 
 Using the [Azure portal](https://portal.azure.com/):
@@ -246,21 +253,21 @@ Using the [Azure portal](https://portal.azure.com/):
 
 4. Select **TimescaleDB**.
 
-5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
+5. Select **Save** to preserve your changes. You get a notification once the change is saved.
 
 6. After the notification, **restart** the server to apply these changes. To learn how to restart a server, see [Restart an Azure Database for PostgreSQL server](how-to-restart-server-portal.md).
-
 
 You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> If you see an error, confirm that you [restarted your server](how-to-restart-server-portal.md) after saving shared_preload_libraries. 
+> If you see an error, confirm that you [restarted your server](how-to-restart-server-portal.md) after saving shared_preload_libraries.
 
 You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 ### Restoring a Timescale database using pg_dump and pg_restore
+
 To restore a Timescale database using pg_dump and pg_restore, you need to run two helper procedures in the destination database: `timescaledb_pre_restore()` and `timescaledb_post restore()`.
 
 First prepare the destination database:
@@ -281,21 +288,20 @@ SELECT timescaledb_post_restore();
 ```
 For more details on restore method wiith Timescale enabled database see [Timescale documentation](https://docs.timescale.com/timescaledb/latest/how-to-guides/backup-and-restore/pg-dump-and-restore/#restore-your-entire-database-from-backup)
 
-
 ### Restoring a Timescale database using timescaledb-backup
 
- While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
- To do so you should do following
+While running `SELECT timescaledb_post_restore()` procedure listed above you may get permissions denied error updating timescaledb.restoring flag. This is due to limited ALTER DATABASE permission in Cloud PaaS database services. In this case you can perform alternative method using `timescaledb-backup` tool to backup and restore Timescale database. Timescaledb-backup is a program for making dumping and restoring a TimescaleDB database simpler, less error-prone, and more performant. 
+To do so you should do following
    1. Install  tools as detailed [here](https://github.com/timescale/timescaledb-backup#installing-timescaledb-backup)
    2. Create target Azure Database for PostgreSQL server and database
    3. Enable Timescale extension as shown above
    4. Grant azure_pg_admin [role](https://www.postgresql.org/docs/11/database-roles.html) to user that will be used by [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore)
    5. Run [ts-restore](https://github.com/timescale/timescaledb-backup#using-ts-restore) to restore database
 
- More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
+More details on these utilities can be found [here](https://github.com/timescale/timescaledb-backup). 
 > [!NOTE]
-> When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding. 
+> When using `timescale-backup` utilities to restore to Azure is that since database user names for non-flexible Azure Database for PostgresQL  must use the `<user@db-name>` format, you need to replace `@` with `%40` character encoding.
 
 ## Next steps
-If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
 
+If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

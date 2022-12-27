@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Create and provision IoT Edge devices at scale on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Linux IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -22,12 +22,15 @@ The tasks are as follows:
 1. Create either an **individual enrollment** for a single device or a **group enrollment** for a set of devices.
 1. Install the IoT Edge runtime and register the device with IoT Hub.
 
-Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final "leaf" certificate installed on a device.
+Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final downstream device certificate installed on a device.
+
+> [!TIP]
+> If your device has a Hardware Security Module (HSM) such as a TPM 2.0, then we recommend storing the X.509 keys securely in the HSM. Learn more about how to implement the zero-touch provisioning at scale described in [this blueprint](https://azure.microsoft.com/blog/the-blueprint-to-securely-solve-the-elusive-zerotouch-provisioning-of-iot-devices-at-scale) with the [iotedge-tpm2cloud](https://aka.ms/iotedge-tpm2cloud) sample.
 
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### Device requirements
 
@@ -35,9 +38,9 @@ A physical or virtual Linux device to be the IoT Edge device.
 
 ## Generate device identity certificates
 
-The device identity certificate is a leaf certificate that connects through a certificate chain of trust to the top X.509 certificate authority (CA) certificate. The device identity certificate must have its common name (CN) set to the device ID that you want the device to have in your IoT hub.
+The device identity certificate is a downstream device certificate that connects through a certificate chain of trust to the top X.509 certificate authority (CA) certificate. The device identity certificate must have its common name (CN) set to the device ID that you want the device to have in your IoT hub.
 
-Device identity certificates are only used for provisioning the IoT Edge device and authenticating the device with Azure IoT Hub. They aren't signing certificates, unlike the CA certificates that the IoT Edge device presents to modules or leaf devices for verification. For more information, see [Azure IoT Edge certificate usage detail](iot-edge-certs.md).
+Device identity certificates are only used for provisioning the IoT Edge device and authenticating the device with Azure IoT Hub. They aren't signing certificates, unlike the CA certificates that the IoT Edge device presents to modules or downstream devices for verification. For more information, see [Azure IoT Edge certificate usage detail](iot-edge-certs.md).
 
 After you create the device identity certificate, you should have two files: a .cer or .pem file that contains the public portion of the certificate, and a .cer or .pem file with the private key of the certificate. If you plan to use group enrollment in DPS, you also need the public portion of an intermediate or root CA certificate in the same certificate chain of trust.
 
@@ -68,10 +71,10 @@ To create test certificates, follow the steps in [Create demo certificates to te
 You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 <!-- Create a DPS enrollment using X.509 certificates H2 and content -->
-[!INCLUDE [iot-edge-create-dps-enrollment-x509.md](../../includes/iot-edge-create-dps-enrollment-x509.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-x509.md](includes/iot-edge-create-dps-enrollment-x509.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 
@@ -134,7 +137,7 @@ Have the following information ready:
 :::moniker-end
 <!-- end 1.1. -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Create a configuration file for your device based on a template file that is provided as part of the IoT Edge installation.
@@ -157,6 +160,9 @@ Have the following information ready:
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "SCOPE_ID_HERE"
+
+   # Uncomment to send a custom payload during DPS registration
+   # payload = { uri = "PATH_TO_JSON_FILE" }
    
    [provisioning.attestation]
    method = "x509"
@@ -183,6 +189,15 @@ Have the following information ready:
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
+:::moniker-end
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+:::moniker-end
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 1. Save and close the file.
 
 1. Apply the configuration changes that you made to IoT Edge.
@@ -192,7 +207,7 @@ Have the following information ready:
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -233,7 +248,7 @@ iotedge list
 
 :::moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Check the status of the IoT Edge service.

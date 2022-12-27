@@ -5,9 +5,8 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
-ms.author: mikaelw
-author: mikaelweave
+ms.author: kesheth
+author: expekesheth
 ms.date: 06/02/2022
 ---
 
@@ -55,7 +54,7 @@ The Patient Access API describes adherence to four FHIR implementation guides:
 
 The Provider Directory API describes adherence to one implementation guide:
 
-* [HL7 Da Vinci PDex Plan Network IG](http://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
+* [HL7 Da Vinci PDex Plan Network IG](https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/): This implementation guide defines a FHIR interface to a health insurer’s insurance plans, their associated networks, and the organizations and providers that participate in these networks.
 
 ## Touchstone
 

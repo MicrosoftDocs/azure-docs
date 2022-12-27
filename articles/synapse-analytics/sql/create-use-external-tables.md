@@ -186,6 +186,13 @@ CREATE EXTERNAL TABLE Covid (
 
 External tables cannot be created on a partitioned folder. Review the other known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
+### Delta tables on partitioned folders
+
+External tables in serverless SQL pools do not support partitioning on Delta Lake format. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) instead of tables if you have partitioned Delta Lake data sets. 
+ 
+> [!IMPORTANT]
+> Do not create external tables on partitioned Delta Lake folders even if you see that they might work in some cases. Using unsupported features like external tables on partitioned delta folders might cause issues or instability of the serverless pool. Azure support will not be able to resolve any issue if it is using tables on partitioned folders. You would be asked to transition to [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) and rewrite your code to use only the supported feature before proceeding with issue resolution.
+
 ## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.

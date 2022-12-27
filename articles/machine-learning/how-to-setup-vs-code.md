@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: tbombach
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
@@ -50,7 +50,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 
 ## Sign in to your Azure Account
 
-In order to provision resources and run workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+In order to provision resources and job workloads on Azure, you have to sign in with your Azure account credentials. To assist with account management, Azure Machine Learning automatically installs the Azure Account extension. Visit the following site to [learn more about the Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 To sign into you Azure account, select the **Azure: Sign In** button in the bottom right corner on the Visual Studio Code status bar to start the sign in process.
 

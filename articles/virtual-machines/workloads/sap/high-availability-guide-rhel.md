@@ -1,20 +1,14 @@
 ---
 title: Azure VMs high availability for SAP NW on RHEL | Microsoft Docs
 description: Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/28/2022
+ms.date: 12/06/2022
 ms.author: radeltch
-
 ---
 
 # Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux
@@ -129,12 +123,10 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
 1. Create an Availability Set  
    Set max update domain
 1. Create Virtual Machine 1  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
-   Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use at least RHEL 7, in this example the [Red Hat Enterprise Linux 7.4 image](https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM).  
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
@@ -147,18 +139,19 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          1. Click OK
       1. IP address 10.0.0.8 for the ASCS ERS
          * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **nw1-backend**)
-      1. Click Add a virtual machine.
-      1. Select Virtual machine.
-      1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
-      1. Click Add
+   1. Create a single back-end pool: 
+      1. Open the load balancer, select **Backend pools**, and then select **Add**.
+      1. Enter the name of the new back-end pool (for example, **nw1-backend**).
+      2. Select **NIC** for Backend Pool Configuration. 
+      1. Select **Add a virtual machine**.
+      1. Select the virtual machines of the ASCS cluster.
+      1. Select **Add**.     
+      2. Select **Save**.  
    1. Create the health probes
       1. Port 620**00** for ASCS
          1. Open the load balancer, select health probes, and click Add
          1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Select TCP as protocol, port 620**00**, keep Interval 5 
          1. Click OK
       1. Port 621**02** for ASCS ERS
          * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
@@ -167,47 +160,12 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
          1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb-ascs**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**, **nw1-backend** and **nw1-ascs-hp**)
+         2. Increase idle timeout to 30 minutes
          1. Select **HA ports**
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rules for ERS (for example **nw1-lb-ers**)
-1. Alternatively, ***only if*** your scenario requires basic load balancer (internal), follow these configuration steps instead to create basic load balancer:  
-   1. Create the frontend IP addresses
-      1. IP address 10.0.0.7 for the ASCS
-         1. Open the load balancer, select frontend IP pool, and click Add
-         1. Enter the name of the new frontend IP pool (for example **nw1-ascs-frontend**)
-         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.7**)
-         1. Click OK
-      1. IP address 10.0.0.8 for the ASCS ERS
-         * Repeat the steps above to create an IP address for the ERS (for example **10.0.0.8** and **nw1-aers-frontend**)
-   1. Create the backend pool
-      1. Open the load balancer, select backend pools, and click Add
-      1. Enter the name of the new backend pool (for example **nw1-backend**)
-      1. Click Add a virtual machine.
-      1. Select the Availability Set you created earlier
-      1. Select the virtual machines of the (A)SCS cluster
-      1. Click OK
-   1. Create the health probes
-      1. Port 620**00** for ASCS
-         1. Open the load balancer, select health probes, and click Add
-         1. Enter the name of the new health probe (for example **nw1-ascs-hp**)
-         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
-         1. Click OK
-      1. Port 621**02** for ASCS ERS
-         * Repeat the steps above to create a health probe for the ERS (for example 621**02** and **nw1-aers-hp**)
-   1. Load-balancing rules
-      1. 32**00** TCP for ASCS
-         1. Open the load balancer, select load-balancing rules and click Add
-         1. Enter the name of the new load balancer rule (for example **nw1-lb-3200**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-ascs-frontend**)
-         1. Keep protocol **TCP**, enter port **3200**
-         1. Increase idle timeout to 30 minutes
-         1. **Make sure to enable Floating IP**
-         1. Click OK
-      1. Additional ports for the ASCS
-         * Repeat the steps above for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
-      1. Additional ports for the ASCS ERS
-         * Repeat the steps above for ports 33**02**, 5**02**13, 5**02**14, 5**02**16 and TCP for the ASCS ERS
+
 
 > [!IMPORTANT]
 > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
@@ -483,7 +441,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Update the /usr/sap/sapservices file
 
-   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
+   To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file.
 
    <pre><code>
    sudo vi /usr/sap/sapservices
@@ -495,7 +453,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # LD_LIBRARY_PATH=/usr/sap/<b>NW1</b>/ERS<b>02</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>NW1</b>/ERS<b>02</b>/exe/sapstartsrv pf=/usr/sap/<b>NW1</b>/ERS<b>02</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> -D -u <b>nw1</b>adm
    </code></pre>
 
-1. **[1]** Create the SAP cluster resources
+2. **[1]** Create the SAP cluster resources
 
   If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
@@ -1038,6 +996,7 @@ Follow these steps to install an SAP application server.
 
 ## Next steps
 
+* To deploy cost optimization scenario where PAS and AAS instance is deployed with SAP NetWeaver HA cluster on RHEL, see [Install SAP Dialog Instance with SAP ASCS/SCS high availability VMs on RHEL](high-availability-guide-rhel-with-dialog-instance.md)
 * [HA for SAP NW on Azure VMs on RHEL for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]

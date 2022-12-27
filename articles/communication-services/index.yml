@@ -57,6 +57,8 @@ landingContent:
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
           - text: Add video calling to your app
             url: quickstarts/voice-video-calling/get-started-with-video-calling.md
+          - text: Add video calling to your Android WebView app
+            url: quickstarts/voice-video-calling/get-started-android-webview.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
@@ -77,6 +79,10 @@ landingContent:
             url: concepts/ui-library/ui-library-overview.md
           - text: UI Library use cases
             url: concepts/ui-library/ui-library-use-cases.md
+      - linkListType: get-started
+        links:
+          - text: Cross-platform samples
+            url: samples/ui-library-cross-platform.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart
@@ -102,7 +108,27 @@ landingContent:
       - linkListType: learn
         links:
           - text: Send an SMS using C#
-            url: /learn/modules/communication-service-send-sms-console-app/
+            url: /training/modules/communication-service-send-sms-console-app/
+  - title: Call Automation
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Handle an inbound phone call
+            url: quickstarts/call-automation/redirect-inbound-telephony-calls.md
+          - text: Build a customer interaction workflow using Call Automation
+            url: quickstarts/call-automation/callflows-for-customer-interactions.md
+          - text: Record calls
+            url: quickstarts/voice-video-calling/get-started-call-recording.md
+      - linkListType: concept
+        links:
+          - text: Learn how Call Automation helps you build calling workflows
+            url: concepts/call-automation/call-automation.md
+          - text: Play audio in calls
+            url: concepts/call-automation/play-action.md
+          - text: Gathering user input
+            url: concepts/call-automation/recognize-action.md
+          - text: Call recording concepts
+            url: concepts/voice-video-calling/call-recording.md           
   - title: Chat
     linkLists:
       - linkListType: quickstart
@@ -119,7 +145,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a Email Communication Services resource
+          - text: Create an Email Communication Services resource
             url: quickstarts/email/create-email-communication-resource.md
           - text: Add Azure Managed domain
             url: quickstarts/email/add-azure-managed-domains.md

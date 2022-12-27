@@ -2,7 +2,9 @@
 title: YAML reference - ACR Tasks
 description: Reference for defining tasks in YAML for ACR Tasks, including task properties, step types, step properties, and built-in variables.
 ms.topic: reference
-ms.date: 07/08/2020
+author: tejaswikolli-web
+ms.author: tejaswikolli
+ms.date: 10/11/2022
 ---
 
 # ACR Tasks reference: YAML
@@ -573,10 +575,10 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 
 | Alias | Image |
 | ----- | ----- |
-| `acr` | `mcr.microsoft.com/acr/acr-cli:0.4` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:f75cfff` |
-| `bash` | `mcr.microsoft.com/acr/bash:f75cfff` |
-| `curl` | `mcr.microsoft.com/acr/curl:f75cfff` |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.5` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:7ee1d7f` |
+| `bash` | `mcr.microsoft.com/acr/bash:7ee1d7f` |
+| `curl` | `mcr.microsoft.com/acr/curl:7ee1d7f` |
 
 The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 

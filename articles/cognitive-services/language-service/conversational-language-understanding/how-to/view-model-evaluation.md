@@ -46,6 +46,19 @@ In the **view model details** page, you'll be able to see all your models, with 
 
 ---
 
+## Load or export model data
+
+### [Language studio](#tab/Language-studio)
+
+[!INCLUDE [Load export model](../includes/language-studio/load-export-model.md)]
+
+
+### [REST APIs](#tab/REST-APIs)
+
+[!INCLUDE [Load export model](../includes/rest-api/load-export-model.md)]
+
+---
+
 ## Delete model
 
 ### [Language studio](#tab/Language-studio)

@@ -4,7 +4,7 @@ description: Explains users, groups, and contacts in Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 
 ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory

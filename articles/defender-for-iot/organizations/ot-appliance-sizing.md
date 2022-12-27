@@ -7,36 +7,37 @@ ms.topic: conceptual
 
 # Which appliances do I need?
 
-This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs.
+This article is designed to help you choose the right OT appliances for your sensors and on-premises management consoles. Use the tables below to understand which hardware profile best fits your organization's network monitoring needs. Performance values are upper thresholds and dependent on the analyzed traffic protocols, assuming that intermittent traffic profiles are typical of M2M systems.
 
-You can use both physical or virtual appliances.
+Physical or virtual appliances can be used; results depend on hardware and resources available to the monitoring sensor.
 
-## Corporate IT/OT mixed environments
+## IT/OT mixed environments
 
 Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
 
-
 |Hardware profile  |Max throughput |Max monitored Assets  |Deployment |
 |---------|---------|---------|---------|
-|Corporate   | 3 Gbps        | 12 K        |Physical / Virtual         |
+|C5600   | 3 Gbps        | 12 K        |Physical / Virtual         |
 
-## Enterprise monitoring at the site level
+## Monitoring at the site level
 
-Use the following  hardware profiles for enterprise monitoring at the site level:
+Use the following hardware profiles for enterprise monitoring at the site level, typically collecting multiple traffic feeds:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|Enterprise    |1 Gbps         |10K         |Physical / Virtual         |
+|E1800    |1 Gbps         |10K         |Physical / Virtual         |
+|E1000    |1 Gbps         |10K         |Physical / Virtual         |
+|E500    |1 Gbps         |10K         |Physical / Virtual         |
 
 ## Production line monitoring
 
-Use the following hardware profiles for production line monitoring:
+Use the following hardware profiles for production line monitoring, typically in the production/mission-critical environments:
 
 |Hardware profile  |Max throughput  |Max monitored assets  |Deployment  |
 |---------|---------|---------|---------|
-|SMB   | 200 Mbps        |   1,000      |Physical / Virtual         |
-|Office    | 60 Mbps        |   800      | Physical / Virtual        |
-|Rugged    | 10 Mbps        |   100      |Physical / Virtual|
+|L500   | 200 Mbps        |   1,000      |Physical / Virtual         |
+|L100    | 60 Mbps        |   800      | Physical / Virtual        |
+|L60    | 10 Mbps        |   100      |Physical / Virtual|
 
 ## On-premises management console systems
 
@@ -44,7 +45,7 @@ On-premises management consoles allow you to manage and monitor large, multiple-
 
 |Hardware profile  |Max monitored sensors  |Deployment  |
 |---------|---------|---------|
-|Enterprise    |Up to 300         |Physical / Virtual         |
+|E1800    |Up to 300         |Physical / Virtual         |
 
 ## Next steps
 
@@ -55,8 +56,8 @@ Continue understanding system requirements, including options for ordering pre-c
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 
-Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or re-install software on preconfigured appliances.
+Reference articles for OT monitoring appliances also include installation procedures in case you need to install software on your own appliances, or reinstall software on preconfigured appliances.

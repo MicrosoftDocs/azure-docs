@@ -1,8 +1,12 @@
 ---
 title: Set up readiness probe on container instance
 description: Learn how to configure a probe to ensure containers in Azure Container Instances receive requests only when they are ready
-ms.topic: article
-ms.date: 07/02/2020
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ---
 
 # Configure readiness probes

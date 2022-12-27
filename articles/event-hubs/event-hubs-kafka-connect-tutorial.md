@@ -2,11 +2,14 @@
 title: Integrate with Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 11/03/2022
 ---
 
-# Integrate Apache Kafka Connect support on Azure Event Hubs
+# Integrate Apache Kafka Connect support on Azure Event Hubs (Preview)
 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) is a framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Event Hubs.
+
+> [!NOTE]
+> This feature is currently in Preview. 
 
 > [!WARNING]
 > Use of the Apache Kafka Connect framework and its connectors is **not eligible for product support through Microsoft Azure**.

@@ -10,7 +10,7 @@ Collection of custom measurements. Use this collection to report named measureme
 - the number of queue items processed by Request Telemetry
 - time that customer took to complete the step in wizard step completion Event Telemetry.
 
-You can query [custom measurements](https://analytics.applicationinsights.io/demo?q=H4sIAAAAAAAAA2WLOw6DMAyGd07hZoLeoRPqyMaGGAL8aiPhGCV2kKoeHsHK%2Bj1myyr8LoiaqfrT%2FkUCzRft4LMl8OUeL3LuLLIx%2BxR%2BIF8%2BtcoiNq2o78vgWuFthQaJ1AeGGxt6UlBwKxa1qQ6EpLhAfQAAAA%3D%3D&timespan=PT24H) in Application Analytics:
+You can query custom measurements in Application Analytics:
 
 ```
 customEvents

@@ -1,14 +1,14 @@
 ---
-title: Optimize Azure workloads by using Advisor Score
-description: Use Azure Advisor Score to get the most out of Azure.
+title: Optimize Azure workloads by using Advisor score
+description: Use Azure Advisor score to get the most out of Azure.
 ms.topic: article
 ms.date: 09/09/2020
 
 ---
 
-# Optimize Azure workloads by using Advisor Score
+# Optimize Azure workloads by using Advisor score
 
-## Introduction to Advisor Score
+## Introduction to Advisor score
 
 Azure Advisor provides best practice recommendations for your workloads. These recommendations are personalized and actionable to help you:
 
@@ -16,11 +16,11 @@ Azure Advisor provides best practice recommendations for your workloads. These r
 * Proactively prevent top issues by following best practices.
 * Assess your Azure workloads against the five pillars of the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).
 
-As a core feature of Advisor, Advisor Score can help you achieve these goals effectively and efficiently.
+As a core feature of Advisor, Advisor score can help you achieve these goals effectively and efficiently.
 
 To get the most out of Azure, it's crucial to understand where you are in your workload optimization journey. You need to know which services or resources are consumed well and which are not. Further, you'll want to know how to prioritize your actions, based on recommendations, to maximize the outcome.
 
-It's also important to track and report the progress you're making in this optimization journey. With Advisor Score, you can easily do all these things with the new gamification experience.
+It's also important to track and report the progress you're making in this optimization journey. With Advisor score, you can easily do all these things with the new gamification experience.
 
 As your personalized cloud consultant, Azure Advisor continually assesses your usage telemetry and resource configuration to check for industry best practices. Advisor then aggregates its findings into a single score. With this score, you can tell at a glance if you're taking the necessary steps to build reliable, secure, and cost-efficient solutions.
 
@@ -28,19 +28,19 @@ The Advisor score consists of an overall score, which can be further broken down
 
 You can track the progress you make over time by viewing your overall score and category score with daily, weekly, and monthly trends. You can also set benchmarks to help you achieve your goals.
 
- ![Screenshot that shows the Advisor Score page.](./media/advisor-score-1.png)
+![Screenshot that shows the Advisor Score page.](https://user-images.githubusercontent.com/41593141/195171041-3eacca75-751a-4407-bad0-1cf7b21c42ff.png)
 
 ## Interpret an Advisor score
 
 Advisor displays your overall Advisor score and a breakdown for Advisor categories, in percentages. A score of 100% in any category means all your resources assessed by Advisor follow the best practices that Advisor recommends. On the other end of the spectrum, a score of 0% means that none of your resources assessed by Advisor follow Advisor's recommendations. Using these score grains, you can easily achieve the following flow:
 
-* **Advisor Score** helps you baseline how your workload or subscriptions are doing based on an Advisor score. You can also see the historical trends to understand what your trend is.
+* **Advisor score** helps you baseline how your workload or subscriptions are doing based on an Advisor score. You can also see the historical trends to understand what your trend is.
 * **Score by category** for each recommendation tells you which outstanding recommendations will improve your score the most. These values reflect both the weight of the recommendation and the predicted ease of implementation. These factors help to make sure you can get the most value with your time. They also help you with prioritization.
 * **Category score impact** for each recommendation helps you prioritize your remediation actions for each category.
 
-The contribution of each recommendation to your category score is shown clearly on the **Advisor Score** page in the Azure portal. You can increase each category score by the percentage point listed in the **Potential score increase** column. This value reflects both the weight of the recommendation within the category and the predicted ease of implementation to address the potentially easiest tasks. Focusing on the recommendations with the greatest score impact will help you make the most progress with time.
+The contribution of each recommendation to your category score is shown clearly on the **Advisor score** page in the Azure portal. You can increase each category score by the percentage point listed in the **Potential score increase** column. This value reflects both the weight of the recommendation within the category and the predicted ease of implementation to address the potentially easiest tasks. Focusing on the recommendations with the greatest score impact will help you make the most progress with time.
 
-![Screenshot that shows the Advisor score impact.](./media/advisor-score-2.png)
+![Screenshot that shows the Advisor score impact.](https://user-images.githubusercontent.com/41593141/195171044-6a45fa99-a291-49f3-8914-2b596771e63b.png)
 
 If any Advisor recommendations aren't relevant for an individual resource, you can postpone or dismiss those recommendations. They'll be excluded from the score calculation with the next refresh. Advisor will also use this input as additional feedback to improve the model.
 
@@ -68,7 +68,7 @@ The calculation of the Advisor score can be summarized in four steps:
    * Resources with long-standing recommendations will count more against your score.
    * Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely.
 
-Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md#introduction-to-secure-score) model. A simple average produces the final Advisor score.
+Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md#overview-of-secure-score) model. A simple average produces the final Advisor score.
 
 ## Advisor score FAQs
 
@@ -122,9 +122,10 @@ No. Your score isn't necessarily a reflection of how much you spend. Unnecessary
 
 ## Access Advisor Score
 
-Advisor Score is in public preview in the Azure portal. In the left pane, under the **Advisor** section, see **Advisor Score**.
+In the left pane, under the **Advisor** section, see **Advisor score**.
 
-![Screenshot that shows the Advisor Score entry point.](./media/advisor-score-3.png)
+![Screenshot that shows the Advisor Score entry point.](https://user-images.githubusercontent.com/41593141/195171046-f0db9b6c-b59f-4bef-aa33-6a5c2ace18c0.png)
+
 
 ## Next steps
 

@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Advanced Security Information Model (ASIM) security content  (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Normalized security content in Microsoft Sentinel includes analytics rules, hunting queries, and workbooks that work with unifying normalization parsers.
 
 <a name="builtin"></a>You can find normalized, built-in content in Microsoft Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
@@ -88,7 +86,7 @@ The following built-in network session related content is supported for ASIM nor
 
 ### Analytics rules
 
-- [Log4j vulnerability exploit aka Log4Shell IP IOC](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/Log4J_IPIOC_Dec112021.yaml)
+- [Log4j vulnerability exploit aka Log4Shell IP IOC](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Apache%20Log4j%20Vulnerability%20Detection/Analytic%20Rules/Log4J_IPIOC_Dec112021.yaml)
 - [Excessive number of failed connections from a single source (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/ExcessiveHTTPFailuresFromSource.yaml)
 - [Potential beaconing activity (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/PossibleBeaconingActivity.yaml)
 - [(Preview) TI map IP entity to Network Session Events (ASIM Network Session schema)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimNetworkSession/IPEntity_imNetworkSession.yaml)
@@ -177,7 +175,7 @@ The following built-in web session related content is supported for ASIM normali
 - [NOBELIUM - Domain and IP IOCs - March 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_DomainIOCsMarch2021.yaml)
 - [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
 - [Known Phosphorus group domains/IP](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/PHOSPHORUSMarch2019IOCs.yaml)
-- [User agent search for log4j exploitation attempt](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/UserAgentSearch_log4j.yaml)
+- [User agent search for log4j exploitation attempt](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Apache%20Log4j%20Vulnerability%20Detection/Analytic%20Rules/UserAgentSearch_log4j.yaml)
 
 
 

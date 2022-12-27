@@ -2,34 +2,35 @@
 title:  Onboard a Google Cloud Platform (GCP) project in Permissions Management
 description: How to onboard a Google Cloud Platform (GCP) project on Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Onboard a Google Cloud Platform (GCP) project
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
-
 
 This article describes how to onboard a Google Cloud Platform (GCP) project on Permissions Management.
 
 > [!NOTE]
 > A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable Permissions Management on your Azure Active Directory tenant](onboard-enable-tenant.md).
 
-## View a training video on configuring and onboarding a GCP account
+## Explanation
 
-To view a video on how to configure and onboard GCP accounts in Permissions Management, select [Configure and onboard GCP accounts](https://www.youtube.com/watch?app=desktop&v=W3epcOaec28).
+For GCP, permissions management is scoped to a *GCP project*. A GCP project is a logical collection of your resources in GCP, like a subscription in Azure, albeit with further configurations you can perform such as application registrations and OIDC configurations.
+
+<!-- Diagram from Gargi-->
+
+There are several moving parts across GCP and Azure, which are required to be configured before onboarding.
+
+* An Azure AD OIDC App
+* A Workload Identity in GCP
+* OAuth2 confidential client grants utilized
+* A GCP service account with permissions to collect
 
 
 ## Onboard a GCP project
@@ -50,11 +51,32 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
     > [!NOTE]
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
-    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
-
-    1. Return to Permissions Management, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
+    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your GCP account.
+    > 1. Return to the Permissions Management window, and in the **Permissions Management Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
 ### 2. Set up a GCP OIDC project.
+
+Choose from 3 options to manage GCP projects. 
+
+#### Option 1: Automatically manage 
+
+The automatically manage option allows projects to be automatically detected and monitored without extra configuration. Steps to detect list of projects and onboard for collection:  
+
+Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope. 
+
+Once done, the steps are listed in the screen, which shows how to further configure in the GPC console, or programatically with the gcloud CLI.
+
+Once everything has been configured, click next, then 'Verify Now & Save'.
+
+Any current or future projects found get onboarded automatically. 
+
+To view status of onboarding after saving the configuration: 
+
+- Navigate to data collectors tab
+- Click on the status of the data collector
+- View projects on the In Progress page 
+
+#### Option 2: Enter authorization systems 
 
 1. In the **Permissions Management Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project ID** and **OIDC Project Number** of the GCP project in which the OIDC provider and pool will be created. You can change the role name to your requirements.
 
@@ -67,6 +89,18 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
     You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [later in this article](onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 1. Select **Next**.
+
+#### Option 3: Select authorization systems 
+
+This option detects all projects that are accessible by the Cloud Infrastructure Entitlement Management application.  
+
+- Firstly, grant Viewer and Security Reviewer role to service account created in previous step at organization, folder or project scope
+- Once done, the steps are listed in the screen to do configure manually in the GPC console, or programatically with the gcloud CLI
+- Click Next
+- Click 'Verify Now & Save' 
+- Navigate to newly create Data Collector row under GCP data collectors
+- Click on Status column when the row has “Pending” status 
+- To onboard and start collection, choose specific ones from the detected list and consent for collection
 
 ### 3. Set up GCP member projects.
 
@@ -88,7 +122,7 @@ To view a video on how to configure and onboard GCP accounts in Permissions Mana
 
     The **Welcome to Permissions Management GCP onboarding** screen appears, displaying steps you must complete to onboard your GCP project.
 
-### 5. Paste the environment vars from the Permissions Management portal.
+### 5. Paste the environmental variables from the Permissions Management portal.
 
 1. Return to Permissions Management and select **Copy export variables**.
 1. In the GCP Onboarding shell editor, paste the variables you copied, and then press **Enter**.

@@ -17,6 +17,10 @@ ms.custom: devx-track-csharp
 
 # Call the Detect API
 
+[!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
+
+[!INCLUDE [Sensitive attributes notice](../includes/identity-sensitive-attributes.md)]
+
 This guide demonstrates how to use the face detection API to extract attributes like age, emotion, or head pose from a given image. You'll learn the different ways to configure the behavior of this API to meet your needs.
 
 The code snippets in this guide are written in C# by using the Azure Cognitive Services Face client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
@@ -32,7 +36,7 @@ To find faces and get their locations in an image, call the [DetectWithUrlAsync]
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 
-You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for their unique IDs and a rectangle that gives the pixel coordinates of the face. This way, you can tell which face ID maps to which face in the original image.
+You can query the returned [DetectedFace](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface) objects for the rectangles that gives the pixel coordinates of each face. If you set _returnFaceId_ to `true` (approved customers only), you can get the unique ID for each face, which you can use in later face recognition tasks.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic2":::
 

@@ -12,10 +12,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 08/19/2022
 ms.author: alkohli
 ---
 # Deactivate and delete a StorSimple Virtual Array
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 

@@ -12,6 +12,8 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
+  - name: Troubleshoot LocationNotFoundForRoleSize
+    href: cloud-services-troubleshoot-location-not-found-for-role-size.md
 - name: Concepts
   items:
   - name: Security baseline
@@ -34,12 +36,6 @@
       href: cloud-services-nodejs-develop-deploy-express-app.md
     - name: Storage and Visual Studio
       items:
-      - name: Blob storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-blobs.md
-      - name: Queue storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-queues.md
-      - name: Table storage and connected services
-        href: ../visual-studio/vs-storage-cloud-services-getting-started-tables.md
       - name: Configure traffic rules for a role
         href: cloud-services-enable-communication-role-instances.md
       - name: Handle Cloud Service lifecycle events
@@ -111,7 +107,7 @@
     - name: Trace Cloud Service with Diagnostics
       href: cloud-services-dotnet-diagnostics-trace-flow.md
   - name: Migrate
-    items: 
+    items:
     - name: Migration overview
       href: ../cloud-services-extended-support/in-place-migration-overview.md?toc=/azure/cloud-services/toc.json
     - name: Migration technical details
@@ -220,7 +216,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: /learn/paths/az-900-describe-cloud-concepts/
+    href: /training/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-cloud-services.html
   - name: Pricing

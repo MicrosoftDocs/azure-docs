@@ -2,24 +2,17 @@
 title: Frequently asked questions (FAQs) about Permissions Management
 description: Frequently asked questions (FAQs) about Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Frequently asked questions (FAQs)
-
-> [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
-
-> [!NOTE]
-> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
-
 
 This article answers frequently asked questions (FAQs) about Permissions Management.
 
@@ -50,15 +43,11 @@ Yes, non-Azure customers can use our solution. Permissions Management is a multi
 
 ## Is Permissions Management available for tenants hosted in the European Union (EU)?
 
-No, the Permissions Management Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
+Yes, Permissions Management is currently for tenants hosted in the European Union (EU).
 
 ## If I'm already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does Permissions Management provide?
 
 Permissions Management complements Azure AD PIM. Azure AD PIM provides just-in-time access for admin roles in Azure (as well as Microsoft Online Services and apps that use groups), while Permissions Management allows multi-cloud discovery, remediation, and monitoring of privileged access across Azure, AWS, and GCP.
-
-## What languages does Permissions Management support?
-
-Permissions Management currently supports English.
 
 ## What public cloud infrastructures are supported by Permissions Management?
 
@@ -71,10 +60,6 @@ Permissions Management currently doesn't support hybrid environments.
 ## What types of identities are supported by Permissions Management?
 
 Permissions Management supports user identities (for example, employees, customers, external partners) and workload identities (for example, virtual machines, containers, web apps, serverless functions).
-
-<!---## Is Permissions Management General Data Protection Regulation (GDPR) compliant?
-
-Permissions Management is currently not GDPR compliant.--->
 
 ## Is Permissions Management available in Government Cloud?
 
@@ -121,10 +106,9 @@ Yes, Permissions Management has various types of system report available that ca
 
 For information about permissions usage reports, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
 
-
 ## Does Permissions Management integrate with third-party ITSM (Information Technology Service Management) tools?
 
-Permissions Management integrates with ServiceNow.
+Integration with ITMS tools, such as ServiceNow, is in the future roadmap.
 
 ## How is Permissions Management being deployed?
 
@@ -136,7 +120,7 @@ It depends on each customer and how many AWS accounts, GCP projects, and Azure s
 
 ## Once Permissions Management is deployed, how fast can I get permissions insights?
 
-Once fully onboarded with data collection set up, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
+Once fully onboarded with data collection setup, customers can access permissions usage insights within hours. Our machine-learning engine refreshes the Permission Creep Index every hour so that customers can start their risk assessment right away.
 
 ## Is Permissions Management collecting and storing sensitive personal data?
 
@@ -146,13 +130,49 @@ No, Permissions Management doesn't have access to sensitive personal data.
 
 You can read our blog and visit our web page. You can also get in touch with your Microsoft point of contact to schedule a demo.
 
+## What is the data destruction/decommission process? 
+
+If a customer initiates a free Permissions Management 90-day trial, but does not follow up and convert to a paid license within 90 days of the free trial expiration, we will delete all collected data on or just before 90 days.  
+
+If a customer decides to discontinue licensing the service, we will also delete all previously collected data within 90 days of license termination.  
+
+We also have the ability to remove, export or modify specific data should the Global Admin using the Entra Permissions Management service file an official Data Subject Request. This can be initiated by opening a ticket in the Azure portal [New support request - Microsoft Entra admin center](https://entra.microsoft.com/#blade/Microsoft_Azure_Support/NewSupportRequestV3Blade/callerName/ActiveDirectory/issueType/technical), or alternately contacting your local Microsoft representative. 
+
+## Do I require a license to use Entra Permissions Management? 
+
+Yes, as of July 1st, 2022, new customers must acquire a free 90-trial license or a paid license to use the service. You can enable a trial here: [https://aka.ms/TryPermissionsManagement](https://aka.ms/TryPermissionsManagement) or you can directly purchase resource-based licenses here: [https://aka.ms/BuyPermissionsManagement](https://aka.ms/BuyPermissionsManagement) 
+ 
+## What do I do if I’m using Public Preview version of Entra Permissions Management?  
+
+If you are using the Public Preview version of Entra Permissions Management, your current deployment(s) will continue to work through October 1st.  
+
+After October 1st you will need to move over to use the newly released version of the service and enable a 90-day trial or purchase licenses to continue using the service.  
+
+## What do I do if I’m using the legacy version of the CloudKnox service?  
+
+We are currently working on developing a migration plan to help customers on the original CloudKnox service move to the new Entra Permissions Management service later in 2022.   
+
+## Can I use Entra Permissions Management in the EU?  
+
+Yes, the product is compliant.  
+
+## How to I enable one of the new 18 languages supported in the GA release? 
+
+We are now localized in 18 languages. We respect your browser setting or you can manually enable your language of choice by adding a query string suffix to your Entra Permissions Management URL:  
+
+`?lang=xx-XX` 
+
+Where xx-XX is one of the following available language parameters: 'cs-CZ', 'de-DE', 'en-US', 'es-ES', 'fr-FR', 'hu-HU', 'id-ID', 'it-IT', 'ja-JP', 'ko-KR', 'nl-NL', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sv-SE', 'tr-TR', 'zh-CN', or 'zh-TW'. 
+
 ## Resources
 
 - [Public Preview announcement blog](https://www.aka.ms/CloudKnox-Public-Preview-Blog)
 - [Permissions Management web page](https://microsoft.com/security/business/identity-access-management/permissions-management)
-
+- For more information about Microsoft's privacy and security terms, see [Commercial Licensing Terms](https://www.microsoft.com/licensing/terms/product/ForallOnlineServices/all). 
+- For more information about Microsoft's data processing and security terms when you subscribe to a product, see [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA).
+- For more information, see [Azure Data Subject Requests for the GDPR and CCPA](/compliance/regulatory/gdpr-dsr-azure).
 
 ## Next steps
 
-- For an overview of Permissions Management, see [What's Permissions Management Permissions Management?](overview.md).
+- For an overview of Permissions Management, see [What's Permissions Management?](overview.md).
 - For information on how to onboard Permissions Management in your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).

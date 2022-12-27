@@ -1,18 +1,18 @@
 ---
-title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Kubernetes Service (AKS)
-description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
+title: Use Container Storage Interface (CSI) driver for Azure Files on Azure Kubernetes Service (AKS)
+description: Learn how to use the Container Storage Interface (CSI) driver for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 06/15/2022
+ms.date: 12/06/2022
 author: palma21
 
 ---
 
-# Use Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
+# Use Azure Files Container Storage Interface (CSI) driver in Azure Kubernetes Service (AKS)
 
-The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
+The Azure Files Container Storage Interface (CSI) driver is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares. The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes.
 
-The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
+By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes. Using CSI drivers in AKS avoids having to touch the core Kubernetes code and wait for its release cycles.
 
 To create an AKS cluster with CSI drivers support, see [Enable CSI drivers on AKS][csi-drivers-overview].
 
@@ -25,17 +25,54 @@ In addition to the original in-tree driver features, Azure Files CSI driver supp
 
 - Network File System (NFS) version 4.1
 - [Private endpoint][private-endpoint-overview]
-- Creating large mount of file shares in parallel
+- Creating large mount of file shares in parallel.
+
+## Storage class driver dynamic parameters
+
+|Name | Meaning | Available Value | Mandatory | Default value
+|--- | --- | --- | --- | ---
+|skuName | Azure Files storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Standard_ZRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_RAGZRS`,`Premium_LRS`, `Premium_ZRS` | No | `StandardSSD_LRS`<br> Minimum file share size for Premium account type is 100 GB.<br> ZRS account type is supported in limited regions.<br> NFS file share only supports Premium account type.|
+|fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`| Yes | `ext4` for Linux|
+|location | Specify Azure region where Azure storage account will be created. | `eastus`, `westus`, etc. | No | If empty, driver uses the same location name as current AKS cluster.|
+|resourceGroup | Specify the resource group where the Azure Disks will be created | Existing resource group name | No | If empty, driver uses the same resource group name as current AKS cluster.|
+|shareName | Specify Azure file share name | Existing or new Azure file share name. | No | If empty, driver generates an Azure file share name. |
+|shareNamePrefix | Specify Azure file share name prefix created by driver. | Share name can only contain lowercase letters, numbers, hyphens, and length should be less than 21 characters. | No |
+|folderName | Specify folder name in Azure file share. | Existing folder name in Azure file share. | No | If folder name does not exist in file share, mount will fail. |
+|shareAccessTier | [Access tier for file share][storage-tiers] | General purpose v2 account can choose between `TransactionOptimized` (default), `Hot`, and `Cool`. Premium storage account type for file shares only. | No | Empty. Use default setting for different storage account types.|
+|accountAccessTier | [Access tier for storage account][access-tiers-overview] | Standard account can choose `Hot` or `Cool`, and Premium account can only choose `Premium`. | No | Empty. Use default setting for different storage account types. |
+|server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.file.core.windows.net`. | No | If empty, driver uses default `accountname.file.core.windows.net` or other sovereign cloud account address. |
+|disableDeleteRetentionPolicy | Specify whether disable DeleteRetentionPolicy for storage account created by driver. | `true` or `false` | No | `false` |
+|allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true` or `false` | No | `false` |
+|requireInfraEncryption | Specify whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest for storage account created by driver. | `true` or `false` | No | `false` |
+|storageEndpointSuffix | Specify Azure storage endpoint suffix. | `core.windows.net`, `core.chinacloudapi.cn`, etc. | No | If empty, driver uses default storage endpoint suffix according to cloud environment. For example, `core.windows.net`. |
+|tags | [tags][tag-resources] are created in newly created storage account. | Tag format: 'foo=aaa,bar=bbb' | No | "" |
+|matchTags | Match tags when driver tries to find a suitable storage account. | `true` or `false` | No | `false` |
+|--- | **Following parameters are only for SMB protocol** | --- | --- |
+|subscriptionID | Specify Azure subscription ID where Azure file share is created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided. |
+|storeAccountKey | Specify whether to store account key to k8s secret. | `true` or `false`<br>`false` means driver leverages kubelet identity to get account key. | No | `true` |
+|secretName | Specify secret name to store account key. | | No |
+|secretNamespace | Specify the namespace of secret to store account key. <br><br> **Note:** <br> If `secretNamespace` isn't specified, the secret is created in the same namespace as the pod. | `default`,`kube-system`, etc | No | Pvc namespace, for example `csi.storage.k8s.io/pvc/namespace` |
+|useDataPlaneAPI | Specify whether to use [data plane API][data-plane-api] for file share create/delete/resize. This could solve the SRP API throttling issue because the data plane API has almost no limit, while it would fail when there is firewall or Vnet setting on storage account. | `true` or `false` | No | `false` |
+|--- | **Following parameters are only for NFS protocol** | --- | --- |
+|rootSquashType | Specify root squashing behavior on the share. The default is `NoRootSquash` | `AllSquash`, `NoRootSquash`, `RootSquash` | No |
+|mountPermissions | Mounted folder permissions. The default is `0777`. If set to `0`, driver doesn't perform `chmod` after mount | `0777` | No |
+|--- | **Following parameters are only for vnet setting, e.g. NFS, private end point** | --- | --- |
+|vnetResourceGroup | Specify Vnet resource group where virtual network is defined. | Existing resource group name. | No | If empty, driver uses the `vnetResourceGroup` value in Azure cloud config file. |
+|vnetName | Virtual network name | Existing virtual network name. | No | If empty, driver uses the `vnetName` value in Azure cloud config file. |
+|subnetName | Subnet name | Existing subnet name of the agent node. | No | If empty, driver uses the `subnetName` value in Azure cloud config file. |
+|fsGroupChangePolicy | Indicates how volume's ownership is changed by the driver. Pod `securityContext.fsGroupChangePolicy` is ignored. | `OnRootMismatch` (default), `Always`, `None` | No | `OnRootMismatch`|
 
 ## Use a persistent volume with Azure Files
 
 A [persistent volume (PV)][persistent-volume] represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or [NFS protocol][nfs-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share][azure-files-pvc-manual].
 
+With Azure Files shares, there is no limit as to how many can be mounted on a node.
+
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Dynamically create Azure Files PVs by using the built-in storage classes
 
-A storage class is used to define how an Azure Files share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure Files shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
+A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure Files shares. Choose one of the following [Azure storage redundancy SKUs][storage-skus] for *skuName*:
 
 * **Standard_LRS**: Standard locally redundant storage
 * **Standard_GRS**: Standard geo-redundant storage
@@ -312,7 +349,7 @@ This option is optimized for random access workloads with in-place data updates 
 
 ### Create NFS file share storage class
 
-Create a ile named `nfs-sc.yaml` and copy the manifest below.
+Create a file named `nfs-sc.yaml` and copy the manifest below.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -323,8 +360,6 @@ provisioner: file.csi.azure.com
 allowVolumeExpansion: true
 parameters:
   protocol: nfs
-mountOptions:
-  - nconnect=8
 ```
 
 After editing and saving the file, create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -406,7 +441,8 @@ The output of the commands resembles the following example:
 
 ## Next steps
 
-- To learn how to use CSI drivers for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
+- To learn how to use CSI driver for Azure Disks, see [Use Azure Disks with CSI driver][azure-disk-csi].
+- To learn how to use CSI driver for Azure Blob storage (preview), see [Use Azure Blob storage with CSI driver][azure-blob-csi] (preview).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 
 <!-- LINKS - external -->
@@ -420,9 +456,13 @@ The output of the commands resembles the following example:
 [nfs-overview]:/windows-server/storage/nfs/nfs-overview
 [kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
 [csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
+[data-plane-api]: https://github.com/Azure/azure-sdk-for-go/blob/master/storage/share.go
+[vhd-disk-feature]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/disk
 
 <!-- LINKS - internal -->
 [csi-drivers-overview]: csi-storage-drivers.md
+[azure-disk-csi]: azure-disk-csi.md
+[azure-blob-csi]: azure-blob-csi.md
 [persistent-volume-claim-overview]: concepts-storage.md#persistent-volume-claims
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
@@ -446,7 +486,11 @@ The output of the commands resembles the following example:
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
+[storage-tiers]: ../storage/files/storage-files-planning.md#storage-tiers
 [use-tags]: use-tags.md
 [private-endpoint-overview]: ../private-link/private-endpoint-overview.md
 [persistent-volume]: concepts-storage.md#persistent-volumes
 [share-snapshots-overview]: ../storage/files/storage-snapshots-files.md
+[zrs-account-type]: ../storage/common/storage-redundancy.md#zone-redundant-storage
+[access-tiers-overview]: ../storage/blobs/access-tiers-overview.md
+[tag-resources]: ../azure-resource-manager/management/tag-resources.md

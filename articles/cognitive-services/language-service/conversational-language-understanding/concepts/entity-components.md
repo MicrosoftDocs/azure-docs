@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/13/2022
+ms.date: 10/11/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -19,7 +19,7 @@ In Conversational Language Understanding, entities are relevant pieces of inform
 
 ## Component types
 
-An entity component determines a way you can extract the entity. An entity can simply contain one component, which would determine the only method that would be used to extract the entity, or multiple components to expand the ways in which the entity is defined and extracted.
+An entity component determines a way you can extract the entity. An entity can contain one component, which would determine the only method that would be used to extract the entity, or multiple components to expand the ways in which the entity is defined and extracted.
 
 ### Learned component
 
@@ -42,6 +42,14 @@ The prebuilt component allows you to select from a library of common types such 
 
 
 :::image type="content" source="../media/prebuilt-component.png" alt-text="A screenshot showing an example of prebuilt components for entities." lightbox="../media/prebuilt-component.png":::
+
+### Regex component
+
+The regex component matches regular expressions to capture consistent patterns. When added, any text that matches the regular expression will be extracted. You can have multiple regular expressions within the same entity, each with a different key identifier. A matched expression will return the key as part of the prediction response.
+
+In multilingual projects, you can specify a different expression for each language. While using the prediction API, you can specify the language in the input request, which will only match the regular expression associated to that language.
+
+:::image type="content" source="../media/regex-component.png" alt-text="A screenshot showing an example of regex components for entities." lightbox="../media/prebuilt-component.png":::
 
 
 ## Entity options
@@ -87,9 +95,22 @@ When you do not combine components, the entity will return twice:
 
 :::image type="content" source="../media/separated-overlap-example-1-part-2.svg" alt-text="A screenshot showing the entity returned twice." lightbox="../media/separated-overlap-example-1-part-2.svg":::
 
+### Required components
 
-> [!NOTE]
-> During public preview of the service, there were 4 available options: **Longest overlap**, **Exact overlap**, **Union overlap**, and **Return all separately**. **Longest overlap** and **exact overlap** are deprecated and will only be supported for projects that previously had those options selected. **Union overlap** has been renamed to **Combine components**, while **Return all separately** has been renamed to **Do not combine components**.
+An entity can sometimes be defined by multiple components but requires one or more of them to be present. Every component can be set as **required**, which means the entity will **not** be returned if that component wasn't present. For example, if you have an entity with a list component and a required learned component, it is guaranteed that any returned entity includes a learned component; if it doesn't, the entity will not be returned.
+
+Required components are most frequently used with learned components, as they can restrict the other component types to a specific context, which is commonly associated to **roles**. You can also require all components to make sure that every component is present for an entity.
+
+In the Language Studio, every component in an entity has a toggle next to it that allows you to set it as required.
+
+#### Example
+
+Suppose you have an entity called **Ticket Quantity** that attempts to extract the number of tickets you want to reserve for flights, for utterances such as _"Book **two** tickets tomorrow to Cairo"_. 
+
+Typically, you would add a prebuilt component for _Quantity.Number_ that already extracts all numbers. However if your entity was only defined with the prebuilt, it would also extract other numbers as part of the **Ticket Quantity** entity, such as _"Book **two** tickets tomorrow to Cairo at **3** PM"_. 
+
+To resolve this, you would label a learned component in your training data for all the numbers that are meant to be **Ticket Quantity**. The entity now has 2 components, the prebuilt that knows all numbers, and the learned one that predicts where the Ticket Quantity is in a sentence. If you require the learned component, you make sure that Ticket Quantity only returns when the learned component predicts it in the right context. If you also require the prebuilt component, you can then guarantee that the returned Ticket Quantity entity is both a number and in the correct position.
+
 
 ## How to use components and options
 
@@ -99,7 +120,10 @@ A common practice is to extend a prebuilt component with a list of values that t
 
 Other times you may be interested in extracting an entity through context such as a **Product** in a retail project. You would label for the learned component of the product to learn _where_ a product is based on its position within the sentence. You may also have a list of products that you already know before hand that you'd like to always extract. Combining both components in one entity allows you to get both options for the entity.
 
-When you do not combine components, you simply allow every component to act as an independent entity extractor. One way of using this option is to separate the entities extracted from a list to the ones extracted through the learned or prebuilt components to handle and treat them differently.
+When you do not combine components, you allow every component to act as an independent entity extractor. One way of using this option is to separate the entities extracted from a list to the ones extracted through the learned or prebuilt components to handle and treat them differently.
+
+> [!NOTE]
+> Previously during the public preview of the service, there were 4 available options: **Longest overlap**, **Exact overlap**, **Union overlap**, and **Return all separately**. **Longest overlap** and **exact overlap** are deprecated and will only be supported for projects that previously had those options selected. **Union overlap** has been renamed to **Combine components**, while **Return all separately** has been renamed to **Do not combine components**.
 
 
 ## Next steps

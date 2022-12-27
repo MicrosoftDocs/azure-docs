@@ -87,7 +87,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
     $diagname = <your-diagnostic-setting-name>
     $days = '30'
 
-    $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
+    $cdn = Get-AzCdnProfile -ResourceGroupName $rsg -ProfileName $cdnprofile
 
     $storage = Get-AzStorageAccount -ResourceGroupName $rsg -Name $storageacct
 
@@ -224,7 +224,7 @@ For more information, see [Azure Monitor metrics](../azure-monitor/essentials/da
 > [!NOTE]
 > If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.
 
-***Bytes Hit Ration = (egress from edge - egress from origin)/egress from edge**
+***Bytes Hit Ratio = (egress from edge - egress from origin)/egress from edge**
 
 Scenarios excluded in bytes hit ratio calculation:
 

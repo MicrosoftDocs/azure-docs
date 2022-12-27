@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # Use the MMC menu actions in StorSimple Snapshot Manager
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 In StorSimple Snapshot Manager, you will see the following actions listed on all action menus and all variations of the **Actions** pane.

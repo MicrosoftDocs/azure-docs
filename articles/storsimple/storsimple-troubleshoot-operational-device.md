@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # Troubleshoot an operational StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 > [!NOTE]
 > The classic portal for StorSimple is deprecated. Your StorSimple Device Managers will automatically move to the new Azure portal as per the deprecation schedule. You will receive an email and a portal notification for this move. This document will also be retired soon. For any questions regarding the move, see [FAQ: Move to Azure portal](./index.yml).
 

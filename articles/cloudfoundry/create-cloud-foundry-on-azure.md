@@ -9,7 +9,7 @@ editor: ruyakubu
 ms.assetid:
 ms.author: ruyakubu
 ms.date: 09/13/2018
-ms.service: azure
+ms.service: cloud-services
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web 

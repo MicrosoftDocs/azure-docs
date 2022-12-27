@@ -48,7 +48,7 @@ You typically use only one identity provider in your applications, but you have 
 * [QQ](identity-provider-qq.md)
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
-* [SwissID]( identity-provider-swissid.md)
+* [SwissID](identity-provider-swissid.md)
 * [Twitter](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

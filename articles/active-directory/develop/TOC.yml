@@ -35,18 +35,19 @@
       items:
         - name: Permissions and consent overview
           href: permissions-consent-overview.md
+        - name: Delegated access
+          href: delegated-access-primer.md
+        - name: Scopes and permissions
+          href: scopes-oidc.md
         - name: "Authorization options: ACLs, RBAC, ABAC"
           href: authorization-basics.md
         - name: RBAC for app developers
           href: custom-rbac-for-developers.md
-        - name: Scopes, permissions, and consent
-          displayName: Scopes
-          href: v2-permissions-and-consent.md
+        - name: Requesting permissions through consent
+          href: consent-types-developer.md
         - name: Application consent experiences
           displayName: App consent experiences
           href: application-consent-experience.md
-        - name: Consent framework
-          href: consent-framework.md
         - name: Conditional Access dev guide
           href: v2-conditional-access-dev-guide.md
           displayName: ca
@@ -69,14 +70,14 @@
     - name: Security best practices
       displayName: least privilege, secure app configuration, conditional access
       items:
-        - name: Zero Trust for app developers
-          href: zero-trust-for-developers.md
-        - name: Least privileged access for applications
-          href: secure-least-privileged-access.md
-        - name: App registration security
+        - name: Application security
           href: security-best-practices-for-app-registration.md
-        - name: Secure access control using groups in Azure AD
+        - name: Least privileged access
+          href: secure-least-privileged-access.md
+        - name: Secure access control using groups
           href: secure-group-access-control.md
+        - name: Zero Trust
+          href: zero-trust-for-developers.md
     - name: Identity platform best practices
       href: identity-platform-integration-checklist.md
 - name: How-to
@@ -123,7 +124,7 @@
               href: active-directory-optional-claims.md
             - name: Claims mapping policy type
               href: reference-claims-mapping-policy-type.md
-            - name: Use directory schema extension attributes in claims
+            - name: Use directory extension attributes in claims
               href: active-directory-schema-extensions.md
             - name: Customize claims using Azure portal
               href: active-directory-saml-claims-customization.md
@@ -133,6 +134,9 @@
               href: configure-token-lifetimes.md
             - name: Configure role claim
               href: active-directory-enterprise-app-role-management.md
+            - name: SAML app multi-instancing
+              displayName: Configure SAML app multi-instancing for an application
+              href: reference-app-multi-instancing.md
         - name: Handle browser cookie restrictions
           items:
             - name: Handle ITP in Safari
@@ -143,12 +147,14 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
-        - name: Configure an app to trust a GitHub repo
-          href: workload-identity-federation-create-trust-github.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Access identity platform-protected resources from GCP
           href: workload-identity-federation-create-trust-gcp.md
+        - name: Block creation of federated credentials
+          href: workload-identity-federation-block-using-azure-policy.md
         - name: Exchange AD FS SAML for Microsoft Graph access token
           displayName: exchange, swap, SAML token, OAuth token
           href: v2-saml-bearer-assertion.md
@@ -179,6 +185,8 @@
           href: app-resilience-continuous-access-evaluation.md
         - name: Claims challenges and requests
           href: claims-challenge.md
+        - name: Configure app instance property lock
+          href: howto-configure-app-instance-property-locks.md
     - name: Test
       items:
         - name: Build a test environment
@@ -275,45 +283,6 @@
               href: scenario-spa-call-api.md
             - name: Move to production
               href: scenario-spa-production.md
-    - name: Reference
-      items:
-        - name: MSAL.js
-          displayName: Angular, JavaScript, Node.js, React
-          items:
-            - name: Library initialization
-              items:
-                - name: Init MSAL.js 2.x and 1.x clients
-                  href: msal-js-initializing-client-applications.md
-                - name: Running and debugging in IE
-                  href: msal-js-use-ie-browser.md
-                - name: Integrate with Azure AD B2C
-                  href: msal-b2c-overview.md
-            - name: Authentication and single sign-on (SSO)
-              items:
-                - name: Single sign-on with MSAL.js
-                  href: msal-js-sso.md
-                - name: Pass custom state in authentication requests
-                  href: msal-js-pass-custom-state-authentication-request.md
-                - name: Prompt behavior
-                  href: msal-js-prompt-behavior.md
-                - name: Avoid page reloads
-                  href: msal-js-avoid-page-reloads.md
-            - name: Migration
-              items:
-                - name: Migrate to MSAL.js
-                  href: msal-compare-msal-js-and-adal-js.md
-                - name: Migrate SPA from implicit to auth code flow
-                  displayName: authorization, single-page app, 2.0
-                  href: migrate-spa-implicit-to-auth-code.md
-            - name: Logging and error handling
-              items:
-                - name: Logging in MSAL.js
-                  href: msal-logging-js.md
-                - name: Handle errors and exceptions in MSAL.js
-                  displayName: handling, catch
-                  href: msal-error-handling-js.md
-                - name: Known issues - IE and Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
 - name: Web app
   items:
     - name: Web app authentication documentation
@@ -328,6 +297,8 @@
           href: tutorial-blazor-server.md
         - name: Node.js
           href: tutorial-v2-nodejs-webapp-msal.md
+        - name: Spring
+          href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
         - name: Secure web app accesses storage and Microsoft Graph
           items:
             - name: Overview
@@ -416,6 +387,8 @@
       items:
         - name: Scopes for web API accepting v1.0 tokens
           href: msal-v1-app-scopes.md
+        - name: Spring Cloud Azure
+          href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/active-directory/develop/toc.json#spring-security-support
 - name: Desktop
   items:
     - name: Desktop app authentication documentation
@@ -653,6 +626,43 @@
               href: msal-error-handling-java.md
             - name: Logging in MSAL for Java
               href: msal-logging-java.md
+        - name: MSAL.js
+          displayName: Angular, JavaScript, Node.js, React
+          items:
+            - name: Library initialization
+              items:
+                - name: Init MSAL.js 2.x and 1.x clients
+                  href: msal-js-initializing-client-applications.md
+                - name: Running and debugging in IE
+                  href: msal-js-use-ie-browser.md
+                - name: Integrate with Azure AD B2C
+                  href: msal-b2c-overview.md
+            - name: Authentication and single sign-on (SSO)
+              items:
+                - name: Single sign-on with MSAL.js
+                  href: msal-js-sso.md
+                - name: Pass custom state in authentication requests
+                  href: msal-js-pass-custom-state-authentication-request.md
+                - name: Prompt behavior
+                  href: msal-js-prompt-behavior.md
+                - name: Avoid page reloads
+                  href: msal-js-avoid-page-reloads.md
+            - name: Migration
+              items:
+                - name: Migrate to MSAL.js
+                  href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrate SPA from implicit to auth code flow
+                  displayName: authorization, single-page app, 2.0
+                  href: migrate-spa-implicit-to-auth-code.md
+            - name: Logging and error handling
+              items:
+                - name: Logging in MSAL.js
+                  href: msal-logging-js.md
+                - name: Handle errors and exceptions in MSAL.js
+                  displayName: handling, catch
+                  href: msal-error-handling-js.md
+                - name: Known issues - IE and Microsoft Edge
+                  href: msal-js-known-issues-ie-edge-browsers.md
         - name: MSAL.NET
           displayName: ASP.NET Core, Xamarin
           items:
@@ -778,6 +788,8 @@
               href: active-directory-signing-key-rollover.md
             - name: UserInfo endpoint (OIDC)
               href: userinfo.md
+            - name: Federated identity credentials considerations and limitations
+              href: workload-identity-federation-considerations.md
         - name: SAML 2.0
           items:
             - name: How Azure AD uses the SAML protocol
@@ -800,6 +812,8 @@
           href: reply-url.md
         - name: Validation differences by supported account types
           href: supported-accounts-validation.md
+        - name: Configured permissions limits troubleshooting
+          href: troubleshoot-required-resource-access-limits.md
     - name: Microsoft auth libraries by app type
       displayName: MSAL, auth client library, SDK, token validation
       href: reference-v2-libraries.md

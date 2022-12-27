@@ -4,9 +4,9 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 ms.service: postgresql
 ms.subservice: single-server
 ms.topic: how-to
-ms.author: srranga
-author: sr-msft
-ms.date: 06/08/2020 
+ms.author: alkuchar
+author: AwdotiaRomanowna
+ms.date: 06/24/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -78,7 +78,7 @@ By default, read replicas are created with the same server configuration as the 
 
 > [!NOTE]
 > It is recommended that the replica server's configuration should be kept at equal or greater
-> values than the primary to ensure the replica is able to keep up with the master.
+> values than the primary to ensure the replica is able to keep up with the primary.
 
 ### List replicas for a primary server
 

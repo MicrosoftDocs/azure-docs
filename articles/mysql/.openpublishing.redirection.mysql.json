@@ -276,8 +276,8 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/mysql/concepts-version-policy.md",
-        "redirect_url": "/azure/mysql/single-server/concepts-version-policy",
+        "source_path_from_root": "/articles/mysql/single-server/concepts-version-policy.md",
+        "redirect_url": "/azure/mysql/concepts-version-policy",
         "redirect_document_id": false
     },
     {
@@ -735,5 +735,30 @@
         "redirect_url": "/azure/mysql/single-server/tutorial-design-database-using-powershell",
         "redirect_document_id": false
     },
-    ]
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-supported-versions.md",
+        "redirect_url": "/azure/mysql/single-server/concepts-connect-to-a-gateway-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
+        "redirect_url": "/azure/mysql/flexible-server/concepts-service-tiers-storage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-decide-on-right-migration-tools.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-decide-on-right-migration-tools",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-single-flexible-minimum-downtime.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-migrate-single-flexible-minimum-downtime",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
+        "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
+        "redirect_document_id": true
+    }
+  ]
 }

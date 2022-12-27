@@ -136,8 +136,6 @@ Follow these steps:
 | Description | Provide a meaningful description. |
 | Properties | Additional properties from the manufacturer. |
 
-For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
-
 ### API request to create metadata
 
 To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).

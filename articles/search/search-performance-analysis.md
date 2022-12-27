@@ -26,11 +26,11 @@ To isolate the effects of a distributed service architecture, try testing on ser
 > For the Storage Optimized tiers (L1 and L2), you should expect a lower query throughput and higher latency than the Standard tiers.
 >
 
-## Use diagnostic logging
+## Use resource logging
 
-The most important tool that an administrator has in diagnosing potential performance issues is [diagnostics logging](monitor-azure-cognitive-search.md) that collects operational data and metrics about your search service. Diagnostic logging is enabled through [Azure Monitor](../azure-monitor/overview.md). There are costs associated with using Azure Monitor and storing data, but if you enable it for your service, it can be instrumental in investigating performance issues.
+The most important tool that an administrator has in diagnosing potential performance issues is [diagnostics logging](monitor-azure-cognitive-search.md) that collects operational data and metrics about your search service. Resource logging is enabled through [Azure Monitor](../azure-monitor/overview.md). There are costs associated with using Azure Monitor and storing data, but if you enable it for your service, it can be instrumental in investigating performance issues.
 
-There are multiple opportunities for latency to occur, whether during a network transfer, or during processing of content in the app services layer, or on a search service. A key benefit of diagnostic logging is that activities are logged from the search service perspective, which means that the log can help you determine whether performance issues are due to problems with the query or indexing, or some other point of failure.
+There are multiple opportunities for latency to occur, whether during a network transfer, or during processing of content in the app services layer, or on a search service. A key benefit of resource logging is that activities are logged from the search service perspective, which means that the log can help you determine whether performance issues are due to problems with the query or indexing, or some other point of failure.
 
 :::image type="content" source="media/search-performance/perf-log-event-chain.png" alt-text="Chain of logged events" border="true":::
 

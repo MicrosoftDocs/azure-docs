@@ -20,7 +20,9 @@ This article was last tested on 2/12/2019 using the [Azure Cloud Shell](https://
 
 > [!WARNING]
 > This is just an example and in some cases it will need to be updated for your specific deployment.
->  
+>
+> Make sure the disks are set to `detach` as the [delete](../delete.md) option. If they are set to `delete`, update the VMs before deleting the VMs.
+> 
 > If your VM is attached to a load balancer, you will need to update the script to handle that case.
 >  
 > Some extensions may also need to be reinstalled after you finish this process. 

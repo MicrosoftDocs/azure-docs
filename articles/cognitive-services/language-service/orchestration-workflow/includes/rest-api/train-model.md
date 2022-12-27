@@ -40,6 +40,7 @@ Use the following object in your request. The model will be named `MyModel` once
 ```json
 {
   "modelLabel": "{MODEL-NAME}",
+  "trainingMode": "standard"
   "trainingConfigVersion": "{CONFIG-VERSION}",
   "evaluationOptions": {
     "kind": "percentage",
@@ -51,8 +52,9 @@ Use the following object in your request. The model will be named `MyModel` once
 |Key  |Placeholder|Value  | Example |
 |---------|-----|----|---------|
 |`modelLabel`    | `{MODEL-NAME}`|Your Model name.   | `Model1` |
+| `trainingMode` | `standard` | Training mode. Only one mode for training is available in orchestration, which is `standard`.   | `standard` |
 | `trainingConfigVersion` |`{CONFIG-VERSION}`| The training configuration model version. By default, the latest [model version](../../../concepts/model-lifecycle.md) is used. | `2022-05-01` |
-| `kind` | `percentage` |  Split methods. Possible values are `percentage` or `manual`. See [how to train a model](../../how-to/train-model.md#data-splitting) for more information. |`percentage`|
+| `kind` | `percentage` |  Split methods. Possible values are `percentage` or `manual`. See [how to train a model](../../how-to/train-model.md) for more information. |`percentage`|
 | `trainingSplitPercentage` | `80`| Percentage of your tagged data to be included in the training set. Recommended value is `80`. | `80`|
 | `testingSplitPercentage` | `20` | Percentage of your tagged data to be included in the testing set. Recommended value is `20`.   | `20` |
 

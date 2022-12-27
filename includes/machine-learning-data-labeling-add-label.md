@@ -13,8 +13,8 @@ Use these steps to add one or more labels to a project:
 1. Select the project on the main **Data Labeling** page.
 1. At the top right of the page, toggle **Running** to **Paused** to stop labelers from their activity.
 1. Select the **Details** tab.
-1. In the list on the left, select **Label classes**.
-1. At the top of the list, select **+ Add Labels**
+1. In the list on the left, select **Label categories**.
+1. Modify your labels.
     ![Add a label](../articles/machine-learning/media/how-to-create-labeling-projects/add-label.png)
 1. In the form, add your new label. Then choose how to continue the project.  Since you've changed the available labels, you choose how to treat the already labeled data:
     * Start over, removing all existing labels.  Choose this option if you want to start labeling from the beginning with the new full set of labels. 

@@ -5,15 +5,20 @@ services: web-application-firewall
 author: mohitkusecurity
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 08/28/2022
 ms.author: mohitku
 ms.reviewer: victorh 
 ms.custom: devx-track-azurepowershell
+zone_pivot_groups: front-door-tiers
 ---
 
 # Tuning Web Application Firewall (WAF) for Azure Front Door
  
 The Microsoft-managed Default Rule Set is based on the  [OWASP Core Rule Set (CRS)](https://github.com/SpiderLabs/owasp-modsecurity-crs/tree/v3.1/dev) and includes Microsoft Threat Intelligence Collection rules. It is often expected that WAF rules need to be tuned to suit the specific needs of the application or organization using the WAF. This is commonly achieved by defining rule exclusions, creating custom rules, and even disabling rules that may be causing issues or false positives. There are a few things you can do if requests that should pass through your Web Application Firewall (WAF) are blocked.
+
+> [!Note]
+> 
+> Managed Rule Set is not available for Azure Front Door Standard SKU. For more information about the different tier SKUs, refer to [Feature comparison between tiers](../../frontdoor/standard-premium/tier-comparison.md#feature-comparison-between-tiers)
 
 First, ensure you’ve read the [Front Door WAF overview](afds-overview.md) and the [WAF Policy for Front Door](waf-front-door-create-portal.md) documents. Also, make sure you’ve enabled [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
  
@@ -33,23 +38,74 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 ```
 
 If you try the request, the WAF blocks traffic that contains your *1=1* string in any parameter or field. This is a string often associated with a SQL injection attack. You can look through the logs and see the timestamp of the request and the rules that blocked/matched.
- 
-In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log generated due to a rule match. The following Log Analytics query can be used to find requests that have been blocked within the last 24 hours:
+
+In the following example, we explore a log entry generated due to a rule match. The following Log Analytics query can be used to find requests that have been blocked within the last 24 hours:
+
+::: zone pivot="front-door-standard-premium"
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontDoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 ```kusto
 AzureDiagnostics
 | where Category == 'FrontdoorWebApplicationFirewallLog'
 | where TimeGenerated > ago(1d)
 | where action_s == 'Block'
-
 ```
+ 
+::: zone-end
  
 In the `requestUri` field, you can see the request was made to `/api/Feedbacks/` specifically. Going further, we find the rule ID `942110` in the `ruleName` field. Knowing the rule ID, you could go to the [OWASP ModSecurity Core Rule Set Official Repository](https://github.com/coreruleset/coreruleset) and search by that [rule ID](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) to review its code and understand exactly what this rule matches on. 
  
 Then, by checking the `action` field, we see that this rule is set to block requests upon matching, and we confirm that the request was in fact blocked by the WAF because the `policyMode` is set to `prevention`. 
  
 Now, let's check the information in the `details` field. This is where you can see the `matchVariableName` and the `matchVariableValue` information. We learn that this rule was triggered because someone input *1=1* in the `comment` field of the web app.
- 
+
+::: zone pivot="front-door-standard-premium"
+
+```json
+{
+    "time": "2020-09-24T16:43:04.5422943Z",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
+    "category": "FrontDoorWebApplicationFirewallLog",
+    "operationName": "Microsoft.Cdn/Profiles/WebApplicationFirewallLog/Write",
+    "properties": {
+        "clientIP": "1.1.1.1",
+        "clientPort": "53566",
+        "socketIP": "1.1.1.1",
+        "requestUri": "http://afdwafdemosite.azurefd.net:80/api/Feedbacks/",
+        "ruleName": "DefaultRuleSet-1.0-SQLI-942110",
+        "policy": "AFDWAFDemoPolicy",
+        "action": "Block",
+        "host": "afdwafdemosite.azurefd.net",
+        "trackingReference": "0mMxsXwAAAABEalekYeI4S55qpi5R7R0/V1NURURHRTA4MTIAZGI4NGQzZDgtNWQ5Ny00ZWRkLTg2ZGYtZDJjNThlMzI2N2I4",
+        "policyMode": "prevention",
+        "details": {
+            "matches": [
+                {
+                    "matchVariableName": "PostParamValue:comment",
+                    "matchVariableValue": "\"1=1\""
+                }
+            ],
+            "msg": "SQL Injection Attack: Common Injection Testing Detected",
+            "data": "Matched Data: \"1=1\" found within PostParamValue:comment: \"1=1\""
+        }
+    }
+}
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 ```json
 {
     "time": "2020-09-24T16:43:04.5422943Z",
@@ -80,11 +136,51 @@ Now, let's check the information in the `details` field. This is where you can s
     }
 }
 ```
+
+::: zone-end
  
-There is also value in checking the access logs to expand your knowledge about a given WAF event. Below we review the `FrontdoorAccessLog` log that was generated as a response to the event above.
+There is also value in checking the access logs to expand your knowledge about a given WAF event. Below we review the log that was generated as a response to the event above.
  
 You can see these are related logs based on the `trackingReference` value being the same. Amongst various fields that provide general insight, such as `userAgent` and `clientIP`, we call attention to the `httpStatusCode` and `httpStatusDetails` fields. Here, we can confirm that the client has received an HTTP 403 response, which absolutely confirms this request was denied and blocked. 
- 
+
+::: zone pivot="front-door-standard-premium"
+
+```json
+{
+    "time": "2020-09-24T16:43:04.5430764Z",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
+    "category": "FrontDoorAccessLog",
+    "operationName": "Microsoft.Cdn/Profiles/AccessLog/Write",
+    "properties": {
+        "trackingReference": "0mMxsXwAAAABEalekYeI4S55qpi5R7R0/V1NURURHRTA4MTIAZGI4NGQzZDgtNWQ5Ny00ZWRkLTg2ZGYtZDJjNThlMzI2N2I4",
+        "httpMethod": "POST",
+        "httpVersion": "1.1",
+        "requestUri": "http://afdwafdemosite.azurefd.net:80/api/Feedbacks/",
+        "requestBytes": "2160",
+        "responseBytes": "324",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36",
+        "clientIp": "1.1.1.1",
+        "socketIp": "1.1.1.1",
+        "clientPort": "53566",
+        "timeToFirstByte": "0.01",
+        "timeTaken": "0.011",
+        "securityProtocol": "",
+        "routingRuleName": "DemoBERoutingRule",
+        "rulesEngineMatchNames": [],
+        "backendHostname": "13.88.65.130:3000",
+        "isReceivedFromClient": true,
+        "httpStatusCode": "403",
+        "httpStatusDetails": "403",
+        "pop": "WST",
+        "cacheStatus": "CONFIG_NOCACHE"
+    }
+}
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
 ```json
 {
     "time": "2020-09-24T16:43:04.5430764Z",
@@ -116,6 +212,8 @@ You can see these are related logs based on the `trackingReference` value being 
     }
 }
 ```
+
+::: zone-end
 
 ## Resolving false positives
  
@@ -220,9 +318,56 @@ This is a field you can exclude. To learn more about exclusion lists, See [Web a
 
 You can also examine the firewall logs to get the information to see what you need to add to the exclusion list. To enable logging, see [Monitoring metrics and logs in Azure Front Door](./waf-front-door-monitor.md).
 
+::: zone pivot="front-door-standard-premium"
+
 Examine the firewall log in the `PT1H.json` file for the hour that the request you want to inspect occurred. `PT1H.json` files are available in the storage account containers where the `FrontDoorWebApplicationFirewallLog` and the `FrontDoorAccessLog` diagnostic logs are stored.
 
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+Examine the firewall log in the `PT1H.json` file for the hour that the request you want to inspect occurred. `PT1H.json` files are available in the storage account containers where the `FrontdoorWebApplicationFirewallLog` and the `FrontdoorAccessLog` diagnostic logs are stored.
+
+::: zone-end
+
 In this example, you can see the rule that blocked the request (with the same Transaction Reference) and occurred at the exact same time:
+
+::: zone pivot="front-door-standard-premium"
+
+```json
+{
+    "time": "2020-09-24T16:43:04.5422943Z",
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.CDN/PROFILES/AFDWAFDEMOSITE",
+    "category": "FrontDoorWebApplicationFirewallLog",
+    "operationName": "Microsoft.Cdn/Profiles/WebApplicationFirewallLog/Write",
+    "properties": {
+        "clientIP": "1.1.1.1",
+        "clientPort": "53566",
+        "socketIP": "1.1.1.1",
+        "requestUri": "http://afdwafdemosite.azurefd.net:80/api/Feedbacks/",
+        "ruleName": "DefaultRuleSet-1.0-SQLI-942110",
+        "policy": "AFDWAFDemoPolicy",
+        "action": "Block",
+        "host": "afdwafdemosite.azurefd.net",
+        "trackingReference": "0mMxsXwAAAABEalekYeI4S55qpi5R7R0/V1NURURHRTA4MTIAZGI4NGQzZDgtNWQ5Ny00ZWRkLTg2ZGYtZDJjNThlMzI2N2I4",
+        "policyMode": "prevention",
+        "details": {
+            "matches": [
+                {
+                    "matchVariableName": "PostParamValue:comment",
+                    "matchVariableValue": "\"1=1\""
+                }
+            ],
+            "msg": "SQL Injection Attack: Common Injection Testing Detected",
+            "data": "Matched Data: \"1=1\" found within PostParamValue:comment: \"1=1\""
+        }
+    }
+}
+```
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
 
 ```json
 {
@@ -255,6 +400,8 @@ In this example, you can see the rule that blocked the request (with the same Tr
 }
 ```
 
+::: zone-end
+
 With your knowledge of how the Azure-managed rule sets work (see [Web Application Firewall on Azure Front Door](afds-overview.md)) you know that the rule with the *action: Block* property is blocking based on the data matched in the request body. You can see in the details that it matched a pattern (`1=1`), and the field is named `comment`. Follow the same previous steps to exclude the request body post args name that contains `comment`.
 
 ### Finding request header names
@@ -270,6 +417,12 @@ Another way to view request and response headers is to look inside the developer
 ### Finding request cookie names
 
 If the request contains cookies, the Cookies tab can be selected to view them in Fiddler. Cookie information can also be used to create exclusions or custom rules in WAF.
+
+## Anomaly scoring rule
+
+If you see rule ID 949110 during the process of tuning your WAF, this indicates that the request was blocked by the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) process.
+
+Review the other WAF log entries for the same request, by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered, and tune each rule by following the guidance throughout this article.
 
 ## Next steps
 

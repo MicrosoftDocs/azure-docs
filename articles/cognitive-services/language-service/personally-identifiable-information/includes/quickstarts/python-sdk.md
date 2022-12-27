@@ -1,27 +1,30 @@
 ---
-author: aahill
+author: jboback
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 06/06/2022
-ms.author: aahi
+ms.date: 09/15/2022
+ms.author: jboback
 ms.custom: language-service-pii, ignite-fall-2021
 ---
 
-[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python) |  [Additional samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples) | [Package (PyPi)](https://pypi.org/project/azure-ai-textanalytics/5.2.0/) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics)
 
+Use this quickstart to create a Personally Identifiable Information (PII) detection application with the client library for Python. In the following example, you'll create a Python application that can identify [recognized sensitive information](../../concepts/entity-categories.md) in text.
+
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Python 3.x](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* To use the Analyze feature, you will need a Language resource with the standard (S) pricing tier.
+    * You'll need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
+* To use the Analyze feature, you'll need a Language resource with the standard (S) pricing tier.
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+> <a href="https://github.com/Azure/azure-sdk-for-python/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Python%20Version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Detect%20Personally%20Identifiable%20Information%20(PII)%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart%3Fpivots%3Dprogramming-language-python)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md)%0A*%20Section:%20**Prerequisites**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
 
 ## Setting up
 
@@ -30,11 +33,11 @@ ms.custom: language-service-pii, ignite-fall-2021
 After installing Python, you can install the client library with:
 
 ```console
-pip install azure-ai-textanalytics==5.1.0
+pip install azure-ai-textanalytics==5.2.0
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
+> <a href="https://github.com/Azure/azure-sdk-for-python/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Python%20Version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Detect%20Personally%20Identifiable%20Information%20(PII)%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart%3Fpivots%3Dprogramming-language-python)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md)%0A*%20Section:%20**Set-up-the-environment**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
 
 ## Code example
 
@@ -79,21 +82,41 @@ pii_recognition_example(client)
 ```
 
 > [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Language&Product=Personally-identifying-info&Page=quickstart&Section=Code-example" target="_target">I ran into an issue</a>
+> <a href="https://github.com/Azure/azure-sdk-for-python/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Python%20Version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Detect%20Personally%20Identifiable%20Information%20(PII)%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart%3Fpivots%3Dprogramming-language-python)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md)%0A*%20Section:%20**Code-example**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>
 
 ## Output
 
 ```console
-Redacted Text: The employee's SSN is ***********.
+Redacted Text: The ********'s SSN is ***********.
+Entity: employee
+        Category: PersonType
+        Confidence Score: 0.97
+        Offset: 4
+        Length: 8
 Entity: 859-98-0987
-        Category: U.S. Social Security Number (SSN)
+        Category: USSocialSecurityNumber
         Confidence Score: 0.65
         Offset: 22
         Length: 11
-Redacted Text: The employee's phone number is ************.
+Redacted Text: The ********'s phone number is ************.
+Entity: employee
+        Category: PersonType
+        Confidence Score: 0.96
+        Offset: 4
+        Length: 8
 Entity: 555-555-5555
-        Category: Phone Number
+        Category: PhoneNumber
         Confidence Score: 0.8
         Offset: 31
         Length: 12
 ```
+
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+> [!div class="nextstepaction"]
+> <a href="https://github.com/Azure/azure-sdk-for-python/issues/new?title=&body=%0A-%20**Package%20Name**:%20%0A-%20**Package%20Version**:%20%0A-%20**Operating%20System**:%20%0A-%20**Python%20Version**:%20%0A%0A%5BEnter%20feedback%20here%5D%0A%0A%0A---%0A%23%23%23%23%20Document%20details%0A%0A⚠%20*Do%20not%20edit%20this%20section.%20It%20is%20required%20for%20learn.microsoft.com%20➟%20GitHub%20issue%20linking.%0A%0ALanguage%20Quickstart%20Feedback%0A*%20Content:%20%5BQuickstart:%20Detect%20Personally%20Identifiable%20Information%20(PII)%20-%20Azure%20Cognitive%20Services%5D(https:%2F%2Flearn.microsoft.com%2Fazure%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart%3Fpivots%3Dprogramming-language-python)%0A*%20Content%20Source:%20%5Barticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md%5D(https:%2F%2Fgithub.com%2FMicrosoftDocs%2Fazure-docs%2Fblob%2Fmain%2Farticles%2Fcognitive-services%2Flanguage-service%2Fpersonally-identifiable-information%2Fquickstart.md)%0A*%20Section:%20**Clean-up-resources**%0A*%20Service:%20**cognitive-services**%0A*%20Sub-service:%20**language-service**%0A&labels=Cognitive%20-%20Language%2CCognitive%20Language%20QS%20Feedback" target="_target">I ran into an issue</a>

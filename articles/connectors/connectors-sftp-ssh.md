@@ -1,16 +1,16 @@
 ---
-title: Connect to SFTP server with SSH
-description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps.
+title: Connect to SFTP using SSH from workflows
+description: Connect to your SFTP file server over SSH from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
-# Create and manage SFTP files using SSH and Azure Logic Apps
+# Connect to an SFTP file server using SSH from workflows in Azure Logic Apps
 
 To automate tasks that create and manage files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can create automated integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
 
@@ -26,7 +26,7 @@ In your workflow, you can use a trigger that monitors events on your SFTP server
 
 For differences between the SFTP-SSH connector and the SFTP connector, review the [Compare SFTP-SSH versus SFTP](#comparison) section later in this topic.
 
-## Limits
+## Limitations
 
 * The SFTP-SSH connector currently doesn't support these SFTP servers:
 
@@ -37,6 +37,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * Globalscape
   * SFTP for Azure Blob Storage
   * FileMage Gateway
+  * VShell Secure File Transfer Server
 
 * The following SFTP-SSH actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
 
@@ -62,15 +63,17 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
   > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
+  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45-MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50-MB chunk size. In different scenario, if your logic app workflow is timing out, for example, when using 15-MB chunks, you can try reducing the size to 5 MB.
 
-  Chunk size is associated with a connection. This attribute means you can use the same connection for both actions that support chunking and actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB.
+  Chunk size is associated with a connection. This attribute means you can use the same connection for both actions that support chunking and actions that don't support chunking. In this case, the chunk size for actions that support chunking ranges from 5 MB to 50 MB.
 
 * SFTP-SSH triggers don't support message chunking. When triggers request file content, they select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
 
   1. Use an SFTP-SSH trigger that returns only file properties. These triggers have names that include the description, **(properties only)**.
 
   1. Follow the trigger with the SFTP-SSH **Get file content** action. This action reads the complete file and implicitly uses message chunking.
+
+* The SFTP-SSH managed or Azure-hosted connector can create a limited number of connections to the SFTP server, based on the connection capacity in the Azure region where your logic app resource exists. If this limit poses a problem in a Consumption logic app workflow, consider creating a Standard logic app workflow and use the SFTP-SSH built-in connector instead.
 
 <a name="comparison"></a>
 
@@ -108,7 +111,7 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
 Recurring connection-based triggers where you need to create a connection first, such as the managed SFTP-SSH trigger, differ from built-in triggers that run natively in Azure Logic Apps, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md). In recurring connection-based triggers, the recurrence schedule isn't the only driver that controls execution, and the time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, *and* other factors that might cause run times to drift or produce unexpected behavior. For example, unexpected behavior can include failure to maintain the specified schedule when daylight saving time (DST) starts and ends.
 
-To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected time or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../connectors/apis-list.md#recurrence-for-connection-based-triggers).
+To make sure that the recurrence time doesn't shift when DST takes effect, manually adjust the recurrence. That way, your workflow continues to run at the expected time or specified start time. Otherwise, the start time shifts one hour forward when DST starts and one hour backward when DST ends. For more information, see [Recurrence for connection-based triggers](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-for-connection-based-triggers).
 
 ## Prerequisites
 
@@ -315,7 +318,7 @@ This error can happen when your logic app can't successfully establish a connect
 
 * If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
-* Check whether SFTP server puts a limit on the number of connections from each IP address. If a limit exists, you might have to limit the number of concurrent logic app instances.
+* Check whether your SFTP server puts a limit on the number of connections from each IP address. Any such limit hinders communication between the connector and the SFTP server. Make sure to remove this limit.
 
 * To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 

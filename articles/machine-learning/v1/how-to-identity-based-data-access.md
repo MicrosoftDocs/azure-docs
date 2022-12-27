@@ -20,7 +20,7 @@ In this article, you learn how to connect to storage services on Azure by using 
 
 Typically, datastores use **credential-based authentication** to confirm you have permission to access the storage service. They keep connection information, like your subscription ID and token authorization, in the [key vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace. When you create a datastore that uses **identity-based data access**, your Azure account ([Azure Active Directory token](../../active-directory/fundamentals/active-directory-whatis.md)) is used to confirm you have permission to access the storage service. In the **identity-based data access** scenario, no authentication credentials are saved. Only the storage account information is stored in the datastore. 
  
-To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](../how-to-connect-data-ui.md#create-datastores).
+To create datastores with **identity-based** data access via the Azure Machine Learning studio UI, see [Connect to data with the Azure Machine Learning studio](how-to-connect-data-ui.md#create-datastores).
 
 To create datastores that use **credential-based** authentication, like access keys or service principals, see [Connect to storage services on Azure](how-to-access-data.md).
 
@@ -180,7 +180,7 @@ We recommend that you use [Azure Machine Learning datasets](how-to-create-regist
 > [!IMPORTANT]
 > Datasets using identity-based data access are not supported for [automated ML experiments](../how-to-configure-auto-train.md).
 
-Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](../how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
+Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
 
 To create a dataset, you can reference paths from datastores that also use identity-based data access . 
 
@@ -211,11 +211,18 @@ This authentication mode allows you to:
 * Set up fine-grained permissions, where different workspace users can have access to different storage accounts or folders within storage accounts.
 * Audit storage access because the storage logs show which identities were used to access data.
 
-> [!WARNING] 
+> [!IMPORTANT] 
 > This functionality has the following limitations
 > * Feature is only supported for experiments submitted via the [Azure Machine Learning CLI](../how-to-configure-cli.md)
 > * Only CommandJobs, and PipelineJobs with CommandSteps and AutoMLSteps are supported 
 > * User identity and compute managed identity cannot be used for authentication within same job.
+
+> [!WARNING]
+> This feature is __public preview__ and is __not secure for production workloads__. Ensure that only trusted users have permissions to access your workspace and storage accounts.
+>
+> Preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+>
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The following steps outline how to set up identity-based data access for training jobs on compute clusters. 
 
@@ -246,5 +253,5 @@ identity:
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md)
-* [Train with datasets](../how-to-train-with-datasets.md)
+* [Train with datasets](how-to-train-with-datasets.md)
 * [Create a datastore with key-based data access](how-to-access-data.md)

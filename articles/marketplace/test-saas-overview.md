@@ -2,7 +2,6 @@
 title: How to test a SaaS plan overview in the Microsoft commercial marketplace - Azure Marketplace
 description: Use Microsoft Partner Center to test a plan for a SaaS offer in the Microsoft commercial marketplace.
 ms.reviewer: dannyevers 
-ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya 

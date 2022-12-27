@@ -90,6 +90,20 @@ AzureDiagnostics
 | project question_, answer_, score_, kbId_
 ```
 
+### Prebuilt question answering inference calls
+
+```kusto
+// Show logs from AzureDiagnostics table 
+// Lists the latest logs in AzureDiagnostics table, sorted by time (latest first). 
+AzureDiagnostics
+| where OperationName == "CustomQuestionAnswering QueryText"
+| extend answer_ = tostring(parse_json(properties_s).answer)
+| extend question_ = tostring(parse_json(properties_s).question)
+| extend score_ = tostring(parse_json(properties_s).score)
+| extend requestid = tostring(parse_json(properties_s)["apim-request-id"])
+| project TimeGenerated, requestid, question_, answer_, score_
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]

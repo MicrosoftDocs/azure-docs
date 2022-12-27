@@ -2,20 +2,17 @@
 title: View a list and description of all system reports available in Permissions Management reports
 description: View a list and description of all system reports available in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View a list and description of system reports
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some of the information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 Permissions Management has various types of system reports that capture specific sets of data. These reports allow management, auditors, and administrators to:
 

@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 11/08/2022
 ms.author: banders
 ms.custom: contperf-fy21q2
 ---
@@ -31,8 +31,12 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 > * An outstanding invoice is paid by your default payment method. In order to have it paid by check or wire transfer, you must change your default payment method to check or wire transfer after you've been approved.
 > * Currently, payment by check or wire transfer isn't supported for Global Azure in China.
 > * For Microsoft Online Services Program accounts, if you switch to pay by check or wire transfer, you can't switch back to paying by credit or debit card.
+> * Currently, only customers in the United States can get automatically approved to change their payment method to check/wire transfer. Support for other regions is being evaluated. 
 
 ## Request to pay by check or wire transfer
+
+> [!NOTE]
+> Currently only customers in the United States can get automatically approved to change their payment method to check/wire transfer. Support for other regions is being evaluated. If you are not in the United States, you must [Submit a request to set up pay by check or wire transfer](#submit-a-request-to-set-up-pay-by-check-or-wire-transfer) to change your payment method.
 
 1. Sign in to the Azure portal.
 1. Navigate to **Subscriptions** and then select the one that you want to set up check or wire transfer for.
@@ -53,6 +57,8 @@ Users with a Microsoft Customer Agreement must always submit a request to Azure 
 
 ## Submit a request to set up pay by check or wire transfer
 
+Users in all regions can submit a request to pay by check or wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to check/wire transfer.
+
 If you're not automatically approved, you can submit a request to Azure support to approve payment by check or wire transfer. If your request is approved, you can switch to pay by check or wire transfer in the Azure portal.
 
 1. Sign in to the Azure portal to submit a support request. Search for and select **Help + support**.  
@@ -67,7 +73,7 @@ If you're not automatically approved, you can submit a request to Azure support 
     - If existing, current payment method:
     - Order ID (requesting for invoice option):
     - Account Admins Live ID (or Org ID) (should be company domain):
-    - Commerce Account ID:
+    - Commerce Account ID¹:
     - Company Name (as registered under VAT or Government Website):
     - Company Address (as registered under VAT or Government Website):
     - Company Website:
@@ -90,6 +96,8 @@ If you're not automatically approved, you can submit a request to Azure support 
     - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.md).
     - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
 1. Verify your contact information and preferred contact method, and then select **Create**.
+
+¹ If you don't know your Commerce Account ID, it's the GUID ID shown on the Properties page for your billing account. To view your Commerce Account ID in the Azure portal, navigate to **Cost Management** > select a billing scope > in the left menu, select **Properties**. On the billing scope Properties page, notice the GUID ID value. It's your Commerce Account ID.
 
 If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application. We might ask you to provide your company’s audited financial statements. If no financial information is provided or if the information isn't strong enough to support the amount of credit limit required, we might ask for a security deposit or a standby letter of credit to approve your credit check request.
 
@@ -122,6 +130,18 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
    :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot showing Payment methods menu item." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
 1. Under the *Other payment methods* heading, select the ellipsis (...) symbol, and then select **Make default**.  
     :::image type="content" source="./media/pay-by-invoice/customer-led-switch-to-invoice.png" alt-text="Screenshot showing Check/wire transfer ellipsis and Made default option." lightbox="./media/pay-by-invoice/customer-led-switch-to-invoice.png" :::
+
+## Check or wire transfer payment processing time
+
+Payments made by check are posted three to five business days after the check clears your bank. You can contact your bank to confirm the check status.
+
+Payments made by wire transfer have processing times that vary, depending on the type of transfer:
+
+- ACH domestic transfers - Five business days. Two to three days to arrive, plus two days to post.
+- Wire transfers (domestic) - Four business days. Two days to arrive, plus two days to post.
+- Wire transfers (international) - Seven business days. Five days to arrive, plus two days to post.
+
+If your account is approved for payment by check or wire transfer, the instructions for payment can are found on the invoice.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

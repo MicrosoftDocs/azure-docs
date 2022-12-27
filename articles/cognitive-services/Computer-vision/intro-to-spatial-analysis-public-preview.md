@@ -3,24 +3,29 @@ title: What is Spatial Analysis?
 titleSuffix: Azure Cognitive Services
 description: This document explains the basic concepts and features of the Azure Spatial Analysis container.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
-ms.author: nitinme
+ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 06/13/2022
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, ignite-2022
 ---
 
 # What is Spatial Analysis?
 
 You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detects the presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces, you're able to learn how people use them and maximize the space's value to your organization. 
 
+Try out the capabilities of Spatial Analysis quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
+
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/call-analyze-image.md) contain instructions for using the service in more specific or customized ways.
-* The [conceptual articles](tbd) provide in-depth explanations of the service's functionality and features.
+* The [conceptual articles]() provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## What it does

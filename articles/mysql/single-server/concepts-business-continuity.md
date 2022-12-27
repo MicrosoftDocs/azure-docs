@@ -1,17 +1,19 @@
 ---
 title: Business continuity - Azure Database for MySQL
 description: Learn about business continuity (point-in-time restore, data center outage, geo-restore) when using Azure Database for MySQL service.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 7/7/2020
+author: savjani
+ms.author: pariks
+ms.date: 06/20/2022
 ---
 
 # Overview of business continuity with Azure Database for MySQL - Single Server
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article describes the capabilities that Azure Database for MySQL provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 

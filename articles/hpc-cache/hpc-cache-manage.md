@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -138,6 +138,9 @@ $
 ```
 
 ---
+
+> [!TIP]
+> If you need to write specific individual files back to a storage target without writing the entire cache contents, consider using the flush_file.py script contained in the PC Cache NFSv3 client library distribution. Learn more in [Customize file write-back in Azure HPC Cache](custom-flush-script.md).
 
 ## Upgrade cache software
 

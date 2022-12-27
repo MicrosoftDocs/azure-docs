@@ -1,18 +1,20 @@
 ---
 title: Private Link - Azure CLI - Azure Database for MySQL
 description: Learn how to configure private link for Azure Database for MySQL from Azure CLI
-author: mksuni
-ms.author: sumuth
 ms.service: mysql
 ms.subservice: single-server
+author: mksuni
+ms.author: sumuth
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/09/2020
+ms.date: 06/20/2022
 ---
 
 # Create and manage Private Link for Azure Database for MySQL using CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 A Private Endpoint is the fundamental building block for private link in Azure. It enables Azure resources, like Virtual Machines (VMs), to communicate privately with private link resources. In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for MySQL server with an Azure private endpoint.
 

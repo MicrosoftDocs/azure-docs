@@ -47,7 +47,8 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
 | DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
 | GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | No | 
-| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No | 
+| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No |
+| [FastPathRoutesCount](#fastpath-routes-count-at-circuit-level) | Fastpath | Count | Maximum | Count of FastPath routes configured on the circuit | None | Yes |
 
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
@@ -86,6 +87,15 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 | [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | No | 
 | [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | No | 
 | [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | No |
+| [FastPathRoutesCount](#fastpath-routes-count-at-port-level) | FastPath | Count | Maximum | Count of FastPath routes configured on the port | None | Yes |
+
+### ExpressRoute Traffic Collector
+
+| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? |
+| --- | --- | --- | --- | --- | --- | --- |
+| CPU utilization | Performance | Count | Average | CPU Utilization of the ExpressRoute Traffic Collector | roleInstance | Yes |
+| Memory Utilization | Performance | CountPerSecond | Average | Memory Utilization of the ExpressRoute Traffic Collector | roleInstance | Yes |
+| Count of flow records processed | Availability | Count | Maximum | Count of number of flow records processed or ingested | roleInstance, ExpressRoute Circuit | Yes |
 
 ## Circuits metrics
 
@@ -116,6 +126,14 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 >[!NOTE]
 >During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
 >
+
+### FastPath routes count (at circuit level)
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on a circuit. Set an alert for when the number of FastPath routes on a circuit goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits). 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-circuit.png" alt-text="Screenshot of FastPath routes count at circuit level metric.":::
 
 ### <a name = "arp"></a>ARP Availability - Split by Peering  
 
@@ -167,6 +185,10 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Rx light levels by lane. However, this is not supported on all deployments.
+>
+
 ### <a name = "txlight"></a>Tx Light Level - Split by link
 
 Aggregation type: *Avg*
@@ -174,6 +196,20 @@ Aggregation type: *Avg*
 You can view the Tx light level (the light level that the ExpressRoute Direct port is **transmitting**) for each port. Healthy Tx light levels generally fall within a range of -10 dBm to 0 dBm. Set alerts to be notified if the Tx light level falls outside of the healthy range.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg" alt-text="ER Direct line Tx Light Level":::
+
+>[!NOTE]
+> ExpressRoute Direct connectivity is hosted across different device platforms. Some ExpressRoute Direct connections will support a split view for Tx light levels by lane. However, this is not supported on all deployments.
+>
+
+### FastPath routes count (at port level)
+
+Aggregation type: *Max*
+
+This metric shows the number of FastPath routes configured on an ExpressRoute Direct port. 
+
+*Guidance:* Set an alert for when the number of FastPath routes on the port goes beyond the threshold limit. For more information, see [ExpressRoute FastPath limits](about-fastpath.md#ip-address-limits).
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/fastpath-routes-count-port.png" alt-text="Screenshot of FastPath routes count at port level metric.":::
 
 ## ExpressRoute Virtual Network Gateway Metrics
 
@@ -223,7 +259,7 @@ This metric shows the number of routes the ExpressRoute gateway is advertising t
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
-### <a name = "learnedroutes"></a>Count of Routes Learned from Peer - Split by instance
+### <a name = "learnedroutes"></a>Count of routes learned from peer - Split by instance
 
 Aggregation type: *Max*
 
@@ -231,7 +267,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
-### <a name = "frequency"></a>Frequency of Routes change - Split by instance
+### <a name = "frequency"></a>Frequency of routes change - Split by instance
 
 Aggregation type: *Sum*
 
@@ -239,13 +275,17 @@ This metric shows the frequency of routes being learned from or advertised to re
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Screenshot of frequency of routes changed metric.":::
 
-### <a name = "vm"></a>Number of VMs in the Virtual Network
+### <a name = "vm"></a>Number of VMs in the virtual network
 
 Aggregation type: *Max*
 
 This metric shows the number of virtual machines that are using the ExpressRoute gateway. The number of virtual machines may include VMs from peered virtual networks that use the same ExpressRoute gateway. Set an alert for this metric if the number of VMs goes above a certain threshold that could affect the gateway performance. 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
+
+>[!NOTE]
+> To maintain reliability of the service, Microsoft often performs platform or OS maintenance on the gateway service. During this time, this metric may fluctuate and report inaccurately.
+>
 
 ## <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
 
@@ -254,6 +294,44 @@ Aggregation type: *Avg*
 This metric shows the bits per second for ingress and egress to Azure through the ExpressRoute gateway. You can split this metric further to see specific connections to the ExpressRoute circuit.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="Screenshot of gateway connection bandwidth usage metric.":::
+
+## ExpressRoute Traffic Collector metrics
+
+### CPU Utilization - Split by instance
+
+Aggregation type: *Avg* (of percentage of total utilized CPU)  
+
+*Granularity: 5 min*  
+
+You can view the CPU utilization of each ExpressRoute Traffic Collector instance. The CPU utilization may spike briefly during routine host maintenance, but prolonged high CPU utilization could indicate your ExpressRoute Traffic Collector is reaching a performance bottleneck.  
+
+**Guidance:** Set an alert for when avg CPU utilization exceeds a certain threshold.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-usage.png" alt-text="Screenshot of CPU usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/cpu-usage.png":::
+
+### Memory Utilization - Split by instance 
+
+Aggregation type: *Avg* (of percentage of total utilized Memory) 
+
+*Granularity: 5 min*
+
+You can view the memory utilization of each ExpressRoute Traffic Collector instance. Memory utilization may spike briefly during routine host maintenance, but prolonged high memory utilization could indicate your Azure Traffic Collector is reaching a performance bottleneck.  
+
+**Guidance:** Set an alert for when avg memory utilization exceeds a certain threshold.  
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/memory-usage.png" alt-text="Screenshot of memory usage for ExpressRoute Traffic Collector." lightbox="./media/expressroute-monitoring-metrics-alerts/memory-usage.png":::
+
+### Count of flow records processed - Split by instances or ExpressRoute circuit
+
+Aggregation type: *Count*  
+
+*Granularity: 5 min*  
+
+You can view the count of number of flow records processed by ExpressRoute Traffic Collector, aggregated across ExpressRoute Circuits. Customer can split the metrics across each ExpressRoute Traffic Collector instance or ExpressRoute circuit when multiple circuits are associated to the ExpressRoute Traffic Collector. Monitoring this metric will help you understand if you need to deploy more ExpressRoute Traffic Collector instances or migrate ExpressRoute circuit association from one ExpressRoute Traffic Collector deployment to another.  
+
+**Guidance:** Splitting by circuits is recommended when multiple ExpressRoute circuits are associated with an ExpressRoute Traffic Collector deployment. This will help determine the flow count of each ExpressRoute circuit and ExpressRoute Traffic Collector utilization by each ExpressRoute circuit. 
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/flow-records.png" alt-text="Screenshot of average flow records for an ExpressRoute circuit." lightbox="./media/expressroute-monitoring-metrics-alerts/flow-records.png":::
 
 ## Alerts for ExpressRoute gateway connections
 

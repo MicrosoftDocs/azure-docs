@@ -1,18 +1,20 @@
 ---
 title: Access audit logs - Azure CLI - Azure Database for MySQL
 description: This article describes how to configure and access the audit logs in Azure Database for MySQL from the Azure CLI.
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
+author: savjani
+ms.author: pariks
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 6/24/2020 
+ms.date: 06/20/2022
 ---
 
 # Configure and access audit logs in the Azure CLI
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 You can configure the [Azure Database for MySQL audit logs](concepts-audit-logs.md) from the Azure CLI.
 

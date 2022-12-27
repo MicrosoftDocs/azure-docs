@@ -7,7 +7,7 @@ ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 07/19/2022
 # Customer intent: As an administrator of an Azure AD tenant, I want to govern and monitor my applications.
 ---
 
@@ -60,11 +60,22 @@ To create an access review:
 
 ### Start the access review
 
-After you've specified the settings for an access review, select **Start**. The access review appears in your list with an indicator of its status.
+The access review starts in a few minutes and it appears in your list with an indicator of its status. 
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to review access to groups or applications. If your review is for guests to review their own access, show them the instructions for how to review access for themselves to groups or applications.
 
 If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews. They must first accept the invitation before they can begin reviewing.
+
+### View the status of an access review
+
+You can track the progress of access reviews as they are completed.
+ 
+1. Go to **Azure Active Directory**, and then select **Identity Governance**.
+1. In the left menu, select **Access reviews**.
+1. In the list, select the access review you created.
+1. On the **Overview** page, check the progress of the access review. 
+
+The **Results** page provides information on each user under review in the instance, including the ability to Stop, Reset, and Download results. To learn more, check out the [Complete an access review of groups and applications in Azure AD access reviews](../governance/complete-access-review.md) article. 
 
 ## Access the audit logs report
 

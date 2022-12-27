@@ -16,7 +16,7 @@
     displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
 - name: How to
   items:
-  - name: Add connectors
+  - name: Add services
     href: add-connectors.md
   - name: Manage
     href: manage.md

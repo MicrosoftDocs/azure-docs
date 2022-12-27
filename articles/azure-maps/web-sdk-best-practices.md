@@ -26,7 +26,7 @@ For security best practices, see [Authentication and authorization best practice
 
 The Azure Maps SDKs go through regular security testing along with any external dependency libraries that may be used by the SDKs. Any known security issue is fixed in a timely manner and released to production. If your application points to the latest major version of the hosted version of the Azure Maps Web SDK, it will automatically receive all minor version updates that will include security related fixes.
 
-If self-hosting the Azure Maps Web SDK via the NPM module, be sure to use the caret (^) symbol to in combination with the Azure Maps NPM package version number in your `package.json` file so that it will always point to the latest minor version.
+If self-hosting the Azure Maps Web SDK via the npm module, be sure to use the caret (^) symbol to in combination with the Azure Maps npm package version number in your `package.json` file so that it will always point to the latest minor version.
 
 ```json
 "dependencies": {
@@ -217,7 +217,7 @@ If your data meets one of the following criteria, be sure to specify the min and
 * If the data is coming from a vector tile source, often source layers for different data types are only available through a range of zoom levels.
 * If using a tile layer that doesn't have tiles for all zoom levels 0 through 24 and you want it to only rendering at the levels it has tiles, and not try to fill in missing tiles with tiles from other zoom levels.
 * If you only want to render a layer at certain zoom levels.
-All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic ` maxZoom > zoom >= minZoom`.
+All layers have a `minZoom` and `maxZoom` option where the layer will be rendered when between these zoom levels based on this logic `maxZoom > zoom >= minZoom`.
 
 **Example**
 
@@ -273,7 +273,7 @@ var layer = new atlas.layer.HeatMapLayer(source, null, {
 });
 ```
 
-Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md #clustering-and-the-heat-maps-layer)
+Learn more in the [Clustering and heat maps in this document](clustering-point-data-web-sdk.md#clustering-and-the-heat-maps-layer)
 
 ### Keep image resources small
 

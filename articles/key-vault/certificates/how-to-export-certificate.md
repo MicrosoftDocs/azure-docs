@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.custom: mvc, devx-track-azurepowershell
-ms.date: 08/11/2020
+ms.date: 11/14/2022
 ms.author: mbaldwin
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store certificates in Azure.
 ---
@@ -89,8 +89,7 @@ try {
     [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
 }
 $secretByte = [Convert]::FromBase64String($secretValueText)
-$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2
-$x509Cert.Import($secretByte, "", "Exportable,PersistKeySet")
+$x509Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($secretByte,'','Exportable,PersistKeySet')
 $type = [System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx
 $pfxFileByte = $x509Cert.Export($type, $password)
 

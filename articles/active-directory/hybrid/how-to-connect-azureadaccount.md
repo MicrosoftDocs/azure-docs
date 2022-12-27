@@ -4,7 +4,7 @@ description: This topic documents how to restore the Azure AD Connector account.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory

@@ -5,14 +5,15 @@ author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
+ms.subservice: apache-gremlin
+ms.custom: ignite-2022
 ms.topic: sample
 ms.date: 02/21/2022
 ---
 
-# Create a resource lock for Azure Cosmos Gremlin API database and graph using Azure CLI
+# Create a resource lock for Azure Cosmos DB for Gremlin database and graph using Azure CLI
 
-[!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
+[!INCLUDE[Gremlin](../../../includes/appliesto-gremlin.md)]
 
 The script in this article demonstrates performing resource lock operations for a Gremlin database and graph.
 
@@ -20,7 +21,7 @@ The script in this article demonstrates performing resource lock operations for 
 >
 > To create resource locks, you must have membership in the owner role in the subscription.
 >
-> Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
+> Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Azure Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 

@@ -14,7 +14,7 @@ ms.author: mapankra
 
 Sending emails from your SAP backend is a standard feature widely distributed for use cases such as alerting for batch jobs, SAP workflow state changes or invoice distribution. Many customers established the setup using [Exchange Server On-Premises](/exchange/exchange-server). With a shift to [Microsoft 365](https://www.microsoft.com/microsoft-365) and [Exchange Online](/exchange/exchange-online) comes a set of cloud-native approaches impacting that setup.
 
-This article describes the setup for **outbound** email-communication from NetWeaver-based SAP systems to Exchange Online.
+This article describes the setup for **outbound** email-communication from NetWeaver-based SAP systems to Exchange Online. That applies to SAP ECC, S/4HANA, SAP RISE managed, and any other NetWeaver based system.
 
 ## Overview
 

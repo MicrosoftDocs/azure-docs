@@ -1,61 +1,47 @@
 ---
-title: 'Quickstart: Get started with Azure Cognitive Search using Visual Studio Code'
+title: 'Use Visual Studio Code with Search'
 titleSuffix: Azure Cognitive Search
-description: Learn how to install and use the Visual Studio Code extension for Azure Cognitive Search.
-author: dereklegenzoff
-ms.author: delegenz
+description: This article provides documentation for the Visual Studio Code extension for Azure Cognitive Search.
+author: heidisteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/10/2021
+ms.date: 10/31/2022
 ms.custom: mode-ui
 ---
 
-# Get started with Azure Cognitive Search using Visual Studio Code
-
-This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch). With the [Visual Studio code extension for Azure Cognitive Search (preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) and these instructions, you can send requests and view responses before writing any code.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+# Work with Azure Cognitive Search using the Visual Studio Code extension (preview - retired)
 
 > [!IMPORTANT] 
-> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The Visual Studio Code Extension for Azure Cognitive Search was introduced as a **public preview feature** under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's now discontinued.
+
+If you have an existing installation of Visual Studio Code Extension for Azure Cognitive Search, you can continue to use it, but it will no longer be updated, and it isn't guaranteed to work with future versions of Azure Cognitive Search.
+
+This article is for current users of the extension.
 
 ## Prerequisites
 
-The following services and tools are required for this quickstart. 
-
 + [Visual Studio Code](https://code.visualstudio.com/download)
 
-+ [Azure Cognitive Search for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
++ Although the extension is no longer available in the Visual Studio Code Marketplace, the code is open sourced at [https://github.com/microsoft/vscode-azurecognitivesearch](https://github.com/microsoft/vscode-azurecognitivesearch). You can clone and modify the tool for your own use.
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
-
-## Install the extension
-
-Start by opening [VS Code](https://code.visualstudio.com). Select the **Extensions** tab on the activity bar then search for *Azure Cognitive Search*. Find the extension in the search results, and select **Install**.
-
-![VS Code extension pane](media/search-get-started-rest/download-extension.png "Downloading the VS Code extension")
-
-Alternatively, you can install  the [Azure Cognitive Search extension](https://aka.ms/vscode-search) from the VS Code marketplace in a web browser.
-
-You should see a new Azure tab appear on the activity bar if you didn't already have it.
-
-![VS Code Azure pane](media/search-get-started-rest/azure-pane.png "Azure pane in VS Code")
++ [Azure Cognitive Search service](search-create-service-portal.md)
 
 ## Connect to your subscription
 
 Select **Sign in to Azure...** and log into your Azure Account.
 
-You should see your subscriptions appear. Select the subscription to see a list of the search services in the subscription.
+You should see your subscriptions. In the following screenshot, the subscription name is "Visual Studio Enterprise" and it contains one search service named "azsearch-service". 
 
 ![VS Code Azure subscriptions](media/search-get-started-rest/subscriptions.png "Subscriptions in VS Code")
 
 To limit the subscriptions displayed, open the command palette (Ctrl+Shift+P or Cmd+Shift+P) and search for *Azure* or *Select Subscriptions*. There are also commands available for signing in and out of your Azure account.
 
-When you expand the search service, you will see tree items for each of the Cognitive Search resources: indexes, data sources, indexers, skillsets, and synonym maps.
+When you expand the search service, you'll see tree items for each Cognitive Search item: indexes, data sources, indexers, skillsets, synonym maps, and aliases.
 
 ![VS Code Azure search tree](media/search-get-started-rest/search-tree.png "VS Code Azure search tree")
 
-These tree items can be expanded to show any resources you have in your search service
+These tree items can be expanded to show any resources you have in your search service.
 
 ## 1 - Create an index
 
@@ -203,31 +189,31 @@ The `fields` collection defines the structure of documents in the search index. 
 
 To create a new index, right-click on **Indexes** and then select **Create new index**. An editor with a name similar to `indexes-new-28c972f661.azsindex` will pop up. 
 
-Paste the index definition from above into the window. Save the file and select **Upload** when prompted if you want to update the index. This will create the index and it will be available in the tree view.
+Paste the index definition from above into the window. Save the file and select **Upload** when prompted if you want to update the index. This step creates the index and adds it to the tree view on the left.
 
 ![Gif of creating an index](media/search-get-started-rest/create-index.gif)
 
-If there is a problem with your index definition, you should see an error message pop up explaining the error.
+If there's a problem with your index definition, you should see an error message similar to the one below.
 
 ![Create index error message](media/search-get-started-rest/create-index-error.png)
 
-If this happens, fix the issue and resave the file.
+If an error occurs, fix the issue and resave the file.
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+In the REST API, creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this quickstart, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
 
-To add new documents in VS Code:
+To add new documents to the index:
 
 1. Expand the `hotels-quickstart` index you created. Right-click on **Documents** and select **Create new document**.
 
     ![Create a document](media/search-get-started-rest/create-document.png)
 
-2. This will open up a JSON editor that has inferred the schema of your index.
+2. You should see a JSON editor that has inferred the schema of your index.
 
     ![Create a document json](media/search-get-started-rest/create-document-2.png)
 
-3. Paste in the JSON below and then save the file. A prompt will open up asking you to confirm your changes. Select **Upload** to save the changes.
+3. Paste in the JSON below and then save the file. A prompt asks you to confirm your changes. Select **Upload** to save the changes.
 
     ```json
     {
@@ -249,7 +235,7 @@ To add new documents in VS Code:
     }
     ```
 
-4. Repeat this process for the three remaining documents
+4. Repeat this process for the three remaining documents:
 
     Document 2:
     ```json
@@ -320,18 +306,15 @@ At this point, you should see all four documents available in the documents sect
 
 ## 3 - Search an index
 
-Now that the index and document set are loaded, you can issue queries against them using [Search Documents REST API](/rest/api/searchservice/search-documents).
+Now that the index contains content, you can issue queries using [Search Documents REST API](/rest/api/searchservice/search-documents):
 
-To do this in VS Code:
-
-1. Right-click the index you want to search and select **Search index**. This will open an editor with a name similar to `sandbox-b946dcda48.azs`.
+1. Right-click the index you want to search and select **Search**. This step opens an editor with a name similar to `sandbox-b946dcda48.azs`.
 
     ![search view of extension](media/search-get-started-rest/search-vscode.png)
 
 2. A simple query is autopopulated. Press **Ctrl+Alt+R** or **Cmd+Alt+R** to submit the query. You'll see the results pop up in a window to the left.
 
     ![search results in extension](media/search-get-started-rest/search-results.png)
-
 
 ### Example queries
 
@@ -350,17 +333,17 @@ In the next query, we specify the search term `wifi` and also include a filter t
 
 ```
 // Query example 2 - Search with filter, orderBy, select, and count
-search=wifi&$filter=Address/StateProvince eq 'FL'&$select=HotelId,HotelName,Rating&$orderby=Rating desc
+search=wifi&$filter=Address/StateProvince eq 'FL'&$select=HotelId,HotelName,Rating,Address/StateProvince&$orderby=Rating desc
 ```
 
 Next, the search is limited to a single searchable field using the `searchFields` parameter. This is a great option to make your query more efficient if you know you're only interested in matches in certain fields.
 
 ```
 // Query example 3 - Limit searchFields
-search=submlime cliff&$select=HotelId,HotelName,Rating&searchFields=HotelName
+search=sublime cliff&$select=HotelId,HotelName,Rating&searchFields=HotelName
 ```
 
-Another common option to include in a query is `facets`. Facets allow you to build out filters on your UI to make it easy for users to know what values they can filter down to.
+Another common option to include in a query is `facets`. Facets allow you to build out filters on your app to make it easy for users to know what values they can filter down to.
 
 ```
 // Query example 4 - Take the top two results, and show only HotelName and Category in the results
@@ -369,7 +352,7 @@ search=*&$select=HotelId,HotelName,Rating&searchFields=HotelName&facet=Category
 
 ## Open index in the portal
 
-If you'd like to view your search service in the portal, right-click the name of the search service and select **Open in Portal**. This will take you to the search service in the Azure portal.
+If you'd like to view your search service in the portal, right-click the name of the search service and select **Open in Portal**.
 
 ## Clean up resources
 

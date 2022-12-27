@@ -30,7 +30,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | --- | ---- | ----------- | -------------- |
 | `$schema` | string | The YAML schema. | |
 | `name` | string | **Required.** Name of the model. | |
-| `version` | string | Version of the model. If omitted, Azure ML will autogenerate a version. | |
+| `version` | int | Version of the model. If omitted, Azure ML will autogenerate a version. | |
 | `description` | string | Description of the model. | |
 | `tags` | object | Dictionary of tags for the model. | |
 | `path` | string | Either a local path to the model file(s), or the URI of a cloud path to the model file(s). This can point to either a file or a directory. | |

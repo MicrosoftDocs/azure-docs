@@ -16,6 +16,9 @@ keywords: on-premises, Docker, container
 
 # Install and run Docker containers for LUIS
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
+
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Containers enable you to use LUIS in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a LUIS container.
@@ -262,8 +265,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 |Package type|HTTP verb|Route|Query parameters|
 |--|--|--|--|
-|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
-|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?` `/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Versioned|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?` `/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 

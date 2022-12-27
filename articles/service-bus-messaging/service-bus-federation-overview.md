@@ -162,6 +162,10 @@ With the Azure Functions consumption plan, the prebuilt triggers can even scale 
 
 In contrast to all of this, most common replication engines for messaging and eventing, such as Apache Kafka's [MirrorMaker](http://kafka.apache.org/documentation/#basic_ops_mirror_maker) require you to provide a hosting environment and scale the replication engine yourself. That includes configuring and integrating the security and networking features and facilitating the flow of monitoring data, and then you still don't have an opportunity to inject custom replication tasks into the flow. 
 
+### Replication tasks with Azure Logic Apps
+
+A non-coding alternative to doing replication using Functions would be to use [Logic Apps](../logic-apps/logic-apps-overview.md) instead. Logic Apps have [predefined replication tasks](../logic-apps/create-replication-tasks-azure-resources.md) for Service Bus. These can help with setting up replication between different instances, and can be adjusted for further customization.
+
 ## Next Steps
 
 In this article, we explored a range of federation patterns and explained the role of Azure Functions as the event and messaging replication runtime in Azure. 

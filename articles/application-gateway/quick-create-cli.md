@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 06/14/2021
+ms.date: 07/22/2022
 ms.author: greglin
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 ---
@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 
 In this quickstart, you use Azure CLI to create an application gateway. Then you test it to make sure it works correctly. 
 
-The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
+The application gateway directs application web traffic to specific resources in a backend pool. You assign listeners to ports, create rules, and add resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public frontend IP address, a basic listener to host a single site on the application gateway, a basic request routing rule, and two virtual machines in the backend pool.
 
 :::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="application gateway resources":::
 
@@ -66,7 +66,7 @@ az network public-ip create \
 
 ## Create the backend servers
 
-A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install IIS on the virtual machines to test the application gateway.
+A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also install NGINX on the virtual machines to test the application gateway.
 
 #### Create two virtual machines
 
@@ -153,7 +153,8 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$address1" "$address2"
+  --servers "$address1" "$address2" \
+  --priority 100
 ```
 
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, you can view the following settings in the **Settings** section of the **Application gateway** page:

@@ -102,6 +102,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
 A private endpoint can have a static or dynamically assigned IP address.
+
 > [!IMPORTANT]
 > You must have a previously deployed Azure WebApp to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites) .
 
@@ -229,13 +230,22 @@ Use the VM you created in the previous step to connect to the webapp across the 
 
 8. In the bastion connection to **myVM**, open the web browser.
 
-9. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
+9. Enter the URL of your web app, ``https://mywebapp1979.azurewebsites.net``.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
+
+## Clean up resources
+
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivateEndpointQS-rg
+```
 
 ## Next steps
 

@@ -1,13 +1,12 @@
 ---
 title: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace)
 description: Review and publish a Dynamics 365 offer to Microsoft AppSource (Azure Marketplace).
-ms.reviewer: emuench 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: vamahtan
-ms.author: vamahtan
-ms.date: 05/25/2022
+author: trkeya
+ms.author: trkeya
+ms.date: 08/01/2022
 ---
 
 # Review and publish a Dynamics 365 offer
@@ -43,6 +42,9 @@ Your offer's publish status will change as it moves through the publication proc
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending stop distribution | Publisher selected "stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
+
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
 ## Preview and subscribe to the offer
 

@@ -1,18 +1,20 @@
 ---
 title: Connect with Managed Identity - Azure Database for MySQL
 description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for MySQL
-author: savjani
-ms.author: pariks
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 05/19/2020
+author: savjani
+ms.author: pariks
 ms.custom: devx-track-csharp, devx-track-azurecli
+ms.date: 06/20/2022
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 This article shows you how to use a user-assigned identity for an Azure Virtual Machine (VM) to access an Azure Database for MySQL server. Managed Service Identities are automatically managed by Azure and enable you to authenticate to services that support Azure AD authentication, without needing to insert credentials into your code. 
 

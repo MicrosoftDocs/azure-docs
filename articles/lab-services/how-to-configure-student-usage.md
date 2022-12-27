@@ -38,7 +38,7 @@ An Azure AD group can be created within your organization's Azure Active Directo
     If you don't see an Azure AD group in the list, could be because of the following reasons:
 
     - If you are a guest user for an Azure Active Directory (usually if you're outside the organization that owns the Azure AD), and you are not able to search for groups inside the Azure AD. In this case, you can't add an Azure AD group to the lab in this case.
-    - Azure AD groups created through Teams don't show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](how-to-manage-user-lists-within-teams.md).
+    - Azure AD groups created through Teams don't show up in this list. You can add the Azure Lab Services app inside Teams to create and manage labs directly from within it. See more information about [managing a lab’s user list from within Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams).
 1. Once you picked the Azure AD group to sync your lab to, select **Add**.
 1. Once a lab is synced, it will pull everyone inside the Azure AD group into the lab as users, and you will see the user list updated. Only the people in this Azure AD group will have access to your lab. The user list will refresh every 24 hours to match the latest membership of the Azure AD group. You can also select the Sync button in the Users tab to manually sync to the latest changes in the Azure AD group.
 1. Invite the users to your lab by clicking on the **Invite All** button, which will send an email to all users with the registration link to the lab.
@@ -207,7 +207,7 @@ When students use the registration link to sign in to a classroom, they're promp
 Here's a link for students to [sign up for a Microsoft account](http://signup.live.com).  
 
 > [!IMPORTANT]
-> When students sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, <http://signup.live.com>, in the lab registration email that you send to students who are using non-Microsoft accounts.
+> When students sign in to a lab, they aren't given the option to create a Microsoft account. For this reason, we recommend that you include this sign-up link, `http://signup.live.com`, in the lab registration email that you send to students who are using non-Microsoft accounts.
 
 ### Use a GitHub account
 

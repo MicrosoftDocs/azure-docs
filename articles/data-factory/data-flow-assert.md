@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 08/03/2022
 ---
 
 # Assert transformation in mapping data flow
@@ -61,7 +61,7 @@ By default, the assert transformation will include NULLs in row assertion evalua
 
 ## Direct assert row failures
 
-When an assertion fails, you can optionally direct those error rows to a file in Azure by using the "Errors" tab on the sink transformation.
+When an assertion fails, you can optionally direct those error rows to a file in Azure by using the "Errors" tab on the sink transformation. You will also have an option on the sink transformation to not output rows with assertion failures at all by ignoring error rows.
 
 ## Examples
 

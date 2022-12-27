@@ -1,11 +1,14 @@
 ---
 title: Monitor and diagnose Windows containers
 description: In this tutorial, you configure Azure Monitor logs for monitoring and diagnostics of Windows containers on Azure Service Fabric.
-
 ms.topic: tutorial
-ms.date: 07/22/2019
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs
 
 This is part three of a tutorial, and walks you through configuring Azure Monitor logs to monitor your Windows containers orchestrated on Service Fabric.

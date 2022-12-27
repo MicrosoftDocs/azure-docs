@@ -1,10 +1,8 @@
 ---
-title: 'Tutorial: Implement CI/CD with GitOps (Flux v2)'
-description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps article.
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
+title: "Tutorial: Implement CI/CD with GitOps (Flux v2)"
+description: "This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters."
 author: eedorenko
 ms.author: iefedore
-ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
@@ -15,7 +13,7 @@ In this tutorial, you'll set up a CI/CD solution using GitOps with Flux v2 and A
 
 > [!div class="checklist"]
 > * Create an Azure Arc-enabled Kubernetes or AKS cluster.
-> * Connect your application and GitOps repositories to Azure Repos or Git Hub.
+> * Connect your application and GitOps repositories to Azure Repos or GitHub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
 > * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
 > * Create environment variable groups or secrets.
@@ -197,7 +195,7 @@ CD pipeline manipulates PRs in the GitOps repository. It needs a Service Connect
       --set orchestratorPAT=<Azure Repos PAT token>
 ```
 > [!NOTE]
-> `Azure Repos PAT token` should have `Build: Read & executee` and `Code: Read` permissions.
+> `Azure Repos PAT token` should have `Build: Read & execute` and `Code: Full` permissions.
 
 3. Configure Flux to send notifications to GitOps connector:
 ```console

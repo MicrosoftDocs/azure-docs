@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 03/01/2021
+ms.date: 07/22/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -88,6 +88,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
   * Reduce memory space used by the IoT Edge hub
   * Use correct module images in deployment manifests
   * Be mindful of twin size limits when using custom modules
+  * Configure how updates to modules are applied
 
 ### Be consistent with upstream protocol
 
@@ -148,13 +149,38 @@ If you deploy a large number of modules, you might exhaust this twin size limit.
 - Store any configuration in the custom module twin, which has its own limit.
 - Store some configuration that points to a non-space-limited location (that is, to a blob store).
 
-## Container management
+::: moniker range=">=iotedge-1.4"
+### Configure how updates to modules are applied
+When a deployment is updated, Edge Agent receives the new configuration as a twin update. If the new configuration has new or updated module images, by default, Edge Agent sequentially processes each module:
+1. The updated image is downloaded
+1. The running module is stopped
+1. A new module instance is started
+1. The next module update is processed
+
+In some cases, for example when dependencies exist between modules, it may be desirable to first download all updated module images before restarting any running modules. This module update behavior can be configured by setting an IoT Edge Agent environment variable `ModuleUpdateMode` to string value `WaitForAllPulls`. For more information, see [IoT Edge Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
+```JSON
+"modulesContent": {
+    "$edgeAgent": {
+        "properties.desired": {
+            ...
+            "systemModules": {
+                "edgeAgent": {
+                    "env": {
+                        "ModuleUpdateMode": {
+                            "value": "WaitForAllPulls"
+                        }
+                    ...
+```
+::: moniker-end
+### Container management
 
 * **Important**
   * Use tags to manage versions
   * Manage volumes
 * **Helpful**
   * Store runtime containers in your private registry
+  * Configure image garbage collection
 
 ### Use tags to manage versions
 
@@ -175,25 +201,112 @@ IoT Edge does not remove volumes attached to module containers. This behavior is
 
 ### Store runtime containers in your private registry
 
-You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+You know how to store container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as the **edgeAgent** and **edgeHub** runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
 
-Obtain the images with the Docker pull command to place in your private registry. You will need to specify the container version during the pull operation, find the latest container version at container description page as below, and replace the version in the pull command if needed. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+The following steps illustrate how to pull a Docker image of **edgeAgent** and **edgeHub** to your local machine, retag it, push it to your private registry, then update your configuration file so your devices know to pull the image from your private registry.
 
-| IoT Edge runtime container | Docker pull command |
-| --- | --- |
-| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent:<VERSION_TAG>` |
-| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub:<VERSION_TAG>` |
+1. Pull the **edgeAgent** Docker image from the Microsoft registry. Update the version number if needed.
 
-Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+   ```bash
+   # Pull edgeAgent image
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.4
 
-* edgeAgent:
+   # Pull edgeHub image
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.4
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-agent:1.1",`
+1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
 
-* edgeHub:
+   ```bash
+   docker images
+   ```
 
-    `"image": "<registry name and server>/azureiotedge-hub:1.1",`
+1. Retag your **edgeAgent** and **edgeHub** images. Replace the values in brackets with your own.
 
+   ```bash
+   # Retag your edgeAgent image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.4
+
+   # Retag your edgeHub image
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
+
+   ```bash
+   # Push your edgeAgent image to your private registry
+   docker push <registry-name/server>/azureiotedge-agent:1.4
+
+   # Push your edgeHub image to your private registry
+   docker push <registry-name/server>/azureiotedge-hub:1.4
+   ```
+
+1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
+
+1. Open a text editor on your IoT Edge device to change the configuration file so it knows about your private registry image. 
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
+   ```
+
+1. In the text editor, change your image values under `[agent.config]`. Replace the values in brackets with your own.
+
+   ```toml
+   [agent.config]
+   image = "<registry-name/server>/azureiotedge-agent:1.4"
+   ```
+
+1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.
+
+   ```toml
+   [agent.config.auth]
+   serveraddress = "<login-server>" # Almost always equivalent to <registry-name/server>
+   username = "<username>"
+   password = "<password>"
+   ```
+
+1. Save your changes and exit your text editor.
+
+1. Apply the IoT Edge configuration change.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+   Your IoT Edge runtime restarts.
+
+For more information, see:
+
+* [Configure the IoT Edge agent](/azure/iot-edge/how-to-configure-proxy-support#configure-the-iot-edge-agent)
+* [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent)
+* [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub)
+
+::: moniker range=">=iotedge-1.4"
+
+### Configure image garbage collection
+Image garbage collection is a feature in IoT Edge v1.4 and later to automatically clean up Docker images that are no longer used by IoT Edge modules. It only deletes Docker images that were pulled by the IoT Edge runtime as part of a deployment. Deleting unused Docker images helps conserve disk space.
+
+The feature is implemented in IoT Edge's host component, the `aziot-edged` service and enabled by default. Cleanup is done every day at midnight (device local time) and removes unused Docker images that were last used seven days ago. The parameters to control cleanup behavior are set in the `config.toml` and explained later in this section. If parameters aren't specified in the configuration file, the default values are applied.
+
+For example, the following is the `config.toml` image garbage collection section using default values:
+ 
+```toml
+[image_garbage_collection]
+enabled = true
+cleanup_recurrence = "1d"
+image_age_cleanup_threshold = "7d" 
+cleanup_time = "00:00"
+```
+The following table describes image garbage collection parameters. All parameters are **optional** and can be set individually to change the default settings.
+
+| Parameter | Description | Required | Default value |
+|-----------|-------------|----------|---------------|
+| `enabled` | Enables the image garbage collection. You may choose to disable the feature by changing this setting to `false`. | Optional | true |
+| `cleanup_recurrence` | Controls the recurrence frequency of the cleanup task. Must be specified as a multiple of days and can't be less than one day. <br><br> For example: 1d, 2d, 6d, etc. | Optional | 1d |
+| `image_age_cleanup_threshold` | Defines the minimum age threshold of unused images before considering for cleanup and must be specified in days. You can specify as *0d* to clean up the images as soon as they're removed from the deployment. <br><br>  Images are considered unused *after* they've been removed from the deployment. | Optional | 7d |
+| `cleanup_time` | Time of day, *in device local time*, when the cleanup task runs. Must be in 24-hour HH:MM format. | Optional | 00:00 |
+
+::: moniker-end
 ## Networking
 
 * **Helpful**
@@ -213,27 +326,30 @@ If your networking setup requires that you explicitly permit connections made fr
 * **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets.
 * **IoT Edge service** makes intermittent HTTPS calls to IoT Hub.
 
-In all three cases, the fully-qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
+In all three cases, the fully qualified domain name (FQDN) would match the pattern `\*.azure-devices.net`.
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the FQDN is `mcr.microsoft.com`. The container engine connects to other registries as configured in the deployment.
 
 This checklist is a starting point for firewall rules:
 
-   | FQDN (\* = wildcard) | Outbound TCP Ports | Usage |
+   | FQDN (`*` = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
    | `mcr.microsoft.com`  | 443 | Microsoft Container Registry |
-   | `\*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery. |
+   | `*.data.mcr.microsoft.com` | 443 | Data endpoint providing content delivery |
+   | `*.cdn.azcr.io` | 443 | Deploy modules from the Marketplace to devices |
    | `global.azure-devices-provisioning.net`  | 443 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) access (optional) |
-   | `\*.azurecr.io` | 443 | Personal and third-party container registries |
-   | `\*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
-   | `\*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
-   | `\*.docker.io`  | 443 | Docker Hub access (optional) |
+   | `*.azurecr.io` | 443 | Personal and third-party container registries |
+   | `*.blob.core.windows.net` | 443 | Download Azure Container Registry image deltas from blob storage |
+   | `*.azure-devices.net` | 5671, 8883, 443<sup>1</sup> | IoT Hub access |
+   | `*.docker.io`  | 443 | Docker Hub access (optional) |
 
 <sup>1</sup>Open port 8883 for secure MQTT or port 5671 for secure AMQP. If you can only make connections via port 443 then either of these protocols can be run through a WebSocket tunnel.
 
-Since the IP address of an IoT hub can change without notice, always use the FQDN to allow-list configuration. To learn more, see [Understanding the IP address of your IoT hub](../iot-hub/iot-hub-understand-ip-address.md).
+Since the IP address of an IoT hub can change without notice, always use the FQDN to allowlist configuration. To learn more, see [Understanding the IP address of your IoT Hub](../iot-hub/iot-hub-understand-ip-address.md).
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+You can enable dedicated data endpoints in your Azure Container registry to avoid wildcard allowlisting of the *\*.blob.core.windows.net* FQDN. For more information, see [Enable dedicated data endpoints](../container-registry/container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints).
 
 > [!NOTE]
 > To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
@@ -267,7 +383,7 @@ On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog
 :::moniker-end
 <!-- end 1.1 -->
 
-<!--1.2-->
+<!--iotedge-2020-11-->
 :::moniker range=">=iotedge-2020-11"
 
 Starting with version 1.2, IoT Edge relies on multiple daemons. While each daemon's logs can be individually queried with `journalctl`, the `iotedge system` commands provide a convenient way to query the combined logs.
@@ -324,13 +440,13 @@ Add (or append) this information to a file named `daemon.json` and place it in t
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 * `/etc/docker/`
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 The container engine must be restarted for the changes to take effect.
 

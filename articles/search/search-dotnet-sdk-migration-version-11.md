@@ -1,7 +1,7 @@
 ---
 title: Upgrade to .NET SDK version 11
 titleSuffix: Azure Cognitive Search
-description: Migrate code to the Azure Cognitive Search .NET SDK version 11 from older versions. 
+description: Migrate your search application code from older SDK versions to the Azure Cognitive Search .NET SDK version 11 . 
 
 manager: nitinme
 author: HeidiSteen
@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Upgrade to Azure Cognitive Search .NET SDK version 11
 
-If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate your code from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) to version 11, the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
+If your search solution is built on the [**Azure SDK for .NET**](/dotnet/azure/), this article will help you migrate your code from earlier versions of [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search) to version 11, the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library. Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). 
 
 All features from version 10 are implemented in version 11. Key differences include:
 
@@ -267,6 +267,8 @@ In terms of service version updates, where code changes in version 11 relate to 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
 + [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, you should review and potentially remove that code if it's no longer necessary.
+
+Due to these behavior changes, it's likely that you'll see slight variations in ranked results.
 
 ## Next steps
 

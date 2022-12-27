@@ -1,10 +1,14 @@
 ---
 title: Service Fabric app upgrade tutorial
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
-
-ms.topic: conceptual
-ms.date: 2/23/2018
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Service Fabric application upgrade tutorial using Visual Studio
 > [!div class="op_single_selector"]
 > * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)

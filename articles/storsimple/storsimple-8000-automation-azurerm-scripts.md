@@ -4,11 +4,13 @@ description: Learn how to use Azure Resource Manager SDK-based scripts to manage
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 10/03/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 ---
 
 # Use Azure Resource Manager SDK-based scripts to manage StorSimple devices
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 This article describes how Azure Resource Manager SDK-based scripts can be used to manage your StorSimple 8000 series device. A sample script is also included to walk you through the steps of configuring your environment to run these scripts.
 

@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/07/2022
+ms.custom: cogserv-non-critical-anomaly-detector
 ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Best practices for using the Multivariate Anomaly Detector API
+# Best practices for using the Multivariate Anomaly Detection API
 
-This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detector (MVAD) APIs. 
+This article will provide guidance around recommended practices to follow when using the multivariate Anomaly Detection (MVAD) APIs. 
 In this tutorial, you'll:
 
 > [!div class="checklist"]
@@ -45,7 +46,7 @@ Now you're able to run your code with MVAD APIs without any error. What could be
 
 ### Data quantity
 
-* The underlying model of MVAD has millions of parameters. It needs a minimum number of data points to learn an optimal set of parameters. The empirical rule is that you need to provide **15,000 or more data points (timestamps) per variable** to train the model for good accuracy. In general, the more the training data, better the accuracy. However, in cases when you're not able to accrue that much data, we still encourage you to experiment with less data and see if the compromised accuracy is still acceptable.
+* The underlying model of MVAD has millions of parameters. It needs a minimum number of data points to learn an optimal set of parameters. The empirical rule is that you need to provide **5,000 or more data points (timestamps) per variable** to train the model for good accuracy. In general, the more the training data, better the accuracy. However, in cases when you're not able to accrue that much data, we still encourage you to experiment with less data and see if the compromised accuracy is still acceptable.
 * Every time when you call the inference API, you need to ensure that the source data file contains just enough data points. That is normally `slidingWindow` + number of data points that **really** need inference results. For example, in a streaming case when every time you want to inference on **ONE** new timestamp, the data file could contain only the leading `slidingWindow` plus **ONE** data point; then you could move on and create another zip file with the same number of data points (`slidingWindow` + 1) but moving ONE step to the "right" side and submit for another inference job. 
 
     Anything beyond that or "before" the leading sliding window won't impact the inference result at all and may only cause performance downgrade.Anything below that may lead to an `NotEnoughInput` error.
@@ -134,15 +135,14 @@ There are some limitations in both the training and inference APIs, you should b
 
 #### General Limitations
 * Sliding window: 28-2880 timestamps, default is 300. For periodic data, set the length of 2-4 cycles as the sliding window. 
-* API calls: At most 20 API calls per minute.
-* Variable numbers: For training and asynchronized inference, at most 301 variables.
+* Variable numbers: For training and batch inference, at most 301 variables.
 #### Training Limitations
-* Timestamps: At most 1000000. Too few timestamps may decrease model quality. Recommend having more than 15000 timestamps.
+* Timestamps: At most 1000000. Too few timestamps may decrease model quality. Recommend having more than 5,000 timestamps.
 * Granularity: The minimum granularity is `per_second`.
 
-#### Asynchronized inference limitations
+#### Batch inference limitations
 * Timestamps: At most 20000, at least 1 sliding window length.
-#### Synchronized inference limitations
+#### Streaming inference limitations
 * Timestamps: At most 2880, at least 1 sliding window length.
 * Detecting timestamps: From 1 to 10.
 
@@ -179,12 +179,6 @@ Let's use two examples to learn how MVAD's sliding window works. Suppose you hav
 
 * **Batch scenario**: You have multiple target data points to predict. Your `endTime` will be greater than your `startTime`. Inference in such scenarios is performed in a "moving window" manner. For example, MVAD will use data from `2021-01-01T00:00:00Z` to `2021-01-01T23:59:00Z` (inclusive) to determine whether data at `2021-01-02T00:00:00Z` is anomalous. Then it moves forward and uses data from `2021-01-01T00:01:00Z` to `2021-01-02T00:00:00Z` (inclusive)
 to determine whether data at `2021-01-02T00:01:00Z` is anomalous. It moves on in the same manner (taking 1,440 data points to compare) until the last timestamp specified by `endTime` (or the actual latest timestamp). Therefore, your inference data source must contain data starting from `startTime` - `slidingWindow` and ideally contains in total of size `slidingWindow` + (`endTime` - `startTime`).
-
-### Why does the service only accept zip files for training and inference when sending data asynchronously?
-
-We use zip files because in batch scenarios, we expect the size of both training and inference data would be very large and can't be put in the HTTP request body. This allows users to perform batch inference on historical data either for model validation or data analysis.
-
-However, this might be somewhat inconvenient for streaming inference and for high frequency data. We have a plan to add a new API specifically designed for streaming inference that users can pass data in the request body.
 
 ### What's the difference between `severity` and `score`?
 

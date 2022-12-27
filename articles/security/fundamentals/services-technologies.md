@@ -29,6 +29,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |Service|Description|
 |--------|--------|
 |[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
+|[Microsoft Sentinel](../../sentinel/overview.md)| A scalable, cloud-native solution that delivers intelligent security analytics and threat intelligence across the enterprise.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
 |[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Defender for Cloud. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
@@ -57,6 +58,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure SQL Always Encryption](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protects sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
 | [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| A database security feature that encrypts the storage of an entire database. |
 | [Azure SQL Database Auditing](/azure/azure-sql/database/auditing-overview)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
+| [Virtual network rules](/azure/azure-sql/database/vnet-service-endpoint-rule-overview)|A firewall security feature that controls whether the server for your databases and elastic pools in Azure SQL Database or for your dedicated SQL pool (formerly SQL DW) databases in Azure Synapse Analytics accepts communications that are sent from particular subnets in virtual networks.  |
 
 
 ## Identity and access management
@@ -80,7 +82,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Network&nbsp;Security&nbsp;Groups](../../virtual-network/virtual-network-vnet-plan-design-arm.md)| A network-based access control feature using a 5-tuple to make allow or deny decisions.  |
 | [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)| A network device used as a VPN endpoint to allow cross-premises access to Azure Virtual Networks.  |
 | [Azure Application Gateway](../../application-gateway/overview.md)|An advanced web application load balancer that can route based on URL and perform SSL-offloading. |
-|[Web application firewall](../../web-application-firewall/afds/afds-overview.md) (WAF)|A feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities|
+|[Web application firewall](../../web-application-firewall/overview.md) (WAF)|A feature that provides centralized protection of your web applications from common exploits and vulnerabilities|
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| A dedicated WAN link between on-premises networks and Azure Virtual Networks. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
@@ -88,3 +90,8 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
 |[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|
+|[Azure Private Link](../../private-link/private-link-overview.md)|Provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services.|
+|[Azure Bastion](../../bastion/bastion-overview.md)|A service you deploy that lets you connect to a virtual machine using your browser and the Azure portal.|
+|[Azure Front Door](../../frontdoor/front-door-application-security.md)|Provides web application protection capability to safeguard your web applications from network attacks and common web vulnerabilities exploits like SQL Injection or Cross Site Scripting (XSS).|
+
+

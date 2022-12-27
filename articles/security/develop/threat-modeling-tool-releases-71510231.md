@@ -4,8 +4,7 @@ titleSuffix: Azure
 description: Read the release notes for the threat modeling tool update released on 11/1/2018. This release does not contain any new functionality or fixes.
 author: jegeib
 ms.author: jegeib
-ms.service: security
-ms.subservice: security-develop
+ms.service: information-protection
 ms.topic: article
 ms.date: 01/15/2019
 ---
@@ -33,7 +32,7 @@ As originally noted in the [GA release notes](threat-modeling-tool-releases-7150
 
 ## Documentation and feedback
 
-- Documentation for the Threat Modeling Tool is located on [docs.microsoft.com](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
+- Documentation for the Threat Modeling Tool is [located](threat-modeling-tool.md), and includes information [about using the tool](threat-modeling-tool-getting-started.md).
 
 ## Next steps
 

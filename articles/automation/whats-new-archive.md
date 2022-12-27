@@ -176,7 +176,7 @@ Manage Oracle Linux 6 and 7 machines with Automation State Configuration. See [S
 
 **Type:** New feature
 
-Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. For more information, see the [announcement]((https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
+Azure Automation now supports Python 3 cloud and hybrid runbook execution in public preview in all regions in Azure global cloud. For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ## November 2020
 
@@ -316,7 +316,7 @@ Automation support of service tags allows or denies the traffic for the Automati
 
 **Type:** Plan for change
 
-Azure Automation fully supports TLS 1.2 and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Azure Automation fully supports [TLS 1.2](../automation/automation-managing-data.md#tls-12-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
 
 ## January 2020
 
@@ -334,4 +334,4 @@ Azure Service Management (ASM) REST APIs for Azure Automation will be retired an
 
 ## Next steps
 
-If you'd like to contribute to Azure Automation documentation, see the [Docs Contributor Guide](/contribute/).
+If you'd like to contribute to Azure Automation documentation, see our [contributor guide](/contribute/).

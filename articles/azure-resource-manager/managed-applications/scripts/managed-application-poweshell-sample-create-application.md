@@ -1,12 +1,12 @@
 ---
 title: Azure PowerShell script sample - Deploy a managed application
 description: Provides Azure PowerShell sample script sample that deploys a managed application definition to the subscription.
-author: tfitzmac
+author: davidsmatlak
 
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
-ms.author: tomfitz
+ms.author: davidsmatlak
 ---
 
 # Deploy a managed application for a service catalog with PowerShell

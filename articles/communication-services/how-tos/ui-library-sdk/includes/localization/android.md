@@ -8,8 +8,6 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
-
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
 
 ### Available Languages
@@ -35,7 +33,7 @@ The following is table of `CallCompositeSupportedLocale` with out of the box tra
 
 ### Localization Provider
 
-`CallCompositeLocalizationOptions` is an options wrapper that sets all the strings for Mobile UI Library components using a `CallCompositeSupportedLocale`. By default, all text labels use English strings. If desired `CallCompositeLocalizationOptions` can be used to set a different language by passing a `Locale` object from `CallCompositeSupportedLocale`. Out of the box, the UI library includes a set of `Locale` usable with the UI components and composites.
+`CallCompositeLocalizationOptions` is an options wrapper that sets all the strings for UI Library for Android components using a `CallCompositeSupportedLocale`. By default, all text labels use English strings. If desired `CallCompositeLocalizationOptions` can be used to set a different language by passing a `Locale` object from `CallCompositeSupportedLocale`. Out of the box, the UI library includes a set of `Locale` usable with the UI components and composites.
 
 You can also obtain list of `Locale` by the static function `CallCompositeSupportedLocale.getSupportedLocales()`.
 
@@ -106,3 +104,17 @@ CallComposite callComposite =
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="media/android-rtl.png" alt-text="Android RTL"::: | :::image type="content" source="media/android-ltr.png" alt-text="Android LTR":::  |
+
+### Customizing Translations
+
+There are two options to customize the language translations that we provide. You can find the list of localization keys [here](https://github.com/Azure/communication-ui-library-android/blob/main/azure-communication-ui/azure-communication-ui/src/calling/res/values/azure_communication_ui_calling_strings.xml) to override a particular string for the key-value pair. You can specify the locale as one of the supported languages, and when a key isn't provided, it will fall back to our supported translation string. If you specified an unsupported language, you should provide translations for all the keys for that language (using the `string.xml` file) and will fall back to English strings when a key isn't provided.
+
+Let's say you wish to have the Control Bar with strings from our English (US) locale, but you want to change the label of the "Join Call" button to "Start Meeting" (instead of "Join call") in Setup View.
+
+#### Override using string.xml file
+
+Create a `string.xml` file (or other filename) with the key-value pair for selected keys you want to override. In the example below, we're overriding the key `azure_communication_ui_calling_setup_view_button_join_call`.
+
+:::image type="content" source="media/android-localization-project.png" alt-text="Screenshot that shows the Android localization setup project":::
+
+:::image type="content" source="media/android-localization-custom-label.png" alt-text="Screenshot that shows the Android example custom label":::

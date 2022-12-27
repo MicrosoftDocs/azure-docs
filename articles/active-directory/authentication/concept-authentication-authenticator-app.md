@@ -1,28 +1,28 @@
 ---
-title: Microsoft Entra Authenticator app authentication method - Azure Active Directory
-description: Learn about using the Microsoft Entra Authenticator app in Azure Active Directory to help secure your sign-ins
+title: Microsoft Authenticator authentication method - Azure Active Directory
+description: Learn about using the Microsoft Authenticator in Azure Active Directory to help secure your sign-ins
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 11/16/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# Authentication methods in Azure Active Directory - Microsoft Entra Authenticator app
+# Authentication methods in Azure Active Directory - Microsoft Authenticator app
 
-The Microsoft Entra Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or multifactor authentication events.
+The Microsoft Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account and is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594). With the Microsoft Authenticator app, users can authenticate in a passwordless way during sign-in, or as an additional verification option during self-service password reset (SSPR) or multifactor authentication events.
 
 Users may receive a notification through the mobile app for them to approve or deny, or use the Authenticator app to generate an OATH verification code that can be entered in a sign-in interface. If you enable both a notification and verification code, users who register the Authenticator app can use either method to verify their identity.
 
-To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+To use the Authenticator app at a sign-in prompt rather than a username and password combination, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 > [!NOTE]
 > Users don't have the option to register their mobile app when they enable SSPR. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or as part of the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -35,7 +35,7 @@ Instead of seeing a prompt for a password after entering a username, a user that
 
 This authentication method provides a high level of security, and removes the need for the user to provide a password at sign-in. 
 
-To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 ## Notification through mobile app
 
@@ -57,8 +57,24 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 >
 > When two methods are required, users can reset using either a notification or verification code in addition to any other enabled methods.
 
+
+## FIPS 140 compliant for Azure AD authentication
+
+Beginning with version 6.6.8, Microsoft Authenticator for iOS is compliant with [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final?azure-portal=true) for all Azure AD authentications using push multi-factor authentications (MFA), passwordless Phone Sign-In (PSI), and time-based one-time passcodes (TOTP).  
+
+Consistent with the guidelines outlined in [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html?azure-portal=true), authenticators are required to use FIPS 140 validated cryptography. This helps federal agencies meet the requirements of [Executive Order (EO) 14028](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/?azure-portal=true) and healthcare organizations working with [Electronic Prescriptions for Controlled Substances (EPCS)](/azure/compliance/offerings/offering-epcs-us). 
+
+FIPS 140 is a US government standard that defines minimum security requirements for cryptographic modules in information technology products and systems. Testing against the FIPS 140 standard is maintained by the [Cryptographic Module Validation Program (CMVP)](https://csrc.nist.gov/Projects/cryptographic-module-validation-program?azure-portal=true).
+
+No changes in configurations are required in Microsoft Authenticator or the Azure portal to enable FIPS 140 compliance. Beginning with Microsoft Authenticator for iOS version 6.6.8, Azure AD authentications will be FIPS 140 compliant by default.
+
+Authenticator leverages the native Apple cryptography to achieve FIPS 140, Security Level 1 compliance on Apple iOS devices beginning with Microsoft Authenticator version 6.6.8. For more information about the certifications being used, see the [Apple CoreCrypto module](https://support.apple.com/guide/sccc/security-certifications-for-ios-scccfa917cb49/web?azure-portal=true). 
+
+FIPS 140 compliance for Microsoft Authenticator on Android is in progress and will follow soon.
+
 ## Next steps
 
-- To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Entra Authenticator app](howto-authentication-passwordless-phone.md).
+- To get started with passwordless sign-in, see [Enable passwordless sign-in with the Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
 - Learn more about configuring authentication methods using the [Microsoft Graph REST API](/graph/api/resources/authenticationmethods-overview).
+

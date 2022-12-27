@@ -2,11 +2,9 @@
 title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
-author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
@@ -106,7 +104,7 @@ Here is a sample configuration in `pom.xml`:
 
 #### Gradle
 
-1. Setup the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to your `build.gradle`:
+1. Set up the [Gradle Plugin for Azure Web Apps](https://github.com/microsoft/azure-gradle-plugins/tree/master/azure-webapp-gradle-plugin) by adding the plugin to your `build.gradle`:
 
     ```groovy
     plugins {
@@ -171,7 +169,7 @@ To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your 
 
 To deploy .war files to JBoss, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
-To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application will be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want you web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
+To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application will be deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
 ::: zone-end
 
@@ -279,7 +277,7 @@ Azure Blob Storage logging for Linux based App Services can only be configured u
 
 ::: zone-end
 
-If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/java-2x-trace-logs.md).
+If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](../azure-monitor/app/deprecated-java-2x.md#explore-java-trace-logs-in-application-insights).
 
 > [!NOTE]
 > Due to known vulnerability [CVE-2021-44228](https://logging.apache.org/log4j/2.x/security.html), be sure to use Log4j version 2.16 or later.
@@ -436,11 +434,11 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Use the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
-- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
@@ -453,12 +451,12 @@ To initialize the `import java.security.KeyStore` object, load the keystore file
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/cacerts"),
     "changeit".toCharArray());
 
 KeyStore keyStore = KeyStore.getInstance("pkcs12");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/client.jks"),
     "changeit".toCharArray());
 ```
 
@@ -476,7 +474,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
 ### Configure Application Insights
 
-Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
+Azure Monitor Application Insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
 
 #### Azure portal
 
@@ -610,7 +608,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
@@ -640,10 +638,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
@@ -920,7 +918,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
@@ -950,10 +948,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
@@ -1128,14 +1126,24 @@ If you choose to pin the minor version, you will need to periodically update the
 
 ### Clustering in JBoss EAP
 
-App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app will restart and JBoss EAP will automatically startup with a clustered configuration. The JBoss EAP instances will communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
+App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To enable clustering, your web app must be [integrated with a virtual network](overview-vnet-integration.md). When the web app is integrated with a virtual network, the web app will restart and JBoss EAP will automatically start up with a clustered configuration. The JBoss EAP instances will communicate over the subnet specified in the virtual network integration, using the ports shown in the `WEBSITES_PRIVATE_PORTS` environment variable at runtime. You can disable clustering by creating an app setting named `WEBSITE_DISABLE_CLUSTERING` with any value.
 
 > [!NOTE]
 > If you are enabling your virtual network integration with an ARM template, you will need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property will be set for you automatically.  
 
 When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start will obtain read/write permissions on the cluster membership file. Other instances will read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
 
-The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](how-to-zone-redundancy.md). The JBoss EAP clustering feature is compatabile with the zone redundancy feature. 
+The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature. 
+
+#### Auto-Scale Rules
+
+When configuring auto-scale rules for horizontal scaling it is important to remove instances incrementally (one at a time) to ensure each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When configuring your autoscale rules in the Portal to scale down, use the following options:
+
+- **Operation**: "Decrease count by"
+- **Cool down**: "5 minutes" or greater
+- **Instance count**: 1
+
+You do not need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
 
 ### JBoss EAP App Service Plans
 
@@ -1149,7 +1157,7 @@ JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan t
 
 ### JDK versions and maintenance
 
-Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and runnning Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
+Microsoft and Adoptium builds of OpenJDK are provided and supported on App Service for Java 8, 11, and 17. These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. For local development or testing, you can install the Microsoft build of OpenJDK from the [downloads page](/java/openjdk/download). The table below describes the new Java versions included in the January 2022 App Service platform release:
 
 | Java Version | Linux            | Windows              |
 |--------------|------------------|----------------------|
@@ -1171,14 +1179,14 @@ Patches and fixes for major security vulnerabilities will be released as soon as
 
 Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomcat.apache.org/tomcat-80-eol.html). While the runtime is still available on Azure App Service, Azure will not apply security updates to Tomcat 8.0. If possible, migrate your applications to Tomcat 8.5 or 9.0. Both Tomcat 8.5 and 9.0 are available on Azure App Service. See the [official Tomcat site](https://tomcat.apache.org/whichversion.html) for more information.
 
-Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app runnning on Java 7, please upgrade to Java 8 or 11 before July 29th.
+Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will be retired from App Service](https://azure.microsoft.com/updates/transition-to-java-11-or-8-by-29-july-2022/) at that time. If you have a web app running on Java 7, please upgrade to Java 8 or 11 before July 29th.
 
 ### Deprecation and retirement
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
-- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
+- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
+- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 
 ### Local development
 

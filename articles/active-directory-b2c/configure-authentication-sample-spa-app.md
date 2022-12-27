@@ -101,7 +101,7 @@ In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the imp
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
-1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **D tokens (used for implicit and hybrid flows)** check boxes.
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 

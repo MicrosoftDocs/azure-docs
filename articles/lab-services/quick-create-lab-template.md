@@ -26,7 +26,7 @@ To complete this quick start, make sure that you have:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/lab).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab-using-lab-plan/azuredeploy.json":::
 
@@ -34,7 +34,7 @@ One Azure resource is defined in the template:
 
 - **[Microsoft.LabServices/labs](/azure/templates/microsoft.labservices/labs)**: resource type description.
 
-More Azure Lab Services template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Labservices&pageNumber=1&sort=Popular).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](https://azure.microsoft.com/resources/templates/lab/).
+More Azure Lab Services template samples can be found in [Azure Quickstart Templates](/samples/browse/?expanded=azure&products=azure-resource-manager&terms=lab%20services).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](/samples/azure/azure-quickstart-templates/lab/).
 
 ## Deploy the template
 
@@ -61,7 +61,7 @@ The Azure portal is used here to deploy the template. You can also use Azure Pow
 
 You can either use the Azure portal to check the lab, or use the Azure PowerShell script to list the lab resource created.
 
-To use Azure PowerShell, first verify the Az.LabServices (preview) module is installed. Then use the **Get-AzLabServicesLab** cmdlet.
+To use Azure PowerShell, first verify the Az.LabServices module is installed. Then use the **Get-AzLabServicesLab** cmdlet.
 
 ```azurepowershell-interactive
 Import-Module Az.LabServices

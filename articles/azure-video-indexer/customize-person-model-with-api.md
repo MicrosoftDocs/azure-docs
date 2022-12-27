@@ -1,7 +1,6 @@
 ---
 title: Customize a Person model with Azure Video Indexer API
 description: Learn how to customize a Person model with the Azure Video Indexer API.
-services: azure-video-analyzer
 author: anikaz
 manager: johndeu
 ms.topic: article
@@ -10,6 +9,8 @@ ms.author: kumud
 ---
 
 # Customize a Person model with the Azure Video Indexer API
+
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 Azure Video Indexer supports face detection and celebrity recognition for video content. The celebrity recognition feature covers about one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that aren't recognized by the celebrity recognition feature are detected but left unnamed. After you upload your video to Azure Video Indexer and get results back, you can go back and name the faces that weren't recognized. Once you label a face with a name, the face and name get added to your account's Person model. Azure Video Indexer will then recognize this face in your future videos and past videos.
 

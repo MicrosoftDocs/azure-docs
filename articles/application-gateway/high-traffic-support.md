@@ -2,11 +2,11 @@
 title: Application Gateway high traffic volume support
 description: This article provides guidance to configure Azure Application Gateway in support of high network traffic volume scenarios. 
 services: application-gateway
-author: caya
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.author: caya
+ms.author: greglin
 ---
 
 # Application Gateway high traffic support
@@ -16,14 +16,14 @@ ms.author: caya
 
 You can use Application Gateway with Web Application Firewall (WAF) for a scalable and secure way to manage traffic to your web applications.
 
-It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you are prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
+It is important that you scale your Application Gateway according to your traffic and with a bit of a buffer so that you're prepared for any traffic surges or spikes and minimizing the impact that it may have in your QoS. The following suggestions help you set up Application Gateway with WAF to handle extra traffic.
 
 Please check the [metrics documentation](./application-gateway-metrics.md) for the complete list of metrics offered by Application Gateway. See [visualize metrics](./application-gateway-metrics.md#metrics-visualization) in the Azure portal and the [Azure monitor documentation](../azure-monitor/alerts/alerts-metric.md) on how to set alerts for metrics.
 
 ## Scaling for Application Gateway v1 SKU (Standard/WAF SKU)
 
 ### Set your instance count based on your peak CPU usage
-If you are using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
+If you're using a v1 SKU gateway, you’ll have the ability to set your Application Gateway up to 32 instances for scaling. Check your Application Gateway’s CPU utilization in the past one month for any spikes above 80%, it is available as a metric for you to monitor. It is recommended that you set your instance count according to your peak usage and with a 10% to 20% additional buffer to account for any traffic spikes.
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v1-cpu-utilization-inline.png" alt-text="V1 CPU utilization metrics" lightbox="./media/application-gateway-covid-guidelines/v1-cpu-utilization-exp.png":::
 

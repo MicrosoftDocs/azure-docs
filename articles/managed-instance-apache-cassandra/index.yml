@@ -7,12 +7,12 @@ metadata:
   title: Azure Managed Instance for Apache Cassandra # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. It accelerates hybrid scenarios and reduces ongoing maintenance. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: managed-instance-apache-cassandra #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.custom: ignite-2022
   ms.topic: landing-page # Required
   ms.collection: collection
   author: TheovanKraay #Required; your GitHub user alias, with correct capitalization.
   ms.author: thvankra #Required; microsoft alias of author; optional team alias.
   ms.date: 11/02/2021 #Required; mm/dd/yyyy format.
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -27,14 +27,14 @@ landingContent:
             url: introduction.md
       - linkListType: get-started
         links:
-          - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
+          - text: Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
             url: compare-cosmosdb-managed-instance.md
       - linkListType: tutorial
         links:
           - text: Live migration
-            url: dual-write-proxy-migration.md     
+            url: dual-write-proxy-migration.md
           - text: Offline migration
-            url: spark-migration.md                      
+            url: spark-migration.md
 
   # Card 
   - title: Create and deploy a cluster

@@ -9,7 +9,7 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 01/24/2022
-ms.author: shisriva 
+ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -84,7 +84,7 @@ DigicertCA is now in the certificate authority list.
 
 ### Azure portal (GlobalSign)
 
-1.	To add DigiCert certificate authority, go to the key vault you want to add it to. 
+1.	To add GlobalSign certificate authority, go to the key vault you want to add it to. 
 2.	On the Key Vault property page, select **Certificates**.
 3.	Select the **Certificate Authorities** tab:
 :::image type="content" source="../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png" alt-text="Screenshot that shows selecting the Certificate Authorities tab.":::

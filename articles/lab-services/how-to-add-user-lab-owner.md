@@ -19,7 +19,7 @@ This article shows you how you, as an administrator, can add additional owners t
     ![Select the lab ](./media/how-to-add-user-lab-owner/select-lab.png)  
 1. In the navigation menu, select **Access control (IAM)**.
 
-1. Select **Add** > **Add role assignment (Preview)**.
+1. Select **Add** > **Add role assignment**.
 
     ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
@@ -38,7 +38,7 @@ This article shows you how you, as an administrator, can add additional owners t
 
 1. On the **Lab Account** page, select **Access control (IAM)**
 
-1. Select **Add** > **Add role assignment (Preview)**.
+1. Select **Add** > **Add role assignment**.
 
     ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 

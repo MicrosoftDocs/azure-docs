@@ -3,7 +3,7 @@ title: 'Azure AD Connect cloud sync accidental deletes'
 description: This topic describes how to use the accidental delete feature to prevent deletions.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual

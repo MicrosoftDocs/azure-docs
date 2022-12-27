@@ -1,6 +1,7 @@
 ---
-title: Create and deploy VM application packages (preview)
+title: Create and deploy VM application packages
 description: Learn how to create and deploy VM Applications using an Azure Compute Gallery.
+author: nikhilpatel909
 ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
@@ -11,15 +12,13 @@ ms.custom:
 
 ---
 
-# Create and deploy VM Applications (preview)
+# Create and deploy VM Applications
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
 
 > [!IMPORTANT]
-> **VM applications in Azure Compute Gallery** are currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Deploying VM applications in Azure Compute Gallery **do not currently support using Azure policies**.
 
 
 ## Prerequisites
@@ -52,6 +51,8 @@ You need to make sure the files are publicly available, or you'll need the SAS U
 
 If you're using PowerShell, you need to be using version 3.11.0 of the Az.Storage module.
 
+To learn more about the installation mechanism, see the [command interpreter.](vm-applications.md#command-interpreter)
+
 ## Create the VM application
 
 Choose an option below for creating your VM application definition and version:
@@ -75,7 +76,7 @@ Choose an option below for creating your VM application definition and version:
 1. On the page for the application, select **Create a VM application version**. The **Create a VM Application Version** page will open.
 1. Enter a version number like 1.0.0.
 1. Select the region where you've uploaded your application package.
-1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you're done.
+1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you're done. Alternatively, you can paste the SAS URI in this field if preferred.
 1. Type in the **Install script**. You can also provide the **Uninstall script** and **Update script**. See the [Overview](vm-applications.md#command-interpreter) for information on how to create the scripts.
 1. If you have a default configuration file uploaded to a storage account, you can select it in **Default configuration**.
 1. Select **Exclude from latest** if you don't want this version to appear as the latest version when you create a VM.
@@ -104,6 +105,15 @@ Choose **VM applications** and then select **Add application** to add your VM ap
 Select the VM application from the list, and then select **Save** at the bottom of the page.
 
 :::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
+
+To show the VM application status, go to the Extensions + applications tab/settings and check the status of the VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-app-status.png" alt-text="Screenshot showing VM application status.":::
+
+To show the VM application status for VMSS, go to the VMSS page, Instances, select one of them, then go to VMAppExtension:
+
+:::image type="content" source="media/vmapps/select-apps-status-vmss-portal.png" alt-text="Screenshot showing VMSS application status.":::
+
 
 ### [CLI](#tab/cli)
 
@@ -144,8 +154,53 @@ Set a VM application to an existing VM using [az vm application set](/cli/azure/
 az vm application set \
 	--resource-group myResourceGroup \
 	--name myVM \
---app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --app-version-ids /subscriptions/{subID}/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 \
+  --treat-deployment-as-failure true
 ```
+For setting multiple applications on a VM:
+
+```azurecli-interactive
+az vm application set \
+	--resource-group myResourceGroup \
+	--name myVM \
+	--app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.1 \
+	--treat-deployment-as-failure true true
+```
+To add an application to a VMSS, use [az vmss application set](/cli/azure/vmss/application#az-vmss-application-set):
+
+```azurepowershell-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0
+--treat-deployment-as-failure true
+```
+To add multiple applications to a VMSS:
+```azurecli-interactive
+az vmss application set -g myResourceGroup -n myVmss --app-version-ids /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp/versions/1.0.0 /subscriptions/{subId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGallery/applications/myApp2/versions/1.0.0
+--treat-deployment-as-failure true
+```
+
+To verify application VM deployment status, use [az vm get-instance-view](/cli/azure/vm/#az-vm-get-instance-view):
+
+```azurecli-interactive
+az vm get-instance-view -g myResourceGroup -n myVM --query "instanceView.extensions[?name == 'VMAppExtension']"
+```
+To verify application VMSS deployment status, use [az vmss get-instance-view](/cli/azure/vmss/#az-vmss-get-instance-view):
+
+```azurepowershell-interactive
+az vmss get-instance-view --ids (az vmss list-instances -g myResourceGroup -n myVmss --query "[*].id" -o tsv) --query "[*].extensions[?name == 'VMAppExtension']"
+```
+> [!NOTE]
+> The above VMSS deployment status command does not list the instance ID with the result. To show the instance ID with the status of the extension in each instance, some additional scripting is required. Refer to the below VMSS CLI example that contains PowerShell syntax:
+
+```azurecli-interactive
+$ids = az vmss list-instances -g myResourceGroup -n myVMss --query "[*].{id: id, instanceId: instanceId}" | ConvertFrom-Json
+$ids | Foreach-Object {
+    $iid = $_.instanceId
+    Write-Output "instanceId: $iid" 
+    az vmss get-instance-view --ids $_.id --query "extensions[?name == 'VMAppExtension']" 
+}
+```
+
+
 
 ### [PowerShell](#tab/powershell)
 
@@ -179,6 +234,7 @@ New-AzGalleryApplicationVersion `
    -GalleryApplicationName $applicationName `
    -Name $version `
    -PackageFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
+   -DefaultConfigFileLink "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" `
    -Location "East US" `
    -Install "mv myApp .\myApp\myApp" `
    -Remove "rm .\myApp\myApp" `
@@ -191,23 +247,53 @@ To add the application to an existing VM, get the application version and use th
 $galleryName = "myGallery"
 $rgName = "myResourceGroup"
 $applicationName = "myApp"
+$version = "1.0.0"
 $vmName = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmName
 $appversion = Get-AzGalleryApplicationVersion `
-   -GalleryApplicationName $applicationname `
-   -GalleryName $galleryname `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
    -Name $version `
-   -ResourceGroupName $rgname
+   -ResourceGroupName $rgName
 $packageid = $appversion.Id
 $app = New-AzVmGalleryApplication -PackageReferenceId $packageid
-Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app
-Update-AzVM -ResourceGroupName $rgname -VM $vm
+Add-AzVmGalleryApplication -VM $vm -GalleryApplication $app -TreatFailureAsDeploymentFailure true
+Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
- 
+To add the application to a VMSS:
+```azurecli-interactive
+$vmss = Get-AzVmss -ResourceGroupName $rgname -Name $vmssName
+$appversion = Get-AzGalleryApplicationVersion `
+   -GalleryApplicationName $applicationName `
+   -GalleryName $galleryName `
+   -Name $version `
+   -ResourceGroupName $rgName
+$packageid = $appversion.Id
+$app = New-AzVmssGalleryApplication -PackageReferenceId $packageid
+Add-AzVmssGalleryApplication -VirtualMachineScaleSetVM $vmss.VirtualMachineProfile -GalleryApplication $app
+Update-AzVMss -ResourceGroupName $rgName -VirtualMachineScaleSet $vmss -VMScaleSetName $vmssName
+```
+
+
 Verify the application succeeded:
 
+```azurepowershell-interactive
+$rgName = "myResourceGroup"
+$vmName = "myVM"
+$result = Get-AzVM -ResourceGroupName $rgName -VMName $vmName -Status
+$result.Extensions | Where-Object {$_.Name -eq "VMAppExtension"} | ConvertTo-Json
+```
+To verify for VMSS:
 ```powershell-interactive
-Get-AzVM -ResourceGroupName $rgname -VMName $vmname -Status
+$rgName = "myResourceGroup"
+$vmssName = "myVMss"
+$result = Get-AzVmssVM -ResourceGroupName $rgName -VMScaleSetName $vmssName -InstanceView
+$resultSummary  = New-Object System.Collections.ArrayList
+$result | ForEach-Object {
+    $res = @{ instanceId = $_.InstanceId; vmappStatus = $_.InstanceView.Extensions | Where-Object {$_.Name -eq "VMAppExtension"}}
+    $resultSummary.Add($res) | Out-Null
+}
+$resultSummary | convertto-json -depth 5
 ```
 
 ### [REST](#tab/rest2)
@@ -299,7 +385,8 @@ PUT
         {
           "order": 1,
           "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
-          "configurationReference": "{path to configuration storage blob}"
+          "configurationReference": "{path to configuration storage blob}",
+          "treatFailureAsDeploymentFailure": false
         }
       ]
     }
@@ -326,7 +413,8 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
           {
             "order": 1,
             "packageReferenceId": "/subscriptions/{subscriptionId}/resourceGroups/<resource group>/providers/Microsoft.Compute/galleries/{gallery name}/applications/{application name}/versions/{version}",
-            "configurationReference": "{path to configuration storage blob}"
+            "configurationReference": "{path to configuration storage blob}",
+            "treatFailureAsDeploymentFailure": false
           }
         ]
       }
@@ -344,6 +432,7 @@ virtualMachineScaleSets/\<**VMSSName**\>?api-version=2019-03-01
 | order | Optional. The order in which the applications should be deployed. See below. | Validate integer |
 | packageReferenceId | A reference the gallery application version | Valid application version reference |
 | configurationReference | Optional. The full url of a storage blob containing the configuration for this deployment. This will override any value provided for defaultConfiguration earlier. | Valid storage blob reference |
+| treatFailureAsDeploymentFailure | Optional. Provisioning status for VM App. When set to false, provisioning status will always show 'succeeded' regardless of app deployment failure. | True or False
 
 The order field may be used to specify dependencies between applications. The rules for order are the following:
 
@@ -381,7 +470,51 @@ relevant parts.
 
 ```
 
+
 If the VM applications haven't yet been installed on the VM, the value will be empty. 
+
+To get the result of VM instance view:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/virtualMachines/\<**VMName**\>/instanceView?api-version=2019-03-01
+```
+
+The result will look like this:
+
+```rest
+{
+    ...
+    "extensions"  [
+    ...
+        {
+            "name":  "VMAppExtension",
+            "type":  "Microsoft.CPlat.Core.VMApplicationManagerLinux",
+            "typeHandlerVersion":  "1.0.9",
+            "statuses":  [
+                            {
+                                "code":  "ProvisioningState/succeeded",
+                                "level":  "Info",
+                                "displayStatus":  "Provisioning succeeded",
+                                "message":  "Enable succeeded: {\n \"CurrentState\": [\n  {\n   \"applicationName\": \"doNothingLinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install SUCCESS\"\n  },\n  {
+        \n   \"applicationName\": \"badapplinux\",\n   \"version\": \"1.0.0\",\n   \"result\": \"Install FAILED Error executing command \u0027exit 1\u0027: command terminated with exit status=1\"\n  }\n ],\n \"ActionsPerformed\": []\n}
+        "
+                            }
+                        ]
+        }
+    ...
+    ]
+}
+```
+The VM App status is in the status message of the result of the VMApp extension in the instance view.
+
+To get the status for a VMSS Application:
+
+```rest
+GET
+/subscriptions/\<**subscriptionId**\>/resourceGroups/\<**resourceGroupName**\>/providers/Microsoft.Compute/ virtualMachineScaleSets/\<**VMSSName**\>/virtualMachines/<**instanceId**>/instanceView?api-version=2019-03-01
+```
+The output will be similar to the VM example earlier.
 
 ---
 

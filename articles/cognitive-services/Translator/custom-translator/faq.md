@@ -1,5 +1,5 @@
 ---
-title: "Legacy: Frequently asked questions - Custom Translator"
+title: "Frequently asked questions - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
 author: laujan
@@ -9,8 +9,7 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: reference
-ms.custom: applied-ai-non-critical-form
-#Customer intent: As a Custom Translator user, I want to review frequently asked questions.
+ms.custom: cogserv-non-critical-translator
 ---
 
 # Custom Translator frequently asked questions
@@ -69,6 +68,10 @@ files.
 
 ## I tried uploading my TMX, but it says "document processing failed"
 
+Ensure that the TMX conforms to the [TMX 1.4b Specification](https://www.gala-global.org/tmx-14b).
 
-Ensure that the TMX conforms to the TMX 1.4b Specification at
-<https://www.gala-global.org/tmx-14b>.
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Try the custom translator quickstart](quickstart.md)
+

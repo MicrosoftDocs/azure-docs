@@ -1,23 +1,19 @@
 ---
-title: Create an Azure AMD-based confidential VM with ARM template (preview) 
+title: Create an Azure AMD-based confidential VM with ARM template
 description: Learn how to quickly create and deploy an AMD-based DCasv5 or ECasv5 series Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 3/21/2022
+ms.date: 7/14/2022
 ms.author: RunCai
 ms.custom: mode-arm, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 
-# Quickstart: Deploy confidential VM with ARM template (preview)
-
-> [!IMPORTANT]
-> Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Quickstart: Deploy confidential VM with ARM template
 
 You can use an Azure Resource Manager template (ARM template) to create an Azure [confidential VM](confidential-vm-overview.md) quickly. Confidential VMs run on AMD processors backed by AMD SEV-SNP to achieve VM memory encryption and isolation. For more information, see [Confidential VM Overview](confidential-vm-overview.md).
 

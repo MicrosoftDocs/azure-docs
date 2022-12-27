@@ -65,36 +65,36 @@ wherever JavaScript can be used, including [bash on Windows 10](/windows/wsl/ins
 1. Add a reference to the Azure authentication library.
 
    ```bash
-   npm install @azure/ms-rest-nodeauth
+   npm install @azure/identity
    ```
 
    > [!NOTE]
-   > Verify in _package.json_ `@azure/arm-managementgroups` is version **1.1.0** or higher and
-   > `@azure/ms-rest-nodeauth` is version **3.0.5** or higher.
+   > Verify in _package.json_ `@azure/arm-managementgroups` is version **2.0.1** or higher and
+   > `@azure/identity` is version **2.0.4** or higher.
 
 ## Create the management group
 
 1. Create a new file named _index.js_ and enter the following code.
 
    ```javascript
-   const argv = require("yargs").argv;
-   const authenticator = require("@azure/ms-rest-nodeauth");
-   const managementGroups = require("@azure/arm-managementgroups");
+      const argv = require("yargs").argv;
+      const { InteractiveBrowserCredential } = require("@azure/identity");
+      const { ManagementGroupsAPI } = require("@azure/arm-managementgroups");
 
-   if (argv.groupID && argv.displayName) {
-       const createMG = async () => {
-          const credentials = await authenticator.interactiveLogin();
-          const client = new managementGroups.ManagementGroupsAPI(credentials);
-          const result = await client.managementGroups.createOrUpdate(
-             groupId: argv.groupID,
-             {
-                 displayName: argv.displayName
-             }
-          );
-          console.log(result);
-       };
+      if (argv.groupID && argv.displayName) {
+         const createMG = async () => {
+            const credentials = new InteractiveBrowserCredential();
+            const client = new ManagementGroupsAPI(credentials);
+            const result = await client.managementGroups.beginCreateOrUpdateAndWait(
+               argv.groupID,
+               {
+                  displayName: argv.displayName
+               }
+            );
+            console.log(result);
+         };
 
-       createMG();
+      createMG();
    }
    ```
 
@@ -121,7 +121,7 @@ The result of creating the management group is output to the console.
 If you wish to remove the installed libraries from your application, run the following command.
 
 ```bash
-npm uninstall @azure/arm-managementgroups @azure/ms-rest-nodeauth yargs
+npm uninstall @azure/arm-managementgroups @azure/identity yargs
 ```
 
 ## Next steps

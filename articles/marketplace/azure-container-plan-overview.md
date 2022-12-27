@@ -4,9 +4,9 @@ description: Create and edit plans for an Azure Container offer in Microsoft App
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
-ms.date: 07/05/2021
+author: AarathiN
+ms.author: aarathin
+ms.date: 09/23/2022
 ---
 
 # Create and edit plans for an Azure Container offer

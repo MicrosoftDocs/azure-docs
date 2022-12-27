@@ -65,7 +65,7 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
 ### Validate access tokens
 
-The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md#validating-tokens).
+The token in the `Authorization` header is a [Microsoft identity platform access token](../active-directory/develop/access-tokens.md).
 
 To validate access tokens, your app should also validate the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, see the [tenant-independent version of the document](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 

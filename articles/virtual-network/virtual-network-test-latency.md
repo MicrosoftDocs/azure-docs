@@ -3,7 +3,7 @@ title: Test Azure virtual machine network latency in an Azure virtual network | 
 description: Learn how to test network latency between Azure virtual machines on a virtual network
 services: virtual-network
 documentationcenter: na
-author: steveesp
+author: asudbring
 manager: Marina Lipshteyn
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
-ms.author: steveesp
+ms.author: allensu
 
 ---
 

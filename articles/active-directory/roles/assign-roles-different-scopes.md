@@ -2,15 +2,14 @@
 title: Assign Azure AD roles at different scopes - Azure Active Directory
 description: Learn how to assign roles at different scopes in Azure Active Directory
 services: active-directory
-author: abhijeetsinha
-manager: vincesm
+author: rolyon
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 02/04/2022
-ms.author: absinh
-ms.reviewer: rolyon
+ms.author: rolyon
 ms.custom: it-pro
 
 ms.collection: M365-identity-device-management

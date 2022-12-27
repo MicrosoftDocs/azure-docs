@@ -25,9 +25,9 @@ sections:
   - name: General FAQ
     questions:
       - question: |
-          Can I install the extension on my Visual Studio Team Foundation Server instance instead of on an Azure DevOps instance?
+          Can I install the extension on my Azure DevOps Server (formerly Visual Studio Team Foundation Server) instance instead of on an Azure DevOps instance?
         answer: |
-          No. The extension isn't available for downloading and installation for Visual Studio Team Foundation Server.
+          No. The extension isn't available for downloading and installation for Azure DevOps Server (formerly Visual Studio Team Foundation Server).
 
       - question: |
           Do I have to run Microsoft Security Code Analysis with my build? 

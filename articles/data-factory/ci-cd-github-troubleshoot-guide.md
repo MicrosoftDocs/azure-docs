@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 06/12/2022
+ms.date: 09/19/2022
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -69,7 +69,7 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8771655Z ##[error]Details:
 2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
-2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://learn.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
 ```
 
@@ -156,15 +156,15 @@ Until recently, the it was only possible to publish a pipeline for deployments b
 
 CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the UI. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the UI and click a button. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [CI/CD Publishing Improvements](./continuous-integration-delivery-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You can't  deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You can't  deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -178,7 +178,7 @@ While publishing ADF resources, the azure pipeline triggers twice or more instea
 
 #### Cause
  
-Azure DevOps has the 20-MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
+Azure DevOps has the 20 MB REST API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
@@ -343,8 +343,19 @@ On publish, ADF fetches every file inside each folder in the collaboration branc
 #### Resolution
 Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
  
+###  Include global parameters in ARM template option does not work
+
+#### Issue
+If you are using old default parameterization template, new way to include global paramaters from **Manage Hub** will not work.
+
+#### Cause
+Default parameterization template should include all values from global parameter list.
+
+#### Resolution
+* Use updated  [default parameterization template.](./continuous-integration-delivery-resource-manager-custom-parameters.md#default-parameterization-template) as one time migration to new method of including global parameters. This template references to all values in global parameter list. You also have to update the deployment task in the **release pipeline** if you are already overriding the template parameters there.
+* Update the template parameter names in CI/CD pipeline if you are already overriding the template parameters (for global parameters).
  
-#### Error code: InvalidTemplate
+### Error code: InvalidTemplate
 	
 #### Issue
 Message says *Unable to parse expression.* The expression passed in the dynamic content of an activity isn't being processed correctly because of a syntax error.

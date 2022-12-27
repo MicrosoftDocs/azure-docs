@@ -2,10 +2,10 @@
 title: Bulk delete users in the Azure Active Directory portal | Microsoft Docs
 description: Delete users in bulk in the Azure admin center in Azure Active Directory 
 services: active-directory 
-author: curtand
-ms.author: curtand
-manager: karenhoran
-ms.date: 07/09/2021
+author: barclayn
+ms.author: barclayn
+manager: amycolannino
+ms.date: 06/24/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -14,9 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
+
 # Bulk delete users in Azure Active Directory
 
-Using the Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
+Using the admin center in Azure Active Directory (Azure AD), part of Microsoft Entra, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
 ## CSV template structure
 

@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 09/29/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -24,7 +24,7 @@ Consider using one of the available quickstart articles to see the latest inform
 
 ## How do I migrate to the language service if I am using LUIS?
 
-If you're using Language Understanding (LUIS), you can [import your LUIS JSON file](../conversational-language-understanding/concepts/backwards-compatibility.md) to the new Conversational language understanding feature. 
+If you're using Language Understanding (LUIS), you can [import your LUIS JSON file](../conversational-language-understanding/how-to/migrate-from-luis.md) to the new Conversational language understanding feature. 
 
 ## How do I migrate to the language service if I am using QnA Maker?
 

@@ -1,21 +1,16 @@
 ---
 title: "Overview of Azure Arc-enabled Kubernetes"
-services: azure-arc
-ms.service: azure-arc
 ms.custom: event-tier1-build-2022
-author: shashankbarsin
-ms.author: shasb
 ms.date: 05/03/2022
 ms.topic: overview
 description: "This article provides an overview of Azure Arc-enabled Kubernetes."
-keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
 # What is Azure Arc-enabled Kubernetes?
 
-Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premises data center (such as VMware vSphere or Azure Stack HCI) to Azure Arc.
+Azure Arc-enabled Kubernetes allows you to attach and configure Kubernetes clusters running anywhere. You can connect your clusters running on other public cloud providers (such as GCP or AWS) or clusters running on your on-premises data center (such as VMware vSphere or Azure Stack HCI) to Azure through the Arc platform.
 
-When you connect a Kubernetes cluster to Azure Arc, it will:
+When you connect a Kubernetes cluster to Azure, it will:
 
 * Be represented in Azure Resource Manager by a unique ID
 * Be placed in an Azure subscription and resource group
@@ -25,7 +20,7 @@ Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in tr
 
 Azure Arc-enabled Kubernetes supports the following scenarios for connected clusters:
 
-* [Connect Kubernetes](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging.
+* Single pane of glass to view all [connected Kubernetes clusters](quickstart-connect-cluster.md) running outside of Azure for inventory, grouping, and tagging, along with Azure Kubernetes Service (AKS) clusters.
 
 * Deploy applications and apply configuration using [GitOps-based configuration management](tutorial-use-gitops-connected-cluster.md).
 
@@ -33,9 +28,9 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * Enforce threat protection using [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Apply policy definitions using [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Ensure governance through applying policies with [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Use [Azure Active Directory for authentication and authorization checks](azure-rbac.md) on your cluster.
+* Manage access by using [Azure Active Directory for authentication and authorization checks](azure-rbac.md) on your cluster.
 
 * Securely access your Kubernetes cluster from anywhere without opening inbound port on firewall using [Cluster Connect](cluster-connect.md).
 
@@ -43,7 +38,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios for connected clus
 
 * Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled Data Services (SQL Managed Instances, PostgreSQL Hyperscale.), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
+* Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc-enabled data services (SQL Managed Instances, PostgreSQL server (preview)), [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps), and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

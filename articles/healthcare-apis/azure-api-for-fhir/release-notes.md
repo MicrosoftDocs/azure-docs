@@ -2,13 +2,13 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/10/2022
+ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Release notes: Azure API for FHIR
@@ -21,7 +21,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Enhancement |Related information |
 | :----------------------------------- | :--------------- |
-|Prevent no impact updates from creating version - SQL  |If a user updates a record that already exists and nothing has changed in the content, then the user should get a 200 but nothing should update the record. We updated the UpsertAsync method to add validations in the code instead of in UpsertResource SP and check the existing resource rawData with new resource rawData by ignoring meta.versionId and meta.lastUpdated. If it's an absolute match, then we return Ok with existing resource information without updating VersionId and lastUpdated. If the strings don't match, then we proceed with further steps of creating a new version. For more information, see [#2519](https://github.com/microsoft/fhir-server/pull/2519). |
+|Azure API for FHIR does not create a new version of the resource if the resource content has not changed. |If a user updates an existing resource and only meta.versionId or meta.lastUpdated have changed then we return OK with existing resource information without updating VersionId and lastUpdated. For more information, see [#2519](https://github.com/microsoft/fhir-server/pull/2519). |
 
 ## April 2022
 
@@ -159,7 +159,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Resolved retry 503 error |Related information |
 | :----------------------------------- | :--------------- |
-|Retry 503 error from Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
+|Retry 503 error from Azure Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
 |Fixes processing 429s from StoreProcedures. |[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
 |GitHub issues closed |Related information |

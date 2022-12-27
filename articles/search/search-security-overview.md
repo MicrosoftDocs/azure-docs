@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
+ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 03/25/2022
-
+ms.date: 12/21/2022
 ---
 
 # Security overview for Azure Cognitive Search
@@ -28,39 +28,49 @@ Cognitive Search has three basic network traffic patterns:
 
 ### Inbound traffic
 
-Inbound requests that target a search service endpoint consist of:
+Inbound requests that target a search service endpoint can be characterized as:
 
-+ Creating or managing indexes, indexers, data sources, skillsets, or synonym lists
-+ Running indexers and skillsets
-+ Querying an index
++ Create or manage indexes, indexers, data sources, skillsets, and synonym maps
++ Invoke indexer or skillset execution
++ Load or query an index
 
-For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with [network security features](#service-access-and-authentication). You can create either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
+You can review the [REST APIs](/rest/api/searchservice/) to understand the full range of inbound requests that are handled by a search service.
 
-Independent of network security, all inbound requests must be authenticated. Key-based authentication is the default. Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
+At a minimum, all inbound requests must be authenticated:
+
++ Key-based authentication is the default. Inbound requests that include a valid API key are accepted by the search service as originating from a trusted party.
++ Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
+
+Additionally, you can add [network security features](#service-access-and-authentication) to further restrict access to the endpoint. You can create either inbound rules in an IP firewall, or create private endpoints that fully shield your search service from the public internet. 
 
 ### Outbound traffic
 
 Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations.
 
-Outbound requests are made by the search service on its own behalf, and on the behalf of an indexer or custom skill:
+The following list is a full enumeration of the outbound requests that can be made by a search service. A search makes requests on its own behalf, and on the behalf of an indexer or custom skill:
 
-+ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
-+ Indexers [connect to external data sources](search-indexer-securing-resources.md) to read in data for indexing.
++ Indexers [read from external data sources](search-indexer-securing-resources.md).
 + Indexers write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
-+ Custom skills connect to an Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
++ If you're using custom skills, custom skills connect to an external Azure function or app to run external code that's hosted off-service. The request for external processing is sent during skillset execution.
++ If you're using customer-managed keys, the service connects to an external Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
 Outbound connections can be made using a resource's full access connection string that includes a key or a database login, or an Azure AD login ([a managed identity](search-howto-managed-identities-data-sources.md)) if you're using Azure Active Directory. 
 
 If your Azure resource is behind a firewall, you'll need to [create rules that admit search service requests](search-indexer-howto-access-ip-restricted.md). For resources protected by Azure Private Link, you can [create a shared private link](search-indexer-howto-access-private.md) that an indexer uses to make its connection.
 
+#### Exception for same-region search and storage services
+
+If Storage and Search are in the same region, network traffic is routed through a private IP address and occurs over the Microsoft backbone network. Because private IP addresses are used, you can't configure IP firewalls or a private endpoint for network security. Instead, use the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) as an alternative when both services are in the same region. 
+
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. You cannot configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic is not customer-configurable.
+Internal requests are secured and managed by Microsoft. You can't configure or control these connections. If you're locking down network access, no action on your part is required because internal traffic isn't customer-configurable.
 
 Internal traffic consists of:
 
-+ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
++ Service-to-service calls for tasks like authentication and authorization through Azure Active Directory, resource logging sent to Azure Monitor, and private endpoint connections that utilize Azure Private Link.
 + Requests made to Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md).
++ Requests made to the machine learning models that support [semantic search](semantic-search-overview.md#availability-and-pricing).
 
 <a name="service-access-and-authentication"></a>
 
@@ -116,9 +126,9 @@ If you're using Azure AD authentication, [use role assignments instead of API ke
 
 ### Controlling access to indexes
 
-In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
+In Azure Cognitive Search, an individual index is generally not a securable object. As noted previously for key-based authentication, access to an index will include read or write permissions based on which API key you provide on the request, along with the context of an operation. Queries are read-only operations. In a query request, there's no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
-If you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
+However, if you're using Azure roles, you can [set permissions on individual indexes](search-security-rbac.md#grant-access-to-a-single-index) as long as it's done programmatically.
 
 For key-based authentication scenarios, administrator and developer access to indexes is undifferentiated: both need write access to create, delete, and update the objects managed by the service. Anyone with an [admin key](search-security-api-keys.md) to your service can read, modify, or delete any index in the same service. For protection against accidental or malicious deletion of indexes, your in-house source control for code assets is the solution for reversing an unwanted index deletion or modification. Azure Cognitive Search has failover within the cluster to ensure availability, but it doesn't store or execute your proprietary code used to create or load indexes.
 
@@ -128,7 +138,7 @@ For multitenancy solutions requiring security boundaries at the index level, suc
 
 If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. 
 
-Conceptually equivalent to "row-level security", authorization to content within the index isn't natively supported using  predefined roles or role assignments that map to entities in Azure Active Directory. Any user permissions on data in external systems, such as Cosmos DB, don't transfer with that data as its being indexed by Cognitive Search.
+Conceptually equivalent to "row-level security", authorization to content within the index isn't natively supported using  predefined roles or role assignments that map to entities in Azure Active Directory. Any user permissions on data in external systems, such as Azure Cosmos DB, don't transfer with that data as its being indexed by Cognitive Search.
 
 Workarounds for solutions that require "row-level security" include creating a field in the data source that represents a security group or user identity, and then using filters in Cognitive Search to selectively trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
@@ -143,44 +153,78 @@ Service Management operations are authorized through [Azure role-based access co
 
 In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they're using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
 
-[Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
+[Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform various administration functions. You can assign the Reader role to users who only view essential information.
 
-> [!Note]
+> [!NOTE]
 > Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
+
+## Data residency
+
+When you set up a search service, you choose a location or region that determines where customer data is stored and processed. Azure Cognitive Search won't store customer data outside of your specified region unless you configure a feature that has a dependency on another Azure resource, and that resource is provisioned in a different region.
+
+Currently, the only external resource that a search service writes customer data to is Azure Storage. The storage account is one that you provide, and it could be in any region. A search service will write to Azure Storage if you use any of the following features: [enrichment cache](cognitive-search-incremental-indexing-conceptual.md), [debug session](cognitive-search-debug-session.md), [knowledge store](knowledge-store-concept-intro.md). 
+
+### Exceptions to data residency commitments
+
+Although customer data isn't stored outside of your region, object names will appear in the telemetry logs used by Microsoft Support to troubleshoot your service issues. Object names are considered customer data. Names in telemetry logs include those of indexes, indexers, data sources, skillsets, containers, and key vault store.
+
+Object names aren't obfuscated in the telemetry logs. If possible, avoid using names that convey sensitive information.
+
+Telemetry logs are retained for one and a half years. During that period, support engineers might access and reference object names under these conditions:
+
++ Diagnose an issue, improve a feature, or fix a bug. In this scenario, data access is internal only, with no third-party access.
+
++ Proactively suggest to the original customer a workaround or alternative. For example, "Based on your usage of the product, consider using `<feature name>` since it would perform better." In this scenario, Microsoft might expose an object name through dashboards visible to the customer.
+
+Upon request, Microsoft can shorten the retention interval or remove references to specific objects in the telemetry logs. Remember that if you request data removal, the trade off is reduced ability to troubleshoot any issues related to the object in question.
+
+To remove references to specific objects, or to change the data retention period, [file a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) for your search service.
+
+1. In **Problem details**, tag your request using the following selections:
+
+   + **Issue type**: Technical
+   + **Problem type**: Setup and configuration
+   + **Problem subtype**: Issue with security configuration of the service
+
+1. When you get to **Additional details** (the third tab), describe the object names you would like removed, or specify the retention period that you require.
+
+   :::image type="content" source="media/search-security-overview/support-request.png" alt-text="Screenshot of the first page of the support ticket with issue and problem types selected." border="true":::
 
 <a name="encryption"></a>
 
 ## Data protection
 
-At the storage layer, data encryption is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Optionally, you can add customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full "double encryption" of indexed content.
+At the storage layer, data encryption is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Service-managed encryption applies to both long-term data storage and temporary data storage.
+
+Optionally, you can add customer-managed keys (CMK) for supplemental encryption of indexed content for double encryption of data at rest. For services created after August 1 2020, CMK encryption extends to short-term data on temporary disks.
 
 ### Data in transit
 
-In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
+In Azure Cognitive Search, encryption starts with connections and transmissions. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
 
 ### Data at rest
 
-For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Services that have a dependency on Azure Storage can use the [encryption features](/azure/storage/common/storage-service-encryption) of that technology.
 
 | Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
-| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
-| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps) on data disks |
-| server-side double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
+| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24, 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets), on data disks and temporary disks |
+| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in specific regions, for content created after August 1, 2020. | Content (indexes and synonym maps) on data disks |
+| server-side full encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, on search services after May 13, 2021. | Content (indexes and synonym maps) on data disks and temporary disks |
 
 #### Service-managed keys
 
-Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
+Service-managed encryption is a Microsoft-internal operation that uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
+
+Service-managed encryption applies to all content on long-term and short-term storage.
 
 #### Customer-managed keys (CMK)
 
-Customer-managed keys require an additional billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Customer-managed keys require another billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. 
 
-<a name="double-encryption"></a>
+CMK support was rolled out in two phases. If you created your search service during the first phase, CMK encryption was restricted to long-term storage and specific regions. Services created in the second phase, after May 2021, can use CMK encryption in any region. As part of the second wave rollout, content is CMK-encrypted on both long-term and short-term storage. For more information about CMK support, see [full double encryption](search-security-manage-encryption-keys.md#full-double-encryption).
 
-#### Double encryption
-
-In Azure Cognitive Search, double encryption is an extension of CMK. It's understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
+Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30-60 percent in query times, although actual performance will vary depending on the index definition and types of queries. Because of the negative performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
 ## Security administration
 
@@ -188,7 +232,7 @@ In Azure Cognitive Search, double encryption is an extension of CMK. It's unders
 
 Reliance on API key-based authentication means that you should have a plan for regenerating the admin key at regular intervals, per Azure security best practices. There are a maximum of two admin keys per search service. For more information about securing and managing API keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-### Activity and diagnostic logs
+### Activity and resource logs
 
 Cognitive Search doesn't log user identities so you can't refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
@@ -198,17 +242,17 @@ Using alerts and the logging infrastructure in Azure, you can pick up on query v
 
 Azure Cognitive Search participates in regular audits, and has been certified against many global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) from the official Audit reports page.
 
-For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 11 security controls, including [Network Security](../security/benchmarks/security-control-network-security.md), [Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md), and [Data Protection](../security/benchmarks/security-control-data-protection.md) to name a few.
+For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Microsoft cloud security benchmark](/security/benchmark/azure/introduction). The Microsoft cloud security benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 12 security controls, including [Network Security](/security/benchmark/azure/mcsb-network-security), Logging and Monitoring, and [Data Protection](/security/benchmark/azure/mcsb-data-protection).
 
-Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
+Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Microsoft cloud security benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria and an actionable response that addresses non-compliance.
 
-For Azure Cognitive Search, there's currently one built-in definition. It's for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
+For Azure Cognitive Search, there's currently one built-in definition. It's for resource logging. With this built-in, you can assign a policy that identifies any search service that is missing resource logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## Watch this video
 
 Watch this fast-paced video for an overview of the security architecture and each feature category.
 
-> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
+> [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
 ## See also
 

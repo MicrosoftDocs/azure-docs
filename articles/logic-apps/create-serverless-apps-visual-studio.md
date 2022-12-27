@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 08/20/2022
 ---
 
 # Create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio

@@ -109,6 +109,8 @@ After creating a policy fragment, you can view and update the properties of a po
 1. Review **Policy document references** for policy definitions that include the fragment. Before a fragment can be deleted, you must remove the fragment references from all policy definitions.
 1. After all references are removed, select **Delete**.
 
+## Next steps
+
 For more information about working with policies, see:
 
 + [Tutorial: Transform and protect APIs](transform-api.md)

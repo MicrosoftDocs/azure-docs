@@ -9,10 +9,14 @@
   items:
   - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
+  - name: Deploy Bastion - ARM template
+    href: quickstart-host-arm-template.md
 - name: Tutorials
   items:
   - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
+  - name: Deploy Bastion with DDoS protection
+    href: tutorial-protect-bastion-host.md
 - name: Concepts
   items:
   - name: Support for working remotely
@@ -53,6 +57,8 @@
         href: configure-host-scaling.md
       - name: Azure PowerShell
         href: configure-host-scaling-powershell.md
+    - name: Configure a shareable link
+      href: shareable-link.md
     - name: Configure Kerberos authentication
       href: kerberos-authentication-portal.md
   - name: Connect to a virtual machine

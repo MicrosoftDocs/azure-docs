@@ -4,7 +4,7 @@ description: Understand Synchronization Service Manager for Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2022
+ms.date: 07/07/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -65,13 +65,7 @@ The application registrations and the application architecture are described in 
 
 ## Step 1: Configure your user flow
 
-[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)] Repeat the steps to create three separate user flows as follows: 
-
-- A combined **Sign in and sign up** user flow, such as `susi`. This user flow also supports the **Forgot your password** experience.
-- A **Profile editing** user flow, such as `edit_profile`.
-- A **Password reset** user flow, such as `reset_password`.
-
-Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi` becomes `B2C_1_susi`.
+[!INCLUDE [active-directory-b2c-app-integration-add-user-flow](../../includes/active-directory-b2c-app-integration-add-user-flow.md)]
 
 ## Step 2: Register your web app and API
 

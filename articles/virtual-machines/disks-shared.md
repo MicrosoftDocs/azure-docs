@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2022
+ms.date: 11/07/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -35,11 +35,11 @@ Shared disks support several operating systems. See the [Windows](#windows) or [
 
 When you share a disk, your billing could be impacted in two different ways, depending on the type of disk.
 
-For shared premium SSDs, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
+For shared premium SSD disks, in addition to cost of the disk's tier, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details.
 
 Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Normally, an ultra disk has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two additional throttles allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
+The four performance throttles a shared ultra disk has are diskMBpsReadWrite, diskIOPSReadOnly and diskMBpsReadOnly. Each performance throttle can be configured to change the performance of your disk. The performance for shared ultra disk is calculated in the following ways: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
 
 Once you've determined your total provisioned IOPS and total provisioned throughput, you can use them in the [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
@@ -128,13 +128,19 @@ Ultra disks have the unique capability of allowing you to set your performance b
 
 The following formulas explain how the performance attributes can be set, since they're user modifiable:
 
-- DiskIOPSReadWrite/DiskIOPSReadOnly: 
-    - IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk
-    - Minimum of 100 IOPS
-    - DiskIOPSReadWrite  + DiskIOPSReadOnly is at least 2 IOPS/GiB
-- DiskMBpsRead    Write/DiskMBpsReadOnly:
-    - The throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk
-    - The minimum guaranteed throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps
+- DiskIOPSReadWrite:
+    - Has a baseline minimum IOPS of 100, for disks 100 GiB and smaller.
+        - For disks larger than 100 GiB, the baseline minimum IOPS you can set increases by 1 per GiB. So the lowest you can set DiskIOPSReadWrite for a 101 GiB disk is 101 IOPS.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+- DiskMBpsReadWrite
+    - The minium throughput (MB/s) of this attribute is determined by your IOPS, the formula is 4 KiB per second per IOPS. So if you had 101 IOPS, the minium MB/s you can set is 1.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
+- DiskIOPSReadOnly
+    - The minimum baseline IOPS for this attribute is 100. For DiskIOPSReadOnly, the baseline doesn't increase with disk size.
+    - The maximum you can set this attribute is determined by the size of your disk, the formula is 300 * GiB, up to a maximum of 160,000.
+- DiskMBpsReadOnly
+    - The minimum throughput (MB/s) for this attribute is 1. For DiskMBpsReadOnly, the baseline doesn't increase with IOPS.
+    - The maximum you can set this attribute is determined by the amount of IOPS you set, the formula is 256 KiB per second per IOPS, up to a maximum of 4,000 MB/s.
 
 #### Examples
 

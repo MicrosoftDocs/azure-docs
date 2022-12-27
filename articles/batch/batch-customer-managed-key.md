@@ -197,4 +197,4 @@ az batch account set \
 ## Next steps
 
 - Learn more about [security best practices in Azure Batch](security-best-practices.md).
-- Learn more about[Azure Key Vault](../key-vault/general/basic-concepts.md).
+- Learn more about [Azure Key Vault](../key-vault/general/basic-concepts.md).

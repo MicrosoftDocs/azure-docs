@@ -108,21 +108,21 @@ The response looks similar to this:
   "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
   "gatewayDefaultSite": null,
   "gatewayType": "Vpn",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW",
   "ipConfigurations": [
     {
       "etag": "W/\"6c61f8cb-d90f-4796-8697\"",
-      "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
+      "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
       "name": "vnetGatewayConfig0",
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
       "subnet": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworks/VNet1/subnets/GatewaySubnet",
         "resourceGroup": "TestRG1"
       }
     }
@@ -151,7 +151,7 @@ To view the public IP address assigned to your gateway, use the following exampl
 ```azurecli-interactive
 az network public-ip show \
   --name VNet1GWIP \
-  --resource-group TestRG11
+  --resource-group TestRG1
 ```
 
 The value associated with the **ipAddress** field is the public IP address of your VPN gateway.

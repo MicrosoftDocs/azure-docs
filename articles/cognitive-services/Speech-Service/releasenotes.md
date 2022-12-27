@@ -9,19 +9,20 @@ ms.author: eur
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: reference
-ms.date: 03/22/2022
+ms.date: 11/14/2022
 ms.custom: ignite-fall-2021, references_regions
 ---
 
-# Speech Service release notes
+# Speech service release notes
 
-See below for information about changes to Speech services and resources.
+See below for information about new features and other changes to the Speech service.
 
 ## What's new?
 
-* Speech SDK 1.22.0 and Speech CLI 1.22.0 were released in June 2022. See details below.
-* Custom speech-to-text container v3.1.0 released in March 2022, with support to get display models.
-* TTS Service March 2022, public preview of Cheerful and Sad styles with fr-FR-DeniseNeural.
+* Speech-to-text REST API version 3.1 is generally available.
+* Speech SDK 1.24.0 and Speech CLI 1.24.0 were released in October 2022. 
+* Speech-to-text and text-to-speech container versions were updated in October 2022.
+* TTS Service November 2022, several voices for `es-MX`, `it-IT`, and `pr-BR` locales were made generally available.
 
 ## Release notes
 

@@ -1,12 +1,14 @@
 ---
 title: Access control model for Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn how to configure container, directory, and file-level access in accounts that have a hierarchical namespace.
-author: normesta
+author: jimmart-dev
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.author: normesta
+ms.author: jammart
 ---
 
 # Access control model in Azure Data Lake Storage Gen2
@@ -114,7 +116,7 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage Gen2 also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage Gen2 also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
 In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
 

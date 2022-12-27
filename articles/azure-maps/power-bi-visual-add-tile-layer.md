@@ -5,7 +5,7 @@ description: In this article, you will learn how to use the tile layer in Azure 
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 11/29/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -54,7 +54,7 @@ parameters:
 
 As an example, the following is a formatted tile URL for the [weather radar tile service](/rest/api/maps/render-v2/get-map-tile) in Azure Maps. Note that `[subscription-key]` is a placeholder for your Azure Maps subscription key.
 
-> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}`
+> `https://atlas.microsoft.com/map/tile?zoom={z}&x={x}&y={y}&tilesetId=microsoft.weather.radar.main&api-version=2.0&subscription-key={Your-Azure-Maps-Subscription-key}`
 
 For more information on Azure Maps tiling system, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 

@@ -95,7 +95,7 @@ items:
       - name: Data discovery & classification
         href: /azure/azure-sql/database/data-discovery-and-classification-overview?
       - name: Vulnerability assessment
-        href: /azure/azure-sql/database/sql-vulnerability-assessment?
+        href: /sql/relational-databases/security/sql-vulnerability-assessment
       - name: Advanced Threat Protection
         href: /azure/azure-sql/database/threat-detection-overview?
     - name: Auditing
@@ -148,6 +148,8 @@ items:
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+    - name: Distribution Advisor 
+      href: ../sql/distribution-advisor.md
     - name: JSON
       items:
       - name: JSON

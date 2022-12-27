@@ -4,8 +4,8 @@ description: Learn how to create an Azure Red Hat OpenShift private cluster runn
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
-author: sakthi-vetrivel
-ms.author: suvetriv
+author: joharder
+ms.author: joharder
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create a private Azure Red Hat OpenShift cluster
@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create Azure Red Hat OpenShi
 > * Setup the prerequisites and create the required virtual network and subnets
 > * Deploy a cluster with a private API server endpoint and a private ingress controller
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.30.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -37,13 +37,19 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
     az provider register -n Microsoft.RedHatOpenShift --wait
     ```
 
-1. Register the `Microsoft.Compute` resource provider:
+1. Register the `Microsoft.Compute` resource provider (if you haven't already):
 
     ```azurecli-interactive
     az provider register -n Microsoft.Compute --wait
     ```
 
-1. Register the `Microsoft.Storage` resource provider:
+1. Register the `Microsoft.Network` resource provider (if you haven't already):
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Network --wait
+    ```
+
+1. Register the `Microsoft.Storage` resource provider (if you haven't already):
 
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait
@@ -190,7 +196,27 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 >[!IMPORTANT]
 > If you choose to specify a custom domain, for example **foo.example.com**, the OpenShift console will be available at a URL such as `https://console-openshift-console.apps.foo.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
-> By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) and [custom CA for your API server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom certificate for your ingress controller](https://docs.openshift.com/container-platform/4.8/security/certificates/replacing-default-ingress-certificate.html) and [custom certificate for your API server](https://docs.openshift.com/container-platform/4.8/security/certificates/api-server.html).
+
+
+### Create a private cluster without a public IP address
+
+Typically, private clusters are created with a public IP address and load balancer, providing a means for outbound connectivity to other services. However, you can create a private cluster without a public IP address. This may be required in situations in which security or policy requirements prohibit the use of public IP addresses.
+
+To create a private cluster without a public IP address, register for the feature flag `UserDefinedRouting` using the following command structure:
+
+```
+az feature register --namespace Microsoft.RedHatOpenShift --name UserDefinedRouting
+```
+After you've registered the feature flag, [create the private ARO cluster](#create-the-cluster).
+
+Enabling this User Defined Routing option prevents a public IP address from being provisioned. User Defined Routing (UDR) allows you to create custom routes in Azure to override the default system routes or to add more routes to a subnet's route table. See 
+[Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md) to learn more.
+
+> [!NOTE]
+> Be sure to specify the correct subnet with the properly configured routing table when creating your private cluster. 
+
+For egress, the User Defined Routing option ensures that the newly created cluster has the egress lockdown feature enabled to allow you to secure outbound traffic from your new private cluster. See [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress.md) to learn more.
 
 ## Connect to the private cluster
 
@@ -233,7 +259,7 @@ Once you're logged into the OpenShift Web Console, click on the **?** on the top
 
 ![Image shows Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
 
-You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+You can also download the [latest release of the CLI](https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/) appropriate to your machine.
 
 ## Connect using the OpenShift CLI
 

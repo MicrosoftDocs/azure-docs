@@ -3,11 +3,12 @@ title: Deploy MLflow models as web services
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to deploy your ML models as an Azure web service.
 services: machine-learning
-author: blackmist
-ms.author: larryfr
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 10/25/2021
+ms.date: 11/04/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1
 ---
@@ -41,7 +42,7 @@ The following diagram demonstrates that with the MLflow deploy API and Azure Mac
 ## Prerequisites
 
 * A machine learning model. If you don't have a trained model, find the notebook example that best fits your compute scenario in [this repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/using-mlflow) and follow its instructions. 
-* [Set up the MLflow Tracking URI to connect Azure Machine Learning](how-to-use-mlflow.md#track-local-runs).
+* [Set up the MLflow Tracking URI to connect Azure Machine Learning](how-to-use-mlflow.md#track-runs-from-your-local-machine-or-remote-compute).
 * Install the `azureml-mlflow` package. 
     * This package automatically brings in `azureml-core` of the [The Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install), which provides the connectivity for MLflow to access your workspace.
 * See which [access permissions you need to perform your MLflow operations with your workspace](../how-to-assign-roles.md#mlflow-operations). 
@@ -164,5 +165,5 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 ## Next steps
 
 * [Manage your models](concept-model-management-and-deployment.md).
-* Monitor your production models for [data drift](../how-to-enable-data-collection.md).
+* Monitor your production models for [data drift](how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](../how-to-use-mlflow-azure-databricks.md).

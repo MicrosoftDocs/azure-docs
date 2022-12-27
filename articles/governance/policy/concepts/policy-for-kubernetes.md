@@ -1,9 +1,11 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/13/2021
+ms.date: 06/17/2022
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Understand Azure Policy for Kubernetes clusters
 
@@ -23,35 +25,25 @@ Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
 - [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md)
-- [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> The add-ons for AKS Engine and Arc enabled Kubernetes are in **preview**. Azure Policy for
-> Kubernetes only supports Linux node pools and built-in policy definitions (custom policy
-> definitions is a _public preview_ feature). Built-in policy definitions are in the **Kubernetes**
-> category. The limited preview policy definitions with **EnforceOPAConstraint** and
-> **EnforceRegoPolicy** effect and the related **Kubernetes Service** category are _deprecated_.
-> Instead, use the effects _audit_ and _deny_ with Resource Provider mode
-> `Microsoft.Kubernetes.Data`.
+> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Instructions can be found below for [removal of those add-ons](#remove-the-add-on). 
 
 ## Overview
 
 To enable and use Azure Policy with your Kubernetes cluster, take the following actions:
 
-1. Configure your Kubernetes cluster and install the add-on:
-   - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes)
-   - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
+1. Configure your Kubernetes cluster and install the [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks) add-on
 
    > [!NOTE]
    > For common issues with installation, see
    > [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
-1. [Understand the Azure Policy language for Kubernetes](#policy-language)
+2. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
-1. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
+3. [Assign a definition to your Kubernetes cluster](#assign-a-policy-definition)
 
-1. [Wait for validation](#policy-evaluation)
+4. [Wait for validation](#policy-evaluation)
 
 ## Limitations
 
@@ -205,7 +197,7 @@ similar to the following output:
         "identity": null
 }
 ```
-## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes (preview)
+## <a name="install-azure-policy-extension-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Extension for Azure Arc enabled Kubernetes
 
 [Azure Policy for Kubernetes](./policy-for-kubernetes.md) makes it possible to manage and report on the compliance state of your Kubernetes clusters from one place.
 
@@ -345,246 +337,6 @@ To delete the extension instance, run the following command substituting `<>` wi
 az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
-## <a name="install-azure-policy-add-on-for-azure-arc-enabled-kubernetes"></a>Install Azure Policy Add-on Using Helm for Azure Arc enabled Kubernetes (preview)
-
-> [!NOTE]
-> Azure Policy Add-on Helm model will soon begin deprecation. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
-
-Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
-must enable the **Microsoft.PolicyInsights** resource provider and create a role assignment for the
-cluster service principal.
-
-1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
-   find the version. If you need to install or upgrade, see
-   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
-
-1. To enable the resource provider, follow the steps in
-   [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
-   or run either the Azure CLI or Azure PowerShell command:
-
-   - Azure CLI
-
-     ```azurecli-interactive
-     # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Policy provider
-     az provider register --namespace 'Microsoft.PolicyInsights'
-     ```
-
-   - Azure PowerShell
-
-     ```azurepowershell-interactive
-     # Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Policy provider
-     Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-     ```
-
-1. The Kubernetes cluster must be version _1.14_ or higher.
-
-1. Install [Helm 3](https://v3.helm.sh/docs/intro/install/).
-
-1. Your Kubernetes cluster enabled for Azure Arc. For more information, see
-   [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
-
-1. Have the fully qualified Azure Resource ID of the Azure Arc enabled Kubernetes cluster.
-
-1. Open ports for the add-on. The Azure Policy Add-on uses these domains and ports to fetch policy
-   definitions and assignments and report compliance of the cluster back to Azure Policy.
-
-   |Domain |Port |
-   |---|---|
-   |`data.policy.core.windows.net` |`443` |
-   |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
-   |`dc.services.visualstudio.com` |`443` |
-
-1. Assign 'Policy Insights Data Writer (Preview)' role assignment to the Azure Arc enabled
-   Kubernetes cluster. Replace `<subscriptionId>` with your subscription ID, `<rg>` with the Azure
-   Arc enabled Kubernetes cluster's resource group, and `<clusterName>` with the name of the Azure
-   Arc enabled Kubernetes cluster. Keep track of the returned values for _appId_, _password_, and
-   _tenant_ for the installation steps.
-
-   - Azure CLI
-
-     ```azurecli-interactive
-     az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-     ```
-
-   - Azure PowerShell
-
-     ```azurepowershell-interactive
-     $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-
-     @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
-     ```
-
-   Sample output of the above commands:
-
-   ```json
-   {
-       "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-       "password": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
-       "tenant": "cccccccc-cccc-cccc-cccc-cccccccccccc"
-   }
-   ```
-
-Once the above prerequisite steps are completed, install the Azure Policy Add-on in your Azure Arc
-enabled Kubernetes cluster:
-
-1. Add the Azure Policy Add-on repo to Helm:
-
-   ```bash
-   helm repo add azure-policy https://raw.githubusercontent.com/Azure/azure-policy/master/extensions/policy-addon-kubernetes/helm-charts
-   ```
-
-1. Install the Azure Policy Add-on using Helm Chart:
-
-   ```bash
-   # In below command, replace the following values with those gathered above.
-   #    <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
-   #    <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
-   #    <ServicePrincipalPassword> with password of the service principal created during prerequisites.
-   #    <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.
-   helm install azure-policy-addon azure-policy/azure-policy-addon-arc-clusters \
-       --set azurepolicy.env.resourceid=<AzureArcClusterResourceId> \
-       --set azurepolicy.env.clientid=<ServicePrincipalAppId> \
-       --set azurepolicy.env.clientsecret=<ServicePrincipalPassword> \
-       --set azurepolicy.env.tenantid=<ServicePrincipalTenantId>
-   ```
-
-   For more information about what the add-on Helm Chart installs, see the
-   [Azure Policy Add-on Helm Chart definition](https://github.com/Azure/azure-policy/tree/master/extensions/policy-addon-kubernetes/helm-charts/azure-policy-addon-arc-clusters)
-   on GitHub.
-
-To validate that the add-on installation was successful and that the _azure-policy_ and _gatekeeper_
-pods are running, run the following command:
-
-```bash
-# azure-policy pod is installed in kube-system namespace
-kubectl get pods -n kube-system
-
-# gatekeeper pod is installed in gatekeeper-system namespace
-kubectl get pods -n gatekeeper-system
-```
-
-## <a name="install-azure-policy-add-on-for-aks-engine"></a>Install Azure Policy Add-on for AKS Engine (preview)
-
-1. Ensure your Kubernetes cluster is a supported distribution.
-
-Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
-must enable the **Microsoft.PolicyInsights** resource provider and create a role assignment for the
-cluster service principal.
-
-1. You need the Azure CLI version 2.0.62 or later installed and configured. Run `az --version` to
-   find the version. If you need to install or upgrade, see [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
-
-1. To enable the resource provider, follow the steps in
-   [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
-   or run either the Azure CLI or Azure PowerShell command:
-
-   - Azure CLI
-
-     ```azurecli-interactive
-     # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Policy provider
-     az provider register --namespace 'Microsoft.PolicyInsights'
-     ```
-
-   - Azure PowerShell
-
-     ```azurepowershell-interactive
-     # Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Policy provider
-     Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-     ```
-
-1. Create a role assignment for the cluster service principal.
-
-   - If you don't know the cluster service principal app ID, look it up with the following command.
-
-     ```bash
-     # Get the kube-apiserver pod name
-     kubectl get pods -n kube-system
-
-     # Find the aadClientID value
-     kubectl exec <kube-apiserver pod name> -n kube-system cat /etc/kubernetes/azure.json
-     ```
-
-   - Assign 'Policy Insights Data Writer (Preview)' role assignment to the cluster service principal
-     app ID (value _aadClientID_ from previous step) with Azure CLI. Replace `<subscriptionId>` with
-     your subscription ID and `<aks engine cluster resource group>` with the resource group the AKS
-     Engine self-managed Kubernetes cluster is in.
-
-     ```azurecli-interactive
-     az role assignment create --assignee <cluster service principal app ID> --scope "/subscriptions/<subscriptionId>/resourceGroups/<aks engine cluster resource group>" --role "Policy Insights Data Writer (Preview)"
-     ```
-
-Once the above prerequisite steps are completed, install the Azure Policy Add-on. The installation
-can be during the creation or update cycle of an AKS Engine or as an independent action on an
-existing cluster.
-
-- Install during creation or update cycle
-
-  To enable the Azure Policy Add-on during the creation of a new self-managed cluster or as an
-  update to an existing cluster, include the
-  [addons](https://github.com/Azure/aks-engine/tree/master/examples/addons/azure-policy) property
-  cluster definition for AKS Engine.
-
-  ```json
-  "addons": [{
-      "name": "azure-policy",
-      "enabled": true
-  }]
-  ```
-
-  For more information about, see the external guide
-  [AKS Engine cluster definition](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).
-
-- Install in existing cluster with Helm Charts
-
-  Use the following steps to prepare the cluster and install the add-on:
-
-  1. Install [Helm 3](https://v3.helm.sh/docs/intro/install/).
-
-  1. Add the Azure Policy repo to Helm.
-
-     ```bash
-     helm repo add azure-policy https://raw.githubusercontent.com/Azure/azure-policy/master/extensions/policy-addon-kubernetes/helm-charts
-     ```
-
-     For more information, see
-     [Helm Chart - Quickstart Guide](https://helm.sh/docs/using_helm/#quickstart-guide).
-
-  1. Install the add-on with a Helm Chart. Replace `<subscriptionId>` with your subscription ID and
-     `<aks engine cluster resource group>` with the resource group the AKS Engine self-managed
-     Kubernetes cluster is in.
-
-     ```bash
-     helm install azure-policy-addon azure-policy/azure-policy-addon-aks-engine --set azurepolicy.env.resourceid="/subscriptions/<subscriptionId>/resourceGroups/<aks engine cluster resource group>"
-     ```
-
-     For more information about what the add-on Helm Chart installs, see the
-     [Azure Policy Add-on Helm Chart definition](https://github.com/Azure/azure-policy/tree/master/extensions/policy-addon-kubernetes/helm-charts/azure-policy-addon-aks-engine)
-     on GitHub.
-
-     > [!NOTE]
-     > Because of the relationship between Azure Policy Add-on and the resource group ID, Azure
-     > Policy supports only one AKS Engine cluster for each resource group.
-
-To validate that the add-on installation was successful and that the _azure-policy_ and _gatekeeper_
-pods are running, run the following command:
-
-```bash
-# azure-policy pod is installed in kube-system namespace
-kubectl get pods -n kube-system
-
-# gatekeeper pod is installed in gatekeeper-system namespace
-kubectl get pods -n gatekeeper-system
-```
-
 ## Policy language
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
@@ -611,9 +363,6 @@ role-based access control (Azure RBAC) policy assignment operations. The Azure b
 **Resource Policy Contributor** and **Owner** have these operations. To learn more, see
 [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
-> [!NOTE]
-> Custom policy definitions is a _public preview_ feature.
-
 Find the built-in policy definitions for managing your cluster using the Azure portal with the
 following steps. If using a custom policy definition, search for it by name or the category that
 you created it with.
@@ -633,8 +382,7 @@ you created it with.
 
    > [!NOTE]
    > When assigning the Azure Policy for Kubernetes definition, the **Scope** must include the
-   > cluster resource. For an AKS Engine cluster, the **Scope** must be the resource group of the
-   > cluster.
+   > cluster resource.
 
 1. Give the policy assignment a **Name** and **Description** that you can use to identify it easily.
 
@@ -905,6 +653,9 @@ To remove the Azure Policy Add-on from your AKS cluster, use either the Azure po
 
 ### Remove the add-on from Azure Arc enabled Kubernetes
 
+> [!NOTE]
+> Azure Policy Add-on Helm model is now deprecated. Please opt for the [Azure Policy Extension for Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
+
 To remove the Azure Policy Add-on and Gatekeeper from your Azure Arc enabled Kubernetes cluster, run
 the following Helm command:
 
@@ -913,6 +664,9 @@ helm uninstall azure-policy-addon
 ```
 
 ### Remove the add-on from AKS Engine
+
+> [!NOTE]
+>  The AKS Engine product is now deprecated for Azure public cloud customers. Please consider using [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) for managed Kubernetes or [Cluster API Provider Azure](https://github.com/kubernetes-sigs/cluster-api-provider-azure) for self-managed Kubernetes. There are no new features planned; this project will only be updated for CVEs & similar, with Kubernetes 1.24 as the final version to receive updates.
 
 To remove the Azure Policy Add-on and Gatekeeper from your AKS Engine cluster, use the method that
 aligns with how the add-on was installed:

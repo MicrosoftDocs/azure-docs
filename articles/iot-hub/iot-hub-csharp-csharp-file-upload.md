@@ -16,61 +16,55 @@ ms.custom: "mqtt, devx-track-csharp"
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial shows you how to use the file upload feature of IoT Hub with the Azure IoT .NET device and service SDKs.
+This article demonstrates how to [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) upload a file to [Azure blob storage](../storage/index.yml), using an Azure IoT .NET device and service SDKs. 
 
-The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) article show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) article shows a way to reliably store device-to-cloud messages in Microsoft Azure blob storage. However, in some scenarios, you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Videos
 * Large files that contain images
 * Vibration data sampled at high frequency
 * Some form of preprocessed data
 
-These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This tutorial shows you how.
+These files are typically batch processed in the cloud, using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, you can still use the security and reliability of IoT Hub. This article shows you how.
 
-At the end of this tutorial you run two .NET console apps:
+At the end of this article, you run two .NET console apps:
 
-* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# samples repository that you download in the prerequisites.
+* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# SDK repository that you download in the prerequisites.
 
 * **ReadFileUploadNotification**. This service app receives file upload notifications from your IoT hub. You'll create this app.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages, including C, Java, Python, and JavaScript, through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages (including C, Java, Python, and JavaScript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) to learn how to connect your device to Azure IoT Hub.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
 
-* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
 
-* The sample applications you run in this article are written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
 
-    You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+* The sample applications you run in this article are written using C# with .NET Core.
 
-    You can verify the current version of the .NET Core SDK on your development machine using the following command:
+  Download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
+
+  Verify the current version of the .NET Core SDK on your development machine using the following command:
 
     ```cmd/sh
     dotnet --version
     ```
 
-* Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) and extract the ZIP archive.
+* Download the Azure IoT C# SDK from [Download sample](https://github.com/Azure/azure-iot-sdk-csharp/archive/main.zip) and extract the ZIP archive.
 
-* Make sure that port 8883 is open in your firewall. The sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-## Register a new device in the IoT hub
-
-[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+* Port 8883 should be open in your firewall. The sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Upload file from a device app
 
-In this article, you'll use a sample from the Azure IoT C# samples repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
+In this article, you use a sample from the Azure IoT C# SDK repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
 
-The sample is located in the **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** under the folder where you extracted the Azure IoT C# samples.
+The sample is located at **azure-iot-sdk-csharp/iothub/device/samples/getting started/FileUploadSample** in the folder where you extracted the Azure IoT C# SDK.
 
 Examine the code in **FileUpLoadSample.cs**. This file contains the main sample logic. After creating an IoT Hub device client, it follows the standard three-part procedure for uploading files from a device:
 
@@ -218,7 +212,7 @@ Now you're ready to run the applications.
 
 
 
-1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-main\iot-hub\Samples\device\FileUploadSample** under the folder where you expanded the Azure IoT C# samples. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you copied previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
+1. Next, run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-sdk-csharp\iothub\device\samples\getting started\FileUploadSample** under the folder where you expanded the Azure IoT C# SDK. Run the following commands. Replace the `{Your device connection string}` placeholder value in the second command with the device connection string you saw when you registered a device in the IoT Hub.
 
     ```cmd/sh
     dotnet restore
@@ -260,13 +254,13 @@ You can use the portal to view the uploaded file in the storage container you co
 1. Select the folder named after your device.
 1. Select the blob that you uploaded your file to. In this article, it's the blob named **TestPayload.txt**.  
 
-    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal.":::
+    :::image type="content" source="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png" alt-text="Screenshot of selecting the uploaded file in the Azure portal." lightbox="./media/iot-hub-csharp-csharp-file-upload/view-uploaded-file.png":::
 
 1. View the blob properties on the page that opens. You can select **Download** to download the file and view its contents locally.
 
 ## Next steps
 
-In this tutorial, you learned how to use the file upload feature of IoT Hub to simplify file uploads from devices. You can continue to explore this feature with the following articles:
+In this article, you learned how to use the file upload feature of IoT Hub to simplify file uploads from devices. You can continue to explore this feature with the following articles:
 
 * [Overview of file uploads with IoT Hub](iot-hub-devguide-file-upload.md)
 

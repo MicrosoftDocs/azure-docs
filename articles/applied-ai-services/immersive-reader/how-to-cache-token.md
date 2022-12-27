@@ -19,19 +19,44 @@ This article demonstrates how to cache the authentication token in order to impr
 
 ## Using ASP.NET
 
-Import the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package, which is used to acquire a token. Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
+Import the **Microsoft.Identity.Client** NuGet package, which is used to acquire a token.
+
+Create a confidential client application property.
+
+```csharp
+private IConfidentialClientApplication _confidentialClientApplication;
+private IConfidentialClientApplication ConfidentialClientApplication
+{
+    get {
+        if (_confidentialClientApplication == null) {
+            _confidentialClientApplication = ConfidentialClientApplicationBuilder.Create(ClientId)
+            .WithClientSecret(ClientSecret)
+            .WithAuthority($"https://login.windows.net/{TenantId}")
+            .Build();
+        }
+
+        return _confidentialClientApplication;
+    }
+}
+```
+
+Next, use the following code to acquire an `AuthenticationResult`, using the authentication values you got when you [created the Immersive Reader resource](./how-to-create-immersive-reader.md).
 
 > [!IMPORTANT]
 > The [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package and Azure AD Authentication Library (ADAL) have been deprecated. No new features have been added since June 30, 2020.   We strongly encourage you to upgrade, see the [migration guide](../../active-directory/develop/msal-migration.md) for more details.
 
 
 ```csharp
-private async Task<AuthenticationResult> GetTokenAsync()
+public async Task<string> GetTokenAsync()
 {
-    AuthenticationContext authContext = new AuthenticationContext($"https://login.windows.net/{TENANT_ID}");
-    ClientCredential clientCredential = new ClientCredential(CLIENT_ID, CLIENT_SECRET);
-    AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", clientCredential);
-    return authResult;
+    const string resource = "https://cognitiveservices.azure.com/";
+
+    var authResult = await ConfidentialClientApplication.AcquireTokenForClient(
+        new[] { $"{resource}/.default" })
+        .ExecuteAsync()
+        .ConfigureAwait(false);
+
+    return authResult.AccessToken;
 }
 ```
 

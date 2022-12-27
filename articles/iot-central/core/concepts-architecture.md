@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/03/2022
+ms.date: 11/28/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,7 +12,7 @@ ms.custom: [iot-central-frontdoor]
 
 # Azure IoT Central architecture
 
-IoT Central is a ready-made environment for IoT solution development. It's an application platform as a service (aPaaS) IoT solution and its primary interface is a web UI. There's also a [REST API](#extend-with-rest-api) that lets you interact with your application programmatically.
+IoT Central is a ready-made environment that lets you quickly evaluate your IoT scenario. It's an application platform as a service (aPaaS) IoT solution and its primary interface is a web UI. There's also a [REST API](#extend-with-rest-api) that lets you interact with your application programmatically.
 
 This article provides an overview of the key elements in an IoT Central solution architecture.
 
@@ -48,6 +48,7 @@ In IoT Central, you can configure and manage security in the following areas:
 - Device access to your application.
 - Programmatic access to your application.
 - Authentication to other services from your application.
+- Audit logs track activity in your application.
 
 To learn more, see the [IoT Central security guide](overview-iot-central-security.md).
 
@@ -103,3 +104,4 @@ Build integrations that let other applications and services manage your applicat
 ## Next steps
 
 Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+

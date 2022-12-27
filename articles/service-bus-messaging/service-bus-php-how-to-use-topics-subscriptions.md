@@ -127,7 +127,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -163,7 +163,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -233,7 +233,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -300,7 +300,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -336,7 +336,7 @@ try {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here: 
-    // https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
+    // https://learn.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";

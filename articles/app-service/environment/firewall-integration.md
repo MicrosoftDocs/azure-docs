@@ -69,7 +69,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
    ![Add NTP service tag network rule][6]
 
-1. Create a route table with the management addresses from [App Service Environment management addresses]( ./management-addresses.md) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
+1. Create a route table with the management addresses from [App Service Environment management addresses]( ./management-addresses.md) or the AppServiceManagement service tag with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. Add a Virtual Appliance route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
    ![Creating a route table][4]
 
@@ -238,6 +238,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 | Endpoint |
 |----------|
 |gr-prod-\*.cloudapp.net:443 |
+|gr-prod-\*.azurewebsites.windows.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |

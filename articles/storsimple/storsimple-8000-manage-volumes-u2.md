@@ -4,11 +4,13 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to manage volumes (Update 3 or later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

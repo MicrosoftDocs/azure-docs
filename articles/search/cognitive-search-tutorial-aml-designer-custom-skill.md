@@ -21,7 +21,7 @@ Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.
 
 ## Register model and download assets
 
-Once you have a model trained, [register the trained model](../machine-learning/how-to-deploy-model-designer.md) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
+Once you have a model trained, [register the trained model](../machine-learning/v1/how-to-deploy-model-designer.md) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
 
 
 ## Edit the scoring script for use with Cognitive Search 

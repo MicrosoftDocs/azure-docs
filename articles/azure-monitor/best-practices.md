@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
+ms.reviewer: bwren
 ---
 
 # Azure Monitor best practices
@@ -27,9 +28,10 @@ This article introduces the scenario. If you want to jump right into a specific 
 | Article | Description |
 |:---|:---|
 | [Planning](best-practices-plan.md)  | Planning that you should consider before starting your implementation. Includes design decisions and information about your organization and requirements that you should gather. |
-| [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from you Azure and hybrid applications and resources. |
+| [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from your Azure and hybrid applications and resources. |
 | [Analysis and visualizations](best-practices-analysis.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
 | [Alerts and automated responses](best-practices-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
+| [Best practices and cost management](best-practices-cost.md) | Reducing your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. |
 
 
 ## Next steps

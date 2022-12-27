@@ -3,15 +3,15 @@ title: Assign Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to assign Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
 ms.date: 02/02/2022
-ms.author: curtand
+ms.author: amsliu
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps

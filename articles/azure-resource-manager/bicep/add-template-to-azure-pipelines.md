@@ -2,14 +2,14 @@
 title: CI/CD with Azure Pipelines and Bicep files
 description: In this quickstart, you learn how to configure continuous integration in Azure Pipelines by using Bicep files. It shows how to use an Azure CLI task to deploy a Bicep file.
 ms.topic: quickstart
-ms.date: 02/23/2022
+ms.date: 08/03/2022
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
 
 This quickstart shows you how to integrate Bicep files with Azure Pipelines for continuous integration and continuous deployment (CI/CD).
 
-It provides a short introduction to the pipeline task you need for deploying a Bicep file. If you want more detailed steps on setting up the pipeline and project, see [Deploy Azure resources by using Bicep and Azure Pipelines](/learn/paths/bicep-azure-pipelines/) on **Microsoft Learn**.
+It provides a short introduction to the pipeline task you need for deploying a Bicep file. If you want more detailed steps on setting up the pipeline and project, see [Deploy Azure resources by using Bicep and Azure Pipelines](/training/paths/bicep-azure-pipelines/).
 
 ## Prerequisites
 
@@ -39,7 +39,50 @@ You need a [Bicep file](./quickstart-create-bicep-use-visual-studio-code.md) tha
 
    ![Select pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
-## Azure CLI task
+## Deploy Bicep files
+
+You can use Azure Resource Group Deployment task or Azure CLI task to deploy a Bicep file.
+
+### Use Azure Resource Group Deployment task
+
+Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment):
+
+```yml
+trigger:
+- master
+
+name: Deploy Bicep files
+
+variables:
+  vmImageName: 'ubuntu-latest'
+
+  azureServiceConnection: '<your-connection-name>'
+  resourceGroupName: 'exampleRG'
+  location: '<your-resource-group-location>'
+  templateFile: './main.bicep'
+pool:
+  vmImage: $(vmImageName)
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: '$(azureServiceConnection)'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: '$(resourceGroupName)'
+    location: '$(location)'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(templateFile)'
+    overrideParameters: '-storageAccountType Standard_LRS'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
+```
+
+For the descriptions of the task inputs, see [Azure Resource Group Deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment).
+
+Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
+
+### Use Azure CLI task
 
 Replace your starter pipeline with the following YAML. It creates a resource group and deploys a Bicep file by using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli):
 
@@ -71,12 +114,7 @@ steps:
       az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile)
 ```
 
-The Azure CLI task takes the following inputs:
-
-* `azureSubscription`, provide the name of the service connection that you created.  See [Prerequisites](#prerequisites).
-* `scriptType`, use **bash**.
-* `scriptLocation`, use **inlineScript**, or **scriptPath**. If you specify **scriptPath**, you'll also need to specify a `scriptPath` parameter.
-* `inlineScript`, specify your script lines.  The script provided in the sample deploys a Bicep file called *main.bicep*.
+For the descriptions of the task inputs, see [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli).
 
 Select **Save**. The build pipeline automatically runs. Go back to the summary for your build pipeline, and watch the status.
 

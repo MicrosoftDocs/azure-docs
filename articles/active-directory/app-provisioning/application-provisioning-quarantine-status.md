@@ -3,12 +3,12 @@ title: Quarantine status in Azure Active Directory Application Provisioning
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/11/2021
+ms.date: 10/06/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -47,6 +47,8 @@ There are three ways to check whether an application is in quarantine:
 
 ## Why is my application in quarantine?
 
+Below are the common reasons your application may go into quarantine
+
 |Description|Recommended Action|
 |---|---|
 |**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case, the Azure AD provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section. See if the application requires specifying the tenant URL and that the URL is correct. If you don't see an issue, contact the application developer to ensure that their service is SCIM-compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
@@ -68,6 +70,21 @@ A job can go into quarantine regardless of failure counts for issues such as adm
 - A job where 30,000 users failed provisioning and 5,000 were successful would lead to quarantine as it exceeds the 40% threshold and 5,000 minimum.
 - A job with 20,000 failures and 100,000 success wouldn't go into quarantine because it does not exceed the 40% failure threshold or the 40,000 failure max.  
 - There's an absolute threshold of 60,000 failures that accounts for both reference and non-reference failures. For example, 40,000 users failed to be provisioned and 21,000 manager updates failed. The total is 61,000 failures and exceeds the 60,000 limit.
+
+**Retry duration**
+
+The logic documented here may be different for certain connectors to ensure best customer experience, but we generally have the below retry cycles after a failure:
+
+After the first failure, the first retry happens within the next 2 hours (usually in the next sync cycle).
+- The second retry happens 6 hours after the first failure.
+- The third retry happens 12 hours after the first failure.
+- The fourth retry happens 24 hours after the first failure.
+- The fifth retry happens 48 hours after the first failure.
+- The sixth retry happens 72 hours after the first failure.
+- The seventh retry happens 96 hours after the first failure.
+- The eighth retry happens 120 hours after the first failure.
+
+This cycle is repeated every 24 hours until the 30th day when retries are stopped and the job is disabled. 
 
 
 ## How do I get my application out of quarantine?

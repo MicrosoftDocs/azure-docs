@@ -17,6 +17,7 @@ ms.custom: "include file"
 | Query language | Azure Monitor uses the same [Kusto query language](/azure/kusto/query/) as Azure Data Explorer. See [Azure Monitor log query language differences](/azure/data-explorer/kusto/query/) for KQL language elements not supported in Azure Monitor. |
 | Azure regions | Log queries can experience excessive overhead when data spans Log Analytics workspaces in multiple Azure regions. See [Query limits](../articles/azure-monitor/logs/scope.md#query-scope-limits) for details. |
 | Cross resource queries | Maximum number of Application Insights resources and Log Analytics workspaces in a single query limited to 100.<br>Cross-resource query is not supported in View Designer.<br>Cross-resource query in log alerts is supported in the new scheduledQueryRules API.<br>See [Cross-resource query limits](../articles/azure-monitor/logs/cross-workspace-query.md#cross-resource-query-limits) for details. |
+| Log Analytics dashboard queries | Maximum number of records returned in a single Log Analytics dashboard query is 2000. |
 
 ### User query throttling
 Azure Monitor has several throttling limits to protect against users sending an excessive number of queries. Such behavior can potentially overload the system backend resources and jeopardize service responsiveness. The following limits are designed to protect customers from interruptions and ensure consistent service level. The user throttling and limits are designed to impact only extreme usage scenario and should not be relevant for typical usage.

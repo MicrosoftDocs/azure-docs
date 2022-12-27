@@ -12,7 +12,7 @@ monikerRange: "iotedge-2018-06"
 
 # Create and provision an IoT Edge device on Windows using symmetric keys
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806](includes/iot-edge-version-201806.md)]
 
 This article provides end-to-end instructions for registering and provisioning a Windows IoT Edge device.
 
@@ -49,7 +49,7 @@ This article covers using symmetric keys as your authentication method. If you w
 This article covers registering your IoT Edge device and installing IoT Edge on it. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](includes/iot-edge-prerequisites-register-device.md)]
 
 ### Device requirements
 
@@ -57,11 +57,13 @@ A Windows device.
 
 IoT Edge with Windows containers requires Windows version 1809/build 17763, which is the latest [Windows long term support build](/windows/release-information/). Be sure to review the [supported systems list](support.md#operating-systems) for a list of supported SKUs.
 
+Note that the Windows versions on both the container and host must match. For more information, see [Could not start module due to OS mismatch](troubleshoot-common-errors.md#could-not-start-module-due-to-os-mismatch).
+
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
+[!INCLUDE [iot-edge-register-device-symmetric.md](includes/iot-edge-register-device-symmetric.md)]
 
 <!-- Install IoT Edge on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
+[!INCLUDE [install-iot-edge-windows.md](includes/iot-edge-install-windows.md)]
 
 ## Provision the device with its cloud identity
 

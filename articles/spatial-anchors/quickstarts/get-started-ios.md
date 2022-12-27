@@ -67,6 +67,11 @@ cd ./iOS/Objective-C/
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
 
+> [!NOTE]
+> Use the following command if you have macOS Monterey (12.2.1)
+
+Run `pod update` to install the CocoaPods for the project.
+
 Now open the `.xcworkspace` in Xcode.
 
 > [!NOTE]

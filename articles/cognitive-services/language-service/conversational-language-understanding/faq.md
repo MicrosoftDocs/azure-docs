@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: quickstart
-ms.date: 05/31/2022
+ms.topic: conceptual
+ms.date: 09/29/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -60,7 +60,7 @@ Unlike LUIS, you cannot label the same text as 2 different entities. Learned com
 
 ## Can I import a LUIS JSON file into conversational language understanding?
 
-Yes, you can [import any LUIS application](./concepts/backwards-compatibility.md) JSON file from the latest version in the service.
+Yes, you can [import any LUIS application](./how-to/migrate-from-luis.md) JSON file from the latest version in the service.
 
 ## Can I import a LUIS `.LU` file into conversational language understanding?
 
@@ -76,7 +76,7 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 ## How do I control the none intent?
 
-You can control the none intent threshhold from UI through the project settings, by changing the none inten threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](./concepts/none-intent.md#none-score-threshold)
+You can control the none intent threshold from UI through the project settings, by changing the none intent threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](./concepts/none-intent.md#none-score-threshold)
 
 ## Is there any SDK support?
 

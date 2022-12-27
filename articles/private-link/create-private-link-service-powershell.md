@@ -47,7 +47,6 @@ In this section, you create a virtual network and subnet to host the load balanc
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
-    PrivateLinkServiceNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -185,7 +184,6 @@ In this section, you'll map the private link service to a private endpoint. A vi
 $subnet = @{
     Name = 'mySubnetPE'
     AddressPrefix = '11.1.0.0/24'
-    PrivateEndpointNetworkPolicies = 'Disabled'
 }
 $subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
 
@@ -263,6 +261,7 @@ $par2 = @{
     ServiceName = 'myPrivateLinkService'
     ResourceGroupName = 'CreatePrivLinkService-rg'
     Description = 'Approved'
+    PrivateLinkResourceType = 'Microsoft.Network/privateLinkServices'
 }
 Approve-AzPrivateEndpointConnection @par2
 
@@ -287,7 +286,7 @@ $pe = Get-AzPrivateEndpoint @par1
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 ```
 
-```bash
+```powershell
 ❯ $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress
 11.1.0.4
 ```
@@ -305,6 +304,7 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 In this quickstart, you:
 
 * Created a virtual network and internal Azure Load Balancer.
+
 * Created a private link service
 
 To learn more about Azure Private endpoint, continue to:

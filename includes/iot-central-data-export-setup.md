@@ -34,6 +34,7 @@ Now that you have a destination to export your data to, set up data export in yo
     | Device connectivity | Export device connected and disconnected events. | [Device connectivity message format](#device-connectivity-changes-format) |
     | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
     | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) |
+    | Audit logs | Logs of user-initiated updates to entities in the application. To learn more, see [Use audit logs to track activity in your IoT Central application](../articles/iot-central/core/howto-use-audit-logs.md) | [Audit log message format](#audit-log-format) |
 
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
     <a name="DataExportFilters"></a>
@@ -45,6 +46,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device template lifecycle|<ul><li>Filter by device template</li></ul>|
+    |Audit logs|N/A|
 
 1. Optionally, enrich exported messages with extra key-value pair metadata. The following enrichments are available for the telemetry, property changes, device connectivity, and device lifecycle data export types:
 <a name="DataExportEnrichmnents"></a>

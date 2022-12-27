@@ -72,6 +72,8 @@ To access the Kubernetes resources, you must have access to the AKS cluster, the
 
 For existing clusters, you may need to enable the Kubernetes resource view. To enable the resource view, follow the prompts in the portal for your cluster.
 
+### [Azure CLI](#tab/azure-cli)
+
 > [!TIP]
 > The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `--api-server-authorized-ip-ranges` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
 
@@ -84,6 +86,21 @@ CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 # Add to AKS approved list
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
+
+### [Azure PowerShell](#tab/azure-powershell) 
+
+> [!TIP]
+> The AKS feature for [**API server authorized IP ranges**](api-server-authorized-ip-ranges.md) can be added to limit API server access to only the firewall's public endpoint. Another option for such clusters is updating `-ApiServerAccessAuthorizedIpRange` to include access for a local client computer or IP address range (from which portal is being browsed). To allow this access, you need the computer's public IPv4 address. You can find this address with below command or by searching "what is my IP address" in an internet browser.
+
+```azurepowershell
+# Retrieve your IP address
+$CURRENT_IP = (Invoke-RestMethod -Uri http://ipinfo.io/json).ip
+
+# Add to AKS approved list
+Set-AzAksCluster -ResourceGroupName $RG -Name $AKSNAME -ApiServerAccessAuthorizedIpRange $CURRENT_IP/32
+```
+
+---
 
 ## Next steps
 

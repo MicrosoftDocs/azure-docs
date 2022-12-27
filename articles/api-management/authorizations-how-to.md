@@ -35,7 +35,7 @@ Four steps are needed to set up an authorization with the authorization code gra
     :::image type="content" source="media/authorizations-how-to/register-application.png" alt-text="Screenshot of registering a new OAuth application in GitHub.":::
     1. Enter an **Application name** and **Homepage URL** for the application. 
     1. Optionally, add an **Application description**.
-    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager-test.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the API Management service name that is used.  
+    1. In **Authorization callback URL** (the redirect URL), enter `https://authorization-manager.consent.azure-apim.net/redirect/apim/<YOUR-APIM-SERVICENAME>`, substituting the API Management service name that is used.  
 1. Select **Register application**.
 1. In the **General** page, copy the **Client ID**, which you'll use in a later step.
 1. Select **Generate a new client secret**. Copy the secret, which won't be displayed again, and which you'll use in a later step. 
@@ -73,7 +73,7 @@ Four steps are needed to set up an authorization with the authorization code gra
 1. Sign in to your GitHub account if you're prompted to do so.
 1. Select **Authorize** so that the application can access the signed-in user’s account. 
     
-     :::image type="content" source="media/authorizations-how-to/consent-to-authorization.png" alt-text="Screenshot of consenting to authorize with Github."::: 
+     :::image type="content" source="media/authorizations-how-to/consent-to-authorization.png" alt-text="Screenshot of consenting to authorize with GitHub."::: 
 
     After authorization, the browser is redirected to API Management and the window is closed. If prompted during redirection, select **Allow access**. In API Management, select **Next**.
 1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).

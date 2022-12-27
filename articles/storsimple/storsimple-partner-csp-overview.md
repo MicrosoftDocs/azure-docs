@@ -12,12 +12,13 @@ ms.service: storsimple
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/08/2017
+ms.date: 08/22/2022
 ms.author: alkohli
 ---
 
 # What is StorSimple for Cloud Solutions Providers Program?
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

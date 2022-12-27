@@ -1,12 +1,14 @@
 ---
 title: Run a script when an Azure Service Fabric service starts 
 description: Learn how to configure a policy for a Service Fabric service setup entry point and run a script at service start up time.
-author: athinanthny
-
-ms.topic: conceptual
-ms.date: 05/19/2022
-ms.author: atsenthi
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Run a service startup script as a local user or system account
 Before a Service Fabric service executable starts up it may be necessary to run some configuration or setup work.  For example, configuring environment variables. You can specify a script to run before the service executable starts up in the service manifest for the service. By configuring a RunAs policy for the service setup entry point you can change which account the setup executable runs under.  A separate setup entry point allows you to run high-privileged configuration for a short period of time so the service host executable doesn't need to run with high privileges for extended periods of time.
 

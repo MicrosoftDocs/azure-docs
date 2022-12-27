@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 09/12/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.collection: M365-identity-device-management
 
@@ -50,7 +50,7 @@ Helga@contoso.com,1234567,2234567abcdef2234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Make sure you include the header row in your CSV file. 
 
-Once properly formatted as a CSV file, a Global Administrator can then sign in to the Azure portal, navigate to **Azure Active Directory > Security > MFA > OATH tokens**, and upload the resulting CSV file.
+Once properly formatted as a CSV file, a Global Administrator can then sign in to the Azure portal, navigate to **Azure Active Directory** > **Security** > **Multifactor authentication** > **OATH tokens**, and upload the resulting CSV file.
 
 Depending on the size of the CSV file, it may take a few minutes to process. Select the **Refresh** button to get the current status. If there are any errors in the file, you can download a CSV file that lists any errors for you to resolve. The field names in the downloaded CSV file are different than the uploaded version.  
 
@@ -59,7 +59,7 @@ Once any errors have been addressed, the administrator then can activate each ke
 Users may have a combination of up to five OATH hardware tokens or authenticator applications, such as the Microsoft Authenticator app, configured for use at any time. Hardware OATH tokens cannot be assigned to guest users in the resource tenant.
 
 >[!IMPORTANT]
->The preview is not supported in Azure Government or sovereign clouds.
+>The preview is only supported in Azure Global and Azure Government clouds.
 
 ## Next steps
 

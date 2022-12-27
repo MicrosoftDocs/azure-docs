@@ -1,10 +1,14 @@
 ---
 title: Change Azure Service Fabric cluster settings 
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
-
 ms.topic: reference
-ms.date: 08/30/2019
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Customize Service Fabric cluster settings
 This article describes the various fabric settings for your Service Fabric cluster that you can customize. For clusters hosted in Azure, you can customize settings through the [Azure portal](https://portal.azure.com) or by using an Azure Resource Manager template. For more information, see [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, you customize settings by updating the *ClusterConfig.json* file and performing a configuration upgrade on your cluster. For more information, see [Upgrade the configuration of a standalone cluster](service-fabric-cluster-config-upgrade-windows-server.md).
 
@@ -462,6 +466,12 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, default is FALSE|Static|Flag controlling the presence and status of the Managed Identity Token Service in the cluster;this is a prerequisite for using the managed identity functionality of Service Fabric applications.|
+| RunInStandaloneMode |bool, default is FALSE |Static|The RunInStandaloneMode for ManagedIdentityTokenService. |
+| StandalonePrincipalId |wstring, default is "" |Static|The StandalonePrincipalId for ManagedIdentityTokenService. |
+| StandaloneSendX509 |bool, default is FALSE |Static|The StandaloneSendX509 for ManagedIdentityTokenService. |
+| StandaloneTenantId |wstring, default is "" |Static|The StandaloneTenantId for ManagedIdentityTokenService. |
+| StandaloneX509CredentialFindType |wstring, default is "" |Static|The StandaloneX509CredentialFindType for ManagedIdentityTokenService. |
+| StandaloneX509CredentialFindValue |wstring, default is "" |Static|The StandaloneX509CredentialFindValue for ManagedIdentityTokenService |
 
 ## Management
 
@@ -535,7 +545,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap | Dynamic |A collection of node capacities for different metrics. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
+|PropertyGroup |NodeCapacityCollectionMap | Static |A collection of node capacities for different metrics.|
 
 ## NodeDomainIds
 
@@ -548,7 +558,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap | Dynamic |A collection of string key-value pairs for node properties. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
+|PropertyGroup |NodePropertyCollectionMap | Static |A collection of string key-value pairs for node properties.|
 
 ## Paas
 
@@ -770,6 +780,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |ActivateNode |string, default is "Admin" |Dynamic| Security configuration for activation a node. |
+|BlockAccessToWireServer|bool, default is FALSE| Static |Blocks access to ports of the WireServer endpoint from Docker containers deployed as Service Fabric applications. This parameter is supported for Service Fabric clusters deployed on Azure Virtual Machines, Windows and Linux, and defaults to 'false' (access is permitted).|
 |CancelTestCommand |string, default is "Admin" |Dynamic| Cancels a specific TestCommand - if it is in flight. |
 |CodePackageControl |string, default is "Admin" |Dynamic| Security configuration for restarting code packages. |
 |CreateApplication |string, default is "Admin" | Dynamic|Security configuration for application creation. |
@@ -835,6 +846,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RecoverPartitions |string, default is "Admin" | Dynamic|Security configuration for recovering partitions. |
 |RecoverServicePartitions |string, default is "Admin" |Dynamic| Security configuration for recovering service partitions. |
 |RecoverSystemPartitions |string, default is "Admin" |Dynamic| Security configuration for recovering system service partitions. |
+|RegisterAuthorizedConnection |wstring, default is L"Admin" | Dynamic |Register authorized connection. |
 |RemoveNodeDeactivations |string, default is "Admin" |Dynamic| Security configuration for reverting deactivation on multiple nodes. |
 |ReportCompletion |wstring, default is L"Admin" |Dynamic| Security configuration for reporting completion. |
 |ReportFabricUpgradeHealth |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with the current upgrade progress. |

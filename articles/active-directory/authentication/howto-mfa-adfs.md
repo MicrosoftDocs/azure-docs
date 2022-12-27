@@ -10,7 +10,7 @@ ms.date: 04/15/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -84,7 +84,7 @@ The first thing we need to do is to configure the AD FS claims. Create two claim
 12. In the Custom rule box, enter:
 
     ```ad-fs-claim-rule
-        c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
+        c:[Type == "https://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c); 
     ```
 

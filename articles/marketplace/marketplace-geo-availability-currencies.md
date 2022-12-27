@@ -5,17 +5,17 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
-ms.author: keferna
-ms.date: 12/03/2021
+ms.author: bzamora
+ms.date: 12/15/2022
 ---
 
 # Geographic availability and currency support for the commercial marketplace
 
 ## Supported geographic locations
 
-Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in the currencies shown below. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
-A CSP can purchase an offer in Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
+A CSP can purchase an offer in the Partner Center in their end customer's currency so they can bill them in that same currency. For additional information on this, refer to [these FAQs](https://partner.microsoft.com/resources/detail/eu-efta-change-of-partner-billing-currency-faq-pdf).
 
 |   Country/Region Name               |   ISO-2   |   Currency</br>(All offer types)  |    Currency</br>(Consulting service offers only)    |
 |-------------------------------------|-----------|--------------|---------------------------------------------|
@@ -86,7 +86,7 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 | Jordan                              | JO        | USD          | EUR, JOD, USD |
 | Kazakhstan                          | KZ        | USD          | EUR, KZT, USD |
 | Kenya                               | KE        | USD          | EUR, KES, USD |
-| Korea (South)                       | KR        | KRW          | EUR, KRW, USD |
+| Korea (South)***                       | KR        | KRW          | EUR, KRW, USD |
 | Kuwait                              | KW        | USD          | EUR, KWD, USD |
 | Kyrgyzstan                          | KG        | USD          | EUR, KGS, USD |
 | Latvia                              | LV        | EUR          | EUR, USD |
@@ -166,20 +166,55 @@ A CSP can purchase an offer in Partner Center in their end customer's currency s
 
 \** Free and BYOL VM images only.
 
+*** Korea (South) commerce only available for non-Enterprise Agreement customers and is not supported in the CSP channel.
+
 ## How we convert currency
 
-For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to local currency when the page is saved. The rates Partner Center uses are updated daily. You can export the prices and review the converted equivalents.
+For all paid offer types, you have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to the static local currency of customers according to the exchange rate at the time you first save the price for the plan, in the Pricing and Availability page, in Partner Center.
 
-To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
+You can export the prices and review the converted equivalents. To ensure prices are right for each locality before you publish them, or to adjust any price before you publish:
 
-> [!NOTE]
-> To ensure prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. See [Changing prices in active commercial marketplace offers](price-changes.md) for details and limitations on changing prices in active transactable offers.
+1. Export the pricing spreadsheet.
+1. Review the prices in each market.
+1. Upload (Import) the spreadsheet to Partner Center.
+   
+To change the price of an offer that has already been published, see [Changing prices in active commercial marketplace offers](price-changes.md). It takes at least 90 days for price increases to become effective for your customers.
 
-The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change unless you republish your offer.
+> [!TIP]
+> The price shown to customers in the online stores doesn't change unless you update the price in Partner Center and then republish your offer. These changes will become effective to customers when the scheduled price change is live according to [Changing prices in active commercial marketplace offers](price-changes.md).
 
-Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
+Customers see the offer price in their tenant currency, or in their billing account currency if the customers have selected a specific subscription for their purchase.
 
-> [!NOTE]
-> Microsoft converts offer prices using the Microsoft Treasury exchange rates.
+Microsoft receives payments from customers in the customer account billing currency and pays you in the currency you selected in Partner Center. Microsoft converts the customer currency using the exchange rate of the month of the transaction.
 
-[![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
+Microsoft converts offer prices using exchange rates sourced directly from the WMR exchange rates (4pm London WM/Refinitiv). Microsoft sources WMR rates on both a daily and monthly basis.
+
+The following illustration shows the currency conversion flow:
+
+![The screenshot shows the updated currency exchange flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow-updated-13.png)
+
+
+## Options to manage local prices, for example in cases where markets have high foreign exchange rate variations
+
+Once a plan is created and saved, the prices in all local currencies are static and are not updated automatically, for example when there are foreign exchange fluctuations.
+
+As an ISV, you have several options available to minimize impact of foreign exchange fluctuations:
+
+- [Stop selling in a specific market or markets](/azure/marketplace/update-existing-offer)
+- [Update the prices of a published offer, to set specific local currency prices, using 1 of 2 options](/azure/marketplace/price-changes-faq):
+
+   - You can review the local market prices, using the Export capability in Pricing & Availability, and then update any local market prices (using Import), and then republish the plan – don’t forget to update all the plans in an offer.
+   - Modify the USD base price of a plan, save and republish the plan. This will update the local market prices using the most recent available foreign exchange rate. It takes at least 90 days for price increases to be visible to customers.
+   
+> [!Note]
+> If an offer has hidden plans, or has plans targeting government clouds, prices can’t be updated. The only option is to stop selling that plan in those markets, and then create a new plan for that market with the new prices.
+
+- Use [Private Offers](/marketplace/private-offers-in-azure-marketplace) to customize the local price to be paid by the customer
+
+   - If possible, set up the Private Offer as an upfront one-time payment, so that the exchange rate variations are as small as possible
+   - If possible, have the customer billing profile to be set in USD
+   - For multi-year deals, plan them as several one-year private offers, each with an upfront one-time payment
+
+
+
+

@@ -3,15 +3,15 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/11/2020
+ms.date: 08/24/2022
 ---
 
 ## Authenticate with Azure Active Directory
 
 > [!IMPORTANT]
-> AAD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support AAD authentication.
+> Azure AD authentication always needs to be used together with custom subdomain name of your Azure resource. [Regional endpoints](../articles/cognitive-services/cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) do not support Azure AD authentication.
 
-In the previous sections, we showed you how to authenticate against Azure Cognitive Services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure role-based access control (Azure RBAC). Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
+In the previous sections, we showed you how to authenticate against Azure Cognitive Services using a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure [role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md). Let's take a look at what's required to authenticate using Azure Active Directory (Azure AD).
 
 In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure Cognitive Services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
@@ -41,7 +41,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate.
 
-1. First, let's register an [AAD application](/powershell/module/Az.Resources/New-AzADApplication).
+1. First, let's register an [Azure AD application](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -51,7 +51,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 
    You're going to need the **ApplicationId** in the next step.
 
-2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal) for the AAD application.
+2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal) for the Azure AD application.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -109,7 +109,7 @@ In this sample, a password is used to authenticate the service principal. The to
    $result | ConvertTo-Json
    ```
 
-Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another AAD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
+Alternatively, the service principal can be authenticated with a certificate. Besides service principal, user principal is also supported by having permissions delegated through another Azure AD application. In this case, instead of passwords or certificates, users would be prompted for two-factor authentication when acquiring token.
 
 ## Authorize access to managed identities
  
