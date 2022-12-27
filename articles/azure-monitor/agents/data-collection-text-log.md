@@ -83,7 +83,7 @@ To create the data collection rule in the Azure portal:
     
     - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Prerequisites](#prerequisites).     
     - **Record delimiter** - Will be used in the future to allow delimiters other than the currently supported end of line (`/r/n`). 
-    - **Transform** - Add an [ingestion-time transformation](#add-an-ingestion-time-transformation) or leave as **source** if you don't need to transform the collected data.
+    - **Transform** - Add an [ingestion-time transformation](../essentials/data-collection-transformations.md) or leave as **source** if you don't need to transform the collected data.
  
 1. On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of the same or different types. For instance, you can select multiple Log Analytics workspaces, which is also known as multihoming.
 
