@@ -5,7 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/12/2022
+ms.date: 12/14/2022
 ms.custom: mvc
 ---
 
@@ -26,6 +26,8 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
     - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
     - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
+
 ## Update (November 2022)
 
 - Support for providing a sudo user account to perform agentless dependency analysis on Linux servers running in VMware, Hyper-V, and Physical/other cloud environments.
@@ -44,10 +46,11 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 - Enhanced notifications for test migration and migration completion status. 
 - Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
 - Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
 ## Update (June 2022)
 

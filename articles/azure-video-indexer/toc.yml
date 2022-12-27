@@ -39,8 +39,6 @@
   items:
   - name: Sign up and upload your first video
     href: video-indexer-get-started.md
-  - name: Invite users
-    href: invite-users.md
 - name: Tutorials
   items:
   - name: Create an ARM-based account
@@ -98,6 +96,7 @@
   - name: Manage accounts
     items:
     - name: Manage access to your account
+      displayName: RBAC, User, Users
       href: restricted-viewer-role.md
     - name: Connect an existing account to ARM
       href: connect-classic-account-to-arm.md

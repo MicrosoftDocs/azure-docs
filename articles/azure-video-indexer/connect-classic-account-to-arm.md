@@ -9,8 +9,6 @@ ms.custom: ignite-fall-2021
 
 # Connect an existing classic paid Azure Video Indexer account to ARM-based account  
 
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
-
 This article shows how to connect an existing classic paid Azure Video Indexer account to an Azure Resource Manager (ARM)-based (recommended) account. To create a new ARM-based account, see [create a new account](create-account-portal.md). To understand the Azure Video Indexer account types, review [account types](accounts-overview.md).
 
 In this article, we demonstrate options of connecting your **existing** Azure Video Indexer account to an [ARM][docs-arm-overview]-based account.
@@ -34,7 +32,7 @@ Connecting a classic account to be ARM-based triggers a 30 days of a transition 
 
 The transition state moves all account management functionality to be managed by ARM and will be handled by [Azure RBAC][docs-rbac-overview]. 
 
-The [invite users](invite-users.md) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
+The [invite users](restricted-viewer-role.md#share-the-account) feature in the [Azure Video Indexer website](https://www.videoindexer.ai/) gets disabled. The invited users on this account lose their access to the Azure Video Indexer account Media in the portal.  
 However, this can be resolved by assigning the right role-assignment to these users through Azure RBAC, see [How to assign RBAC][docs-rbac-assignment]. 
 
 Only the account owner, who performed the connect action, is automatically assigned as the owner on the connected account. When [Azure policies][docs-governance-policy] are enforced, they override the settings on the account.

@@ -41,7 +41,7 @@ For more information, see [Update your sensors from the Azure portal](update-ot-
 
 ### New purchase experience for OT plans
 
-The **Pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+The **Plans and pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
 
 For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
 
