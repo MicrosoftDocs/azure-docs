@@ -22,7 +22,7 @@ ms.custom: devx-track-java, mode-api
 > * [Python](search-get-started-python.md)
 > * [REST](search-get-started-rest.md)
 
-Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
+Create a Java console application that creates, loads, and queries a search index using [Visual Studio Code](https://code.visualstudio.com/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 We used the following software and services to build and test this quickstart:
 
-+ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
++ [Visual Studio Code](https://www.jetbrains.com/idea/)
 
 + [Java 11 SDK](/java/azure/jdk/)
 
@@ -52,123 +52,56 @@ Every request sent to your service requires an API key. Having a valid key estab
 
 ## Set up your environment
 
-Begin by opening IntelliJ IDEA and setting up a new project.
+Begin by opening Visual Studio Code and setting up a new project
 
 ### Create the project
 
-1. Open IntelliJ IDEA, and select **Create New Project**.
+1. Open Visual Studio Code
+1. Install the [Extension Pack For Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+1. Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Ctrl+Shift+P**. Search for **Create Java Project**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-project.png" alt-text="Create a java project" border="true":::
+
 1. Select **Maven**.
-1. In the **Project SDK** list, select the Java 11 SDK.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Create a maven project" border="false":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven.png" alt-text="Create a maven project" border="true":::
 
-1. For **GroupId** and **ArtifactId**, enter `AzureSearchQuickstart`.
-1. Accept the remaining defaults to open the project.
+1. Select **maven-archetype-quickstart**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven-project-type.png" alt-text="Create a maven quickstart project" border="true":::
+
+1. Select the latest version, currently **1.4**.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-select-maven-project-version.png" alt-text="Select maven quickstart version" border="true":::
+
+1. Enter **main.java.app** as the group ID.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Enter group id border="true":::
+
+1. Enter **azuresearchquickstart** as the artifact ID.
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Enter artifact id" border="true":::
+
+1. Select the folder to create the project in.
+
+1. Finish project creation in the [terminal](https://code.visualstudio.com/docs/terminal/basics). Hit enter, then type **y** and hit enter again
+
+    :::image type="content" source="media/search-get-started-java/java-quickstart-finish-setup-terminal.png" alt-text="Finish setup in terminal" border="true":::
+
+1. Open the folder you created the project in.
 
 ### Specify Maven dependencies
 
-1. Select **File** > **Settings**.
-1. In the **Settings** window, select **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-1. Select the  **Import Maven projects automatically** check box, and click **OK** to close the window. Maven plugins and other dependencies will now be automatically synchronized when you update the pom.xml file in the next step.
-
-    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Maven importing options in IntelliJ settings" border="false":::
-
-1. Open the pom.xml file and replace the contents with the following Maven configuration details. These include references to the [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/) and a [JSON interface API](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+1. Open the pom.xml file and add the follow dependency
 
     ```xml
-    <?xml version="1.0" encoding="UTF-8"?>
-    <project xmlns="http://maven.apache.org/POM/4.0.0"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>AzureSearchQuickstart</groupId>
-        <artifactId>AzureSearchQuickstart</artifactId>
-        <packaging>jar</packaging>
-        <version>1.0-SNAPSHOT</version>
-        <properties>
-            <jackson.version>2.12.1</jackson.version>
-            <auto-value.version>1.6.2</auto-value.version>
-            <junit.version>5.4.2</junit.version>
-            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        </properties>
-        <name>azuresearch-console</name>
-        <url>http://maven.apache.org</url>
-        <dependencies>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.datatype</groupId>
-                <artifactId>jackson-datatype-jdk8</artifactId>
-                <version>${jackson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.auto.value</groupId>
-                <artifactId>auto-value-annotations</artifactId>
-                <version>${auto-value.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.auto.value</groupId>
-                <artifactId>auto-value</artifactId>
-                <version>${auto-value.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.azure</groupId>
-                <artifactId>azure-search-documents</artifactId>
-                <version>11.1.3</version>
-            </dependency>
-        </dependencies>
-    
-        <build>
-            <plugins>
-                <!--put generated source files to generated-sources-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                    <configuration>
-                        <source>11</source>
-                        <target>11</target>
-                    </configuration>
-                </plugin>
-                <!-- For JUnit -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <!-- Add exec plugin to run demo program -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.6.0</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>exec</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <mainClass>com.microsoft.azure.search.samples.demo.App</mainClass>
-                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-    </project>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-search-documents</artifactId>
+      <version>11.5.2</version>
+    </dependency>
     ```
 
-<!-- STOPPED HERE -- SENT EMAIL TO TONG XU ASKING FOR INFO -->
 ### Set up the project structure
 
 1. Select **File** > **Project Structure**.
