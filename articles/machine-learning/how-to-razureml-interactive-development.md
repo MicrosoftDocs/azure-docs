@@ -82,7 +82,7 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
 
 1. Load `reticulate` and set the conda environment where `azureml-fsspec` was installed
 
-    [!Notebook-python[] (~/azureml-examples-mavaisma-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=reticulate)]
+    [!Notebook-r[] (~/azureml-examples-mavaisma-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=reticulate)]
 
 
 1. Find the URI path to the data file. In the code below, replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
@@ -106,7 +106,7 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     
 1. Use Pandas read functions to read in the file(s) into the R environment
 
-    [!Notebook-python[] (~/azureml-examples-mavaisma-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
+    [!Notebook-r[] (~/azureml-examples-mavaisma-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
 
 ## Install R packages
 
