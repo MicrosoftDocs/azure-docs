@@ -730,110 +730,115 @@ VM_Webshell | Possible malicious web shell detected | Medium
 |---|---|---|
 SCUBA_MULTIPLEACCOUNTCREATE | Suspicious creation of accounts on multiple hosts <br/> Suspicious creation of accounts on multiple hosts [seen multiple times] | Medium
 SCUBA_PSINSIGHT_CONTEXT | Suspicious use of PowerShell detected. <br/> Suspicious use of PowerShell detected [seen multiple times] | Informational
-SCUBA_RULE_AddGuestToAdministrators	Addition of Guest account to Local Administrators group	Medium
- 	Addition of Guest account to Local Administrators group [seen multiple times]	Medium
-SCUBA_RULE_Apache_Tomcat_executing_suspicious_commands	Apache_Tomcat_executing_suspicious_commands	Medium
-SCUBA_RULE_KnownBruteForcingTools	Suspicious process executed	High
- 	Suspicious process executed [seen multiple times]	High
-SCUBA_RULE_KnownCollectionTools	Suspicious process executed	High
-SCUBA_RULE_KnownDefenseEvasionTools	Suspicious process executed	High
-SCUBA_RULE_KnownExecutionTools	Suspicious process executed	High
-SCUBA_RULE_KnownPassTheHashTools	Suspicious process executed	High
- 	Suspicious process executed [seen multiple times]	High
-SCUBA_RULE_KnownSpammingTools	Suspicious process executed	Medium
- 	Suspicious process executed [seen multiple times]	Medium
-SCUBA_RULE_Lowering_Security_Settings	Detected the disabling of critical services	Medium
- 	Detected the disabling of critical services [seen multiple times]	Medium
-SCUBA_RULE_OtherKnownHackerTools	Suspicious process executed	High
-SCUBA_RULE_RDP_session_hijacking_via_tscon	Suspect integrity level indicative of RDP hijacking	Medium
- 	Suspect integrity level indicative of RDP hijacking [seen multiple times]	Medium
-SCUBA_RULE_RDP_session_hijacking_via_tscon_service	Suspect service installation	Medium
-SCUBA_RULE_Suppress_pesky_unauthorized_use_prohibited_notices	Detected suppression of legal notice displayed to users at logon	Low
- 	Detected suppression of legal notice displayed to users at logon [seen multiple times]	Low
-SCUBA_RULE_WDigest_Enabling	Detected enabling of the WDigest UseLogonCredential registry key	Medium
-VM.Windows_ApplockerBypass	Potential attempt to bypass AppLocker detected	High
- 	Potential attempt to bypass AppLocker detected [seen multiple times]	High
-VM.Windows_BariumKnownSuspiciousProcessExecution	Detected suspicious file creation	High
- 	Detected suspicious file creation [seen multiple times]	High
-VM.Windows_Base64EncodedExecutableInCommandLineParams	Detected encoded executable in command line data	High
- 	Detected encoded executable in command line data [seen multiple times]	High
-VM.Windows_CalcsCommandLineUse	Detected suspicious use of Cacls to lower the security state of the system.	Medium
- 	Detected suspicious use of Cacls to lower the security state of the system. [seen multiple times]	Medium
-VM.Windows_CommandLineStartingAllExe	Detected suspicious command line used to start all executables in a directory	Medium
- 	Detected suspicious command line used to start all executables in a directory [seen multiple times]	Medium
-VM.Windows_DisablingAndDeletingIISLogFiles	Detected actions indicative of disabling and deleting IIS log files.	Medium
- 	Detected actions indicative of disabling and deleting IIS log files. [seen multiple times]	Medium
-VM.Windows_DownloadUsingCertutil	Suspicious download using Certutil detected	Medium
- 	Suspicious download using Certutil detected [seen multiple times]	Medium
-VM.Windows_EchoOverPipeOnLocalhost	Detected suspicious named pipe communications	High
- 	Detected suspicious named pipe communications [seen multiple times]	High
-VM.Windows_EchoToConstructPowerShellScript	Dynamic PS script construction	Medium
- 	Dynamic PS script construction [seen multiple times]	Medium
-VM.Windows_ExecutableDecodedUsingCertutil	Detected decoding of an executable using built-in certutil.exe tool	Medium
- 	Detected decoding of an executable using built-in certutil.exe tool [seen multiple times]	Medium
-VM.Windows_FileDeletionIsSospisiousLocation	Suspicious file deletion detected	Medium
-VM.Windows_KerberosGoldenTicketAttack	Suspected Kerberos Golden Ticket attack parameters observed	Medium
- 	Suspected Kerberos Golden Ticket attack parameters observed [seen multiple times]	Medium
-VM.Windows_KeygenToolKnownProcessName	Detected possible execution of keygen executable	Medium
- 	Detected possible execution of keygen executable [seen multiple times]	Medium
-		High
- 	Suspicious process executed [seen multiple times]	High
-VM.Windows_KnownSuspiciousPowerShellScript	Suspicious use of PowerShell detected.	High
- 	Suspicious use of PowerShell detected. [seen multiple times]	High
-VM.Windows_KnownSuspiciousSoftwareInstallation	High risk software detected	Medium
- 	High risk software detected [seen multiple times]	Medium
-VM.Windows_MsHtaAndPowerShellCombination	Detected suspicious combination of HTA and PowerShell	Medium
- 	Detected suspicious combination of HTA and PowerShell [seen multiple times]	Medium
-VM.Windows_MultipleAccountsQuery	Multiple Domain Accounts Queried	Medium
- 	Multiple Domain Accounts Queried [seen multiple times]	Medium
-VM.Windows_NewAccountCreation	Account creation detected	Informational
- 	Account creation detected [seen multiple times]	Informational
-VM.Windows_ObfuscatedCommandLine	Detected obfuscated command line.	High
-	Detected obfuscated command line. [seen multiple times]	High
-VM.Windows_PcaluaUseToLaunchExecutable	Detected suspicious use of Pcalua.exe to launch executable code	Medium
- 	Detected suspicious use of Pcalua.exe to launch executable code [seen multiple times]	Medium
-VM.Windows_PetyaRansomware	Detected Petya ransomware indicators	High
- 	Detected Petya ransomware indicators [seen multiple times]	High
-VM.Windows_PowerShellPowerSploitScriptExecution	Suspicious PowerShell cmdlets executed	Medium
- 	Suspicious PowerShell cmdlets executed [seen multiple times]	Medium
-VM.Windows_RansomwareIndication	Ransomware indicators detected	High
- 	Ransomware indicators detected [seen multiple times]	High
-VM.Windows_SqlDumperUsedSuspiciously	Possible credential dumping detected [seen multiple times]	Medium
-VM.Windows_StopCriticalServices	Detected the disabling of critical services	Medium
- 	Detected the disabling of critical services [seen multiple times]	Medium
-VM.Windows_SubvertingAccessibilityBinary	Sticky keys attack detected	Medium
- 	Sticky keys attack detected [seen multiple times]	Medium
-		Medium
- 		Medium
-VM.Windows_SuspiciousFirewallRuleAdded	Detected suspicious new firewall rule	Medium
- 	Detected suspicious new firewall rule [seen multiple times]	Medium
-VM.Windows_SuspiciousFTPSSwitchUsage	Detected suspicious use of FTP -s switch	Medium
- 	Detected suspicious use of FTP -s switch [seen multiple times]	Medium
-VM.Windows_SuspiciousSQLActivity	Suspicious SQL activity	Medium
-VM.Windows_SVCHostFromInvalidPath	Suspicious process executed	High
- 	Suspicious process executed [seen multiple times]	High
-VM.Windows_SystemEventLogCleared	The Windows Security log was cleared.	Informational
- 	The Windows Security log was cleared. [seen multiple times]	Informational
-VM.Windows_TelegramInstallation	Detected potentially suspicious use of Telegram tool	Medium
-VM.Windows_UndercoverProcess Suspiciously named process detected Suspiciously named process detected [seen multiple times] High
-VM.Windows_UserAccountControlBypass	Detected change to a registry key that can be abused to bypass UAC	Medium
- 	Detected change to a registry key that can be abused to bypass UAC [seen multiple times]	Medium
-VM.Windows_VBScriptEncoding	Detected suspicious execution of VBScript.Encode command	Medium
- 	Detected suspicious execution of VBScript.Encode command [seen multiple times]	Medium
-VM.Windows_WindowPositionRegisteryChange	Suspicious WindowPosition registry value detected	Low
- 	Suspicious WindowPosition registry value detected [seen multiple times]	Low
-VM.Windows_ZincPortOpenningUsingFirewallRule	Malicious firewall rule created by ZINC server implant [seen multiple times]	High
-VM_MaliciousSQLActivity	Malicious SQL activity	High
- 	Malicious SQL activity [seen multiple times]	High
-VM_ProcessWithDoubleExtensionExecution	Suspicious double extension file executed	High
- 	Suspicious double extension file executed [seen multiple times]	High
-VM_RegistryPersistencyKey	Windows registry persistence method detected	Low
- 	Windows registry persistence method detected [seen multiple times]	Low
-VM_ShadowCopyDeletion	Suspicious Volume Shadow Copy Activity	High
- 	Suspicious Volume Shadow Copy Activity [seen multiple times]	High
-VM_SuspectExecutablePath Executable found running from a suspicious location; Executable found running from a suspicious location [seen multiple times];
+SCUBA_RULE_AddGuestToAdministrators | Addition of Guest account to Local Administrators group | Medium
+Addition of Guest account to Local Administrators group [seen multiple times] | Medium
+SCUBA_RULE_Apache_Tomcat_executing_suspicious_commands | Apache_Tomcat_executing_suspicious_commands | Medium
+SCUBA_RULE_KnownBruteForcingTools | Suspicious process executed | High
+Suspicious process executed [seen multiple times] | High
+SCUBA_RULE_KnownCollectionTools | Suspicious process executed | High
+SCUBA_RULE_KnownDefenseEvasionTools | Suspicious process executed | High
+SCUBA_RULE_KnownExecutionTools | Suspicious process executed | High
+SCUBA_RULE_KnownPassTheHashTools | Suspicious process executed | High
+Suspicious process executed [seen multiple times] | High
+SCUBA_RULE_KnownSpammingTools | Suspicious process executed | Medium
+Suspicious process executed [seen multiple times] | Medium
+SCUBA_RULE_Lowering_Security_Settings | Detected the disabling of critical services | Medium
+Detected the disabling of critical services [seen multiple times] | Medium
+SCUBA_RULE_OtherKnownHackerTools | Suspicious process executed | High
+SCUBA_RULE_RDP_session_hijacking_via_tscon | Suspect integrity level indicative of RDP hijacking | Medium
+Suspect integrity level indicative of RDP hijacking [seen multiple times] | Medium
+SCUBA_RULE_RDP_session_hijacking_via_tscon_service | Suspect service installation | Medium
+SCUBA_RULE_Suppress_pesky_unauthorized_use_prohibited_notices | Detected suppression of legal notice displayed to users at logon | Low
+Detected suppression of legal notice displayed to users at logon [seen multiple times] | Low
+SCUBA_RULE_WDigest_Enabling | Detected enabling of the WDigest UseLogonCredential registry key | Medium
+VM.Windows_ApplockerBypass | Potential attempt to bypass AppLocker detected | High
+Potential attempt to bypass AppLocker detected [seen multiple times] | High
+VM.Windows_BariumKnownSuspiciousProcessExecution | Detected suspicious file creation | High
+Detected suspicious file creation [seen multiple times] | High
+VM.Windows_Base64EncodedExecutableInCommandLineParams | Detected encoded executable in command line data | High
+Detected encoded executable in command line data [seen multiple times] | High
+VM.Windows_CalcsCommandLineUse | Detected suspicious use of Cacls to lower the security state of the system. | Medium
+Detected suspicious use of Cacls to lower the security state of the system. [seen multiple times] | Medium
+VM.Windows_CommandLineStartingAllExe | Detected suspicious command line used to start all executables in a directory | Medium
+Detected suspicious command line used to start all executables in a directory [seen multiple times] | Medium
+VM.Windows_DisablingAndDeletingIISLogFiles | Detected actions indicative of disabling and deleting IIS log files. | Medium
+Detected actions indicative of disabling and deleting IIS log files. [seen multiple times] | Medium
+VM.Windows_DownloadUsingCertutil | Suspicious download using Certutil detected | Medium
+Suspicious download using Certutil detected [seen multiple times] | Medium
+VM.Windows_EchoOverPipeOnLocalhost | Detected suspicious named pipe communications | High
+Detected suspicious named pipe communications [seen multiple times] | High
+VM.Windows_EchoToConstructPowerShellScript | Dynamic PS script construction | Medium
+Dynamic PS script construction [seen multiple times] | Medium
+VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium
+Detected decoding of an executable using built-in certutil.exe tool [seen multiple times] | Medium
+VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
+VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium | Suspected Kerberos Golden Ticket attack parameters observed [seen multiple times] | Medium
+VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable | Medium
+Detected possible execution of keygen executable [seen multiple times] | Medium
+Suspicious process executed [seen multiple times] | High
+VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected. | High
+Suspicious use of PowerShell detected. [seen multiple times] | High
+VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
+High risk software detected [seen multiple times] | Medium
+VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium | Detected suspicious combination of HTA and PowerShell [seen multiple times] | Medium
+VM.Windows_MultipleAccountsQuery | Multiple Domain Accounts Queried | Medium
+Multiple Domain Accounts Queried [seen multiple times] | Medium
+VM.Windows_NewAccountCreation | Account creation detected | Informational
+Account creation detected [seen multiple times] | Informational
+VM.Windows_ObfuscatedCommandLine | Detected obfuscated command line. | High
+Detected obfuscated command line. [seen multiple times] | High
+VM.Windows_PcaluaUseToLaunchExecutable | Detected suspicious use of Pcalua.exe to launch executable code | Medium
+Detected suspicious use of Pcalua.exe to launch executable code [seen multiple times] | Medium
+VM.Windows_PetyaRansomware | Detected Petya ransomware indicators | High
+Detected Petya ransomware indicators [seen multiple times] | High
+VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets executed | Medium
+Suspicious PowerShell cmdlets executed [seen multiple times] | Medium
+VM.Windows_RansomwareIndication | Ransomware indicators detected | High
+Ransomware indicators detected [seen multiple times] | High
+VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
+VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
+Detected the disabling of critical services [seen multiple times] | Medium
+VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected | Medium
+Sticky keys attack detected [seen multiple times] | Medium
+VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
+Detected suspicious new firewall rule [seen multiple times] | Medium
+VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
+Detected suspicious use of FTP -s switch [seen multiple times] | Medium
+VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
+VM.Windows_SVCHostFromInvalidPath | Suspicious process executed | High
+Suspicious process executed [seen multiple times] | High
+VM.Windows_SystemEventLogCleared | The Windows Security log was cleared. | Informational
+The Windows Security log was cleared. [seen multiple times] | Informational
+VM.Windows_TelegramInstallation | Detected potentially suspicious use of Telegram tool | Medium
+VM.Windows_UndercoverProcess | Suspiciously named process detected Suspiciously named process detected [seen multiple times] | High
+VM.Windows_UserAccountControlBypass | Detected change to a registry key that can be abused to bypass UAC | Medium
+Detected change to a registry key that can be abused to bypass UAC [seen multiple times] | Medium
+VM.Windows_VBScriptEncoding | Detected suspicious execution of VBScript.Encode command | Medium
+Detected suspicious execution of VBScript.Encode command [seen multiple times] | Medium
+VM.Windows_WindowPositionRegisteryChange | Suspicious WindowPosition registry value detected | Low
+Suspicious WindowPosition registry value detected [seen multiple times] | Low
+VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant [seen multiple times] | High
+VM_MaliciousSQLActivity	Malicious SQL activity | High
+Malicious SQL activity [seen multiple times] | High
+VM_ProcessWithDoubleExtensionExecution	Suspicious double extension file executed | High
+Suspicious double extension file executed [seen multiple times] | High
+VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
+Windows registry persistence method detected [seen multiple times] | Low
+VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity | High
+Suspicious Volume Shadow Copy Activity [seen multiple times] | High
+VM_SuspectExecutablePath | Executable found running from a suspicious location; Executable found running from a suspicious location [seen multiple times];
 Process loaded module from a suspicious location; Process loaded module from a suspicious location [seen multiple times]
-
+VM_SuspectPhp Suspicious PHP execution detected; | Suspicious PHP execution detected [seen multiple times] ; Suspicious command execution [seen multiple times]
+| Medium | High
+VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
+Suspicious Screensaver process executed [seen multiple times] | Medium
+VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational
+Rare SVCHOST service group executed [seen multiple times] | Informational
+VM_SystemProcessInAbnormalContext | Suspicious system process executed | Medium
+Suspicious system process executed [seen multiple times] | Medium
+VM_ThreatIntelCommandLineSuspectDomain | A possible connection to malicious location has been detected; A possible connection to malicious location has been detected [seen multiple times.]
+VM_ThreatIntelSuspectLogon | A logon from a malicious IP has been detected. A logon from a malicious IP has been detected. [seen multiple times] | High
+VM_VbScriptHttpObjectAllocation | VBScript HTTP object allocation detected VBScript HTTP object allocation detected [seen multiple times] | High
 
 
 
