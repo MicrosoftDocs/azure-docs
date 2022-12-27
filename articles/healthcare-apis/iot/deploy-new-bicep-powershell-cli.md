@@ -176,7 +176,7 @@ When deployment is completed, the following resources and access roles are creat
 
 - A Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 
-- An instance of the MedTech service for Health Data Services, with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
+- A Health Data Services MedTech service with the required [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) roles:
 
   - For the device message event hub, the Azure Events Hubs Data Receiver role is assigned in the [Access control section (IAM)](../../role-based-access-control/overview.md) of the device message event hub.
 
