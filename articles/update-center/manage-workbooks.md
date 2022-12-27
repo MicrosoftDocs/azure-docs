@@ -28,16 +28,17 @@ ms.topic: how-to
 1. Under **Monitoring**, select **Workbooks** to view the Update management center (Preview)| Workbooks|Gallery.
 1. Select **Update management center** tile > **Overview** to view the Update management center (Preview)|Workbooks|Overview page.
 1. Select your subscription, and select **Edit** to enable the edit mode for all the four options.
-  - Machines overall status & configuration
-  - Updates data overview
-  - Schedules/Maintenance configurations
-  - History of Installation runs
 
-  :::image type="content" source="./media/manage-workbooks/edit-workbooks-inline.png" alt-text="Screenshot of enabling the edit mode for all the options in workbooks." lightbox="./media/manage-workbooks/edit-workbooks-expanded.png":::
+    - Machines overall status & configuration
+    - Updates data overview
+    - Schedules/Maintenance configurations
+    - History of Installation runs
 
-  You can customize the visualization to create interactive reports, edit the parameters, the size of the charts and the chart settings to define how the chart must be rendered.
+    :::image type="content" source="./media/manage-workbooks/edit-workbooks-inline.png" alt-text="Screenshot of enabling the edit mode for all the options in workbooks." lightbox="./media/manage-workbooks/edit-workbooks-expanded.png":::
 
-  :::image type="content" source="./media/manage-workbooks/workbooks-edit-query-inline.png" alt-text="Screenshot of various edit options in workbooks." lightbox="./media/manage-workbooks/workbooks-edit-query-expanded.png":::
+    You can customize the visualization to create interactive reports, edit the parameters, the size of the charts and the chart settings to define how the chart must be rendered.
+
+    :::image type="content" source="./media/manage-workbooks/workbooks-edit-query-inline.png" alt-text="Screenshot of various edit options in workbooks." lightbox="./media/manage-workbooks/workbooks-edit-query-expanded.png":::
 
 1. Select **Done Editing**.
 

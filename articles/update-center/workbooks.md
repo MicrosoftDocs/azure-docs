@@ -60,7 +60,7 @@ The gallery lists all the saved workbooks and templates for your workspace. You 
    - **History of installation runs** - provides a history of machines and maintenance runs.
     :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot of history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
 
-For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook.
+For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook).
 
 ## Next steps
 
