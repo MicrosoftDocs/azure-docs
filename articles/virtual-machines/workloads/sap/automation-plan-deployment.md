@@ -18,7 +18,7 @@ For generic SAP on Azure design considerations please visit [Introduction to an 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
-## Workload partitioning (Workload zone)
+## Workload partitioning
 
 Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
 
@@ -40,7 +40,7 @@ For more information, see [how to configure a workload zone deployment for autom
 
 ## Credentials management
 
-The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-partitioning-(workload-zone)). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -200,7 +200,7 @@ When planning a deployment, it's important to consider the overall flow. There a
     1. Creating shared storage for Terraform state files
     1. Creating shared storage for SAP installation media
 
-1. Deploy the workload zone. This step deploys the [workload zone components](#workload-partitioning-(workload-zone)), such as the virtual network and key vaults.
+1. Deploy the workload zone. This step deploys the [workload zone components](#workload-partitioning), such as the virtual network and key vaults.
 
 1. Deploy the system. This step includes the [infrastructure for the SAP system](#sap-system-setup) deployment and the SAP configuration [configuration and SAP installation](automation-run-ansible.md).
 
