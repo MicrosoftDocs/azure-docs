@@ -206,6 +206,7 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
 13. Enter or select the following information:
 
     | Setting | Value |
+    | ------- | ----- |
     | **TCP/IP Address** |   |
     | IP address: | Enter **10.1.0.5**. |
     | Subnet mask: | Enter **255.255.255.0**. |
