@@ -75,7 +75,7 @@ items:
     - name: OCR REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
+      href: /dotnet/api/overview/azure/computer-vision
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
@@ -161,7 +161,7 @@ items:
     - name: Image Analysis REST API v2.1
       href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/computervision
+      href: /dotnet/api/overview/azure/computer-vision
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision
     - name: Python
