@@ -70,7 +70,7 @@ A virtual network contains the virtual machine used in this article. In this sec
 
 14. Select **Create**.
 
-It can take a few minutes for the Bastion host to deploy. You can continue with the steps while the Bastion host is deploying.
+It can take a few minutes for the network and Bastion host to deploy. Continue with the next steps when the deployment is complete or the virtual network creation is complete.
 
 ## Create virtual machine
 
@@ -174,7 +174,53 @@ To assign multiple IP addresses to a Windows virtual machine, the IP addressees 
 
 5. Select **Connect**.
 
-6. 
+6. Open the network connections configuration on the virtual machine. Select **Start** -> **Run** and enter **`ncpa.cpl`**. 
+
+7. Select **OK**.
+
+8. Select the network interface of the virtual machine, then **Properties**:
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/select-network-interface.png" alt-text="Screenshot of select network interface in Windows OS.":::
+
+9. In **Ethernet Properties**, select **Internet Protocol Version 4 (TCP/IPv4)**, then **Properties**.
+
+10. Enter or select the following information in the **General** tab:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Select **Use the following IP address:** |   |
+    | IP address: | Enter **10.1.0.4**. |
+    | Subnet mask: | Enter **255.255.255.0** |
+    | Default gateway | Enter **10.1.0.1** |
+    | Select **Use the following DNS server addresses:** |   |
+    | Preferred DNS server: | Enter **168.63.129.16**. *This IP is the DHCP assigned IP address for the default Azure DNS* |
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/ip-address-configuration.png" alt-text="Screenshot of the primary IP configuration in Windows.":::
+
+11. Select **Advanced...**.
+
+12. in **IP addresses**, select **Add...**.
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/advanced-ip-configuration.png" alt-text="Screenshot of the advanced IP configuration in Windows.":::
+
+13. Enter or select the following information:
+
+    | Setting | Value |
+    | **TCP/IP Address** |   |
+    | IP address: | Enter **10.1.0.5**. |
+    | Subnet mask: | Enter **255.255.255.0**. |
+
+14. Select **Add**.
+
+15. To add more IP addresses that correspond with any additional IP configurations created previously, select **Add**. 
+
+16. Select **OK**.
+
+17. Select **OK**.
+
+18. Select **OK**.
+
+The Bastion connection will drop for a few seconds as the network configuration is applied. Wait a few seconds then attempt to reconnect. Continue when a reconnection is successful.
 
 ## Install Docker
 
@@ -249,21 +295,25 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
 
 The script that creates the containers with the Azure CNI plugin requires the application jq. For more information and download location, see [Download jq](https://stedolan.github.io/jq/download/).
 
-The download is a self-contained executable for the application. Copy the executable **`jq-win64.exe`** to the **`scripts`** directory of the CNI plugin you downloaded in the previous steps.
+1. Open a web browser in the virtual machine and download the **jq** application.
+
+2. The download is a self-contained executable for the application. Copy the executable **`jq-win64.exe`** to the **`C:\Windows`** directory.
 
 ## Create test container
 
-1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create an Windows Server container with the CNI plugin script:
+1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create a Windows Server container with the CNI plugin script:
 
     ```powershell
     cd .\azure-container-networking\azure-container-networking-master\scripts\
     .\docker-exec.ps1 vnetdocker1 default mcr.microsoft.com/windows/servercore/iis add
     ```
 
+It can take a few minutes for the image for the container to download for the first time. When the container starts and intializes the network, the Bastion connection will disconnect. Wait a few seconds and the connection will reestablish.
+
 10. To verify that the container received the IP address you previously configured, connect to the container and view the IP:
 
     ```powershell
-    docker exec -it testcontainer powershell
+    docker exec -it vnetdocker1 powershell
     ```
 
 11. Use the **`ipconfig`** command in the following example to verify the IP address was assigned to the container:
@@ -271,7 +321,9 @@ The download is a self-contained executable for the application. Copy the execut
     ```bash
     ipconfig
     ```
-    :::image type="content" source="./media/deploy-container-networking-docker-linux/ifconfig-output.png" alt-text="Screenshot of ifconfig output in Bash prompt of test container.":::
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/ipconfig-output.png" alt-text="Screenshot of ipconfig output in PowerShell prompt of test container.":::
+
+12. Exit the container and exit the Bastion connection.
 
 ## Clean up resources
 
