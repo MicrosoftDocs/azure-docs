@@ -122,13 +122,13 @@ You can download the SAP installation media required to install the SAP software
     git clone https://github.com/Azure/sap-automation.git
     ```
 
-1. Change the branch to main
+1. Change the branch to experimental
 
     ```git bash
     git checkout experimental
     ```
     
-1. [Optional] : Verify if the current branch is "main"
+1. [Optional] : Verify if the current branch is "experimental"
 
 
     ```git bash
