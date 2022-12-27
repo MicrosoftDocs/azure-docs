@@ -11,9 +11,9 @@ ms.service: virtual-machines-sap
 
 # Plan your deployment of SAP automation framework
 
-There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), this include topics like deployment credentials management, virtual network design.
+There are multiple considerations for planning an SAP deployment and running the [SAP on Azure Deployment Automation Framework](automation-deployment-framework.md), this includes topics like deployment mechanisms, credentials management, virtual network design.
 
-For generic SAP on Azure design considerations please visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
+For generic SAP on Azure design considerations, visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
@@ -40,7 +40,7 @@ For more information, see [how to configure a workload zone deployment for autom
 
 ## Credentials management
 
-The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It is recommended to use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -136,7 +136,7 @@ The automation framework also supports having the deployment environment and SAP
 
 The deployment environment provides the following services:
 
-- Deployment VMs, which does Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
+- Deployment VMs, which do Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
 - A key vault, which contains the deployment credentials (service principals) used by Terraform when performing the deployments.
 - Azure Firewall for providing outbound internet connectivity.
 - Azure Bastion component for providing secure remote access to the deployed Virtual Machines.
