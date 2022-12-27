@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2022
+ms.date: 12/27/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -72,8 +72,12 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 
 ## Deploy Azure Kubernetes Service on your Azure Stack Edge device
 
-Use the following steps for single node or two node deployments. 
+Use the following steps for single node or two node deployments.
 
+ > [!NOTE]
+   >- Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
+   >- Use this feature for a two node device implementation only if you are an SAP customer.
+ 
 ### [Single node device](#tab/1-node)
 
 Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
@@ -94,7 +98,7 @@ Use this feature for a single node device implementation only if you are an SAP 
     Enable-HcsAzureKubernetesService –f
     ```
 
-    This step doesn't deploy the Kubernetes cluster. The cluster is deployed later in [Step 5. Set up Kubernetes cluster and enable Arc](azure-stack-edge-deploy-aks-on-azure-stack-edge.md#step-5-set-up-kubernetes-cluster-and-enable-arc).
+    This step doesn't deploy the Kubernetes cluster. The cluster is deployed later in the section for [Set up Kubernetes cluster and enable Arc](azure-stack-edge-deploy-aks-on-azure-stack-edge.md#set-up-kubernetes-cluster-and-enable-arc).
 
 1.	To verify that AKS is enabled, go to your Azure Stack Edge resource in the Azure portal. In the **Overview** pane, select the **Azure Kubernetes Service** tile.
 
