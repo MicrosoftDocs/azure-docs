@@ -40,7 +40,7 @@ For more information, see [how to configure a workload zone deployment for autom
 
 ## Credentials management
 
-The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It is recommended to use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -93,7 +93,7 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
 
-For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/) into your source control repository and then [create an appropriate folder structure](#folder-structure) in the repository.
+For your own parameter files, it's a best practice to keep these files in a source control repository that you manage. You can clone the [SAP on Azure Deployment Automation Framework bootstrap repository](https://github.com/Azure/sap-automation-bootstrap/) into your source control repository.
 
 > [!IMPORTANT]
 > Your parameter file's name becomes the name of the Terraform state file. Make sure to use a unique parameter file name for this reason.
@@ -136,34 +136,36 @@ The automation framework also supports having the deployment environment and SAP
 
 The deployment environment provides the following services:
 
-- A deployment VM, which does Terraform deployments and Ansible configuration.
-- A key vault, which contains service principal identity information for use by Terraform deployments.
-- An Azure Firewall component, which provides outbound internet connectivity.
+- Deployment VMs, which does Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
+- A key vault, which contains the deployment credentials (service principals) used by Terraform when performing the deployments.
+- Azure Firewall for providing outbound internet connectivity.
+- Azure Bastion component for providing secure remote access to the deployed Virtual Machines.
+- An Azure Web Application for performing configuration and deployment activities.
 
 The deployment configuration file defines the region, environment name, and virtual network information. For example:
 
-```json
-{
-	"infrastructure": {
-		"environment": "MGMT",
-		"region": "westeurope",
-		"vnets": {
-			"management": {
-				"address_space": "0.0.0.0/25",
-				"subnet_mgmt": {
-					"prefix": "0.0.0.0/28"
-				},
-				"subnet_fw": {
-					"prefix": "0.0.0.0/26"
-				}
-			}
-		}
-	},
-	"options": {
-		"enable_deployer_public_ip": true
-	},
-	"firewall_deployment": true
-}
+```tfvars
+# Deployer Configuration File
+environment = "MGMT"
+location = "westeurope"
+
+management_network_logical_name = "DEP01"
+management_network_address_space = "10.170.20.0/24"
+management_subnet_address_prefix = "10.170.20.64/28"
+firewall_deployment = true
+management_firewall_subnet_address_prefix = "10.170.20.0/26"
+bastion_deployment = true
+management_bastion_subnet_address_prefix = "10.170.20.128/26"
+webapp_subnet_address_prefix = "10.170.20.192/27"
+deployer_assign_subscription_permissions = true
+deployer_count = 2
+use_service_endpoint = true
+use_private_endpoint = true
+enable_firewall_for_keyvaults_and_storage = true
+
+#management_dns_subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+#management_dns_resourcegroup_name="MGMT-DNS"
+#use_custom_dns_a_registration=true
 ```
 
 For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-control-plane.md).
