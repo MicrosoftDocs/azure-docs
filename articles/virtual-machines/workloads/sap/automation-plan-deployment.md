@@ -18,6 +18,26 @@ For generic SAP on Azure design considerations please visit [Introduction to an 
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
+## Workload partitioning (Workload zone)
+
+Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
+
+You'll be creating or granting access to the following services in each workload zone:
+
+* Azure Virtual Networks, for virtual networks, subnets and network security groups.
+* Azure Key Vault, for system credentials and the deployment Service Principal.
+* Azure Storage accounts, for Boot Diagnostics and Cloud Witness.
+* Shared storage for the SAP Systems either Azure Files or Azure NetApp Files.
+
+Before you design your workload zone layout, consider the following questions:
+
+* How many workload zones does your scenario require?
+* In which regions do you need to deploy workloads?
+* What's your [deployment scenario](#supported-deployment-scenarios)?
+
+For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
+
+
 ## Credentials management
 
 The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. You can use different deployment credentials (service principals) for each [workload zone](#workload-zone-structure). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault in Azure Key Vault. Then, the framework retrieves these credentials dynamically during the deployment process.
@@ -151,25 +171,6 @@ For more information, see the [in-depth explanation of how to configure the depl
 ## SAP Library configuration
 
 The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
-
-## Workload zone structure
-
-Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
-
-You'll be creating or granting access to the following services in each workload zone:
-
-* Azure Virtual Networks, for virtual networks, subnets and network security groups.
-* Azure Key Vault, for system credentials and the deployment Service Principal.
-* Azure Storage accounts, for Boot Diagnostics and Cloud Witness.
-* Shared storage for the SAP Systems either Azure Files or Azure NetApp Files.
-
-Before you design your workload zone layout, consider the following questions:
-
-* How many workload zones does your scenario require?
-* In which regions do you need to deploy workloads?
-* What's your [deployment scenario](#supported-deployment-scenarios)?
-
-For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).
 
 ## SAP system setup
 
