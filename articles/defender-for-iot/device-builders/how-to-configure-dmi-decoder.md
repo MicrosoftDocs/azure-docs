@@ -34,8 +34,8 @@ To implement, please refer to the [System Management BIOS specifications](https:
 
 For devices that do not support the DMI decoder, there are two alternative options for retrieving and setting the firmware and hardware fields:
 
-- [JSON file](#JSON-file)
-- [Module twin configurations](#Module-twin-configurations)
+- [JSON file](#json-file)
+- [Module twin configurations](#module-twin-configurations)
 
 ### JSON file
 
