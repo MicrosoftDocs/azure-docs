@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Monitor Alerts
-description: Learn about Azure Monitor alerts, alert rules, action processing rules, and action groups. You will learn how all of these work together to monitor your system and notify you if something is wrong.
+description: Learn about Azure Monitor alerts, alert rules, action processing rules, and action groups, and how they work together to monitor your system.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: overview 
@@ -28,7 +28,7 @@ An alert rule combines:
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
- - **Alert processing rules** allow you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - **Alert processing rules** allow you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they're being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
  - **Action groups** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
@@ -96,7 +96,7 @@ For stateful alerts, the alert is considered resolved when:
 |Alert type  |The alert is resolved when |
 |---------|---------|
 |Metric alerts|The alert condition isn't met for three consecutive checks.|
-|Log alerts| A log alert is considered resolved when the condition is not met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5-15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
+|Log alerts| A log alert is considered resolved when the condition isn't met for a specific time range. The time range differs based on the frequency of the alert:<ul> <li>**1 minute**: The alert condition isn't met for 10 minutes.</li> <li>**5-15 minutes**: The alert condition isn't met for three frequency periods.</li> <li>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.</li> <li>**11 to 12 hours**: The alert condition isn't met for one frequency period.</li></ul>|
 
 When an alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email, and the monitor state in the Azure portal is set to resolved.
 
