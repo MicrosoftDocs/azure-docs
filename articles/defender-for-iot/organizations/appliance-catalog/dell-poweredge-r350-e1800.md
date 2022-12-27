@@ -93,7 +93,10 @@ Optional modules for additional monitoring ports can be installed:
 | PCIe Expansion <br>Slot 1 or 2 | Dual Port Ethernet | 540-BCSE<br>Intel X710-T2L DP 2 x 10Gbe Copper, PCIe Low Profile  |
 | PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBML<br>Intel X710 DP 2 x 10Gbe SFP+, PCIe Low Profile  |
 | PCIe Expansion <br>Slot 1 or 2 | Dual Port SFP+ | 540-BBVI<br>Broadcom 57412 Dual Port 10GbE SFP+ Adapter, PCIe Low Profile |
-
+| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BCBN or 407-BBOU - SFP+ 10G SR |
+| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOP - SFP+ 10G LR |
+| PCIe Expansion <br>Slot 1 or 2 | SFP+ Transceiver | 407-BBOS - SFP+ 1G COPPER |
+| PCIe Expansion <br>Slot 1 or 2 | INTEL X710 SFP+ Transceiver | 407-BBVJ - SFP+ 1G/10G SR (INTEL ONLY) |
 
 ## Dell PowerEdge R350 installation
 
