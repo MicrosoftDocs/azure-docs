@@ -69,7 +69,7 @@ The column **Logs to New Relic** indicates whether the resource is sending logs 
 - Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - Error - The resource is configured to send logs to New Relic but is blocked by an error.
 - Logs not configured - Only Azure resources that have the appropriate resource tags are configured to send logs to New Relic.
-- Agent not configured - Virtual machines without the New Relic Agent installed do not emit logs to New Relic.
+- Agent not configured - Virtual machines or App Services without the New Relic Agent installed do not emit logs to New Relic.
 
 The column 'Metrics to New Relic' indicates whether New Relic is receiving metrics corresponding to this resource.
 
@@ -103,10 +103,10 @@ For each app service, the following information is displayed:
 
  |Property |         Description |
  |--|----|
- | Resource name                  |     App service name|
- | Resource status                    | Indicates whether the App service is running or stopped. New Relic Agent can only be installed on app services that are running.|
- | App Service plan                   | The plan configured for the app service|
- | Agent status                      |  Status of the agent|
+ | Resource name         |     App service name|
+ | Resource status       | Indicates whether the App service is running or stopped. New Relic Agent can only be installed on app services that are running.|
+ | App Service plan      | The plan configured for the app service|
+ | Agent status          |  Status of the agent|
   
 To install the New Relic Agent, select the app service and select Install Extension. The application settings for the selected app service are updated and the app service is restarted to complete the configuration of the New Relic Agent.
 
@@ -118,11 +118,13 @@ To install the New Relic Agent, select the app service and select Install Extens
 
 ## Delete New Relic resource
 
-Select Overview in Resource menu. Then, select Delete. Confirm that you want to delete the New Relic resource. Select Delete.
+1. Select Overview in Resource menu. Then, select Delete. 
 
-:::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of overview with a red box around delete.":::
+1. Confirm that you want to delete the New Relic resource. Select Delete.
 
-If only one New Relic resource is mapped to a New Relic account, logs are no longer sent to New Relic. All billing through Azure Marketplace stops for New Relic in case your billing was managed by Azure Marketplace.
+   :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of overview with a red box around delete.":::
+
+If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic. 
 
 If more than one New Relic resource is mapped to the New Relic account using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated to that New Relic resource. However, since there are other Azure Native New Relic Service resources linked with this New Relic account, billing continues through the Azure Marketplace.
 

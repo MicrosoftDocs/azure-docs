@@ -72,4 +72,4 @@ productDirectory:
       imageSrc: ./media/index/new-relic.svg
       links:
         - url: ./new-relic/new-relic-overview.md
-          text: We need to replace this text
+          text: Enables full stack observability for application performance management, infrastructure monitoring, log management, error tracking, and real-user monitoring.

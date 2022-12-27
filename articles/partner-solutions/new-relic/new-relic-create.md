@@ -1,5 +1,5 @@
 ---
-title: Creating an instance Azure Native New Relic Service 
+title: Creating an instance of Azure Native New Relic Service 
 description: Learn how to create a resource using the Azure Native New Relic Service.
 
 ms.topic: quickstart
@@ -8,8 +8,7 @@ ms.date: 12/31/2022
 
 # QuickStart: Get started with New Relic
 
-In this QuickStart, you create a new instance of Azure Native New Relic Service. You can either create a New Relic account or link to an existing New Relic account.
-<!-- create link to exising resource when created -->
+In this QuickStart, you create a new instance of Azure Native New Relic Service. You can either [create a New Relic](new-relic-create.md) account or [link to an existing](new-relic-link-to-existing.md) New Relic account.
 
 When you use the integrated New Relic experience in Azure portal using the Azure Native New Relic Service, the following entities are created and mapped for monitoring and billing purposes.
 
@@ -49,7 +48,6 @@ Use the Azure portal to find Azure Native New Relic Service application.
 
    :::image type="content" source="media/new-relic-create/new-relic-create.png" alt-text="Screenshot showing New Relic resources.":::
 
-
     You see a form to create a New Relic resource in the working pane.
 
    :::image type="content" source="media/new-relic-create/new-relic-basics.png" alt-text="Screenshot showing the Basics tab of New Relic resource.":::
@@ -69,9 +67,8 @@ Use the Azure portal to find Azure Native New Relic Service application.
 
     :::image type="content" source="media/new-relic-create/new-relic-change-plan.png" alt-text="Screenshot of change plan.":::
 
-1. If you opt to associate with an existing organization, the corresponding billing information that got set up at the time of creation of organization is shared with you for review. 
-
-   :::image type="content" source="media/new-relic-create/new-relic-create-existing.png" alt-text="Screenshot showing the basics tab with information for existing organization.":::
+   > [!IMPORTANT]
+   > Creating a New Relic resource by associating with an existing organization is currently disabled.
 
 ## Configure metrics and logs
 
