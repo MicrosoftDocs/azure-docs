@@ -43,7 +43,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
     | **Site** |  The site associated with the sensor that detected the alert, as listed on the [Sites and sensors(how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) page.|
     | **Engine** |  The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event was triggered by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform. |
     | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
-    | **Status** | The alert status: *New*, *Active*, *Closed* |
+    | **Status** | The alert status: *New*, *Active*, *Closed* <br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source device** |The IP address, MAC address, or the name of the device where the traffic that triggered the alert originated.  |
     | **Tactics** | The [MITRE ATT&CK stage](https://attack.mitre.org/tactics/ics/). |
 

@@ -37,6 +37,9 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
     - Select **SHOW DEVICES** to show the affected devices on a zone map. For more information, see [View information per zone](how-to-view-information-per-zone.md).
 
+> [!NOTE]
+> On the on-premises management console, *New* alerts are called *Unacknowledged*, and *Closed* alerts are called *Acknowledged*. For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
+
 ### Filter the alerts displayed
 
 At the top of the **Alerts** page, use the **Free Search**, **Sites**, **Zones**, **Devices**, and **Sensors** options to filter the alerts displayed by specific parameters, or to help locate a specific alert.
