@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 12/27/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -28,8 +28,8 @@ The Azure portal now provides the following additional security data for traffic
 
 |Data type  |Description  |
 |---------|---------|
-|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br><br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
-|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: **Disable insecure administration protocol**        |
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: <br>**Disable insecure administration protocol**        |
 
 For more information, see:
 
