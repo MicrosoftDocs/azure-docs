@@ -35,7 +35,7 @@ landingContent:
         links:
           - text: Create a new New Relic resource
             url: new-relic-create.md
-          - text: Link to an existing New Relic environment
+          - text: Link to an existing New Relic account
             url: new-relic-link-to-existing.md
       - linkListType: how-to-guide
         links:
