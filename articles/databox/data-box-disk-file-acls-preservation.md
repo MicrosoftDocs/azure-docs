@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 11/18/2022
+ms.date: 12/22/2022
 ms.author: alkohli
 ---
 
