@@ -32,7 +32,10 @@ To implement, please refer to the [System Management BIOS specifications](https:
 
 ## Alternative configurations
 
-For devices that do not support the DMI decoder, there are two alternative options for retrieving and setting the firmware and hardware fields.
+For devices that do not support the DMI decoder, there are two alternative options for retrieving and setting the firmware and hardware fields:
+
+- [JSON file](#JSON-file)
+- [Module twin configurations](#Module-twin-configurations)
 
 ### JSON file
 
@@ -48,13 +51,13 @@ To configure the file, use the following path and format details:
 
 - Format:
 
-```bash
+    ```bash
         "HardwareVendor": "<hardware vendor>", 
         "HardwareModel": "<hardware model>",
         "HardwareSerialNumber": "<hardware serial number>", 
         "FirmwareVendor": "<firmware vendor>", 
         "FirmwareVersion": "<firmware version>"
-```
+    ```
 
 ### Module twin configurations
 
