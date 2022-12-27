@@ -16,7 +16,7 @@ You can create and manage the New Relic resources using the Azure portal through
 
 > [!NOTE]
 > For New Relic accounts that are created new using the Azure Native New Relic Service in Azure, customer data is stored and processed in the region where the service was deployed.
-
+> For accounts that are created directly using New Relic portal and used for linking, New Relic determines where the customer data would be stored and processed. Depending on the configuration at the time of setup, this may be on or outside of Azure.
 ## Capabilities
 
 Azure Native New Relic Service provides the following capabilities:
