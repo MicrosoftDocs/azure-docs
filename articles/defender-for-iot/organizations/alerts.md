@@ -64,7 +64,7 @@ Use the following table to learn more about each alert status and triage option.
 |**Mute**     |  - OT network sensors <br><br>- On-premises management console       |  Mute an alert when you want to close it and not see again for the same traffic, but without adding the alert allowed traffic. For example, when the Operational engine triggers an alert indicating that the PLC Mode was changed on a device. The new mode may indicate that the PLC isn't secure, but after investigation, it's determined that the new mode is acceptable. <br><br>Muting an alert closes it, but doesn't add an item to the sensor event timeline. Detected traffic is included in data mining reports, but not when when calculating data for other sensor reports. <br><br>Muting an alert is available for selected alerts only, mostly those triggered by the *Anomaly*, *Protocol Violation*, or *Operational* engines.  |
 
 > [!TIP]
-> If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event log, [create an alert exclusion rule](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console) on an on-premises management console instead.
+> If you know ahead of time which events are irrelevant for you, such as during a maintenance window, or if you don't want to track the event in the event log, create an alert exclusion rule on an on-premises management console instead. For more information, see [Accelerating OT alert workflows](#accelerating-ot-alert-workflows) below.
 >
 
 
