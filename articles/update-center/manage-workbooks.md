@@ -8,9 +8,11 @@ ms.date: 12/27/2022
 ms.topic: how-to
 ---
 
-# How to enable update management center (preview)
+# Manage workbooks in update management center (preview)
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
+
+This article describes how to create a workbook and how to edit a workbook to create customized reports.
 
 ## Create a workbook
 
