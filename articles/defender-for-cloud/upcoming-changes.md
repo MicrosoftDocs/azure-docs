@@ -19,8 +19,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | Planned change | Estimated date for change |
 |--|--|
 | [Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)](#recommendation-to-find-vulnerabilities-in-running-container-images-to-be-released-for-general-availability-ga) | January 2023 |
-| [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
-| [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
+| [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | January 2023 |
 | [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
 
 ### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
@@ -33,7 +32,7 @@ We recommend that you use the recommendation to remediate vulnerabilities in you
 
 ### Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated
 
-**Estimated date for change: December 2022**
+**Estimated date for change: January 2023**
 
 The recommendation [`Diagnostic logs in Virtual Machine Scale Sets should be enabled`](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/961eb649-3ea9-f8c2-6595-88e9a3aeedeb/showSecurityCenterCommandBar~/false) is set to be deprecated. 
 
