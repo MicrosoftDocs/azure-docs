@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 12/04/2022
+ms.date: 12/27/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -22,6 +22,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Recommendation to enable diagnostic logs for Virtual Machine Scale Sets to be deprecated](#recommendation-to-enable-diagnostic-logs-for-virtual-machine-scale-sets-to-be-deprecated) | December 2022 |
 | [The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated](#the-policy-vulnerability-assessment-settings-for-sql-server-should-contain-an-email-address-to-receive-scan-reports-is-set-to-be-deprecated) | December 2022 |
 | [The name of the Secure score control Protect your applications with Azure advanced networking solutions will be changed](#the-name-of-the-secure-score-control-protect-your-applications-with-azure-advanced-networking-solutions-will-be-changed) | January 2023 |
+| [Defender for servers security alerts deprcation](#defender-for-servers-security-alerts-deprecation) | April 2023 |
 
 ### Recommendation to find vulnerabilities in running container images to be released for General Availability (GA)
 
@@ -58,6 +59,25 @@ The Defender for SQL vulnerability assessment email report will still be availab
 The secure score control `Protect your applications with Azure advanced networking solutions` will change to `Protect applications against DDoS attacks`.
 
 The updated name will be reflected on Azure Resource Graph (ARG), Secure Score Controls API and the `Download CSV report`.
+
+### Defender for Servers security alerts deprecation
+
+**Estimated date for change: April 2023**
+
+As part of Defender for Servers security alerts quality improvements process, in April 2023, some of MDC security alerts for Windows and Linux servers, will be removed from Defender for Servers in favor of sourcing them from Defender for Endpoint.  
+
+Note that all security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
+
+If you already have the Defender for Endpoint integration enabled, there is no action required on your part. 
+
+In April 2023 you may experience a decrease in your alerts volume, but still remain protected.
+If you currently do not have the Defender for Endpoint integration enabled in Defender for Servers, you will need to enable integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no additional cost.  
+
+For more information regarding [MDE onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
+
+See in here the full alerts list that are going to be [deprecated](https://learn.microsoft.com/azure/defender-for-cloud/alerts-reference#TBD).
+
+
 
 ## Next steps
 
