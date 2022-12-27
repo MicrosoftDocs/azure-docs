@@ -18,7 +18,70 @@ For generic SAP on Azure design considerations, visit [Introduction to an SAP ad
 > [!NOTE]
 > The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
 
-## Workload partitioning
+## Control Plane planning
+
+You can perform the deployment and configuration activities from either Azure DevOps or from Azure hosted Linux virtual machines. This environment is referred to as the the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+
+Before you design your control plane, consider the following questions:
+
+* In which regions do you need to deploy workloads?
+* Is there a dedicated subscription for the control plane?
+* Is there a dedicated deployment credential for the control plane?
+* Are you deploying to an existing Virtual Network or creating a new one?
+* How is outbound internet provided for the Virtual Machines?
+* Are you going to deploy Azure Firewall for outbound internet connectivity?
+* Are private endpoints required for storage accounts and the key vault?
+* Are you going to use a custom DNS zone for the Virtual Machines?
+* Are you going to use Azure Bastion for secure remote access to the Virtual Machines?
+* Are you going to use the SDAF Configuration Web Application for performing configuration and deployment activities?
+
+### Deployment environments
+
+If you're supporting multiple workload zones in a region, use a unique identifier for your deployment environment and SAP library. Don't use the identifier for the workload zone. For example, use `MGMT` for management purposes.
+
+The automation framework also supports having the deployment environment and SAP library in separate subscriptions than the workload zones.
+
+The deployment environment provides the following services:
+
+- Deployment VMs, which do Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
+- A key vault, which contains the deployment credentials (service principals) used by Terraform when performing the deployments.
+- Azure Firewall for providing outbound internet connectivity.
+- Azure Bastion component for providing secure remote access to the deployed Virtual Machines.
+- An Azure Web Application for performing configuration and deployment activities.
+
+The deployment configuration file defines the region, environment name, and virtual network information. For example:
+
+```tfvars
+# Deployer Configuration File
+environment = "MGMT"
+location = "westeurope"
+
+management_network_logical_name = "DEP01"
+management_network_address_space = "10.170.20.0/24"
+management_subnet_address_prefix = "10.170.20.64/28"
+firewall_deployment = true
+management_firewall_subnet_address_prefix = "10.170.20.0/26"
+bastion_deployment = true
+management_bastion_subnet_address_prefix = "10.170.20.128/26"
+webapp_subnet_address_prefix = "10.170.20.192/27"
+deployer_assign_subscription_permissions = true
+deployer_count = 2
+use_service_endpoint = true
+use_private_endpoint = true
+enable_firewall_for_keyvaults_and_storage = true
+
+#management_dns_subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+#management_dns_resourcegroup_name="MGMT-DNS"
+#use_custom_dns_a_registration=true
+```
+
+For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-control-plane.md).
+
+## SAP Library configuration
+
+The SAP library provides storage for SAP installation media, Bill of Material (BOM) files, Terraform state files and optionally a Private DNS Zone. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
+
+## Workload zone planning
 
 Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
 
@@ -40,7 +103,7 @@ For more information, see [how to configure a workload zone deployment for autom
 
 ## Credentials management
 
-The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-partitioning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
+The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-zone-planning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
 The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
 
@@ -128,51 +191,6 @@ The automation framework supports deployments into multiple Azure regions. Each 
 - 1-N workload zones
 - 1-N SAP systems in the workload zones
 
-## Deployment environments
-
-If you're supporting multiple workload zones in a region, use a unique identifier for your deployment environment and SAP library. Don't use the identifier for the workload zone. For example, use `MGMT` for management purposes.
-
-The automation framework also supports having the deployment environment and SAP library in separate subscriptions than the workload zones.
-
-The deployment environment provides the following services:
-
-- Deployment VMs, which do Terraform deployments and Ansible configuration. Acts as Azure DevOps self-hosted agents.
-- A key vault, which contains the deployment credentials (service principals) used by Terraform when performing the deployments.
-- Azure Firewall for providing outbound internet connectivity.
-- Azure Bastion component for providing secure remote access to the deployed Virtual Machines.
-- An Azure Web Application for performing configuration and deployment activities.
-
-The deployment configuration file defines the region, environment name, and virtual network information. For example:
-
-```tfvars
-# Deployer Configuration File
-environment = "MGMT"
-location = "westeurope"
-
-management_network_logical_name = "DEP01"
-management_network_address_space = "10.170.20.0/24"
-management_subnet_address_prefix = "10.170.20.64/28"
-firewall_deployment = true
-management_firewall_subnet_address_prefix = "10.170.20.0/26"
-bastion_deployment = true
-management_bastion_subnet_address_prefix = "10.170.20.128/26"
-webapp_subnet_address_prefix = "10.170.20.192/27"
-deployer_assign_subscription_permissions = true
-deployer_count = 2
-use_service_endpoint = true
-use_private_endpoint = true
-enable_firewall_for_keyvaults_and_storage = true
-
-#management_dns_subscription_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-#management_dns_resourcegroup_name="MGMT-DNS"
-#use_custom_dns_a_registration=true
-```
-
-For more information, see the [in-depth explanation of how to configure the deployer](automation-configure-control-plane.md).
-
-## SAP Library configuration
-
-The SAP library provides storage for SAP installation media, Bill of Material (BOM) files,  and Terraform state files. The configuration file defines the region and environment name for the SAP library. For parameter information and examples, see [how to configure the SAP library for automation](automation-configure-control-plane.md).
 
 ## SAP system setup
 
@@ -202,18 +220,10 @@ When planning a deployment, it's important to consider the overall flow. There a
     1. Creating shared storage for Terraform state files
     1. Creating shared storage for SAP installation media
 
-1. Deploy the workload zone. This step deploys the [workload zone components](#workload-partitioning), such as the virtual network and key vaults.
+1. Deploy the workload zone. This step deploys the [workload zone components](#workload-zone-planning), such as the virtual network and key vaults.
 
 1. Deploy the system. This step includes the [infrastructure for the SAP system](#sap-system-setup) deployment and the SAP configuration [configuration and SAP installation](automation-run-ansible.md).
 
-## Orchestration environment
-
-For the automation framework, you must execute templates and scripts from one of the following supported environments:
-
-* Azure DevOps
-* An Azure-hosted Linux VM
-* Azure Cloud Shell
-* PowerShell on your local Windows computer
 
 ## Naming conventions
 
