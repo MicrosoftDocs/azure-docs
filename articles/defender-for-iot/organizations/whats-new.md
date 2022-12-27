@@ -19,17 +19,17 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal)   |
+|**OT networks**     | **Sensor version 22.2.3**: [Update sensor software from the Azure portal](#update-sensor-software-from-the-azure-portal-public-preview)   |
 
-## Update sensor software from the Azure portal
+### Update sensor software from the Azure portal (Public preview)
 
-For sensor versions 22.2.3 and higher, you can update your sensor software directly from the **Sites and sensors** page on the Azure portal.
+For cloud-connected sensor versions 22.2.3 and higher, you can update your sensor software directly from the **Sites and sensors** page on the Azure portal.
 
-Select a connected sensor with an older software version, and then select **Update (Preview)**.
+Select a cloud-connected sensor with an older software version, and then select **Update (Preview)**.
 
 - Updating sensors in bulk is supported for up to 10 sensors.
-- Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
-- If you're running an update process from a version earlier than 22.2.x, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal.
+- Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.3 or higher.
+- If you're running an update process from a version earlier than 22.2.3, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal.
 
 For more information, see [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors) and [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
 
