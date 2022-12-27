@@ -126,7 +126,7 @@ Please note the following details when enabling Azure Synapse Link on your exist
 
 1. Under the **Enable Azure Synapse Link for your containers** section select the container. 
 
-   :::image type="content" source="./media/configure-synapse-link/enable_synapse_link_existing_container.png" alt-text="Turn on analytical store for an Azure Cosmos DB existing container":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-existing-container.png" alt-text="Turn on analytical store for an Azure Cosmos DB existing container":::
 
 1. After the container the enablement, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
