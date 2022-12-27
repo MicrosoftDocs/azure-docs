@@ -4,7 +4,7 @@ description: This article lists the security alerts visible in Microsoft Defende
 author: bmansheim
 ms.author: benmansheim
 ms.topic: reference
-ms.date: 11/15/2022
+ms.date: 12/27/2022
 ---
 
 # Security alerts - a reference guide
@@ -635,6 +635,106 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+
+## Defender for Servers security alerts deprecation
+
+As part of Defender for Servers security alerts quality improvements process, in April 2023, some of MDC security alerts for Windows and 
+Linux servers, will be removed from Defender for Servers in favor of sourcing them from Defender for Endpoint.  
+
+Note that all security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
+
+### Deprecated Linux Alerts
+
+
+
+|Alert Type | Alert Display Name | Severity
+|---|---|---|
+VM.Windows_KnownCredentialAccessTools |	Suspicious process executed | High
+VM.Windows_SuspiciousAccountCreation | Suspicious Account Creation Detected | Medium
+VM_AbnormalDaemonTermination | Abnormal Termination |	Low
+VM_BinaryGeneratedFromCommandLine |	Suspicious binary detected | Medium
+VM_CommandlineSuspectDomain	Suspicious | domain name reference | Low
+VM_CommonBot | Behavior similar to common Linux bots detected | Medium
+VM_CompCommonBots | Commands similar to common Linux bots detected |Medium
+VM_CompSuspiciousScript	Suspicious | Shell Script Detected | Medium
+VM_CompTestRule | Composite Analytic Test Alert | Low
+VM_CronJobAccess | Manipulation of scheduled tasks detected | Informational
+VM_CryptoCoinMinerArtifacts | Process associated with digital currency mining detected | Medium
+VM_CryptoCoinMinerDownload | Possible Cryptocoinminer download detected | Medium
+VM_CryptoCoinMinerExecution | Potential crypto coin miner started | Medium
+VM_DataEgressArtifacts | Possible data exfiltration detected | Medium
+VM_DigitalCurrencyMining | Digital currency mining related behavior detected | High
+VM_DownloadAndRunCombo | Suspicious Download Then Run Activity | Medium
+VM_EICAR | Microsoft Defender for Cloud test alert (not a threat) | High
+VM_ExecuteHiddenFile | Execution of hidden file | Informational
+VM_ExploitAttempt | Possible command line exploitation attempt | Medium
+VM_ExposedDocker | Exposed Docker daemon on TCP socket | Medium
+VM_FairwareMalware | Behavior similar to Fairware ransomware detected | Medium
+VM_FirewallDisabled | Manipulation of host firewall detected | Medium
+VM_HadoopYarnExploit | Possible exploitation of Hadoop Yarn | Medium
+VM_HistoryFileCleared | A history file has been cleared | Medium
+VM_KnownLinuxAttackTool | Possible attack tool detected | Medium
+VM_KnownLinuxCredentialAccessTool | Possible credential access tool detected | Medium
+VM_KnownLinuxDDoSToolkit | Indicators associated with DDOS toolkit detected | Medium
+VM_KnownLinuxScreenshotTool | Screenshot taken on host | Low
+VM_LinuxBackdoorArtifact | Possible backdoor detected | Medium
+VM_LinuxReconnaissance | Local host reconnaissance detected | Medium
+VM_MismatchedScriptFeatures | Script extension mismatch detected | Medium
+VM_MitreCalderaTools | MITRE Caldera agent detected | Medium
+VM_NewSingleUserModeStartupScript | Detected Persistence Attempt | Medium
+VM_NewSudoerAccount | Account added to sudo group | Low
+VM_OverridingCommonFiles | Potential overriding of common files | Medium
+VM_PrivilegedContainerArtifacts | Container running in privileged mode | Low
+VM_PrivilegedExecutionInContainer | Command within a container running with high privileges | Low
+VM_ReadingHistoryFile | Unusual access to bash history file | Informational
+VM_ReverseShell | Potential reverse shell detected | Medium
+VM_SshKeyAccess | Process seen accessing the SSH authorized keys file in an unusual way | Low
+VM_SshKeyAddition | New SSH key added | Low
+VM_SuspectCompilation | Suspicious compilation detected | Medium
+VM_SuspectConnection | An uncommon connection attempt detected | Medium
+VM_SuspectDownload | Detected file download from a known malicious source | Medium
+VM_SuspectDownloadArtifacts | Detected suspicious file download | Low
+VM_SuspectExecutablePath | Executable found running from a suspicious location | Medium
+VM_SuspectHtaccessFileAccess | Access of htaccess file detected | Medium
+VM_SuspectInitialShellCommand | Suspicious first command in shell | Low
+VM_SuspectMixedCaseText | Detected anomalous mix of uppercase and lowercase characters in command line | Medium
+VM_SuspectNetworkConnection | Suspicious network connection | Informational
+VM_SuspectNohup | Detected suspicious use of the nohup command | Medium
+VM_SuspectPasswordChange | Possible password change using crypt-method detected | Medium
+VM_SuspectPasswordFileAccess | Suspicious password access | Informational
+VM_SuspectPhp | Suspicious PHP execution detected| Medium
+VM_SuspectDownloadArtifacts| Detected suspicious file download | Low
+VM_SuspectExecutablePath| Executable found running from a suspicious location| Medium
+VM_SuspectHtaccessFileAccess | Access of htaccess file detected| Medium
+VM_SuspectInitialShellCommand | Suspicious first command in shell| Low
+VM_SuspectMixedCaseText | Detected anomalous mix of uppercase and lowercase characters in command line| Medium
+VM_SuspectNetworkConnection | Suspicious network connection| Informational
+VM_SuspectNohup | Detected suspicious use of the nohup command| Medium
+VM_SuspectPasswordChange | Possible password change using crypt-method detected | Medium
+VM_SuspectPasswordFileAccess| Suspicious password access| Informational
+VM_SuspectPhp | Suspicious PHP execution detected| Medium
+VM_SuspectPortForwarding | Potential port forwarding to external IP address| Medium
+VM_SuspectProcessAccountPrivilegeCombo | Process running in a service account became root unexpectedly | Medium
+VM_SuspectProcessTermination | Security-related process termination detected | Low
+VM_SuspectUserAddition | Detected suspicious use of the useradd command| Medium
+VM_SuspiciousCommandLineExecution | Suspicious command execution | High
+VM_SuspiciousDNSOverHttps| Suspicious use of DNS over HTTPS | Medium
+VM_SystemLogRemoval | Possible Log Tampering Activity Detected | Medium
+VM_ThreatIntelCommandLineSuspectDomain | A possible connection to malicious location has been detected | Medium
+VM_ThreatIntelSuspectLogon | A logon from a malicious IP has been detected | High
+VM_TimerServiceDisabled | Attempt to stop apt-daily-upgrade.timer service detected | Informational
+VM_TimestampTampering | Suspicious file timestamp modification | Low
+VM_Webshell | Possible malicious web shell detected | Medium
+
+
+
+
+
+
+
+
+
+
 
 ## Next steps
 To learn more about Microsoft Defender for Cloud security alerts, see the following:
