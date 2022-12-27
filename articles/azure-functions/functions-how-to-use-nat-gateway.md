@@ -198,25 +198,6 @@ Now, let's create the NAT gateway. When you start with the [previous virtual net
 
 Once the deployment completes, the NAT gateway is ready to route traffic from your function app subnet to the Internet.
 
-## Update function configuration
-
-Now, you must add an application setting `WEBSITE_VNET_ROUTE_ALL` set to a value of `1`.  This setting forces outbound traffic through the virtual network and associated NAT gateway. Without this setting, internet traffic isn't routed through the integrated virtual network, and you'll see the same outbound IPs. 
-
-1. Navigate to your function app in the Azure portal and select **Configuration** from the left-hand menu.
-
-1. Under **Application settings**, select **+ New application setting** and complete use the following values to fill out the fields:
-
-    |Field Name  |Value |
-    |---|---|
-    |**Name**    |WEBSITE_VNET_ROUTE_ALL|
-    |**Value**   |1|
-
-1. Select **OK** to close the new application setting dialog.
-
-1. Select **Save** and then **Continue** to save the settings.
-
-The function app's now configured to route traffic through its associated virtual network.
-
 ## Verify new outbound IPs
 
 Repeat [the steps earlier](#verify-current-outbound-ips) to run the function again. You should now see the outbound IP address that you configured in the NAT shown in the function output.
