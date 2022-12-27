@@ -1,5 +1,5 @@
 ---
-title: Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk
+title: Preserving file ACLs, attributes, and timestamps with Azure Data Box disk
 description: ACLs, timestamps, and attributes preserved during data copy to Azure Data Box Disk. Copying metadata with Windows and Linux data copy tools.  
 services: databox
 author: alkohli
@@ -11,7 +11,7 @@ ms.date: 12/22/2022
 ms.author: alkohli
 ---
 
-# Preserving file ACLs, attributes, and timestamps with Azure Data Box Disk
+# Preserving file ACLs, attributes, and timestamps with Azure Data Box disk
 
 Azure Data Box Disk lets you preserve access control lists (ACLs), timestamps, and file attributes when sending data to Azure. This article describes the metadata that you can transfer when copying data to Data Box Disk to upload it to Azure Files. 
 
@@ -67,7 +67,7 @@ For more information on these `robocopy` parameters, see [Tutorial: Copy data to
 > [!NOTE]
 > If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the Data Box Disk. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
 
-#### Use robocopy to list, copy, modify files on Data Box Disk
+#### Use robocopy to list, copy, modify files on Data Box disk
 
 Here are some of the common scenarios you'll use when copying data using `robocopy`.
 
