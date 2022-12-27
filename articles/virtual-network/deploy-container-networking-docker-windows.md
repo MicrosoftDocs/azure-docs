@@ -164,8 +164,17 @@ Repeat steps 1 through 13 to add as many configurations as containers you wish t
 
 To assign multiple IP addresses to a Windows virtual machine, the IP addressees must be added to the network interface in Windows. In this section, you'll sign-in to the virtual machine and configure the IP configurations you created in the previous section.
 
+1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
+2. Select **myVM**.
 
+3. In the **Overview** of **myVM**, select **Connect** then **Bastion**.
+
+4. Enter the username and password you created when you deployed the virtual machine in the previous steps.
+
+5. Select **Connect**.
+
+6. 
 
 ## Install Docker
 
@@ -198,7 +207,7 @@ For more information about Windows containers see, [Get started: Prep Windows fo
 
 After Docker is installed on your virtual machine, continue with the steps in this article.
 
-## Install CNI plugin and create a test container
+## Install CNI plugin and jq
 
 The Azure CNI plugin is maintained as a GitHub project and is available for download from the project's GitHub page. For this article, you'll download the CNI plugin repository within the virtual machine and then install and configure the plugin.
 
@@ -236,9 +245,18 @@ For more information about the Azure CNI plugin, see [Microsoft Azure Container 
     Copy-Item -Path "c:\k\azurecni\bin\10-azure.conflist" -Destination "c:\k\azurecni\netconf"
     ```
 
-9. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create an Windows Server container with the CNI plugin script:
+### Install jq
+
+The script that creates the containers with the Azure CNI plugin requires the application jq. For more information and download location, see [Download jq](https://stedolan.github.io/jq/download/).
+
+The download is a self-contained executable for the application. Copy the executable **`jq-win64.exe`** to the **`scripts`** directory of the CNI plugin you downloaded in the previous steps.
+
+## Create test container
+
+1. To start a container with the CNI plugin, you must use a special script that comes with the plugin to create and start the container. The following example will create an Windows Server container with the CNI plugin script:
 
     ```powershell
+    cd .\azure-container-networking\azure-container-networking-master\scripts\
     .\docker-exec.ps1 vnetdocker1 default mcr.microsoft.com/windows/servercore/iis add
     ```
 
