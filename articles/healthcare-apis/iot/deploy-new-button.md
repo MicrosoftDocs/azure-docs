@@ -63,23 +63,23 @@ To begin deployment in the Azure portal, select the **Deploy to Azure** button:
   
    - **Destination Mapping** - Don't change the default values for this quickstart.
 
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png":::
+   :::image type="content" source="media\deploy-new-button\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\deploy-new-button\iot-deploy-quickstart-options.png":::
 
 2. To validate your configuration, select **Review + create**.
 
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
+   :::image type="content" source="media\deploy-new-button\iot-review-and-create-button.png" alt-text="Screenshot that shows the Review + create button selected in the Azure portal.":::
 
 3. In **Review + create**, check the template validation status. If validation is successful, the template displays **Validation Passed**. If validation fails, fix the detail that's indicated in the error message, and then select **Review + create** again.
 
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-validation-completed.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
+   :::image type="content" source="media\deploy-new-button\iot-validation-completed.png" alt-text="Screenshot that shows the Review + create pane displaying the Validation Passed message.":::
 
 4. After a successful validation, to begin the deployment, select **Create**.
 
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
+   :::image type="content" source="media\deploy-new-button\iot-create-button.png" alt-text="Screenshot that shows the highlighted Create button.":::
 
 5. In a few minutes, the Azure portal displays the message that your deployment is completed.
 
-   :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
+   :::image type="content" source="media\deploy-new-button\iot-deployment-complete-banner.png" alt-text="Screenshot that shows a green checkmark and the message Your deployment is complete.":::
 
    > [!IMPORTANT]
    > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.
