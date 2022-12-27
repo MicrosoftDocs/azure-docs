@@ -85,6 +85,7 @@ In this section, you'll create the virtual network and subnets for the virtual m
 1. Select **Add**.
 
 1. Select **Add a subnet**, enter this information:
+
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet template  |  Azure Bastion |
