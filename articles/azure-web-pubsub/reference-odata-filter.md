@@ -16,7 +16,6 @@ This article provides the following resources:
 
 - A description of the OData syntax of the `filter` parameter with examples.
 - A description of the complete [Extended Backus-Naur Form (EBNF)](#formal-grammar) grammar.
-- A browsable [syntax diagram](https://aka.ms/awps/filter-syntax-diagram) to interactively explore the syntax grammar rules.
 
 ## Syntax
 
@@ -37,7 +36,7 @@ boolean_expression ::= logical_expression
                      | '(' boolean_expression ')'
 ```
 
-An [interactive syntax diagram](https://aka.ms/awps/filter-syntax-diagram) is available.
+You can use an [interactive syntax diagram](https://aka.ms/awps/filter-syntax-diagram) to explore the syntax grammar rules.
 
 The [Formal grammar](#formal-grammar) section of this article provides the complete EBNF.
 
@@ -173,7 +172,7 @@ filter=userId eq 'user''1'
 
 ## Formal grammar
 
-The following ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) grammar can describe the subset of the OData language that the Azure Web PubSub service supports. This grammar lists rules "top down," by starting with the most complex expressions and then breaking them down into more primitive expressions.  The top is the grammar rule for `$filter` that corresponds to the specific `filter` parameter of the Azure Web PubSub service's `Send*` REST APIs.
+The following [Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form) grammar can describe the subset of the OData language that the Azure Web PubSub service supports. This grammar lists rules "top down," by starting with the most complex expressions and then breaking them down into more primitive expressions.  The top is the grammar rule for `$filter` that corresponds to the specific `filter` parameter of the Azure Web PubSub service's `Send*` REST APIs.
 
 ```
 /* Top-level rule */
