@@ -34,7 +34,7 @@ One Azure resource is defined in the template:
 
 - **[Microsoft.LabServices/labs](/azure/templates/microsoft.labservices/labs)**: resource type description.
 
-More Azure Lab Services template samples can be found in [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Labservices&pageNumber=1&sort=Popular).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](/azure/lab-services/quick-create-lab-plan-portal).
+More Azure Lab Services template samples can be found in [Azure Quickstart Templates](/samples/browse/?expanded=azure&products=azure-resource-manager&terms=lab%20services).  For more information how to create a lab without a lab plan using automation, see [Create Azure LabServices lab template](/samples/azure/azure-quickstart-templates/lab/).
 
 ## Deploy the template
 
