@@ -53,7 +53,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 |---------|---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         ||
 |A path on a datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      | |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other paths instead for folder type of data.|
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other formats(wasbs/abfss/adl) instead for folder type of data.|
 |A path on Azure Storage     |`wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`  ||
 
 
@@ -92,7 +92,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 
 # Supported paths include:
 # local: ./<path>
-# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>
+# blob:  wasbs://<containername>@<accountname>.blob.core.windows.net/<path>/
 # ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>
 type: uri_folder
