@@ -17,7 +17,7 @@ To complete this procedure, you need:
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- [A custom table](../logs/create-custom-table.md#create-a-custom-table?tabs=powershell) to send your logs to.
+- [A custom table](../logs/create-custom-table.md#powershell) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - A machine that write logs to a text file.
 
