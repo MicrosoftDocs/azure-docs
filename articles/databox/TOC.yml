@@ -254,7 +254,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.databox
     - name: .NET APIs
-      href: /dotnet/api/overview/azure/databox/management
+      href: /dotnet/api/overview/azure/databox#management-apis
     - name: .NET SDK
       href: https://www.nuget.org/packages/Microsoft.Azure.Management.DataBox/
     - name: Azure Policy built-ins
