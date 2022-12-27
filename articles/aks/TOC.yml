@@ -575,7 +575,7 @@
     - name: PowerShell
       href: /powershell/module/az.aks/#aks
     - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
+      href: /dotnet/api/overview/azure/container-service
     - name: Python
       href: /python/api/overview/azure/container-service
     - name: Java

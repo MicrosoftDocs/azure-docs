@@ -352,6 +352,6 @@ For more information, see:
 - [Normalization in Microsoft Sentinel](normalization.md)
 - [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel DNS normalization schema reference](normalization-schema-dns.md)
 - [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
