@@ -33,7 +33,7 @@ Then you define these elements for the resulting alert actions by using:
     The **Available signal types** for your selected resources are at the bottom right of the pane.
 
     > [!NOTE]
-    > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources outside of the its subscription, you will get alerts from those resources, even though they are not within the subscription selected in the scope of the alert.
+    > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources outside of its subscription, alerts are sent about those resources even though they are not within the subscription selected in the scope of the alert.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
