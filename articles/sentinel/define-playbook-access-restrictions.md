@@ -13,7 +13,7 @@ ms.date: 12/27/2022
 >
 > The new version of access restriction policies is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article shows how to define an access restriction policy for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy will ensure that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
+This article shows how to define an [access restriction policy](../app-service/overview-access-restrictions.md) for Microsoft Sentinel Standard-plan playbooks, so that they can support private endpoints. Defining this policy will ensure that **only Microsoft Sentinel will have access** to the Standard logic app containing your playbook workflows.
 
 ## Define an access restriction policy
 
@@ -48,6 +48,7 @@ This article shows how to define an access restriction policy for Microsoft Sent
     :::image type="content" source="media/define-playbook-access-restrictions/add-filter-rule.png" alt-text="Screenshot showing how to add a filter rule to your access restriction policy.":::
 
 1. Enter the following information in the **Add rule** panel. The name and optional description should reflect that this rule allows only Microsoft Sentinel to access the logic app. Leave the fields not mentioned below as they are.
+
     | Field | Enter or select |
     | ----- | --------------- |
     | **Name**  | Enter `SentinelAccess` or another name of your choosing. |
@@ -62,6 +63,8 @@ This article shows how to define an access restriction policy for Microsoft Sent
 Your policy should now look like this:
 
 :::image type="content" source="media/define-playbook-access-restrictions/resulting-rule.png" alt-text="Screenshot showing rules as they should appear in your access restriction policy.":::
+
+For more information about configuring access restriction policies in logic apps, see [Set up Azure App Service access restrictions](../app-service/app-service-ip-restrictions.md).
 
 ## Next steps
 
