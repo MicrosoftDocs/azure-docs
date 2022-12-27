@@ -33,7 +33,6 @@ Use any of the following options to modify or filter the devices shown:
 
 For more information, see [Device inventory column reference](#device-inventory-column-reference).
 
-
 ### View full device details
 
 To view full details about a specific device, select the device row. Initial details are shown in a pane on the right, where you can also select **View full details** to open the device details page and drill down more.
@@ -42,12 +41,12 @@ For example:
 
 :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Screenshot of a device details pane and the View full details button in the Azure portal." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
-The device details page displays comprehensive device details, including the following information:
+The device details page displays comprehensive device information, including the following tabs:
 
 |Section  |Description  |
 |---------|---------|
 | **Attributes** | Displays full device details such as class, data source, firmware details, activity, type, protocols, Purdue level, sensor, site, zone, and more. |
-| **Backplane** | Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is visible for PLC, RTU, and DCS devices that have slots in use. |
+| **Backplane** | Displays the backplane hardware configuration, including slot and rack information. Select a slot in the backplane view to see the details of the underlying devices. The backplane tab is usually visible for Purdue level 1 devices that have slots in use, such as PLC, RTU, and DCS devices. |
 |**Vulnerabilities** | Displays current vulnerabilities specific to the device. Vulnerability data is based on the repository of standards based vulnerability data documented at the US government National Vulnerability Database (NVD). Select the CVE name to see the CVE details and description. You can also view vulnerability data across your network with the [Defender for IoT Vulnerability workbook](workbooks.md#view-workbooks). |
 |**Alerts** | Displays current open alerts related to the device. Select any alert to view more details, and then select **View full details** to open the alert page to view the full alert information and take action. For more information on the alerts page, see [View alert details](how-to-manage-cloud-alerts.md#view-alert-details). |
 |**Recommendations** | Displays current recommendations for the device, such as Review PLC operating mode and Review unauthorized devices. For more information on recommendations, see [Enhance security posture with security recommendations](recommendations.md). |
