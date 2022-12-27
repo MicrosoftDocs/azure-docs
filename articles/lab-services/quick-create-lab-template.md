@@ -26,7 +26,7 @@ To complete this quick start, make sure that you have:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](/azure/lab-services/quick-create-lab-plan-portal).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/lab/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.labservices/lab-using-lab-plan/azuredeploy.json":::
 
