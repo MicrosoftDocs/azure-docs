@@ -18234,6 +18234,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/dns-normalization-schema.md",
+            "redirect_url": "/azure/sentinel/normalization-schema-dns",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/service-bus/index.md",
             "redirect_url": "/azure/service-bus-messaging/index",
             "redirect_document_id": false

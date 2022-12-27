@@ -139,7 +139,7 @@ The following list mentions fields that have specific guidelines for DNS events:
 | **EventType** | Mandatory | Enumerated | Indicates the operation reported by the record. <br><br> For DNS records, this value would be the [DNS op code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `lookup`|
 | **EventSubType** | Optional | Enumerated | Either `request` or `response`. <br><br>For most sources, [only the responses are logged](#guidelines-for-collecting-dns-events), and therefore the value is often **response**.  |
 | <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Enumerated | For DNS events, this field provides the [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Notes**:<br>- IANA doesn't define the case for the values, so analytics must normalize the case.<br> - If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br>- If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
-| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.5**. |
+| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.6**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dns**. |
 | **Dvc** fields| -      | -    | For DNS events, device fields refer to the system that reports the DNS event. |
 
@@ -151,7 +151,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **Class** | **Fields** |
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
-| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
+| Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br>- [EventUid](normalization-common-fields.md#eventuid)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
 | Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br> - [EventOwner](normalization-common-fields.md#eventowner)<br>- [DvcZone](normalization-common-fields.md#dvczone)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)<br>- [DvcScopeId](normalization-common-fields.md#dvcscopeid)<br>- [DvcScope](normalization-common-fields.md#dvcscope)|
 
 
@@ -229,7 +229,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the list above, and store the others in the  **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
 
-### DNS protocol fields
+### DNS specific fields
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
@@ -256,6 +256,11 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | **DnsFlagsZ** | Optional | Boolean | The DNS `Z` flag is a deprecated DNS flag, which might be reported by older DNS systems.  |
 |<a name="dnssessionid"></a>**DnsSessionId** | Optional | string | The DNS session identifier as reported by the reporting device. This value is different from [TransactionIdHex](#transactionidhex), the DNS query unique ID as assigned by the DNS client.<br><br>Example: `EB4BFA28-2EAD-4EF7-BC8A-51DF4FDF5B55` |
 | **SessionId** | Alias | String | Alias to [DnsSessionId](#dnssessionid) |
+| **DnsResponseIpCountry** | Optional | Country | The country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
+| **DnsResponseIpRegion** | Optional | Region | The region, or state, within a country associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
+| **DnsResponseIpCity** | Optional | City | The city associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
+| **DnsResponseIpLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
+| **DnsResponseIpLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with one of the IP addresses in the DNS response. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
 
 ### Inspection fields
 
@@ -307,10 +312,13 @@ The changes in version 0.1.3 of the schema are:
 - Added optional Geo Location and Risk Level fields.
 
 The changes in version 0.1.4 of the schema are:
-- Added the optional fields `ThreatIpAddr`, `ThreatName`, `ThreatConfidence`, `ThreatOriginalConfidence`, `ThreatOriginalRiskLevel`, `ThreatIsActive`, `ThreatFirstReportedTime`, and `ThreatLastReportedTime`.
+- Added the optional fields `ThreatIpAddr`, `ThreatField`, `ThreatName`, `ThreatConfidence`, `ThreatOriginalConfidence`, `ThreatOriginalRiskLevel`, `ThreatIsActive`, `ThreatFirstReportedTime`, and `ThreatLastReportedTime`.
 
 The changes in version 0.1.5 of the schema are:
 - Added the fields `SrcUserScope`, `SrcUserSessionId`, `SrcDvcScopeId`, `SrcDvcScope`, `DstDvcScopeId`, `DstDvcScope`, `DvcScopeId`, and `DvcScope`.
+
+The changes in version 0.1.6 of the schema are:
+- Added the fields `DnsResponseIpCountry`, `DnsResponseIpRegion`, `DnsResponseIpCity`, `DnsResponseIpLatitude`, and `DnsResponseIpLongitude`.
 
 
 ## Source-specific discrepancies 
