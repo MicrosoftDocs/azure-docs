@@ -40,7 +40,7 @@ When you provide a data input/output to a Job, you'll need to specify a `path` p
 |Location  | Examples  | Notes|
 |---------|---------|---------|
 |A path on your local computer     | `./home/username/data/my_data`         ||
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other paths instead for folder type of data.|
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    | https path pointing to a folder is not supported since https is not a filesystem. Please use other formats(wasbs/abfss/adl) instead for folder type of data.|
 |A path on Azure Storage     |   `wasbs://<containername>@<accountname>.blob.core.windows.net/<path_to_data>/` <br>  `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>` <br>  `adl://<accountname>.azuredatalakestore.net/<path_to_data>/`    ||
 |A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      ||
 |A path to a Data Asset  |  `azureml:<my_data>:<version>`  ||
