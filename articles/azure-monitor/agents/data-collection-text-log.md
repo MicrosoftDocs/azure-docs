@@ -17,7 +17,7 @@ To complete this procedure, you need:
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
-- When use the Azure portal to create a data collection rule for collecting text logs, Azure Monitor automatically creates a destination table in your Log Analytics workspace. When you create a data collection rule using the API, you must first [create a custom table](../logs/create-custom-table.md#create-a-custom-table) to send your logs to.
+- [A custom table](../logs/create-custom-table.md#create-a-custom-table?tabs=powershell) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - A machine that write logs to a text file.
 
@@ -278,6 +278,9 @@ To create the data collection rule in the Azure portal:
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
 ---
+
+## Add an ingestion-time transformation
+
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
