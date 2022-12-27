@@ -59,4 +59,4 @@ Learn more about R in Azure Machine Learning:
 * [Interactive R development](how-to-razureml-interactive-development.md)
 * [Adapt your R script to run in production](how-to-razureml-modify-script-for-prod.md)
 * [How to train R models in Azure Machine Learning](how-to-razureml-train-model.md)
-* [How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-an-r-model.md)
+* [How to deploy an R model to an online (real time) endpoint](how-to-razureml-deploy-r-model.md)
