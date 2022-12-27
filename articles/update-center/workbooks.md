@@ -58,7 +58,7 @@ The gallery lists all the saved workbooks and templates for your workspace. You 
    :::image type="content" source="./media/workbooks/workbooks-schedules-maintenance-inline.png" alt-text="Screenshot of summary of schedules and maintenance configurations." lightbox="./media/workbooks/workbooks-schedules-maintenance-expanded.png":::
 
    - **History of installation runs** - provides a history of machines and maintenance runs.
-    :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot of history of installation runs." lightbox="./media/workbooks/workbooks-history-installation--expanded.png":::
+    :::image type="content" source="./media/workbooks/workbooks-history-installation-inline.png" alt-text="Screenshot of history of installation runs." lightbox="./media/workbooks/workbooks-history-installation-expanded.png":::
 
 For information on how to use the workbooks for customized reporting, see [Edit a workbook](manage-workbooks.md#edit-a-workbook.
 
