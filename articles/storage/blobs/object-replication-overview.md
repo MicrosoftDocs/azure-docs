@@ -197,6 +197,17 @@ If the replication status for a blob in the source account indicates failure, th
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
+## FAQ
+
+**how much percentage of data copied and replicated after enabling Repliaction? is there any way to capture the details ?**
+
+There is no such way to check that how much percentage of data copied or replicated, also there’s currently no SLA on how long it takes to replicate data to the destination account. You can check the replication status on the source blob to determine whether replication is complete. For more information, see Check the replication status of a blob.
+
+**If a blob is deleted from the Source Storage Account, would it be deleted from destination Storage account side as well ?**
+
+When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state would be replicated to the destination account. 
+
+
 ## Billing
 
 Object replication incurs additional costs on read and write transactions against the source and destination accounts, as well as egress charges for the replication of data from the source account to the destination account and read charges to process change feed.
