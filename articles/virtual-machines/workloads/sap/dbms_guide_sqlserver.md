@@ -73,7 +73,7 @@ SQL Server proportional fill mechanism distributes reads and writes to all dataf
 
 
 ### Special for M-Series VMs
-For Azure M-Series VM, the latency writing into the transaction log can be reduced, compared to Azure premium storage performance v1, when using Azure Write Accelerator. If you think that the latency provided by premium storage v1 is limiting scalability of the SAP workload, the disks that hold the SQL Server transaction log file can be enabled for Write Accelerator. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator doesn't work with Azure premium storage v2 and Ultra disk.
+For Azure M-Series VM, the latency writing into the transaction log can be reduced, compared to Azure premium storage performance v1, when using Azure Write Accelerator. If you think that the latency provided by premium storage v1 is limiting scalability of the SAP workload, the disk that stores  the SQL Server transaction log file can be enabled for Write Accelerator. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator doesn't work with Azure premium storage v2 and Ultra disk.
   
 
 ### Formatting the disks
@@ -156,6 +156,7 @@ Detailed documentation on deploying Always On with SQL Server in Azure VMs lists
 - [Configure a load balancer for an Always On availability group in Azure](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure).
 - [HADR configuration best practices (SQL Server on Azure VMs)](/azure/azure-sql/virtual-machines/windows/hadr-cluster-best-practices)
 
+
 >[!NOTE]
 >Reading [Introducing SQL Server Always On availability groups on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/availability-group-overview), you're going to read about SQL Server's [Direct Network Name (DNN) listener](/azure/azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure). This new functionality got introduced with SQL Server 2019 CU8. This new functionality makes the usage of an Azure load balancer handling the virtual IP address of the Availability Group Listener obsolete.
 
@@ -195,6 +196,122 @@ More details to use Azure Key Vault for SQL Server TDE lists like:
 >[!IMPORTANT]
 >Using SQL Server TDE, especially with Azure key Vault, it's recommended to use the latest patches of SQL Server 2014, SQL Server 2016, and SQL Server 2017. Reason is that based on customer feedback, optimizations and fixes got applied to the code. As an example, check [KBA #4058175](https://support.microsoft.com/help/4058175/tde-enabled-backup-and-restore-slow-if-encryption-key-is-stored-in-ekm).
 >  
+
+## Minimum deployment configurations
+In this section, we suggest a set of minimum configurations for different sizes of databases under SAP workload. It is very difficult to assess whether these sizes fit your workload. In some cases, we might be very generous on memory compared to the database size. On the other side, the disk sizing might be too low for some of the workloads. Therefore, these configurations should be treated as what they are. They are configurations that should give you a point to start with. Configutations to finetume to your specific workload and cost efficiency requirements.
+
+An example of a configuration for a very small SQL Server instance with a database size between 50 GB – 250 GB, could look like
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | --- |
+| VM Type | E4s_v3/v4/v5 (4 vCPU/32 GiB RAM) | --- |
+| Accelerated Networking | Enable | ---|
+| SQL Server version | SQL Server 2019 or more recent | --- |
+| # of data files | 4 |  ---|
+| # of log files | 1 | --- |
+| # of temp data files | 4 or default since SQL Server 2016 | --- |
+| Operating system | Windows Server 2019 or more recent |  --- |
+| Disk aggregation | Storage Spaces if desired |  --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Cache = NONE |
+| SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
+
+
+An example of a configuration or a small SQL Server instance with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | --- | 
+| VM Type | E16s_v3/v4/v5 (16 vCPU/128 GiB RAM) | --- |
+| Accelerated Networking | Enable | ---|
+| SQL Server version | SQL Server 2019 or more recent | --- |
+| # of data files | 8 |  ---|
+| # of log files | 1 | --- |
+| # of temp data files | 8 or default since SQL Server 2016 | --- |
+| Operating system | Windows Server 2019 or more recent |  --- |
+| Disk aggregation | Storage Spaces if desired |  --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Cache = NONE |
+| SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
+
+An example of a configuration for a medium SQL Server instance with a database size between 750 GB – 2,000 GB, such as a medium SAP Business Suite system, could look like
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | --- | 
+| VM Type | E64s_v3/v4/v5 (64 vCPU/432 GiB RAM) | --- |
+| Accelerated Networking | Enable | ---|
+| SQL Server version | SQL Server 2019 or more recent | --- |
+| # of data devices | 16 | ---|
+| # of log devices | 1 | --- |
+| # of temp data files | 8 or default since SQL Server 2016 | --- |
+| Operating system | Windows Server 2019 or more recent |  --- |
+| Disk aggregation | Storage Spaces if desired | --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
+| SQL Server max memory parameter | 90% of Physical RAM |  Assuming single instance |
+
+An example of a configuration for a larger SQL Server instance with a database size between 2,000 GB and 4,000 GB, such as a larger SAP Business Suite system, could look like
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | --- | 
+| VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | --- |
+| Accelerated Networking | Enable | ---|
+| SQL Server version | SQL Server 2019 or more recent | --- |
+| # of data devices | 24 | ---|
+| # of log devices | 1 | --- |
+| # of temp data files | 8 or default since SQL Server 2016 | --- |
+| Operating system | Windows Server 2019 or more recent |  --- |
+| Disk aggregation | Storage Spaces if desired | --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 800 GiB - plus 2500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
+| SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
+
+
+An example of a configuration for a large SQL Server instance with a database size of 4 TB+, such as a large globally used SAP Business Suite system, could look like
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | ---  |
+| VM Type | M-Series (1.0 to 4.0 TB RAM)  | --- |
+| Accelerated Networking | Enable | ---|
+| SQL Server version | SQL Server 2019 or more recent | --- |
+| # of data devices | 32 | ---|
+| # of log devices | 1 | --- |
+| # of temp data files | 8 or default since SQL Server 2016 | --- |
+| Operating system | Windows Server 2019 or more recent |  --- |
+| Disk aggregation | Storage Spaces if desired  | --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 4+ x P40 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 4,500 IOPS and 125 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Cache = NONE |
+| SQL Server max memory parameter | 95% of Physical RAM | Assuming single instance |
+
+As an example, this is the DBMS VM configuration of a SAP Business Suite on SQL Server. This VM hosts the 30TB database of the single global SAP Business Suite instance of a global company with over $200B annual revenue and over 200K full time employees. The system runs all the financial processing, sales and distribtuion processing and many more business processes out of different areas, including North American payroll. The system is running in Azure since the beginning of 2018 using Azure M-series VMs as DBMS VMs. As high availability the system is using Always on with one synchronous replica in another Availability Zone of the same Azure region and another asynchronous replica in another Azure region. The NetWeaver application layer is deployed in Ev4 VMs. 
+
+| Configuration | DBMS VM | Comments |
+| --- | --- | --- |
+| VM Type | M192dms_v2  (192 vCPU/4,196 GiB RAM)  | --- |
+| Accelerated Networking | Enabled  ---|
+| SQL Server version | SQL Server 2019 | --- |
+| # of data files | 32 | ---|
+| # of log files | 1 | --- |
+| # of temp data files | 8  | --- |
+| Operating system | Windows Server 2019 |  --- |
+| Disk aggregation | Storage Spaces | --- |
+| File system | NTFS | --- |
+| Format block size | 64 KB | --- |
+| # and type of data disks | Premium storage v1: 16 x P40 | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P60  | Using Write Accelerator |
+| # and type of tempdb disks | Premium storage v1: 1 x P30 | No caching |
+| SQL Server max memory parameter | 95% of Physical RAM | --- |
+
+
 
 ## <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>General SQL Server for SAP on Azure Summary
 There are many recommendations in this guide and we recommend you read it more than once before planning your Azure deployment. In general, though, be sure to follow the top general DBMS on Azure-specific recommendations:
