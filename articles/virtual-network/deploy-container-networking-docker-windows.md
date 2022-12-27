@@ -131,11 +131,15 @@ In this section, you'll add an IP configuration to the virtual network interface
 
 3. In **Settings**, select **Networking**.
 
-4. Select the name of the network interface next to **Network Interface:**. The network interface is named **myvm** with a random number. In this example, it's **myvm27**.
+4. Select the name of the network interface next to **Network Interface:**. The network interface is named **myvm** with a random number. In this example, it's **myvm418**.
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/select-nic-portal.png" alt-text="Screenshot of the network interface in settings for the virtual machine in the Azure portal.":::
 
 5. In **Settings** of the network interface, select **IP configurations**.
 
 6. in **IP configurations**, select **ipconfig1** in **Name**.
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/nic-ip-configuration.png" alt-text="Screenshot of IP configuration of the virtual machine network interface.":::
 
 7. In the **ipconfig1** settings, change the assignment of the private IP address from **Dynamic** to **Static**.
 
@@ -157,6 +161,8 @@ In this section, you'll add an IP configuration to the virtual network interface
 12. Select **OK**.
 
 13. Verify **ipconfig2** has been added as a secondary IP configuration.
+
+    :::image type="content" source="./media/deploy-container-networking-docker-windows/verify-ip-configuration.png" alt-text="Screenshot of IP configuration of the virtual machine network interface with the secondary configuration.":::
 
 Repeat steps 1 through 13 to add as many configurations as containers you wish to deploy on the container host.
 
