@@ -91,7 +91,7 @@ To use this logic app version, create new Standard playbooks in Microsoft Sentin
 >
 > - Logic apps' Standard workflows support private endpoints as mentioned above, but Microsoft Sentinel requires [**defining an access restriction policy in Logic apps**](define-playbook-access-restrictions.md) in order to support the use of private endpoints in playbooks based on Standard workflows.  
 >
->   If an access restriction policy is not defined, then workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail. ***(LIOR- RIGHT?)***
+>   If an access restriction policy is not defined, then workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail.
 >   
 > - An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 
