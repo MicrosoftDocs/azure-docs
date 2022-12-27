@@ -550,7 +550,7 @@
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+      href: /dotnet/api/overview/azure/databoxedge
     - name: Azure CLI
       href: /cli/azure/databoxedge
     - name: Azure Policy built-ins
