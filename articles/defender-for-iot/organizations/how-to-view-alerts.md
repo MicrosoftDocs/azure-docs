@@ -90,9 +90,9 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 Make sure to update your alert status once you've taken remediation steps so that the progress is recorded. You can update status for a single alert or for a selection of alerts in bulk.
 
-*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor. For more information, see [Learning alert traffic](alerts.md#learning-ot-alert-traffic).
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. *Mute* an alert when learning isn't available and you want to ignore a specific scenario on your network.
 
-*Mute* an alert when learning isn't available and you want to ignore a specific scenario on your network. For more information, see [Muting alert traffic](alerts.md#muting-alert-traffic).
+For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 
 - **To manage alert status**:
 
@@ -155,7 +155,7 @@ The file is generated, and you're prompted to save it locally.
 
 Alert comments help you accelerate your investigation and remediation process by making communication between team members and recording data more efficient.
 
-If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-custom-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
+If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
 
 From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
 

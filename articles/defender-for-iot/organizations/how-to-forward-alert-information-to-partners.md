@@ -312,8 +312,7 @@ If your forwarding alert rules aren't working as expected, check the following d
 
     If your OT sensors or on-premises management console are configured to [validate certificates](how-to-deploy-certificates.md#about-certificate-validation) and the certificate can't be verified, the alerts aren't forwarded.
 
-    <!--In these cases, the sensor or on-premises management console is the client and initiator of the session.  The certificates are typically received from the server, or use asymmetric encryption where a specific certificate will be provided to set up the integration.
-    -->
+    In these cases, the sensor or on-premises management console is the session's client and initiator. Certificates are typically received from the server or use asymmetric encryption, where a specific certificate is provided to set up the integration.
 
 - **Alert exclusion rules**. If you have exclusion rules configured on your on-premises management console, your sensors might be ignoring the alerts you're trying to forward. For more information, see [Create alert exclusion rules on an on-premises management console](how-to-accelerate-alert-incident-response.md#create-alert-exclusion-rules-on-an-on-premises-management-console).
 

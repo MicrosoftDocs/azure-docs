@@ -44,7 +44,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 1. Select **Submit** to add your comment to the list of available comments in each alert on your sensor.
 
-Custom comments are available in each alert on your sensor for team members to add. For more information, see [Add alert comments](how-to-view-alerts.md#add-custom-alert-comments).
+Custom comments are available in each alert on your sensor for team members to add. For more information, see [Add alert comments](how-to-view-alerts.md#add-alert-comments).
 
 ## Create custom alert rules on an OT sensor
 

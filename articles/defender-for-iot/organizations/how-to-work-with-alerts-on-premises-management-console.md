@@ -50,15 +50,13 @@ Select **Clear** to remove all filters.
 
 ## Manage alert status
 
-Use the following options to manage alert status on your on-premises management console, depending on the alert type. Some alerts support acknowledgment, some support muting, and some support both. <!--why would we have both?-->
-
-Both acknowledging and muting an alert hide it for this instance of the alert only. The alert is triggered again if the same event occurs.
+Use the following options to manage alert status on your on-premises management console, depending on the alert type:
 
 - **To acknowledge or unacknowledge an alert**: In an expanded alert row, select **ACKNOWLEDGE** or **UNACKNOWLEDGE** as needed.
 
-- **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed. For example:
+- **To mute or unmute an alert**: In an expanded alert row, hover over the top of the row and select the :::image type="icon" source="media/alerts/mute-on-prem.png" border="false"::: **Mute** button or :::image type="icon" source="media/alerts/unmute-on-prem.png" border="false"::: **Unmute** button as needed.
 
-For more information, see [Learning alert traffic](alerts.md#learning-ot-alert-traffic).
+For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 
 ## Export alerts to a CSV file
 
