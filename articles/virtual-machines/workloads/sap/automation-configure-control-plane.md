@@ -172,16 +172,29 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies | Optional	  |
 
 
+### DNS Support
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+
+
 ### Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                             | Description                                                            | Type        | Notes                         |
-> | ------------------------------------ | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
-> | `firewall_deployment`	               | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
-> | `bastion_deployment`	               | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
-> | `enable_purge_control_for_keyvaults` | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
-> | `use_private_endpoint`               | Are private endpoints created for storage accounts and key vaults.     | Optional    |                               |
-> | `use_service_endpoint`               | Are service endpoints defined for the subnets.                         | Optional    |                               |
+> | Variable                                     | Description                                                            | Type        | Notes                         |
+> | -------------------------------------------- | ---------------------------------------------------------------------- | ----------- | ----------------------------- |
+> | `firewall_deployment`	                       | Boolean flag controlling if an Azure firewall is to be deployed        | Optional    |                               |
+> | `bastion_deployment`	                       | Boolean flag controlling if Azure Bastion host is to be deployed       | Optional    |                               |
+> | `enable_purge_control_for_keyvaults`         | Boolean flag controlling if purge control is enabled on the Key Vault. | Optional    | Use only for test deployments |
+> | `use_private_endpoint`                       | Use private endpoints                                                  | Optional    |
+> | `use_service_endpoint`                       | Use service endpoints for subnets                                      | Optional    |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets                                    | Optional    |
 
 ### Example parameters file for deployer (required parameters only)
 
@@ -250,8 +263,6 @@ The table below contains the parameters that define the resource group.
 > | `resourcegroup_tags`    | Tags to be associated with the resource group            | Optional   |
 
 
-
-
 ### SAP Installation media storage account
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -266,32 +277,36 @@ The table below contains the parameters that define the resource group.
 > | -------------------------------- | -------------------------- | ---------- |
 > | `library_terraform_state_arm_id` | Azure resource identifier  | Optional   |
 
+### DNS Support
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                          | Type     |
+> | ----------------------------------- | -------------------------------------------------------------------- | -------- |
+> | `use_custom_dns_a_registration`	    | Use an existing Private DNS zone                                     | Optional |
+> | `management_dns_subscription_id`	  | Subscription ID for the subscription containing the Private DNS Zone | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group containing the Private DNS Zone                       | Optional |
+> | `dns_label`	                        | DNS name of the private DNS zone                                     | Optional |
+
+
 ### Extra parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                      | Type     |
-> | ---------------------------------- | -------------------------------- | -------- |
-> | `dns_label`	                       | DNS name of the private DNS zone | Optional |
-> | `use_private_endpoint`             | Use private endpoints            | Optional |
+> | Variable                                     | Description                         | Type     |
+> | -------------------------------------------- | ----------------------------------- | -------- |
+> | `use_private_endpoint`                       | Use private endpoints               | Optional |
+> | `use_service_endpoint`                       | Use service endpoints for subnets   | Optional |
+> | `enable_firewall_for_keyvaults_and_storage`  | Restrict access to selected subnets | Optional |
 
 ### Example parameters file for sap library (required parameters only)
 
 ```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
-environment="MGMT"
+environment = "MGMT"
 
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
-location="westeurope"
-
-# The deployer_environment value is a mandatory field, it is used for identifying the deployer
-deployer_environment="MGMT"
-
-# The deployer_location value is a mandatory field, it is used for identifying the deployer
-deployer_location="westeurope"
-
-# The deployer_vnet value is a mandatory field, it is used for identifying the deployer
-deployer_vnet="DEP00"
+location = "westeurope"
 
 ```
 

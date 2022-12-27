@@ -16,18 +16,18 @@ There are multiple considerations for planning an SAP deployment and running the
 For generic SAP on Azure design considerations, visit [Introduction to an SAP adoption scenario](/azure/cloud-adoption-framework/scenarios/sap)
 
 > [!NOTE]
-> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). The templates use parameter files with your system-specific information to perform the deployment.
+> The Terraform deployment uses Terraform templates provided by Microsoft from the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation-samples/Terraform/WORKSPACES). The templates use parameter files with your system-specific information to perform the deployment.
 
 ## Control Plane planning
 
-You can perform the deployment and configuration activities from either Azure DevOps or from Azure hosted Linux virtual machines. This environment is referred to as the the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure DevOps Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
 * In which regions do you need to deploy workloads?
 * Is there a dedicated subscription for the control plane?
-* Is there a dedicated deployment credential for the control plane?
-* Are you deploying to an existing Virtual Network or creating a new one?
+* Is there a dedicated deployment credential (Service Principal) for the control plane?
+* Are you deploying to an existing Virtual Network or creating a new Virtual Network?
 * How is outbound internet provided for the Virtual Machines?
 * Are you going to deploy Azure Firewall for outbound internet connectivity?
 * Are private endpoints required for storage accounts and the key vault?
@@ -37,7 +37,7 @@ Before you design your control plane, consider the following questions:
 
 ### Deployment environments
 
-If you're supporting multiple workload zones in a region, use a unique identifier for your deployment environment and SAP library. Don't use the identifier for the workload zone. For example, use `MGMT` for management purposes.
+If you're supporting multiple workload zones in a region, use a unique identifier for your deployment environment and SAP library. Don't use the same identifier as for the workload zone. For example, use `MGMT` for management purposes.
 
 The automation framework also supports having the deployment environment and SAP library in separate subscriptions than the workload zones.
 
