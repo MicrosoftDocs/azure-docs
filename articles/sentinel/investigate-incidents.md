@@ -63,9 +63,9 @@ Each area of the incident details page corresponds with an essential objective o
 
 Before we get into the individual panels on this page, a quick word about one of the buttons on the banner at the top of the screen:
 
+- An important step in the maturation of security operations is the [standardization of processes](incident-tasks.md). Your SOC can implement this step using **Incident tasks** to identify and create workflows for analysts to follow.
 
-
-- Select **Tasks (Preview)** to see the tasks assigned for this incident, or to add your own tasks. [Learn more about incident tasks](incident-tasks.md).
+    Select **Tasks (Preview)** to see the tasks assigned for this incident, or to add your own tasks. [Learn more about incident tasks](incident-tasks.md).
 
 - Select **Activity log** to view all the actions that have been taken and comments that have been made on this incident, whether by automation or by personnel. You can add your own comments here as well.
 
