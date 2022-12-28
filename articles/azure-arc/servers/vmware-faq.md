@@ -13,7 +13,7 @@ This article addresses frequently asked questions about Arc-enabled servers on v
 
 Azure Arc is the overarching brand for a suite of Azure hybrid products that extend specific Azure public cloud services and/or management capabilities beyond Azure to on-premises environments and 3rd-party clouds. Azure Arc-enabled server, for example, allows you to use the same Azure management tools you would with a VM running in Azure with a VM running on-premises in a VMware cluster.
 
-## What's the difference between Arc-enabled server and Arc-enabled\<hypervisor\>? (e.g., Arc-enabled VMware vSphere)
+## What's the difference between Arc-enabled server and Arc-enabled\<hypervisor\>?
 
 > [!NOTE]
 > Arc-enabled\<hypervisor\> refers to Arc-enabled VMare environments such as Arc-enabled VMware vSphere. **Arc-enabled VMware vSphere is currently in Public Preview**.
@@ -30,7 +30,7 @@ The easiest way to think of this is as follows:
 
 ## Can I use Azure Arc-enabled server on VMs running in VMware environments?
 
-Yes, Azure Arc-enabled server works with VMs running on VMware vSphere as well as Azure VMware Solution (AVS) and supports the full breadth of guest management capabilities across security, monitoring, and governance.  
+Yes. Azure Arc-enabled server works with VMs running on VMware vSphere as well as Azure VMware Solution (AVS) and supports the full breadth of guest management capabilities across security, monitoring, and governance.  
 
 ## Which operating systems does Azure Arc work with?
 
