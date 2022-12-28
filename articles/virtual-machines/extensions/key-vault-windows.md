@@ -107,6 +107,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       }
     }
 ```
+
 ### [Version-3.0](#tab/version3)  
 
 ```json
@@ -154,6 +155,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       }
     }
 ```
+
 ---
 
 > [!NOTE]
@@ -167,7 +169,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ## Property values
 
-### [Version-1.0](#tab/version1)  
+### [Version-1.0](#tab/version1)
+
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -195,7 +198,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | pollingIntervalInS | 3600 | string |
 | linkOnRenewal (optional) | true | boolean |
 | requireInitialSync (optional) | false | boolean |
-| observedCertificates  | [{...}, {...} ] | string array |
+| observedCertificates  | [{...}, {...}] | string array |
 | observedCertificates/url | "https://myvault.vault.azure.net/secrets/mycertificate" | string |
 | observedCertificates/certificateStoreName | MY | string |
 | observedCertificates/certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
@@ -203,6 +206,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | observedCertificates/accounts(optional) | ["Network Service", "Local Service"] | string array |
 | msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+
 ---
 
 ## Template deployment
@@ -243,6 +247,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
       }
     }
 ```
+
 ### [Version-3.0](#tab/version3)  
 
 ```json
