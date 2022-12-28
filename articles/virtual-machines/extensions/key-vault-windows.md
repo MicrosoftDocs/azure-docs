@@ -167,7 +167,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ### Property values
 
-#### [Version-1.0](#tab/version1)  
+### [Version-1.0](#tab/version1)  
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -184,7 +184,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
-#### [Version-3.0](#tab/version3)  
+### [Version-3.0](#tab/version3)  
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
