@@ -57,7 +57,7 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 
 ## Next steps
 
-- [Manage an OT sensor from the CLI](/cli/cli-ot-sensor.md)
-- [Manage on on-premises management console from the CLI](/cli/cli-ot-sensor-configuration.md)
+> [!div class="nextstepaction"]
+> [Manage an OT sensor from the CLI](cli-ot-sensor.md)
 
 You can also control and monitor your cloud connected sensors from the Defender for IoT **Sites and sensors** page. For more information, see [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md).

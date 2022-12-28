@@ -341,10 +341,8 @@
     items:
     - name: Overview
       href: references-work-with-defender-for-iot-cli-commands.md
-    - name: OT sensor appliance management
-      href: cli/cli-ot-sensor.md
-    - name: OT sensor network monitoring
-      href: cli/cli-ot-sensor-configuration.md
+    - name: OT sensor CLI reference
+      href: cli-ot-sensor.md
   - name: Frequently asked questions
     items:
     - name: General FAQ
