@@ -7,7 +7,7 @@ manager: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 12/09/2022
+ms.date: 12/21/2022
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -21,11 +21,11 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023**. After all IoT hubs have migrated, then DPS will perform its migration.
+The IoT Hub team will begin migrating IoT hubs by region on **February 15, 2023** and completing by October 15, 2023. After all IoT hubs have migrated, then DPS will perform its migration between January 15 and February 15, 2024.
 
 ### Request an extension
 
-This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [contact us](mailto:iot-ca-updates@microsoft.com?subject=Baltimore%20Migration:%20Request%20for%20whitelisting%20%3ccustomer%20name%3e%20hubs%20) and provide the details of the IoT hub(s) that need more time. We can flag them to be migrated at the end of the rollout window.
+This TLS certificate migration is critical for the security of our customers and Microsoft's infrastructure, and is time-bound by the expiration of the Baltimore CyberTrust Root certificate. Therefore, there's little extra time that we can provide for customers that don't think their devices will be ready by February 15, 2023. If you absolutely can't meet the February 2023 target date, [fill out this form](https://aka.ms/BaltimoreAllow) with the details of your extension request, and then [email us](mailto:iot-ca-updates@microsoft.com?subject=Requesting%20extension%20for%20Baltimore%20migration) with a message indicating that you have completed the form, along with your company name. We can flag the specific hubs to be migrated later in the rollout window.
 
 ## Required steps
 
@@ -135,6 +135,10 @@ Several factors can affect device reconnection behavior.
 Devices are configured to reverify their connection at a specific interval. The default in the Azure IoT SDKs is to reverify every 45 minutes. If you've implemented a different pattern in your solution, then your experience may vary.
 
 Also, as part of the migration, your IoT hub may get a new IP address. If your devices use a DNS server to connect to IoT hub, it can take up to an hour for DNS servers to refresh with the new address. For more information, see [IoT Hub IP addresses](iot-hub-understand-ip-address.md).
+
+### When can I remove the Baltimore Cybertrust Root from my devices?
+
+You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on February 15, 2024.
 
 ## Troubleshoot
 

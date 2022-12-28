@@ -345,7 +345,7 @@ items:
   - name: Developer Tools
     items:
       - name: Network Diagnostic Tool 
-        herf: concepts/developer-tools/network-diagnostic.md
+        href: concepts/developer-tools/network-diagnostic.md 
   - name: Data residency and user privacy
     href: concepts/privacy.md
   - name: Azure Government
