@@ -226,7 +226,7 @@ namespace WebApplication
 
 ## Console application
 
-The following example uses the Microsoft.Extensions.Logging.ApplicationInsights package. The Microsoft.Extensions.Logging.ApplicationInsights package should be used in a console application or whenever you want a bare minimum implementation of Application Insights without the full featureset such as metrics, distributed tracing, sampling, and telemetry initializers.
+The following example uses the Microsoft.Extensions.Logging.ApplicationInsights package. The Microsoft.Extensions.Logging.ApplicationInsights package should be used in a console application or whenever you want a bare minimum implementation of Application Insights without the full feature set such as metrics, distributed tracing, sampling, and telemetry initializers.
 
 Here are the installed packages:
 
