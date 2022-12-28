@@ -79,7 +79,7 @@ Use the options on the **Sites and sensor** page and a sensor details page to do
 
 ## Retrieve forensics data stored on the sensor
 
-There are several types of [forensics data stored locally on the sensor](how-to-manage-individual-sensors.md#forensics-data-stored-on-the-sensor).
+Device inventory data, alerts and OT alert PCAP files, OT event timeline data, and OT log files are [stored locally on the OT sensor](how-to-manage-individual-sensors.md#forensics-data-stored-on-the-sensor).
 
 Use [workbooks](workbooks.md) to retrieve forensics data from the sensor's local storage to the could's global storage on the Azure portal.
 
