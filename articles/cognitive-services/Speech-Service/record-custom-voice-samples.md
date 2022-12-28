@@ -24,9 +24,11 @@ Many small but important details go into creating a professional voice recording
 
 ## Tips for preparing data for a high-quality voice
 
-The quality of your voice model trained heavily depends on the quality of your training data. In the same training set, consistent volume, speaking rate, speaking pitch, and speaking style are essential to create a great custom neural voice. You should also avoid background noise in the recording and make sure the script and recording match. To ensure the quality of your data, you need to follow [script selection criteria](#script-selection-criteria) and [recording requirements](#recording-your-script). 
+A great custom neural voice depends on several factors, like the quality and size of your training data. 
 
-With the premise of ensuring data quality，in most cases we recommend that you usually prepare at least 500 utterances to build a reasonable custom neural voice that sounds natural. The more training data you prepare, the higher quality of voice you can get. 
+The quality of your training data is a primary factor. For example, in the same training set, consistent volume, speaking rate, speaking pitch, and speaking style are essential to create a great custom neural voice. You should also avoid background noise in the recording and make sure the script and recording match. To ensure the quality of your data, you need to follow [script selection criteria](#script-selection-criteria) and [recording requirements](#recording-your-script). 
+
+For the size of the training data, in most cases you can usually prepare at least 500 utterances to build a reasonable custom neural voice that sounds natural. The more training data you prepare, the higher quality of voice you can get. 
 
 In some cases, you may want a voice persona with unique characteristics. For example, a cartoon persona needs a voice with a special speaking style, or a voice that is very dynamic in intonation. For this voice, we recommend that you prepare at least 1000 (preferably 2000) utterances, and record them at a professional recording studio. To learn more about how to improve the quality of your voice model, see [characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
 
