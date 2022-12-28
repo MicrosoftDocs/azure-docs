@@ -28,6 +28,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
+volumeHandle | a value the driver can use to uniquely identify the storage blob container in the cluster. | A recommended way to produce a unique value is to combine the globally unique storage account name and container name: `{account-name}_{container-name}`. Be aware the character `#` is reserved for internal use and cannot be used in a volume handle. | Yes |
 |volumeAttributes.resourceGroup | Specify Azure resource group name. | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
 |volumeAttributes.storageAccount | Specify existing Azure storage account name. | storageAccountName | Yes ||
 |volumeAttributes.containerName | Specify existing container name. | container | Yes ||
@@ -98,8 +99,8 @@ The following example demonstrates how to mount a Blob storage container as a pe
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # make sure volumeid is unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           resourceGroup: resourceGroupName
@@ -182,8 +183,8 @@ Kubernetes needs credentials to access the Blob storage container created earlie
       csi:
         driver: blob.csi.azure.com
         readOnly: false
-        # make sure this volumeid is unique in the cluster
-        # `#` is not allowed in self defined volumeHandle
+        # make sure volumeid is unique for every identical storage blob container in the cluster
+        # character `#` is reserved for internal use and cannot be used in volumehandle
         volumeHandle: unique-volumeid
         volumeAttributes:
           containerName: containerName
