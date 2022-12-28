@@ -341,8 +341,10 @@
     items:
     - name: Overview
       href: references-work-with-defender-for-iot-cli-commands.md
+      displayName: shell, login, cli, command-line, commands, users, user
     - name: OT sensor CLI reference
       href: cli-ot-sensor.md
+      displayName: shell, login, cli, command-line, commands, users, user
   - name: Frequently asked questions
     items:
     - name: General FAQ
