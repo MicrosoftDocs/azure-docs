@@ -131,7 +131,7 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
 
 4. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-5. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 6. Enter *myFrontend* in **Name**.
 
