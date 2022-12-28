@@ -42,7 +42,7 @@ The related [policy definition](https://portal.azure.com/#view/Microsoft_Azure_P
 
 | Recommendation | Description | Severity |
 |--|--|--|
-| Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
+| Diagnostic logs in Virtual Machine Scale Sets should be enabled | Enable logs and retain them for up to a year, enabling you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. | Low |
 
 ### The policy Vulnerability Assessment settings for SQL server should contain an email address to receive scan reports is set to be deprecated 
 
@@ -66,17 +66,17 @@ The updated name will be reflected on Azure Resource Graph (ARG), Secure Score C
 
 As part of Defender for Servers security alerts quality improvements process, in April 2023, some of MDC security alerts for Windows and Linux servers, will be removed from Defender for Servers in favor of sourcing them from Defender for Endpoint.  
 
-Note that all security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
+All security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
 
-If you already have the Defender for Endpoint integration enabled, there is no action required on your part. 
+If you already have the Defender for Endpoint integration enabled, there's no action required on your part. 
 
 In April 2023 you may experience a decrease in your alerts volume, but still remain protected.
 
-If you currently do not have the Defender for Endpoint integration enabled in Defender for Servers, you will need to enable integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no additional cost.  
+If you currently don't have the Defender for Endpoint integration enabled in Defender for Servers, you'll need to enable integration to maintain and improve your alert coverage. All Defender for Server customers are able to access the full value of Defender for Endpoint’s integration at no extra cost.  
 
 For more information regarding [MDE onboarding options](integration-defender-for-endpoint.md#enable-the-microsoft-defender-for-endpoint-integration)
 
-See in here the full alerts list that are going to be [deprecated](alerts-reference.md#defender-for-servers-security-alerts-deprecation).
+See the [full list of alerts that are going to be deprecated](alerts-reference.md#defender-for-servers-security-alerts-deprecation).
 
 
 
