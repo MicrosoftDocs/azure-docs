@@ -2,15 +2,15 @@
 title: Test an Azure Stream Analytics job locally with sample data using Visual Studio Code
 description: How to test queries locally with sample data using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.date: 11/10/2019
+author: alexlzx
+ms.author: zhenxilin
+ms.date: 12/27/2022
 ms.topic: how-to
 ---
 
 # Test Stream Analytics queries locally with sample data using Visual Studio Code
 
-You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data. You can find the query results in JSON files in the **LocalRunOutputs** folder of your project.
+You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data. You output results can be found as JSON files in the **LocalRunOutputs** folder of your project.
 
 For more information, see [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md).
 
