@@ -113,7 +113,7 @@ Where the file *create-instance.yml* is:
 1. Select **Create** unless you want to configure advanced settings for the compute instance.
 1. <a name="advanced-settings"></a> Select **Next: Advanced Settings** if you want to:
 
-    * Enable idle shutdown (preview). Configure a compute instance to automatically shut down if it's inactive. For more information, see [configure idle shutdown](#configure-idle-shutdown-preview).
+    * Enable idle shutdown (preview). Configure a compute instance to automatically shut down if it's inactive. For more information, see [enable idle shutdown](#enable-idle-shutdown-preview).
     * Add schedule. Schedule times for the compute instance to automatically start and/or shutdown. See [schedule details](#schedule-automatic-start-and-stop) below.
     * Enable SSH access.  Follow the [detailed SSH access instructions](#enable-ssh-access) below.
     * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). You can also select __No public IP__ (preview) to prevent the creation of a public IP address, which requires a private link workspace. You must also satisfy these [network requirements](./how-to-secure-training-vnet.md) for virtual network setup. 
@@ -164,9 +164,9 @@ This setting can be configured during compute instance creation or for existing 
 
 When creating a new compute instance, add the `idle_time_before_shutdown_minutes` parameter.
 
-    ```Python
-    # Note that idle_time_before_shutdown has been deprecated.
-    ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
+```Python
+# Note that idle_time_before_shutdown has been deprecated.
+ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
     ```
 You cannot change the idle time of an existing compute instance with the Python SDK.
 
@@ -176,11 +176,11 @@ You cannot change the idle time of an existing compute instance with the Python 
 
 When creating a new compute instance, add `idle_time_before_shutdown_minutes` to the YAML definition.
 
-    ```YAML
-    # Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
-    # Note that idle_time_before_shutdown has been deprecated.
-    idle_time_before_shutdown_minutes: 30
-    ```
+```YAML
+# Note that this is just a snippet for the idle shutdown property. Refer to the "Create" Azure CLI section for more information.
+# Note that idle_time_before_shutdown has been deprecated.
+idle_time_before_shutdown_minutes: 30
+```
 You cannot change the idle time of an existing compute instance with the CLI.
 
 # [Studio](#tab/azure-studio)
