@@ -62,6 +62,9 @@ conceptualContent:
         - url: organizations/how-to-activate-and-set-up-your-sensor.md
           itemType: how-to-guide
           text: Activate and set up your OT network sensor
+        - url: organizations/roles-on-premises.md
+          itemType: concept
+          text: On-premises users and roles for OT monitoring
       footerLink:
         url: organizations/index.yml
         text: See more

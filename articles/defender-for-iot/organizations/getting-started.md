@@ -37,14 +37,14 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 **To add your plan**:
 
-1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing** and select **Add plan**.
+1. In the Azure portal, go to **Defender for IoT** and select **Plans and pricing** > **Add plan**.
 
 1. In the **Plan settings** pane, define the following settings:
 
-   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+   - **Subscription**: Select the Azure subscription where you want to add a plan. You'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the selected subscription.
 
         > [!TIP]
-        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner.
+        > If your subscription isn't listed, check your account details and confirm your permissions with the subscription owner. Also make sure that you have the right subscriptions selected in your Azure settings > **Directories + subscriptions** page.
 
    - **Price plan**: For the sake of this quickstart, select **Trial - 30 days - 1000 assets limit**.
 
@@ -52,11 +52,11 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
     :::image type="content" source="media/getting-started/ot-trial.png" alt-text="Screenshot of adding a plan for OT networks to your subscription.":::
 
-1. Select **Next** to review your selections.
+1. Select **Next** to review your selections on the **Review and purchase** tab.
 
-1. Select the **I accept the terms and conditions** option, and then select **Purchase**.
+1. On the **Review and purchase** tab, select the **I accept the terms and conditions** option > **Purchase**.
 
-Your new plan is listed under the relevant subscription in the **Plans** grid. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+Your new plan is listed under the relevant subscription in the on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Next steps
 

@@ -7,9 +7,9 @@ ms.date: 12/25/2022
 
 # Welcome to Microsoft Defender for IoT for organizations
 
-The Internet of Things (IoT) supports billions of connected devices that use operational technology (OT) networks. IoT/OT devices and networks are often built using specialized protocols, and may prioritize operational challenges over security.
+The Internet of Things (IoT) supports billions of connected devices that use both operational technology (OT) and IoT networks. IoT/OT devices and networks are often built using specialized protocols, and may prioritize operational challenges over security.
 
-When IoT/OT devices can't be protected by traditional monitoring systems, each new wave of innovation increases the risk and possible attack surfaces across those IoT devices and OT networks.
+When IoT/OT devices can't be protected by traditional security monitoring systems, each new wave of innovation increases the risk and possible attack surfaces across those IoT devices and OT networks.
 
 Microsoft Defender for IoT is a unified security solution built specifically to identify IoT and OT devices, vulnerabilities, and threats. Use Defender for IoT to secure your entire IoT/OT environment, including existing devices that may not have built-in security agents.
 
@@ -19,9 +19,9 @@ Defender for IoT provides agentless, network layer monitoring, and integrates wi
 
 ## Agentless device monitoring
 
-Legacy IoT and OT devices that don't support embedded security agents may remain unpatched, misconfigured, and invisible to IT and security teams. These devices can be soft targets for threat actors looking to pivot deeper into corporate networks.
+If your IoT and OT devices don't have embedded security agents, they may remain unpatched, misconfigured, and invisible to IT and security teams. Un-monitored devices can be soft targets for threat actors looking to pivot deeper into corporate networks.
 
-While traditional security monitoring tools may not be able to identify network devices with specialized protocols, devices, or machine-to-machine (M2M) behaviors, Defender for IoT uses agentless monitoring to provide visibility and security across your network.
+Defender for IoT uses agentless monitoring to provide visibility and security across your network, and identifies specialized protocols, devices, or machine-to-machine (M2M) behaviors.
 
 - **Discover IoT/OT devices** in your network, their details, and how they communicate. Gather data from network sensors, Microsoft Defender for Endpoint, and third-party sources.
 
@@ -31,11 +31,11 @@ While traditional security monitoring tools may not be able to identify network 
 
   - Run searches in historical traffic across all relevant dimensions and protocols. Access full-fidelity PCAPs to drill down further.
 
-  - Detect advanced threats that you may have missed by static IOCs, such as zero-day malware, fileless malware, and living-off-the-land tactics.
+  - Detect advanced threats that you may have missed by static indicators of compromise (IOCs), such as zero-day malware, fileless malware, and living-off-the-land tactics.
 
-- **Respond to threats** by integrating with Microsoft services such as Microsoft Sentinel, other partner systems, and APIs. Use your integrations for security information and event management (SIEM) services, security operations and response (SOAR) services, extended detection and response (XDR) services, and more.
+- **Respond to threats** by integrating with Microsoft services such as Microsoft Sentinel, other partner systems, and APIs. Integrate with security information and event management (SIEM) services, security operations and response (SOAR) services, extended detection and response (XDR) services, and more.
 
-Defender for IoT's centralized user experience in the Azure portal lets the security team visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
+Defender for IoT's centralized user experience in the Azure portal lets the security and OT monitoring teams visualize and secure all their IT, IoT, and OT devices regardless of where the devices are located.
 
 ## Support for cloud, on-premises, and hybrid OT networks
 
@@ -43,7 +43,7 @@ Install OT network sensors on-premises, at strategic locations in your network t
 
 - **Cloud services**:
 
-    While OT network sensors have their own UI console that displays device details and security data, connect your sensors to Azure to extend your journey to the cloud.
+    While OT network sensors have their own UI console that displays details and security data about detected devices, connect your sensors to Azure to extend your journey to the cloud.
 
     From the Azure portal, view data from all connected sensors in a central location, and integrate with other Microsoft services, like Microsoft Sentinel.
 
@@ -57,32 +57,30 @@ Install OT network sensors on-premises, at strategic locations in your network t
 
     You may have hybrid network requirements where you can deliver some data to the cloud and other data must remain on-premises.
 
-    In this case, set up your system in  flexible and scalable configuration to fit your needs. Connect some of your OT sensors to the cloud and view data on the Azure portal, and keep other sensors managed on-premises only.
+    In this case, set up your system in a flexible and scalable configuration to fit your needs. Connect some of your OT sensors to the cloud and view data on the Azure portal, and keep other sensors managed on-premises only.
 
 For more information, see [System architecture for OT system monitoring](architecture.md).
 
 ## Extend support to proprietary OT protocols
 
-IoT and ICS devices can be secured using both embedded protocols and proprietary, custom, or non-standard protocols. Use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins that decode network traffic, regardless of protocol type.
+IoT and industrial control system (ICS) devices can be secured using both embedded protocols and proprietary, custom, or non-standard protocols. If you have devices that run on protocols that aren't supported by Defender for IoT out-of-the-box, use the Horizon Open Development Environment (ODE) SDK to develop dissector plug-ins to decode network traffic for your protocols.
 
-Use custom, condition-based alert triggering and messaging to help pinpoint specific network activity and effectively update your security, IT, and operational teams.
+Create custom alerts for your plugin to pinpoint specific network activity and effectively update your security, IT, and operational teams. For example, have alerts triggered when:
 
-Configure your system to trigger alerts for specified Horizon alert rule conditions, such as:
-
-- When the sensor detects a write command to a memory register on a specific IP address and Ethernet destination.
-- When any access is performed to a specific IP address.
+- The sensor detects a write command to a memory register on a specific IP address and Ethernet destination.
+- Any access is performed to a specific IP address.
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
 ## Protect enterprise IoT networks
 
-Use one or both of the following methods to extend Defender for IoT's agentless security features beyond operational environments, to enterprise IoT devices.
+Use one or both of the following methods to extend Defender for IoT's agentless security features beyond OT environments to enterprise IoT devices.
 
 - Add an Enterprise IoT plan in Microsoft Defender for Endpoint for added alerts, vulnerabilities, and recommendations for IoT devices in Defender for Endpoint. An Enterprise IoT plan also provides a shared device inventory across the Azure portal and Microsoft 365 Defender.
 
 - Onboard an Enterprise IoT network sensor in Defender for IoT (Public Preview) to extend Defender for IoT device visibility to devices that aren't covered by Defender for Endpoint.
 
-Enterprise IoT devices can include devices such as printers, smart TVs, and conferencing systems scattered around many office buildings, and purpose-built, proprietary devices.
+Enterprise IoT devices can include devices such as printers, smart TVs, and conferencing systems and purpose-built, proprietary devices.
 
 For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md).
 
@@ -97,7 +95,7 @@ For more information, see the [Microsoft Defender for IoT for device builders do
 
 Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *East US* regional datacenter.
 
-If you're using a legacy experience of Defender for IoT and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+If you're using Defender for IoT OT monitoring software earlier than [22.1](release-notes.md#versions-222x) and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Next steps
 
