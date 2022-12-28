@@ -64,7 +64,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- December 28, 2022: Updating the guide [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) across all topics. Also added VM configuration examples for different sizes of databases
+- December 28, 2022: Updated the guide [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) across all topics. Also added VM configuration examples for different sizes of databases
 - December 27, 2022: Introducing new configuration for SAP ASE on E96(d)s_v5 in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) 
 - December 23, 2022: Updating [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) by cutting references to Azure standard HDD and SSD. Introducing premium storage v2 and updating a few other sections to more recent functionalities
 - December 20, 2022: Update article [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) with table around AD and AAD support. Deleting a few references to HANA Large Instances.
