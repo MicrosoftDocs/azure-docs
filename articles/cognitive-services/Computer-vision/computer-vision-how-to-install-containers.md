@@ -23,7 +23,7 @@ Containers enable you to run the Computer Vision APIs in your own environment. C
 The Read container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
 
 ## What's new
-The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you're an existing customer, follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.
+The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you're an existing customer, follow the [download instructions](#get-the-container-image) to get started.
 
 The Read 3.2 OCR container is the latest GA model and provides:
 * New models for enhanced accuracy.
@@ -100,7 +100,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-202
 
 Once the container is on the [host computer](#host-computer-requirements), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](computer-vision-resource-container-config.md) of the `docker run` command are available. 
+1. [Run the container](#run-the-container), with the required billing settings. More [examples](computer-vision-resource-container-config.md) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
 ## Run the container
