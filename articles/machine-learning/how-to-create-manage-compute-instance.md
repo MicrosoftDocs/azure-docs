@@ -190,17 +190,17 @@ You cannot change the idle time of an existing compute instance with the CLI.
     1. Select **Advanced** after completing required settings.  
     1. Select **Enable idle shutdown**
 
-        :::image type="content" source="media/how-to-create-manage-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown.":::
+        :::image type="content" source="media/how-to-create-manage-compute-instance/enable-idle-shutdown.png" alt-text="Screenshot: Enable compute instance idle shutdown." lightbox="media/how-to-create-manage-compute-instance/enable-idle-shutdown.png":::
 
     1. Specify the shutdown period.
 
-* For an existing compute instance: 
+* For an existing compute instance:
 
     1. In the left navigation bar, select **Compute**
     1. In the list, select the compute instance you wish to change
     1. Select the **Edit** pencil in the **Schedules** section.
 
-        :::image type="content" source="media/how-to-create-manage-compute-instance/edit-idle-time.png" alt-text="Screenshot: Edit idle time for a compute instance.":::
+        :::image type="content" source="media/how-to-create-manage-compute-instance/edit-idle-time.png" alt-text="Screenshot: Edit idle time for a compute instance." lightbox="media/how-to-create-manage-compute-instance/edit-idle-time.png":::
 
 ---
 
