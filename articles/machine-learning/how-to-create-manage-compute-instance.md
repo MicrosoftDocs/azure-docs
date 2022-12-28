@@ -122,15 +122,15 @@ Where the file *create-instance.yml* is:
   
 You can also create a compute instance with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
 
-* Enable SSH access
+### Enable SSH access
 
-    SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
+SSH access is disabled by default.  SSH access can't be changed after creation. Make sure to enable access if you plan to debug interactively with [VS Code Remote](how-to-set-up-vs-code-remote.md).  
 
-    [!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-enable-ssh.md)]
 
-* Connect with SSH
+### Connect with SSH
 
-    [!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
+[!INCLUDE [ssh-access](../../includes/machine-learning-ssh-access.md)]
 
 ---
 
@@ -165,7 +165,8 @@ When creating a new compute instance, add the `idle_time_before_shutdown_minutes
 ```Python
 # Note that idle_time_before_shutdown has been deprecated.
 ComputeInstance(name=ci_basic_name, size="STANDARD_DS3_v2", idle_time_before_shutdown_minutes="30")
-    ```
+```
+
 You cannot change the idle time of an existing compute instance with the Python SDK.
 
 # [Azure CLI](#tab/azure-cli)
@@ -179,6 +180,7 @@ When creating a new compute instance, add `idle_time_before_shutdown_minutes` to
 # Note that idle_time_before_shutdown has been deprecated.
 idle_time_before_shutdown_minutes: 30
 ```
+
 You cannot change the idle time of an existing compute instance with the CLI.
 
 # [Studio](#tab/azure-studio)
