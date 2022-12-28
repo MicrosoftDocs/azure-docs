@@ -151,56 +151,14 @@ Some applications write events written to a text log stored on the virtual machi
 
 Events from the text log are stored in a table with a name similar to **MyTable_CL**. You define the name and structure of the log when you configure it.
 
-### Sample log queries
-The column names used here are for example only. You define the column names for your particular log when you define it. The column names for your log will most likely be different.
 
-- **Count the number of events by code.**
-    
-    ```kusto
-    MyApp_CL
-    | summarize count() by code
-    ```
-
-### Sample alert rule
-
-- **Create an alert rule on any error event.**
-    
-    ```kusto
-    MyApp_CL
-    | where status == "Error"
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
-    ```
 ## IIS logs
 IIS running on Windows machines writes logs to a text file. Configure IIS log collection using [Collect IIS logs with Azure Monitor Agent](../agents/data-collection-iis.md). There's a cost for the ingestion and retention of this data in the workspace.
 
 Records from the IIS log are stored in the [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) table in the Log Analytics workspace.
 
-### Sample log queries
 
-- **Count the IIS log entries by URL for the host www.contoso.com.**
-    
-    ```kusto
-    W3CIISLog 
-    | where csHost=="www.contoso.com" 
-    | summarize count() by csUriStem
-    ```
 
-- **Review the total bytes received by each IIS machine.**
-
-    ```kusto
-    W3CIISLog 
-    | summarize sum(csBytes) by Computer
-    ```
-
-### Sample alert rule
-
-- **Create an alert rule on any record with a return status of 500.**
-    
-    ```kusto
-    W3CIISLog 
-    | where scStatus==500
-    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
-    ```
 
 ## Service or daemon
 To monitor the status of a Windows service or Linux daemon, enable the [Change Tracking and Inventory](../../automation/change-tracking/overview.md) solution in [Azure Automation](../../automation/automation-intro.md). 

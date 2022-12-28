@@ -144,12 +144,12 @@ items:
     items:
     - name: Overview
       href: vm/monitor-virtual-machine.md
-    - name: Configure monitoring
-      href: vm/monitor-virtual-machine-configure.md
-    - name: Analyze data
+    - name: Deploy agent
+      href: vm/monitor-virtual-machine-agent.md
+    - name: Configure data collection
+      href: vm/monitor-virtual-machine-data-collection.md
+    - name: Analyze collected data
       href: vm/monitor-virtual-machine-analyze.md
-    - name: Monitor security
-      href: vm/monitor-virtual-machine-security.md
     - name: Create alerts
       href: vm/monitor-virtual-machine-alerts.md
     - name: Monitor workloads

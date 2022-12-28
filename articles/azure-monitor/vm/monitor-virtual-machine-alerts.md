@@ -36,7 +36,13 @@ Azure Monitor provides a set of [recommended alert rules](tutorial-monitor-vm-al
 The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md).
 The type of alert rule that you create for a particular scenario depends on where the data is located that you're alerting on. You might have cases where data for a particular alerting scenario is available in both Metrics and Logs, and you'll need to determine which rule type to use. You might also have flexibility in how you [collect certain data]() and let your decision of alert rule type drive your decision for data collection method.
 
-Typically, the best strategy is to use metric alerts instead of log alerts when possible because they're more responsive and stateful. To use metric alerts, the data you're alerting on must be available in Metrics. Use Log query alerts with metric data when it's unavailable in Metrics or if you require logic beyond the relatively simple logic for a metric alert rule. If you're only using VM insights data collection, you need to create an additional DCR to send performance data to Metrics if you want to create metric alerts from guest performance data. 
+
+
+| Type | Common uses for virtual machines | Data sources |
+|:---|:---|:---|
+| [Metric](../alerts/alerts-types.md#metric-alerts) | Alert when a particular metric exceeds a threshold. An example is when the CPU of a machine is running high.  | - Host metrics for Azure virtual machines, which are collected automatically.<br>- Metrics that are collected by the Azure Monitor agent from the guest operating system. |
+| [Log](../alerts/alerts-types.md#log-alerts)  | - Alert when a particular event or pattern of events from Windows event log or syslog are found. These alert rules will typically measure table rows returned from the query.<br>- Alert based on a calculation of numeric data across multiple machines. These alert rules will typically measure the calculation of a numeric column. | Data collected in a Log Analytics workspace. |
+
 
 | Type | Common uses for virtual machines | Data sources |
 |:---|:---|:---|

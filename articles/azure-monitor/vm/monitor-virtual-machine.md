@@ -19,15 +19,6 @@ This scenario describes how to use Azure Monitor to monitor the health and perfo
 
 This article introduces the scenario and provides general concepts for monitoring virtual machines in Azure Monitor. If you want to jump right into a specific area, see one of the other articles that are part of this scenario described in the following table.
 
-| Article | Description |
-|:---|:---|
-| [Enable monitoring](monitor-virtual-machine-configure.md) | Configure Azure Monitor to collect data from your virtual machines, including options for deploying the Azure Monitor agent. |
-| [Analyze](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
-| [Alerts](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
-| [Monitor security](monitor-virtual-machine-security.md) | Discover Azure services for monitoring security of virtual machines. |
-| [Monitor workloads](monitor-virtual-machine-workloads.md) | Monitor applications and other workloads running on your virtual machines. |
-
-
 ## Types of machines
 
 This scenario includes monitoring of the following types of machines using Azure Monitor. Many of the processes described here are the same regardless of the type of machine. Considerations for different types of machines are clearly identified where appropriate. The types of machines include:
@@ -48,6 +39,25 @@ There are fundamentally four layers to a virtual machine that require monitoring
 | Guest operating system | The operating system running on the virtual machine, which is some version of either Windows or Linux. A significant amount of monitoring data is available from the guest operating system, such as performance data and events. You must install Azure Monitor agent to retrieve this telemetry. |
 | Workloads | Workloads running in the guest operating system that support your business applications. These will typically generate performance data and events similar to the operating system that you can retrieve. You must install Azure Monitor agent to retrieve this telemetry. |
 | Application | The business application that depends on your virtual machines. This will typically be monitored by APplication insights. |
+
+## Configuration overview
+The following table lists the steps that must be performed for this configuration. Each one links to the section with the detailed description of that configuration step.
+
+| Step | Description |
+|:---|:---|
+| [Deploy Azure Monitor agent](#deploy-azure-monitor-agent) | Deploy the Azure Monitor agent to your Azure and hybrid virtual machines to  |
+| [Configure data collection](#configure-data-collection) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
+| [Analyze collect data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
+| [Create alert rules](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
+| [Monitor security](monitor-virtual-machine-security.md) | Discover Azure services for monitoring security of virtual machines. |
+| [Monitor workloads](monitor-virtual-machine-workloads.md) | Monitor applications and other workloads running on your virtual machines. |
+
+
+## No configuration
+Azure Monitor provides a basic level of monitoring for Azure virtual machines at no cost and with no configuration.
+
+- Platform metrics for Azure virtual machines include important metrics such as CPU, network, and disk utilization. They can be viewed on the [Overview page](monitor-virtual-machine-analyze.md#single-machine-experience) for the machine in the Azure portal and support metric alerts. See [Enable recommended alert rules for Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-alert-recommended.md).
+- The Activity log is collected automatically and includes the recent activity of the machine, such as any configuration changes and when it was stopped and started.
 
 ## Azure Monitor agent
 Any monitoring tool like Azure Monitor, requires an agent installed on a machine to collect data from its guest operating system. Azure Monitor uses the [Azure Monitor agent](../agents/agents-overview.md), which supports virtual machines in Azure, other cloud environments, and on-premises. The Azure Monitor agent replaces legacy agents that are still available but should only be used if you require particular functionality not yet available with Azure Monitor agent. Most users will be able to use Azure Monitor without the legacy agents.
@@ -84,6 +94,27 @@ By default, VM insights will not enable collection of processes and dependencies
 You may currently use System Center Operations Manager (SCOM) to monitor your virtual machines and their workloads and are starting to consider which monitoring you can move to Azure Monitor. As described in [Azure Monitor for existing Operations Manager customer](../azure-monitor-operations-manager.md), you may continue using SCOM for some period of time until you know longer require the extensive monitoring that SCOM provides.
 
 Use the information in this content to assess the capabilities of Azure Monitor to monitor your virtual machine and determine those machines and workloads that you can migrate from SCOM.
+
+## Security monitoring
+Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by Microsoft Defender for Cloud and Microsoft Sentinel. These services each have additional cost, so you should determine their value in your environment before you implement them.
+
+> [!IMPORTANT]
+> The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.
+
+
+### Integration with Azure Monitor
+The following table lists the integration points for Azure Monitor with the security services. All the services use the same Azure Monitor agent, which reduces complexity because there are no other components being deployed to your virtual machines. Defender for Cloud and Microsoft Sentinel store their data in a Log Analytics workspace so that you can use log queries to correlate data collected by the different services. Or you can create a custom workbook that combines security data and availability and performance data in a single view.
+
+See [Design a Log Analytics workspace architecture](../logs/workspace-design.md) for guidance on the most effective workspace design for your requirements taking into account all your services that use them.
+
+| Integration point       | Azure Monitor | Microsoft Defender for Cloud | Microsoft Sentinel | Defender for Endpoint |
+|:---|:---:|:---:|:---:|:---:|
+| Collects security events     |   | X | X | X |
+| Stores data in Log Analytics workspace | X | X | X |   | 
+| Uses Log Analytics agent     | X | X | X | X | 
+
+> [!IMPORTANT]
+> Azure Monitor agent is in preview for some service features. See [Supported services and features](../agents/agents-overview.md#supported-services-and-features) for current details.
 
 
 ## Next steps

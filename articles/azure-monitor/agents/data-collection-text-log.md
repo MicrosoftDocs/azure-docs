@@ -278,6 +278,29 @@ To create the data collection rule in the Azure portal:
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
 ---
+
+
+### Sample log queries
+The column names used here are for example only. The column names for your log will most likely be different.
+
+- **Count the number of events by code.**
+    
+    ```kusto
+    MyApp_CL
+    | summarize count() by code
+    ```
+
+### Sample alert rule
+
+- **Create an alert rule on any error event.**
+    
+    ```kusto
+    MyApp_CL
+    | where status == "Error"
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
+
+
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 
