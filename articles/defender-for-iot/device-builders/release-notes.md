@@ -31,7 +31,7 @@ When upgrading the micro agent from version 4.2.* to 4.6.2, you would first need
 
 - **New alerts**: Now supporting new peripheral and file system alerts. For more information, see [Micro agent security alerts](concept-agent-based-security-alerts.md).
 
-- **DMI decode alternative**: Now supporting new alternative to report device information incase device does not support DMI decoder. For more information, see [How to configure DMI decoder](how-to-configure-dmi-decoder.md).
+- **DMI decode alternative**: Now supporting new alternative to report device information in case device does not support DMI decoder. For more information, see [How to configure DMI decoder](how-to-configure-dmi-decoder.md).
 
 - **Firmware information**: Now supporting device firmware vendor and version collected using DMI decoder or its alternative. For more information, see [How to configure DMI decoder](how-to-configure-dmi-decoder.md).
 
