@@ -633,16 +633,13 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 | **Command and Control**  | V7, V9    | The command and control tactic represents how adversaries communicate with systems under their control within a target network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Exfiltration**         | V7, V9    | Exfiltration refers to techniques and attributes that result or aid in the adversary removing files and information from a target network. This category also covers locations on a system or network where the adversary may look for information to exfiltrate.                                                                                                                                                                                                                                                                                                                                  |
 | **Impact**               | V7, V9    | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others. 
-                                                                                  
+                                                                             
 > [!NOTE]
 > For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 ## Defender for Servers security alerts deprecation
 
-As part of Defender for Servers security alerts quality improvements process, in April 2023, some of MDC security alerts for Windows and 
-Linux servers, will be removed from Defender for Servers in favor of sourcing them from Defender for Endpoint.  
-
-Note that all security scenarios covered by the deprecated alerts are fully covered Defender for Endpoint threat alerts.
+The following tables include the Defender for Servers security alerts to be deprecated in April, 2023. Learn more about this [upcoming change](upcoming-changes.md).
 
 ### Deprecated Alerts for Linux
 
