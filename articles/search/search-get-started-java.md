@@ -74,15 +74,15 @@ Begin by opening Visual Studio Code and setting up a new project.
 
 1. Select the latest version, currently **1.4**.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of a enter group id." border="true":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
 
 1. Enter **azure.search.sample** as the group ID.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of a enter group id." border="true":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-group-id.png" alt-text="Screenshot of an enter group id." border="true":::
 
 1. Enter **azuresearchquickstart** as the artifact ID.
 
-    :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of a enter artifact id." border="true":::
+    :::image type="content" source="media/search-get-started-java/java-quickstart-artifact-id.png" alt-text="Screenshot of an enter artifact id." border="true":::
 
 1. Select the folder to create the project in.
 
@@ -94,7 +94,7 @@ Begin by opening Visual Studio Code and setting up a new project.
 
 ### Specify Maven dependencies
 
-1. Open the pom.xml file and add the follow dependencies
+1. Open the pom.xml file and add the following dependencies
 
     ```xml
     <dependencies>
