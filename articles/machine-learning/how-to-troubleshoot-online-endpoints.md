@@ -97,6 +97,10 @@ To debug conda installation problems, try the following:
 
 You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
 
+There are two types of containers that you can get the log from:
+- Inference server. Logs include the console log from [the inference server](how-to-inference-server-http.md), which contains print/logging functions' output from your scoring script (`score.py` code). 
+- Storage initializer. Logs contain information on whether code and model data were successfully downloaded to the container.
+
 # [Azure CLI](#tab/cli)
 
 To see log output from container, use the following CLI command:
@@ -119,13 +123,12 @@ To see information about how to set these parameters, and if current values are 
 az ml online-deployment get-logs -h
 ```
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server. 
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-
-You can also get logs from the storage initializer container by passing `–-container storage-initializer`. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by passing `–-container storage-initializer`. 
 
 Add `--help` and/or `--debug` to commands to see more information. 
 
@@ -142,12 +145,12 @@ ml_client.online_deployments.get_logs(
 To see information about how to set these parameters, see
 [reference for get-logs](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations#azure-ai-ml-operations-onlinedeploymentoperations-get-logs)
 
-By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
+By default the logs are pulled from the inference server.
 
 > [!NOTE]
 > If you use Python logging, ensure you use the correct logging level order for the messages to be published to logs. For example, INFO.
 
-You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. These logs contain information on whether code and model data were successfully downloaded to the container.
+You can also get logs from the storage initializer container by adding `container_type="storage-initializer"` option. 
 
 ```python
 ml_client.online_deployments.get_logs(
@@ -167,7 +170,7 @@ To see log output from container, use the **Endpoints** in the studio:
 
 :::image type="content" source="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" lightbox="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
-The logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your scoring script (`score.py`).
+The logs are pulled from the inference server. 
 
 To get logs from the storage initializer container, use the Azure CLI or Python SDK (see each tab for details). 
 
