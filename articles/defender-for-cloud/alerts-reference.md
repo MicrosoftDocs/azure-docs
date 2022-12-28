@@ -632,8 +632,8 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 | **Exfiltration**         | V7, V9    | Exfiltration refers to techniques and attributes that result or aid in the adversary removing files and information from a target network. This category also covers locations on a system or network where the adversary may look for information to exfiltrate.                                                                                                                                                                                                                                                                                                                                  |
 | **Impact**               | V7, V9    | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others. 
                                                                                   
->   [!NOTE]
->   For alerts that are in preview:<br/> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+> [!NOTE]
+> For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 ## Defender for Servers security alerts deprecation
 
