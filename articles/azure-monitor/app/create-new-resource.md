@@ -327,8 +327,7 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-If you currently use the [Application Insights REST API](https://dev.applicationinsights.io/
-) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
+If you currently use the [Application Insights REST API](/rest/api/application-insights/) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
 
 |Region |  Endpoint Name | Value |
 |-----------------|:------------|:-------------|
