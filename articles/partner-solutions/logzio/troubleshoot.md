@@ -13,7 +13,7 @@ This article describes how to troubleshoot the Logz.io integration with Azure.
 
 ## Owner role needed to create resource
 
-To set up Logz.io, you must be assigned the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) in the Azure subscription. Before you begin this integration, [check your access](../../role-based-access-control/check-access.md).
+To set up Logz.io, you must be assigned the [Owner role](/azure/role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) in the Azure subscription. Before you begin this integration, [check your access](/azure/role-based-access-control/check-access).
 
 ## Single sign-on errors
 
@@ -49,14 +49,14 @@ To verify whether a resource is sending logs to Logz.io:
 
 :::image type="content" source="./media/troubleshoot/diagnostics.png" alt-text="Screenshot of the Azure monitoring diagnostic settings for Logz.io.":::
 
-3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings.md?tabs=portal)
 
 4. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 
 ## Register resource provider
 
-You must register `Microsoft.Logz` in the Azure subscription that contains the Logz.io resource, and any subscriptions with resources that send data to Logz.io. For more information about troubleshooting resource provider registration, see [Resolve errors for resource provider registration](../../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+You must register `Microsoft.Logz` in the Azure subscription that contains the Logz.io resource, and any subscriptions with resources that send data to Logz.io. For more information about troubleshooting resource provider registration, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider).
 
 ## Limit reached in monitored resources
 

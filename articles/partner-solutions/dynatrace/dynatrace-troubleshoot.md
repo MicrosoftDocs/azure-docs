@@ -40,9 +40,9 @@ This document contains information about troubleshooting your solutions that use
 
 ## Logs not being emitted
 
-1. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
+1. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-2. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+2. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
 3. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 

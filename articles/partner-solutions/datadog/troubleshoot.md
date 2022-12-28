@@ -16,11 +16,11 @@ This document contains information about troubleshooting your solutions that use
 
 * Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
 
-  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
+  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](/azure/cost-management-billing/manage/change-credit-card).
 
 * The EA subscription doesn't allow Marketplace purchases.
 
-  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](/azure/cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
 
 ## Unable to create Datadog - An Azure Native ISV Service resource
 
@@ -52,9 +52,9 @@ When inviting guest user, use the home tenant UPN. By using the UPN, you keep th
 
 :::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
 
-2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
+2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal).
 
 4. Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
