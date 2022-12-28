@@ -74,7 +74,7 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 
 The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered public information. 
 
-# [Version-1.0](#tab/Version-1.0)  
+# [Version-1.0](#tab/version1)  
 
 ```json
     {
@@ -107,7 +107,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       }
     }
 ```
-# [Version-3.0](#tab/Version-30.0)  
+# [Version-3.0](#tab/version3)  
 
 ```json
     {
@@ -167,7 +167,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ### Property values
 
-# [Version-1.0](#tab/Version-1.0)  
+# [Version-1.0](#tab/version1)  
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -184,7 +184,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
-# [Version-3.0](#tab/Version-3.0)  
+# [Version-3.0](#tab/version3)  
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
@@ -210,7 +210,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 
 The JSON configuration for a key vault extension is nested inside the virtual machine or virtual machine scale set template. For Virtual Machine resource extension is nested under `"resources": []` virtual machine object and Virtual Machine Scale Set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
-# [Version-1.0](#tab/Version-1.0)  
+# [Version-1.0](#tab/version1)  
 
 ```json
     {
@@ -242,7 +242,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
       }
     }
 ```
-# [Version-3.0](#tab/Version-3.0)  
+# [Version-3.0](#tab/version3)  
 
 ```json
     {
@@ -315,7 +315,7 @@ To enable waiting for certificate to be installed, set the following setting:
 
 ## Azure PowerShell deployment
 
-# [Version-1.0](#tab/Version-1.0)  
+# [Version-1.0](#tab/version1)  
 
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json, which causes akvvm_service to fail with the error `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
@@ -374,7 +374,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-# [Version-3.0](#tab/Version-3.0) 
+# [Version-3.0](#tab/version3) 
 
 Save Key Vault VM extension settings to json file.
 
@@ -448,12 +448,11 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
-
 --- 
 
 ## Azure CLI deployment
 
-# [Version-1.0](#tab/Version-1.0) 
+# [Version-1.0](#tab/version1) 
 
 The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
 
@@ -480,7 +479,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] },
          \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
 
-# [Version-3.0](#tab/Version-3.0) 
+# [Version-3.0](#tab/version3) 
 
 Save Key Vault VM extension settings to json file.
 
@@ -540,6 +539,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings "@settings.json"
+
 ---
 
 
