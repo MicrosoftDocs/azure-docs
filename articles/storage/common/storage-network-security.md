@@ -352,17 +352,18 @@ The following restrictions apply to IP address ranges.
 
 - Only IPV4 addresses are supported for configuration of storage firewall rules.
 
-IP network rules can't be used in the following cases:
-
-- To restrict access to clients in same Azure region as the storage account.
-
-  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
-
-- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
-
-- To restrict access to Azure services deployed in the same region as the storage account.
-
-  Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you can't restrict access to specific Azure services based on their public outbound IP address range.
+> [!IMPORTANT]
+>IP network rules can't be used in the following cases:
+>
+>- To restrict access to clients in same Azure region as the storage account.
+>
+>  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual->network) to allow same-region requests.
+>
+>- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
+>
+>- To restrict access to Azure services deployed in the same region as the storage account.
+>
+>  Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you can't restrict access to specific Azure services based on their public outbound IP address range.
 
 ### Configuring access from on-premises networks
 
