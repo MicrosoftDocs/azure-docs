@@ -22,7 +22,7 @@ Optimized queries will:
 - Run faster and reduce overall duration of the query execution.
 - Have smaller chance of being throttled or rejected.
 
-Pay particular attention to queries that are used for recurrent and bursty usage, such as dashboards, alerts, logic apps, and Power BI. The impact of an ineffective query in these cases is substantial.
+Pay particular attention to queries that are used for recurrent and bursty usage, such as dashboards, alerts, Azure Logic Apps, and Power BI. The impact of an ineffective query in these cases is substantial.
 
 Here's a detailed video walkthrough on optimizing queries.
 
