@@ -56,7 +56,7 @@ This procedure describes how to add a trial Defender for IoT plan for OT network
 
 1. On the **Review and purchase** tab, select the **I accept the terms and conditions** option > **Purchase**.
 
-Your new plan is listed under the relevant subscription in the on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
+Your new plan is listed under the relevant subscription on the **Plans and pricing** > **Plans** page. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Next steps
 
