@@ -13,17 +13,13 @@ ms.custom: engagement-fy23
 
 This article describes how to use the Azure portal to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
 
-* Restore a full Azure file share.
-* Restore individual files or folders.
-* Track the restore operation status.
-
 ## Select the file share to restore
 
 To select the file share, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Backup center** and click **Restore**.
 
-   :::image type="content" source="./media/restore-afs/backup-center-restore-inline.png" alt-text="Screenshot shows how to start the Azure File share restore process." lightbox="./media/restore-afs/backup-center-restore-expanded.png":::
+   :::image type="content" source="./media/restore-afs/backup-center-restore-inline.png" alt-text="Screenshot shows how to start the process to restore the Azure File share restore." lightbox="./media/restore-afs/backup-center-restore-expanded.png":::
 
 1. Select **Azure Files (Azure Storage)** as the datasource type, select the file share that you wish to restore, and then click **Continue**.
 
