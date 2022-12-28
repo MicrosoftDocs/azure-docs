@@ -106,14 +106,6 @@ For more information, see [how to configure a workload zone deployment for autom
 
 The automation framework uses [Service Principals](#service-principal-creation) for infrastructure deployment. It's recommended to use different deployment credentials (service principals) for each [workload zone](#workload-zone-planning). The framework stores these credentials in the [deployer's](automation-deployment-framework.md#deployment-components) key vault. Then, the framework retrieves these credentials dynamically during the deployment process.
 
-The automation framework also defines the credentials for the default virtual machine (VM) accounts, as provided at the time of the VM creation. These credentials include:
-
-| Credential | Scope        | Storage | Identifier   | Description |
-| ---------- | -----        | ------- | ----------   | ----------- |
-| Local user | Deployer     | -       | Current user | Bootstraps the deployer. |
-| [Service principal](#service-principal-creation) | Environment | Deployer's key vault | Environment identifier | Deployment credentials. |
-| VM credentials | Environment | Workload's key vault | Environment identifier | Sets the default VM user information. |
-
 ### SAP and Virtual machine Credentials management
 
 The automation framework will use the workload zone key vault for storing both the automation user credentials and the SAP system credentials. The virtual machine credentials are named as follows:
@@ -153,6 +145,9 @@ Create your service principal:
 
 For more information, see [the Azure CLI documentation for creating a service principal](/cli/azure/create-an-azure-service-principal-azure-cli)
 
+### Permissions management
+
+In a locked down environment, you might need to assign additional permissions to the service principal. For example, you might need to assign the User Access Administrator role to the service principal. For more information, see [the Azure CLI documentation for assigning a role to a service principal](/cli/azure/role/assignment#az-role-assignment-create).
 ## DevOps structure
 
 The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
