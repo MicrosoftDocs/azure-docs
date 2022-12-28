@@ -119,7 +119,7 @@ With the Azure Communication Services resource, you can set up the Azure Communi
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="Screenshot of launching Azure Communication Services Chat channel." lightbox="./media/demoapp-launch-acs-chat.png":::
 
    
-2. Select the connect button to see a list of ACS resources available under your subscriptions.
+2. Select the connect button to see a list of Communication resources available under your subscriptions.
 
    :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="Diagram that shows how to connect an Azure Communication Service Resource to this bot." lightbox="./media/bot-connect-acs-chat-channel.png":::
 
@@ -341,7 +341,7 @@ On the Azure Communication Services User side, the Azure Communication Services 
 * ### Send a message from user to bot
 
 You can send a simple text message from user to bot just the same way you send a text message to another user.
-However, when sending a message carrying an attachment from a user to the bot, you will need to add this flag to the ACS Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.adaptivecard"`. For sending an event activity from user to bot, you will need to add to ACS Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.event"`. Below are sample formats for user to bot ACS Chat messages.
+However, when sending a message carrying an attachment from a user to the bot, you will need to add this flag to the Communication Services Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.adaptivecard"`. For sending an event activity from user to bot, you will need to add to Communication Services Chat metadata `"microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.event"`. Below are sample formats for user to bot Chat messages.
 
   * #### Simple text message
 
@@ -419,15 +419,15 @@ Event payload comprises all json fields in the message content except name field
 - `Attachments`
 - `AttachmentLayout`
 - `SuggestedActions`
-- `From.Name` (Converted to ACS SenderDisplayName)
-- `ChannelData` (Converted to ACS Chat Metadata. If any `ChannelData` mapping values are objects, then they'll be serialized in JSON format and sent as a string)
+- `From.Name` (Converted to Azure Communication Services SenderDisplayName)
+- `ChannelData` (Converted to Azure Communication Services Chat Metadata. If any `ChannelData` mapping values are objects, then they'll be serialized in JSON format and sent as a string)
 
 ### User to bot flow
 
 #### Activities and fields
 
 - Message activity
-  - `Id` (ACS Chat message ID)
+  - `Id` (Azure Communication Services Chat message ID)
   - `TimeStamp`
   - `Text`
   - `Attachments`
@@ -436,11 +436,11 @@ Event payload comprises all json fields in the message content except name field
     - `MembersRemoved`
     - `TopicName`
 - Message update activity
-    - `Id` (Updated ACS Chat message ID)
+    - `Id` (Updated Azure Communication Services Chat message ID)
     - `Text`
     - `Attachments`
 - Message delete activity
-    - `Id` (Deleted ACS Chat message ID)
+    - `Id` (Deleted Azure Communication Services Chat message ID)
 - Event activity
     - `Name`
     - `Value`
@@ -448,15 +448,15 @@ Event payload comprises all json fields in the message content except name field
 
 #### Other common fields
 
-- `Recipient.Id` and `Recipeint.Name` (ACS Chat user ID and display name)
-- `From.Id` and `From.Name` (ACS Chat user ID and display name)
-- `Conversation.Id` (ACS Chat thread ID)
+- `Recipient.Id` and `Recipeint.Name` (Azure Communication Services Chat user ID and display name)
+- `From.Id` and `From.Name` (Azure Communication Services Chat user ID and display name)
+- `Conversation.Id` (Azure Communication Services Chat thread ID)
 - `ChannelId` (AcsChat if empty)
-- `ChannelData` (ACS Chat message metadata)
+- `ChannelData` (Azure Communication Services Chat message metadata)
 
 ## Support for single tenant and managed identity bots
 
-ACS Chat channel supports single tenant and managed identity bots as well. Refer to [bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information) to set up your bot web app.
+Azure Communication Services Chat channel supports single tenant and managed identity bots as well. Refer to [bot identity information](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#bot-identity-information) to set up your bot web app.
 
 For managed identity bots, additionally, you might have to [update bot service identity](/azure/bot-service/bot-builder-authentication?tabs=userassigned%2Caadv2%2Ccsharp#to-update-your-app-service).
 
@@ -466,13 +466,13 @@ Sometimes the bot wouldn't be able to understand or answer a question or a custo
 
 ## Handling bot to bot communication
 
- There may be certain use cases where two bots need to be added to the same chat thread to provide different services. In such use cases, you may need to ensure that bots don't start sending automated replies to each other's messages. If not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. You can verify the ACS user identity of the sender of a message from the activity's `From.Id` field to see if it belongs to another bot and take required action to prevent such a communication flow. If such a scenario results in high call volumes, then Azure Communication Services Chat channel will start throttling the requests, which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](/azure/communication-services/concepts/service-limits#chat).
+ There may be certain use cases where two bots need to be added to the same chat thread to provide different services. In such use cases, you may need to ensure that bots don't start sending automated replies to each other's messages. If not handled properly, the bots' automated interaction between themselves may result in an infinite loop of messages. You can verify the Azure Communication Services user identity of the sender of a message from the activity's `From.Id` field to see if it belongs to another bot and take required action to prevent such a communication flow. If such a scenario results in high call volumes, then Azure Communication Services Chat channel will start throttling the requests, which will result in the bot not being able to send and receive the messages. You can learn more about the [throttle limits](/azure/communication-services/concepts/service-limits#chat).
 
 ## Troubleshooting
 
 ### Chat channel cannot be added
 
-- Verify that in the ABS portal, Configuration -> Bot Messaging endpoint has been set correctly.
+- Verify that in the Azure Bot Framework (ABS) portal, Configuration -> Bot Messaging endpoint has been set correctly.
 
 ### Bot gets a forbidden exception while replying to a message
 
@@ -480,7 +480,7 @@ Sometimes the bot wouldn't be able to understand or answer a question or a custo
 
 ### Bot is not able to be added as a participant
 
-- Verify that bot's ACS ID is being used correctly while sending a request to add bot to a chat thread.
+- Verify that bot's Azure Communication Services ID is being used correctly while sending a request to add bot to a chat thread.
 
 ## Next steps
 

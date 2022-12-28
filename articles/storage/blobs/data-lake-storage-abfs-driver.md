@@ -1,7 +1,9 @@
 ---
 title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
+titleSuffix: Azure Storage
 description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage Gen2 using this driver.
 author: normesta
+
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak

@@ -152,7 +152,7 @@ If your app is running on the Elastic Premium Plan, it is recommended that you e
 
 Netherite requires a 64-bit architecture to work. Starting on Functions V4, this should be the default. You can usually validate this in the portal: under **Configuration**, select **General Settings** and then ensure the **Platform** field is set to **64 Bit**. If you don't see this option in the portal, then it's possible you're already running on a 64-bit platform. For example, Linux apps won't show this setting because they only support 64-bit.
 
-![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/ensure-64bit-architecture.png)
+![Configure runtime to use 64 bit in the portal.](./media/quickstart-netherite/ensure-64-bit-architecture.png)
 
 ## Deploy
 
