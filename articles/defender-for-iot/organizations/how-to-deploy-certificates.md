@@ -18,7 +18,7 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 
 Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign in certificate page.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/wizard-upload-activation-certificates-1.png" alt-text="Screenshot of an initial sensor sign-in certificate page.":::
 
 ## About certificate generation methods
 
@@ -60,7 +60,7 @@ When signing into the sensor and on-premises management console for the first ti
 
 If the certificate isn't created properly by the certificate lead or there are connection issues to it, the certificate can't be uploaded and users will be forced to work with a locally signed certificate.  
 
-The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
+The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continue, even if a certificate is invalid.
 
 ## Certificate deployment
 
@@ -95,7 +95,7 @@ Some organizational security policies may block access to this port. If your org
 
 1. Define another URL and a specific port in the certificate.
 
-    - The URL should be defined as http: //  rather than https: // .
+    - The URL should be defined as `http: //`  rather than `https: //`.
 
     - Verify that the destination CRL server can listen on the port you defined. 
 
@@ -150,7 +150,7 @@ This section covers .crt field requirements.
 
 Use either RSA 2048 bits or 4096 bits.
 
-When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. in addition, there is an increase in CPU usage during handshakes.
+When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. In addition, there's an increase in CPU usage during handshakes.
 
 ### Using a certificate chain (optional)
 
@@ -164,15 +164,15 @@ Use a certificate management platform to create a certificate, for example, an a
 
 If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](#crt-file-requirements) for information about this parameter.
 
-Consult a security, PKI, or other qualified certificate lead if you do not have an application that can automatically create certificates.
+Consult a security, PKI, or other qualified certificate lead if you don't have an application that can automatically create certificates.
 
 You can [Test certificates you create](#test-certificates-you-create).  
 
-You can also convert existing certificate files if you do not want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
+You can also convert existing certificate files if you don't want to create new ones. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
 
 ### Sample Certificate
 
-You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
+You can compare your certificate to the following sample certificate. Verify that the same fields exits and that the order of the fields is the same:
 
 :::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
 
@@ -205,15 +205,15 @@ This section covers various issues that may occur during certificate upload and 
 
 ### Troubleshoot CA-Certificate Upload  
 
-Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate is not created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
+Admin users attempting to log in to the sensor or on-premises management console for the first time will not be able to upload the CA-signed certificate if the certificate isn't created properly or is invalid. If certificate upload fails, one or several of the error messages will display:
 
 | **Certificate validation error** | **Recommendation** |
 |--|--|
 | Passphrase does not match to the key | Validate that you typed the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
-| Cannot validate chain of trust. The provided Certificate and Root CA do not match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
-|This certificate has been revoked by the CRL and cannot be trusted for a secure connection | Create a new unrevoked certificate. |
+| Cannot validate chain of trust. The provided Certificate and Root CA don't match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
+| This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
+| This SSL certificate has expired and isn't considered valid.  | Create a new certificate with valid dates.|
+|This certificate has been revoked by the CRL and can't be trusted for a secure connection | Create a new unrevoked certificate. |
 |The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate. You can use a proxy server if there are limitations in establishing a direct connection.  
 |Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
 
