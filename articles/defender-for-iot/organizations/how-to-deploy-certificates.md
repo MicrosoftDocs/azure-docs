@@ -70,7 +70,7 @@ This section describes the steps you need to take to ensure that certificate dep
 
 - A security, PKI or certificate specialist is creating or overseeing certificate creation. 
 - You create a unique certificate for each sensor, management console and HA machine.
-- You meet certificate creation requirements. See [Supported SSL certificates](#supported-ssl-certificates).
+- You meet [certificate creation requirements](#supported-ssl-certificates).
 - Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
 ## Supported SSL certificates
@@ -103,7 +103,7 @@ Some organizational security policies may block access to this port. If your org
 
 ### Supported certificate file types
 
-Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require .pem file. Defender for IoT doesn't require this file type.
+Defender for IoT requires that each CA-signed certificate contains a .key file and a .crt file. These files are uploaded to the sensor and On-premises management console after login. Some organizations may require a .pem file. Defender for IoT doesn't require this file type.
 
 **.crt – certificate container file**
 
@@ -160,7 +160,7 @@ Bag attributes are supported in the certificate chain file.
 
 ## Create SSL certificates
 
-Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. See Test certificates for information on testing the files you create.
+Use a certificate management platform to create a certificate, for example, an automated PKI management platform. Verify that the certificates meet certificate file requirements. For more information on testing the files you create, see [Test certificates you create](#test-certificates-you-create).  
 
 If you are not carrying out certificate validation, remove the CRL URL reference in the certificate. See [CRT file requirements](#crt-file-requirements) for information about this parameter.
 
@@ -172,13 +172,13 @@ You can also convert existing certificate files if you don't want to create new 
 
 ### Sample Certificate
 
-You can compare your certificate to the following sample certificate. Verify that the same fields exits and that the order of the fields is the same:
+Compare your certificate to the following sample certificate. Verify that the same fields exits and that the order of the fields is the same:
 
 :::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="Screenshot of a sample certificate.":::
 
 ## Test certificates you create
 
-You can test certificates before deploying them to your sensors and on-premises management consoles. If you want to check the information within the certificate .csr file or private key file, use these commands:
+Test certificates before deploying them to your sensors and on-premises management consoles. If you want to check the information within the certificate .csr file or private key file, use these commands:
 
 | **Test** | **CLI command** |
 |--|--|
