@@ -19,18 +19,18 @@ If you would like to subscribe to HDInsight release notes, go to this [GitHub re
 
 :::image type="content" source="./media/subscribe-to-github-repo/subscribe-to-github-repo.png" alt-text="Screenshot showing how to subscribe to GitHub repo.":::
 
-Whenever there is a the Release Note is updated, a notification will be sent to the subscribed e-mail ID.
+Whenever there's a Release Note is published, a notification will be sent to the subscribed e-mail ID.
 
 ## View HDInsight cluster's image version
 
 1. Go to the HDInsight cluster.
 
-    :::image type="content" source="./media/find-image-version/view-cluster.png" alt-text="Screenshot showing how to subscribe to GitHub repo.":::
+    :::image type="content" source="./media/find-image-version/view-cluster.png" alt-text="Screenshot showing cluster overview page.":::
 
 1. From Overview tab, click **JSON View**.
 1. Refer to the properties **blueprint**.
 
-    :::image type="content" source="./media/subscribe-to-github-repo/json-view.png" alt-text="Screenshot showing how to subscribe to GitHub repo.":::
+    :::image type="content" source="./media/subscribe-to-github-repo/json-view.png" alt-text="Screenshot showing how to view the HDInsight image version.":::
 
 ## Next steps
 
