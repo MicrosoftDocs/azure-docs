@@ -374,8 +374,8 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
       - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
       - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
       - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
-  1. Edit the template file to contain appropriate information for your alert, and save the file as <your-alert-template-file>.json
-  1. Edit the corresponding parameters file to customize the alert, and save as <your-alert-template-file>.parameters.json
+  1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json
+  1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json
   1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
   1. Deploy the template using [Powershell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLIl](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
 
