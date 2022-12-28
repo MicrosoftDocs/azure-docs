@@ -1,11 +1,11 @@
 ---
 title: Azure Stream Analytics JobConfig.json fields
 description: This article lists the supported fields for the Azure Stream Analytics JobConfig.json file used to create jobs in Visual Studio Code.
-author: su-jie
-ms.author: sujie
+author: alexlzx
+ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/14/2020
+ms.date: 12/27/2022
 ---
 
 # Azure Stream Analytics JobConfig.json fields
