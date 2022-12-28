@@ -366,21 +366,21 @@ You can use an [Azure Resource Manager template (ARM template)](../../azure-reso
   > [!NOTE]
   > Metric alerts for an Azure Log Analytics workspace resource type (`Microsoft.OperationalInsights/workspaces`) are configured differently than other metric alerts. For more information, see [Resource Template for Metric Alerts for Logs](alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
-  1. Create a new resource, using the following resource types:
-      - For metric alerts: `Microsoft.Insights/metricAlerts`
-      - For log alerts: `Microsoft.Insights/scheduledQueryRules`
-      - For activity log alerts: `microsoft.Insights/activityLogAlerts`
-  1. Copy one of the templates from these sample ARM templates.
-      - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
-      - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
-      - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
-  1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json
-  1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json
-  1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
-  1. Deploy the template using [Powershell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLIl](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
+1. Create a new resource, using the following resource types:
+    - For metric alerts: `Microsoft.Insights/metricAlerts`
+    - For log alerts: `Microsoft.Insights/scheduledQueryRules`
+    - For activity log alerts: `microsoft.Insights/activityLogAlerts`
+1. Copy one of the templates from these sample ARM templates.
+    - For metric alerts: [Resource Manager template samples for metric alert rules](resource-manager-alerts-metric.md)
+    - For log alerts: [Resource Manager template samples for log alert rules](resource-manager-alerts-log.md)
+    - For activity log alerts: [Resource Manager template samples for activity log alert rules](resource-manager-alerts-activity-log.md)
+1. Edit the template file to contain appropriate information for your alert, and save the file as \<your-alert-template-file\>.json
+1. Edit the corresponding parameters file to customize the alert, and save as \<your-alert-template-file\>.parameters.json
+1. Set the `metricName` parameter, using one of the values in [Azure Monitor supported metrics](../essentials/metrics-supported.md).
+1. Deploy the template using [Powershell](../../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template) or the [CLIl](../../azure-resource-manager/templates/deploy-cli.md#deploy-local-template).
 
-    > [!NOTE]
-    > We recommend that you create the metric alert using the same resource group as your target resource.
+> [!NOTE]
+> We recommend that you create the metric alert using the same resource group as your target resource.
 
 ### Additional properties for activity log alert ARM templates
 > [!NOTE]
