@@ -213,7 +213,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or Virtual Machine Scale Sets. The schema and configuration are common to both template types. 
 
-The JSON configuration for a key vault extension is nested inside the virtual machine or virtual machine scale set template. For Virtual Machine resource extension is nested under `"resources": []` virtual machine object and Virtual Machine Scale Set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
+The JSON configuration for a key vault extension is nested inside the virtual machine or Virtual Machine Scale Set template. For Virtual Machine resource extension is nested under `"resources": []` virtual machine object and Virtual Machine Scale Set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
 
 ### [Version-1.0](#tab/version1)  
 
@@ -459,7 +459,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
 
 ### [Version-1.0](#tab/version1) 
 
-The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
+The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or Virtual Machine Scale Set. 
 
 * Deploy the extension on a VM:
     
@@ -522,7 +522,7 @@ Example settings (settings.json):
      }
 ```
 
-The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
+The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or Virtual Machine Scale Set. 
  
 * Deploy the extension on a VM:
     
@@ -551,9 +551,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 ### Frequently Asked Questions
 
 #### Is there a limit on the number of observedCertificates you can set up?
-  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 #### What will be the default permission if no account is provided in settings?
-Administrators and SYSTEM will gets Full Control by default.
+Administrators and SYSTEM will get Full Control by default.
 #### How do you determine if a certificate key is going to be CAPI1 or CNG?
 We rely on the default behavior of [PFXImportCertStore API](../../../windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has Provider Name attribute that matches with CAPI1, certificate will be imported using CAPI1 certificate, else it will be imported using CNG APIs.
 
