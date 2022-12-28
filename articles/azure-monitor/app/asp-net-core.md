@@ -28,6 +28,9 @@ We'll use an [MVC application](/aspnet/core/tutorials/first-mvc-app) example. If
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
+> [!NOTE]
+> You can also use the Microsoft.Extensions.Logging.ApplicationInsights package to capture logs. For more information, see [Application Insights logging with .NET](ilogger.md). For an example, see [Console application](ilogger.md#console-application).
+
 ## Supported scenarios
 
 The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) can monitor your applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported and covers the following scenarios:
