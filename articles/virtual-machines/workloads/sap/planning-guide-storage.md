@@ -98,7 +98,7 @@ Characteristics you can expect from the different storage types list like:
 | HANA supported | No | No | yes<sup>1</sup> | Yes | Yes | Yes | No |
 | Disk snapshots possible | Yes | Yes | Yes | No | No | Yes | No |
 | Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> | No |
-| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | Needs engagement of Microsoft | No |
+| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Yes | In public preview | No |
 | Zonal redundancy | Not for managed disks | Not for managed disks | Not supported for DBMS | No | No | No | Yes |
 | Geo redundancy | Not for managed disks | Not for managed disks | No | No | No | Possible | No |
 
