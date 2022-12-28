@@ -80,7 +80,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
    > To SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
 
-1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
+1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
    sudo /etc/adu/du-config.json
@@ -116,7 +116,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    sudo apt-get install deviceupdate-agent 
    ```
 
-1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file.
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
    sudo /etc/adu/du-config.json

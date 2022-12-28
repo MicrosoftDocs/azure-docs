@@ -603,7 +603,7 @@
               href: how-to-troubleshoot-batch-endpoints.md
             - name: Security
               items:
-                - name: Authentication on batch endpoints
+                - name: Authorization on batch endpoints
                   href: how-to-authenticate-batch-endpoint.md
                 - name: Network isolation in batch endpoints
                   href: how-to-secure-batch-endpoint.md
