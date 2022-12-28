@@ -630,11 +630,10 @@ Defender for Cloud's supported kill chain intents are based on [version 9 of the
 | **Collection**           | V7, V9    | Collection consists of techniques used to identify and gather information, such as sensitive files, from a target network prior to exfiltration. This category also covers locations on a system or network where the adversary may look for information to exfiltrate.                                                                                                                                                                                                                                                                                                                            |
 | **Command and Control**  | V7, V9    | The command and control tactic represents how adversaries communicate with systems under their control within a target network.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Exfiltration**         | V7, V9    | Exfiltration refers to techniques and attributes that result or aid in the adversary removing files and information from a target network. This category also covers locations on a system or network where the adversary may look for information to exfiltrate.                                                                                                                                                                                                                                                                                                                                  |
-| **Impact**               | V7, V9    | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others.                                                                                                                                                                                                                                                                                                     |
-
-
-> [!NOTE]
-> For alerts that are in preview: [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+| **Impact**               | V7, V9    | Impact events primarily try to directly reduce the availability or integrity of a system, service, or network; including manipulation of data to impact a business or operational process. This would often refer to techniques such as ransomware, defacement, data manipulation, and others. 
+                                                                                  
+>   [!NOTE]
+>   For alerts that are in preview:<br/> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 ## Defender for Servers security alerts deprecation
 
@@ -654,7 +653,7 @@ VM_BinaryGeneratedFromCommandLine |	Suspicious binary detected | Medium
 VM_CommandlineSuspectDomain	Suspicious | domain name reference | Low
 VM_CommonBot | Behavior similar to common Linux bots detected | Medium
 VM_CompCommonBots | Commands similar to common Linux bots detected |Medium
-VM_CompSuspiciousScript	Suspicious | Shell Script Detected | Medium
+VM_CompSuspiciousScript | Shell Script Detected | Medium
 VM_CompTestRule | Composite Analytic Test Alert | Low
 VM_CronJobAccess | Manipulation of scheduled tasks detected | Informational
 VM_CryptoCoinMinerArtifacts | Process associated with digital currency mining detected | Medium
@@ -701,16 +700,6 @@ VM_SuspectNohup | Detected suspicious use of the nohup command | Medium
 VM_SuspectPasswordChange | Possible password change using crypt-method detected | Medium
 VM_SuspectPasswordFileAccess | Suspicious password access | Informational
 VM_SuspectPhp | Suspicious PHP execution detected| Medium
-VM_SuspectDownloadArtifacts| Detected suspicious file download | Low
-VM_SuspectExecutablePath| Executable found running from a suspicious location| Medium
-VM_SuspectHtaccessFileAccess | Access of htaccess file detected| Medium
-VM_SuspectInitialShellCommand | Suspicious first command in shell| Low
-VM_SuspectMixedCaseText | Detected anomalous mix of uppercase and lowercase characters in command line| Medium
-VM_SuspectNetworkConnection | Suspicious network connection| Informational
-VM_SuspectNohup | Detected suspicious use of the nohup command| Medium
-VM_SuspectPasswordChange | Possible password change using crypt-method detected | Medium
-VM_SuspectPasswordFileAccess| Suspicious password access| Informational
-VM_SuspectPhp | Suspicious PHP execution detected| Medium
 VM_SuspectPortForwarding | Potential port forwarding to external IP address| Medium
 VM_SuspectProcessAccountPrivilegeCombo | Process running in a service account became root unexpectedly | Medium
 VM_SuspectProcessTermination | Security-related process termination detected | Low
@@ -756,7 +745,7 @@ VM.Windows_EchoToConstructPowerShellScript | Dynamic PS script construction | Me
 VM.Windows_ExecutableDecodedUsingCertutil | Detected decoding of an executable using built-in certutil.exe tool | Medium
 VM.Windows_FileDeletionIsSospisiousLocation | Suspicious file deletion detected | Medium
 VM.Windows_KerberosGoldenTicketAttack | Suspected Kerberos Golden Ticket attack parameters observed | Medium
-VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable <br/> Suspicious process executed | Medium <br/>  <br/> High <br/> |
+VM.Windows_KeygenToolKnownProcessName | Detected possible execution of keygen executable Suspicious process executed | Medium
 VM.Windows_KnownSuspiciousPowerShellScript | Suspicious use of PowerShell detected | High
 VM.Windows_KnownSuspiciousSoftwareInstallation | High risk software detected | Medium
 VM.Windows_MsHtaAndPowerShellCombination | Detected suspicious combination of HTA and PowerShell | Medium 
@@ -769,24 +758,26 @@ VM.Windows_PowerShellPowerSploitScriptExecution | Suspicious PowerShell cmdlets 
 VM.Windows_RansomwareIndication | Ransomware indicators detected | High
 VM.Windows_SqlDumperUsedSuspiciously | Possible credential dumping detected [seen multiple times] | Medium
 VM.Windows_StopCriticalServices | Detected the disabling of critical services | Medium
-VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detcted  Medium <br/>  <br/> Medium <br/> |
+VM.Windows_SubvertingAccessibilityBinary | Sticky keys attack detected <br/> Suspicious account creation detcted  Medium
 VM.Windows_SuspiciousFirewallRuleAdded | Detected suspicious new firewall rule | Medium
 VM.Windows_SuspiciousFTPSSwitchUsage | Detected suspicious use of FTP -s switch | Medium
 VM.Windows_SuspiciousSQLActivity | Suspicious SQL activity | Medium
 VM.Windows_SVCHostFromInvalidPath | Suspicious process executed | High
-VM.Windows_SystemEventLogCleared | The Windows Security log was cleared. | Informational
+VM.Windows_SystemEventLogCleared | The Windows Security log was cleared | Informational
 VM.Windows_TelegramInstallation | Detected potentially suspicious use of Telegram tool | Medium
 VM.Windows_UndercoverProcess | Suspiciously named process detected | High
 VM.Windows_UserAccountControlBypass | Detected change to a registry key that can be abused to bypass UAC | Medium
 VM.Windows_VBScriptEncoding | Detected suspicious execution of VBScript.Encode command | Medium
 VM.Windows_WindowPositionRegisteryChange | Suspicious WindowPosition registry value detected | Low
 VM.Windows_ZincPortOpenningUsingFirewallRule | Malicious firewall rule created by ZINC server implant | High
-VM_MaliciousSQLActivity	Malicious SQL activity | High
-VM_ProcessWithDoubleExtensionExecution	Suspicious double extension file executed | High
+VM_DigitalCurrencyMining | Digital currency mining related behavior detected | High
+VM_MaliciousSQLActivity | Malicious SQL activity | High
+VM_ProcessWithDoubleExtensionExecution | Suspicious double extension file executed | High
 VM_RegistryPersistencyKey | Windows registry persistence method detected | Low
-VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High <br/> High <br/> |
+VM_ShadowCopyDeletion | Suspicious Volume Shadow Copy Activity <br/> Executable found running from a suspicious location | High
 VM_SuspectExecutablePath | Executable found running from a suspicious location <br/> Detected anomoalous mix of uppercase and lowercase characters in command line |  Informational <br/>  <br/> Medium <br/> |
 VM_SuspectPhp | Suspicious PHP execution detected | Medium
+VM_SuspiciousCommandLineExecution | Suspicious command execution | High
 VM_SuspiciousScreenSaverExecution | Suspicious Screensaver process executed | Medium
 VM_SvcHostRunInRareServiceGroup | Rare SVCHOST service group executed | Informational
 VM_SystemProcessInAbnormalContext | Suspicious system process executed | Medium
