@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes features available in Microsoft Defender for IoT, across both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 12/27/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -19,11 +19,28 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans)    |
+| **OT networks** | [New purchase experience for OT plans](#new-purchase-experience-for-ot-plans) |
+|**Enterprise IoT networks**     | [Enterprise IoT sensor alerts and recommendations (Public Preview)](#enterprise-iot-sensor-alerts-and-recommendations-public-preview) |
+
+### Enterprise IoT sensor alerts and recommendations (Public Preview)
+
+The Azure portal now provides the following additional security data for traffic detected by Enterprise IoT network sensors:
+
+|Data type  |Description  |
+|---------|---------|
+|**Alerts**     | The Enterprise IoT network sensor now triggers the following alerts: <br>- **Connection Attempt to Known Malicious IP** <br>- **Malicious Domain Name Request**        |
+|**Recommendations**     | The Enterprise IoT network sensor now triggers the following recommendation for detected devices, as relevant: <br>**Disable insecure administration protocol**        |
+
+For more information, see:
+
+- [Malware engine alerts](alert-engine-messages.md#malware-engine-alerts)
+- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
+- [Enhance security posture with security recommendations](recommendations.md)
+- [Discover Enterprise IoT devices with an Enterprise IoT network sensor (Public preview)](eiot-sensor.md)
 
 ### New purchase experience for OT plans
 
-The **Pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
+The **Plans and pricing** page in the Azure portal now includes a new enhanced purchase experience for Defender for IoT plans for OT networks. Edit your OT plan in the Azure portal, for example to change your plan from a trial to a monthly or annual commitment, or update the number of devices or sites.
 
 For more information, see [Manage OT plans on Azure subscriptions](how-to-manage-subscriptions.md).
 
