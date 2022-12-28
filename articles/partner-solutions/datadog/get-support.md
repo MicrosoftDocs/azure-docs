@@ -1,10 +1,11 @@
 ---
 title: Get support for Datadog resource
 description: This article describes how to contact support for a Datadog resource.
-ms.topic: conceptual
-ms.date: 05/28/2021
 author: flang-msft
 ms.author: franlanglois
+ms.topic: conceptual
+ms.date: 01/03/2023
+
 ---
 
 # Get support for Datadog - An Azure Native ISV Service
@@ -19,6 +20,5 @@ To contact support about the Datadog - An Azure Native ISV Service, select **New
 
 ## Next steps
 
-For potential solutions, see [Fix common errors](troubleshoot.md).
-
-To learn about making changes to your existing Datadog resource, see [Manage the Datadog resource](manage.md).
+- For potential solutions, see [Fix common errors](troubleshoot.md).
+- To learn about making changes to your existing Datadog resource, see [Manage the Datadog resource](manage.md).

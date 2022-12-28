@@ -1,10 +1,11 @@
 ---
 title: Troubleshooting for Datadog
 description: This article provides information about troubleshooting for Datadog on Azure.
-ms.topic: conceptual
-ms.date: 05/28/2021
 author: flang-msft
+
 ms.author: franlanglois
+ms.topic: conceptual
+ms.date: 01/03/2023
 ---
 
 # Fix common errors for Datadog - An Azure Native ISV Service
@@ -55,22 +56,22 @@ When inviting guest user, use the home tenant UPN. By using the UPN, you keep th
 
 3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
 
-4. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+4. Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 ## Metrics not being emitted
 
 The Datadog resource is assigned a **Monitoring Reader** role in the appropriate Azure subscription. This role enables the Datadog resource to collect metrics and send those metrics to Datadog.
 
-To verify the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment, as shown below.
+To verify the resource has the correct role assignment, open the Azure portal and select the subscription. In the left pane, select **Access Control (IAM)**. Search for the Datadog resource name. Confirm that the Datadog resource has the **Monitoring Reader** role assignment.
 
 :::image type="content" source="media/troubleshoot/datadog-role-assignment.png" alt-text="Datadog role assignment in the Azure subscription" border="true":::
 
 ## Datadog agent installation fails
 
-The Azure Datadog integration provides you the ability to install Datadog agent on a virtual machine or app service. For configuring the Datadog agent, the API key selected as **Default Key** in the API Keys screen is used. If a default key isn't selected, the Datadog agent installation will fail.
+The Azure Datadog integration provides you the ability to install Datadog agent on a virtual machine or app service. The API key selected as **Default Key** in the API Keys screen is used to configure the Datadog agent. If a default key isn't selected, the Datadog agent installation fails.
 
 If the Datadog agent has been configured with an incorrect key, navigate to the API keys screen and change the **Default Key**. You'll have to uninstall the Datadog agent and reinstall it to configure the virtual machine with the new API keys.
 
 ## Next steps
 
-Learn about [managing your instance](manage.md) of Datadog.
+- Learn about [managing your instance](manage.md) of Datadog.
