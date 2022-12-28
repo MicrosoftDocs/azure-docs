@@ -49,7 +49,7 @@ For example, our most powerful GPT-3 model is called `text-davinci-002`, while o
 
 ## Finding what models are available
 
-You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](../reference.md#models).
+You can easily see the models you have available for both inference and fine-tuning in your resource by using the [Models API](/rest/api/cognitiveservices/azureopenai/models/list).
 
 ## Finding the right model
 

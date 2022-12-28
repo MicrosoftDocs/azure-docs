@@ -29,7 +29,7 @@ The end-to-end diagnostics and the application map provide visibility into one s
 
 ### How to enable distributed tracing for Java Function apps
 
-Navigate to the functions app Overview blade and go to configurations. Under Application Settings, click "+ New application setting". 
+Navigate to the functions app Overview pane and go to configurations. Under Application Settings, click "+ New application setting". 
 
 > [!div class="mx-imgBorder"]
 > ![Under Settings, add new application settings](./media//functions/create-new-setting.png)

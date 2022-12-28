@@ -1,5 +1,5 @@
 ---
-title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
+title: Azure Storage Explorer troubleshooting guide
 description: Overview of debugging techniques for Azure Storage Explorer
 services: storage
 author: Deland-Han

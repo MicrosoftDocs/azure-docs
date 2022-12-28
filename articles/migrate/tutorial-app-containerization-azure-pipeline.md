@@ -5,7 +5,8 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 12/07/2021
+ms.custom: engagement-fy23
 ---
 
 # Continuous deployment for containerized applications with Azure DevOps

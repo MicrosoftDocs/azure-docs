@@ -8,15 +8,16 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/22/2022
+ms.date: 12/16/2022
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
 
-ms.collection: M365-identity-device-management
+ms.collection: engagement-fy23, M365-identity-device-management
 adobe-target: true
-ms.custom: engagement-fy23
+
+# Customer intent: As a tenant administrator, I want to make sure that guest users can leave the organization.
 ---
 
 # Leave an organization as an external user
@@ -112,4 +113,4 @@ Permanent deletion can be initiated by the admin, or it happens at the end of th
 ## Next steps
 
 - Learn more about [Azure AD B2B collaboration](what-is-b2b.md) and [Azure AD B2B direct connect](b2b-direct-connect-overview.md)
-- [Close your Microsoft account](/microsoft-365/commerce/close-your-account)
+- [Use audit logs and access reviews](auditing-and-reporting.md)

@@ -43,7 +43,7 @@ You'll need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer), or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
@@ -86,7 +86,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. In the **key** field, paste  the key you obtained from your Form Recognizer resource.
 
-    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot: select form type dropdown menu.":::
+    :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot of the 'select-form-type' dropdown menu.":::
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
@@ -164,8 +164,6 @@ Train a custom model to analyze and extract data from forms and documents specif
     1. Set the **Max Age** to 120 seconds or any acceptable value.
 
     1. Select the save button at the top of the page to save the changes.
-
-    CORS should now be configured to use the storage account from Form Recognizer Studio.
 
 ### Use the Sample Labeling tool
 
@@ -271,7 +269,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./get-started-sdks-rest-api.md?pivots=programming-language-rest-api) or [client library](./get-started-sdks-rest-api.md).
 
-* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
+* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling more forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).
 
     :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::

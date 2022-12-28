@@ -1,5 +1,5 @@
 ---
-title: Monitor and troubleshoot Azure Storage (classic logs & metrics) | Microsoft Docs
+title: Monitor and troubleshoot Azure Storage (classic logs & metrics)
 description: Use features like storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues.
 author: normesta
 ms.service: storage
@@ -8,6 +8,7 @@ ms.date: 05/23/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.devlang: csharp
 ms.custom: "monitoring, devx-track-csharp"
 ---
 

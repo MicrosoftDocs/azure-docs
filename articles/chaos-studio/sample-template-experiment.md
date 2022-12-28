@@ -50,8 +50,8 @@ In this sample, we create a chaos experiment with a single target resource and a
     {
       "type": "Microsoft.Chaos/experiments",
       "apiVersion": "2021-09-15-preview",
-      "name": "parameters('experimentName')",
-      "location": "parameters('location')",
+      "name": "[parameters('experimentName')]",
+      "location": "[parameters('location')]",
       "identity": {
         "type": "SystemAssigned"
       },
@@ -68,7 +68,7 @@ In this sample, we create a chaos experiment with a single target resource and a
             "targets": [
               {
                 "type": "ChaosTarget",
-                "id": "parameters('chaosTargetResourceId')"
+                "id": "[parameters('chaosTargetResourceId')]"
               }
             ]
           }

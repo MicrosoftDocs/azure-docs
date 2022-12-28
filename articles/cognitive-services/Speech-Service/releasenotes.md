@@ -19,10 +19,10 @@ See below for information about new features and other changes to the Speech ser
 
 ## What's new?
 
+* Speech-to-text REST API version 3.1 is generally available.
 * Speech SDK 1.24.0 and Speech CLI 1.24.0 were released in October 2022. 
 * Speech-to-text and text-to-speech container versions were updated in October 2022.
 * TTS Service November 2022, several voices for `es-MX`, `it-IT`, and `pr-BR` locales were made generally available.
-* TTS Service September 2022, all the prebuilt neural voices have been upgraded to high-fidelity voices with 48kHz sample rate.
 
 ## Release notes
 

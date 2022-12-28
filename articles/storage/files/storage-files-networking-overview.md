@@ -1,5 +1,5 @@
 ---
-title: Azure Files networking considerations | Microsoft Docs
+title: Azure Files networking considerations
 description: An overview of networking options for Azure Files.
 author: khdownie
 ms.service: storage

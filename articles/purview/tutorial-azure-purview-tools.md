@@ -6,7 +6,7 @@ ms.author: arindamba
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 10/10/2021
+ms.date: 12/07/2022
 # Customer Intent: As a Microsoft Purview administrator, I want to kickstart and be up and running with Microsoft Purview service in a matter of minutes; additionally, I want to perform and set up automations, batch-mode API executions and scripts that help me run Microsoft Purview smoothly and effectively for the long-term on a regular basis.
 ---
 
@@ -14,15 +14,15 @@ ms.date: 10/10/2021
 
 This article lists several open-source tools and utilities (command-line, python, and PowerShell interfaces) that help you get started quickly with Microsoft Purview governance services, like Microsoft Purview Data Map, Data Catalog, and Data Estate Insights in a matter of minutes! These tools have been authored & developed by collective effort of the Microsoft Purview Product Group and the open-source community. The objective of such tools is to make learning, starting up, regular usage, and long-term adoption of Microsoft Purview fast and easy.
 
-### Intended audience
+## Intended audience
 
 - Microsoft Purview community including customers, developers, ISVs, partners, evangelists, and enthusiasts. 
 
 - The Microsoft Purview Data Catalog is based on [Apache Atlas](https://atlas.apache.org/) and extends full support for Apache Atlas APIs. We welcome Apache Atlas community, enthusiasts, and developers to wholeheartedly build on and evangelize Microsoft Purview.
 
-### Microsoft Purview customer journey stages
+## Microsoft Purview customer journey stages
 
-- *Microsoft Purview Learners*: Learners who are starting fresh with Microsoft Purview governance services and are keen to understand and explore how a multi-cloud unified data governance solution works. A section of learners includes users who want to compare and contrast Microsoft Purview with other competing solutions in the data governance market and try it before adopting for long-term usage.
+- *Microsoft Purview Learners*: Learners who are starting fresh with Microsoft Purview governance services and are keen to understand and explore how a multicloud unified data governance solution works. A section of learners includes users who want to compare and contrast Microsoft Purview with other competing solutions in the data governance market and try it before adopting for long-term usage.
 
 - *Microsoft Purview Innovators*: Innovators who are keen to understand existing and latest features, ideate, and conceptualize features upcoming on Microsoft Purview. They're adept at building and developing solutions for customers, and have futuristic forward-looking ideas for the next-gen cutting-edge data governance product.
 

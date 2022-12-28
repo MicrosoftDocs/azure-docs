@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 12/05/2022
 ---
 # Data lineage in Microsoft Purview
 

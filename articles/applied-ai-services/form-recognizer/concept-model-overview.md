@@ -53,7 +53,7 @@ recommendations: false
 
 [:::image type="icon" source="media/studio/read-card.png" :::](https://formrecognizer.appliedai.azure.com/studio/read)
 
-The Read API analyzes and extracts ext lines, words, their locations, detected languages, and handwritten style if detected.
+The Read API analyzes and extracts lines, words, their locations, detected languages, and handwritten style if detected.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 

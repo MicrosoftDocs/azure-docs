@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 12/09/2022
 # Customer intent: As a Microsoft Purview admin, I want to set up private endpoints and managed vnets for my Microsoft Purview account for secure access or ingestion.
 ---
 # FAQ about Microsoft Purview private endpoints and Managed VNets
@@ -44,11 +44,11 @@ The Microsoft Purview portal private endpoint provides private connectivity to t
 
 ### What's the purpose of deploying the Microsoft Purview ingestion private endpoints?
 
-Microsoft Purview can scan data sources in Azure or an on-premises environment by using ingestion private endpoints. Three other private endpoint resources are deployed and linked to Microsoft Purview managed resources when ingestion private endpoints are created:
+Microsoft Purview can scan data sources in Azure or an on-premises environment by using ingestion private endpoints. Three other private endpoint resources are deployed and linked to Microsoft Purview managed or configured resources when ingestion private endpoints are created:
 
 - **Blob** is linked to a Microsoft Purview managed storage account.
 - **Queue** is linked to a Microsoft Purview managed storage account.
-- **namespace** is linked to a Microsoft Purview managed event hub namespace.
+- **namespace** is linked to a Microsoft Purview configured event hub namespace.
 
 ### Can I scan a data source through a public endpoint if a private endpoint is enabled on my Microsoft Purview account?
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how to use cost details records to correlate meter-based charges with the specific resources responsible for the charges so that you can properly reconcile your bill.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2022
+ms.date: 11/29/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -51,7 +51,9 @@ Azure resource providers emit usage and charges to the billing system and popula
 
 The cost details file exposes multiple price points today. These are outlined below.
 
-- **PAYGPrice:** This is the list price for a given product or service that is determined based on the customer agreement. For customers who have an Enterprise Agreement, the pay-as-you-go price represents the EA baseline price.
+- **PAYGPrice:** This is the list price for a given product or service that is determined based on the customer agreement. For customers who have an Enterprise Agreement, the pay-as-you-go price represents the EA baseline price. 
+    - PAYGPrice is populated only for first party Azure usage charges where `PricingModel` is `OnDemand`. So for EA customers, `PAYGprice` isn't populated when `PricingModel` = `Reservations`, `Spot`, `Marketplace`, or `SavingsPlan`.
+    - PAYGPrice is the price customers pay if the VM was consumed as a Standard VM, instead of a Spot VM.
 
 - **UnitPrice:** This is the price for a given product or service inclusive of any negotiated discounts on top of the pay-as-you-go price.
 

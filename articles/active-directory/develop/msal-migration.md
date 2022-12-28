@@ -29,6 +29,16 @@ If any of your applications use the Azure Active Directory Authentication Librar
 
 ## Why switch to MSAL?
 
+To understand 'Why MSAL?', it's important to first understand the differences between Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. The v1.0 endpoint is used by Azure AD Authentication Library (ADAL) while the v2.0 endpoint is used by Microsoft Authentication Library (MSAL). If you've developed apps against the v1.0 endpoint in the past, you're likely using ADAL. Since the v2.0 endpoint has changed significantly enough, the new library (MSAL) was built for the new endpoint entirely. 
+
+The following diagram shows the v2.0 vs v1.0 endpoint experience at a high level, including the app registration experience, SDKs, endpoints, and supported identities.
+
+![Diagram that shows the v1.0 versus the v2.0 architecture.](../azuread-dev/media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
+
+MSAL leverages all the [benefits of Microsoft identity platform (v2.0) endpoint](../azuread-dev/azure-ad-endpoint-comparison.md).
+
+MSAL is designed to enable a secure solution without developers having to worry about the implementation details. it simplifies and manages acquiring, managing, caching, and refreshing tokens, and uses best practices for resilience. We recommend you use MSAL to [increase the resilience of authentication and authorization in client applications that you develop](../fundamentals/resilience-client-app.md?tabs=csharp#use-the-microsoft-authentication-library-msal).
+
 MSAL provides multiple benefits over ADAL, including the following features: 
 
 |Features|MSAL|ADAL|
@@ -46,6 +56,13 @@ MSAL provides multiple benefits over ADAL, including the following features:
 | Proactive token renewal |![Proactive token renewal - MSAL provides the feature][y]|![Proactive token renewal - ADAL doesn't provide the feature][n]|
 | Throttling |![Throttling - MSAL provides the feature][y]|![Throttling - ADAL doesn't provide the feature][n]|
 
+## Additional Capabilities of MSAL over ADAL
+- Auth broker support – Device-based Conditional Access policy
+- Proof of possession tokens
+- Azure AD certificate-based authentication (CBA) on mobile
+- System browsers on mobile devices
+- Where ADAL had only authentication context class, MSAL exposes the notion of a collection of client apps (public client and confidential client).
+
 ## AD FS support in MSAL.NET
 
 You can use MSAL.NET, MSAL Java, and MSAL Python to get tokens from Active Directory Federation Services (AD FS) 2019 or later. Earlier versions of AD FS, including AD FS 2016, are unsupported by MSAL.
@@ -60,6 +77,15 @@ Before you start the migration, you need to identify which of your apps are usin
 After identifying your apps that use ADAL, migrate them to MSAL depending on your application type as illustrated below.
 
 [!INCLUDE [application type](includes/adal-msal-migration.md)]
+
+MSAL Supports a wide range of application types and scenarios. Please refer to [Microsoft Authentication Library support for several application types](reference-v2-libraries.md#single-page-application-spa).
+
+ADAL to MSAL Migration Guide for different platforms are available in the following link.
+- [Migrate to MSAL iOS and MacOS](migrate-objc-adal-msal.md)
+- [Migrate to MSAL Java](migrate-adal-msal-java.md)
+- [Migrate to MSAL .Net](msal-net-migration.md)
+- [Migrate to MSAL Node](msal-node-migration.md)
+- [Migrate to MSAL Python](migrate-python-adal-msal.md)   
 
 ## Migration help
 

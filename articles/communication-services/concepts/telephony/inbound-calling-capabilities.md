@@ -16,9 +16,9 @@ ms.subservice: pstn
 
 Inbound PSTN calling is currently supported in GA for Dynamics Omnichannel. You can use phone numbers [provided by Microsoft](./telephony-concept.md#voice-calling-pstn) and phone numbers supplied by [direct routing](./telephony-concept.md#azure-direct-routing).
 
-**Inbound calling with Dynamics 365 Omnichannel (OC)**
+**Inbound calling with Omnichannel for Customer Service**
 
-Supported in General Availability, to set up inbound calling for Dynamics 365 OC with direct routing or Voice Calling (PSTN) follow [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
+Supported in General Availability, to set up inbound calling in Omnichannel for Customer Service with direct routing or Voice Calling (PSTN) follow [these instructions](/dynamics365/customer-service/voice-channel-inbound-calling).
 
 **Inbound calling with ACS Call Automation SDK**
 

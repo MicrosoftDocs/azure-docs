@@ -24,7 +24,7 @@ The following steps are required when you use audio input streams:
 
   Audio samples are:
 
-   - PCM format
+   - PCM format (int-16)
    - One channel
    - 16 bits per sample, 8,000 or 16,000 samples per second (16,000 bytes or 32,000 bytes per second)
    - Two-block aligned (16 bit including padding for a sample)

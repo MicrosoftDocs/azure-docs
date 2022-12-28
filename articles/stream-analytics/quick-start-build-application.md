@@ -19,7 +19,7 @@ You can choose the following scenarios for deployment:
 ## Prerequisites
 * Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Install [Git](https://git-scm.com/downloads).
-* Azure PowerShell module. See [here](https://learn.microsoft.com/powershell/azure/install-Az-ps) to install or upgrade.
+* Azure PowerShell module. See [here](/powershell/azure/install-Az-ps) to install or upgrade.
 
 ## Filter clickstream requests
 

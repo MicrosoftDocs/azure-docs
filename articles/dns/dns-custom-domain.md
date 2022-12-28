@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 12/15/2022
 ms.author: greglin
 ---
 
@@ -81,7 +81,7 @@ The following steps take you through configuring a custom domain for an app serv
 
 1. Navigate to your DNS Zone and select **+ Record set**. Enter the following information on the **Add record set** page and select **OK** to create it.
 
-    :::image type="content" source="./media/dns-custom-domain/web-app.png" alt-text="Screenshot of web app record set page.":::
+    :::image type="content" source="./media/dns-custom-domain/web-app-record.png" alt-text="Screenshot of web app record set page.":::
 
     | Property  | Value | Description |
     |---------- | ----- | ----------- |

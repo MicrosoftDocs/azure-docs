@@ -255,7 +255,7 @@ az cosmosdb identity remove \
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Store and use Azure Cosmos DB credentials with Azure Key Vault](access-secrets-from-keyvault.md)
+> [Tutorial: Store and use Azure Cosmos DB credentials with Azure Key Vault](store-credentials-key-vault.md)
 
 - Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 - Learn more about [customer-managed keys on Azure Cosmos DB](how-to-setup-cmk.md)
