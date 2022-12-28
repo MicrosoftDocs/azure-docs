@@ -83,7 +83,7 @@ This section covers requirements for successful certificate deployment, includin
 
 - [Key file requirements](#key-file-requirements)
 
-- [Use a certificate chain (optional)](#use-a-certificate-chain-optional)
+- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
 
 ### CRL server access for certificate validation
 
@@ -125,7 +125,7 @@ Verify that you've met the following parameter requirements before creating a ce
 
 - [CRT file requirements](#crt-file-requirements)
 - [Key file requirements](#key-file-requirements)
-- [Use a certificate chain (optional)](#use-a-certificate-chain-optional)
+- [Using a certificate chain (optional)](#using-a-certificate-chain-optional)
 
 ### CRT file requirements
 
@@ -144,7 +144,7 @@ This section covers .crt field requirements.
 
 > [!IMPORTANT]
 > Certificates with other parameters might work, but Microsoft doesn't support them.
-> Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN
+> Wildcard SSL certificates (public key certificates that can be used on multiple subdomains such as *.contoso.com) are not supported and insecure. Each appliance should use a unique CN.
 
 ### Key file requirements
 
@@ -152,7 +152,7 @@ Use either RSA 2048 bits or 4096 bits.
 
 When using a key length of 4096 bits, the SSL handshake at the start of each connection will be slower. in addition, there is an increase in CPU usage during handshakes.
 
-### Use a certificate chain (optional)
+### Using a certificate chain (optional)
 
 A .pem file containing the certificates of all the certificate authorities in the chain of trust that led to your certificate. 
 
