@@ -19,6 +19,10 @@ This article describes how to deploy and manage Azure Kubernetes Service (AKS) o
 
 The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
 
+> [!NOTE]
+>- Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
+>- Use this feature for a two node device implementation only if you are an SAP customer.
+
 ## About Azure Kubernetes Service on Azure Stack Edge
 
 Azure Stack Edge Pro with GPU is an AI-enabled edge computing device with high performance network I/O capabilities. Microsoft ships you a cloud-managed device that acts as a network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing.
@@ -73,15 +77,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
 ## Deploy Azure Kubernetes Service on your Azure Stack Edge device
 
 Use the following steps for single node or two node deployments.
-
- > [!NOTE]
-   >- Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
-   >- Use this feature for a two node device implementation only if you are an SAP customer.
  
-### [Single node device](#tab/1-node)
-
-Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
-
 ## Enable AKS and custom locations
 
 1.	[Connect to the PowerShell interface of the device](azure-stack-edge-gpu-connect-powershell-interface.md).
@@ -238,7 +234,7 @@ Follow these steps to deploy the AKS cluster.
 
    ![Screenshot that shows the critical alert during Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation-critical-alert.png)
 
-   1. Once the Kubernetes cluster is created, you’ll see that the Azure Kubernetes Service is Running.
+   1. Once the Kubernetes cluster is created, you’ll see that the Azure Kubernetes Service is **Running**.
 
       ![Screenshot that shows the Azure Kubernetes Service running as expected.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-service-running.png)
 
