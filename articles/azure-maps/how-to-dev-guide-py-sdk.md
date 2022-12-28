@@ -12,7 +12,7 @@ services: azure-maps
 
 # Python REST SDK Developers Guide (preview)
 
-The Azure Maps Python SDK can be integrated with Python applications and libraries to build map-related and location-aware applications. The Azure Maps Python SDK contains APIs for Search, Route, Render, Elevation, and Geolocation. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address.
+The Azure Maps Python SDK can be integrated with Python applications and libraries to build map-related and location-aware applications. The Azure Maps Python SDK contains APIs for Search, Route, Render and Geolocation. These APIs support operations such as searching for an address, routing between different coordinates, obtaining the geo-location of a specific IP address.
 
 ## Prerequisites
 
