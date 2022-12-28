@@ -69,11 +69,11 @@ The diagram displays a simple case. As eluded to in the article [Considerations 
 - For smaller and mid-range deployments, using one large volume, which contains the SQL Server data files. Reason behind this configuration is that it's easier to deal with different I/O workloads in case the SQL Server data files don't have the same free space. Whereas in large deployments, especially deployments where the customer moved with a heterogenous database migration to SQL Server in Azure, we used separate disks and then distributed the data files across those disks. Such an architecture is only successful when each disk has the same number of data files, all the data files are the same size, and roughly have the same free space.
 - Use the D:\drive for tempdb as long as performance is good enough. If the overall workload is limited in performance by tempdb located on the D:\ drive, you need to move tempdb to Azure premium storage v1 or v2, or Ultra disk as recommended in [this article](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist).
 
-SQL Server proportional fill mechanism distributes reads and writes to all datafiles evenly provided all SQL Server data files are the same size and have the same frees pace. SAP on SQL Server will deliver the best performance when reads and writes are distributed evenly across all available datafiles. If a database has too few datafiles or the existing data files are highly unbalanced, the best method to correct is an R3load export and import.  An R3load export and import involves downtime and should only be done if there's an obvious performance problem that needs to be resolved. If the datafiles are only moderately different sizes, increase all datafiles to the same size and SQL Server will rebalance data over time. SQL Server will automatically grow datafiles evenly if trace flag 1117 is set or if SQL Server 2016 or higher is used. 
+SQL Server proportional fill mechanism distributes reads and writes to all datafiles evenly provided all SQL Server data files are the same size and have the same frees pace. SAP on SQL Server will deliver the best performance when reads and writes are distributed evenly across all available datafiles. If a database has too few datafiles or the existing data files are highly unbalanced, the best method to correct is an R3load export and import.  An R3load export and import involves downtime and should only be done if there's an obvious performance problem that needs to be resolved. If the datafiles are only moderately different sizes, increase all datafiles to the same size, and SQL Server will rebalance data over time. SQL Server will automatically grow datafiles evenly if trace flag 1117 is set or if SQL Server 2016 or higher is used. 
 
 
 ### Special for M-Series VMs
-For Azure M-Series VM, the latency writing into the transaction log can be reduced, compared to Azure premium storage performance v1, when using Azure Write Accelerator. If you think that the latency provided by premium storage v1 is limiting scalability of the SAP workload, the disk that stores  the SQL Server transaction log file can be enabled for Write Accelerator. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator doesn't work with Azure premium storage v2 and Ultra disk.
+For Azure M-Series VM, the latency writing into the transaction log can be reduced, compared to Azure premium storage performance v1, when using Azure Write Accelerator. If the latency provided by premium storage v1 is limiting scalability of the SAP workload, the disk that stores the SQL Server transaction log file can be enabled for Write Accelerator. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator doesn't work with Azure premium storage v2 and Ultra disk. In both cases, the latency is better than what Azure premium storage v1 delivers.
   
 
 ### Formatting the disks
@@ -119,7 +119,7 @@ The desired result should look like:
 Latin1-General, binary code point comparison sort for Unicode Data, SQL Server Sort Order 40 on Code Page 850 for non-Unicode Data
 ```
 
-If the result is different, STOP any deployment and investigate why the setup command didn't work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned above is **NOT** supported.
+If the result is different, STOP any deployment and investigate why the setup command didn't work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned is **NOT** supported for NetWeaver deployments.
 
 ## SQL Server High-Availability for SAP in Azure
 Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. Azure provides different up-time SLAs for a single VM using different Azure block storages, a pair of VMs deployed in an Azure availability set, or a pair of VMs deployed across Azure Availability Zones. For production systems, we expect you to deploy a pair of VMs within an availability set or across two Availability Zones.  One VM will run the active SQL Server Instance. The other VM will run the passive Instance
@@ -143,7 +143,7 @@ As Always On is supported for SAP on-premises (see SAP Note [#1772688](https://l
 Some considerations using an Availability Group Listener are:
 
 * Using an Availability Group Listener is only possible with Windows Server 2012 or higher as guest OS of the VM. For Windows Server 2012, ensure that the [update to enable SQL Server Availability Group Listeners on Windows Server 2008 R2 and Windows Server 2012-based Microsoft Azure virtual machines](https://support.microsoft.com/kb/2854082) has been applied.
-* For Windows Server 2008 R2, this patch doesn't exist. In this case, Always On would need to be used in the same manner as Database Mirroring by specifying a failover partner in the connections string (done through the SAP default.pfl parameter dbs/mss/server - see SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908)).
+* For Windows Server 2008 R2, this patch doesn't exist. In this case, Always On would need to be used in the same manner as Database Mirroring. By specifying a failover partner in the connections string (done through the SAP default.pfl parameter dbs/mss/server - see SAP Note [#965908](https://launchpad.support.sap.com/#/notes/965908)).
 * Using an Availability Group Listener, you need to connect the Database VMs to a dedicated Load Balancer. You should assign static IP addresses to the network interfaces of those VMs in the Always On configuration (defining a static IP address is described in [this article](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md)). Static IP addresses compared to DHCP are preventing the assignment of new IP addresses in cases where both VMs might be stopped.
 * There are special steps required when building the WSFC cluster configuration where the cluster needs a special IP address assigned, because Azure with its current functionality would assign the cluster name the same IP address as the node the cluster is created on. This behavior means a manual step must be performed to assign a different IP address to the cluster.
 * The Availability Group Listener is going to be created in Azure with TCP/IP endpoints, which are assigned to the VMs running the primary and secondary replicas of the Availability group.
@@ -198,9 +198,9 @@ More details to use Azure Key Vault for SQL Server TDE lists like:
 >  
 
 ## Minimum deployment configurations
-In this section, we suggest a set of minimum configurations for different sizes of databases under SAP workload. It's too difficult to assess whether these sizes fit your specific workload. In some cases, we might be generous on memory compared to the database size. On the other side, the disk sizing might be too low for some of the workloads. Therefore, these configurations should be treated as what they are. They're configurations that should give you a point to start with. Configurations to fine-tume to your specific workload and cost efficiency requirements.
+In this section, we suggest a set of minimum configurations for different sizes of databases under SAP workload. It's too difficult to assess whether these sizes fit your specific workload. In some cases, we might be generous on memory compared to the database size. On the other side, the disk sizing might be too low for some of the workloads. Therefore, these configurations should be treated as what they are. They're configurations that should give you a point to start with. Configurations to fine-tune to your specific workload and cost efficiency requirements.
 
-An example of a configuration for a little SQL Server instance with a database size between 50 GB – 250 GB, could look like
+An example of a configuration for a little SQL Server instance with a database size between 50 GB – 250 GB could look like
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ An example of a configuration for a larger SQL Server instance with a database s
 | File system | NTFS | |
 | Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 800 GiB - plus 2500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75MB/sec extra throughput | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
 
 
