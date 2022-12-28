@@ -34,7 +34,8 @@ Use the Azure portal to find Azure Native New Relic Service application.
 
 1. If you've visited the Azure **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for Marketplace.
 
-   :::image type="content" source="media/new-relic-create/new-relic-search.jpg" alt-text="Screenshot showing Marketplace in search box.":::
+   :::image type="content" source="media/new-relic-create/new-relic-search.png" alt-text="Screenshot showing Marketplace in search box.":::
+
 
 1. In the Marketplace, search for _New Relic_.
 

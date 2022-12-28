@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: Complete the prerequisites for New Relic
             url: new-relic-how-to-configure-prereqs.md
-          - text: Manage the new-relic resource with the portal
+          - text: Manage the New Relic resource with the portal
             url: new-relic-how-to-manage.md
 
   # Card

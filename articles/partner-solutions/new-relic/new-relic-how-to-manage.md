@@ -75,7 +75,7 @@ The column 'Metrics to New Relic' indicates whether New Relic is receiving metri
 
 ## Monitor virtual machines using New Relic Agent
 
-You can install New Relic Agent on virtual machines as an extension. Select Virtual Machines under New Relic account config in the Resource menu. In the working pane, you see a list of all virtual machines in the subscription.
+You can install New Relic Agent on Windows App Services as an extension. Select **App Services** in the Resource menu. In the working pane, you see a list of all Windows App Services in the subscription.
 
 :::image type="content" source="media/new-relic-how-to-manage/new-relic-virtual-machines.png" alt-text="Screenshot showing virtual machines for New Relic resource selected in the resource menu.":::
 
@@ -103,12 +103,12 @@ For each app service, the following information is displayed:
 
  |Property |         Description |
  |--|----|
- | Resource name         |     App service name|
+ | Resource name         | App service name.|
  | Resource status       | Indicates whether the App service is running or stopped. New Relic Agent can only be installed on app services that are running.|
- | App Service plan      | The plan configured for the app service|
- | Agent status          |  Status of the agent|
+ | App Service plan      | The plan configured for the app service.|
+ | Agent status          | Status of the agent. |
   
-To install the New Relic Agent, select the app service and select Install Extension. The application settings for the selected app service are updated and the app service is restarted to complete the configuration of the New Relic Agent.
+To install the New Relic agent, select the Windows App Service and select **Install Extension**. The application settings for the selected app service are updated and the app service is restarted to complete the configuration of the New Relic Agent.
 
 > [!NOTE]
 > App Service extensions are currently supported only for App Services that are running on Windows OS (operating systems). App Services using the Linux OS are not shown in the list.
@@ -125,6 +125,8 @@ To install the New Relic Agent, select the app service and select Install Extens
    :::image type="content" source="media/new-relic-how-to-manage/new-relic-delete.png" alt-text="Screenshot of overview with a red box around delete.":::
 
 If only one New Relic resource is mapped to a New Relic account, logs and metrics are no longer sent to New Relic. 
+
+For a New Relic organization where billing is managed through Azure Marketplace, deletion of last associated New Relic resource also removes the corresponding Azure Marketplace billing relationship.
 
 If more than one New Relic resource is mapped to the New Relic account using the link option, deleting the New Relic resource only stops sending logs for Azure resources associated to that New Relic resource. However, since there are other Azure Native New Relic Service resources linked with this New Relic account, billing continues through the Azure Marketplace.
 

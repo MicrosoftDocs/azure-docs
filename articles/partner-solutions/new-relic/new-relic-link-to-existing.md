@@ -34,7 +34,7 @@ When you use Azure Native New Relic Service in the Azure portal to linking where
 1. If you've visited the Marketplace in a recent session, select the icon from the available options. Otherwise, search for Marketplace.
 
 1. In the Marketplace, search for New Relic.
-   ![Screenshot showing Marketplace typed in the search box.](media/new-relic-link-to-existing/new-relic-search-markeplace.jpg)
+   ![Screenshot showing Marketplace typed in the search box.](media/new-relic-link-to-existing/new-relic-search-markeplace.png)
 
 1. When you have found Azure Native New Relic Service In the working pane, select **Subscribe**.
 
@@ -58,14 +58,14 @@ When you use Azure Native New Relic Service in the Azure portal to linking where
    | **Subscription**  | Select the Azure subscription you want to use for creating the New Relic resource. This subscription will be linked to account for monitoring purposes.|
    | **Resource group**  | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution.|
    | **Resource name**  | Specify a name for the New Relic resource.|
-   | **Region**  |Select the Azure region where the New Relic resource should be created.|
-   | **New Relic account**  |The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
+   | **Region**  | Select the Azure region where the New Relic resource should be created.|
+   | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
 1. When the New Relic account you selected has a parent New Relic organization that was created using the Azure Native New Relic Service, you see the New Relic billing details for your reference.
 
     ![Screenshot showing Basics tab with New Relic account details.](media/new-relic-link-to-existing/new-relic-basics.png)
 
-   > The user that is performing the linking action should have global administrator permissions on the New Relic account being linked.
+   The user that is performing the linking action should have global administrator permissions on the New Relic account being linked.
     
 1. Select **Next** to move to configure metrics and logs.
 

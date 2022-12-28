@@ -49,7 +49,8 @@ Resource monitoring in New Relic is enabled through the `ingest API key`, which 
 
 In case your Azure subscription got suspended or deleted due to payment related issues, resource monitoring in New Relic automatically stops. Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method.](/azure/cost-management-billing/manage/change-credit-card)
 
-The New Relic APIs for creating/ managing resources and the storage/ processing of customer telemetry data are managed by New Relic and may be on or outside of Azure. If your Azure subscription and resource are working correctly, but you observe issues in monitoring data surfacing in New Relic portal, please raise a support request with New Relic support.
+The New Relic APIs for creating/managing resources and the storage/processing of customer telemetry data are managed by New Relic and may be on or outside of Azure. If your Azure subscription and resource are working correctly, but you observe issues in monitoring data surfacing in New Relic portal, please raise a support request with New Relic support.
+<!-- need some clarification here -->
 
 ## Next steps
 
