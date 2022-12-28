@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/20/2022
+ms.date: 12/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -64,6 +64,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- December 27, 2022: Introducing new configuration for SAP ASe on E96(d)s_v5 in [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) 
+- December 23, 2022: Updating [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md) by cutting references to Azure standard HDD and SSD. Introducing premium storage v2 and updating a few other sections to more recent functionalities
 - December 20, 2022: Update article [SAP workload on Azure virtual machine supported scenarios](./sap-planning-supported-configurations.md) with table around AD and AAD support. Deleting a few references to HANA Large Instances.
 - December 19, 2022: Update article [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) related to new functionalities like zonal replication of Azure Premium Files
 - December 18, 2022: Add short description and link to intent option of PPG creation in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)

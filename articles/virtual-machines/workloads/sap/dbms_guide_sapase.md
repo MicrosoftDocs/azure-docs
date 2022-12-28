@@ -69,9 +69,9 @@ The templates below show sample configurations for both Linux and Windows. Befor
 > [!NOTE]
 >  If a DBMS system is being moved from on-premises to Azure, it's recommended to perform monitoring on the VM and assess the CPU, memory, IOPS and storage throughput. Compare the peak values observed with the VM quota limits documented in the articles mentioned above
 
-The examples given below are for illustrative purposes and can be modified based on individual needs. Due to the design of SAP ASE, the number of data devices is not as critical as with other databases. The number of data devices detailed in this document is a guide only. 
+The examples given below are for illustrative purposes and can be modified based on individual needs. Due to the design of SAP ASE, the number of data devices is not as critical as with other databases. The number of data devices detailed in this document is a guide only. The configurations suggested should be treated as what they are. They are starting points for you. But they are configurations that are going to need some fine-tuning to your workload and cost efficiencies.
 
-An example of a configuration for a small SAP ASE DB Server with a database size between 50 GB – 250 GB, such as SAP solution Manager, could look like
+An example of a configuration for a little SAP ASE DB Server with a database size between 50 GB – 250 GB, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | # and type of backup disks | 1 | 1 | --- |
 
 
-An example of a configuration for a medium SAP ASE DB Server with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
+An example of a configuration for a small SAP ASE DB Server with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
-An example of a configuration for a small SAP ASE DB Server with a database size between 750 GB – 2000 GB, such as a larger SAP Business Suite system, could look like
+An example of a configuration for a medium SAP ASE DB Server with a database size between 750 GB – 2,000 GB, such as a larger SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -126,14 +126,35 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 1 x 200 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75 MB/sec extra throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
 
-An example of a configuration for a small SAP ASE DB Server with a database size of 2 TB+, such as a larger globally used SAP Business Suite system, could look like
+An example of a configuration for a larger SAP ASE DB Server with a database size between 2,000 GB – 4,000 GB, such as a larger SAP Business Suite system, could look like
+
+| Configuration | Windows | Linux | Comments |
+| --- | --- | --- | --- |
+| VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | E96(d)s_v5 (96 vCPU/672 GiB RAM) | --- |
+| Accelerated Networking | Enable | Enable | ---|
+| SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
+| # of data devices | 16 | 16 | ---|
+| # of log devices | 1 | 1 | --- |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
+| Disk aggregation | Storage Spaces | LVM2 | --- |
+| File system | NTFS | XFS |
+| Format block size | Needs workload testing | Needs workload testing | --- |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 1,000 GiB - plus 2,500 IOPS and 100 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 1,000 GiB - plus 2,500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75MB/sec extra throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75 MB/sec extra throughput | Cache = NONE |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
+| # of backup devices | 4 | 4| --- |
+| # and type of backup disks | 1 | 1 | --- |
+
+
+An example of a configuration for a large SAP ASE DB Server with a database size of 4 TB+, such as a larger globally used SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -147,8 +168,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Cache = NONE, Consider Azure Ultra disk |
+| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
+| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Consider Write Accelerator or Azure Ultra disk |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
