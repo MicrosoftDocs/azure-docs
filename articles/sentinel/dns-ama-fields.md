@@ -27,7 +27,7 @@ This table shows the available fields. The field names are normalized using the 
 
 ## ASIM normalized DNS schema 
 
-This table describes and translates Windows DNS server fields into the normalized field names as they appear in the [DNS normalization schema](dns-normalization-schema.md#schema-details).
+This table describes and translates Windows DNS server fields into the normalized field names as they appear in the [DNS normalization schema](normalization-schema-dns.md#schema-details).
 
 |Windows DNS field name  |Normalized field name  |Type  |Description |
 |---------|---------|---------|---------|
