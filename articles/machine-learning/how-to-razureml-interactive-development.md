@@ -93,18 +93,22 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     ```r
     py_code <- "from azure.identity import DefaultAzureCredential
     from azure.ai.ml import MLClient
+    #create connection to ml_client
     credential = DefaultAzureCredential()
     ml_client = MLClient.from_config(credential=credential)
         
     # get a handle to the data asset, then get the uri
-    data_asset = ml_client.data.get(name='<DATA_NAME>', version='<VERSION_NUMBER>')
+    my_name = '<DATA_NAME>'
+    my_version = '<VERSION_NUMBER>'
+
+    data_asset = ml_client.data.get(name=my_name, version=my_version)
     data_uri = data_asset.path"
     
     py_run_string(py_code)
     # your uri is now available in the variable py$data_uri
     ```
     
-1. Use Pandas read functions to read in the file(s) into the R environment
+1. Use Pandas read functions to read  the file(s) into the R environment
 
     [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=read-uri)]
 
@@ -112,10 +116,11 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
 
 There are many R packages pre-installed on the compute instance.
 
+When you want to install other packages, you'll need to explicitly state the location and dependencies.
+
 > [!TIP]
 > When you create or use a different compute instance, you'll need to again install any packages you've installed.
 
-When you want to install other packages, you'll need to explicitly state the location and dependencies.
 
 For example, to install the `tsibble` package:
 
