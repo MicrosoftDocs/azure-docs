@@ -27814,13 +27814,13 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-certifications.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/certifications",
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-ha-availability-zones.md",
-            "redirect_url": "/azure/virtual-machines/workloads/sap/high-availability-zones",
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-deployment-checklist.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/deployment-checklist",
             "redirect_document_id": false
         },
         {
