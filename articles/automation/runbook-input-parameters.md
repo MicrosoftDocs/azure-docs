@@ -112,7 +112,7 @@ For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
 >[!NOTE]
->Arguments with spaces are currently not supported. As a workaround, you could use \\t in addition to \\n.
+>Arguments with spaces are currently not supported. As a workaround, you could use \\\t in addition to \\\n.
 
 ## Assign values to input parameters in runbooks
 

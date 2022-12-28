@@ -122,7 +122,7 @@ Your runbooks can use self-signed certificates, which are not signed by a certif
 
 ## Jobs
 
-Azure Automation supports an environment to run jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox. A maximum of 10 jobs can run in a sandbox. Sandbox would be removed when no jobs are executing in it, hence it should not be used to save files.
+Azure Automation supports an environment to run jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox. A maximum of 10 jobs can run in a sandbox. A sandbox will be removed when no jobs are executing in it; hence, it shouldn't be used to save files.
 
 Jobs running in the same sandbox process can affect each other. One example is running the [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount) cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process. For an example of working with this scenario, see [Prevent concurrent jobs](manage-runbooks.md#prevent-concurrent-jobs).
 
