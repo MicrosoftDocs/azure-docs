@@ -835,6 +835,9 @@ root@xsense:/#
 
 The following commands support alert exclusion features on your OT sensor, including showing current exclusion rules, adding and editing rules, and deleting rules.
 
+> [!NOTE]
+> Alert exclusion rules defined on an OT sensor can be overwritten by alert exclusion rules defined on your on-premises management console.
+
 ### Showing alert exclusion rules
 
 Use the following command to display a list of currently configured exclusion rules.
