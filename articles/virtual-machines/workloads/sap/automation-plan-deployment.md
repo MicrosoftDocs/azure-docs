@@ -83,12 +83,12 @@ The SAP library provides storage for SAP installation media, Bill of Material (B
 
 ## Workload zone planning
 
-Most SAP configurations have multiple [workload zones](automation-deployment-framework.md#deployment-components) for different application tiers. For example, you might have different workload zones for development, quality assurance, and production.
+Most SAP application landscapes are partitioned in different tiers. In SDAF these are called workload zones, for example, you might have different workload zones for development, quality assurance, and production. See [workload zones](automation-deployment-framework.md#deployment-components). 
 
-You'll be creating or granting access to the following services in each workload zone:
+The workload zone provides the following services for the SAP Applications:
 
-* Azure Virtual Networks, for virtual networks, subnets and network security groups.
-* Azure Key Vault, for system credentials and the deployment Service Principal.
+* Azure Virtual Network, for a virtual network, subnets and network security groups.
+* Azure Key Vault, for storing the virtual machine and SAP system credentials.
 * Azure Storage accounts, for Boot Diagnostics and Cloud Witness.
 * Shared storage for the SAP Systems either Azure Files or Azure NetApp Files.
 
@@ -96,6 +96,7 @@ Before you design your workload zone layout, consider the following questions:
 
 * How many workload zones does your scenario require?
 * In which regions do you need to deploy workloads?
+* What storage type do you need for the shared storage?
 * What's your [deployment scenario](#supported-deployment-scenarios)?
 
 For more information, see [how to configure a workload zone deployment for automation](automation-deploy-workload-zone.md).

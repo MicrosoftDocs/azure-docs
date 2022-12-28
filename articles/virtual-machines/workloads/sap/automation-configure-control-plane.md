@@ -4,7 +4,7 @@ description: Configure your deployment control plane for the SAP on Azure Deploy
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 8/8/2022
+ms.date: 12/28/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
@@ -19,7 +19,7 @@ The control plane for the [SAP on Azure Deployment Automation Framework](automat
 
 ## Deployer
 
-The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands.
+The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands. When using Azure DevOps the deployer is a self-hosted agent.
 
 The configuration of the deployer is performed in a Terraform tfvars variable file.
 
@@ -124,21 +124,13 @@ The Virtual Machine image is defined using the following structure:
   "offer"           = "0001-com-ubuntu-server-focal"
   "sku"             = "20_04-lts"
   "version"         = "latest"
+  "type"            = "marketplace"
 }
 ```
 
-The plan defined using the following structure:
-```python
-{
-    "use"       = false
-    "name"      = "0001-com-ubuntu-server-focal"
-    "publisher" = "Canonical"
-    "product"   = "20_04-lts"
-  }
-```
-
 > [!NOTE]
-> Note that using the plan attribute will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
+> type can be marketplace/marketplace_with_plan/custom
+> Note that using a image of type 'marketplace_with_plan' will require that the image in question has been used at least once in the subscription. This is because the first usage prompts the user to accept the License terms and the automation has no mean to approve it.
 
 
 
@@ -161,15 +153,15 @@ The table below defines the parameters used for defining the Virtual Machine aut
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                         | Description                                                                 | Type       |
-> | ------------------------------------------------ | --------------------------------------------------------------------------- | ---------- |
-> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                            | Optional	  |
-> | `spn_keyvault_id`                                | Azure resource identifier for the user key vault containing the SPN details | Optional	  |
-> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                | Optional	  |
-> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                 | Optional	  |
-> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                   | Optional	  |
-> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                   | Optional	  |
-> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies | Optional	  |
+> | Variable                                         | Description                                                                       | Type       |
+> | ------------------------------------------------ | --------------------------------------------------------------------------------- | ---------- |
+> | `user_keyvault_id`	                             | Azure resource identifier for the user key vault                                  | Optional	  |
+> | `spn_keyvault_id`                                | Azure resource identifier for the key vault containing the deployment credentials | Optional	  |
+> | `deployer_private_key_secret_name`               | The Azure Key Vault secret name for the deployer private key                      | Optional	  |
+> | `deployer_public_key_secret_name`                | The Azure Key Vault secret name for the deployer public key                       | Optional	  |
+> | `deployer_username_secret_name`	                 | The Azure Key Vault secret name for the deployer username                         | Optional	  |
+> | `deployer_password_secret_name`	                 | The Azure Key Vault secret name for the deployer password                         | Optional	  |
+> | `additional_users_to_add_to_keyvault_policies`	 | A list of user object IDs to add to the deployment KeyVault access policies       | Optional	  |
 
 
 ### DNS Support
@@ -236,9 +228,9 @@ The configuration of the SAP Library is performed in a Terraform tfvars variable
 The table below contains the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                | Description                           | Type       |
-> | ----------------------- | ------------------------------------- | ---------- |
-> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   |
+> | Variable                | Description                           | Type       | Notes |
+> | ----------------------- | ------------------------------------- | ---------- | ----- |
+> | `deployer_tfstate_key`  | The state file name for the deployer  | Required   | 
 
 ### Environment Parameters
 
