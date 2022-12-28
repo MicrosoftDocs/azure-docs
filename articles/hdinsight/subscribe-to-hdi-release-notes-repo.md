@@ -30,7 +30,7 @@ Whenever there's a Release Note is published, a notification will be sent to the
 1. From Overview tab, click **JSON View**.
 1. Refer to the properties **blueprint**.
 
-    :::image type="content" source="./media/subscribe-to-github-repo/json-view.png" alt-text="Screenshot showing how to view the HDInsight image version.":::
+    :::image type="content" source="./media/find-image-version/json-view.png" alt-text="Screenshot showing how to view the HDInsight image version.":::
 
 ## Next steps
 
