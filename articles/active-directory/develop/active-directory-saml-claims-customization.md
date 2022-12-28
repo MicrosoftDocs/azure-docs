@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.custom: aaddev
 ---
 
-# Customize SAML token claims
+# Customize claims issued in the SAML token for enterprise applications
 
 The Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure Active Directory (Azure AD) application gallery and custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application. And then, the application validates and uses the token to log the user in instead of prompting for a username and password.
 
@@ -88,22 +88,6 @@ Any constant (static) value can be assigned to any claim that is defined in Azur
 
     :::image type="content" source="./media/active-directory-saml-claims-customization/edit-attributes-claims.png" alt-text="Screenshot of editing in the Attributes & Claims section in the Azure portal.":::
 
-## Add the UPN claim to SAML tokens
-
-The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
-
-Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
-
-## Advanced SAML claims options
-
-The following table lists advanced options that can be configured for an application.
-
-| Option | Description |
-|--------|-------------|
-| Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |
-| Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
-| Include attribute name format | If selected, Azure Active Directory adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
-
 ## Special claims transformations
 
 You can use the following special claims transformations functions.
@@ -159,7 +143,7 @@ You can use the following functions to transform claims.
 
 If you need other transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) under the *SaaS application* category.
 
-## RegexReplace() transformations
+## How to use the RegexReplace() Transformation
 
 :::image type="content" source="./media/active-directory-saml-claims-customization/regexreplace-trasform.png" alt-text="Screenshot of multiple claims transformation.":::
 
@@ -202,6 +186,12 @@ When the following conditions occur after **Add** or **Run test** is selected, a
 * The provided test regex input doesn't match with the provided regular expression.
 * The source for the groups into the replacement pattern aren't found.
 
+## Add the UPN claim to SAML tokens
+
+The `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn` claim is part of the [SAML restricted claim set](reference-claims-mapping-policy-type.md#table-2-saml-restricted-claim-set), so you can't add it in the **Attributes & Claims** section. As a workaround, you can add it as an [optional claim](active-directory-optional-claims.md) through **App registrations** in the Azure portal.  
+
+Open the application in **App registrations**, select **Token configuration**, and then select **Add optional claim**. Select the **SAML** token type, choose **upn** from the list, and then click **Add** to add the claim to the token.
+
 ## Emit claims based on conditions
 
 You can specify the source of a claim based on user type and the group to which the user belongs.
@@ -237,11 +227,19 @@ As another example, consider when Britta Simon tries to sign in and the followin
 
 As a final example, consider what happens if Britta has no `user.othermail` configured or it's empty. In both cases the condition entry is ignored, and the claim falls back to `user.extensionattribute1` instead.
 
-## Advanced claims options
+## Advanced SAML claims options
 
 Advanced claims options can be configured for SAML2.0 applications to expose the same claim to OIDC tokens and vice versa for applications that intend to use the same claim for both SAML2.0 and OIDC response tokens.  
 
 Advanced claim options can be configured by checking the box under **Advanced SAML Claims Options** in the **Manage claims** blade.
+
+The following table lists other advanced options that can be configured for an application.
+
+| Option | Description |
+|--------|-------------|
+| Append application ID to issuer | Automatically adds the application ID to the issuer claim. This option ensures a unique claim value for each instance when there are multiple instances of the same application. This setting is ignored if a custom signing key isn't configured for the application. |
+| Override audience claim | Allows for the overriding of the audience claim sent to the application. The value provided must be a valid absolute URI. This setting is ignored if a custom signing key isn't configured for the application. |
+| Include attribute name format | If selected, Azure Active Directory adds an attribute called `NameFormat` that describes the format of the name to restricted, core, and optional claims for the application.  For more information, see, [Claims mapping policy type](reference-claims-mapping-policy-type.md#claim-sets) |
 
 ## Next steps
 
