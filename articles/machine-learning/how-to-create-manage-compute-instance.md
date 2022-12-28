@@ -212,6 +212,7 @@ You can also change the idle time using:
     ```
     POST https://management.azure.com/subscriptions/{SUB_ID}/resourceGroups/{RG_NAME}/providers/Microsoft.MachineLearningServices/workspaces/{WS_NAME}/computes/{CI_NAME}/updateIdleShutdownSetting?api-version=2021-07-01
     ```
+
     Body:
     ```JSON
     {
@@ -220,7 +221,8 @@ You can also change the idle time using:
     ```
 
 
-* ARM Templates: only configurable during new CI creation
+* ARM Templates: only configurable during new compute instance creation
+
     ```JSON
     // Note that this is just a snippet for the idle shutdown property in an ARM template
     {
