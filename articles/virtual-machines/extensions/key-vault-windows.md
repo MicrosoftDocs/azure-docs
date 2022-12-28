@@ -165,7 +165,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > The 'authenticationSettings' property is **required** for VMs with any **user assigned identities** and recommended to use with a system-assigned identity, to avoid issues with VM extension with multiple identities. 
 > It specifies identity to use for authentication to Key Vault.
 
-### Property values
+## Property values
 
 ### [Version-1.0](#tab/version1)  
 
