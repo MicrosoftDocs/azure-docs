@@ -10,7 +10,7 @@ ms.topic: how-to
 
 Microsoft Defender for IoT alerts enhance your network security and operations with real-time details about events logged in your network. OT alerts are triggered when OT network sensors detect changes or suspicious activity in network traffic that needs your attention.
 
-This article describes the following methods for reducing alert fatigue in your team:
+This article describes the following methods for reducing OT network alert fatigue in your team:
 
 - **Create alert comments** for your teams to add to individual alerts, streamlining communication and record-keeping across your alerts.
 
@@ -20,7 +20,7 @@ This article describes the following methods for reducing alert fatigue in your 
 
 ## Prerequisites
 
-- To create alert comments or alert rules on an OT network sensor, you must have:
+- To create alert comments or custom alert rules on an OT network sensor, you must have:
 
     - An OT network sensor installed
     - Access to the sensor as an **Admin** user.
@@ -34,7 +34,7 @@ For more information, see [Install OT agentless monitoring software](how-to-inst
 
 ## Create alert comments on an OT sensor
 
-1. Sign into your OT sensor and select **System Settings** > **Network Monitoring**> **Alert Comments**.
+1. Sign into your OT sensor and select **System Settings** > **Network Monitoring** > **Alert Comments**.
 
 1. In the **Alert comments** pane, in the **Description** field, enter the new comment, and select **Add**. The new comment appears in the **Description** list below the field.
 
@@ -87,7 +87,7 @@ For more information, see [Track sensor activity](how-to-track-sensor-activity.m
 
 Disable custom alert rules to prevent them from running without deleting them altogether.
 
-In the **Custom alert rules** page, select one or more rules, and then select **Enable**, **Disable**, or **Delete** in the toolbar as needed.
+In the **Custom alert rules** page, select one or more rules, and then select  **Disable**, **Enable**, or **Delete** in the toolbar as needed.
 
 ## Create alert exclusion rules on an on-premises management console
 
@@ -99,7 +99,7 @@ For example, if you know that all the OT devices monitored by a specific sensor 
 
 1. Sign into your on-premises management console and select **Alert Exclusion** on the left-hand menu.
 
-1. On the **Alert Exclusion** page, select the **+** add rule button at the top-right.
+1. On the **Alert Exclusion** page, select the **+** button at the top-right to add a new rule.
 
 1. In the **Create Exclusion Rule** dialog, enter the following details:
 
@@ -107,12 +107,12 @@ For example, if you know that all the OT devices monitored by a specific sensor 
     |---------|---------|
     |**Name**     |  Enter a meaningful name for your rule. The name can't contain quotes (`"`).      |
     |**By Time Period**     |   Select a time zone and the specific time period you want the exclusion rule to be active, and then select **ADD**. <br><br>Use this option to create separate rules for different time zones. For example, you might need to apply an exclusion rule between 8:00 AM and 10:00 AM in three different time zones. In this case, create three separate exclusion rules that use the same time period and the relevant time zone.      |
-    |**By Device Address**     |   Select and enter the following values, and then select **ADD**: <br>- Select whether the designated device is a source, destination, or both a source and destination device. <br>- Select whether the address is an IP address, MAC address, or subnet <br>- Enter the value of the IP address, MAC address, or subnet. |
+    |**By Device Address**     |   Select and enter the following values, and then select **ADD**: <br><br>- Select whether the designated device is a source, destination, or both a source and destination device. <br>- Select whether the address is an IP address, MAC address, or subnet <br>- Enter the value of the IP address, MAC address, or subnet. |
     |**By Alert Title**     |  Select one or more alerts to add to the exclusion rule and then select **ADD**. To find alert titles, enter all, or part of an alert title and select the one you want from the dropdown list.        |
     |**By Sensor Name**     |  Select one or more sensors to add to the exclusion rule and then select **ADD**. To find sensor names, enter all or part of the sensor name and select the one you want from the dropdown list.         |
 
     > [!IMPORTANT]
-    > Alert rules are `AND` based, which means that alerts are only excluded when all rule conditions are met.
+    > Alert exclusion rules are `AND` based, which means that alerts are only excluded when all rule conditions are met.
     > If a rule condition is not defined, all options are included. For example, if you don't include the name of a sensor in the rule, the rule is applied to all sensors.
 
     A summary of the rule parameters is shown at the bottom of the dialog.
@@ -124,6 +124,9 @@ For example, if you know that all the OT devices monitored by a specific sensor 
 Use the [Defender for IoT API](references-work-with-defender-for-iot-apis.md) to create alert exclusion rules from an external ticketing system or other system that manage network maintenance processes.
 
 Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.md#maintenancewindow-create-alert-exclusions) API to define the sensors, analytics engines, start time, and end time to apply the rule.  Exclusion rules created via API are shown in the on-premises management console as read-only.
+
+For more information, see 
+[Defender for IoT API reference](references-work-with-defender-for-iot-apis.md).
 
 ## Next steps
 
@@ -141,3 +144,6 @@ Use the [maintenanceWindow (Create alert exclusions)](api/management-alert-apis.
 
 > [!div class="nextstepaction"]
 > [View and manage alerts on the the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)

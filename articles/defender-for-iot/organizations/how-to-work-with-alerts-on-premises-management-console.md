@@ -15,9 +15,9 @@ This article describes how to view Defender for IoT alerts on an on-premises man
 
 - **To have alerts on the on-premises management console**, you must have an OT network sensor with alerts connected to your on-premises management console. For more information, see [View and manage alerts on your OT sensor](how-to-view-alerts.md) and [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-- **To view alerts the on-premises management console**, sign in as an **Admin**, **Security Analyst**, or **Viewer** user.
+- **To view alerts the on-premises management console**, sign in as an *Admin*, *Security Analyst*, or *Viewer* user.
 
-- **To manage alerts on the on-premises management console**, sign in as an **Admin** or **Security Analyst** user. Management activities include acknowledging or muting an alert, depending on the alert type. Both *acknowledging* and *muting* an alert hides it once for the detected event.
+- **To manage alerts on the on-premises management console**, sign in as an *Admin* or *Security Analyst* user. Management activities include acknowledging or muting an alert, depending on the alert type.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
@@ -44,11 +44,11 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 At the top of the **Alerts** page, use the **Free Search**, **Sites**, **Zones**, **Devices**, and **Sensors** options to filter the alerts displayed by specific parameters, or to help locate a specific alert.
 
-[Acknowledged and muted alerts](#manage-alert-status) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
+- [Acknowledged alerts](#manage-alert-status) aren't listed by default. Select **Show Acknowledged Alerts** to include them in the list.
 
-Select **Clear** to remove all filters.
+- Select **Clear** to remove all filters.
 
-## Manage alert status
+## Manage alert status and triage alerts
 
 Use the following options to manage alert status on your on-premises management console, depending on the alert type:
 
@@ -85,3 +85,6 @@ The CSV file is generated, and you're prompted to save it locally.
 
 > [!div class="nextstepaction"]
 > [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)

@@ -38,9 +38,9 @@ For more information, see [Azure user roles and permissions for Defender for IoT
     |--|--|
     | **Severity**|  A predefined alert severity assigned by the sensor that you can [modify as needed](#manage-alert-severity-and-status). |
     | **Name** |  The alert title. |
-    | **Site** |  The site associated with the sensor that detected the alert, as listed on the [Sites and sensors(how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) page.|
-    | **Engine** |  The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>A value of **Micro-agent** indicates that the event was triggered by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform. |
-    | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
+    | **Site** |  The site associated with the sensor that detected the alert, as listed on the [Sites and sensors](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal) page.|
+    | **Engine** |  The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. <br><br>**Note**: A value of **Micro-agent** indicates that the event was triggered by the Defender for IoT [Device Builder](/azure/defender-for-iot/device-builders/) platform. |
+    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.|
     | **Status** | The alert status: *New*, *Active*, *Closed* <br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source device** |The IP address, MAC address, or the name of the device where the traffic that triggered the alert originated.  |
     | **Tactics** | The [MITRE ATT&CK stage](https://attack.mitre.org/tactics/ics/). |
@@ -60,7 +60,7 @@ For more information, see [Azure user roles and permissions for Defender for IoT
         | **Protocol** | The protocol detected in the network traffic for the alert.|
         | **Sensor** |  The sensor that detected the alert.|
         | **Zone** | The zone assigned to the sensor that detected the alert.|
-        | **Category**| The [category](alert-engine-messages.md#supported-alert-categories) associated with the alert, such as *operational issues*,*custom alerts*, or *illegal commands*. |
+        | **Category**| The [category](alert-engine-messages.md#supported-alert-categories) associated with the alert, such as *operational issues*, *custom alerts*, or *illegal commands*. |
         | **Type**| The  internal name of the alert. |
 
 ### Filter alerts displayed
@@ -97,24 +97,26 @@ We recommend that you update alert severity as soon as you've triaged an alert s
 
 You can update both severity and status for a single alert or for a selection of alerts in bulk.
 
-*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts won't be triggered again the next time the same traffic is detected on your network. Alerts can be *unlearned* only on the OT network sensor.
+*Learn* an alert to indicate to Defender for IoT that the detected network traffic is authorized. Learned alerts aren't triggered again the next time the same traffic is detected on your network. Learning is supported only for selected alerts, and *unlearning* is supported only from the OT network sensor.
 
 For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).
 
 - **To manage a single alert**:
 
-    1. Select an alert in the grid.
+    1. In Defender for IoT in the Azure portal, select the **Alerts** page on the left, and then select an alert in the grid.
     1. Either on the details pane on the right, or in an alert details page itself, select the new status and/or severity.
 
 - **To manage multiple alerts in bulk**:
 
-    1. Select the alerts in the grid that you want to modify.
+    1. In Defender for IoT in the Azure portal, select the **Alerts** page on the left, and then select the alerts in the grid that you want to modify.
     1. Use the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change status** and/or :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/severity-icon.png" border="false"::: **Change severity** options in the toolbar to update the status and/or the severity for all the selected alerts.
 
-- **To learn one or more alerts**, do one of the following:
+- **To learn one or more alerts**:
+
+    In Defender for IoT in the Azure portal, select the **Alerts** page on the left, and then do one of the following:
 
     - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
-    - On an alert details page, in the **Take Action** tab, select **Learn**.
+    - On an alert details page for a learnable alert, in the **Take Action** tab, select **Learn**.
 
 ## Access alert PCAP data
 
@@ -134,7 +136,9 @@ Downloading the PCAP file can take several minutes, depending on the quality of 
 
 You may want to export a selection of alerts to a CSV file for offline sharing and reporting.
 
-1. On the **Alerts** page, use the search box and filter options to show only the alerts you want to export.
+1. In Defender for IoT on the Azure portal, select the **Alerts** page on the left.
+
+1. Use the search box and filter options to show only the alerts you want to export.
 
 1. In the toolbar above the grid, select **Export** > **Confirm**.
 

@@ -17,15 +17,15 @@ For more information, see [Microsoft Defender for IoT alerts](alerts.md).
 
 - **To have alerts on your OT sensor**, you must have a SPAN port configured for your sensor and Defender for IoT monitoring software installed. For more information, see [Install OT agentless monitoring software](how-to-install-software.md).
 
-- **To view alerts on the OT sensor**, sign into your sensor as an **Admin**, **Security Analyst**, or **Viewer** user.
+- **To view alerts on the OT sensor**, sign into your sensor as an *Admin*, *Security Analyst*, or *Viewer* user.
 
-- **To manage alerts on an OT sensor**, sign into your sensor as an **Admin** or **Security Analyst** user. Alert management activities include modifying their statuses or severities, *learning* or *muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
+- **To manage alerts on an OT sensor**, sign into your sensor as an *Admin* or *Security Analyst* user. Alert management activities include modifying their statuses or severities, *learning* or *muting* an alert, accessing PCAP data, or adding pre-defined comments to an alert.
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
 ## View alerts on an OT sensor
 
-1. On your sensor console, select the **Alerts** page.
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
     By default, the following details are shown in the grid:
 
@@ -34,7 +34,7 @@ For more information, see [On-premises users and roles for OT monitoring with De
     | **Severity** | A predefined alert severity assigned by the sensor that you can modify as needed, including: *Critical*, *Major*, *Minor*, *Warning*. |
     | **Name** | The alert title |
     | **Engine** | The [Defender for IoT detection engine](architecture.md#analytics-engines) that detected the activity and triggered the alert. |
-    | **Last detection** | The last time the alert was detected. <br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
+    | **Last detection** | The last time the alert was detected. <br><br>- If an alert's status is **New**, and the same traffic is seen again, the **Last detection** time is updated for the same alert. <br>- If the alert's status is **Closed** and traffic is seen again, the **Last detection** time is *not* updated, and a new alert is triggered.  |
     | **Status** |The alert status: *New*, *Active*, *Closed*<br><br>For more information, see [Alert statuses and triaging options](alerts.md#alert-statuses-and-triaging-options).|
     | **Source Device** | The source device IP address, MAC, or device name. |
 
@@ -53,12 +53,11 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 Use the **Search** box, **Time range**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
 
-Filtering alerts by **Groups** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md).
- pages.
-
 For example:
 
 :::image type="content" source="media/how-to-view-alerts/filter-alerts-groups.png" alt-text="Screenshot of an OT sensor Alerts page being filtered by Groups.":::
+
+Filtering alerts by **Groups** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md) pages.
 
 ### Group alerts displayed
 
@@ -70,9 +69,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
 1. Sign into the OT sensor and select **Alerts** on the left-hand menu.
 
-1. Select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. For example:
-
-    Select **View full details** to drill down further. For example:
+1. Select an alert in the grid to display more details in the pane on the right. The alert details pane includes the alert description, traffic source and destination, and more. Select **View full details** to drill down further. For example:
 
     :::image type="content" source="media/alerts/alerts-on-sensor.png" alt-text="Screenshot of an alert selected from the Alerts page on an OT sensor.":::
 
@@ -82,11 +79,13 @@ For example, while the total number of alerts appears above the grid, you may wa
 
     - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
 
+        :::image type="content" source="media/how-to-view-alerts/map-view.png" alt-text="Screenshot of the Map View tab on an alert details page.":::
+
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 
         :::image type="content" source="media/alerts/event-timeline-alert-sensor.png" alt-text="Screenshot of an event timeline on an alert details page.":::
 
-## Manage alert status
+## Manage alert status and triage alerts
 
 Make sure to update your alert status once you've taken remediation steps so that the progress is recorded. You can update status for a single alert or for a selection of alerts in bulk.
 
@@ -96,36 +95,47 @@ For more information, see [Alert statuses and triaging options](alerts.md#alert-
 
 - **To manage alert status**:
 
-    1. Select one or more alerts in the grid.
-    1. Use the toolbar :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
-    The :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
-- **To learn one or more alerts**, do one of the following:
+    1. Select one or more alerts in the grid whose status you want to update.
+
+    1. Use the toolbar :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Change Status** button or the :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option in the details pane on the right to update the alert status.
+
+        The :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/status-icon.png" border="false"::: **Status** option is also available on the alert details page.
+
+- **To learn one or more alerts**:
+
+    Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
 
     - Select one or more learnable alerts in the grid and then select :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/learn-icon.png" border="false"::: **Learn** in the toolbar.
     - On an alert details page, in the **Take Action** tab, select **Learn**.
 
-- **To unlearn an alert**:
-
-    1. Locate the learned alert and open its alert details page.
-    1. Toggle off the **Alert learn** option. For example:
-
-    After you unlearn an alert, alerts are retriggered whenever the sensor senses the selected traffic combination.
-
 - **To mute an alert**:
 
-    1. Open the alert details page for a mutable alert.
-    1. On the **Take Action** tab, select **Mute**.
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
+    1. Locate the alert you want to mute and open its alert details page.
+    1. On the **Take action** tab, toggle on the **Alert mute** option.
+
+- **To unlearn or unmute an alert**:
+
+    1. Sign into your OT sensor console and select the **Alerts** page on the left.
+    1. Locate the alert you've learned or muted and open its alert details page.
+    1. On the **Take action** tab, toggle off the **Alert learn** or **Alert mute** option.
+
+    After you unlearn or unmute an alert, alerts are re-triggered whenever the sensor senses the selected traffic combination.
+
 
 ## Access alert PCAP data
 
 You might want to access raw traffic files, also known as *packet capture files* or *PCAP* files as part of your investigation.
 
-To access raw traffic files for your alert, select **Download PCAP** from the top-left corner of your alert details page:
+To access raw traffic files for your alert, select **Download Filtered Pcap** from the top-left corner of your alert details page:
 
 For example:
 
 :::image type="content" source="media/alerts/download-pcap-sensor.png" alt-text="Screenshot of the Download PCAP options on the OT sensor.":::
+
+The PCAP file is downloaded and your browser prompts you to open or save it locally.
 
 ### Export alerts to CSV or PDF
 
@@ -136,15 +146,17 @@ You may want to export a selection of alerts to a CSV or PDF file for offline sh
 
 **To export alerts to a CSV file**:
 
-1. On the **Alerts** page, use the search box and filter options to show only the alerts you want to export.
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
+
+1. Use the search box and filter options to show only the alerts you want to export.
 
 1. In the toolbar above the grid, select **Export to CSV**.
 
-The file is generated, and you're prompted to save it locally.
+The file is generated, and you're prompted to open or save it locally.
 
-**To export an alert to PDF**:
+**To export an alert to a PDF file**:
 
-Do one of the following:
+Sign into your OT sensor console and select the **Alerts** page on the left, and then do one of the following:
 
 - On the **Alerts** page, select an alert and then select **Export to PDF** from the toolbar above the grid.
 - On an alerts details page, select **Export to PDF**.
@@ -157,9 +169,13 @@ Alert comments help you accelerate your investigation and remediation process by
 
 If your admin has [created custom comments](how-to-accelerate-alert-incident-response.md#create-alert-comments-on-an-ot-sensor) for your team to add to alerts, add them from the **Comments** section on an alert details page.
 
-From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
+1. Sign into your OT sensor console and select the **Alerts** page on the left.
 
-:::image type="content" source="media/alerts/add-comment-sensor.png" alt-text="Screenshot of the Comments section on an alert details page on the sensor.":::
+1. Locate the alert where you want to add a comment and open the alert details page.
+
+1. From the **Choose comment** list, select the comment you want to add, and then select **Add**. For example:
+
+    :::image type="content" source="media/alerts/add-comment-sensor.png" alt-text="Screenshot of the Comments section on an alert details page on the sensor.":::
 
 For more information, see [Accelerating OT alert workflows](alerts.md#accelerating-ot-alert-workflows).
 
@@ -180,3 +196,6 @@ For more information, see [Accelerating OT alert workflows](alerts.md#accelerati
 
 > [!div class="nextstepaction"]
 > [OT monitoring alert types and descriptions](alert-engine-messages.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)

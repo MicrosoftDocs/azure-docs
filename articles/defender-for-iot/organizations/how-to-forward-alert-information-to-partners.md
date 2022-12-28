@@ -26,6 +26,8 @@ This article describes how to configure your OT sensor or on-premises management
     :::column-end:::
 :::row-end:::
 
+> [!NOTE]
+> Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 
 ## Prerequisites
@@ -34,10 +36,9 @@ This article describes how to configure your OT sensor or on-premises management
 
     For more information, see [Install OT agentless monitoring software](how-to-install-software.md) and [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-- You'll also need to define SMTP settings on the OT sensor or on-premises management console. For more information, see:
+- You'll also need to define SMTP settings on the OT sensor or on-premises management console. 
 
-    - [Configure SMTP settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-settings)
-    - [Configure SMTP settings on an on-premises management console](how-to-manage-the-on-premises-management-console.md#mail-server-settings)
+    For more information, see [Configure SMTP settings on an OT sensor](how-to-manage-individual-sensors.md#configure-smtp-settings) and [Configure SMTP settings on an on-premises management console](how-to-manage-the-on-premises-management-console.md#mail-server-settings).
 
 ## Create forwarding rules on an OT sensor
 
@@ -47,7 +48,7 @@ This article describes how to configure your OT sensor or on-premises management
 
     |Name  |Description  |
     |---------|---------|
-    |**Minimal alert level**     | Select the minimum [alert severity level](alert-engine-messages.md#alert-severities) you want to forward.        |
+    |**Minimal alert level**     | Select the minimum [alert severity level](alert-engine-messages.md#alert-severities) you want to forward. <br><br>  For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.     |
     |**Any protocol detected**     | Toggle on to forward alerts from all protocol traffic or toggle off and select the specific protocols you want to include.        |
     |**Traffic detected by any engine**     |  Toggle on to forward alerts from all [analytics engines](architecture.md#analytics-engines), or toggle off and select the specific engines you want to include.             |
     |**Actions**     | Select the type of server you want to forward alerts to, and then define any other required information for that server type. <br><br>To add multiple servers to the same rule, select **+ Add server** and add more details. <br><br>For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).   |
@@ -57,7 +58,7 @@ This article describes how to configure your OT sensor or on-premises management
 1. Test the rule you've created:
 
     1. Select the options menu (**...**) for your rule > **Send Test Message**.
-    1. Go to your partner system to verify that the information sent by the sensor was received.
+    1. Go to the target service to verify that the information sent by the sensor was received.
 
 ### Edit or delete forwarding rules on an OT sensor
 
@@ -77,31 +78,25 @@ To edit or delete an existing rule:
 
 1. Sign in to the on-premises management console and select **Forwarding** on the left-hand menu.
 
-1. Select the :::image type="icon" source="media/how-to-work-with-alerts-on-premises-management-console/plus-add-icon.png" border="false"::: icon.
+1. Select the **+** button at the top-right to create a new rule.
 
-1. In the **Create Forwarding Rule** window, enter a meaningful name for the rule.
+1. In the **Create Forwarding Rule** window, enter a meaningful name for the rule, and then define rule conditions and actions as follows:
 
-1. Select a [severity level](alert-engine-messages.md#alert-severities) from the drop-down menu to select the minimum severity alert you want to forward. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.
+    |Name  |Description  |
+    |---------|---------|
+    |**Minimal alert level**     | At the top-right of the dialog, use the dropdown list to select the minimum [alert severity level](alert-engine-messages.md#alert-severities) that you want to forward.    <br><br>For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded.    |
+    |**Protocols**     |   Select **All** to forward alerts from all protocol traffic, or select **Specific** to add specific protocols only.     |
+    |**Engines****     |  Select **All** to forward alerts triggered by all sensor analytics engines, or select **Specific** to add specific engines only.       |
+    |**System Notifications**     | Select the **Report System Notifications** option to notify about disconnected sensors or remote backup failures.        |
+    |**Alert Notifications**     |  Select the **Report Alert Notifications** option to notify about an alert's date and time, title, severity, source and destination name and IP address, suspicious traffic, and the engine that detected the event.     |
+    |**Actions**     |   Select **Add** to add an action to apply and enter any parameters values needed for the selected action. Repeat as needed to add multiple actions.  <br><br>For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).    |
 
-1. Select any protocols to apply.
+1. When you're done configuring the rule, select **SAVE**. The rule is listed on the **Forwarding** page.
 
-    Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
 
-1. Select which engines the rule should apply to, or select them all.
+1. Test the rule you've created:
 
-1. Select which notifications you want to forward:
-
-    -	**Report system notifications:** disconnected sensors or remote backup failures.
-
-    -	**Report alert notifications:** date and time of alert, alert title, alert severity, source and destination name and IP, suspicious traffic, and the engine that detected the event.
-
-1. Select **Add** to add an action to apply and enter any parameters values needed for the selected action. Repeat as needed to add multiple actions.
-
-    For more information, see [Configure alert forwarding rule actions](#configure-alert-forwarding-rule-actions).
-
-1. Select **Save** and then test the rule you've created:
-
-    1. On the row for your rule, select the **Run** button. A success notification is shown if the message sent successfully.
+    1. On the row for your rule, select the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/run-button.png" border="false"::: **test this forwarding rule** button. A success notification is shown if the message sent successfully.
     1. Go to your partner system to verify that the information sent by the sensor was received.
 
 ### Edit or delete forwarding rules on an on-premises management console
@@ -110,11 +105,11 @@ To edit or delete an existing rule:
 
 1. Sign into your on-premises management console and select **Forwarding** on the left-hand menu.
 
-1. Find the row for your rule and then select either the **Edit** or **Delete** button.
+1. Find the row for your rule and then select either the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/edit-button.png" border="false"::: **Edit** or :::image type="icon" source="media/how-to-forward-alert-information-to-partners/delete-icon.png" border="false"::: **Delete** button.
 
-    - If you're editing the rule, [update the fields as needed](#create-forwarding-rules-on-an-on-premises-management-console) and select **Save**.
+    - If you're editing the rule, [update the fields as needed](#create-forwarding-rules-on-an-on-premises-management-console) and select **SAVE**.
 
-    - If you're deleting the rule, select **Yes** to confirm the deletion.
+    - If you're deleting the rule, select **CONFIRM** to confirm the deletion.
 
 ## Configure alert forwarding rule actions
 
@@ -141,7 +136,7 @@ In the **Actions** area, enter the following details:
 
 |Name  |Description  |
 |---------|---------|
-| **Server** | Select one of the following types of syslog formats: <br>- **SYSLOG Server (CEF format)** <br>- **SYSLOG Server (LEEF format)** <br>- **SYSLOG Server (Object)** <br>- **SYSLOG Server (Text Message)** |
+| **Server** | Select one of the following types of syslog formats: <br><br>- **SYSLOG Server (CEF format)** <br>- **SYSLOG Server (LEEF format)** <br>- **SYSLOG Server (Object)** <br>- **SYSLOG Server (Text Message)** |
 | **Host** / **Port** | Enter the syslog server's host name and port
 |**Timezone**    |  Select the time zone you want to use for the alert detection in the target system.  |
 | **Protocol** | Supported for text messages only. Select **TCP** or **UDP**. |
@@ -333,3 +328,6 @@ If your forwarding alert rules aren't working as expected, check the following d
 
 > [!div class="nextstepaction"]
 > [Forward alert information](how-to-forward-alert-information-to-partners.md)
+
+> [!div class="nextstepaction"]
+> [Microsoft Defender for IoT alerts](alerts.md)
