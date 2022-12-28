@@ -27,7 +27,7 @@ This article introduces you to the process of deploying the Microsoft Sentinel S
 > The Microsoft Sentinel for SAP solution is free to install, but there will be an [additional hourly charge](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/) for activating and using the solution on production systems starting May 2023. 
 >
 > - The additional hourly charge applies to connected production systems only. 
-> - Production systems are identified by a production (P) CCCATEGORY entry in the SAP client table (T000) 
+> - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table. 
 
 The Microsoft Sentinel for SAP data connector is an agent, installed on a VM or a physical server, that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 
