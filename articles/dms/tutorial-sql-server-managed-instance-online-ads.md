@@ -179,12 +179,14 @@ Resource group, Azure storage account, Blob container from the corresponding dro
 
 The final step of the tutorial is to complete the migration cutover to ensure the migrated database in Azure SQL Managed Instance is ready for use. This is the only part in the process that requires downtime for applications that connect to the database and hence the timing of the cutover needs to be carefully planned with business or application stakeholders.
 
-To complete the cutover,
+To complete the cutover:
 
-1. Stop all incoming transactions to the source database and prepare to make any application configuration changes to point to the target database in Azure SQL Managed Instance.
-2. take any tail log backups for the source database in the backup location specified
-3. ensure all database backups have the status *Restored* in the monitoring details page
-4. select *Complete cutover* in the monitoring details page
+1. Stop all incoming transactions to the source database.
+2. Make application configuration changes to point to the target database in Azure SQL Managed Instance.
+3. Take a final log backup of the source database in the backup location specified
+4. Put the source database in read-only mode. Therefore, users can read data from the database but not modify it.
+5. Ensure all database backups have the status *Restored* in the monitoring details page.
+6. Select *Complete cutover* in the monitoring details page.
 
 During the cutover process, the migration status changes from *in progress* to *completing*. When the cutover process is completed, the migration status changes to *succeeded* to indicate that the database migration is successful and that the migrated database is ready for use.
 
