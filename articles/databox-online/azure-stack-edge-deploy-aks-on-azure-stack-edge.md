@@ -307,7 +307,7 @@ For the shares that were created with the **Use the share with Edge compute** op
 
 1. Select **View all persistent volumes** to see the newly created persistent volume.
 
-## Remove the Kubernetes Service
+## Remove the Azure Kubernetes Service
 
 Use the following steps in the Azure portal to remove AKS.
 
@@ -317,7 +317,9 @@ Use the following steps in the Azure portal to remove AKS.
 
    ![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-with-remove-option.png)
 
-1. Select the configured addon that you want to remove along with AKS. Azure Arc enabled Kubernetes is an addon. Once you select **Remove**, all Kubernetes configurations and the selected addon will be removed. The operation is irreversible and can’t be undone. Select **OK** to confirm.
+1. Select the configured addon that you want to remove along with AKS. Azure Arc enabled Kubernetes is an addon. Once you select **Remove**, all Kubernetes configurations and the selected addon will be removed. The operation is irreversible and can’t be undone.
+
+1.  Select **OK** to confirm the operation.
 
    ![Screenshot that shows the Azure Kubernetes Service Overview page with the Remove confirmation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-overview-page-remove-confirmation.png)
 
