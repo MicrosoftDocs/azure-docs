@@ -34,7 +34,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Configure immediate blocking by a specified Palo Alto firewall
 
-In cases, such as malware-related alerts, you can enable automatic blocking. If the alert in question hasn't been raised prior to the integration, Defender for IoT forwarding rules is utilized to send a blocking command directly to a specific Palo Alto firewall.
+In cases, such as malware-related alerts, you can enable automatic blocking. Defender for IoT forwarding rules are utilized to send a blocking command directly to a specific Palo Alto firewall.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 When Defender for IoT identifies a critical threat, it sends an alert that includes an option of blocking the infected source. Selecting **Block Source** in the alert’s details activates the forwarding rule, which sends the blocking command to the specified Palo Alto firewall.
 
@@ -124,7 +126,9 @@ The first step in creating Panorama blocking policies in Defender for IoT is to 
 
 ## Block suspicious traffic with the Palo Alto firewall
 
-Suspicious traffic will need to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT. However, this use of forwarding rules is only valid for alerts that haven't been raised prior to the integration.
+Suspicious traffic will need to be blocked with the Palo Alto firewall. You can block suspicious traffic through the use forwarding rules in Defender for IoT.
+
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
 
 **To block suspicious traffic with the Palo Alto firewall using a Defender for IoT forwarding rule**:
 
