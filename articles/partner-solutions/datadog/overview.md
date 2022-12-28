@@ -7,7 +7,7 @@ author: flang-msft
 ms.author: franlanglois
 ---
 
-# What is Datadog?
+# What is Datadog - An Azure Native ISV Service?
 
 ## Overview
 
@@ -19,7 +19,7 @@ You provision the Datadog resources through a resource provider named `Microsoft
 
 ## Capabilities
 
-Integrating Datadog with Azure provides the following capabilities:
+Datadog - An Azure Native ISV Service provides the following capabilities:
 
 - **Integrated onboarding** - Datadog is an integrated service on Azure. You can provision Datadog and manage the integration through the Azure portal.
 - **Unified billing** - Datadog costs are reported through Azure monthly bill.
@@ -30,7 +30,7 @@ Integrating Datadog with Azure provides the following capabilities:
 
 ## Datadog links
 
-For more help using the Datadog service, see the following links to the [Datadog website](https://www.datadoghq.com/):
+For more help using the Datadog - An Azure Native ISV service, see the following links to the [Datadog website](https://www.datadoghq.com/):
 
 - [Azure solution guide](https://www.datadoghq.com/solutions/azure/)
 - [Blog announcing the Datadog <> Azure Partnership](https://www.datadoghq.com/blog/azure-datadog-partnership/)
@@ -38,4 +38,4 @@ For more help using the Datadog service, see the following links to the [Datadog
 
 ## Next steps
 
-To create an instance of Datadog, see [QuickStart: Get started with Datadog](create.md).
+To create an instance of Datadog, see [QuickStart: Get started with Datadog - An Azure Native ISV Service](create.md).

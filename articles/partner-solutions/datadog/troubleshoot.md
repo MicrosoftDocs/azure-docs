@@ -7,9 +7,9 @@ author: flang-msft
 ms.author: franlanglois
 ---
 
-# Fix common errors for Datadog on Azure
+# Fix common errors for Datadog - An Azure Native ISV Service
 
-This document contains information about troubleshooting your solutions that use Datadog.
+This document contains information about troubleshooting your solutions that use Datadog - An Azure Native ISV Service.
 
 ## Purchase errors
 
@@ -21,7 +21,7 @@ This document contains information about troubleshooting your solutions that use
 
   Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Datadog support](https://www.datadoghq.com/support).
 
-## Unable to create Datadog resource
+## Unable to create Datadog - An Azure Native ISV Service resource
 
 To set up the Azure Datadog integration, you must have **Owner** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
@@ -47,9 +47,15 @@ When inviting guest user, use the home tenant UPN. By using the UPN, you keep th
   
 ## Logs not being emitted
 
-Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
+1. Only resources listed in the Azure Monitor resource log categories emit logs to Datadog. To verify whether the resource is emitting logs to Datadog, navigate to Azure diagnostic setting for the specific resource. Verify that there's a Datadog diagnostic setting.
 
 :::image type="content" source="media/troubleshoot/diagnostic-setting.png" alt-text="Datadog diagnostic setting on the Azure resource" border="true":::
+
+2. Resource doesn't support sending logs - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-logs-categories).
+
+3. Limit of five diagnostic settings reached - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal)
+
+4. Export of Metrics data is not supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 
 ## Metrics not being emitted
 
