@@ -89,6 +89,8 @@
     - name: Manage users, roles, and their access levels
       expanded: false
       items:
+      - name: Add or remove a user to/from Permissions Management
+        href: how-to-add-or-remove-a-user-to-from-a-group.md
       - name: Manage users and groups
         href: ui-user-management.md
       # - name: Define and manage users, roles, and access levels
