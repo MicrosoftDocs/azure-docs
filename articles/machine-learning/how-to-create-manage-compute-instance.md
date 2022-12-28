@@ -10,7 +10,7 @@ ms.topic: how-to
 author: jesscioffi
 ms.author: jcioffi
 ms.reviewer: sgilley
-ms.date: 11/10/2022
+ms.date: 12/28/2022
 ---
 
 # Create and manage an Azure Machine Learning compute instance
