@@ -10,7 +10,11 @@ ms.date: 12/16/2022
 
 # Packet core and Azure Stack Edge (ASE) compatibility
 
-The following table provides information on which versions of the Azure Stack Edge (ASE) Pro device are compatible with each packet core version.
+Each site in your deployment contains an Azure Stack Edge (ASE) Pro device that hosts a packet core instance. This article provides information on version compatibility between ASE and packet core that you can refer to when installing a packet core instance or performing an upgrade.
+
+## Packet core and ASE compatibility table
+
+The following table provides information on which versions of the ASE device are compatible with each packet core version.
 
 | Packet core version  | Compatible ASE versions  |
 |-----|-----|

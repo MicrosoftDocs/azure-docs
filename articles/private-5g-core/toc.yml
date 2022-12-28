@@ -19,7 +19,7 @@ items:
     - name: 2208 
       href: azure-private-5g-core-release-notes-2208.md
   - name: Packet core and Azure Stack Edge compatibility
-    href: ase-packet-core-compatibility.md
+    href: azure-stack-edge-packet-core-compatibility.md
 - name: Quickstarts
   items:
   - name: Deploy a private mobile network and site - ARM template
