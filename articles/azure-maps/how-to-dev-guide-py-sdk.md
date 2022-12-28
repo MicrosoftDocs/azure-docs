@@ -29,7 +29,7 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 
 ## Create a python project
 
-The following example shows how to create a console program named `MapsDemo` with Python:
+The following example shows how to create a console program named `demo` with Python:
 
 ```powershell
 mkdir mapsDemo 
