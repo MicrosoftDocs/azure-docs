@@ -26,8 +26,8 @@ To create a custom table, you need:
     [
       {
         "TimeGenerated": "supported_datetime_format",
-        "<column_name_1": "<column_name_1_value>",
-        "<column_name_2": "<column_name_2_value>"
+        "<column_name_1>": "<column_name_1_value>",
+        "<column_name_2>": "<column_name_2_value>"
       }
     ]
     ``` 
