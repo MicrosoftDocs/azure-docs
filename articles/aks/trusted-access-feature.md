@@ -4,7 +4,7 @@ description: Learn how to use the Trusted Access feature to enable Azure resourc
 author: schaffererin
 services: container-service
 ms.topic: article
-ms.date: 08/24/2022
+ms.date: 12/28/2022
 ms.author: schaffererin
 ---
 
@@ -23,10 +23,6 @@ Trusted Access eliminates the following concerns:
   * Unable to access in private clusters unless Azure services implement a complex private endpoint access model.
 
 * clusterAdmin kubeconfig in Azure services creates a risks or privilege escalation and leaking kubeconfig.
-
-* Azure services have to be able to call the `listClusterAdminCredential` API when depending on clusterAdmin kubeconfig.
-
-  * Customers may have to take extra steps to grant role access.
 
   * Azure services may have to implement high-privileged service-to-service permissions.
 
@@ -83,38 +79,29 @@ After confirming which role to use, use the Azure CLI to create a Trusted Access
 ### Azure CLI
 
 ```azurecli
-az aks trustedaccess rolebinding create az aks trustedaccess rolebinding create 
--g
---cluster-name -n
--s
---roles
+az aks trustedaccess rolebinding create az aks trustedaccess rolebinding create -g --cluster-name -n -s --roles
 ```
 
 ### Sample Azure CLI command
 
 ```azurecli
-az aks trustedaccess rolebinding create
--g myResourceGroup
---cluster-name myAKSCluster -n test-binding
--s /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning
+az aks trustedaccess rolebinding create \
+-g myResourceGroup \
+--cluster-name myAKSCluster -n test-binding \
+-s /subscriptions/000-000-000-000-000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningServices/workspaces/MyMachineLearning \
 --roles Microsoft.Compute/virtualMachineScaleSets/test-node-reader Microsoft.Compute/virtualMachineScaleSets/test-admin
 ```
 
 ---
 
-| Property | Description | Required |
-|---|---|---|
-| sourceResourceId | The resource ID that needs to access the AKS cluster | Yes |
-| roles | A list of the roles in the form of `<source resource type>/<role name>` | Yes |
+## Check the Trusted Access RoleBinding for a cluster
 
-## List the Trusted Access Role
-
-Use the Azure CLI to list your available Trusted Access Roles.
+Use the Azure CLI to check the Trusted Access RoleBindings for a cluster.
 
 ### Azure CLI
 
 ```azurecli
-az aks trustedaccess role list -l <location>
+az aks trustedaccess rolebinding list --resource-group --cluster-name
 ```
 
 ---
@@ -128,14 +115,6 @@ Use the Azure CLI to list your specific Trusted Access RoleBinding.
 ```azurecli
 az aks trustedaccess rolebinding show --name <bindingName> --resource-group <clusterResourceGroup> --cluster-name <clusterName>
 ```
-
-You can also use kubectl to list the RoleBinding:
-
-```azurecli
-az aks get-credentials --resource-group <resourceGroup> --name <clusterName> --kubectl get clusterrolebinding |grep trustedaccess
-```
-
----
 
 ## Next steps
 
