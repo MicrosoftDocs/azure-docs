@@ -8,7 +8,7 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/16/2022
+ms.date: 12/28/2022
 ms.author: shijaiswal 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 
@@ -209,188 +209,120 @@ It's now time to make calls into Network Watcher from within the Azure function.
 The following example is PowerShell code that can be used in the function. There are values that need to be replaced for **subscriptionId**, **resourceGroupName**, and **storageAccountName**.
 
 ```powershell
-            #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
+# Input bindings are passed in via param block. 
+param($Request, $TriggerMetadata) 
 
-            # Input bindings are passed in via param block. 
-            param($Request, $TriggerMetadata) 
-
-            $essentials = $Request.body.data.essentials
-            $alertContext = $Request.body.data.alertContext 
+$essentials = $Request.body.data.essentials
+$alertContext = $Request.body.data.alertContext 
 
 
-            # Storage account ID to save captures in 
-            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" 
+# Storage account ID to save captures in 
+$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" 
 
-            # Packet capture vars 
-            $packetCaptureName = "PSAzureFunction" 
-            $packetCaptureLimit = 100
-            $packetCaptureDuration = 30 
+# Packet capture vars 
+$packetCaptureName = "PSAzureFunction" 
+$packetCaptureLimit = 100
+$packetCaptureDuration = 30 
 
-            # Credentials 
-            # Set the credentials in the Configurations
-            $tenant = $env:AzureTenant 
-            $pw = $env:AzureCredPassword 
-            $clientid = $env:AzureClientId 
+# Credentials 
+# Set the credentials in the Configurations
+$tenant = $env:AzureTenant 
+$pw = $env:AzureCredPassword 
+$clientid = $env:AzureClientId 
+$password = ConvertTo-SecureString $pw -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
 
-            $password = ConvertTo-SecureString $pw -AsPlainText -Force
-            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
+Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
-            # Credentials can also be provided as encrypted key file as mentioned below
-            # $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key" 
-            # $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath) 
-            # $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword) 
+if ($alertContext.condition.allOf.metricNamespace -eq "Microsoft.Compute/virtualMachines") { 
 
+    # Get the VM firing this alert 
+    $vm = Get-AzVM -ResourceId $essentials.alertTargetIDs[0] 
 
-            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+    # Get the Network Watcher in the VM's region 
+    $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
 
-            if ($alertContext.condition.allOf.metricNamespace -eq "Microsoft.Compute/virtualMachines") { 
+    # Get existing packetCaptures 
+    $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
 
-                # Get the VM firing this alert 
-                $vm = Get-AzVM -ResourceId $essentials.alertTargetIDs[0] 
-
-                # Get the Network Watcher in the VM's region 
-                $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
-
-                # Get existing packetCaptures 
-                $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
-
-                # Remove existing packet capture created by the function (if it exists) 
-                $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
-                    {  
-                        Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName 
-                    } 
-                } 
+    # Remove existing packet capture created by the function (if it exists) 
+    $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
+        {  
+            Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName 
+        } 
+    } 
 	
-                # Initiate packet capture on the VM that fired the alert 
-                if ($packetCaptures.Count -lt $packetCaptureLimit) { 
-                    Write-Output "Initiating Packet Capture" 
-                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
-                } 
-            } 
+    # Initiate packet capture on the VM that fired the alert 
+    if ($packetCaptures.Count -lt $packetCaptureLimit) { 
+        Write-Output "Initiating Packet Capture" 
+        New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
+    } 
+} 
  ``` 
 
 Use the following PowerShell code if you're using the old schema:
 
 ```powershell
-            #Import Azure PowerShell modules required to make calls to Network Watcher
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Accounts\Az.Accounts.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Network\Az.Network.psd1" -Global
-            Import-Module "D:\home\site\wwwroot\AlertPacketCapturePowerShell\azuremodules\Az.Resources\Az.Resources.psd1" -Global
-
-            # Input bindings are passed in via param block. 
-            param($Request, $TriggerMetadata) 
-            $details = $Request.RawBody | ConvertFrom-Json
+# Input bindings are passed in via param block. 
+param($Request, $TriggerMetadata)
+$details = $Request.RawBody | ConvertFrom-Json
 
 
-            # Process alert request body 
-            $requestBody = $Request.Body.data
+# Process alert request body 
+$requestBody = $Request.Body.data
 
-            # Storage account ID to save captures in 
-            $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" 
+# Storage account ID to save captures in 
+$storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" 
 
-            # Packet capture vars 
-            $packetCaptureName = "PSAzureFunction" 
-            $packetCaptureLimit = 100
-            $packetCaptureDuration = 30 
+# Packet capture vars 
+$packetCaptureName = "PSAzureFunction" 
+$packetCaptureLimit = 100
+$packetCaptureDuration = 30 
 
-            # Credentials 
-            # Set the credentials in the Configurations
-            $tenant = $env:AzureTenant 
-            $pw = $env:AzureCredPassword 
-            $clientid = $env:AzureClientId 
+# Credentials 
+# Set the credentials in the Configurations
+$tenant = $env:AzureTenant 
+$pw = $env:AzureCredPassword 
+$clientid = $env:AzureClientId 
 
-            $password = ConvertTo-SecureString $pw -AsPlainText -Force
-            $credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
+$password = ConvertTo-SecureString $pw -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
 
-            # Credentials can also be provided as encrypted key file as mentioned below
-            # $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key" 
-            # $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath) 
-            # $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword) 
-
-
-            Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
-
-            if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") { 
-
-                # Get the VM firing this alert 
-                $vm = Get-AzVM -ResourceGroupName $requestBody.context.resourceGroupName -Name $requestBody.context.resourceName 
-
-                # Get the Network Watcher in the VM's region 
-                $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
-
-                # Get existing packetCaptures 
-                # $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
-
-                # Remove existing packet capture created by the function (if it exists) 
-                $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
-                    {  
-                        Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName 
-                    } 
-                } 
-
-                # Initiate packet capture on the VM that fired the alert 
-                if ($packetCaptures.Count -lt $packetCaptureLimit) { 
-                    Write-Output "Initiating Packet Capture" 
-                    New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
-                } 
-            } 
-
-                        $essentials = $Request.body.data.essentials
-                        $alertContext = $Request.body.data.alertContext 
+# Credentials can also be provided as encrypted key file as mentioned below
+# $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key" 
+# $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath) 
+# $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword) 
 
 
-                        # Storage account ID to save captures in 
-                        $storageaccountid = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" 
+Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
-                        # Packet capture vars 
-                        $packetCaptureName = "PSAzureFunction" 
-                        $packetCaptureLimit = 100
-                        $packetCaptureDuration = 30 
+if ($requestBody.context.resourceType -eq "Microsoft.Compute/virtualMachines") { 
 
-                        # Credentials 
-                        # Set the credentials in the Configurations
-                        $tenant = $env:AzureTenant 
-                        $pw = $env:AzureCredPassword 
-                        $clientid = $env:AzureClientId 
+    # Get the VM firing this alert 
+    $vm = Get-AzVM -ResourceGroupName $requestBody.context.resourceGroupName -Name $requestBody.context.resourceName 
 
-                        $password = ConvertTo-SecureString $pw -AsPlainText -Force
-                        $credential = New-Object System.Management.Automation.PSCredential ($clientid, $password)
+    # Get the Network Watcher in the VM's region 
+    $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
 
-                        # Credentials can also be provided as encrypted key file as mentioned below
-                        # $keypath = "D:\home\site\wwwroot\AlertPacketCapturePowerShell\keys\PassEncryptKey.key" 
-                        # $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath) 
-                        # $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword) 
+    # Get existing packetCaptures 
+    # $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
 
+    # Remove existing packet capture created by the function (if it exists) 
+    $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
+        {  
+            Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName 
+        } 
+    } 
 
-                        Connect-AzAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+    # Initiate packet capture on the VM that fired the alert 
+    if ($packetCaptures.Count -lt $packetCaptureLimit) { 
+        Write-Output "Initiating Packet Capture" 
+        New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $requestBody.context.resourceId -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
+    } 
+}        
+            
 
-                        if ($alertContext.condition.allOf.metricNamespace -eq "Microsoft.Compute/virtualMachines") { 
-
-                            # Get the VM firing this alert 
-                            $vm = Get-AzVM -ResourceId $essentials.alertTargetIDs[0] 
-
-                            # Get the Network Watcher in the VM's region 
-                            $networkWatcher = Get-AzNetworkWatcher -Location $vm.Location  
-
-                            # Get existing packetCaptures 
-                            $packetCaptures = Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher 
-
-                            # Remove existing packet capture created by the function (if it exists) 
-                            $packetCaptures | ForEach-Object { if ($_.Name -eq $packetCaptureName) 
-                                {  
-                                    Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName $packetCaptureName 
-                                } 
-                            } 
-                
-                            # Initiate packet capture on the VM that fired the alert 
-                            if ($packetCaptures.Count -lt $packetCaptureLimit) { 
-                                Write-Output "Initiating Packet Capture" 
-                                New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName $packetCaptureName -StorageAccountId $storageaccountid -TimeLimitInSeconds $packetCaptureDuration 
-                            } 
-                        } 
+                        
  ``` 
 
 
