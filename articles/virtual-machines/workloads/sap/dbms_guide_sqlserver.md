@@ -198,22 +198,22 @@ More details to use Azure Key Vault for SQL Server TDE lists like:
 >  
 
 ## Minimum deployment configurations
-In this section, we suggest a set of minimum configurations for different sizes of databases under SAP workload. It is very difficult to assess whether these sizes fit your workload. In some cases, we might be very generous on memory compared to the database size. On the other side, the disk sizing might be too low for some of the workloads. Therefore, these configurations should be treated as what they are. They are configurations that should give you a point to start with. Configutations to finetume to your specific workload and cost efficiency requirements.
+In this section, we suggest a set of minimum configurations for different sizes of databases under SAP workload. It's too difficult to assess whether these sizes fit your specific workload. In some cases, we might be generous on memory compared to the database size. On the other side, the disk sizing might be too low for some of the workloads. Therefore, these configurations should be treated as what they are. They're configurations that should give you a point to start with. Configurations to fine-tume to your specific workload and cost efficiency requirements.
 
-An example of a configuration for a very small SQL Server instance with a database size between 50 GB – 250 GB, could look like
+An example of a configuration for a little SQL Server instance with a database size between 50 GB – 250 GB, could look like
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- |
-| VM Type | E4s_v3/v4/v5 (4 vCPU/32 GiB RAM) | --- |
-| Accelerated Networking | Enable | ---|
-| SQL Server version | SQL Server 2019 or more recent | --- |
-| # of data files | 4 |  ---|
-| # of log files | 1 | --- |
-| # of temp data files | 4 or default since SQL Server 2016 | --- |
-| Operating system | Windows Server 2019 or more recent |  --- |
-| Disk aggregation | Storage Spaces if desired |  --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | E4s_v3/v4/v5 (4 vCPU/32 GiB RAM) | |
+| Accelerated Networking | Enable | |
+| SQL Server version | SQL Server 2019 or more recent | |
+| # of data files | 4 | |
+| # of log files | 1 | |
+| # of temp data files | 4 or default since SQL Server 2016 | |
+| Operating system | Windows Server 2019 or more recent | |
+| Disk aggregation | Storage Spaces if desired | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput | Cache = Read Only for premium storage v1 |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
@@ -223,16 +223,16 @@ An example of a configuration or a small SQL Server instance with a database siz
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- | 
-| VM Type | E16s_v3/v4/v5 (16 vCPU/128 GiB RAM) | --- |
-| Accelerated Networking | Enable | ---|
-| SQL Server version | SQL Server 2019 or more recent | --- |
-| # of data files | 8 |  ---|
-| # of log files | 1 | --- |
-| # of temp data files | 8 or default since SQL Server 2016 | --- |
-| Operating system | Windows Server 2019 or more recent |  --- |
-| Disk aggregation | Storage Spaces if desired |  --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | E16s_v3/v4/v5 (16 vCPU/128 GiB RAM) | |
+| Accelerated Networking | Enable | |
+| SQL Server version | SQL Server 2019 or more recent | |
+| # of data files | 8 | |
+| # of log files | 1 | |
+| # of temp data files | 8 or default since SQL Server 2016 | |
+| Operating system | Windows Server 2019 or more recent | |
+| Disk aggregation | Storage Spaces if desired | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk | Cache = Read Only for premium storage v1 |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
@@ -241,16 +241,16 @@ An example of a configuration for a medium SQL Server instance with a database s
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- | 
-| VM Type | E64s_v3/v4/v5 (64 vCPU/432 GiB RAM) | --- |
-| Accelerated Networking | Enable | ---|
-| SQL Server version | SQL Server 2019 or more recent | --- |
-| # of data devices | 16 | ---|
-| # of log devices | 1 | --- |
-| # of temp data files | 8 or default since SQL Server 2016 | --- |
-| Operating system | Windows Server 2019 or more recent |  --- |
-| Disk aggregation | Storage Spaces if desired | --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | E64s_v3/v4/v5 (64 vCPU/432 GiB RAM) | |
+| Accelerated Networking | Enable | |
+| SQL Server version | SQL Server 2019 or more recent | |
+| # of data devices | 16 | |
+| # of log devices | 1 | |
+| # of temp data files | 8 or default since SQL Server 2016 | |
+| Operating system | Windows Server 2019 or more recent | |
+| Disk aggregation | Storage Spaces if desired | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM |  Assuming single instance |
@@ -259,16 +259,16 @@ An example of a configuration for a larger SQL Server instance with a database s
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- | 
-| VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | --- |
-| Accelerated Networking | Enable | ---|
-| SQL Server version | SQL Server 2019 or more recent | --- |
-| # of data devices | 24 | ---|
-| # of log devices | 1 | --- |
-| # of temp data files | 8 or default since SQL Server 2016 | --- |
-| Operating system | Windows Server 2019 or more recent |  --- |
-| Disk aggregation | Storage Spaces if desired | --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | |
+| Accelerated Networking | Enable | |
+| SQL Server version | SQL Server 2019 or more recent | |
+| # of data devices | 24 | |
+| # of log devices | 1 | |
+| # of temp data files | 8 or default since SQL Server 2016 | |
+| Operating system | Windows Server 2019 or more recent | |
+| Disk aggregation | Storage Spaces if desired | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 800 GiB - plus 2500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
@@ -278,38 +278,38 @@ An example of a configuration for a large SQL Server instance with a database si
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | ---  |
-| VM Type | M-Series (1.0 to 4.0 TB RAM)  | --- |
-| Accelerated Networking | Enable | ---|
-| SQL Server version | SQL Server 2019 or more recent | --- |
-| # of data devices | 32 | ---|
-| # of log devices | 1 | --- |
-| # of temp data files | 8 or default since SQL Server 2016 | --- |
-| Operating system | Windows Server 2019 or more recent |  --- |
-| Disk aggregation | Storage Spaces if desired  | --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | M-Series (1.0 to 4.0 TB RAM)  | |
+| Accelerated Networking | Enable | |
+| SQL Server version | SQL Server 2019 or more recent | |
+| # of data devices | 32 | |
+| # of log devices | 1 | |
+| # of temp data files | 8 or default since SQL Server 2016 | |
+| Operating system | Windows Server 2019 or more recent | |
+| Disk aggregation | Storage Spaces if desired  | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 4+ x P40 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 4,500 IOPS and 125 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
 | # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Cache = NONE |
 | SQL Server max memory parameter | 95% of Physical RAM | Assuming single instance |
 
-As an example, this is the DBMS VM configuration of a SAP Business Suite on SQL Server. This VM hosts the 30TB database of the single global SAP Business Suite instance of a global company with over $200B annual revenue and over 200K full time employees. The system runs all the financial processing, sales and distribtuion processing and many more business processes out of different areas, including North American payroll. The system is running in Azure since the beginning of 2018 using Azure M-series VMs as DBMS VMs. As high availability the system is using Always on with one synchronous replica in another Availability Zone of the same Azure region and another asynchronous replica in another Azure region. The NetWeaver application layer is deployed in Ev4 VMs. 
+As an example, this configuration is the DBMS VM configuration of an SAP Business Suite on SQL Server. This VM hosts the 30TB database of the single global SAP Business Suite instance of a global company with over $200B annual revenue and over 200K full time employees. The system runs all the financial processing, sales and distribution processing and many more business processes out of different areas, including North American payroll. The system is running in Azure since the beginning of 2018 using Azure M-series VMs as DBMS VMs. As high availability the system is using Always on with one synchronous replica in another Availability Zone of the same Azure region and another asynchronous replica in another Azure region. The NetWeaver application layer is deployed in Ev4 VMs. 
 
 | Configuration | DBMS VM | Comments |
 | --- | --- | --- |
-| VM Type | M192dms_v2  (192 vCPU/4,196 GiB RAM)  | --- |
-| Accelerated Networking | Enabled  ---|
-| SQL Server version | SQL Server 2019 | --- |
-| # of data files | 32 | ---|
-| # of log files | 1 | --- |
-| # of temp data files | 8  | --- |
-| Operating system | Windows Server 2019 |  --- |
-| Disk aggregation | Storage Spaces | --- |
-| File system | NTFS | --- |
-| Format block size | 64 KB | --- |
+| VM Type | M192dms_v2  (192 vCPU/4,196 GiB RAM)  | |
+| Accelerated Networking | Enabled | |
+| SQL Server version | SQL Server 2019 | |
+| # of data files | 32 | |
+| # of log files | 1 | |
+| # of temp data files | 8  | |
+| Operating system | Windows Server 2019 | |
+| Disk aggregation | Storage Spaces | |
+| File system | NTFS | |
+| Format block size | 64 KB | |
 | # and type of data disks | Premium storage v1: 16 x P40 | Cache = Read Only |
 | # and type of log disks | Premium storage v1: 1 x P60  | Using Write Accelerator |
 | # and type of tempdb disks | Premium storage v1: 1 x P30 | No caching |
-| SQL Server max memory parameter | 95% of Physical RAM | --- |
+| SQL Server max memory parameter | 95% of Physical RAM | |
 
 
 
