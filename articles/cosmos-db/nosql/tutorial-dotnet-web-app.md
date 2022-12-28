@@ -202,6 +202,21 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
 Now, you'll create a new ASP.NET web application using a sample project template. You'll then explore the source code and run the sample to get acquainted with the application before adding Azure Cosmos DB connectivity using the Azure SDK for .NET.
 
+```output
+Before you start ensure Nuget.org is listed as a package source 
+"nuget source" command should prompt a similar output:
+
+C:\Users\username_here\nuget_tool>nuget source
+Registered Sources:
+  1.  nuget.org [Enabled]
+      https://api.nuget.org/v3/index.json
+  2.  Microsoft Visual Studio Offline Packages [Enabled]
+      C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\
+
+If https://api.nuget.org/v3/index.json is not listed as a source then add it with:
+nuget source add -Name "nuget.org" -Source "https://api.nuget.org/v3/index.json"
+```
+
 1. Open a terminal in an empty directory.
 
 1. Install the `cosmicworks.template.web` project template package from NuGet.
