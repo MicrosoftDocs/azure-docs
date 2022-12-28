@@ -28,13 +28,19 @@ The Key Vault VM extension supports below versions of Windows:
 The Key Vault VM extension is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
 
 > [!NOTE]
-> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. It is currently not possible to define certificate store location per certificate. The VM extension team is working on a solution to close this feature gap.
+> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. 
 
 
 ### Supported certificate content types
 
 - PKCS #12
 - PEM
+
+## Updates in Version 3.0
+
+- Adding ACL permission to downloaded certificates
+- Store configuration per certificate
+- Exportable private keys
 
 ## Prerequisites
 
@@ -66,7 +72,9 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 
 ## Extension schema
 
-The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
+The following JSON shows the schema for the Key Vault VM extension. The extension doesn't require protected settings - all its settings are considered public information. 
+
+# [Version-1.0](#tab/Version-1.0)  
 
 ```json
     {
@@ -89,7 +97,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
-          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "[https://myvault.vault.azure.net/secrets/mycertificate]">
         },
         "authenticationSettings": {
           "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
@@ -99,6 +107,54 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       }
     }
 ```
+# [Version-3.0](#tab/Version-30.0)  
+
+```json
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "KVVMExtensionForWindows",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "3.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: true>,
+          "requireInitialSync": <initial synchronization of certificates e..g: true>,
+          "observedCertificates": <array of KeyVault URIs representing monitored certificates including certificate store location and ACL permission to certificate private key, e.g.: 
+          [
+                {
+                    "url": <Key Vault URI to secret portion of certificate e.g.: "https://myvault.vault.azure.net/secrets/mycertificate1">,
+                    "certificateStoreName": <certificate store name, e.g.:"MY">,
+                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.:"LocalMachine">,
+                    "accounts": <optional array of preferred accounts with read access to certificate private keys, Administrators and SYSTEM gets Full Control by default e.g.: ["Network Service", "Local Service"]>
+                },
+                {
+                    "url": <Key Vault URI to secret portion of certificate e.g.: "https://myvault.vault.azure.net/secrets/mycertificate2">,
+                    "certificateStoreName": <certificate store name, e.g.:"MY">,
+                    "certificateStoreLocation": <certificate store location, currently it works locally only e.g.:"CurrentUser">,
+                    "keyExportable": <optional property to set private key to be exportable e.g.: "false">
+                    "accounts": <optional array of preferred accounts with read access to certificate private keys, Administrators and SYSTEM gets Full Control by default e.g.: ["Local Service"]>
+                },
+
+          ]>
+        },
+        "authenticationSettings": {
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
+        }
+       }
+      }
+    }
+```
+---
 
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
@@ -111,6 +167,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 ### Property values
 
+# [Version-1.0](#tab/Version-1.0)  
+
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -119,19 +177,40 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | true | boolean |
 | certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
-| requireInitialSync | true | boolean |
+| requireInitialSync | false | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | string array
 | msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
 | msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
+# [Version-3.0](#tab/Version-3.0)  
 
+| Name | Value / Example | Data Type |
+| ---- | ---- | ---- |
+| apiVersion | 2019-07-01 | date |
+| publisher | Microsoft.Azure.KeyVault | string |
+| type | KeyVaultForWindows | string |
+| typeHandlerVersion | 3.0 | int |
+| pollingIntervalInS | 3600 | string |
+| linkOnRenewal (optional) | true | boolean |
+| requireInitialSync (optional) | false | boolean |
+| observedCertificates  | [{...}, {...} ] | string array |
+| observedCertificates/url | "https://myvault.vault.azure.net/secrets/mycertificate" | string |
+| observedCertificates/certificateStoreName | MY | string |
+| observedCertificates/certificateStoreLocation  | LocalMachine or CurrentUser (case sensitive) | string |
+| observedCertificates/keyExportable(optional) | false | boolean |
+| observedCertificates/accounts(optional) | ["Network Service", "Local Service"] | string array |
+| msiEndpoint | http://169.254.169.254/metadata/identity/ouath2/token | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+---
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment refresh of certificates. The extension can be deployed to individual VMs or Virtual Machine Scale Sets. The schema and configuration are common to both template types. 
 
 The JSON configuration for a key vault extension is nested inside the virtual machine or virtual machine scale set template. For Virtual Machine resource extension is nested under `"resources": []` virtual machine object and Virtual Machine Scale Set under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` object.
+
+# [Version-1.0](#tab/Version-1.0)  
 
 ```json
     {
@@ -150,18 +229,75 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
       "settings": {
         "secretsManagementSettings": {
           "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: true>,          
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"]>
         },
           "authenticationSettings": {
-          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity">,
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
           "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
         }      
       }
       }
     }
 ```
+# [Version-3.0](#tab/Version-3.0)  
+
+```json
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "KeyVaultForWindows",
+      "apiVersion": "2019-07-01",
+      "location": "<location>",
+      "dependsOn": [
+          "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
+      ],
+      "properties": {
+      "publisher": "Microsoft.Azure.KeyVault",
+      "type": "KeyVaultForWindows",
+      "typeHandlerVersion": "3.0",
+      "autoUpgradeMinorVersion": true,
+      "settings": {
+        "secretsManagementSettings": {
+          "pollingIntervalInS": <string specifying polling interval in seconds, e.g: "3600">,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: true>,
+          "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: 
+          [
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/aaaa",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",
+                "accounts": [
+                    "Network Service"
+                ]
+            },
+            {
+                "url": "https://examplekv>.vault.azure.net/secrets/bbbb",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",                
+                "keyExportable": true,
+                "accounts": [
+                    "Network Service",
+                    "Local Service"
+                ]
+            },
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/cccc",
+                "certificateStoreName": "TrustedPeople",
+                "certificateStoreLocation": "LocalMachine"
+            }
+        ]>
+        },
+          "authenticationSettings": {
+          "msiEndpoint":  <Required when msiClientId is provided. MSI endpoint e.g. for most Azure VMs: "http://169.254.169.254/metadata/identity/ouath2/token">,
+          "msiClientId":  <Required when VM has any user assigned identities. MSI identity e.g.: "c7373ae5-91c2-4165-8ab6-7381d6e75619".>
+        }      
+      }
+      }
+    }
+```
+---
 
 ### Extension Dependency Ordering
 The Key Vault VM extension supports extension ordering if configured. By default the extension reports that it has successfully started as soon as it has started polling. However, it can be configured to wait until it has successfully downloaded the complete list of certificates before reporting a successful start. If other extensions depend on having the full set of certificates installed before they start, then enabling this setting will allow those extensions to declare a dependency on the Key Vault extension. It will prevent extensions from starting until all certificates they depend on have been installed. The extension will retry the initial download indefinitely and remain in a `Transitioning` state.
@@ -178,6 +314,8 @@ To enable waiting for certificate to be installed, set the following setting:
 > Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 
 ## Azure PowerShell deployment
+
+# [Version-1.0](#tab/Version-1.0)  
 
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json, which causes akvvm_service to fail with the error `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
@@ -206,7 +344,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         $extType = "KeyVaultForWindows"
        
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType  -SettingString $settings
     
     ```
 
@@ -236,10 +374,89 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     
     ```
 
+# [Version-3.0](#tab/Version-3.0) 
+
+Save Key Vault VM extension settings to json file.
+
+Example settings (settings.json):
+```json
+   {   
+        "secretsManagementSettings": {
+          "pollingIntervalInS": "3600",
+          "linkOnRenewal": true,
+          "observedCertificates": [
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/certificate1",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",
+                "accounts": [
+                    "Network Service"
+                ]
+            },
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/certificate2",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",                
+                "keyExportable": true,
+                "accounts": [
+                    "Network Service",
+                    "Local Service"
+                ]
+            }
+        ]
+        },
+          "authenticationSettings": {
+          "msiEndpoint":  "http://169.254.169.254/metadata/identity/ouath2/token",
+          "msiClientId":  "c7373ae5-91c2-4165-8ab6-7381d6e75619"
+        }      
+     }
+```
+
+
+The Azure PowerShell can be used to deploy the Key Vault VM extension to an existing virtual machine or Virtual Machine Scale Set. 
+
+* Deploy the extension on a VM:
+    
+    ```powershell
+        # Build settings
+        $settings = ".\settings.json"
+        $extName =  "KeyVaultForWindows"
+        $extPublisher = "Microsoft.Azure.KeyVault"
+        $extType = "KeyVaultForWindows"
+       
+        # Start the deployment
+        Set-AzVmExtension -TypeHandlerVersion "3.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+    
+    ```
+
+* Deploy the extension on a Virtual Machine Scale Set :
+
+    ```powershell
+    
+        # Build settings
+        $settings = ".\settings.json"
+        $extName = "KeyVaultForWindows"
+        $extPublisher = "Microsoft.Azure.KeyVault"
+        $extType = "KeyVaultForWindows"
+        
+        # Add Extension to VMSS
+        $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "3.0" -Setting $settings
+
+        # Start the deployment
+        Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
+    
+    ```
+
+
+--- 
+
 ## Azure CLI deployment
 
+# [Version-1.0](#tab/Version-1.0) 
+
 The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
- 
+
 * Deploy the extension on a VM:
     
     ```azurecli
@@ -263,12 +480,79 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] },
          \"authenticationSettings\": { \"msiEndpoint\": \"<msiEndpoint>\", \"msiClientId\": \"<msiClientId>\"}}'
 
+# [Version-3.0](#tab/Version-3.0) 
+
+Save Key Vault VM extension settings to json file.
+
+Example settings (settings.json):
+```json
+   {   
+        "secretsManagementSettings": {
+          "pollingIntervalInS": "3600",
+          "linkOnRenewal": true,
+          "observedCertificates": [
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/certificate1",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",
+                "accounts": [
+                    "Network Service"
+                ]
+            },
+            {
+                "url": "https://<examplekv>.vault.azure.net/secrets/certificate2",
+                "certificateStoreName": "MY",
+                "certificateStoreLocation": "LocalMachine",                
+                "keyExportable": true,
+                "accounts": [
+                    "Network Service",
+                    "Local Service"
+                ]
+            }
+        ]
+        },
+          "authenticationSettings": {
+          "msiEndpoint":  "http://169.254.169.254/metadata/identity/ouath2/token",
+          "msiClientId":  "c7373ae5-91c2-4165-8ab6-7381d6e75619"
+        }      
+     }
+```
+
+The Azure CLI can be used to deploy the Key Vault VM extension to an existing virtual machine or virtual machine scale set. 
+ 
+* Deploy the extension on a VM:
+    
+    ```azurecli
+       # Start the deployment
+         az vm extension set --name "KeyVaultForWindows" `
+         --publisher Microsoft.Azure.KeyVault `
+         --resource-group "<resourcegroup>" `
+         --vm-name "<vmName>" `
+         --settings "@settings.json"
+    ```
+
+* Deploy the extension on a Virtual Machine Scale Set :
+
+   ```azurecli
+        # Start the deployment
+        az vmss extension set --name "KeyVaultForWindows" `
+         --publisher Microsoft.Azure.KeyVault `
+         --resource-group "<resourcegroup>" `
+         --vmss-name "<vmName>" `
+         --settings "@settings.json"
+---
+
+
 ## Troubleshoot and support
 
 ### Frequently Asked Questions
 
-* Is there a limit on the number of observedCertificates you can set up?
+#### Is there a limit on the number of observedCertificates you can set up?
   No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+#### What will be the default permission if no account is provided in settings?
+Administrators and SYSTEM will gets Full Control by default.
+#### How do you determine if a certificate key is going to be CAPI1 or CNG?
+We rely on the default behavior of [PFXImportCertStore API](https://learn.microsoft.com/windows/win32/api/wincrypt/nf-wincrypt-pfximportcertstore). By default, if a certificate has Provider Name attribute that matches with CAPI1, certificate will be imported using CAPI1 certificate, else it will be imported using CNG APIs.
 
 ### Troubleshoot
 
