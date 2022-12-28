@@ -120,7 +120,7 @@ Use the **Deployment logs** tabs in the endpoints details page to see log output
 1. Select the **Deployment logs** tab in the endpoint's detail page.
 1. User the dropdown to select the deployment you want to see the log.
 
-:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png alt-text="A screenshot of observing deployment logs in the studio.":::
+:::image type="content" source="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png" lightbox="media/how-to-create-managed-online-endpoint-studio/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
 The logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your scoring script (`score.py`).
 
