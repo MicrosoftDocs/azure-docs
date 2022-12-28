@@ -83,7 +83,7 @@ The following list describes each step in the workflow:
 > If your migration target is Azure SQL Database, you don't need backups for this migration. Database migration to Azure SQL Database is considered a logical migration that involves the database's pre-creation and data movement (performed by Database Migration Service).
 
 > [!IMPORTANT]
-> The Azure SQL Migration extension for Azure Data Studio does not take backups, or neither initiate any backups on your behalf. Instead, the service uses existing backups for the migration. You need to create/use your own backup job/solution to take backups on your source SQL Server instance that will be used for the migration.
+> The Azure SQL Migration extension for Azure Data Studio doesn't take database backups, or neither initiate any database backups on your behalf. Instead, the service uses existing database backup files for the migration.
 >
 > In online migration mode, Database Migration Service continuously uploads the backup source files to your Azure storage account and restores them to the target until you complete the final step of cutting over to the target.
 >
