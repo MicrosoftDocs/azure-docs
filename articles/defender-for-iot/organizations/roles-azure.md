@@ -22,10 +22,10 @@ Roles for management actions are applied to user roles across an entire Azure su
 | **Grant permissions to others**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
 |  **Onboard OT or Enterprise IoT sensors** [*](#enterprise-iot-security) <br>Apply per subscription only | -       |  ✔       |   ✔      | ✔ |
 |  **Download OT sensor and on-premises management console software**<br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
-| **Download sensor endpoint details** <br>Apply per subscription only |  -    |  ✔       |   ✔      | ✔ |
+| **Download sensor endpoint details** <br>Apply per subscription only |  ✔    |  ✔       |   ✔      | ✔ |
 |  **Download sensor activation files** <br>Apply per subscription only|   -     |   ✔      | ✔ | ✔ |
-|  **View values on the Pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
-|  **Modify values on the Pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
+|  **View values on the Plans and pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| ✔      |   ✔     | ✔ | ✔ |
+|  **Modify values on the Plans and pricing page** [*](#enterprise-iot-security) <br>Apply per subscription only| -       |   ✔     | ✔ | ✔ |
 |  **View values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   ✔   |   ✔    | ✔ | ✔|
 |  **Modify values on the Sites and sensors page** [*](#enterprise-iot-security)<br>Apply per subscription only  |   -    |   ✔    | ✔ | ✔|
 |  **Recover on-premises management console passwords** <br>Apply per subscription only  | -      |   ✔     | ✔ | ✔ |

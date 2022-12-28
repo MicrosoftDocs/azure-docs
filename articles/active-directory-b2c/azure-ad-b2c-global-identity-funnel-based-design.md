@@ -51,7 +51,7 @@ This use case demonstrates how a user from their home country/region performs a 
 
 ### Existing local user attempts sign up
 
-This use case demonstrates how a user re-registering the same email from their own country, or a different region, is blocked.
+This use case demonstrates how a user re-registering the same email from their own country/region, or a different region, is blocked.
 
 ![Screenshot shows the existing account sign-up flow.](media/azure-ad-b2c-global-identity-design-considerations/local-existing-account-signup.png)
 
@@ -108,7 +108,7 @@ This use case demonstrates how a user can travel across regions and maintain the
 
 ### Local user forgot password
 
-This use case demonstrates how a user can reset their password when they are within their home country.
+This use case demonstrates how a user can reset their password when they are within their home country/region.
 
 ![Screenshot shows the local user forgot password flow.](media/azure-ad-b2c-global-identity-design-considerations/local-user-forgot-password.png)
 

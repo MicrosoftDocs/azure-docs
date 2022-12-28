@@ -96,7 +96,10 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=python) offering is also
 
 ---
 
+---------------------------
 ## Supported languages
+
+This section outlines supported scenarios.
 
 * [C#|VB (.NET)](./asp-net.md)
 * [Java](./java-in-process-agent.md)
@@ -150,6 +153,8 @@ Supported platforms and frameworks are listed here.
 
 ### Unsupported SDKs
 Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when you use the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
+
+---------------------------
 
 ## Troubleshooting
 
