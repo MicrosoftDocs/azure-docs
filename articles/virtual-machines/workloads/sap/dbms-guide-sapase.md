@@ -26,7 +26,7 @@ Additional information about release support with SAP applications or installati
 Remark: Throughout documentation within and outside the SAP world, the name of the product is referenced as Sybase ASE or SAP ASE or in some cases both. In order to stay consistent, we use the name **SAP ASE** in this documentation.
 
 ## Operating system support
-The SAP Product Availability Matrix contains the supported Operating System and SAP Kernel combinations for each SAP application.  Linux distributions SLES 12.x, SLES 15.x, RHEL 7.x and RHEL 8.x are fully supported. Oracle Linux as operating system for SAP ASE is not supported.  It's recommended to use the most recent Linux releases available. Windows customers should use Windows Server 2016 or Windows Server 2019 releases.  Older releases of Windows such as Windows 2012 are technically supported but the latest Windows version is always recommended.
+The SAP Product Availability Matrix contains the supported Operating System and SAP Kernel combinations for each SAP application.  Linux distributions SLES 12.x, SLES 15.x, RHEL 7.x and RHEL 8.x are fully supported. Oracle Linux as operating system for SAP ASE isn't supported.  It's recommended to use the most recent Linux releases available. Windows customers should use Windows Server 2016 or Windows Server 2019 releases.  Older releases of Windows such as Windows 2012 are technically supported but the latest Windows version is always recommended.
 
 
 ## Specifics to SAP ASE on Windows
@@ -36,7 +36,7 @@ Microsoft Azure offers numerous different virtual machine types that allow you t
 
 Documentation to install SAP ASE on Windows can be found in the [SAP ASE Installation Guide for Windows](https://help.sap.com/viewer/36031975851a4f82b1022a9df877280b/16.0.3.7/en-US/a660d3f1bc2b101487cbdbf10069c3ac.html)
 
-Lock Pages in Memory is a setting that will prevent the SAP ASE database buffer from being paged out.  This setting is useful for large busy systems with a lot of memory. Contact BC-DB-SYB for more information. 
+Lock Pages in Memory is a setting that will prevent the SAP ASE database buffer from being paged out.  This setting is useful for large busy systems with a high memory demand. Contact BC-DB-SYB for more information. 
 
 
 ## Linux operating system specific settings
@@ -53,7 +53,7 @@ The page size is typically 2048 KB. For details see the article [Huge Pages on L
 SAP ASE for SAP NetWeaver Applications is supported on any VM type listed in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 Typical VM types used for medium size SAP ASE database servers include Esv3.  Large multi-terabyte databases can use M-series VM types. 
 The SAP ASE transaction log disk write performance may be improved by enabling the M-series Write Accelerator. Write Accelerator should be tested carefully with SAP ASE due to the way that SAP ASE performs Log Writes.  Review [SAP support note #2816580](../../how-to-enable-write-accelerator.md) and consider running a performance test.  
-Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator doesn't show similar improvements as with other DBMS. Based on the way, SAP ASE writes into the transaction log, it could be that there is little to no acceleration by Azure Write Accelerator.
+Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator doesn't show similar improvements as with other DBMS. Based on the way, SAP ASE writes into the transaction log, it could be that there's little to no acceleration by Azure Write Accelerator.
 Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` don't require dedicated disks and can be placed on the disks containing the SAP database data and log devices 
 
 ![Storage configuration for SAP ASE](./media/dbms-guide-sap-ase/sap-ase-disk-structure.png)
@@ -69,9 +69,9 @@ The templates below show sample configurations for both Linux and Windows. Befor
 > [!NOTE]
 >  If a DBMS system is being moved from on-premises to Azure, it's recommended to perform monitoring on the VM and assess the CPU, memory, IOPS and storage throughput. Compare the peak values observed with the VM quota limits documented in the articles mentioned above
 
-The examples given below are for illustrative purposes and can be modified based on individual needs. Due to the design of SAP ASE, the number of data devices is not as critical as with other databases. The number of data devices detailed in this document is a guide only. 
+The examples given below are for illustrative purposes and can be modified based on individual needs. Due to the design of SAP ASE, the number of data devices isn't as critical as with other databases. The number of data devices detailed in this document is a guide only. The configurations suggested should be treated as what they're. They are starting points for you. But they are configurations that are going to need some fine-tuning to your workload and cost efficiencies.
 
-An example of a configuration for a small SAP ASE DB Server with a database size between 50 GB – 250 GB, such as SAP solution Manager, could look like
+An example of a configuration for a little SAP ASE DB Server with a database size between 50 GB – 250 GB could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -92,7 +92,7 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | # and type of backup disks | 1 | 1 | --- |
 
 
-An example of a configuration for a medium SAP ASE DB Server with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
+An example of a configuration for a small SAP ASE DB Server with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
-An example of a configuration for a small SAP ASE DB Server with a database size between 750 GB – 2000 GB, such as a larger SAP Business Suite system, could look like
+An example of a configuration for a medium SAP ASE DB Server with a database size between 750 GB – 2,000 GB, such as a larger SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -126,14 +126,35 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 1 x 200 GiB - plus 2000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only |
 | # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75 MB/sec extra throughput | Cache = NONE |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
 
-An example of a configuration for a small SAP ASE DB Server with a database size of 2 TB+, such as a larger globally used SAP Business Suite system, could look like
+An example of a configuration for a larger SAP ASE DB Server with a database size between 2,000 GB – 4,000 GB, such as a larger SAP Business Suite system, could look like
+
+| Configuration | Windows | Linux | Comments |
+| --- | --- | --- | --- |
+| VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | E96(d)s_v5 (96 vCPU/672 GiB RAM) | --- |
+| Accelerated Networking | Enable | Enable | ---|
+| SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
+| # of data devices | 16 | 16 | ---|
+| # of log devices | 1 | 1 | --- |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
+| Operating system | Windows Server 2019 | SLES 12 SP5, 15 SP1 or later or RHEL 7.9, 8.1/8.2/8.4 | --- |
+| Disk aggregation | Storage Spaces | LVM2 | --- |
+| File system | NTFS | XFS |
+| Format block size | Needs workload testing | Needs workload testing | --- |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 1,000 GiB - plus 2,500 IOPS and 100 MB/sec throughput per disk | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 1,000 GiB - plus 2,500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75MB/sec extra throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75 MB/sec extra throughput | Cache = NONE |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
+| # of backup devices | 4 | 4| --- |
+| # and type of backup disks | 1 | 1 | --- |
+
+
+An example of a configuration for a large SAP ASE DB Server with a database size of 4 TB+, such as a larger globally used SAP Business Suite system, could look like
 
 | Configuration | Windows | Linux | Comments |
 | --- | --- | --- | --- |
@@ -147,8 +168,8 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 600 GiB - 4000 GiB - plus 3000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 500 GiB - plus 1000 IOPS and 125 MB/sec throughput | Cache = NONE, Consider Azure Ultra disk |
+| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
+| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Consider Write Accelerator or Azure Ultra disk |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
@@ -158,11 +179,11 @@ NFS v4.1 volumes hosted Azure NetApp Files is another alternative to use for SAP
 
 ![Storage configuration for SAP ASE with ANF](./media/dbms-guide-sap-ase/anf-layout.png)
 
-In the example above the SID of the database was A11. The sizes and the performance tiers of the Azure NetApp Files based volumes are dependent on the database volume and the IOPS and throughput you require. For sapdata and saplog we recommend starting with the Ultra performance tier to be able to provide enough bandwidth. For many non-production deployments, the Premium performance tier can be sufficient. For more details on specific sizing and limitations of Azure NetApp Files for database usage, read the chapter [Sizing for HANA database on Azure NetApp Files in NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
+In the example, the SID of the database was A11. The sizes and the performance tiers of the Azure NetApp Files based volumes are dependent on the database volume and the IOPS and throughput you require. For sapdata and saplog, we recommend starting with the Ultra performance tier to be able to provide enough bandwidth. For many non-production deployments, the Premium performance tier can be sufficient. For more details on specific sizing and limitations of Azure NetApp Files for database usage, read the chapter [Sizing for HANA database on Azure NetApp Files in NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 
 ### Backup & restore considerations for SAP ASE on Azure
-Increasing the number of data and backup devices increases backup and restore performance. It's recommended to stripe the Azure disks that are hosting the SAP ASE backup device as show in the tables shown earlier. Care should be taken to balance the number of backup devices and disks and ensure that backup throughput should not exceed 40%-50% of total VM throughput quota. It's recommended to use SAP Backup Compression as a default. More details can be found in the articles:
+Increasing the number of data and backup devices increases backup and restore performance. It's recommended to stripe the Azure disks that are hosting the SAP ASE backup device as show in the tables shown earlier. Care should be taken to balance the number of backup devices and disks and ensure that backup throughput shouldn't exceed 40%-50% of total VM throughput quota. It's recommended to use SAP Backup Compression as a default. More details can be found in the articles:
 
 - [SAP support note #1588316](https://launchpad.support.sap.com/#/notes/1588316)
 - [SAP support note #1801984](https://launchpad.support.sap.com/#/notes/1801984)
@@ -185,7 +206,7 @@ Data- and LOB-Compression work in a VM hosted in Azure Virtual Machines as it do
 The HADR Users Guide details the setup and configuration of a two-node SAP ASE “Always-on” solution.  In addition, a third disaster recovery node is also supported. SAP ASE supports many High Availability [configurations](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.4.1/en-US/9b40a3c038a34cbda1064312aa8d25a4.html) including shared disk and native OS clustering (such as Pacemaker and Windows Server Failover Cluster). 
 There are two supported High Availability configurations for SAP ASE on Azure:
 
-- HA Aware with Fault Manager - The SAP Kernel is an “HA Aware” application and knows about the primary and secondary SAP ASE servers. There are no close integrations between the SAP ASE “HA Aware“ solution and Azure, the Azure Internal load balancer is not used.  The solution is documented in the [SAP ASE HADR Users Guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)
+- HA Aware with Fault Manager - The SAP Kernel is an “HA Aware” application and knows about the primary and secondary SAP ASE servers. There are no close integrations between the SAP ASE “HA Aware“ solution and Azure, the Azure Internal load balancer isn't used.  The solution is documented in the [SAP ASE HADR Users Guide](https://help.sap.com/viewer/efe56ad3cad0467d837c8ff1ac6ba75c/16.0.3.7/en-US/a6645e28bc2b1014b54b8815a64b87ba.html)
 - Floating IP with Fault Manager – This solution can be used for SAP Business Suite and non-SAP Business Suite applications.  This solution utilizes the Azure ILB and the SAP ASE database engine provides a Probe Port.  The Fault Manager will call SAPHostAgent to start or stop a secondary Floating IP on the ASE hosts.  This solution is documented in [SAP note #3086679 - SYB: Fault Manager: floating IP address on Microsoft Azure](https://launchpad.support.sap.com/#/notes/3086679)
 
 
@@ -234,7 +255,7 @@ As with on-premises systems several steps are required to enable all SAP NetWeav
 > 
 > 
 
-and the links generated in transaction DBACockpit looks similar to:
+and the links generated in transaction DBACockpit look similar to:
 
 > https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
