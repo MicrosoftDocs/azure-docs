@@ -147,7 +147,25 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 ### Permissions management
 
-In a locked down environment, you might need to assign additional permissions to the service principal. For example, you might need to assign the User Access Administrator role to the service principal. For more information, see [the Azure CLI documentation for assigning a role to a service principal](/cli/azure/role/assignment#az-role-assignment-create).
+In a locked down environment, you might need to assign additional permissions to the service principals. For example, you might need to assign the User Access Administrator role to the service principal. 
+
+#### Required permissions
+
+The following table shows the required permissions for the service principal:
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Credential                                   | Area                                | Required permissions         |
+> | -------------------------------------------- | ----------------------------------- | ---------------------------- |
+> | Control Plane SPN                            | Control Plane subscription          | Contributor                  |
+> | Workload Zone SPN                            | Target subscription                 | Contributor                  |
+> | Workload Zone SPN                            | Control plane subscription          | Reader                       |
+> | Workload Zone SPN                            | SAP Library tfstate storage account | Storage Account Contributor  |
+> | Workload Zone SPN                            | SAP Library sapbits storage account | Reader                       |
+> | Workload Zone SPN                            | Private DNS Zone                    | Private DNS Zone Contributor |
+> | Workload Zone SPN                            | Control Plane Virtual Network       | Network Contributor          |
+> | Web Application Identity                     | Target subscription                 | Reader                       |
+> | Cluster Virtual Machine Identity             | Resource Group                      | Fencing role                 |
+
 ## DevOps structure
 
 The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
