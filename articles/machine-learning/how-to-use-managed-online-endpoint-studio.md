@@ -111,6 +111,19 @@ To use the monitoring tab, you must select "**Enable Application Insight diagnos
 
 For more information on how viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
+### Deployment logs
+
+You can get logs from the containers that are running on the VM where the model is deployed. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
+
+Use the **Deployment logs** tabs in the endpoints details page to see log output from container.
+
+1. Select the **Deployment logs** tab in the endpoint's detail page.
+1. User the dropdown to select the deployment you want to see the log.
+
+The logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your scoring script (`score.py`).
+
+To get logs from the storage initializer container, use the Azure CLI or Python SDK. Those logs contain information on whether code and model data were successfully downloaded to the container. See [get container logs section in troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md#get-container-logs)
+
 ## Add a deployment to a managed online endpoint
 
 You can add a deployment to your existing managed online endpoint.
