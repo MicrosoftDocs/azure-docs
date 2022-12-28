@@ -127,13 +127,13 @@ Although you can sign in to and change agent nodes, doing this operation is disc
 
 You may only customize the NSGs on custom subnets. You may not customize NSGs on managed subnets or at the NIC level of the agent nodes. AKS has egress requirements to specific endpoints, to control egress and ensure the necessary connectivity, see [limit egress traffic](limit-egress-traffic.md). For ingress, the requirements are based on the applications you have deployed to cluster.
 
-## Stopped, de-allocated, and Not Ready clusters
+## Stopped, de-allocated, and "Not Ready" nodes
 
-If you do not need your AKS workloads to run continuously, you can [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster) which scales all of the nodepools to 0 and start it again when needed. When you stop a cluster using the `az aks stop` command, the cluster state will be preserved for up to 12 months. After 12 months the cluster state and all of its resources will be deleted.
+If you do not need your AKS workloads to run continuously, you can [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster) which stops all nodepools and the control plane, and start it again when needed. When you stop a cluster using the `az aks stop` command, the cluster state will be preserved for up to 12 months. After 12 months the cluster state and all of its resources will be deleted.
 
 Manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal is not a supported way to stop an AKS cluster or nodepool. The cluster will be considered out of support and will be stopped by AKS after 30 days. The clusters will then be subject to the same 12 month preservation policy as a correctly stopped cluster.
 
-AKS will deallocate CCP for clusters with 0 nodes in the “Ready” state after 30 days. To reallocate CCP, reconcile the cluster back to its current state using [az aks update](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update-examples:~:text=Reconcile%20the%20cluster%20back%20to%20its%20current%20state.). 
+AKS will deallocate CCP for clusters with all non-stopped nodes in the "Not Ready" state will also be stopped by AKS after 30 days. To reallocate CCP, reconcile the cluster back to its current state using [az aks update](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-update-examples:~:text=Reconcile%20the%20cluster%20back%20to%20its%20current%20state.). 
 
 AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
 
