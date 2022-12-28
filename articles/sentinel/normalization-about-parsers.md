@@ -61,7 +61,7 @@ When invoking the parser, always use available filtering parameters by adding on
 
 Each schema has a standard set of filtering parameters documented in the relevant schema documentation. Filtering parameters are entirely optional. The following schemas support filtering parameters:
 - [Authentication](authentication-normalization-schema.md)
-- [DNS](dns-normalization-schema.md#filtering-parser-parameters)
+- [DNS](normalization-schema-dns.md#filtering-parser-parameters)
 - [Network Session](network-normalization-schema.md#filtering-parser-parameters)
 - [Web Session](web-normalization-schema.md#filtering-parser-parameters)
 

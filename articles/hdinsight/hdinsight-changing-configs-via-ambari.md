@@ -4,7 +4,7 @@ description: Use the Apache Ambari web UI to configure and optimize Azure HDInsi
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 05/04/2020
+ms.date: 12/26/2022
 ---
 
 # Optimize clusters with Apache Ambari in Azure HDInsight
