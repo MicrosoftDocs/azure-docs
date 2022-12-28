@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 12/15/2022
+ms.date: 12/27/2022
 ms.author: jasteppe
 ---
 
@@ -42,7 +42,7 @@ To learn more about using a manual deployment with the Azure portal, see [Deploy
 
 The following diagram outlines the basic steps of the MedTech service deployment and shows how these steps fit together with its data processing procedures. These basic steps may help you analyze the deployment options and determine which deployment method is best for you.
 
-:::image type="content" source="media/iot-get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/iot-get-started/get-started-with-iot.png":::
+:::image type="content" source="media/get-started/get-started-with-iot.png" alt-text="Diagram showing MedTech service architecture overview." lightbox="media/get-started/get-started-with-iot.png":::
 
 > [!IMPORTANT]
 > If you're going to allow access from multiple services to the device message event hub, it is highly recommended that each service has its own event hub consumer group.

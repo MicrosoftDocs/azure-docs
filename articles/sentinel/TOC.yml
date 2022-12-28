@@ -420,6 +420,8 @@
       href: migrate-playbooks-to-automation-rules.md
     - name: Customize playbooks from templates
       href: use-playbook-templates.md
+    - name: Configure advanced security for playbooks
+      href: define-playbook-access-restrictions.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
     - name: Create and perform advanced incident tasks using playbooks
@@ -548,7 +550,7 @@
         - name: ASIM authentication schema
           href: authentication-normalization-schema.md
         - name: ASIM DNS schema
-          href: dns-normalization-schema.md
+          href: normalization-schema-dns.md
         - name: ASIM DHCP schema
           href: dhcp-normalization-schema.md
         - name: ASIM file event schema
