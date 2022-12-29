@@ -12,11 +12,29 @@
   - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
   - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-  ## CallKit Integration
+  ## CallKit Integration (within SDK)
 
  CallKit Integration in the ACS iOS SDK handles interaction with CallKit for us. To perform any call operations like mute/unmute, hold/resume, we only need to call the API on the ACS SDK. 
 
-  ### Specify call recipient info
+  ### Initialize call agent with CallKitOptions
+
+  With configured instance of `CallKitOptions`, we can create the `CallAgent` with handling of `CallKit`.  
+
+  ```Swift
+  let options = CallAgentOptions()
+  let callKitOptions = CallKitOptions(with: createProviderConfig())
+  options.callKitOptions = callKitOptions
+
+  // Configure the properties of `CallKitOptions` instance here
+
+  self.callClient!.createCallAgent(userCredential: userCredential,
+      options: options,
+      completionHandler: { (callAgent, error) in
+      // Initialization
+  })
+  ```
+
+  ### Specify call recipient info for outgoing calls
 
   First we need to create an instance of `StartCallOptions()` for outgoing calls, or `JoinCallOptions()` for group call: 
   ```Swift
@@ -30,15 +48,18 @@
   ```Swift
   options.callKitRemoteInfo = CallKitRemoteInfo()
   ```
-  Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. 
+
+  1. Assign value for `callKitRemoteInfo.displayNameForCallKit` to customize display name for call recipients and configure `CXHandle` value. This value specified in `displayNameForCallKit` is exactly how it will show up in the last dialled call log.
+
   ```Swift
   options.callKitRemoteInfo.displayNameForCallKit = "DISPLAY_NAME"
+  ```
+  2. Assign the `cxHandle` value is what the application will recieve when user calls back on that contact
+  ```Swift
   options.callKitRemoteInfo.cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
   ```
 
-  ### Configure call capabilities and recipient info with CallKitOptions
-
-  We can specify call capabilities and configure audioSession with `CallKitOptions`. 
+  ### Specify call recipient info for incoming calls
 
   First we need to create an instance of `CallKitOptions`: 
 
@@ -48,16 +69,26 @@
 
   Configure the properties of `CallKitOptions` instance: 
 
+  Block that is passed to variable `provideRemoteInfo` will be called by the SDK when we receive an incoming call and we need to get a display name for the incoming caller which we need to pass to the CallKit.
+
   ```Swift
   callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
-  callKitOptions.configureAudioSession = self.configureAudioSession
 
   func provideCallKitRemoteInfo(callerInfo: CallerInfo) -> CallKitRemoteInfo
   {
       let callKitRemoteInfo = CallKitRemoteInfo()
-      options.callKitRemoteInfo!.displayName = "CALL_TO_PHONENUMBER_BY_APP"      
+      callKitRemoteInfo.displayName = "CALL_TO_PHONENUMBER_BY_APP"      
+      callKitRemoteInfo.cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
       return callKitRemoteInfo;
   }
+  ```
+
+  ### Configure audio session.
+
+  Configure audio session will be called before placing or accepting incoming call and bfore resuming the call after it has been put on hold.
+  
+  ```Swift
+  callKitOptions.configureAudioSession = self.configureAudioSession
 
   public func configureAudioSession() -> Error? {
       let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
@@ -71,21 +102,16 @@
   }
   ```
 
-  ### Initialize call agent with CallKitOptions
-
-  With configured instance of `CallKitOptions`, we can create the `CallAgent` with handling of `CallKit`.  
+  NOTE: In cases where Contoso has already configured audio sessions DO NOT provide `nil` but return `nil` error in the block 
 
   ```Swift
-  let callKitOptions = CallKitOptions(with: createProviderConfig())
+  callKitOptions.configureAudioSession = self.configureAudioSession
 
-  // Configure the properties of `CallKitOptions` instance here
-
-  self.callClient!.createCallAgent(userCredential: userCredential,
-      options: options,
-      completionHandler: { (callAgent, error) in
-      // Initialization
-  })
+  public func configureAudioSession() -> Error? {
+      return nil
+  }
   ```
+  if `nil` is provided for `configureAudioSession` then SDK will call the default implementation in the SDK.
 
   ### Handle incoming push notification payload
 
@@ -96,14 +122,7 @@
   {
       let callNotification = PushNotificationInfo.fromDictionary(pushPayload.dictionaryPayload)
       if let agent = self.callAgent {
-          agent.handlePush(notification: callNotification) { (error) in
-              if error == nil {
-                  os_log("==> SDK handle push notification NORMAL mode PASSED", log:self.log)
-              } else {
-                  os_log("==> SDK handle push notification NORMAL mode FAILED", log:self.log)
-              }
-              assert(error == nil, "SDK couldn't handle push notification")
-          }
+          agent.handlePush(notification: callNotification) { (error) in }
       }
   }
 
@@ -116,31 +135,33 @@
   `reportIncomingCallFromKillState` API should not be called if `CallAgent` instance is already available when push is recieved.
 
   ```Swift
-  let callKitOptions = CallKitOptions(with: createProviderConfig())
-  callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
-  callKitOptions.configureAudioSession = self.configureAudioSession
-  CallClient.reportIncomingCallFromKillState(with: callNotification, callKitOptions: callKitOptions) { (error) in
-      if (error == nil) {
-          DispatchQueue.global().async {
-              os_log("==> Report to callkit completed", log:self.log)
-              // We have already reported call to CallKit. Init SDK in background
-              self.initialize("", "", false) { (msg, success) in
-                  if success == true {
-                      os_log("==> SDK initialize completed, calling handlePush", log:self.log)
-                      self.callAgent!.handlePush(notification: callNotification) { (error) in
-                          if error == nil {
-                              os_log("==> SDK handle push notification KILL mode FULL: PASSED", log:self.log)
-                          } else {
-                              os_log("==> SDK handle push notification KILL mode FULL: FAILED", log:self.log)
-                          }
-                          assert(error == nil, "SDK couldn't handle push notification")
-                      }
-                  }
-              }
-          }
-      } else {
-          os_log("==>SDK couldn't handle push notification KILL mode reportToCallKit FAILED", log:self.log)
-      }
+  if let agent = self.callAgent {
+    /* App is not in a killed state */
+    agent.handlePush(notification: callNotification) { (error) in }
+  } else {
+    /* App is in a killed state */
+    CallClient.reportIncomingCallFromKillState(with: callNotification, callKitOptions: callKitOptions) { (error) in
+        if (error == nil) {
+            DispatchQueue.global().async {
+                self.callClient = CallClient()
+                let options = CallAgentOptions()
+                let callKitOptions = CallKitOptions(with: createProviderConfig())
+                callKitOptions.provideRemoteInfo = self.provideCallKitRemoteInfo
+                callKitOptions.configureAudioSession = self.configureAudioSession
+                options.callKitOptions = callKitOptions
+                self.callClient!.createCallAgent(userCredential: userCredential,
+                    options: options,
+                    completionHandler: { (callAgent, error) in
+                    if (error == nil) {
+                        self.callAgent = callAgent
+                        self.callAgent!.handlePush(notification: callNotification) { (error) in }
+                    }
+                })
+            }
+        } else {
+            os_log("SDK couldn't handle push notification KILL mode reportToCallKit FAILED", log:self.log)
+        }
+    }
   }
   ```
 
