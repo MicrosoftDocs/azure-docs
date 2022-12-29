@@ -19,17 +19,17 @@ Selected sensor settings, listed below, are also available directly from the Azu
 
 To define sensor settings, make sure that you have the following:
 
-- An Azure subscription. If you need to, [sign up for a free account](https://azure.microsoft.com/free/).
+- **An Azure subscription onboarded to Defender for IoT**. If you need to, [sign up for a free account](https://azure.microsoft.com/free/) and then use the [Quickstart: Get started with Defender for IoT](getting-started.md) to onboard.
 
-- Permissions:
+- **Permissions**:
 
-    You can view settings that others have defined with a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
+    - To view settings that others have defined, sign in with a [Security Reader](../../role-based-access-control/built-in-roles.md#security-reader), [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role for the subscription.
 
-    To define or update settings, you'll need a [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role.
+    - To define or update settings, sign in with [Security admin](/azure/role-based-access-control/built-in-roles#security-admin), [Contributor](/azure/role-based-access-control/built-in-roles#contributor), or [Owner](/azure/role-based-access-control/built-in-roles#owner) role.
 
     For more information, see [Azure user roles and permissions for Defender for IoT](roles-azure.md).
 
-- One or more cloud-connected OT network sensors. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
+- **One or more cloud-connected OT network sensors**. For more information, see [Onboard OT sensors to Defender for IoT](onboard-sensors.md).
 
 ## Define a new sensor setting
 
@@ -44,11 +44,11 @@ Define a new setting whenever you want to define a specific configuration for on
 
 1. On the **Sensor settings (Preview)** page, select **+ Add**, and then use the wizard to define the following values for your setting. Select **Next** when you're done with each tab in the wizard to move to the next step.
 
-    |Name  |Description  |
+    |Tab name  |Description  |
     |---------|---------|
-    |**Basics**     | select the subscription where you want to apply your setting, and your [setting type](#sensor-setting-reference). <br><br>Enter a meaningful name and an optional description for your setting.        |
-    |**Setting**     |    Define the values for your selected setting type. For more information about the options available for each setting type, find your selected [Sensor setting reference](#sensor-setting-reference) below.     |
-    |**Apply**     | Use the **Select sites**, **Select zones**, and **Select sensors** dropdown menus to define where you want to apply your setting.   <br><br>**Important**:  Selecting a site or zone applies the setting to all connected sensors. Sensors added to a site later inherit settings applied to a site or zone.  If you select to apply your settings to a site, you don't also need to select its zones or sensors. |
+    |**Basics**     | Select the subscription where you want to apply your setting, and your [setting type](#sensor-setting-reference). <br><br>Enter a meaningful name and an optional description for your setting.        |
+    |**Setting**     |    Define the values for your selected setting type.<br>For details about the options available for each setting type, find your selected setting type in the [Sensor setting reference](#sensor-setting-reference) below.     |
+    |**Apply**     | Use the **Select sites**, **Select zones**, and **Select sensors** dropdown menus to define where you want to apply your setting.   <br><br>**Important**:  Selecting a site or zone applies the setting to all connected sensors, including any sensors added to the site or zone later on. <br>If you select to apply your settings to a site, you don't also need to select its zones or sensors. |
     |**Review and create**     | Check the selections you've made for your setting. <br><br>If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.<br><br>When you're satisfied with the setting's configuration, select **Create**.     |
 
 Your new setting is now listed on the **Sensor settings (Preview)** page under it's setting type.

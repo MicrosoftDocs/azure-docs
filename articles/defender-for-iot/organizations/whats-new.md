@@ -19,7 +19,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     | - **Sensor versions 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview)   |
+|**OT networks**     | **Sensor versions 22.2.3**: [Configure OT sensor settings from the Azure portal (Public preview)](#configure-ot-sensor-settings-from-the-azure-portal-public-preview)   |
 
 
 ### Configure OT sensor settings from the Azure portal (Public preview)
