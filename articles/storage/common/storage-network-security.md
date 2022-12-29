@@ -357,7 +357,7 @@ The following restrictions apply to IP address ranges.
 >
 >- To restrict access to clients in same Azure region as the storage account.
 >
->  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual->network) to allow same-region requests.
+>  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 >
 >- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
 >
