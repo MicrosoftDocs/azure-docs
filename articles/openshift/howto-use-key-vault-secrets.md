@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.date: 11/07/2022
+ms.date: 12/29/2022
 keywords: azure, openshift, red hat, key vault
 #Customer intent: I need to understand how to use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift.
 ---
