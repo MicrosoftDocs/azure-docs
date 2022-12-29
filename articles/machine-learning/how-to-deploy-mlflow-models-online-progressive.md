@@ -79,7 +79,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     ```python
     import json
     import mlflow
-    import urllib.request
+    import requests
     import pandas as pd
     from mlflow.deployments import get_deploy_client
     ```
@@ -198,7 +198,12 @@ We are going to exploit this functionality by deploying multiple versions of the
     We can configure the properties of this endpoint using a configuration file. In this case, we are configuring the authentication mode of the endpoint to be "key".
     
     ```python
-    endpoint_config = {"auth_mode": "key"}
+    endpoint_config = {
+        "auth_mode": "key",
+        "identity": {
+            "type": "system_assigned"
+        }
+    }
     ```
 
     Let's write this configuration into a `JSON` file:
@@ -308,6 +313,9 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     }
     ```
     
+    > [!NOTE]
+    > The full specification of this configuration can be found at [Managed online deployment schema (v2)](reference-yaml-deployment-managed-online.md).
+    
     Write the configuration to a file:
 
     ```python
@@ -404,9 +412,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         .reset_index(drop=True)
     )
     
-    sample_request = json.dumps(
-        {"input_data": json.loads(samples.to_json(orient="split", index=False))}
-    )
+    sample_request = { "input_data": json.loads(samples.to_json(orient="split", index=False)) }
     ```
 
 1. Test the deployment
@@ -447,11 +453,8 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     Call the endpoint and its default deployment:
 
     ```python
-    req = urllib.request.Request(scoring_uri, sample_request, headers)
-    response = urllib.request.urlopen(req)
-
-    result = response.read()
-    print(result)
+    req = requests.post(scoring_uri, json=sample_request, headers=headers)
+    req.json()
     ```
 
 ### Create a green deployment under the endpoint
