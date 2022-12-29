@@ -3,7 +3,7 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/16/2022
+ms.date: 12/29/2022
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
@@ -101,10 +101,15 @@ To install Hybrid worker extension on an existing agent based hybrid worker, fol
 1. Select the checkbox next to the existing Agent based (V1) Hybrid worker.
 1. Select **Add** to append the machine to the group.
 
-The **Platform** column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can remove the agent based Worker. 
+The **Platform** column shows the same Hybrid worker as both **Agent based (V1)** and **Extension based (V2)**. After you're confident of the extension based Hybrid Worker experience and use, you can [remove](#remove-agent-based-hybrid-worker) the agent based Worker. 
 
-:::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
-   
+:::image type="content" source="./media/migrate-existing-agent-based-hw-extension-based-hw/hybrid-workers-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based hybrid worker." lightbox="./media/migrate-existing-agent-based-hw-extension-based-hw/hybrid-workers-group-platform-expanded.png":::
+
+
+If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent` see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+
+:::image type="content" source="./media/migrate-existing-agent-based-hw-extension-based-hw/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hw-extension-based-hw/add-machines-hybrid-worker-expanded.png":::
+
 For at-scale migration of multiple Agent based Hybrid Workers, you can also use other [channels](#manage-hybrid-worker-extension-using-bicep--arm-templates-rest-api-azure-cli-and-powershell) such as - Bicep, ARM templates, PowerShell cmdlets, REST API, and Azure CLI.
 
 
