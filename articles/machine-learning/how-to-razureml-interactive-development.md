@@ -85,28 +85,22 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=reticulate)]
 
 
-1. Find the URI path to the data file. In the code below, replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
+1. Find the URI path to the data file.
 
-    > [!TIP]
-    > In studio, select **Data** in the left navigation to find your data asset's name and version number.
+    1. First, get a handle to your workspace
+
+        [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=configure-ml_client)]
     
-    ```r
-    py_code <- "from azure.identity import DefaultAzureCredential
-    from azure.ai.ml import MLClient
-    #create connection to ml_client
-    credential = DefaultAzureCredential()
-    ml_client = MLClient.from_config(credential=credential)
+    1. Use this code to retrieve the asset.  Make sure to replace `<DATA_NAME>` and `<VERSION_NUMBER>` with the name and number of your data asset.
+
+        > [!TIP]
+        > In studio, select **Data** in the left navigation to find your data asset's name and version number.
         
-    # get a handle to the data asset, then get the uri
-    my_name = '<DATA_NAME>'
-    my_version = '<VERSION_NUMBER>'
-
-    data_asset = ml_client.data.get(name=my_name, version=my_version)
-    data_uri = data_asset.path"
+        [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=get-uri)]
     
-    py_run_string(py_code)
-    # your uri is now available in the variable py$data_uri
-    ```
+    1. Run the code to retrieve the URI.
+
+        [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=run_py_string)]
     
 1. Use Pandas read functions to read  the file(s) into the R environment
 
