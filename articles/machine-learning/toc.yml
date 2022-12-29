@@ -636,13 +636,13 @@
               href: how-to-deploy-mlflow-models.md
             - name: Using MLflow models for no-code deployment
               href: how-to-log-mlflow-models.md
-            - name: Online Inference
+            - name: Online inference
               items:
                 - name: Deploy MLflow models to Online Endpoints
                   href: how-to-deploy-mlflow-models-online-endpoints.md
                 - name: Progressive rollout of MLflow models
                   href: how-to-deploy-mlflow-models-online-progressive.md 
-            - name: Batch Inference
+            - name: Batch inference
               items:
                 - name: Deploy MLflow models to Batch Endpoints
                   href: how-to-mlflow-batch.md

@@ -83,7 +83,7 @@ MLflow includes built-in deployment tools that model developers can use to test 
 | Tensor input formatted as in TF Serving’s API | **&check;** |  |
 
 > [!NOTE]
-> - <sup>1</sup> We suggest you to explore batch inference for processing files.
+> - <sup>1</sup> We suggest you to explore batch inference for processing files. See [Deploy MLflow models to Batch Endpoints](how-to-mlflow-batch.md).
 
 ### Input structure
 
