@@ -8,7 +8,7 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 10/11/2022
+ms.date: 12/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -111,7 +111,8 @@ Characteristics you can expect from the different storage types list like:
 
 
 > [!IMPORTANT]
-> To achieve less than 1 millisecond I/O latency using Azure NetApp Files (ANF), you need to work with Microsoft to arrange the correct placement between your VMs and the NFS shares based on ANF. So far there's no mechanism in place that provides an automatic proximity between a VM deployed and the NFS volumes hosted on ANF. Given the different setup of the different Azure regions, the network latency added could push the I/O latency beyond 1 millisecond if the VM and the NFS share aren't allocated in proximity. [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md), which is a functionality still in preview phase are a way to create an alignment in an easier manner.
+> Check out the Azure NetApp Files section of this document to find specifics around proximity placement of NFS volumes and VMs when less than 1 millisecond latencies are required.
+>
 
 
 ## Azure premium storage
@@ -318,6 +319,16 @@ Other built-in functionality of ANF storage:
 - Cloning of ANF volumes from snapshots
 - Restore volumes from snapshots (snap-revert)
 - [Application consistent Snapshot backup for SAP HANA and Oracle](../../../azure-netapp-files/azacsnap-introduction.md) 
+
+> [!IMPORTANT]
+> Specifically for database deployments you want to achieve low latencies for at least your redo logs. Especially for SAP HANA, SAP requires a latency of less than than 1 millisecond for HANA redo log writes of smaller sizes. to get to such latencies, you have two possibilities:
+- You can use a public preview functionality that allows you to create the NFS share in the same Azure Availability Zones as you placed your VM that should mount the NFS shares into. This functionality is documented in the article [Manage availability zone volume placement for Azure NetApp Files](../../../azure-netapp-files/manage-availability-zone-volume-placement.md). For most of the deployment cases, the colocationof the NFS volume in the same zone as the virtual machine should be able to deliver a latency of less than 1 millisecond for smaller writes. Advantage of this method are that you don't need to go through a manual pinning process as this is the case today, and that you are very flexible with change VM sizes and families within all the VM types and families offered in the Availability Zone you deployed. So, that you can react very flexible on changing conditions or move faster to more cost efficient VM sizes or families.
+- You go for the closest proximity betweeen VM and NFS share that can be arranged by using [Application Volume Groups](../../../azure-netapp-files/application-volume-group-introduction.md). The advantage of Application Volume Groups, besides allocating best proximity and with that creating lowest latency is that your different NFS shares for SAP HANA deployments are allocated together and with that distributed across different contollers in the Azure NetApp Files backend. Disadvantage of this method is that you need to go through a pinning process again. A process that will end restricting your VM deployment to a single datacenter. Instead of an Availability Zones as the first method introduced. This means less flexibility in changing VM sizes and VM families of the VMs that have the NFS volumes mounted.
+- Current process of not using Availability Placement Groups. Which so far are available for SAP HANA only. This process also uses the same manual pinning process as this is the case with Availability Volume groups. This is the methoid used for the last three years. It has the same flexibility restrictions as the process has with Availability Volume Groups.
+>
+
+As preferences for allocating NFS volumes based on ANF for database specific usage, you should attempt to allocate the NFS volume in the same zone as your VM first. Especially for non-HANA databases. Only if latency proves to be insufficient you should go through a manual pinning process. For smaller HANA workload or non-production HANA workload, you should follow a zonal allocation method as well. Only in cases where performance and latency are not sufficient you should use Application Volume Groups.
+
 
 **Summary**: Azure NetApp Files is a HANA certified low latency storage that allows to deploy NFS and SMB volumes or shares. The storage comes with three different service levels that provide different throughput  and IOPS in a linear manner per GiB capacity of the volume. The ANF storage is enabling to deploy SAP HANA scale-out scenarios with a standby node. The storage is suitable for providing file shares as needed for /sapmnt or SAP global transport directory. ANF storage come with functionality availability that is available as native NetApp functionality.  
 
