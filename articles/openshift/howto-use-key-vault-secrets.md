@@ -13,6 +13,9 @@ keywords: azure, openshift, red hat, key vault
 
 Azure Key Vault Provider for Secrets Store CSI Driver allows you to get secret contents stored in an [Azure Key Vault instance](/azure/key-vault/general/basic-concepts) and use the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html) to mount them into Kubernetes pods. This article explains how to use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift.
 
+> [!NOTE]
+> Azure Key Vault Provider for Secrets Store CSI Driver is an extension of AKS that works with Azure Red Hat OpenShift. As such, support for it is provided through open-source communities.
+
 ## Prerequisites 
 
 The following prerequisites are required:
@@ -68,6 +71,9 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
        --version v1.0.1 \
        --set "linux.providersDir=/var/run/secrets-store-csi-providers"
     ```
+    Optionally, you can enable autorotation of secrets by adding the following parameters to the command above:
+
+    `--set "syncSecret.enabled=true" --set "enableSecretRotation=true"`
 
 1. Verify that the CSI Driver DaemonSets are running:
 
