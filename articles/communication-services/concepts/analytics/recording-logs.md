@@ -1,7 +1,7 @@
 ---
-title: Call Recording summary logs
+title: Azure Communication Services - Call Recording summary logs
 titleSuffix: An Azure Communication Services conceptual article
-description: Learn about using Log Analytics for recording logs.
+description: Learn about the properties of summary logs for the Call Recording feature.
 author:  Mkhribech
 services: azure-communication-services
 
