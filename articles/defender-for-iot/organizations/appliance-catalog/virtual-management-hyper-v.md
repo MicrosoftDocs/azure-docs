@@ -24,7 +24,7 @@ Before you begin the installation, make sure you have the following items:
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
-- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/prepare-for-ot-software-install.md#download-software-files-from-the-azure-portal).
+- The on-premises management console software [downloaded from Defender for IoT in the Azure portal](../ot-deploy/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal).
 
 Make sure the hypervisor is running.
 
