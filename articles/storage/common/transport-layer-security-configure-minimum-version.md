@@ -7,11 +7,11 @@ author: jimmart-dev
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 12/29/2022
 ms.author: jammart
 ms.reviewer: fryu
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -22,6 +22,8 @@ Communication between a client application and an Azure Storage account is encry
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
+
+The cipher suite used when connecting to a storage account is dependent on the TLS version used. It is not possible to configure a storage account to block the use of specific ciphers, other than by requiring a minimum TLS version. If you require the ability to block specific cipher suites, consider [Configuring TLS policy versions and cipher suites on Application Gateway](../../application-gateway/application-gateway-configure-ssl-policy-powershell.md).
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage secure TLS for your storage accounts.
 
