@@ -6,7 +6,7 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/29/2021
+ms.date: 12/29/2022
 ---
 # Manually apply classifications on assets in Microsoft Purview
 
@@ -16,7 +16,7 @@ This article discusses how to apply classifications on assets.
 
 Classifications can be system or custom types. System classifications are present in Microsoft Purview by default. Custom classifications can be created based on a regular expression pattern and keyword lists. Classifications can be applied to assets either automatically via scanning or manually.
 
-This document explains how to manuall apply classifications to your data.
+This document explains how to manually apply classifications to your data.
 
 ## Prerequisites
 
@@ -103,13 +103,13 @@ Microsoft Purview captures important details like who applied a classification a
 - Applied time - Local timestamp when the classification was applied via scan or manually.
 - Classification type - System or custom.
 
-Users with *Data Curator* role will see additional details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
+Users with *Data Curator* role will see more details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
 
 :::image type="content" source="./media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail.":::
 
 ## Impact of rescanning on existing classifications
 
-Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column, and must be removed manually.
+Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets more classifications on it. Existing classifications stay on the column, and must be removed manually.
 
 ## Next steps
 
