@@ -10,7 +10,7 @@ ms.reviewer: bwren
 ---
 # Tools for analyzing and visualizing data
 
-This article describes built-in features for visualizing and analyzing collected data in Azure Monitor. Visualizations like charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. You can create custom visualizations to meet the requirements of different users in your organization. For more information, see [Recommendations for configuring Azure Monitor](best-practices.md).
+This article describes built-in features for visualizing and analyzing collected data in Azure Monitor. Visualizations like charts and graphs can help you analyze your monitoring data to drill down on issues and identify patterns. You can create custom visualizations to meet the requirements of different users in your organization. 
 
 ## Built-in analysis features
 
@@ -33,8 +33,6 @@ This table describes Azure Monitor features that provide analysis of collected d
 Here's a video about how to create dashboards:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
-
-For details on how to create a dashboard that includes data from Azure Monitor Logs, see [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-dashboards.md). For details on how to create a dashboard that includes data from Application Insights, see [Create custom key performance indicator (KPI) dashboards using Application Insights](app/tutorial-app-dashboards.md).
 
 ### Azure workbooks
 
@@ -70,7 +68,7 @@ All versions of Grafana include the [Azure Monitor datasource plug-in](visualize
 |Azure Dashboards|- Native dashboarding platform in Azure<br>- Supports at scale deployments<br>- Supports RBAC<br> - No added cost|- Create a dashboard that combines a metrics graph and the results of a log query with operational data for related services. <br> - Share a dashboard with service owners through integration with [Azure role-based access control](../role-based-access-control/overview.md). |Azure/Arc exclusive environments|
 |Azure Workbooks     |- Native dashboarding platform in Azure with familiar access through portal<br>- Designed for collaborating and troubleshooting<br>- Out-of-the-box templates and reports<br>- Fully customizable| - Create an interactive report with parameters where selecting an element in a table dynamically updates associated charts and visualizations.<br>- Share a report with other users in your organization.<br>- Collaborate with other workbook authors in your organization by using a public GitHub-based template gallery.|Azure/Arc exclusive environments|
 |Grafana |- Multiplatform, multicloud single pane of glass visualizations<br>- Out-of-the-box plugins from most monitoring tools and platforms<br>- Dashboard templates with focus on operations<br>- Supports portability, multi-tenancy, and flexible RBAC<br>Azure managed Grafana provides seamless integration with Azure |- Combine time-series and event data in a single visualization panel.<br>- Create a dynamic dashboard based on user selection of dynamic variables.<br>- Create a dashboard from a community-created and community-supported template.<br>- Create a vendor-agnostic business continuity and disaster scenario that runs on any cloud provider or on-premises.        |Best with Prometheus         |
-|Power BI     |- Helps design business centric KPI dashboards for long term trends<br>- Supports BI analytics with extensive slicing and dicing|- Create rich visualizations.<br>- Benefit from extensive interactivity, including zoom-in and cross-filtering.<br>- Share easily throughout your organization.
+|Power BI     |- Helps design business centric KPI dashboards for long term trends<br>- Supports BI analytics with extensive slicing and dicing<br>- Create rich visualizations.<br>- Benefit from extensive interactivity, including zoom-in and cross-filtering.<br>- Share easily throughout your organization.
 - Integrate data from multiple data sources.<br>- Experience better performance with results cached in a cube. |Dashboarding for long term trends    |
 
 ## Other options
@@ -80,4 +78,6 @@ You can also build your own custom websites and applications using metric and lo
 
 ## Next steps
 
-To define alerts and automated actions from Azure Monitor data, see [Alerts and automated actions](best-practices-alerts.md).
+- For more information, see [Recommendations for configuring Azure Monitor](best-practices.md).
+- For details on how to create a dashboard that includes data from Azure Monitor Logs, see [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-dashboards.md).
+- For details on how to create a dashboard that includes data from Application Insights, see [Create custom key performance indicator (KPI) dashboards using Application Insights](app/tutorial-app-dashboards.md).
