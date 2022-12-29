@@ -25,4 +25,4 @@ Whenever there's a new Release Note is published, a notification will be sent to
 
 ## Next steps
 
-* [View HDInsight clusters image version](./view-hdinsight-cluster-version.md)
+* [View HDInsight clusters image version](./view-hdinsight-cluster-image-version.md)
