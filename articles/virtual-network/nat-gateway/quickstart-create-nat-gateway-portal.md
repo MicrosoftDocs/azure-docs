@@ -8,7 +8,7 @@ ms.service: virtual-network
 ms.subservice: nat
 ms.topic: quickstart 
 ms.date: 11/11/2022
-ms.custom: template-quickstart
+ms.custom: template-quickstart, FY23 content-maintenance
 ---
 
 # Quickstart: Create a NAT gateway using the Azure portal
@@ -23,7 +23,7 @@ This quickstart shows you how to use the Azure Virtual Network NAT service. You'
 
 Before you deploy the NAT gateway resource and the other resources, a resource group is required to contain the resources deployed. In the following steps, you'll create a resource group, NAT gateway resource, and a public IP address. You can use one or more public IP address resources, public IP prefixes, or both. 
 
-For information about public IP prefixes and a NAT gateway, see [Manage NAT gateway](/azure/virtual-network/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-prefix).
+For information about public IP prefixes and a NAT gateway, see [Manage NAT gateway](./manage-nat-gateway.md?tabs=manage-nat-portal#add-or-remove-a-public-ip-prefix).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -44,7 +44,7 @@ For information about public IP prefixes and a NAT gateway, see [Manage NAT gate
     | Availability Zone | Select **No Zone**. |
     | Idle timeout (minutes) | Enter **10**. |
 
-    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](/azure/virtual-network/nat-gateway/nat-availability-zones).
+    For information about availability zones and NAT gateway, see [NAT gateway and availability zones](./nat-availability-zones.md).
 
 5. Select the **Outbound IP** tab, or select the **Next: Outbound IP** button at the bottom of the page.
 

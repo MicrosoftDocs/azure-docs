@@ -26,6 +26,16 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | --- | --- |
 | Workspace name | 2-32 characters |
 
+## Experiments
+| Limit | Value |
+| --- | --- |
+| Name | 256 characters |
+| Description | 5,000 characters |
+| Number of tags | 50 |
+| Length of tag key | 250 characters |
+| Length of tag value | 1000 characters |
+| Artifact location | 1024 characters |
+
 ## Runs
 | Limit | Value |
 | --- | --- |
@@ -45,7 +55,6 @@ This section lists basic limits and throttling thresholds in Azure Machine Learn
 | Warning message length |300 characters |
 | Number of input datasets |200 |
 | Number of output datasets |20 |
-
 
 ## Metrics
 | Limit | Value |

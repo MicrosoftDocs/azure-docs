@@ -4,7 +4,7 @@ description: Specifications for the HBv2-series VMs.
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 12/19/2022
 ms.reviewer: jushiman
 ---
 

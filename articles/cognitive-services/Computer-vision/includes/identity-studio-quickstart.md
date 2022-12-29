@@ -25,7 +25,7 @@ Use Vision Studio to identify a face. This is a streamlined version of the face 
 
 ## Identify faces
 
-1. Select the **Analyze faces** tab, and select panel titled **Recognize a particular person**.
+1. Select the **Face** tab, and select panel titled **Recognize a particular person**.
 1. To use the try-it-out experience, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/face-api/).
 1. Next, you'll name the **person** and upload the images of their face. Then select **Enroll face** and wait for the model to finish training.
 1. Finally, upload another image in the bottom pane, and the service will determine whether it belongs to the **person** it was trained for.

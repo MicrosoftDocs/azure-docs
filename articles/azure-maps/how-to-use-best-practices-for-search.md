@@ -84,7 +84,7 @@ The resulting response contains the geography ID and the entity type that was ma
 #### Sample request
 
 ```HTTP
-https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={Your-Azure-Maps-Subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 #### Response
@@ -136,7 +136,7 @@ In the following sample query, the Search Address service is queried for *Micros
 #### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
+https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
 #### Response
@@ -493,7 +493,7 @@ To explore brand searching, let's make a [POI category search](/rest/api/maps/se
 #### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 #### Response
@@ -744,7 +744,7 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Pr
 By using the Search POI API, you can look for airports by using their official code. For example, you can use *SEA* to find the Seattle-Tacoma International Airport:
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&query=SEA 
+https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&query=SEA 
 ```
 
 ### Nearby search
@@ -760,7 +760,7 @@ Let's find an address in Seattle by making an address-search request to the Azur
 ### Sample query
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
 ### Supported types of results

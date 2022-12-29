@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2021
 ms.author: kgremban
-ms.custom: mqtt, devx-track-python
+ms.custom: mqtt, devx-track-python, py-fresh-zinc
 ---
 
 # Upload files from your device to the cloud with IoT Hub (Python)

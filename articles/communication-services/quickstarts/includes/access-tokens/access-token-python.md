@@ -15,7 +15,7 @@ ms.author: tchladek
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python](https://www.python.org/downloads/) 2.7 or 3.6 or later.
+- [Python](https://www.python.org/downloads/) 3.7+.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
 ## Final code
@@ -88,7 +88,7 @@ print("\nCreated an identity with ID: " + identity.properties['id'])
 
 Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
-## Issue access tokens
+## Issue an access token
 
 Use the `get_token` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of parameter `CommunicationUserIdentifier` based on a string representation of the Azure Communication Service identity.
 
@@ -129,7 +129,7 @@ print("\nIssued an access token with 'voip' scope that expires at " + expires_on
 print(token)
 ```
 
-## Refresh access tokens
+## Refresh an access token
 
 To refresh an access token, use the `CommunicationUserIdentifier` object to reissue a token by passing in the existing identity:
 

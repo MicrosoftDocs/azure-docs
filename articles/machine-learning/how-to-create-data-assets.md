@@ -20,20 +20,19 @@ ms.date: 09/22/2022
 > * [v1](./v1/how-to-create-register-datasets.md)
 > * [v2 (current version)](how-to-create-data-assets.md)
 
-In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from AzureML datastores, Azure Storage, public URLs, and local files.
+In this article, you learn how to create a data asset in Azure Machine Learning. By creating a data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from Azure ML datastores, Azure Storage, public URLs, and local files.
 
 > [!IMPORTANT]
-> If you didn't creat/register the data source as a data asset, you can still [consume the data via specifying the data path in a job](how-to-read-write-data-v2.md#read-data-in-a-job) without benefits below.
-
-The benefits of creating data assets are:
-
-* You can **share and reuse data** with other members of the team such that they don't need to remember file locations.
-
-* You can **seamlessly access data** during model training (on any supported compute type) without worrying about connection strings or data paths.
-
-* You can **version** the data.
-
-
+> If you just want to access your data in an interactive session (for example, a Notebook) or a job, you are **not** required to create a data asset first. Creating a data asset would be an unnecessary step for you. 
+>
+> For more information about accessing your data in a notebook, please see [Access data from Azure cloud storage for interactive development](how-to-access-data-interactive.md).
+>
+> For more information about accessing your data - both local and cloud storage - in a job, please see [Access data in a job](how-to-read-write-data-v2.md).
+>
+> Creating data assets are useful when you want to:
+> - **Share and reuse** data with other members of your team so that they don't need to remember file locations in cloud storage.
+> - **Version** the metadata such as location, description and tags.
+ 
 
 ## Prerequisites
 
@@ -61,11 +60,14 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 > [!NOTE]
 > When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
+> [!IMPORTANT]
+> The studio only supports browsing of credential-less ADLS Gen 2 datastores.
+
 
 ## Data asset types
  - [**URIs**](#Create a `uri_folder` data asset) - A **U**niform **R**esource **I**dentifier that is a reference to a storage location on your local computer or in the cloud that makes it easy to access data in your jobs. Azure Machine Learning distinguishes two types of URIs:`uri_file` and `uri_folder`.
 
- - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in python you could use `uri_file`, `uri_folder`.
+ - [**MLTable**](#Create a `mltable` data asset) - `MLTable` helps you to abstract the schema definition for tabular data so it is more suitable for complex/changing schema or to be used in AutoML. If you just want to create a data asset for a job or you want to write your own parsing logic in Python you could use `uri_file`, `uri_folder`.
 
  The ideal scenarios to use `mltable` are:
  - The schema of your data is complex and/or changes frequently.
@@ -135,7 +137,7 @@ To create a Folder data asset in the Azure Machine Learning studio, use the foll
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the "Folder (uri_folder)" option under Type, if it is not already selected.
@@ -202,7 +204,7 @@ To create a File data asset in the Azure Machine Learning studio, use the follow
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the "File (uri_file)" option under Type.
@@ -243,7 +245,7 @@ paths:
   - pattern: ./*.txt
 transformations:
   - read_delimited:
-      delimiter: ','
+      delimiter: ,
       encoding: ascii
       header: all_files_same_headers
 ```
@@ -253,7 +255,7 @@ An *example* MLTable file for Delta Lake is provided below:
 type: mltable
 
 paths:
-  - abfss://my_delta_files
+  - folder: ./
 
 transformations:
   - read_delta_lake:
@@ -279,34 +281,7 @@ For more transformations available in `mltable`, please look into [reference-yam
 > ```
 > Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
-
-### Create an MLTable artifact via Python SDK: from_*
-If you would like to create an MLTable object in memory via Python SDK, you could use from_* methods. 
-The from_* methods does not materialize the data, but rather stores is as a transformation in the MLTable definition.
-
-For example you can use from_delta_lake() to create an in-memory MLTable artifact to read delta lake data from the path `delta_table_path`. 
-```python
-import mltable as mlt
-mltable = from_delta_lake(delta_table_path, timestamp_as_of="2021-01-01T00:00:00Z")
-df = mltable.to_pandas_dataframe()
-print(df.to_string())
-```
-Please find more details about [MLTable Python functions here](/python/api/mltable/mltable).
-
-
-In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
-
-```python
-import mltable
-
-tbl = mltable.load(uri="./my_data")
-df = tbl.to_pandas_dataframe()
-```
-
-The `uri` parameter in `mltable.load()` should be a valid path to a local or cloud **folder** which contains a valid MLTable file.
-
-> [!NOTE]
-> You will need the `mltable` library installed in your Environment (`pip install mltable`).
+### Creating the data asset
 
 Below shows you how to create a `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
@@ -378,7 +353,7 @@ To create a Table data asset in the Azure Machine Learning studio, use the follo
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
+1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select Create
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, select the "Table (mltable)" option under Type.

@@ -2,13 +2,11 @@
 title: What is Azure Video Indexer?
 description: This article gives an overview of the Azure Video Indexer service.
 ms.topic: overview
-ms.date: 08/18/2022
+ms.date: 12/19/2022
 ms.author: juliako
 ---
 
 # What is Azure Video Indexer?
-
-[!INCLUDE [accounts](./includes/arm-accounts.md)]
 
 [!INCLUDE [regulation](./includes/regulation.md)]
 
@@ -84,7 +82,7 @@ Unless specified otherwise, a model is generally available.
 * **Translation**: Creates translations of the audio transcript to many different languages. For more information, see [Azure Video Indexer language support](language-support.md).
 * **Audio effects detection** (preview): Detects the following audio effects in the non-speech segments of the content: alarm or siren, dog barking, crowd reactions (cheering, clapping, and booing), gunshot or explosion, laughter, breaking glass, and silence.
 
-    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer portal. For more information, see [Audio effects detection](audio-effects-detection.md).
+    The detected acoustic events are in the closed captions file. The file can be downloaded from the Azure Video Indexer website. For more information, see [Audio effects detection](audio-effects-detection.md).
 
     > [!NOTE]
     > The full set of events is available only when you choose **Advanced Audio Analysis** when uploading a file, in upload preset. By default, only silence is detected.

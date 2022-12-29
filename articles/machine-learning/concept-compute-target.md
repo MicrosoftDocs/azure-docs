@@ -39,7 +39,7 @@ When performing inference, Azure Machine Learning creates a Docker container tha
 
 [!INCLUDE [aml-deploy-target](../../includes/aml-compute-target-deploy.md)]
 
-Learn [where and how to deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md).
+Learn [where and how to deploy your model to a compute target](how-to-deploy-online-endpoints.md).
 
 ## Azure Machine Learning compute (managed)
 
@@ -159,7 +159,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure HDInsight
 * Azure Databricks
 * Azure Data Lake Analytics
-* [Azure Synapse Spark pool](how-to-link-synapse-ml-workspaces.md) (preview)
+* [Azure Synapse Spark pool](v1/how-to-link-synapse-ml-workspaces.md) (preview)
 
     > [!TIP]
     > Currently this requires the Azure Machine Learning SDK v1.
@@ -170,4 +170,4 @@ For more information, see [Manage compute resources](how-to-create-attach-comput
 ## Next steps
 
 Learn how to:
-* [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)
+* [Deploy your model to a compute target](how-to-deploy-online-endpoints.md)

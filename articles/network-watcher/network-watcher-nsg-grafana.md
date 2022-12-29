@@ -13,9 +13,9 @@ ms.service: network-watcher
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 09/15/2022
 ms.author: damendo
-
+ms.custom: engagement-fy23
 ---
 # Manage and analyze Network Security Group flow logs using Network Watcher and Grafana
 

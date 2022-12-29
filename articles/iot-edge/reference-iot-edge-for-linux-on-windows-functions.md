@@ -12,7 +12,7 @@ services: iot-edge
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](includes/iot-edge-version-1.1-or-1.4.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -35,7 +35,7 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
 <!-- end iotedge-2018-06 -->
 
 <!-- iotedge-2020-11 -->
-:::moniker range=">=iotedge-2020-11"
+:::moniker range="iotedge-2020-11"
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
    * **X64/AMD64**
@@ -53,6 +53,26 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    ```
 :::moniker-end
 <!-- end iotedge-2020-11 -->
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+
+   * **X64/AMD64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_X64" -OutFile $msiPath
+   ```
+
+   * **ARM64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI_1_4_LTS_ARM64" -OutFile $msiPath
+   ```
+:::moniker-end
+<!-- iotedge-1.4 -->
 
 
 1. Install IoT Edge for Linux on Windows on your device.

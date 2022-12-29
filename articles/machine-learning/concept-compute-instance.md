@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.author: shoja
-author: shouryaj
+ms.author: jcioffi
+author: jesscioffi
 ms.reviewer: sgilley
 ms.date: 10/19/2022
 #Customer intent: As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
@@ -72,7 +72,7 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |R kernel||
 
-You can [Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview) when you create the instance.
+You can [Add RStudio or Posit Workbench (formerly RStudio Workbench)](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-or-posit-workbench-preview) when you create the instance.
 
 |**PYTHON** tools & environments|Details|
 |----|----|
@@ -92,7 +92,7 @@ Python packages are all installed in the **Python 3.8 - AzureML** environment. C
 
 Notebooks and Python scripts are stored in the default storage account of your workspace in Azure file share.  These files are located under your “User files” directory. This storage makes it easy to share notebooks between compute instances. The storage account also keeps your notebooks safely preserved when you stop or delete a compute instance.
 
-The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, and RStudio. This means that the notebooks and other files you create in Jupyter, JupyterLab, or RStudio are automatically stored on the file share and available to use in other compute instances as well.
+The Azure file share account of your workspace is mounted as a drive on the compute instance. This drive is the default working directory for Jupyter, Jupyter Labs, RStudio, and Posit Workbench. This means that the notebooks and other files you create in Jupyter, JupyterLab, RStudio, or Posit are automatically stored on the file share and available to use in other compute instances as well.
 
 The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share.
 
@@ -137,7 +137,7 @@ A compute instance:
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (mounted on /) through the compute instance terminal by removing files/folders and then do `sudo reboot`. To access the terminal go to compute list page or compute instance details page and click on **Terminal** link. You can check available disk space by running `df -h` on the terminal. Clear at least 5 GB space before doing `sudo reboot`. Please do not stop or restart the compute instance through the Studio until 5 GB disk space has been cleared.
+> The compute instance has 120GB OS disk. If you run out of disk space and get into an unusable state, please clear at least 5 GB disk space on OS disk (mounted on /) through the compute instance terminal by removing files/folders and then do `sudo reboot`. Temporary disk will be freed after restart; you do not need to clear space on temp disk manually. To access the terminal go to compute list page or compute instance details page and click on **Terminal** link. You can check available disk space by running `df -h` on the terminal. Clear at least 5 GB space before doing `sudo reboot`. Please do not stop or restart the compute instance through the Studio until 5 GB disk space has been cleared. Auto shutdowns, including scheduled start or stop as well as idle shutdowns(preview), will not work if the CI disk is full.
 
 ## Next steps
 

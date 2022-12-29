@@ -3,7 +3,7 @@ title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
 author: ssalgadodev
-ms.author: ssalgado
+ms.author: joburges
 ms.custom: subject-cost-optimization, event-tier1-build-2022
 ms.service: machine-learning
 ms.subservice: core

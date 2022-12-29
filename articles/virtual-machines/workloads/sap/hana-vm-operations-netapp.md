@@ -8,7 +8,7 @@ keywords: 'SAP, Azure, ANF, HANA, Azure NetApp Files, snapshot'
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure
-ms.date: 02/07/2022
+ms.date: 11/14/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -44,6 +44,14 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 > [!IMPORTANT]
 > If there's a mismatch between User ID for <b>sid</b>adm and the Group ID for `sapsys` between the virtual machine and the Azure NetApp configuration, the permissions for files on Azure NetApp volumes, mounted to the VM, would be be displayed as `nobody`. Make sure to specify the correct User ID for <b>sid</b>adm and the Group ID for `sapsys`, when [on-boarding a new system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to Azure NetApp Files.
 
+## NCONNECT mount option
+Nconnect is a mount option for NFS volumes hosted on ANF that allows the NFS client to open multiple sessions against a single NFS volume. Using nconnect with a value of larger than 1 also triggers the NFS client to use more than one RPC session on the client side (in the guest OS) to handle the traffic between the guest OS and the mounted NFS volumes. The usage of multiple sessions handling traffic of one NFS volume, but also the usage of multiple RPC sessions can address performance and throughput scenarios like:
+
+- Mounting of multiple ANF hosted NFS volumes with different [service levels](../../../azure-netapp-files/azure-netapp-files-service-levels.md#supported-service-levels) in one VM
+- The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. Having multiple sessions against one ANF hosted NFS volume can increase the throughput 
+
+For Linux OS releases that support nconnect as a mount option and some important configuration considerations of nconnect, especially with different NFS server endpoints, read the document [Linux NFS mount options best practices for Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). 
+
 
 ## Sizing for HANA database on Azure NetApp Files
 
@@ -53,7 +61,7 @@ Important to understand is the performance relationship the size and that there 
 
 The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it doesn't make sense to create a “Ultra” volume larger than 12 TB because the maximal physical bandwidth capacity of a single volume would be exceeded. 
 
-The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. To improve read throughput, the NFS nconnect mount option can be used. For more details on Azure NetApp Files Linux performance and nconnect, read [Linux NFS mount options best practices for Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). For more details on HANA data volume striping read these articles:
+If you require more than the maximum write throughput for your **/hana/data** volume than a single Linux session can provide, you could also use SAP HANA data volume partitioning as an alternative. SAP HANA data volume partitioning stripes the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. For more details on HANA data volume striping read these articles:
 
 - [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -117,9 +125,9 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 ## Linux Kernel Settings
-To successfully deploy SAP HANA on ANF Linux kernel settings need to be implemented according to SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346).
+To successfully deploy SAP HANA on ANF, Linux kernel settings need to be implemented according to SAP note [3024346](https://launchpad.support.sap.com/#/notes/3024346).
 
-For systems using High Availability (HA) using pacemaker and Azure Load Balancer following settings need to be implemeneted in file /etc/sysctl.d/91-NetApp-HANA.conf
+For systems using High Availability (HA) using pacemaker and Azure Load Balancer following settings need to be implemented in file /etc/sysctl.d/91-NetApp-HANA.conf
 
 ```
 net.core.rmem_max = 16777216
@@ -135,7 +143,7 @@ net.ipv4.tcp_timestamps = 0
 net.ipv4.tcp_sack = 1
 ```
 
-Systems running with no pacemaker and Azure Load Balancer should implemented these settings in /etc/sysctl.d/91-NetApp-HANA.conf
+Systems running with no pacemaker and Azure Load Balancer should implement these settings in /etc/sysctl.d/91-NetApp-HANA.conf
 
 ```
 net.core.rmem_max = 16777216
@@ -190,7 +198,7 @@ SAP HANA supports:
 
 Creating storage-based snapshot backups is a simple four-step procedure, 
 1. Creating a HANA (internal) database snapshot - an activity you or tools need to perform 
-1. SAP HANA write data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
+1. SAP HANA writes data to the datafiles to create a consistent state on the storage - HANA performs this step as a result of creating a HANA snapshot
 1. Create a snapshot on the **/hana/data** volume on the storage - a step you or tools need to perform. There's no need to perform a snapshot on the **/hana/log** volume
 1. Delete the HANA (internal) database snapshot and resume normal operation - a step you or tools need to perform
 

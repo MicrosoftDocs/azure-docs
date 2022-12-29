@@ -1,13 +1,15 @@
 ---
-title: Performance and scalability checklist for Table storage - Azure Storage
+title: Performance and scalability checklist for Table storage
+titleSuffix: Azure Storage
 description: A checklist of proven practices for use with Table storage in developing high-performance applications.
 services: storage
-author: tamram
-ms.author: tamram
+author: pauljewellmsft
+ms.author: pauljewell
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

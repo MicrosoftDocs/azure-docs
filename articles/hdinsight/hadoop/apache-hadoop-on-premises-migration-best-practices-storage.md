@@ -104,6 +104,9 @@ One of the following formats can be used to access data that is stored in ADLS G
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
 - `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
 
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
+
 For more information, see the following articles:
 
 - [Introduction to Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)
