@@ -32,7 +32,9 @@ The following table describes the access available to each privileged user:
 > [!NOTE]
 > We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible. Other CLI users cannot be added.
 
-The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
+### Supported users by CLI actions
+
+The following table lists the activities available by CLI and the privileged users supported for each activity.
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
