@@ -269,7 +269,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TotalJob|Yes|Total Jobs|Count|Total|The total number of jobs|Runbook, Status|
 |TotalUpdateDeploymentMachineRuns|Yes|Total Update Deployment Machine Runs|Count|Total|Total software update deployment machine runs in a software update deployment run|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|SoftwareUpdateConfigurationName, Status|
-|HybridWorkerPing|Yes|Hybrid Worker Ping|Count|Total|The number of pings from hybrid worker|HybridWorkerGroup, HybridWorker, HybridWorkerVersion|
+|HybridWorkerPing|Yes|Hybrid Worker Ping|Count|Total|Total number of pings from hybrid worker|HybridWorkerGroup, HybridWorker, HybridWorkerVersion|
 
 
 ## microsoft.avs/privateClouds
