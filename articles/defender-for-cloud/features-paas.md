@@ -22,11 +22,11 @@ The table below shows the availability of Microsoft Defender for Cloud features 
 |Azure Cloud Services|✔|-|-|
 |Azure Cognitive Search|✔|-|-|
 |Azure Container Registry|✔|✔|✔|
-|Azure Cosmos DB*|✔|✔|-|
+|Azure Cosmos DB|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
 |Azure Data Lake Storage|✔|✔|-|
-|Azure Database for MySQL*|-|✔|-|
-|Azure Database for PostgreSQL*|-|✔|-|
+|Azure Database for MySQL|✔|✔|-|
+|Azure Database for PostgreSQL|✔|✔|-|
 |Azure Event Hubs namespace|✔|-|-|
 |Azure Functions app|✔|-|-|
 |Azure Key Vault|✔|✔|-|

@@ -17,7 +17,7 @@ Certain scenarios require virtual machines or compute instances to have outbound
 
 ## <a name="scenarios"></a>Azure's outbound connectivity methods
 
-The following methods are used to enable outbound connectivity in Azure:
+The following methods are Azure's most commonly used methods to enable outbound connectivity:
 
 | # | Method | Type of port allocation | Production-grade? | Rating |
 | ------------ | ------------ | ------ | ------------ | ------------ |

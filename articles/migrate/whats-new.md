@@ -5,7 +5,7 @@ ms.topic: overview
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.date: 12/12/2022
+ms.date: 12/14/2022
 ms.custom: mvc
 ---
 
@@ -19,12 +19,14 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 
 - Public Preview: Build business case using Azure Migrate for servers and workloads running in your VMware environment. It helps you eliminate guess work in your cost planning process and adds data driven insights to understand how Azure can bring the most value to your business. 
 
-Key highlights:
-   - On-premises vs Azure total cost of ownership.
-   - Year on year cashflow analysis.
-   - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
-   - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
-   - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+   Key highlights:
+    - On-premises vs Azure total cost of ownership.
+    - Year on year cashflow analysis.
+    - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
+    - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
+    - Long term cost savings by moving from a capital expenditure model to an Operating expenditure model, by paying for only what you use.
+
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (November 2022)
 
@@ -44,10 +46,11 @@ Key highlights:
 - Enhanced notifications for test migration and migration completion status. 
 - Java web apps discovery on Apache Tomcat running on Linux servers hosted in VMware environment. 
 - Enhanced discovery data collection including detection of database connecting strings, application directories, and authentication mechanisms for ASP.NET web apps. 
+- General availability: Discover, assess, and migrate servers over a private network using [Azure Private Link](../private-link/private-endpoint-overview.md). [Learn more](how-to-use-azure-migrate-with-private-endpoints.md).
 
 ## Update (August 2022)
 
-- SQL discovery and assessment for Microsoft Hyper-V and Physical/Bare-metal environments as well as IaaS services of other public clouds. 
+- SQL discovery and assessment for Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 
 ## Update (June 2022)
 

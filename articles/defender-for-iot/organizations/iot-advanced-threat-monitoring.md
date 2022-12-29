@@ -1,15 +1,13 @@
 ---
 title: Investigate and detect threats for IoT devices | Microsoft Docs
-description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire OT environment. Detect and respond to OT threats, including multistage attacks that may cross IT and OT boundaries.
+description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire  environment. Detect and respond to threats, including multistage attacks that may cross IT and OT boundaries.
 ms.topic: tutorial
 ms.date: 09/18/2022
 ---
 
 # Tutorial: Investigate and detect threats for IoT devices
 
-The integration between Microsoft Defender for IoT and [Microsoft Sentinel](/azure/sentinel/) enable SOC teams to efficiently and effectively detect and respond to Operational Technology (OT) threats. Enhance your security capabilities with the [Microsoft Defender for IoT solution](/azure/sentinel/sentinel-solutions-catalog#domain-solutions), a set of bundled content configured specifically for Defender for IoT data that includes analytics rules, workbooks, and playbooks.
-
-While Defender for IoT supports both Enterprise IoT and OT networks, the **Microsoft Defender for IoT** solution supports OT networks only.
+The integration between Microsoft Defender for IoT and [Microsoft Sentinel](/azure/sentinel/) enable SOC teams to efficiently and effectively detect and respond to security threats across your network. Enhance your security capabilities with the [Microsoft Defender for IoT solution](/azure/sentinel/sentinel-solutions-catalog#domain-solutions), a set of bundled content configured specifically for Defender for IoT data that includes analytics rules, workbooks, and playbooks.
 
 In this tutorial, you:
 
@@ -35,7 +33,7 @@ Before you start, make sure you have:
 
 Microsoft Sentinel [solutions](/azure/sentinel/sentinel-solutions) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process.
 
-The **Microsoft Defender for IoT** solution integrates Defender for IoT data with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks for automated response and prevention capabilities.
+The **Microsoft Defender for IoT** solution integrates Defender for IoT data with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and optimized playbooks for automated response and prevention capabilities.
 
 **To install the solution**:
 

@@ -128,7 +128,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 ## Create a pool without public IP addresses using ARM template
 
-You can use this [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/batch-pool-no-public-ip/) to create a pool without public IP addresses using Azure Resource Manager (ARM) template.
+You can use this [Azure Quickstart Template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.batch/batch-pool-no-public-ip) to create a pool without public IP addresses using Azure Resource Manager (ARM) template.
 
 Following resources will be deployed by the template:
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 
 This article describes how to manage your alerts from Microsoft Defender for IoT on the Azure portal.
 
-If you're integrating with Microsoft Sentinel, the alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
+If you're integrating with Microsoft Sentinel, alert details and entity information are also sent to Microsoft Sentinel, where you can also view them from the **Alerts** page.
 
 ## About alerts
 

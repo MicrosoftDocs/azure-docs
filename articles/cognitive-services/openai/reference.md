@@ -37,13 +37,13 @@ The Azure OpenAI service provides two methods for authentication. you can use  e
 
 ### REST API versioning
 
-The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure, with a -preview suffix for a preview service. For example:
+The service APIs are versioned using the ```api-version``` query parameter. All versions follow the YYYY-MM-DD date structure. For example:
 
 ```http
-POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview
+POST https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01
 ```
 
-We currently have the following versions available: ```2022-06-01-preview```
+We currently have the following versions available: ```2022-12-01```
 
 ## Completions
 With the Completions operation, the model will generate one or more predicted completions based on a provided prompt. The service can also return the probabilities of alternative tokens at each position.
@@ -60,11 +60,11 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
 
 **Supported versions**
 
-- `2022-06-01-preview`
+- `2022-12-01`
 
 **Request body**
 
@@ -87,7 +87,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/completions?api-version=2022-12-01\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{
@@ -130,11 +130,11 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 |--|--|--|--|
 | ```your-resource-name``` | string |  Required | The name of your Azure OpenAI Resource. |
 | ```deployment-id``` | string | Required | The name of your model deployment. You're required to first deploy a model before you can make calls |
-| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD-preview format.  |
+| ```api-version``` | string | Required |The API version to use for this operation. This follows the YYYY-MM-DD format.  |
 
 **Supported versions**
 
-- `2022-06-01-preview`
+- `2022-12-01`
 
 **Request body**
 
@@ -146,7 +146,7 @@ POST https://{your-resource-name}.openai.azure.com/openai/deployments/{deploymen
 #### Example request
 
 ```console
-curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-06-01-preview\
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/deployments/YOUR_DEPLOYMENT_NAME/embeddings?api-version=2022-12-01\
   -H "Content-Type: application/json" \
   -H "api-key: YOUR_API_KEY" \
   -d "{\"input\": \"The food was delicious and the waiter...\"}"

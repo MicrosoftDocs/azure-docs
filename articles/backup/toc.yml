@@ -379,7 +379,7 @@
     - name: From the Azure portal
       items:
       - name: Backup
-        href: backup-afs.md
+        href: backup-azure-files.md
       - name: Restore
         href: restore-afs.md
       - name: Manage

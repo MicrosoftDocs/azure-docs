@@ -119,11 +119,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 :::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
-### Private endpoint support (preview)
+### Private endpoint support
 
-Optionally, you can secure communication with a managed online endpoint by using private endpoints. This functionality is currently in preview.
-
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+Optionally, you can secure communication with a managed online endpoint by using private endpoints.
 
 You can configure security for inbound scoring requests and outbound communications with the workspace and other services separately. Inbound communications use the private endpoint of the Azure Machine Learning workspace. Outbound communications use private endpoints created per deployment.
 
