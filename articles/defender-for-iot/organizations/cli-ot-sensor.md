@@ -1,16 +1,15 @@
 ---
-title: Advanced CLI reference for OT sensor appliance management - Microsoft Defender for IoT
-description: Learn about the CLI commands available for managing the Defender for IoT on-premises applications.
-ms.date: 09/07/2022
+title: CLI command reference from OT network sensors- Microsoft Defender for IoT
+description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors.
+ms.date: 12/29/2022
 ms.topic: reference
 ---
 
-# Advanced CLI reference: OT sensor appliance management
+# CLI command reference from OT network sensors
 
-This article lists the CLI commands available for managing the OT network sensor appliance and Defender for IoT software applications.
+This article lists the CLI commands available from Defender for IoT OT network sensors.
 
 Command syntax differs depending on the user performing the command, as indicated below for each activity.
-
 
 ## Prerequisites
 
@@ -23,6 +22,46 @@ Each activity listed below is accessible by a different set of privileged users,
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
+<!-->
+## Users supported by sensor CLI actions
+
+The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
+
+
+|Service area  |Users  |Actions  |
+|---------|---------|---------|
+|**Appliance maintenance**     |         |         |
+|Service health     |   *support*, *cyberx*      | [Check OT monitoring services health](#check-ot-monitoring-services-health)        |
+|Restart and shutdown     |  *support*, *cyberx*, *cyberx-host*       | [Restart an appliance](#restart-an-appliance)<br>[Shut down an appliance](#shut-down-an-appliance)        |
+|Software version     |  *support*, *cyberx*       |  [Show installed software version](#show-installed-software-version)       |
+|Date and time     |   *support*, *cyberx*, *cyberx-host*          |  [Show current system date/time](#show-current-system-datetime)       |
+|NTP     | *support*, *cyberx*        | [Turn on NTP time sync](#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](#turn-off-ntp-time-sync)        |
+| **Local user management** | | |
+|Password changes     | *cyberx*, *cyberx-host*        | [Change local user passwords](#change-local-user-passwords)        |
+|Failed sign-in protections     | *cyberx*        | [Adjust protection against failed sign-in](#adjust-protection-against-failed-sign-in)        |
+|**Network settings**     |         |         |
+|Bandwidth limits     |    *cyberx*     | [Set bandwidth limit for the management network interface](#set-bandwidth-limit-for-the-management-network-interface)        |
+|Internet connections     |  *cyberx*       | [Check internet connection](#check-internet-connection)        |
+|Network connectivity     |  *support*, *cyberx*       |  [Check network connectivity from the OT sensor](#check-network-connectivity-from-the-ot-sensor)       |
+|Network load     |  *cyberx*       | [Check network interface current load](#check-network-interface-current-load)        |
+| Network setting configuration | *cyberx-host* | [Change networking configuration or reassign network interface roles](#change-networking-configuration-or-reassign-network-interface-roles) |
+|Network setting validation     |  *support*       |  [Validate and show network interface configuration](#validate-and-show-network-interface-configuration)       |
+|Port locations     | *support*        | [Locate a physical port by blinking interface lights](#locate-a-physical-port-by-blinking-interface-lights)        |
+|Physical interfaces     | *support*, *cyberx*        |     [List connected physical interfaces](#list-connected-physical-interfaces)    |
+| **SSL and TLS certificates**    |         |         |
+|Certificate management     | *cyberx        | [Import SSL and TLS certificates to your OT sensor](#import-ssl-and-tls-certificates-to-your-ot-sensor)<br>[Restore default self-signed certificate](#restore-default-self-signed-certificate)        |
+|**Backup and restore**     |         |         |
+|Backup files     | *support*, *cyberx*        | [List current backup files](#list-current-backup-files)        |
+|Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](#display-backup-disk-space-allocation)       |
+|Unscheduled backup     |   *support*, *cyberx*      | [Start an immediate, unscheduled backup](#start-an-immediate-unscheduled-backup)        |
+|Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](#restore-data-from-the-most-recent-backup)        |
+|**Alerts**     |         |         |
+|Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](#trigger-a-test-alert)      |
+| Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](#delete-an-alert-exclusion-rule)
+|**Traffic capture filters**     |         |         |
+| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](#reset-all-capture-filters)   |
+
+-->
 
 ## Check OT monitoring services health
 
@@ -174,17 +213,17 @@ root@xsense:
 
 ## Local sign-in and passwords
 
-### Reset local user passwords
+### Change local user passwords
 
-Use the following commands to reset passwords for local users on your OT sensor.
+Use the following commands to change passwords for local users on your OT sensor.
 
-- To reset the password for the *cyberx* or *support* user. Passwords will be reset for both SSH and web access.
-- To reset the password for locally defined users accessing the local management web-interface.
+When resetting the password for the *cyberx*, *support*, or *cyberx-host* user, the password is reset for both SSH and web access.
 
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
+|**cyberx_host**  |   `passwd` | No attributes   |
 
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
@@ -199,13 +238,7 @@ resetting the password of UI user "support"
 root@xsense:/#
 ```
 
-The *cyberx_host* user can be changed after a successful sign-in with the following command:
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx_host**  |   `passwd` | No attributes   |
-
-For example with the cyberx_host user:
+The following example shows the *cyberx-host* user changing the *cyberx-host* user's password.
 
 ```bash
 cyberx_host@xsense:/# passwd
@@ -239,6 +272,8 @@ In the case of too many failed sign-ins, the failed sign-in protection mechanism
 ## Validate network settings
 
 ### Validate and show network interface configuration
+
+Use the following commands to send a validate and show the current network interface configuration on the OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -440,7 +475,7 @@ For more information, see [Install OT monitoring software](../how-to-install-sof
 
 ## Manage SSL and TLS certificates
 
-### Set up SSL certificates by CLI
+### Import SSL and TLS certificates to your OT sensor
 
 Use the following command to import SSL and TLS certificates to the sensor from the CLI.
 
@@ -470,7 +505,7 @@ For example, for the *cyberx* user:
 root@xsense:/# cyberx-xsense-certificate-import
 ```
 
-### Restore default self-signed certificate by CLI
+### Restore the default self-signed certificate
 
 Use this command in order to restore the default self-signed certificates on the appliance (This should be used only for troubleshooting and not production environments).
 
@@ -606,7 +641,7 @@ root@xsense:
 
 
 
-## Triggering a test alert
+## Trigger a test alert
 
 Use the following command to test connectivity and alert forwarding from the sensor to management consoles, including the Azure portal, a Defender for IoT on-premises management console, or a third-party SIEM.
 
@@ -622,7 +657,7 @@ Triggering Test Alert...
 Test Alert was successfully triggered.
 ```
 
-## Applying capture filters for incoming traffic
+## Create capture filters for incoming traffic
 
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source.
 
@@ -630,9 +665,13 @@ In such cases, use include and/or exclude lists to create and configure capture 
 
 Capture filters don't apply to [Defender for IoT malware alerts](../alert-engine-messages.md#malware-engine-alerts), which are triggered on all detected network traffic.
 
-A basic capture filter applies for all Defender for IoT service components. Configuring separate capture filters per component is an advanced configuration.
+The basic use case for capture filters uses the same filter for all Defender for IoT components. However, for advanced use cases, you may want to configure separate filters for each of the following Defender for IoT components:
 
-### Creating a capture filter: Basic configuration
+- `horizon`: Captures deep packet inspection (DPI) data
+- `collector`: Captures PCAP data
+- `traffic-monitor`: Captures communication statistics
+
+### Create a basic filter for all components
 
 The method used to configure a basic capture filter differs, depending on the user performing the command:
 
@@ -725,15 +764,9 @@ Reply to the prompts displayed as follows:
 
     The default mode is `internal`. To use the `all-connected` mode, select `Y` at the prompt, and then enter `all-connected`.
 
-### Creating a capture filter: Advanced configuration
+### Create an advanced filter for specific components
 
-The basic use case for capture filters uses the same filter for all Defender for IoT components. However, for advanced use cases, you may want to configure separate filters for each of the following Defender for IoT components:
-
-- `horizon`: Captures deep packet inspection (DPI) data
-- `collector`: Captures PCAP data
-- `traffic-monitor`: Captures communication statistics
-
-When configuring capture filters for specific components, you can use your initial include and exclude files as a base, or template, capture filter. Then, configure extra filters for each component on top of the base as needed.
+When configuring advanced capture filters for specific components, you can use your initial include and exclude files as a base, or template, capture filter. Then, configure extra filters for each component on top of the base as needed.
 
 To create a capture filter for *each* component, make sure to repeat the entire process for each component.
 
@@ -778,7 +811,7 @@ Most of the prompts are identical to [basic use case](#create-a-basic-capture-fi
 
 Continue with the remaining prompts as in the [basic use case](#create-a-basic-capture-filter-using-the-support-user).
 
-### Viewing capture filters on the sensor components
+### List current capture filters for specific components
 
 Use the following commands to show details about the current capture filters configured for your sensor.
 
@@ -796,7 +829,7 @@ These commands open the following files, which list the capture filters configur
 |**collector**     |   `/var/cyberx/properties/dumpark.properties`      |   `dumpark.network.filter`      |
 
 
-### Resetting all capture filters
+### Reset all capture filters
 
 Use the following command to reset your sensor to the default capture configuration with the *cyberx* user, removing all capture filters.
 
@@ -838,7 +871,7 @@ The following commands support alert exclusion features on your OT sensor, inclu
 > [!NOTE]
 > Alert exclusion rules defined on an OT sensor can be overwritten by alert exclusion rules defined on your on-premises management console.
 
-### Showing alert exclusion rules
+### Show current alert exclusion rules
 
 Use the following command to display a list of currently configured exclusion rules.
 
@@ -855,7 +888,7 @@ starting "/usr/local/bin/cyberx-xsense-exclusion-rule-list"
 root@xsense:
 ```
 
-### Creating a new alert exclusion rule
+### Create a new alert exclusion rule
 
 Use the following commands to create a local alert exclusion rule on your sensor.
 
@@ -909,7 +942,7 @@ alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-### Deleting an alert exclusion rule
+### Delete an alert exclusion rule
 
 Use the following commands to delete an existing local alert exclusion rule on your sensor.
 
