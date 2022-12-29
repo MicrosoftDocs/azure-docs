@@ -277,4 +277,4 @@ To delete the additional resources created for the move, follow these steps:
 
 ## Next steps
 
-[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region].
+[Learn more](./tutorial-move-region-sql.md) about moving Azure SQL databases and elastic pools to another region.

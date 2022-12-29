@@ -118,7 +118,7 @@
   - name: REST
     href: /rest/api/compute/cloud-services
   - name: .NET
-    href: /dotnet/api/overview/azure/virtualmachines/management
+    href: /dotnet/api/overview/azure/virtualmachines#management-apis
   - name: SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview
   - name: CLI
