@@ -46,7 +46,7 @@ VLANS are either discovered automatically by the sensor or added manually. Autom
 VLANs support is based on 802.1q (up to VLAN ID 4094).
 
 > [!NOTE]
-> VLAN names aren't synchronized between the sensor and the management console. You need to define the name on the management console as well.
+> VLAN names aren't synchronized between the sensor and the management console. You need to [define the name](how-to-manage-the-on-premises-management-console.md#define-vlan-names) on the management console as well.
 
 **To configure VLAN names:**
 
