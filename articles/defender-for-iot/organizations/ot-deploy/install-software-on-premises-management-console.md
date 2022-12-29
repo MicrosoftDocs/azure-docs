@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Install Microsoft Defender for IoT OT management software on an on-premises management console?
 
-This article describes how to install Microsoft Defender for IoT OT management software on an on-premises management console.
+This article describes how to install Microsoft Defender for IoT OT management software on an on-premises management console. You might need the procedures in this article if you're reinstalling software on a pre-configured appliance, or if you've chosen to install software on your own appliances.
 
 ## Prerequisites
 
