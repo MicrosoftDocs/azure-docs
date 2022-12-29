@@ -70,7 +70,7 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 3. On the **Create a resource** screen, search for and select **Application Insights** in the marketplace search textbox.
 
-   :::image type="content" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/search-application-insights.png" alt-text="Screenshot of the Create a resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/search-application-insights.png":::
       Screenshot of the Create a resource screen in the Azure portal. The screenshot shows a search for Application Insights highlighted and Application Insights displaying in the search results, which is also highlighted.
    :::image-end:::
 
@@ -98,7 +98,7 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 8. On the Overview screen of the Application Insights resource, select the **Copy to clipboard** button to copy the connection string value. You will use the connection string value in the next section of this article.
 
-   :::image type="content" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/application-insights-connection-string-overview.png" alt-text="Screenshot of the Application Insights Overview screen in the Azure portal." lightbox="media/tutorial-asp-net-core/application-insights-connection-string-overview.png":::
       Screenshot of the Application Insights Overview screen in the Azure portal. The screenshot shows the connection string value highlighted and the Copy to clipboard button selected and highlighted.
    :::image-end:::
 
@@ -110,7 +110,7 @@ In order to provide globally unique names to resources, a six-character suffix i
 
 2. From the left menu, under the Settings section, select **Configuration**. Then, on the **Application settings** tab, select **+ New application setting** beneath the Application settings header.
 
-   :::image type="content" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/app-service-app-setting-button.png" alt-text="Screenshot of the App Service resource screen in the Azure portal." lightbox="media/tutorial-asp-net-core/app-service-app-setting-button.png":::
       Screenshot of the App Service resource screen in the Azure portal. The screenshot shows Configuration in the left menu under the Settings section selected and highlighted, the Application settings tab selected and highlighted, and the + New application setting toolbar button highlighted.
    :::image-end:::
 
@@ -139,7 +139,7 @@ We need to configure the ASP.NET Core MVC web application to send telemetry. Thi
 
 3. Select the **Browse** tab and then search for and select **Microsoft.ApplicationInsights.AspNetCore**. Select **Install**, and accept the license terms. It is recommended you use the latest stable version. For the full release notes for the SDK, see the [open-source GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/releases).
 
-   :::image type="content" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png" alt-text="Screenshot of the NuGet Package Manager user interface in Visual Studio." lightbox="media/tutorial-asp-net-core/asp-net-core-install-nuget-package.png":::
       Screenshot that shows the NuGet Package Manager user interface in Visual Studio with the Browse tab selected. Microsoft.ApplicationInsights.AspNetCore is entered in the search box, and the Microsoft.ApplicationInsights.AspNetCore package is selected from a list of results. In the right pane, the latest stable version of the Microsoft.ApplicationInsights.AspNetCore package is selected from a drop down list and the Install button is highlighted.
    :::image-end:::
 
@@ -285,13 +285,13 @@ Application Insights introspects the incoming telemetry data and is able to gene
 
 3. The **Operations** tab contains details of the HTTP calls received by the application. To toggle between Server and Browser (client-side) views of the data, use the Server/Browser toggle.
 
-   :::image type="content" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Performance screen in the Azure portal." lightbox="media/tutorial-asp-net-core/server-performance.png":::
+   :::image type="complex" source="media/tutorial-asp-net-core/server-performance.png" alt-text="Screenshot of the Performance screen in the Azure portal." lightbox="media/tutorial-asp-net-core/server-performance.png":::
       Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows the Server/Browser toggle and HTTP calls received by the application highlighted.
    :::image-end:::
 
 4. Select an Operation from the table, and choose to drill into a sample of the request.
  
-    :::image type="content" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
+    :::image type="complex" source="media/tutorial-asp-net-core/select-operation-performance.png" alt-text="Screenshot of the Application Insights Performance screen in the Azure portal with operations and sample operations listed." lightbox="media/tutorial-asp-net-core/select-operation-performance.png":::
        Screenshot of the Application Insights Performance screen in the Azure portal. The screenshot shows a POST operation and a sample operation from the suggested list selected and highlighted and the Drill into samples button is highlighted.
     :::image-end:::
 
