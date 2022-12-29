@@ -53,7 +53,7 @@ Each workflow has different capabilities, particularly around which type of comp
 | Scenario | MLflow SDK | Azure ML CLI/SDK | Azure ML studio |
 | :- | :-: | :-: | :-: |
 | Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
-| Deploy to managed online endpoints (with a scoring script) |  | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) | Not supported  |
+| Deploy to managed online endpoints (with a scoring script) |  | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) |  |
 | Deploy to batch endpoints |  | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
 | Deploy to batch endpoints (with a scoring script) |  | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) |   |
 | Deploy to web services (ACI/AKS) | Legacy support<sup>2</sup> | <sup>2</sup> | <sup>2</sup> |
@@ -224,11 +224,6 @@ If you want to customize how inference is executed for MLflow models (or opt-out
 
 To learn more, review these articles:
 
-- [Deploy models with REST](how-to-deploy-with-rest.md)
-- [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
-- [Safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md)
-- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
-- [Use batch endpoints for batch scoring](batch-inference/how-to-use-batch-endpoint.md)
-- [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with an online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
-- [Troubleshoot online endpoint deployment](how-to-troubleshoot-managed-online-endpoints.md)
+- [Deploy MLflow models to online endpoints](how-to-deploy-mlflow-models-online-endpoints.md)
+- [Progressive rollout of MLflow models](how-to-deploy-mlflow-models-online-progressive.md)
+- [Deploy MLflow models to Batch Endpoints](how-to-mlflow-batch.md)

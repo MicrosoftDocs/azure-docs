@@ -79,6 +79,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     ```python
     import json
     import mlflow
+    import urllib.request
     from mlflow.deployments import get_deploy_client
     ```
 
@@ -339,6 +340,74 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     )    
     ```
 
+1. Create a sample input to test the deployment
+
+    # [Azure CLI](#tab/cli)
+    
+    __sample.yml__
+
+    ```yml
+    {
+        "input_data": {
+            "columns": [
+                "age",
+                "sex",
+                "cp",
+                "trestbps",
+                "chol",
+                "fbs",
+                "restecg",
+                "thalach",
+                "exang",
+                "oldpeak",
+                "slope",
+                "ca",
+                "thal"
+            ],
+            "data": [
+                [ 48, 0, 3, 130, 275, 0, 0, 139, 0, 0.2, 1, 0, "normal" ]
+            ]
+        }
+    }
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    The following code samples 5 observations from the training dataset, removes the `target` column (as the model will predict it), and creates a request in the file `sample.json` that can be used with the model deployment.
+
+    ```python
+    samples = (
+        pd.read_csv("data/heart.csv")
+        .sample(n=5)
+        .drop(columns=["target"])
+        .reset_index(drop=True)
+    )
+    
+    with open("sample.json", "w") as f:
+        f.write(
+            json.dumps(
+                {"input_data": json.loads(samples.to_json(orient="split", index=False))}
+            )
+        )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    The following code samples 5 observations from the training dataset, removes the `target` column (as the model will predict it), and creates a request.
+
+    ```python
+    samples = (
+        pd.read_csv("data/heart.csv")
+        .sample(n=5)
+        .drop(columns=["target"])
+        .reset_index(drop=True)
+    )
+    
+    sample_request = json.dumps(
+                {"input_data": json.loads(samples.to_json(orient="split", index=False))}
+            )
+    ```
+
 1. Test the deployment
 
     # [Azure CLI](#tab/cli)
@@ -357,17 +426,31 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
-    
-    Let's create the authentication header:
+
+    Get the scoring URI:
 
     ```python
-    authentication_header = f"'Authorization: Bearer {endpoint_secret_key}'"
+    scoring_uri = deployment_client.get_endpoint(endpoint=endpoint_name)["properties"]["scoringUri"]
+    ```
+    
+    Let's create the headers:
+
+    ```python
+    headers = {
+        'Content-Type':'application/json',
+        'Authorization':('Bearer '+ endpoint_secret_key),
+        'azureml-model-deployment': 'default'
+    }
     ```
 
     Call the endpoint and its default deployment:
 
     ```python
-    
+    req = urllib.request.Request(scoring_uri, sample_request, headers)
+    response = urllib.request.urlopen(req)
+
+    result = response.read()
+    print(result)
     ```
 
 ### Create a green deployment under the endpoint
