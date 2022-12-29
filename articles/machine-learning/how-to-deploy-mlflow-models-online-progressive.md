@@ -281,7 +281,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     blue_deployment_name = "default"
     ```
 
-    Configure the hardware requirements of you deployment:
+    Configure the hardware requirements of your deployment:
     
     ```python
     blue_deployment = ManagedOnlineDeployment(
@@ -299,7 +299,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     blue_deployment_name = "default"
     ```
 
-    To configure the hardware requirements of you deployment, you need to create a JSON file with the desired configuration:
+    To configure the hardware requirements of your deployment, you need to create a JSON file with the desired configuration:
 
     ```python
     deploy_config = {
@@ -524,7 +524,7 @@ Let's imagine that there is a new version of the model created by the developmen
     green_deployment_name = f"xgboost-model-{version}"
     ```
 
-    Configure the hardware requirements of you deployment:
+    Configure the hardware requirements of your deployment:
     
     ```python
     green_deployment = ManagedOnlineDeployment(
@@ -542,7 +542,7 @@ Let's imagine that there is a new version of the model created by the developmen
     green_deployment_name = f"xgboost-model-{version}"
     ```
 
-    To configure the hardware requirements of you deployment, you need to create a JSON file with the desired configuration:
+    To configure the hardware requirements of your deployment, you need to create a JSON file with the desired configuration:
 
     ```python
     deploy_config = {

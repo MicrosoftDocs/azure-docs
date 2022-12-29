@@ -92,7 +92,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 # [Studio](#tab/studio)
 
-Navigate to [Azure Machine Learning Studio](https://ml.azure.com).
+Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 
 ---
 
