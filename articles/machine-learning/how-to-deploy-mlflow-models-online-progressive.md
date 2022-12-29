@@ -329,8 +329,11 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml
+    az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml --all-traffic
     ```
+    
+    > [!TIP]
+    > We set the flag `--all-traffic` in the create command, which will assign all the traffic to the new deployment.
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -347,6 +350,57 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         model_uri=f"models:/{model_name}/{version}",
         config={"deploy-config-file": deployment_config_path},
     )    
+    ```
+
+1. Assign all the traffic to the deployment
+    
+    So far, the endpoint has one deployment, but none of its traffic is assigned to it. Let's assign it.
+
+    # [Azure CLI](#tab/cli)
+    
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    endpoint.traffic = { blue_deployment_name: 100 }
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    traffic_config = {"traffic": {blue_deployment_name: 100}}
+    ```
+
+    Write the configuration to a file:
+
+    ```python
+    traffic_config_path = "traffic_config.json"
+    with open(traffic_config_path, "w") as outfile:
+        outfile.write(json.dumps(traffic_config))
+    ```
+
+1. Update the endpoint configuration:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    *This step in not required in the Azure CLI since we used the `--all-traffic` during creation.*
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.begin_create_or_update(endpoint).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    deployment_client.update_endpoint(
+        endpoint=endpoint_name,
+        config={"endpoint-config-file": traffic_config_path},
+    )
     ```
 
 1. Create a sample input to test the deployment
@@ -446,7 +500,6 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     headers = {
         'Content-Type':'application/json',
         'Authorization':('Bearer '+ endpoint_secret_key),
-        'azureml-model-deployment': 'default'
     }
     ```
 
