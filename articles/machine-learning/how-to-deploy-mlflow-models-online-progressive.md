@@ -80,6 +80,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
     import json
     import mlflow
     import urllib.request
+    import pandas as pd
     from mlflow.deployments import get_deploy_client
     ```
 
@@ -404,8 +405,8 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     )
     
     sample_request = json.dumps(
-                {"input_data": json.loads(samples.to_json(orient="split", index=False))}
-            )
+        {"input_data": json.loads(samples.to_json(orient="split", index=False))}
+    )
     ```
 
 1. Test the deployment
