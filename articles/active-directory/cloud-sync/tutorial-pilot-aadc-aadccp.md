@@ -22,7 +22,7 @@ This tutorial walks you through piloting cloud sync for a test Active Directory 
 
 ## Considerations
 
-Before you try this tutorial, keep the following considerations in mind:
+Before you try this tutorial, keep the following in mind:
 
 * You should be familiar with the basics of cloud sync.
 
@@ -58,7 +58,7 @@ Before you begin, be sure that you've set up your environment to meet the follow
 
 ## Stop the scheduler
 
-Azure AD Connect sync synchronizes changes occurring in your on-premises directory by using a scheduler. To modify and add custom rules, disable the scheduler so that synchronizations won't run while you're making the changes. To stop the scheduler, use the following steps:
+Azure AD Connect sync synchronizes changes occurring in your on-premises directory by using a scheduler. To modify and add custom rules, disable the scheduler so that synchronizations won't run while you're making the changes. To stop the scheduler:
 
 1. On the server that's running Azure AD Connect sync, open PowerShell with administrative privileges.
 1. Run `Stop-ADSyncSyncCycle`, and then select **Enter**.
@@ -69,15 +69,15 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 
 ## Create a custom user inbound rule
 
- 1. Open **Synchronization Rules Editor** from the application menu in the desktop, as shown in the following screenshot:
+1. Open **Synchronization Rules Editor** from the application menu in the desktop, as shown in the following screenshot:
  
      ![Screenshot of the "Synchronization Rules Editor" command.](media/tutorial-migrate-aadc-aadccp/user-8.png)
 
- 1. Under **Direction**, select **Inbound** from the dropdown list, and then select **Add new rule**.
+1. Under **Direction**, select **Inbound** from the dropdown list, and then select **Add new rule**.
 
      ![Screenshot of the "View and manage your synchronization rules" pane, with "Inbound" and the "Add new rule" button selected.](media/tutorial-migrate-aadc-aadccp/user-1.png)
 
- 1. On the **Description** page, enter the following values, and then select **Next**:
+1. On the **Description** page, do the following:
 
     - **Name**: Give the rule a meaningful name.
     - **Description**: Add a meaningful description.
@@ -90,20 +90,20 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 
     ![Screenshot that shows the "Create inbound synchronization rule - Description" page with values entered.](media/tutorial-migrate-aadc-aadccp/user-2.png)
 
- 1. On the **Scoping filter** page, enter the OU or security group that the pilot is based on.  
+1. On the **Scoping filter** page, enter the OU or security group that the pilot is based on.  
  
-    To filter on OU, add the OU portion of the *distinguished name* (DN). This rule will be applied to all users who are in that OU. So, if DN ends with "OU=CPUsers,DC=contoso,DC=com, add this filter.
+    To filter on OU, add the OU portion of the *distinguished name* (DN). This rule will be applied to all users who are in that OU. for example, if DN ends with "OU=CPUsers,DC=contoso,DC=com, add this filter.
 
     |Rule|Attribute|Operator|Value|
     |-----|----|----|-----|
     |Scoping&nbsp;OU|DN|ENDSWITH|The distinguished name of the OU.|
     |Scoping&nbsp;group||ISMEMBEROF|The distinguished name of the security group.|
 
-    ![Screenshot that shows the "Create inbound synchronization rule" pane with a scoping filter value entered.](media/tutorial-migrate-aadc-aadccp/user-3.png)
+    ![Screenshot that shows the "Create inbound synchronization rule" page with a scoping filter value entered.](media/tutorial-migrate-aadc-aadccp/user-3.png)
 
- 1. Select **Next**.
- 1. On the **Join** rules page, select **Next**.
- 1. Under **Add transformations**, do the following:
+1. Select **Next**.
+1. On the **Join** rules page, select **Next**.
+1. Under **Add transformations**, do the following:
  
     * **FlowType**: Select **Constant**.  
     * **Target Attribute**: Select **cloudNoFlow**.  
@@ -111,17 +111,19 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 
      ![Screenshot that shows the **Create inbound synchronization rule - Transformations** page with a **Constant transformation** flow added.](media/tutorial-migrate-aadc-aadccp/user-4.png)
 
+1. Select **Next**.
+
 1. Select **Add**.
 
 Follow the same steps for all object types (*user*, *group*, and *contact*). Repeat the steps for each configured AD Connector and Active Directory forest.
 
 ## Create a custom user outbound rule
 
- 1. In the **Direction** dropdown list, select **Outbound**, and then select **Add rule**.
+1. In the **Direction** dropdown list, select **Outbound**, and then select **Add rule**.
 
      ![Screenshot that highlights the selected "Outbound" direction and the "Add new rule" button.](media/tutorial-migrate-aadc-aadccp/user-5.png)
 
- 1. On the **Description** page, enter the following and select **Next**:
+1. On the **Description** page, do the following:
 
     - **Name**: Give the rule a meaningful name.
     - **Description**: Add a meaningful description.
@@ -134,7 +136,9 @@ Follow the same steps for all object types (*user*, *group*, and *contact*). Rep
 
     ![Screenshot of the "Create outbound synchronization rule" pane with properties entered.](media/tutorial-migrate-aadc-aadccp/user-6.png)
 
- 1. On the **Create outbound synchronization rule** pane, under **Add scoping filters**, do the following:
+1. Select **Next**.
+
+1. On the **Create outbound synchronization rule** pane, under **Add scoping filters**, do the following:
  
     * **Attribute**: Select **cloudNoFlow**.
     * **Operator**: Select **EQUAL**.
@@ -223,7 +227,7 @@ After the scheduler is enabled, Azure AD Connect stops exporting any changes on 
 
 If there's any reference attribute update on the object, Azure AD Connect will ignore the `cloudNoFlow` signal and export all updates on the object.
 
-## Does the setup work as expected?
+## Does your setup work?
 
 If the pilot doesn't work as you had expected, you can go back to the Azure AD Connect sync setup by doing the following:
 
