@@ -6,11 +6,15 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/07/2022
+ms.date: 12/29/2022
 ---
 # Custom classifications in Microsoft Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
+
+>[IMPORTANT]
+>To create a custom classification you need either **data curator** or **data source administrator** permission on a collection. Permissions at any collection level are sufficient.
+>For more information about permissions, see: [Microsoft Purview permissions](catalog-permissions.md).
 
 ## Default system classifications
 
@@ -30,11 +34,13 @@ You also have the ability to create custom classifications, if any of the defaul
 
 To create a custom classification, follow these steps:
 
+1. You'll need [**data curator** or **data source administrator** permissions on any collection](catalog-permissions.md) to be able to create a custom classification.
+
 1. From your catalog, select **Data Map** from the left menu.
 
-2. Select **Classifications** under **Annotation management**.
+1. Select **Classifications** under **Annotation management**.
 
-3. Select **+ New**
+1. Select **+ New**
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="New classification" border="true":::
 
