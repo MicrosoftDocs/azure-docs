@@ -192,7 +192,7 @@ Use **Manage preview features** to access this feature.
 1. Scroll down until you see **Configure auto-shutdown for idle compute instances**.
 1. Toggle the switch to enable the feature.
 
-:::image type="content" source="media/how-to-enable-preview-features/enable-feature.png" alt-text="Screenshot: Enable auto-shutdown.":::
+:::image type="content" source="media/how-to-create-manage-compute-instance/enable-preview.png" alt-text="Screenshot: Enable auto-shutdown.":::
 
 Once enabled, the setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
 
