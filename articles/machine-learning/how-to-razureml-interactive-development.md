@@ -100,7 +100,7 @@ Use these steps to read a tabular file data asset [created in Azure Machine Lear
     
     1. Run the code to retrieve the URI.
 
-        [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=run_py_string)]
+        [!Notebook-r[](~/azureml-examples-mavaisma-r-azureml/tutorials/using-r-with-azureml/02-develop-in-interactive-r/work-with-data-assets.ipynb?name=py_run_string)]
     
 1. Use Pandas read functions to read  the file(s) into the R environment
 
