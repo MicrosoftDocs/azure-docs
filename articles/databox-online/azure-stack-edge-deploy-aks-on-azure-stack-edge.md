@@ -45,7 +45,7 @@ Before you begin, ensure that:
 
 Depending on the workloads you intend to deploy, you may need to ensure the following **optional** steps are also completed:
  
-- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You will also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
+- If you intend to deploy [custom locations](../azure-arc/platform/conceptual-custom-locations.md) on your Arc-enabled cluster, you’ll need to register the `Microsoft.ExtendedLocation` resource provider against your subscription. You'll also need to fetch the custom location object ID and use it to enable custom locations via the PowerShell interface of your device.
 
    Here's a sample output using the Azure CLI. You can run the same commands via the Cloud Shell in the Azure portal.
 
@@ -63,7 +63,7 @@ Depending on the workloads you intend to deploy, you may need to ensure the foll
      ```azurepowershell
      Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName (hostname)
      ```
-     Here's an example output where all the vcpus were reserved:
+     Here's an example output where all the vCPUs were reserved:
 
      ```azurepowershell
      [10.126.77.42]: PS>hostname
@@ -121,7 +121,7 @@ Use the following steps to assign static IP pools in the local UI of your device
  
       ![Screenshots that show the Add virtual network dialogs in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-virtual-networks.png)
 
-    1. Once all three virtual networks are configured, they'll be listed under the virtual networks as shown below. 
+    1. Once all three virtual networks are configured, they'll be listed under the virtual networks, as follows: 
  
        ![Screenshot that shows the Advanced networking page in the Azure portal.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-advanced-networking.png)
 
@@ -158,7 +158,7 @@ You’ll now configure the virtual switch that you create for Kubernetes compute
 
    - An extra IP is used for rolling updates.
 
-     For a single node device, the above results in six IPs to deploy a Kubernetes cluster. For a 2-node cluster, you need seven IPs.
+     For a single node device, the above results in six IPs to deploy a Kubernetes cluster. For a two node cluster, you need seven IPs.
 
 1. For the Kubernetes external service IPs, supply static IPs for services that are exposed outside the Kubernetes cluster. Each such service would need one IP. 
 
@@ -189,7 +189,7 @@ You’ll now set up and deploy the Kubernetes cluster and enable it for manageme
    > [!IMPORTANT]
    > Before you proceed to create the Kubernetes cluster, keep in mind that:
    >- You can't modify the IP pool settings after the AKS cluster is deployed.
-   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom location](#enable-aks-and-custom-locations) in this article. If you didn’t enable custom locations, you can still choose to do this before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
+   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom locations](#enable-aks-and-custom-locations) in this article. If you didn’t enable custom locations, you can still choose to do this before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
 
 Follow these steps to deploy the AKS cluster.
 
@@ -225,7 +225,7 @@ Follow these steps to deploy the AKS cluster.
 
    ![Screenshot that shows the Create Kubernetes service page of the Azure Stack Edge UI.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-create-kubernetes-service.png)
 
-1. You are notified when the cluster creation starts.
+1. You're notified when the cluster creation starts.
 
    ![Screenshot that shows Azure Stack Edge Azure Arc Kubernetes cluster creation.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-arc-kubernetes-cluster-creation.png)
 
@@ -256,7 +256,7 @@ On your Azure Stack Edge Pro device, statically provisioned `PersistentVolumes` 
 
 ![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge compute option.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-1.png)
 
-To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. Using this option, any application data that you write to the Edge share will be tiered to the cloud.
+To use cloud tiering, you can create an Edge cloud share with the **Use the share with Edge compute** option enabled. A PV is again created automatically for this share. If you enable this option, any application data that you write to the Edge share will be tiered to the cloud.
 
 ![Screenshot that shows Cloud storage gateway to add a share with the Use the share with Edge local share option enabled.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-add-share-using-edge-compute-option-2.png)
 
