@@ -4,6 +4,7 @@ description: In this quickstart, you learn how to create a Python App that uses 
 author: flang-msft
 
 ms.author: franlanglois
+
 ms.date: 02/15/2023
 ms.topic: quickstart
 ms.service: cache
@@ -79,7 +80,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print(f"CLIENT LIST returned : ")
+print("CLIENT LIST returned : ")
 for c in result:
     print(f"id : {c['id']}, addr : {c['addr']}")
 ```
