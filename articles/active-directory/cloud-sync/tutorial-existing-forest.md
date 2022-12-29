@@ -89,7 +89,7 @@ To configure the cloud sync setup, do the following:
 
 1.  The configuration status should now be **Healthy**.
 
-    ![Screenshot of Azure AD Connect cloud sync screen, showing a "Healthy" status.](media/how-to-configure/manage-4.png)
+    ![Screenshot of Azure AD Connect cloud sync page, showing a "Healthy" status.](media/how-to-configure/manage-4.png)
 
 ## Verify that users are created and synchronization is occurring
 
