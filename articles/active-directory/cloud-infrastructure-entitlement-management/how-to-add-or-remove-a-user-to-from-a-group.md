@@ -12,9 +12,9 @@ ms.date: 12/28/2022
 ms.author: jfields
 ---
 
-# Add or remove a user to/from Permissions Management
+# Add or remove a user in Permissions Management
 
-This article describes how you can add or remove a new user to/from a group in Permissions Management. 
+This article describes how you can add or remove a new user for a group in Permissions Management. 
 
 > [!NOTE] 
 > Permissions Management entitlements work through group-based access. To add a new user, you must add a user to a group through Azure Active Directory (AD).
