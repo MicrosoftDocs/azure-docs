@@ -1,0 +1,597 @@
+---
+title: Progressive rollout of MLflow models
+titleSuffix: Azure Machine Learning
+description: Learn to deploy your MLflow model progressively using MLflow SDK.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+author: santiagxf
+ms.author: fasantia
+ms.reviewer: mopeakande
+ms.date: 03/31/2022
+ms.topic: how-to
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.devlang: azurecli
+---
+
+# Progressive rollout of MLflow models
+
+In this article, you'll learn how you can progressively update and deploy MLflow models to Online Endpoints without causing service disruption. You'll use blue-green deployment, also known as a safe rollout strategy, to introduce a new version of a web service to production. This strategy will allow you to roll out your new version of the web service to a small subset of users or requests before rolling it out completely.
+
+## About this example
+
+Online Endpoints have the concept of __Endpoint__ and __Deployment__. An endpoint represent the API that customers uses to consume the model, while the deployment indicates the specific implementation of that API. This distinction allows users to decouple the API from the implementation and to change the underlying implementation without affecting the consumer. This example will use this concepts to update the deployed model in endpoints without introducing service disruption. 
+
+The model we will deploy is based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence). It has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
+
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to `sdk/using-mlflow/deploy`.
+
+### Follow along in Jupyter Notebooks
+
+You can follow along this sample in the following notebooks. In the cloned repository, open the notebook: [mlflow_sdk_online_endpoints_progresive.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/using-mlflow/deploy/mlflow_sdk_online_endpoints_progresive.ipynb).
+
+## Prerequisites
+
+Before following the steps in this article, make sure you have the following prerequisites:
+
+- Install the Mlflow SDK package: `mlflow`.
+- Install the Azure Machine Learning plug-in for MLflow: `azureml-mlflow`.
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+
+### Registering the model in the registry
+
+Ensure your model is registered in Azure Machine Learning registry. Deployment of unregistered models is not supported in Azure Machine Learning. You can register a new model using the MLflow SDK:
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+MODEL_NAME='heart-classifier'
+az ml model create --name $MODEL_NAME --type "mlflow_model" --path "model"
+```
+
+# [Python (Azure ML SDK)](#tab/sdk)
+
+```python
+model_name = 'heart-classifier'
+model_local_path = "model"
+
+model = ml_client.models.create_or_update(
+     Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
+)
+```
+
+# [Python (MLflow SDK)](#tab/mlflow)
+
+```python
+model_name = 'heart-classifier'
+model_local_path = "model"
+
+registered_model = mlflow_client.create_model_version(
+    name=model_name, source=f"file://{model_local_path}"
+)
+version = registered_model.version
+```
+
+---
+
+## Create an online endpoint
+
+Online endpoints are endpoints that are used for online (real-time) inferencing. Online endpoints contain deployments that are ready to receive data from clients and can send responses back in real time.
+
+We are going to exploit this functionality by deploying multiple versions of the same model under the same endpoint. However, the new deployment will receive 0% of the traffic at the begging. Once we are sure about the new model to work correctly, we are going to progressively move traffic from one deployment to the other.
+
+#. Endpoints require a name, which needs to be unique in the same region. Let's ensure to create one that doesn't exist:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    ENDPOINT_SUFIX=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-5} | head -n 1)
+    ENDPOINT_NAME="heart-classifier-$ENDPOINT_SUFIX"
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    import random
+    import string
+    
+    # Creating a unique endpoint name by including a random suffix
+    allowed_chars = string.ascii_lowercase + string.digits
+    endpoint_suffix = "".join(random.choice(allowed_chars) for x in range(5))
+    endpoint_name = "heart-classifier-" + endpoint_suffix
+    
+    print(f"Endpoint name: {endpoint_name}")
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    import random
+    import string
+    
+    # Creating a unique endpoint name by including a random suffix
+    allowed_chars = string.ascii_lowercase + string.digits
+    endpoint_suffix = "".join(random.choice(allowed_chars) for x in range(5))
+    endpoint_name = "heart-classifier-" + endpoint_suffix
+    
+    print(f"Endpoint name: {endpoint_name}")
+    ```
+
+#. Configure the endpoint
+
+    # [Azure CLI](#tab/cli)
+    
+    __endpoint.yml__
+
+    ```yaml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
+    name: heart-classifier-edp
+    auth_mode: key
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    endpoint = ManagedOnlineEndpoint(
+        name=endpoint_name,
+        description="An endpoint to serve predictions of the UCI heart disease problem",
+        auth_mode="key",
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    We can configure the properties of this endpoint using a configuration file. In this case, we are configuring the authentication mode of the endpoint to be "key".
+    
+    ```python
+    endpoint_config = {"auth_mode": "key"}
+    ```
+
+    Let's write this configuration into a `JSON` file:
+
+    ```python
+    endpoint_config_path = "endpoint_config.json"
+    with open(endpoint_config_path, "w") as outfile:
+        outfile.write(json.dumps(endpoint_config))
+    ```
+
+#. Create the endpoint:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint create -n $ENDPOINT_NAME -f endpoint.yml
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_endpoints.begin_create_or_update(endpoint).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    endpoint = deployment_client.create_endpoint(
+        name=endpoint_name,
+        config={"endpoint-config-file": endpoint_config_path},
+    )
+    ```
+
+#. Getting the authentication secret for the endpoint.
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    ENDPOINT_SECRET_KEY=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME | jq -r ".accessToken")
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    endpoint_secret_key = ml_client.online_endpoints.list_keys(
+        name=endpoint_name
+    ).access_token
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    This functionality is not available in the MLflow SDK. Go to [Azure ML studio](https://ml.azure.com), navigate to the endpoint and retrieve the secret key from there. Once you have it, set the value here:
+
+    ```python
+    endpoint_secret_key = "<ACCESS_KEY>"
+    ```
+
+### Create a blue deployment
+
+So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default" and this will represent our "blue deployment".
+
+#. Configure the deployment
+
+    # [Azure CLI](#tab/cli)
+    
+    __blue-deployment.yml__
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+    name: default
+    endpoint_name: heart-classifier-edp
+    model: azureml:heart-classifier@latest
+    instance_type: Standard_DS2_v2
+    instance_count: 1
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+
+    ```python
+    blue_deployment_name = "default"
+    ```
+
+    Configure the hardware requirements of you deployment:
+    
+    ```python
+    blue_deployment = ManagedOnlineDeployment(
+        name=blue_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    blue_deployment_name = "default"
+    ```
+
+    To configure the hardware requirements of you deployment, you need to create a JSON file with the desired configuration:
+
+    ```python
+    deploy_config = {
+        "instance_type": "Standard_DS2_v2",
+        "instance_count": 1,
+    }
+    ```
+    
+    Write the configuration to a file:
+
+    ```python
+    deployment_config_path = "deployment_config.json"
+    with open(deployment_config_path, "w") as outfile:
+        outfile.write(json.dumps(deploy_config))
+    ```
+
+#. Create the deployment
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f blue-deployment.yml
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_deployments.begin_create_or_update(blue_deployment).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    blue_deployment = deployment_client.create_deployment(
+        name=blue_deployment_name,
+        endpoint=endpoint_name,
+        model_uri=f"models:/{model_name}/{version}",
+        config={"deploy-config-file": deployment_config_path},
+    )    
+    ```
+
+#. Test the deployment
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file sample.json
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_endpoints.invoke(
+        endpoint_name=endpoint_name,
+        request_file="sample.json",
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+    
+    Let's create the authentication header:
+
+    ```python
+    authentication_header = f"'Authorization: Bearer {endpoint_secret_key}'"
+    ```
+
+    Call the endpoint and its default deployment:
+
+    ```python
+    
+    ```
+
+### Create a green deployment under the endpoint
+
+Let's imagine that there is a new version of the model created by the development team and it is ready to be in production. We can first try to fly this model and once we are confident, we can update the endpoint to route the traffic to it.
+
+#. Register a new model version
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    MODEL_NAME='heart-classifier'
+    az ml model create --name $MODEL_NAME --type "mlflow_model" --path "model"
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    model_name = 'heart-classifier'
+    model_local_path = "model"
+    
+    model = ml_client.models.create_or_update(
+         Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+    
+    ```python
+    model_name = 'heart-classifier'
+    model_local_path = "model"
+    
+    registered_model = mlflow_client.create_model_version(
+        name=model_name, source=f"file://{model_local_path}"
+    )
+    version = registered_model.version
+    ```
+
+#. Configure a new deployment
+
+     # [Azure CLI](#tab/cli)
+    
+    __green-deployment.yml__
+
+    ```yml
+    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+    name: xgboost-model-new
+    endpoint_name: heart-classifier-edp
+    model: azureml:heart-classifier@latest
+    instance_type: Standard_DS2_v2
+    instance_count: 1
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+
+    ```python
+    green_deployment_name = f"xgboost-model-{version}"
+    ```
+
+    Configure the hardware requirements of you deployment:
+    
+    ```python
+    green_deployment = ManagedOnlineDeployment(
+        name=green_deployment_name,
+        endpoint_name=endpoint_name,
+        model=model,
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    green_deployment_name = f"xgboost-model-{version}"
+    ```
+
+    To configure the hardware requirements of you deployment, you need to create a JSON file with the desired configuration:
+
+    ```python
+    deploy_config = {
+        "instance_type": "Standard_DS2_v2",
+        "instance_count": 1,
+    }
+    ```
+    
+    > [!TIP]
+    > We are using the same hardware confirmation indicated in the `deployment-config-file`. However, there is no requirements to have the same configuration. You can configure different hardware for different models depending on the requirements.
+    
+    Write the configuration to a file:
+
+    ```python
+    deployment_config_path = "deployment_config.json"
+    with open(deployment_config_path, "w") as outfile:
+        outfile.write(json.dumps(deploy_config))
+    ```
+
+#. Create the new deployment
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_deployments.begin_create_or_update(green_deployment).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    new_deployment = deployment_client.create_deployment(
+        name=green_deployment_name,
+        endpoint=endpoint_name,
+        model_uri=f"models:/{model_name}/{version}",
+        config={"deploy-config-file": deployment_config_path},
+    ) 
+    ```
+
+### Progressively update the traffic
+
+One we are confident with the new deployment, we can update the traffic to route some of it to the new deployment. Traffic is configured at the endpoint level:
+
+#. Configure the traffic:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    *This step in not required in the Azure CLI*
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    endpoint.traffic = {blue_deployment_name: 90, green_deployment_name: 10}
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    traffic_config = {"traffic": {blue_deployment_name: 90, green_deployment_name: 10}}
+    ```
+
+    Write the configuration to a file:
+
+    ```python
+    traffic_config_path = "traffic_config.json"
+    with open(traffic_config_path, "w") as outfile:
+        outfile.write(json.dumps(traffic_config))
+    ```
+
+#. Update the endpoint
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=90 xgboost-model-new=10"
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.begin_create_or_update(endpoint).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    deployment_client.update_endpoint(
+        endpoint=endpoint_name,
+        config={"endpoint-config-file": traffic_config_path},
+    )
+    ```
+
+#. If you decide to switch the entire traffic to the new deployment, update all the traffic:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    *This step in not required in the Azure CLI*
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    endpoint.traffic = {blue_deployment_name: 0, green_deployment_name: 100}
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    traffic_config = {"traffic": {blue_deployment_name: 0, green_deployment_name: 100}}
+    ```
+
+    Write the configuration to a file:
+
+    ```python
+    traffic_config_path = "traffic_config.json"
+    with open(traffic_config_path, "w") as outfile:
+        outfile.write(json.dumps(traffic_config))
+    ```
+
+#. Update the endpoint
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=0 xgboost-model-new=100"
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.begin_create_or_update(endpoint).result()
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    deployment_client.update_endpoint(
+        endpoint=endpoint_name,
+        config={"endpoint-config-file": traffic_config_path},
+    )
+    ```
+
+#. Since the old deployment doesn't receive any traffic, you can safely delete it:
+
+    # [Azure CLI](#tab/cli)
+    
+    ```azurecli
+    az ml online-deployment delete --endpoint-name $ENDPOINT_NAME --name default
+    ```
+    
+    # [Python (Azure ML SDK)](#tab/sdk)
+    
+    ```python
+    ml_client.online_deployments.begin_delete(
+        name=blue_deployment_name, 
+        endpoint_name=endpoint_name
+    )
+    ```
+    
+    # [Python (MLflow SDK)](#tab/mlflow)
+
+    ```python
+    deployment_client.delete_deployment(
+        blue_deployment_name, 
+        endpoint=endpoint_name
+    )
+    ```
+
+    ---
+
+    > [!TIP]
+    > Notice that at this point, the former "blue deployment" has been deleted and the new "green deployment" has taken the place of the "blue deployment".
+
+
+## Clean-up resources
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az ml online-endpoint delete --name $ENDPOINT_NAME --yes
+```
+
+# [Python (Azure ML SDK)](#tab/sdk)
+
+```python
+ml_client.online_endpoints.begin_delete(name=endpoint_name)
+```
+
+# [Python (MLflow SDK)](#tab/mlflow)
+
+```python
+deployment_client.delete_endpoint(endpoint_name)
+```

@@ -240,7 +240,7 @@ Follow these steps to deploy an MLflow model to a batch endpoint for running bat
    ---
    
    > [!NOTE]
-   > `scoring_script` and `environment` auto generation only supports `pyfunc` model flavor. To use a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+   > Batch deployments only support deploying MLflow models with a `pyfunc` flavor. To use a different flavor, see [Customizing MLflow models deployments with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script)..
 
 6. Although you can invoke a specific deployment inside of an endpoint, you will usually want to invoke the endpoint itself and let the endpoint decide which deployment to use. Such deployment is named the "default" deployment. This gives you the possibility of changing the default deployment and hence changing the model serving the deployment without changing the contract with the user invoking the endpoint. Use the following instruction to update the default deployment:
 
@@ -448,7 +448,7 @@ You can inspect the model signature of your model by opening the `MLmodel` file 
 
 Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
 
-## Using MLflow models with a scoring script
+## Customizing MLflow models deployments with a scoring script
 
 MLflow models can be deployed to batch endpoints without indicating a scoring script in the deployment definition. However, you can opt in to indicate this file (usually referred as the *batch driver*) to customize how inference is executed. 
 
