@@ -44,7 +44,7 @@ Then, check the alert details page for the following details to aid in your inve
 
 - **MITRE ATT&CK** tactics and techniques. Scroll down in the left pane to view all MITRE ATT&CK details. In addition to descriptions of the tactics and techniques, select the links to the MITRE ATT&CK site to learn more about each one.
 
-- **Download PCAP**. At the top of the page, select **Download PCAP** to download the raw traffic files for the selected alert. For more information, see [Access alert PCAP data (Public preview)](how-to-manage-cloud-alerts.md#access-alert-pcap-data-public-preview).
+- **Download PCAP**. At the top of the page, select **Download PCAP** to download the raw traffic files for the selected alert. For more information, see [Access alert PCAP data](how-to-manage-cloud-alerts.md#access-alert-pcap-data).
 
 ## Investigate related alerts on the Azure portal
 
