@@ -15,8 +15,6 @@ ms.date: 06/28/2022
 
 This article provides a quick guide on how to share data and receive shares from Azure Data Lake Storage (ADLS Gen2) or Blob storage accounts. 
 
-For an overview of how data sharing works, watch this short [demo](https://aka.ms/purview-data-share/overview-demo).
-
 [!INCLUDE [data-share-quickstart-prerequisites](includes/data-share-quickstart-prerequisites.md)]
 
 ## Create a share
