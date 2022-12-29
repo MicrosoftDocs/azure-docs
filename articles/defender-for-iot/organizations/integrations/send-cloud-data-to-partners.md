@@ -1,6 +1,6 @@
 ---
 title: Stream Microsoft Defender for IoT cloud alerts to a partner SIEM - Microsoft Defender for IoT
-description: Learn how to send Microsoft Defender for IoT data on the cloud to a partner SIEM via Microsoft Sentinel, using Splunk as an example.
+description: Learn how to send Microsoft Defender for IoT data on the cloud to a partner SIEM via Microsoft Sentinel and Azure Event Hubs, using Splunk as an example.
 ms.date: 12/26/2022
 ms.topic: how-to
 ---
@@ -11,20 +11,18 @@ As more businesses convert OT systems to digital IT infrastructures, security op
 
 We recommend using Microsoft Defender for IoT's out-of-the-box [data connector](../iot-solution.md) and [solution](../iot-advanced-threat-monitoring.md) to integrate with Microsoft Sentinel and bridge the gap between the IT and OT security challenge.
 
-However, if you have other security information and event management (SIEM) systems, you can also use Microsoft Sentinel to forward Defender for IoT cloud alerts on to that partner SIEM, via Microsoft Sentinel and an Event Hub.
+However, if you have other security information and event management (SIEM) systems, you can also use Microsoft Sentinel to forward Defender for IoT cloud alerts on to that partner SIEM, via [Microsoft Sentinel](/azure/sentinel/) and [Azure Event Hubs](/azure/event-hubs/).
 
 While this article uses Splunk as an example, you can use the process described below with any SIEM that supports Event Hub ingestion, such as IBM QRadar.
 
 > [!IMPORTANT]
-> Using Event Hub and a Log Analytics export rule may incur additional charges. For more information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Log Data Export pricing](https://azure.microsoft.com/pricing/details/monitor/).
+> Using Event Hubs and a Log Analytics export rule may incur additional charges. For more information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) and [Log Data Export pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Prerequisites
 
-Before you start, you'll need the **Microsoft Defender for IoT** data connector installed in your Microsoft Sentinel instance.
+Before you start, you'll need the **Microsoft Defender for IoT** data connector installed in your Microsoft Sentinel instance. For more information, see [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md).
 
-For more information, see [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../iot-solution.md).
-
-<!--permissions?-->
+Also check any prerequisites for each of the procedures linked in the steps below.
 
 ## Register an application in Azure Active Directory
 
