@@ -22,11 +22,11 @@ To verify that the agent is being registered by Azure AD, follow these steps:
 
     [![Screenshot that shows how to manage the Azure AD cloud sync.](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-select-cloud-sync.png)](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-select-cloud-sync.png#lightbox)
     
-1. On the **Azure AD Connect cloud sync** pane, select **Review all agents**.
+1. On the **Azure AD Connect cloud sync** page, select **Review all agents**.
     
    [![Screenshot that shows the Azure AD provisioning agents.](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-cloud-sync-review-agents.png)](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-cloud-sync-review-agents.png#lightbox)
  
-1. On the **On-premises provisioning agents** pane, you'll see the agents you've installed.  Verify that the agent is displayed and marked **active**.
+1. On the **On-premises provisioning agents** page, you'll see the agents you've installed.  Verify that the agent is displayed and marked **active**.
 
     [![Screenshot that shows the status of a provisioning agent.](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-cloud-sync-agents-status.png)](./media/active-directory-cloud-sync-how-to-verify-installation/azure-ad-cloud-sync-agents-status.png#lightbox)
 
