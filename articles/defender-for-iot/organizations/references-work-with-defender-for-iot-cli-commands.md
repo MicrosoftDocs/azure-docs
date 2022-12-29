@@ -32,6 +32,42 @@ The following table describes the access available to each privileged user:
 > [!NOTE]
 > We recommend that customers using the Defender for IoT CLI use the *support* user whenever possible. Other CLI users cannot be added.
 
+The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
+
+|Service area  |Users  |Actions  |
+|---------|---------|---------|
+|**Appliance maintenance**     |         |         |
+|Service health     |   *support*, *cyberx*      | [Check OT monitoring services health](cli-ot-sensor.md#check-ot-monitoring-services-health)        |
+|Restart and shutdown     |  *support*, *cyberx*, *cyberx-host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
+|Software versions     |  *support*, *cyberx*       |  [Show installed software version](cli-ot-sensor.md#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
+|Date and time     |   *support*, *cyberx*, *cyberx-host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
+|NTP     | *support*, *cyberx*        | [Turn on NTP time sync](cli-ot-sensor.md#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](cli-ot-sensor.md#turn-off-ntp-time-sync)        |
+|**Backup and restore**     |         |         |
+|Backup files     | *support*, *cyberx*        | [List current backup files](cli-ot-sensor.md#list-current-backup-files)        |
+|Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](cli-ot-sensor.md#display-backup-disk-space-allocation)       |
+|Unscheduled backup     |   *support*, *cyberx*      | [Start an immediate, unscheduled backup](cli-ot-sensor.md#start-an-immediate-unscheduled-backup)        |
+|Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](cli-ot-sensor.md#restore-data-from-the-most-recent-backup)        |
+| **SSL and TLS certificates**    |         |         |
+|Certificate management     | *cyberx*        | [Import SSL and TLS certificates to your OT sensor](cli-ot-sensor.md#import-ssl-and-tls-certificates-to-your-ot-sensor)<br>[Restore default self-signed certificate](cli-ot-sensor.md#restore-default-self-signed-certificate)        |
+| **Local user management** | | |
+|Password changes     | *cyberx*, *cyberx-host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
+|Failed sign-in protections     | *cyberx*        | [Adjust protection against failed sign-in](cli-ot-sensor.md#adjust-protection-against-failed-sign-in)        |
+|**Network settings**     |         |         |
+|Bandwidth limits     |    *cyberx*     | [Set bandwidth limit for the management network interface](cli-ot-sensor.md#set-bandwidth-limit-for-the-management-network-interface)        |
+|Internet connections     |  *cyberx*       | [Check internet connection](cli-ot-sensor.md#check-internet-connection)        |
+|Network connectivity     |  *support*, *cyberx*       |  [Check network connectivity from the OT sensor](cli-ot-sensor.md#check-network-connectivity-from-the-ot-sensor)       |
+|Network load     |  *cyberx*       | [Check network interface current load](cli-ot-sensor.md#check-network-interface-current-load)        |
+| Network setting configuration | *cyberx-host* | [Change networking configuration or reassign network interface roles](cli-ot-sensor.md#change-networking-configuration-or-reassign-network-interface-roles) |
+|Network setting validation     |  *support*       |  [Validate and show network interface configuration](cli-ot-sensor.md#validate-and-show-network-interface-configuration)       |
+|Port locations     | *support*        | [Locate a physical port by blinking interface lights](cli-ot-sensor.md#locate-a-physical-port-by-blinking-interface-lights)        |
+|Physical interfaces     | *support*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |
+|**Traffic capture filters**     |         |         |
+| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](cli-ot-sensor.md#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
+|**Alerts**     |         |         |
+|Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](cli-ot-sensor.md#trigger-a-test-alert)      |
+| Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](cli-ot-sensor.md#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](cli-ot-sensor.md#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](cli-ot-sensor.md#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](cli-ot-sensor.md#delete-an-alert-exclusion-rule)
+
+
 ## Access the CLI
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
@@ -59,5 +95,9 @@ To sign out manually on an OT sensor or on-premises management console, run one 
 
 > [!div class="nextstepaction"]
 > [Manage an OT sensor from the CLI](cli-ot-sensor.md)
+
+> [!div class="nextstepaction"]
+> [On-premises users and roles for OT monitoring](roles-on-premises.md)
+
 
 You can also control and monitor your cloud connected sensors from the Defender for IoT **Sites and sensors** page. For more information, see [Manage sensors with Defender for IoT in the Azure portal](../how-to-manage-sensors-on-the-cloud.md).

@@ -22,43 +22,6 @@ Each activity listed below is accessible by a different set of privileged users,
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-## Users supported by sensor CLI actions
-
-The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
-
-
-|Service area  |Users  |Actions  |
-|---------|---------|---------|
-|**Appliance maintenance**     |         |         |
-|Service health     |   *support*, *cyberx*      | [Check OT monitoring services health](#check-ot-monitoring-services-health)        |
-|Restart and shutdown     |  *support*, *cyberx*, *cyberx-host*       | [Restart an appliance](#restart-an-appliance)<br>[Shut down an appliance](#shut-down-an-appliance)        |
-|Software versions     |  *support*, *cyberx*       |  [Show installed software version](#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
-|Date and time     |   *support*, *cyberx*, *cyberx-host*          |  [Show current system date/time](#show-current-system-datetime)       |
-|NTP     | *support*, *cyberx*        | [Turn on NTP time sync](#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](#turn-off-ntp-time-sync)        |
-| **Local user management** | | |
-|Password changes     | *cyberx*, *cyberx-host*        | [Change local user passwords](#change-local-user-passwords)        |
-|Failed sign-in protections     | *cyberx*        | [Adjust protection against failed sign-in](#adjust-protection-against-failed-sign-in)        |
-|**Network settings**     |         |         |
-|Bandwidth limits     |    *cyberx*     | [Set bandwidth limit for the management network interface](#set-bandwidth-limit-for-the-management-network-interface)        |
-|Internet connections     |  *cyberx*       | [Check internet connection](#check-internet-connection)        |
-|Network connectivity     |  *support*, *cyberx*       |  [Check network connectivity from the OT sensor](#check-network-connectivity-from-the-ot-sensor)       |
-|Network load     |  *cyberx*       | [Check network interface current load](#check-network-interface-current-load)        |
-| Network setting configuration | *cyberx-host* | [Change networking configuration or reassign network interface roles](#change-networking-configuration-or-reassign-network-interface-roles) |
-|Network setting validation     |  *support*       |  [Validate and show network interface configuration](#validate-and-show-network-interface-configuration)       |
-|Port locations     | *support*        | [Locate a physical port by blinking interface lights](#locate-a-physical-port-by-blinking-interface-lights)        |
-|Physical interfaces     | *support*, *cyberx*        |     [List connected physical interfaces](#list-connected-physical-interfaces)    |
-| **SSL and TLS certificates**    |         |         |
-|Certificate management     | *cyberx        | [Import SSL and TLS certificates to your OT sensor](#import-ssl-and-tls-certificates-to-your-ot-sensor)<br>[Restore default self-signed certificate](#restore-default-self-signed-certificate)        |
-|**Backup and restore**     |         |         |
-|Backup files     | *support*, *cyberx*        | [List current backup files](#list-current-backup-files)        |
-|Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](#display-backup-disk-space-allocation)       |
-|Unscheduled backup     |   *support*, *cyberx*      | [Start an immediate, unscheduled backup](#start-an-immediate-unscheduled-backup)        |
-|Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](#restore-data-from-the-most-recent-backup)        |
-|**Traffic capture filters**     |         |         |
-| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](#reset-all-capture-filters)   |
-|**Alerts**     |         |         |
-|Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](#trigger-a-test-alert)      |
-| Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](#delete-an-alert-exclusion-rule)
 
 ## Check OT monitoring services health
 
