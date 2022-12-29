@@ -48,23 +48,23 @@ This tutorial peers virtual networks in the same region. You can also peer virtu
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Create virtual network peering
-
 In the following steps, you'll learn how to peer virtual networks in different subscriptions and Azure Active Directory tenants. 
 
 You can use the same account that has permissions in both subscriptions or you can use separate accounts for each subscription to setup the peering. An account with permissions in both subscriptions can complete all of the steps without signing out and signing in to portal and assigning permissions.
 
 The following resources and account examples are used in the steps in this article:
 
-| User account | Subscription | Virtual network |
-| ------------ | ------------ | --------------- |
-| **UserA** | **SubscriptionA** | **myVNetA** |
-| **UserB** | **SubscriptionB** | **myVNetB** |
+| User account | Resource group | Subscription | Virtual network |
+| ------------ | -------------- | ------------ | --------------- |
+| **UserA** | **myResourceGroupA** | **SubscriptionA** | **myVNetA** |
+| **UserB** | **myResourceGroupB** | **SubscriptionB** | **myVNetB** |
 
-# [**Portal**](#tab/create-peering-portal)
+## Create virtual network - myVNetA
 
 > [!NOTE]
 > If you are using a single account to complete the steps, you can skip the steps for logging out of the portal and assigning another user permissions to the virtual networks.
+
+# [**Portal**](#tab/create-peering-portal)
 
 1. Sign-in to the [Azure portal](https://.portal.azure.com) as **UserA**.
 
@@ -72,15 +72,326 @@ The following resources and account examples are used in the steps in this artic
 
 3. Select **+ Create**.
 
-4. 
+4. In the **Basics** tab of **Create virtual network**, enter or select the following information:
 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your **SubscriptionA**. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupA** in **Name**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNetA**. |
+    | Region | Select a region. |
 
+5. Select **Next: IP Addresses**.
 
+6. In **IPv4 address space**, enter **10.1.0.0/16**.
+
+7. Select **+ Add subnet**.
+
+8. Enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet name | Enter **mySubnet**. |
+    | Subnet address range | Enter **10.1.0.0/24**. |
+
+9. Select **Add**.
+
+10. Select **Review + create**.
+
+11. Select **Create**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
-# [**Azure CLI**](#tab/create-peering-powershell)
+# [**Azure CLI**](#tab/create-peering-cli)
 
+---
+
+## Assign permissions for UserB
+
+A user account in the other subscription that you want to peer with must be added to the network you previously created. If you are using a single account for both subscriptions, you can skip this section.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Remain signed in to the portal as **UserA**.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetA**.
+
+4. Select **Access control (IAM)**.
+
+5. Select **+ Add** -> **Add role assignment**.
+
+6. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
+
+7. Select **Next**.
+
+8. In the **Members** tab, select **+ Select members**.
+
+9. In **Select members** in the search box, enter **UserB**.
+
+10. Select **Select**.
+
+11. Select **Review + assign**.
+
+12. Select **Review + assign**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Obtain resource ID of myVNetA
+
+The resource ID of **myVNetA** is required to setup the peering connection from **myVNetB** to **myVNetA**. Use the following steps to obtain the resource ID of **myVNetA**.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Remain signed in to the portal as **UserA**.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetA**.
+
+4. In **Settings**, select **Properties**.
+
+5. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`**.
+
+6. Sign out of the portal as **UserA**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Create virtual network - myVNetB
+
+In this section, you'll sign in as **UserB** and create a virtual network for the peering connection to **myVNetA**.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Sign in to the portal as **UserB**. If you are using one account for both subscriptions, change to **SubscriptionB** in the portal.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **+ Create**.
+
+4. In the **Basics** tab of **Create virtual network**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** |   |
+    | Subscription | Select your **SubscriptionB**. |
+    | Resource group | Select **Create new**. </br> Enter **myResourceGroupB** in **Name**. </br> Select **OK**. |
+    | **Instance details** |   |
+    | Name | Enter **myVNetB**. |
+    | Region | Select a region. |
+
+5. Select **Next: IP Addresses**.
+
+6. In **IPv4 address space**, enter **10.2.0.0/16**.
+
+7. Select **+ Add subnet**.
+
+8. Enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet name | Enter **mySubnet**. |
+    | Subnet address range | Enter **10.2.0.0/24**. |
+
+9. Select **Add**.
+
+10. Select **Review + create**.
+
+11. Select **Create**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Assign permissions for UserA
+
+A user account in the other subscription that you want to peer with must be added to the network you previously created. If you are using a single account for both subscriptions, you can skip this section.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Remain signed in to the portal as **UserB**.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetB**.
+
+4. Select **Access control (IAM)**.
+
+5. Select **+ Add** -> **Add role assignment**.
+
+6. In **Add role assignment** in the **Role** tab, select **Network Contributor**.
+
+7. Select **Next**.
+
+8. In the **Members** tab, select **+ Select members**.
+
+9. In **Select members** in the search box, enter **UserA**.
+
+10. Select **Select**.
+
+11. Select **Review + assign**.
+
+12. Select **Review + assign**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Obtain resource ID of myVNetB
+
+The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use the following steps to obtain the resource ID of **myVNetB**.
+# [**Portal**](#tab/create-peering-portal)
+
+1. Remain signed in to the portal as **UserB**.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetB**.
+
+4. In **Settings**, select **Properties**.
+
+5. Copy the information in the **Resource ID** field and save for the later steps. The resource ID is similar to the following example: **`/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB`**.
+
+6. Sign out of the portal as **UserB**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Create peering connection - myVNetA to myVNetB
+
+You'll need the **Resource IDs** for **myVNetB** from the previous steps to setup the peering connection.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Sign in to the [Azure portal](https://.portal.azure.com) as **UserA**. If you are using one account for both subscriptions, change to **SubscriptionA** in the portal.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetA**.
+
+4. Select **Peerings**.
+
+5. Select **+ Add**.
+
+6. Enter or select the following information in **Add peering**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **This virtual network** |  |
+    | Peering link name | Enter **myVNetAToMyVNetB**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None (default)**. |
+    | **Remote virtual network** |  |
+    | Peering link name | Leave blank. |
+    | Virtual network deployment model | Select **Resource manager**. |
+    | Select the box for **I know my resource ID**. |   |
+    | Resource ID | Enter or paste the **Resource ID** for **myVNetB**. |
+
+7. In the pull-down box, select the **Directory** that corresponds with **myVNetB** and **UserB**.
+
+8. Select **Authenticate**.
+
+9. Select **Add**.
+
+The peering connection will show in **Peerings** in a **Intiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
+
+10. Sign out of the portal as **UserA**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+## Create peering connection - myVNetB to myVNetA
+
+You'll need the **Resource IDs** for **myVNetA** from the previous steps to setup the peering connection.
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. Sign in to the [Azure portal](https://.portal.azure.com) as **UserB**. If you are using one account for both subscriptions, change to **SubscriptionB** in the portal.
+
+2. In the search box a the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+
+3. Select **myVNetB**.
+
+4. Select **Peerings**.
+
+5. Select **+ Add**.
+
+6. Enter or select the following information in **Add peering**:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **This virtual network** |  |
+    | Peering link name | Enter **myVNetBToMyVNetA**. |
+    | Traffic to remote virtual network | Leave the default of **Allow (default)**. |
+    | Traffic forwarded from remote virtual network | Leave the default of **Allow (default)**. |
+    | Virtual network gateway or Route Server | Leave the default of **None (default)**. |
+    | **Remote virtual network** |  |
+    | Peering link name | Leave blank. |
+    | Virtual network deployment model | Select **Resource manager**. |
+    | Select the box for **I know my resource ID**. |   |
+    | Resource ID | Enter or paste the **Resource ID** for **myVNetA**. |
+
+7. In the pull-down box, select the **Directory** that corresponds with **myVNetA** and **UserA**.
+
+8. Select **Authenticate**.
+
+9. Select **Add**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
+
+---
+
+The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
+
+For more information about using your own DNS for name resolution see, [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+
+For more information about Azure DNS, see [What is Azure DNS?](/azure/dns/dns-overview).
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete the virtual networks with the following steps:
+
+# [**Portal**](#tab/create-peering-portal)
+
+1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
+
+2. Select **myResourceGroupA**.
+
+3. In the **Overview** of **myResourceGroupA**, select **Delete resource group**.
+
+4. In **TYPE THE RESOURCE GROUP NAME:**, enter **myResourceGroupA**.
+
+5. Select **Delete**.
+
+6. Repeat steps 1-5 for **myResourceGroupB** in **SubscriptionB**.
+
+# [**PowerShell**](#tab/create-peering-powershell)
+
+# [**Azure CLI**](#tab/create-peering-cli)
 
 ---
 
