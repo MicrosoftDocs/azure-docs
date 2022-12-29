@@ -49,7 +49,7 @@ To edit a site's details, select the site's name on the **Sites and sensors** pa
 
 - **Tags**: (Optional) Enter values for the **Key** and **Value** fields for each new tag you want to add to your site. Select **+ Add** to add a new tag.
 
-- **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel. 
+- **Owner**: For sites with OT sensors only. Enter one or more email addresses for the user you want to designate as the owner of the devices at this site. The site owner is inherited by all devices at the site, and is shown on the IoT device entity pages and in incident details in Microsoft Sentinel.
 
     In Microsoft Sentinel, use the **AD4IoT-SendEmailtoIoTOwner** and **AD4IoT-CVEAutoWorkflow** playbooks to automatically notify device owners about important alerts or incidents. For more information, see [Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
 
@@ -59,7 +59,7 @@ When you're done, select **Save** to save your changes.
 
 Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a specific sensor name to drill down to more details for that sensor.
 
-Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page. 
+Use the options on the **Sites and sensor** page and a sensor details page to do any of the following tasks. If you're on the **Sites and sensors** page, select multiple sensors to apply your actions in bulk using toolbar options. For individual sensors, use the **Sites and sensors** toolbar options, the **...** options menu at the right of a sensor row, or the options on a sensor details page.
 
 |Task |Description  |
 |---------|---------|
@@ -87,7 +87,7 @@ You may need to reactivate an OT sensor because you want to:
 
 - **Associate the sensor to a new site**:  Re-register the sensor with new site definitions and use the new activation file to activate.
 
-- **Change your plan commitment**: If you make changes to your plan, for example if you change your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
+- **Change your plan commitment**: If you make changes to your plan, such as changing your price plan from a trial to a monthly commitment, you'll need to reactivate your sensors to reflect the new changes.
 
 In such cases, do the following steps:
 
@@ -105,7 +105,6 @@ Make sure that you've started with the relevant updates steps for this update. F
 > After upgrading to version 22.1.x, the new upgrade log is accessible by the *cyberx_host* user on the sensor at the following path: `/opt/sensor/logs/legacy-upgrade.log`. To access the update log, sign into the sensor via SSH with the *cyberx_host* user.
 >
 > For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
-
 
 ## Understand sensor health (Public preview)
 
@@ -127,7 +126,6 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
         For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
-    - **Updatable** means that the sensor has an older version, and there are software updates available to install
     - **Unsupported** means that the sensor has a software version install that is no longer supported.
 
 1. To check on specific sensor issues, filter the grid by sensor health, and select one or more issues to verify. For example:
