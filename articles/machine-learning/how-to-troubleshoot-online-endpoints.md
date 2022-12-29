@@ -103,7 +103,7 @@ There are two types of containers that you can get the logs from:
 
 # [Azure CLI](#tab/cli)
 
-To see log output from container, use the following CLI command:
+To see log output from a container, use the following CLI command:
 
 ```azurecli
 az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
