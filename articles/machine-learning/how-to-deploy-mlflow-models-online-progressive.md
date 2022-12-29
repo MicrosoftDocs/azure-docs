@@ -38,6 +38,58 @@ Before following the steps in this article, make sure you have the following pre
 - Install the Azure Machine Learning plug-in for MLflow: `azureml-mlflow`.
 - If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
 
+### Connect to your workspace
+
+First, let's connect to Azure Machine Learning workspace where we are going to work on.
+
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
+# [Python (Azure ML SDK)](#tab/sdk)
+
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+    ```python
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import ManagedOnlineEndpoint, ManagedOnlineDeployment, Model
+    from azure.ai.ml.constants import AssetTypes
+    from azure.identity import DefaultAzureCredential
+    ```
+
+2. Configure workspace details and get a handle to the workspace:
+
+    ```python
+    subscription_id = "<subscription>"
+    resource_group = "<resource-group>"
+    workspace = "<workspace>"
+    
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    ```
+
+# [Python (MLflow SDK)](#tab/mlflow)
+
+1. Import the required libraries
+
+    ```python
+    import json
+    import mlflow
+    from mlflow.deployments import get_deploy_client
+    ```
+
+1. Configure the deployment client
+
+    ```python
+    deployment_client = get_deploy_client(mlflow.get_tracking_uri())    
+    ```
+
+---
+
 ### Registering the model in the registry
 
 Ensure your model is registered in Azure Machine Learning registry. Deployment of unregistered models is not supported in Azure Machine Learning. You can register a new model using the MLflow SDK:

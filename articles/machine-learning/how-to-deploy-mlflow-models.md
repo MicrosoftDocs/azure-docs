@@ -25,10 +25,7 @@ ms.devlang: azurecli
 In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model to Azure Machine Learning for both real-time and batch inference. Learn also about the different tools you can use to perform management of the deployment.
 
 
-> [!TIP]
-> 
-
-## What's different about deploying MLflow models vs custom models?
+## Deploying MLflow models vs custom models
 
 When deploying MLflow models to Azure Machine Learning, you don't have to provide a scoring script or an environment for deployment as they are automatically generated for you. We typically refer to this functionality as no-code deployment.
 
@@ -41,26 +38,6 @@ For no-code-deployment, Azure Machine Learning:
 
 > [!WARNING]
 > Online Endpoints dynamically installs Python packages provided MLflow model package during container runtime. deploying MLflow models to online endpoints with no-code deployment in a private network without egress connectivity is not supported by the moment. If that's your case, either enable egress connectivity or indicate the environment to use in the deployment as explained in [Customizing MLflow model deployments (Online Endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments). This limitation is not present in Batch Endpoints.
-
-## How to customize inference when deploying MLflow models
-
-You may be used to author scoring scripts to customize how inference is executed for your models. This is particularly the case when you are using features like `autolog` in MLflow that automatically log models for you as the best of the knowledge of the framework. However, you may need to run inference in a different way.
-
-For those cases, you can either [change how your model is being logged in the training routine](#change-how-your-model-is-logged-during-training) or [customize inference with a scoring script](#customize-inference-with-a-scoring-script)
-
-
-### Change how your model is logged during training
-
-When you log a model using either `mlflow.autolog` or using `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what gets returned by the model. MLflow doesn't enforce any specific behavior in how the `predict()` function generates results. There are scenarios where you probably want to do some pre-processing or post-processing before and after your model is executed.
-
-A solution to this scenario is to implement machine learning pipelines that moves from inputs to outputs directly. Although this is possible (and sometimes encourageable for performance considerations), it may be challenging to achieve. For those cases, you probably want to [customize how your model does inference using a custom models](how-to-log-mlflow-models.md?#logging-custom-models).
-
-### Customize inference with a scoring script
-
-If you want to customize how inference is executed for MLflow models (or opt-out for no-code deployment) you can refer to [Customizing MLflow model deployments (Online Endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) and [Customizing MLflow model deployments (Batch Endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
-
-> [!IMPORTANT]
-> When you opt-in to indicate a scoring script, you also need to provide an environment for deployment.
 
 ## Deployment tools
 
@@ -75,12 +52,12 @@ Each workflow has different capabilities, particularly around which type of comp
 
 | Scenario | MLflow SDK | Azure ML CLI/SDK | Azure ML studio |
 | :- | :-: | :-: | :-: |
-| Deploy MLflow models to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)]<sup>1</sup> |
-| Deploy MLflow models to managed online endpoints (with a scoring script) | Not supported | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) | Not supported  |
-| Deploy MLflow models to batch endpoints |  | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
-| Deploy MLflow models to batch endpoints (with a scoring script) |  | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) | Not supported  |
-| Deploy MLflow models to web services (ACI/AKS) | Supported<sup>2</sup> | <sup>2</sup> | <sup>2</sup> |
-| Deploy MLflow models to web services (ACI/AKS - with a scoring script) | <sup>2</sup> | <sup>2</sup> | Supported<sup>2</sup> |
+| Deploy to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)<sup>1</sup> |
+| Deploy to managed online endpoints (with a scoring script) |  | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) | Not supported  |
+| Deploy to batch endpoints |  | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
+| Deploy to batch endpoints (with a scoring script) |  | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) |   |
+| Deploy to web services (ACI/AKS) | Legacy support<sup>2</sup> | <sup>2</sup> | <sup>2</sup> |
+| Deploy to web services (ACI/AKS - with a scoring script) | <sup>2</sup> | <sup>2</sup> | Legacy support<sup>2</sup> |
 
 > [!NOTE]
 > - <sup>1</sup> Deployment to online endpoints in private link-enabled workspaces is not supported as public network access is required for package installation. We suggest to deploy with a scoring script on those scenarios.
@@ -102,7 +79,7 @@ MLflow includes built-in deployment tools that model developers can use to test 
 | JSON-serialized pandas DataFrames in the split orientation | **&check;** | **&check;** |
 | JSON-serialized pandas DataFrames in the records orientation | Deprecated |  |
 | CSV-serialized pandas DataFrames | **&check;** | Use batch<sup>1</sup> |
-| Tensor input format as JSON-serialized lists (tensors) and dictionary of lists (named tensors) |  | **&check;** |
+| Tensor input format as JSON-serialized lists (tensors) and dictionary of lists (named tensors) | **&check;** | **&check;** |
 | Tensor input formatted as in TF Serving’s API | **&check;** |  |
 
 > [!NOTE]
@@ -114,6 +91,9 @@ Regardless of the input type used, Azure Machine Learning requires inputs to be 
 
 > [!WARNING]
 > Note that such key is not required when serving models using the command `mlflow models serve` and hence payloads can't be used interchangeably.
+
+> [!IMPORTANT]
+> **MLflow 2.0 advisory**: Notice that the payload's structure has changed in MLflow 2.0.
 
 #### Payload example for a JSON-serialized pandas DataFrames in the split orientation
 
@@ -135,11 +115,6 @@ Regardless of the input type used, Azure Machine Learning requires inputs to be 
 
 # [MLflow built-in server](#tab/builtin)
 
-The following payload corresponds to MLflow server 2.0+.
-
-> [!WARNING]
-> **MLflow 2.0 advisory**: Notice that the payload's structure has changed in MLflow 2.0.
-
 ```json
 {
     "dataframe_split": {
@@ -153,6 +128,9 @@ The following payload corresponds to MLflow server 2.0+.
     }
 }
 ```
+
+The previous payload corresponds to MLflow server 2.0+.
+
 ---
 
 
@@ -222,6 +200,25 @@ The following payload corresponds to MLflow server 2.0+.
 
 For more information about MLflow built-in deployment tools see [MLflow documentation section](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools).
 
+## How to customize inference when deploying MLflow models
+
+You may be used to author scoring scripts to customize how inference is executed for your models. This is particularly the case when you are using features like `autolog` in MLflow that automatically log models for you as the best of the knowledge of the framework. However, you may need to run inference in a different way.
+
+For those cases, you can either [change how your model is being logged in the training routine](#change-how-your-model-is-logged-during-training) or [customize inference with a scoring script](#customize-inference-with-a-scoring-script)
+
+
+### Change how your model is logged during training
+
+When you log a model using either `mlflow.autolog` or using `mlflow.<flavor>.log_model`, the flavor used for the model decides how inference should be executed and what gets returned by the model. MLflow doesn't enforce any specific behavior in how the `predict()` function generates results. There are scenarios where you probably want to do some pre-processing or post-processing before and after your model is executed.
+
+A solution to this scenario is to implement machine learning pipelines that moves from inputs to outputs directly. Although this is possible (and sometimes encourageable for performance considerations), it may be challenging to achieve. For those cases, you probably want to [customize how your model does inference using a custom models](how-to-log-mlflow-models.md?#logging-custom-models).
+
+### Customize inference with a scoring script
+
+If you want to customize how inference is executed for MLflow models (or opt-out for no-code deployment) you can refer to [Customizing MLflow model deployments (Online Endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) and [Customizing MLflow model deployments (Batch Endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
+
+> [!IMPORTANT]
+> When you opt-in to indicate a scoring script, you also need to provide an environment for deployment.
 
 ## Next steps
 
