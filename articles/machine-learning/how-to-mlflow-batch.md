@@ -433,7 +433,7 @@ The following data types are supported for batch inference when deploying MLflow
 > Be advised that any unsupported file that may be present in the input data will make the job to fail. You will see an error entry as follows: *"ERROR:azureml:Error processing input file: '/mnt/batch/tasks/.../a-given-file.parquet'. File type 'parquet' is not supported."*.
 
 > [!TIP]
-> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+> If you like to process a different file type, or execute inference in a different way that batch endpoints do by default you can always create the deploymnet with a scoring script as explained in [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 ### Signature enforcement for MLflow models
 
@@ -446,7 +446,7 @@ You can inspect the model signature of your model by opening the `MLmodel` file 
 
 ### Flavor support
 
-Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#using-mlflow-models-with-a-scoring-script).
+Batch deployments only support deploying MLflow models with a `pyfunc` flavor. If you need to deploy a different flavor, see [Using MLflow models with a scoring script](#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 ## Customizing MLflow models deployments with a scoring script
 

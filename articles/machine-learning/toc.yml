@@ -643,6 +643,7 @@
                 - name: Progressive rollout of MLflow models
                   href: how-to-deploy-mlflow-models-online-progressive.md 
             - name: Batch Inference
+              items:
                 - name: Deploy MLflow models to Batch Endpoints
                   href: how-to-mlflow-batch.md
         - name: Inference HTTP server
