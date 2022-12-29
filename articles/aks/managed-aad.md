@@ -3,13 +3,13 @@ title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
 ms.topic: article
-ms.date: 10/20/2021
+ms.date: 12/28/2022
 ms.author: miwithro
 ---
 
 # AKS-managed Azure Active Directory integration
 
-AKS-managed Azure AD integration simplifies the Azure AD integration process. Previously, users were required to create a client and server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
+AKS-managed Azure Active Directory (Azure AD) integration simplifies the Azure AD integration process. Previously, you were required to create a client and server app, and the Azure AD tenant had to grant Directory Read permissions. Now, the AKS resource provider manages the client and server apps for you.
 
 ## Azure AD authentication overview
 
@@ -17,7 +17,7 @@ Cluster administrators can configure Kubernetes role-based access control (Kuber
 
 Learn more about the Azure AD integration flow on the [Azure Active Directory integration concepts documentation](concepts-identity.md#azure-ad-integration).
 
-## Limitations 
+## Limitations
 
 * AKS-managed Azure AD integration can't be disabled
 * Changing a AKS-managed Azure AD integrated cluster to legacy AAD is not supported
