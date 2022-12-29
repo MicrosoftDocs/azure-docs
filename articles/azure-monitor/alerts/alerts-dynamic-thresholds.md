@@ -107,7 +107,7 @@ To identify weekly seasonality, the Dynamic Thresholds model requires at least t
 
 ## Dynamic Thresholds is showing values that are not within the range of expected values
 
-When a metric exhibits large fluctuation, Dynamic Thresholds builds a wider model around the metric values. This model can result, in a lower border below zero when the metric always has positive values, or in an upper border above 100% when the metric can't actually exceed 100%. This scenario can happen when:
+When a metric exhibits large fluctuation, Dynamic Thresholds builds a wider model around the metric values. This model can result in a lower border below zero when the metric only has positive values, or in an upper border above 100% when the metric can't exceed 100%. This scenario can happen when:
 
 - The sensitivity is set to low.
 - The metric exhibits an irregular behavior with high variance, which appears as spikes or dips in the data.
