@@ -29,7 +29,7 @@ Before you begin, set up your environments by doing the following.
 
 1. Create a cloud-only global administrator account on your Azure AD tenant. 
 
-   This way, you can manage the configuration of your tenant in the event that your on-premises services fail or become unavailable. [Learn how to add a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Complete this step to ensure that you don't get locked out of your tenant.
+   This way, you can manage the configuration of your tenant if your on-premises services fail or become unavailable. [Learn how to add a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Complete this step to ensure that you don't get locked out of your tenant.
 
 1. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
