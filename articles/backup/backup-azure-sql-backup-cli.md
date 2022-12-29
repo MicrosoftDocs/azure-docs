@@ -156,7 +156,7 @@ As the instruction is to back up all future databases, the operation is done at 
 az backup protection auto-enable-for-azurewl --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --policy-name SQLPolicy \
-    --protectable-item-name "sqlinstance;mssqlserver;"  \
+    --protectable-item-name "sqlinstance;mssqlserver"  \
     --protectable-item-type SQLInstance \
     --server-name testSQLVM \
     --workload-type MSSQL\
