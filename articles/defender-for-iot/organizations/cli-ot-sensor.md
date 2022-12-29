@@ -418,7 +418,7 @@ setting the bandwidth limit of interface "eth0" to 1000mbps
 
 ### Change networking configuration or reassign network interface roles
 
-Use the following command to re-run the OT monitoring software configuration wizard, which helps you define the following OT sensor settings:
+Use the following command to re-run the OT monitoring software configuration wizard, which helps you define or re-configure the following OT sensor settings:
 
 - Mapping monitoring interfaces
 - Mapping and configuring network settings for the management interface
