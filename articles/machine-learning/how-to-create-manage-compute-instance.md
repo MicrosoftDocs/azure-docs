@@ -30,6 +30,7 @@ In this article, you learn how to:
 * [Create](#create) a compute instance
 * [Manage](#manage) (start, stop, restart, delete) a compute instance
 * [Create  a schedule](#schedule-automatic-start-and-stop) to automatically start and stop the compute instance
+* [Enable idle shutdown](#enable-idle-shutdown-preview)
 
 You can also [use a setup script (preview)](how-to-customize-compute-instance.md) to create the compute instance with your own custom environment.
 
