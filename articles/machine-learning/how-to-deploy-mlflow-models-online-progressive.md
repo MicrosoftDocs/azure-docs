@@ -80,7 +80,7 @@ Online endpoints are endpoints that are used for online (real-time) inferencing.
 
 We are going to exploit this functionality by deploying multiple versions of the same model under the same endpoint. However, the new deployment will receive 0% of the traffic at the begging. Once we are sure about the new model to work correctly, we are going to progressively move traffic from one deployment to the other.
 
-#. Endpoints require a name, which needs to be unique in the same region. Let's ensure to create one that doesn't exist:
+1. Endpoints require a name, which needs to be unique in the same region. Let's ensure to create one that doesn't exist:
 
     # [Azure CLI](#tab/cli)
     
@@ -117,7 +117,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     print(f"Endpoint name: {endpoint_name}")
     ```
 
-#. Configure the endpoint
+1. Configure the endpoint
 
     # [Azure CLI](#tab/cli)
     
@@ -155,7 +155,7 @@ We are going to exploit this functionality by deploying multiple versions of the
         outfile.write(json.dumps(endpoint_config))
     ```
 
-#. Create the endpoint:
+1. Create the endpoint:
 
     # [Azure CLI](#tab/cli)
     
@@ -178,7 +178,7 @@ We are going to exploit this functionality by deploying multiple versions of the
     )
     ```
 
-#. Getting the authentication secret for the endpoint.
+1. Getting the authentication secret for the endpoint.
 
     # [Azure CLI](#tab/cli)
     
@@ -206,7 +206,7 @@ We are going to exploit this functionality by deploying multiple versions of the
 
 So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default" and it will represent our "blue deployment".
 
-#. Configure the deployment
+1. Configure the deployment
 
     # [Azure CLI](#tab/cli)
     
@@ -262,7 +262,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
         outfile.write(json.dumps(deploy_config))
     ```
 
-#. Create the deployment
+1. Create the deployment
 
     # [Azure CLI](#tab/cli)
     
@@ -287,7 +287,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
     )    
     ```
 
-#. Test the deployment
+1. Test the deployment
 
     # [Azure CLI](#tab/cli)
     
@@ -322,7 +322,7 @@ So far, the endpoint is empty. There are no deployments on it. Let's create the 
 
 Let's imagine that there is a new version of the model created by the development team and it is ready to be in production. We can first try to fly this model and once we are confident, we can update the endpoint to route the traffic to it.
 
-#. Register a new model version
+1. Register a new model version
 
     # [Azure CLI](#tab/cli)
     
@@ -354,7 +354,7 @@ Let's imagine that there is a new version of the model created by the developmen
     version = registered_model.version
     ```
 
-#. Configure a new deployment
+1. Configure a new deployment
 
      # [Azure CLI](#tab/cli)
     
@@ -413,7 +413,7 @@ Let's imagine that there is a new version of the model created by the developmen
         outfile.write(json.dumps(deploy_config))
     ```
 
-#. Create the new deployment
+1. Create the new deployment
 
     # [Azure CLI](#tab/cli)
     
@@ -442,7 +442,7 @@ Let's imagine that there is a new version of the model created by the developmen
 
 One we are confident with the new deployment, we can update the traffic to route some of it to the new deployment. Traffic is configured at the endpoint level:
 
-#. Configure the traffic:
+1. Configure the traffic:
 
     # [Azure CLI](#tab/cli)
     
@@ -470,7 +470,7 @@ One we are confident with the new deployment, we can update the traffic to route
         outfile.write(json.dumps(traffic_config))
     ```
 
-#. Update the endpoint
+1. Update the endpoint
 
     # [Azure CLI](#tab/cli)
     
@@ -493,7 +493,7 @@ One we are confident with the new deployment, we can update the traffic to route
     )
     ```
 
-#. If you decide to switch the entire traffic to the new deployment, update all the traffic:
+1. If you decide to switch the entire traffic to the new deployment, update all the traffic:
 
     # [Azure CLI](#tab/cli)
     
@@ -521,7 +521,7 @@ One we are confident with the new deployment, we can update the traffic to route
         outfile.write(json.dumps(traffic_config))
     ```
 
-#. Update the endpoint
+1. Update the endpoint
 
     # [Azure CLI](#tab/cli)
     
@@ -544,7 +544,7 @@ One we are confident with the new deployment, we can update the traffic to route
     )
     ```
 
-#. Since the old deployment doesn't receive any traffic, you can safely delete it:
+1. Since the old deployment doesn't receive any traffic, you can safely delete it:
 
     # [Azure CLI](#tab/cli)
     

@@ -57,7 +57,7 @@ A solution to this scenario is to implement machine learning pipelines that move
 
 ### Customize inference with a scoring script
 
-If you want to customize how inference is executed for MLflow models (or opt-out for no-code deployment) you can refer to [Customizing MLflow model deployments (Online Endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) and [Customizing MLflow model deployments (Batch Endpoints)](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script).
+If you want to customize how inference is executed for MLflow models (or opt-out for no-code deployment) you can refer to [Customizing MLflow model deployments (Online Endpoints)](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) and [Customizing MLflow model deployments (Batch Endpoints)](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script).
 
 > [!IMPORTANT]
 > When you opt-in to indicate a scoring script, you also need to provide an environment for deployment.
@@ -78,7 +78,7 @@ Each workflow has different capabilities, particularly around which type of comp
 | Deploy MLflow models to managed online endpoints | [See example](how-to-deploy-mlflow-models-online-progressive.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md)<sup>1</sup> | [See example](how-to-deploy-mlflow-models-online-endpoints.md?tabs=studio)]<sup>1</sup> |
 | Deploy MLflow models to managed online endpoints (with a scoring script) | Not supported | [See example](how-to-deploy-mlflow-models-online-endpoints.md#customizing-mlflow-model-deployments) | Not supported  |
 | Deploy MLflow models to batch endpoints |  | [See example](how-to-mlflow-batch.md) | [See example](how-to-mlflow-batch.md?tab=studio) |
-| Deploy MLflow models to batch endpoints (with a scoring script) |  | [See example](how-to-mlflow-batch.md#using-mlflow-models-with-a-scoring-script) | Not supported  |
+| Deploy MLflow models to batch endpoints (with a scoring script) |  | [See example](how-to-mlflow-batch.md#customizing-mlflow-models-deployments-with-a-scoring-script) | Not supported  |
 | Deploy MLflow models to web services (ACI/AKS) | Supported<sup>2</sup> | <sup>2</sup> | <sup>2</sup> |
 | Deploy MLflow models to web services (ACI/AKS - with a scoring script) | <sup>2</sup> | <sup>2</sup> | Supported<sup>2</sup> |
 
@@ -91,7 +91,7 @@ Each workflow has different capabilities, particularly around which type of comp
 If you are familiar with MLflow or your platform support MLflow natively (like Azure Databricks) and you wish to continue using the same set of methods, use the MLflow SDK. On the other hand, if you are more familiar with the [Azure ML CLI v2](concept-v2.md), you want to automate deployments using automation pipelines, or you want to keep deployments configuration in a git repository; we recommend you to use the [Azure ML CLI v2](concept-v2.md). If you want to quickly deploy and test models trained with MLflow, you can use [Azure Machine Learning studio](https://ml.azure.com) UI deployment.
 
 
-## Differences between MLflow models deployed in Azure Machine Learning and MLflow built-in server
+## Differences between models deployed in Azure Machine Learning and MLflow built-in server
 
 MLflow includes built-in deployment tools that model developers can use to test models locally. For instance, you can run a local instance of a model registered in MLflow server registry with `mlflow models serve -m my_model`. Since Azure Machine Learning online endpoints run our influencing server technology, the behavior of these two services is different.
 

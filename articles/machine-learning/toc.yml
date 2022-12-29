@@ -622,6 +622,7 @@
                 - name: Text processing with batch deployments
                   href: how-to-nlp-processing-batch.md
             - name: Integrations
+              items:
                 - name: Invoke batch endpoints from Azure Data Factory
                   href: how-to-use-batch-azure-data-factory.md
                 - name: Invoke batch endpoints from Event Grid events in storage
