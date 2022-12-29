@@ -11,6 +11,8 @@ After you've installed OT software on your [OT sensors](install-software-ot-sens
 
 System health validations are supported via the sensor or on-premises management console UI or CLI, and are available for both the *support* and *cyberx* users.
 
+## General tests
+
 After installing OT monitoring software, make sure to run the following tests:
 
 - **Sanity test**: Verify that the system is running.
@@ -90,4 +92,6 @@ For more information, see [Check system health](../how-to-troubleshoot-the-senso
 
 ## Next steps
 
-- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Troubleshoot an OT sensor or on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> 
