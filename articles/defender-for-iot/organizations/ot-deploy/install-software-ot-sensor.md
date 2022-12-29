@@ -27,7 +27,7 @@ For more information, see:
 
 ## Download software files from the Azure portal
 
-Download the OT sensor software from the Azure portal.
+Download the OT sensor software from Defender for IoT on the Azure portal.
 
 On the Defender for IoT > **Getting started** page, select the **Sensor** or **Updates** tab and locate the software you need.
 
