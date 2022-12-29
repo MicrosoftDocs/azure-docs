@@ -16,8 +16,8 @@ Many applications log information to text files instead of standard logging serv
 To complete this procedure, you need: 
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint).
-- When use the Azure portal to create a data collection rule for collecting text logs, Azure Monitor automatically creates a destination table in your Log Analytics workspace. When you create a data collection rule using the API, you must first [create a custom table](../logs/create-custom-table.md#create-a-custom-table) to send your logs to.
+- [Data collection endpoint](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint).
+- [Custom table](../logs/create-custom-table.md) to send your logs to.
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace.
 - A machine that write logs to a text file.
 
@@ -42,10 +42,11 @@ To create the data collection rule in the Azure portal:
 
     [ ![Screenshot that shows the Create button on the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rules-updated.png#lightbox)
 
-1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, and **Platform Type**:
+1. Enter a **Rule name** and specify a **Subscription**, **Resource Group**, **Region**, **Platform Type**, and **Data Collection Endpoint**:
 
     - **Region** specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
     - **Platform Type** specifies the type of resources this rule can apply to. The **Custom** option allows for both Windows and Linux types.
+    - **Data Collection Endpoint** is required to collect custom logs.
 
     [ ![Screenshot that shows the Basics tab of the Data Collection Rule screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-basics-updated.png#lightbox)
 
@@ -80,8 +81,7 @@ To create the data collection rule in the Azure portal:
         > Multiple log files of the same type commonly exist in the same directory. For example, a machine might create a new file every day to prevent the log file from growing too large. To collect log data in this scenario, you can use a file wildcard. Use the format `C:\directoryA\directoryB\*MyLog.txt` for Windows and `/var/*.log` for Linux. There is no support for directory wildcards. 
     
     
-    - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Prerequisites](#prerequisites). 
-    
+    - **Table name** - The name of the destination table you created in your Log Analytics Workspace. For more information, see [Prerequisites](#prerequisites).     
     - **Record delimiter** - Will be used in the future to allow delimiters other than the currently supported end of line (`/r/n`). 
     - **Transform** - Add an [ingestion-time transformation](../essentials/data-collection-transformations.md) or leave as **source** if you don't need to transform the collected data.
  
@@ -278,6 +278,7 @@ To create the data collection rule in the Azure portal:
         :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows the Resources pane in the portal to add resources to the data collection rule.":::
 
 ---
+
 ## Troubleshoot
 Use the following steps to troubleshoot collection of text logs. 
 

@@ -107,9 +107,11 @@ The following diagram shows an example of the different elements in entitlement 
 
 Access packages don't replace other mechanisms for access assignment.  They're most appropriate in situations such as:
 
+- Migrating access policy definitions from a third party [enterprise role management](identity-governance-organizational-roles.md) to Azure AD.
 - Employees need time-limited access for a particular task.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages for situations in which employees need more access rights. For example, rights to read departmental resources from another department.
 - Access that requires the approval of an employee's manager or other designated individuals.
-- Departments wish to manage their own access policies for their resources without IT involvement.  
+- Access that should be assigned automatically to people in a particular part of an organization during their time in that job role, but also available for people elsewhere in the organization, or in a business partner organization, to request.
+- Departments wish to manage their own access policies for their resources without IT involvement.
 - Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
 
 ## How do I delegate access?
