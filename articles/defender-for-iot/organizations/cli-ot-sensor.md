@@ -22,7 +22,6 @@ Each activity listed below is accessible by a different set of privileged users,
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-<!--
 ## Users supported by sensor CLI actions
 
 The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
@@ -33,7 +32,7 @@ The following table lists the activities available by CLI and the [privileged us
 |**Appliance maintenance**     |         |         |
 |Service health     |   *support*, *cyberx*      | [Check OT monitoring services health](#check-ot-monitoring-services-health)        |
 |Restart and shutdown     |  *support*, *cyberx*, *cyberx-host*       | [Restart an appliance](#restart-an-appliance)<br>[Shut down an appliance](#shut-down-an-appliance)        |
-|Software version     |  *support*, *cyberx*       |  [Show installed software version](#show-installed-software-version)       |
+|Software versions     |  *support*, *cyberx*       |  [Show installed software version](#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
 |Date and time     |   *support*, *cyberx*, *cyberx-host*          |  [Show current system date/time](#show-current-system-datetime)       |
 |NTP     | *support*, *cyberx*        | [Turn on NTP time sync](#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](#turn-off-ntp-time-sync)        |
 | **Local user management** | | |
@@ -55,13 +54,11 @@ The following table lists the activities available by CLI and the [privileged us
 |Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](#display-backup-disk-space-allocation)       |
 |Unscheduled backup     |   *support*, *cyberx*      | [Start an immediate, unscheduled backup](#start-an-immediate-unscheduled-backup)        |
 |Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](#restore-data-from-the-most-recent-backup)        |
+|**Traffic capture filters**     |         |         |
+| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](#reset-all-capture-filters)   |
 |**Alerts**     |         |         |
 |Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](#trigger-a-test-alert)      |
 | Alert exclusion rules | *support*, *cyberx* | [Show current alert exclusion rules](#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](#delete-an-alert-exclusion-rule)
-|**Traffic capture filters**     |         |         |
-| Capture filter management    |  *support*, *cyberx*       | [Create capture filters for incoming traffic](#create-capture-filters-for-incoming-traffic)  <br>[List current capture filters for specific components](#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](#reset-all-capture-filters)   |
-
--->
 
 ## Check OT monitoring services health
 
