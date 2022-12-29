@@ -2,7 +2,7 @@
 title: Azure Communication Services - Call Recording summary logs
 titleSuffix: An Azure Communication Services conceptual article
 description: Learn about the properties of summary logs for the Call Recording feature.
-author:  Mkhribech
+author: Mkhribech
 services: azure-communication-services
 
 ms.author: mkhribech
@@ -13,18 +13,16 @@ ms.subservice: data
 ---
 
 # Call Recording summary logs
-In Azure Communication Services, summary logs for the Call Recording  feature provide details about:
+In Azure Communication Services, summary logs for the Call Recording feature provide details about:
 
 - Call duration.
 - Media content (for example, audio/video, unmixed, or transcription).
-- The format types used for the recording (for example, WAV or MP4).
+- Format types used for the recording (for example, WAV or MP4).
 - The reason why the recording ended.
 
 A recording file is generated at the end of a call or meeting. The recording can be initiated and stopped by either a user or an app (bot). It can also end because of a system failure.
 
-> [!IMPORTANT]
-> Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
-
+Summary logs are published after a recording is ready to be downloaded. The logs are published within the standard latency time for Azure Monitor resource logs. See [Log data ingestion time in Azure Monitor](../../../azure-monitor/logs/data-ingestion-time.md#azure-metrics-resource-logs-activity-log).
 
 ## Properties
 
@@ -33,7 +31,7 @@ A recording file is generated at the end of a call or meeting. The recording can
 |`timeGenerated`|DateTime|Time stamp (UTC) of when the log was generated.|
 |`operationName`|String|Operation associated with a log record.|
 |`correlationId`|String|ID that's used to correlate events between tables.|
-|`recordingID`|String|ID given to the recording that this log refers to.|
+|`recordingID`|String|ID for the recording that this log refers to.|
 |`category`|String|Log category of the event. Logs with the same log category and resource type have the same property fields.|        
 |`resultType`|String| Status of the operation.|
 |`level`|String	|Severity level of the operation.| 
@@ -46,7 +44,7 @@ A recording file is generated at the end of a call or meeting. The recording can
 |`audioChannelsCount`|Integer|Total number of audio channels in the recording.|
 |`recordingEndReason`|String|Reason why the recording ended.|   
 
-## Call Recording and sample data
+## Call Recording and example data
 
 ```json
 "operationName":            "Call Recording Summary",
@@ -82,7 +80,7 @@ For example, if an agent initiates an outbound call on a recorded line and the c
 }
 ```
 
-If the agent initiates a recording and stops and restarts the recording  multiple times while the call is still on, `callid` will have many `recordingid` values, depending on how many times the recording events were triggered.
+If the agent initiates a recording and then stops and restarts the recording multiple times while the call is still on, `callid` will have many `recordingid` values, depending on how many times the recording events were triggered.
 
 #### Example: Call Recording for one call to many recordings
 
