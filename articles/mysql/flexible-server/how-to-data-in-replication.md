@@ -231,7 +231,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    show slave status;
    ```
 
-   If the state of `Slave_IO_Running` and `Slave_SQL_Running` are "yes" and the value of `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates.
+  To know the correct status of replication, please refer to replication metrics - **Replica IO Status** and **Replica SQL Status** under monitoring blade. 
+  
+  If the `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates. 
 
 ## Other useful stored procedures for Data-in replication operations
 

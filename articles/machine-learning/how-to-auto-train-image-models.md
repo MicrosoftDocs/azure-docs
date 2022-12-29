@@ -533,6 +533,78 @@ In general, deep learning model performance can often improve with more data. Da
 |Object detection, instance segmentation| Training <br><br> Validation & Test |Random crop around bounding boxes, expand, horizontal flip, normalization, resize <br><br><br>Normalization, resize
 |Object detection using yolov5| Training <br><br> Validation & Test  |Mosaic, random affine (rotation, translation, scale, shear), horizontal flip <br><br><br> Letterbox resizing|
 
+Currently the augmentations defined above are applied by default for an Automated ML for image job. To provide control over augmentations, Automated ML for images exposes below two flags to turn-off certain augmentations. Currently, these flags are only supported for object detection and instance segmentation tasks. 
+ 1. **apply_mosaic_for_yolo:** This flag is only specific to Yolo model. Setting it to False turns off the mosaic data augmentation which is applied at the training time.
+ 2. **apply_automl_train_augmentations:** Setting this flag to false turns off the augmentation applied during training time for the object detection and instance segmentation models. For augmentations, see the details in the table above.
+    - For non-yolo object detection model and instance segmentation models, this flag turns off only the first three augmentations i.e., *Random crop around bounding boxes, expand, horizontal flip*. The normalization and resize augmentations are still applied regardless of this flag.
+    - For Yolo model, this flag turns off the random affine and horizontal flip augmentations.
+
+These two flags are supported via *advanced_settings* under *training_parameters* and can be controlled in the following way.
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_mosaic_for_yolo": false}
+```
+```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_automl_train_augmentations": false}
+```
+ Please note that these two flags are independent of each other and can also be used in combination using the following settings.
+ ```yaml
+training_parameters:
+  advanced_settings: >
+    {"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}
+```
+
+# [Python SDK](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+ 
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_mosaic_for_yolo": false}'
+)
+```
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_automl_train_augmentations": false}'
+)
+```
+ Please note that these two flags are independent of each other and can also be used in combination using the following settings.
+
+```python
+from azure.ai.ml import automl
+
+image_object_detection_job = automl.image_object_detection(...)
+
+image_object_detection_job.set_training_parameters(
+    ...,
+    advanced_settings='{"apply_automl_train_augmentations": false, "apply_mosaic_for_yolo": false}'
+)
+```
+
+---
+
+In our experiments, we found that these augmentations help the model to generalize better. Therefore, when these augmentations are switched off, we recommend the users to combine them with other offline augmentations to get better results.
+
+
 ##  Incremental training (optional)
 
 Once the training run is done, you have the option to further train the model by loading the trained model checkpoint. You can either use the same dataset or a different one for incremental training. 
@@ -1001,7 +1073,7 @@ If you're using AutoML to train on large datasets, there are some experimental s
 
 ### Multi-GPU and multi-node training
 
-By default, each model trains on a single VM. If training a model is taking too much time, using VMs that contain multiple GPUs may help. The time to train a model on large datasets should decrease in roughly linear proportion to the number of GPUs used. (For instance, a model should train roughly twice as fast on a VM with two GPUs as on a VM with one GPU.) If the time to train a model is still high on a VM with multiple GPUs, you can increase the number of VMs used to train each model. Similar to multi-GPU training, the time to train a model on large datasets should also decrease in roughly linear proportion to the number of VMs used. When training a model across multiple VMs, be sure to use a compute SKU that supports [InfiniBand](how-to-train-distributed-gpu.md#infiniband) for best results. You can configure the number of VMs used to train a single model by setting the `node_count_per_trial` property of the AutoML job.
+By default, each model trains on a single VM. If training a model is taking too much time, using VMs that contain multiple GPUs may help. The time to train a model on large datasets should decrease in roughly linear proportion to the number of GPUs used. (For instance, a model should train roughly twice as fast on a VM with two GPUs as on a VM with one GPU.) If the time to train a model is still high on a VM with multiple GPUs, you can increase the number of VMs used to train each model. Similar to multi-GPU training, the time to train a model on large datasets should also decrease in roughly linear proportion to the number of VMs used. When training a model across multiple VMs, be sure to use a compute SKU that supports [InfiniBand](how-to-train-distributed-gpu.md#accelerating-distributed-gpu-training-with-infiniband) for best results. You can configure the number of VMs used to train a single model by setting the `node_count_per_trial` property of the AutoML job.
 
 # [Azure CLI](#tab/cli)
 

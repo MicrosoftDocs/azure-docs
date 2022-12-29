@@ -4,7 +4,7 @@ description: Learn how to configure Azure CNI Overlay networking in Azure Kubern
 services: container-service
 ms.topic: article
 ms.custom: references_regions
-ms.date: 11/08/2022
+ms.date: 12/12/2022
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -17,6 +17,7 @@ With Azure CNI Overlay, the cluster nodes are deployed into an Azure Virtual Net
 > Azure CNI Overlay is currently available only in the following regions:
 > - North Central US
 > - West Central US
+> - East US
 
 ## Overview of overlay networking
 
@@ -89,7 +90,6 @@ The overlay solution has the following limitations today
 * You can't deploy multiple overlay clusters on the same subnet.
 * Overlay can be enabled only for new clusters. Existing (already deployed) clusters can't be configured to use overlay.
 * You can't use Application Gateway as an Ingress Controller (AGIC) for an overlay cluster.
-* v5 VM SKUs are currently not supported.
 
 ## Install the aks-preview Azure CLI extension
 
