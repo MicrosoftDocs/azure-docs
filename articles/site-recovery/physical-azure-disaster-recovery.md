@@ -114,7 +114,7 @@ In the **Prepare infrastructure** pane, under **Deployment planning** tab do the
 
   1.	For this tutorial, we don't need the Deployment Planner. In **Deployment planning completed?**, select **I will do it later**.
   2.	Select **Next**.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/deployment-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/deployment-setting.png" alt-text="Screenshot of deployment planning page.":::
 
 
 ## Source settings
@@ -122,11 +122,11 @@ In the **Prepare infrastructure** pane, under **Deployment planning** tab do the
 On the **Source settings** tab, do the following:
 1. Select if your machines are virtual or physical in the **Are your machines virtualized?** option. For this tutorial, select **No**.
 1. Under **Configuration Server**, specify the server you want to use. If you don't have a configuration server ready, you can use the **Add Configuration Server** option.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/source-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/source-setting.png" alt-text="Screenshot of source setting page.":::
 1. On the **Add Server** pane, do the following:
     1. If you’re enabling protection for virtual machines, then download the Configuration server virtual machine template. [Learn more](#register-the-configuration-server-in-the-vault).
     1. If you’re enabling protection for physical machines, then download the Site Recovery Unified Setup installation file. You will also need to download the vault registration key. You need it when you run Unified Setup. The key is valid for five days after you generate it. [Learn more](#run-setup).
-        :::image type="content" source="./media/physical-azure-disaster-recovery/add-server.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+        :::image type="content" source="./media/physical-azure-disaster-recovery/add-server.png" alt-text="Screenshot of add server page.":::
 1. Select **Next**.
 
 
@@ -165,8 +165,7 @@ On the **Target settings** tab, do the following:
     Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 1. Select **Next**
 
-   ![Screenshot of the options for setting up the target environment.](./media/physical-azure-disaster-recovery/network-storage.png)
-    :::image type="content" source="./media/physical-azure-disaster-recovery/target-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/target-setting.png" alt-text="Screenshot of the target setting page.":::
 
 
 ## Replication policy
@@ -177,7 +176,7 @@ Under **Replication policy** tab, do the following:
 
 1.	Under **Replication policy**, specify the replication policy.  
 2.	If you do not have a replication policy, use the **Create new policy and associate** option to create a new policy.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/replication-policy-vm.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/replication-policy-vm.png" alt-text="Screenshot of replication policy home page.":::
 3.	In the **Create and associate policy** page, do the following:
     1. **Name** - specify a policy name.
     1. **Source type** - select **VMware / Physical machines**.
@@ -186,7 +185,7 @@ Under **Replication policy** tab, do the following:
     1. **Retention period (in days)** - specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
     1. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. 
     4.	After the policy is created, select **OK**.
-        :::image type="content" source="./media/physical-azure-disaster-recovery/create-policy.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+        :::image type="content" source="./media/physical-azure-disaster-recovery/create-policy.png" alt-text="Screenshot of replication policy page.":::
 
 By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
 ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
@@ -201,7 +200,7 @@ By default, a matching policy is automatically created for failback. For example
     1. In **Machine type**, select **Physical machines**.
     1. In **Process server**, retain the default selection. Optionally, you can use the **Add Process Server** to add a new server for this step.
     1. Select **Next**.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-source.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-source.png" alt-text="Screenshot of source setting page.":::
 
 1. Under **Target environment** tab, do the following:
     1. In **Target subscription**, specify the subscription name.
@@ -210,20 +209,20 @@ By default, a matching policy is automatically created for failback. For example
     1. Under **Target azure network**, choose the Azure storage account you want to use for replicating data.
     1. In **Subnet**, select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
     1. Select **Next**.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-target.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-target.png" alt-text="Screenshot of target environment page.":::
 
 1. Under **Physical machine selection** tab, do the following:
     1. Select **Add Physical machine**. 
-        :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-physical.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+        :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-physical.png" alt-text="Screenshot of physical machine selection page.":::
     1. Specify the name and IP address. 
     1. Select the operating system of the machine you want to replicate. 
        It takes a few minutes for the servers to be discovered and listed.
-       :::image type="content" source="./media/physical-azure-disaster-recovery/add-physical-machines.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+       :::image type="content" source="./media/physical-azure-disaster-recovery/add-physical-machines.png" alt-text="Screenshot of add machine page.":::
 
 1. Under **Replication settings** tab, select and verify the the user account details.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of replication setting page.":::
 1. Under **Replication policy** tab, verify that the correct replication policy is selected.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of replication policy page.":::
 1. Under **Review** tab, review your selections and select **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
