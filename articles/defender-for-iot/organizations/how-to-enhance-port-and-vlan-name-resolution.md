@@ -44,12 +44,8 @@ VLANS are either discovered automatically by the sensor or added manually. When 
 Before you start, note that:
 
 - Manual VLANs can be edited and deleted, but automatically discovered VLANs can’t.
-
-- VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.
-
+- VLAN names aren't synchronized between the sensor and the management console. You need to define the name on the management console as well.
 - VLANs support is based on 802.1q (up to VLAN ID 4094).
-
-For Cisco switches, add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`. In that command, *XX/XX* is the name and number of the port.
 
 **To configure VLAN names:**
 
@@ -64,6 +60,12 @@ For Cisco switches, add the following line to the span configuration: `monitor s
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Screenshot of the VLAN naming pane." lightbox="media/how-to-enrich-asset-information/edit-vlan.png":::
 
 1. Select **Save**.
+
+**For Cisco switches:**
+
+Add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`.
+
+In that command, *XX/XX* is the name and number of the port.
 
 ## Next steps
 
