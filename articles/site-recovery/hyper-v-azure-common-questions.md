@@ -173,7 +173,9 @@ Yes, you can exclude disks from replication.
 ### Can I replicate VMs with dynamic disks?
 Dynamic disks can be replicated. The operating system disk must be a basic disk.
 
+### Can I enable Site Recovery along with other backup or disaster recovery tools?
 
+No, enabling Site Recovery along with other backup or disaster recovery resources on the same host machine is not supported. The other tools may create a lock on the resources required for Site Recovery to funtion smoothly. This may cause ongoing replication to break. 
 
 ## Security
 
