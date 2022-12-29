@@ -146,6 +146,8 @@ This command will cause the light on the port to flash for the specified time pe
 
 ## Next steps
 
-- [Post-installation validation of OT network monitoring software](post-install-validation-ot-software.md)
-- [Install OT monitoring software on OT sensors](install-software-ot-sensor.md)
-- [Troubleshoot the sensor and on-premises management console](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
+> [!div class="nextstepaction"]
+> [Validate after installing software](post-install-validation-ot-software.md)
+
+> [!div class="nextstepaction"]
+> [Troubleshooting](../how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)
