@@ -595,9 +595,7 @@ One we are confident with the new deployment, we can update the traffic to route
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
     *This step in not required in the Azure CLI*
-    ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -646,9 +644,7 @@ One we are confident with the new deployment, we can update the traffic to route
 
     # [Azure CLI](#tab/cli)
     
-    ```azurecli
     *This step in not required in the Azure CLI*
-    ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
     
@@ -744,6 +740,8 @@ ml_client.online_endpoints.begin_delete(name=endpoint_name)
 ```python
 deployment_client.delete_endpoint(endpoint_name)
 ```
+
+---
 
 > [!IMPORTANT]
 > Notice that deleting an endpoint also deletes all the deployments under it.
