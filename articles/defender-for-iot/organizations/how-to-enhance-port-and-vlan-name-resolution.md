@@ -9,6 +9,8 @@ ms.topic: how-to
 
 Enrich device resolution by customizing port and VLAN names on your sensors.
 
+For example, you might assign a name to a non-reserved port because that port shows unusually high activity. Similarly, you might assign a name to a VLAN number for better visibility in the device inventory reports.
+
 ## Prerequisites
 
 To customize port and VLAN names, you must be able to access the sensor as an **Admin** user.
@@ -39,13 +41,12 @@ Port names appear when you view device groups from the device map, or when you c
 
 Enrich device inventory data with device VLAN numbers and names.
 
-VLANS are either discovered automatically by the sensor or added manually. When you add a manual VLAN, you must add a unique name. Once named, the name of the VLAN will appear in reports instead of the VLAN number.
+VLANS are either discovered automatically by the sensor or added manually. Automatically discovered VLANs can't be edited or deleted, but manually added VLANs require a unique name. If not named, the number of the VLAN will appear in the reports instead.
 
-Before you start, note that:
+VLANs support is based on 802.1q (up to VLAN ID 4094).
 
-- Manual VLANs can be edited and deleted, but automatically discovered VLANs can’t.
-- VLAN names aren't synchronized between the sensor and the management console. You need to define the name on the management console as well.
-- VLANs support is based on 802.1q (up to VLAN ID 4094).
+> [!NOTE]
+> VLAN names aren't synchronized between the sensor and the management console. You need to define the name on the management console as well.
 
 **To configure VLAN names:**
 
@@ -55,7 +56,7 @@ Before you start, note that:
 
 1. In **VLAN naming** pane, select **Add VLAN**.
 
-1. Add a VLAN ID and unique VLAN name. For example:
+1. Add a VLAN ID and unique VLAN name. VLAN names can contain up to 50 ASCII characters. For example:
 
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Screenshot of the VLAN naming pane." lightbox="media/how-to-enrich-asset-information/edit-vlan.png":::
 
@@ -63,9 +64,7 @@ Before you start, note that:
 
 **For Cisco switches:**
 
-Add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`.
-
-In that command, *XX/XX* is the name and number of the port.
+Add the `monitor session 1 destination interface XX/XX encapsulation dot1q` command to the span configuration, where *XX/XX* is the name and number of the port.
 
 ## Next steps
 
