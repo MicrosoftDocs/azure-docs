@@ -189,7 +189,7 @@ You’ll now set up and deploy the Kubernetes cluster and enable it for manageme
    > [!IMPORTANT]
    > Before you proceed to create the Kubernetes cluster, keep in mind that:
    >- You can't modify the IP pool settings after the AKS cluster is deployed.
-   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in Step 1 of this article. If you didn’t enable custom locations, you can still choose to do this before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
+   >- As part of Arc-enabling the AKS target cluster, custom locations will be enabled if the object ID was passed using the optional command in the section for [Enable AKS and custom location](#enable-aks-and-custom-locations) in this article. If you didn’t enable custom locations, you can still choose to do this before the Kubernetes cluster is created. After the cluster deployment has started, you won’t be able to set custom locations.
 
 Follow these steps to deploy the AKS cluster.
 
@@ -243,12 +243,6 @@ Follow these steps to deploy the AKS cluster.
       ![Screenshot that shows the Azure Kubernetes Service Overview page with status of the Kubernetes service.](./media/azure-stack-edge-deploy-aks-on-azure-stack-edge/azure-stack-edge-azure-kubernetes-service-status.png)
 
    If you're planning to deploy Kubernetes workloads, you may next need to create Persistent Volumes to allocate storage.
-
-### [Two node cluster](#tab/2-node)
-
-Use this feature for a two node cluster implementation only if you are an SAP customer. 
-
----
 
 ## Add a persistent volume
 
