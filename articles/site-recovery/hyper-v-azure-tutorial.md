@@ -135,6 +135,31 @@ On the **Review** tab, review  your selections and select **Create**.
 
 You can track progress in the notifications. After the job finishes, the initial replication is complete, and the VM is ready for failover.
 
+## Enable replication
+
+1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
+2.	On the vault home page, select **Enable Site Recovery**.
+3.	Navigate to the bottom of the page, and select **Enable replication (Classic)** under the **Hyper-V machines to Azure** section.
+1. Under **Source environment** tab, specify the **source location** and select **Next**.
+   
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-source.png" alt-text="Screenshot of the source environment page.":::
+
+1. Under **Target environment** tab, do the following:
+    1. In **Subscription**, specify the subscription name.
+    1. For **Post-failover resource group**, specify the resource group name to fail over.
+    1. For **Post-failover deployment model**, specify **Resource Manager**.
+    1. In **Storage account**, specify the storage account name.
+    1. Select **Next**.
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-target.png" alt-text="Screenshot of the target environment page.":::
+
+1. Under **Virtual machine selection** tab, select the VM that you want to replicate and select **Next**.
+   
+1. Under **Replication settings** tab, select and verify the disk details.
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-settings.png" alt-text="Screenshot of the replication setting page.":::
+1. Under **Replication policy** tab, verify that the correct replication policy is selected.
+    :::image type="content" source="./media/hyper-v-azure-tutorial/enable-replication-policy.png" alt-text="Screenshot of the replication policy page.":::
+1. Under **Review** tab, review your selections and select **Enable Replication**. 
+
 ## Next steps
 
 [Learn more](tutorial-dr-drill-azure.md) about running a disaster recovery drill.
