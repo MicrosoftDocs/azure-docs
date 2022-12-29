@@ -77,7 +77,7 @@ First up, you create a resource group to store all of the created resources.
 
 In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
 
-> [NOTE!]
+> [!NOTE]
 > By default, [soft-delete](../key-vault/general/soft-delete-overview.md) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
@@ -414,14 +414,15 @@ At this point, you should be able to connect to the App Service through the appl
 
 You'll deploy Azure Firewall to perform packet inspection between the application gateway and the App Service. Your digital certificate stored in Key Vault will be used to secure traffic.
 
-> [NOTE!]
+> [!NOTE]
 > Basic and Standard tier firewalls do not support SSL termination.
 
 1. In the Azure portal, search for and select **Firewalls**.
 1. On the Firewalls page, select **+ Create**.
 1. On the **Create a firewall** page, specify the following settings:
-    | Setting            | Value                      |
-    |--| - |
+    
+    | Setting | Value |
+    |----|---- 
     | Subscription | Select your subscription. |
     | Resource group | Enter **myResourceGroup**. |
     | Name | Enter **myFirewall**. |
@@ -449,8 +450,9 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. On the **IDPS** page, select **Alert and deny** and then select **Apply**. Wait for the firewall policy to complete updating before proceeding to the next step.
 1. Select **TLS inspection** under **Settings**
 1. On the TLS inspection page, select **Enabled** and then specify the following settings:
-    | Setting            | Value                      |
-    |--| - |
+    
+    | Setting | Value |
+    |-----|-----|
     | Managed identity | Enter **myManagedIDappGW**. |
     | Key vault | Select **myKeyVaultZT**. |
     | Certificate | Select **myTrustedWildCard**. |
@@ -467,7 +469,7 @@ In this task, you'll configure the firewall policy used for packet inspection.
 1. In the **Network rules** page, select **Add a rule collection**.
 1. In the **Add a rule collection** page, enter or select the following settings:
     
-| Setting            | Value                      |
+    | Setting            | Value                      |
     |--| - |
     | Name | Enter **myRuleCollection**. |
     | Rule collection type | Select **Network**. |
@@ -568,7 +570,7 @@ If you would like to test that the Firewall is actually inspecting or filtering 
 
 You'll deploy network security groups to prevent other subnets from accessing the private endpoint used by the app service.
 
-> [NOTE!]
+> [!NOTE]
 > In this deployment, network security groups aren't explicitly required. We have configured Route Tables to force the flow of traffic from the defined subnets through an Azure Firewall. However, in a production environment, most organizations have other subnets that might be in the same virtual network or peered to the network that didn't have user-defined routes defined. Network security groups would be beneficial to ensure that other subnets can't access the Private Endpoint of the App Service. Learn more about [network security groups](../virtual-network/network-security-groups-overview.md).
 
 1. From the Azure portal, search for and select **Network security groups**.
