@@ -80,13 +80,13 @@ To configure provisioning, do the following:
 
     ![Screenshot of the Azure AD Connect cloud sync pane with the "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png#lightbox)
 
-1.  On the configuration screen, enter a **Notification email**, move the selector to **Enable**, and then select **Save**.
+1.  On the **Configuration** page, enter a **Notification email**, move the selector to **Enable**, and then select **Save**.
 
     ![Screenshot of the "Edit provisioning configuration" pane.](media/how-to-configure/configure-2.png#lightbox)
 
 1.  The configuration status should now be **Healthy**.
 
-    ![Screenshot of Azure AD Connect cloud sync screen showing a "Healthy" status.](media/how-to-configure/manage-4.png#lightbox)
+    ![Screenshot of the "Azure AD Connect cloud sync" page, showing a "Healthy" status.](media/how-to-configure/manage-4.png#lightbox)
 
 ## Verify that users are created and synchronization is occurring
 
