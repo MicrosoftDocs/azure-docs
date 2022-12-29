@@ -8,7 +8,7 @@ ms.custom: template-how-to-pattern #Required; leave this attribute/value as-is.
 
 # Connect on-premises OT network sensors to Microsoft Sentinel
 
-You can stream Microsoft Defender for IoT data into Microsoft Sentinel via the Azure portal, for any data coming from cloud-connected OT network sensors.
+You can [stream Microsoft Defender for IoT data into Microsoft Sentinel](../iot-solution.md) via the Azure portal, for any data coming from cloud-connected OT network sensors.
 
 However, if you're working either in a hybrid environment, or completely on-premises, you might want to stream data in from your locally-managed sensors to Microsoft Sentinel. To do this, create forwarding rules on either your OT network sensor, or for multiple sensors from an on-premises management console.
 
