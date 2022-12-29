@@ -21,11 +21,12 @@ This tutorial walks you through adding cloud sync to an existing hybrid identity
 
 You can use the environment you create in this tutorial for testing or for getting more familiar with how a hybrid identity works. 
 
-In this scenario, an existing forest is synced to an Azure AD tenant by using Azure Active Directory (Azure AD) Connect. You want to sync a new forest to the same Azure AD tenant. You'll set up cloud sync for the new forest. 
+In this scenario, you sync an existing forest with an Azure AD tenant by using Azure Active Directory (Azure AD) Connect. You want to sync a new forest with the same Azure AD tenant. You'll set up cloud sync for the new forest. 
 
 ## Prerequisites
 
-Before you begin, set up your environments by doing the following.
+Before you begin, set up your environments.
+
 ### In the Azure AD admin center
 
 1. Create a cloud-only global administrator account on your Azure AD tenant. 
@@ -50,7 +51,7 @@ Before you begin, set up your environments by doing the following.
      
      If your firewall enforces rules according to the originating users, open these ports for traffic from Windows services that run as a network service.
 
-   - If your firewall or proxy allows you to specify safe suffixes, add  connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
+   - If your firewall or proxy allows you to specify safe suffixes, add connections to **\*.msappproxy.net** and **\*.servicebus.windows.net**. If it doesn't, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly.
 
    - Your agents need access to **login.windows.net** and **login.microsoftonline.com** for initial registration. Open your firewall for those URLs as well.
 
