@@ -22,7 +22,7 @@ Each activity listed below is accessible by a different set of privileged users,
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](../references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-<!-->
+<!--
 ## Users supported by sensor CLI actions
 
 The following table lists the activities available by CLI and the [privileged users](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring) supported for each activity.
