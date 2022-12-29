@@ -35,7 +35,7 @@ The Manifest data is loaded in a particular sequence:
    2. the 'WorkProductComponents' array
    3. the 'WorkProduct'. 
 
-Any arrays are ordered. should there be interdependencies, the dependent items must be placed behind their relationship targets, e.g. a master-data Well record must placed in the 'MasterData' array before its Wellbores.
+Any arrays are ordered. should there be interdependencies, the dependent items must be placed behind their relationship targets, for example, a master-data Well record must be placed in the 'MasterData' array before its Wellbores.
 
 ## Manifest-based file ingestion workflow
 
@@ -52,13 +52,13 @@ The Manifest-based file ingestion workflow consists of the following components:
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ### Pre-requisites
-Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service. As part of Microsoft Energy Data Services instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests are included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
+Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service. As part of Microsoft Energy Data Services instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
 
 ### Workflow sequence
 The following illustration provides the Manifest-based file ingestion workflow:
     :::image type="content" source="media/concepts-manifest-ingestion/concept-manifest-ingestion-sequence.png" alt-text="Screenshot of the manifest ingestion sequence.":::
 
-A user submits a manifest to the `Workflow Service` using the manifest ingestion workflow name ("Osdu_ingest"). If the request is proper and the user is authorized to run the workflow, the workflow service loads and initiates the manifest ingestion workflow using the manifest contents submitted in the body of the Workflow service request.
+A user submits a manifest to the `Workflow Service` using the manifest ingestion workflow name ("Osdu_ingest"). If the request is proper and the user is authorized to run the workflow, the workflow service loads the manifest and initiates the manifest ingestion workflow.
 
 The workflow service executes a series of manifest `syntax validation` like manifest structure and attribute validation as per the defined schema and check for mandatory schema attributes. The system then perform `referential integrity validation` between Work Product Components and Datasets. For example, whether the referenced parent data exists. 
 
