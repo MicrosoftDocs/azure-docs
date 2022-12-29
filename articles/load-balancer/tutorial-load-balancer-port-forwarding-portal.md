@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/29/2022
+ms.date: 12/28/2022
 ms.custom: template-tutorial, engagement-fy23, FY23 content-maintenance
 ---
 
