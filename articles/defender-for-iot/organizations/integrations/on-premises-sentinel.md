@@ -31,7 +31,7 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 1. When creating your forwarding rule, make sure to select **Microsoft Sentinel** as the **Server** value. For example, on the OT sensor:
 
-    :::image type="content" source="../media/integration-on-premises-sentinel/sensor-sentinel.png" alt-text="Screenshot of the Microsoft Sentinel option from the OT sensor.":::
+    :::image type="content" source="../media/integration-on-premises-sentinel/sensor-sentinel.png" alt-text="Screenshot of the Microsoft Sentinel option from the OT sensor." lightbox="../media/integration-on-premises-sentinel/sensor-sentinel.png":::
 
 1. If you're using TLS encryption, make sure to select **Enable encryption** and upload your certificate and key files.
 
