@@ -39,7 +39,7 @@ This operation counts the number of people in a specific zone over time using th
 ### Entrance Counting
 This feature monitors how long people stay in an area or when they enter through a doorway. This monitoring can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In retail scenarios, these operations can be used to measure wait times for a checkout line or engagement at a display. Also, these operations could measure foot traffic in a lobby or a specific floor in other commercial building scenarios.
 
-![Spatial Analysis measures dwell time in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
+![Video frames of people moving in and out of a bordered space, with rectangles drawn around them.](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and face mask detection 
 This feature analyzes how well people follow social distancing requirements in a space. The system uses the PersonDistance operation to automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft. or 10 ft.).
