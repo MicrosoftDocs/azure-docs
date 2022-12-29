@@ -105,9 +105,9 @@ If the behavior of a metric changed recently, the changes won't necessarily be r
 
 To identify weekly seasonality, the Dynamic Thresholds model requires at least three weeks of historical data. When enough historical data is available, any weekly seasonality that exists in the metric data is identified and the model is adjusted accordingly.
 
-## Dynamic Thresholds shows a negative lower bound for a metric even though the metric always has positive values
+## Dynamic Thresholds is showing values that are not within the range of expected values
 
-When a metric exhibits large fluctuation, Dynamic Thresholds builds a wider model around the metric values. This action can result in the lower border being below zero. Specifically, this scenario can happen when:
+When a metric exhibits large fluctuation, Dynamic Thresholds builds a wider model around the metric values. This action can result in a lower border below zero or an upper value above one hundred. This scenario can happen when:
 
 - The sensitivity is set to low.
 - The median values are close to zero.
