@@ -156,6 +156,19 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 > In both GitHub and Azure DevOps, make sure that you keep the trigger path and deployment path directories consistent.
 >
 
+## Scale your deployments with parameter files
+
+    Rather than passing parameters as inline values in your content files, you can [use a JSON file that contains the parameter values](../azure-resource-manager/templates/parameter-files.md). You can then map those parameter JSON files to their associated Sentinel content files to better scale your deployments across different workspaces. There are a number of ways to map parameter files to Sentinel files, and the repositories deployment pipeline considers them in the following order: 
+ 
+    :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+
+     1. Is there a mapping in the sentinel-deployment.config?
+     1. Is there a workspace parameter file?
+     1. Is there a default parameter file?
+     
+It's important to note that once a parameter file match is determined based on the above mapping precedence, the pipeline will ignore any remaining mappings.
+
+Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file will also trigger a deployment of the paired content file(s) along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed as long as the smart deployments feature is still enabled in the workflow/pipeline definition file.
 
 ## Customize your connection configuration
 
@@ -203,19 +216,11 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
     
     Add full path names to the `"prioritizedcontentfiles":` section. Wildcard matching is not supported at this time.
 
-- **To exclude content files**, modify the `"excludecontentfiles":` section with full path names of individual .json deployment files.
+- **To exclude content files**, modify the `"excludecontentfiles":` section with full path names of individual .json content files.
 
 - **To map parameters**:
 
-    The deployment script will accept three methods to map parameters. The precedence is determined for each included .json deployment file in your repository as follows: 
- 
-    :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
-
-     1. Is there a mapping in the sentinel-deployment.config?
-     1. Is there a workspace parameter file?
-     1. Is there a default parameter file?
-
-Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed if the smart deployments feature is still enabled.
+    The deployment script will accept three methods to map parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and will guarantee that a given parameter file will be mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
 ## Next steps
