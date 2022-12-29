@@ -121,6 +121,9 @@ To create a custom classification rule:
 
 ### Creating a Regular Expression Rule
 
+>[!IMPORTANT]
+>Regular expressions in custom classifications are case insensitive.
+
 1. If creating a regular expression rule, you'll see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule. Only English language rules are supported.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
