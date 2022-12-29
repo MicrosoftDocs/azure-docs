@@ -187,13 +187,13 @@ To configure the cloud sync setup, do the following:
     
 1. Under **Scope users**, change the scope to include the OU that you created: **OU=CPUsers,DC=contoso,DC=com**.
 
-    ![Screenshot of the Scope users screen highlighting the scope changed to the OU you created.](media/tutorial-existing-forest/scope-2.png)
+    ![Screenshot of the "Scope users" page, highlighting the scope that's changed to the OU you created.](media/tutorial-existing-forest/scope-2.png)
     
 1. Select **Done** and **Save**.
 
    The scope should now be set to **1 organizational unit**.
 
-    ![Screenshot of Configure screen with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope-3.png)
+    ![Screenshot of the "Configure" page, with "1 organizational unit" highlighted next to "Scope users".](media/tutorial-existing-forest/scope-3.png)
 
 ## Verify that users have been set up by cloud sync
 
