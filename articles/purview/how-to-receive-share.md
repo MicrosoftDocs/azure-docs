@@ -108,17 +108,11 @@ You can map or unmap an asset within a received share.
 
 You can map an asset in the *unmapped* state. To map asset, first select the received share, and then select **Assets** tab. Locate the asset you want to map, and select the **Map** action next to the asset name. You can now specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the asset mapping to complete, and your will see the shared data in your target data store. 
 
-:::image type="content" source="./media/how-to-receive-share/edit-share-map.png" alt-text="Screenshot showing a received share in the Microsoft Purview governance portal, with the assets tab open, showing an asset with a Not Mapped status. The mapping button is highlighted next to the asset." border="true":::  
-
 You can unmap an asset in the *mapped* or *Failed* state. To unmap an asset, first select the received share, and then select **Assets** tab. Locate the asset you want to unmap, and select the **Unmap** action next to the asset name. It will take a few minutes to complete. Once asset is unmapped, you can no longer access the shared data.
-
-:::image type="content" source="./media/how-to-receive-share/edit-share-unmap.png" alt-text="Screenshot showing a received share in the Microsoft Purview governance portal, with the assets tab open, showing an asset in the Mapped status. The unmapping button is highlighted next to the asset." border="true":::   
 
 ## Delete received share
 
 To delete a *received share*, select the share and then select **Delete**.
-
-:::image type="content" source="./media/how-to-receive-share/delete-received-share.png" alt-text="Screenshot showing received shares in the Microsoft Purview governance portal. One share has been selected, and the Delete button is highlighted at the top of the page." border="true":::
 
 Deleting a received share will stop the sharing relationship, and you'll no longer be able to access shared data. Deleting a received share can take a few minutes.
 
