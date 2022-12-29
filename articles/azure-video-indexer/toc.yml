@@ -12,9 +12,9 @@
   items:
   - name: Limited access features
     href: limited-access-features.md         
-  - name: Transparency notes
+  - name: Transparency note
     items:
-    - name: Transparency notes
+    - name: Transparency note
       href: /legal/azure-video-indexer/transparency-note?context=/azure/azure-video-indexer/context/context
     - name: Audio effects detection
       href: /legal/azure-video-indexer/audio-effects-detection-transparency-note?context=/azure/azure-video-indexer/context/context

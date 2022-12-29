@@ -5,12 +5,12 @@ author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: ignite-2022
-ms.date: 08/23/2022
+ms.date: 12/27/2022
 ms.reviewer: harelbr
 ---
 # Create a new alert rule
 
-This article shows you how to create an alert rule. To learn more about alerts, see [What are Azure Monitor alerts?](alerts-overview.md).
+This article shows you how to create an alert rule. To learn more about alerts, see the [alerts overview](alerts-overview.md).
 
 You create an alert rule by combining:
  - The resources to be monitored.
@@ -28,9 +28,12 @@ Then you define these elements for the resulting alert actions by using:
 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-new-alert-rule.png" alt-text="Screenshot that shows steps to create a new alert rule.":::
 
-1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**. You can also do a search.
+1. On the **Select a resource** pane, set the scope for your alert rule. You can filter by **subscription**, **resource type**, or **resource location**.
 
-    **Available signal types** for your selected resources are at the bottom right of the pane.
+    The **Available signal types** for your selected resources are at the bottom right of the pane.
+
+    > [!NOTE]
+    > If you select a Log analytics workspace resource, keep in mind that if the workspace receives telemetry from resources in more than one subscription, alerts are sent about those resources from different subscriptions.
 
     :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot that shows the select resource pane for creating a new alert rule.":::
 
@@ -150,7 +153,7 @@ Then you define these elements for the resulting alert actions by using:
         |---------|---------|
         |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
         |Threshold value| A number value for the threshold. |
-        |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. |
+        |Frequency of evaluation|How often the query is run. Can be set from a minute to a day.|
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-create-log-rule-logic.png" alt-text="Screenshot that shows the Alert logic section of a new log alert rule.":::
 
@@ -243,7 +246,7 @@ Then you define these elements for the resulting alert actions by using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met.<br> If you don't select this checkbox, metric alerts are stateless. Stateless alerts fire each time the condition is met, even if alert already fired.<br> The frequency of notifications for stateless metric alerts differs based on the alert rule's configured frequency:<br>**Alert frequency of less than 5 minutes**: While the condition continues to be met, a notification is sent somewhere between one and six minutes.<br>**Alert frequency of more than 5 minutes**: While the condition continues to be met, a notification is sent between the configured frequency and double the frequency. For example, for an alert rule with a frequency of 15 minutes, a notification is sent somewhere between 15 to 30 minutes.|
     1. (Optional) If you've configured action groups for this alert rule, you can add custom properties to the alert payload to add more information to the payload. In the **Custom properties** section, add the property **Name** and **Value** for the custom property you want included in the payload.
 
         :::image type="content" source="media/alerts-create-new-alert-rule/alerts-metric-rule-details-tab.png" alt-text="Screenshot that shows the Details tab when creating a new alert rule.":::
@@ -258,7 +261,7 @@ Then you define these elements for the resulting alert actions by using:
         |Field |Description |
         |---------|---------|
         |Enable upon creation| Select for the alert rule to start running as soon as you're done creating it.|
-        |Automatically resolve alerts (preview) |Select to make the alert stateful. The alert is resolved when the condition isn't met anymore.|
+        |Automatically resolve alerts (preview) |Select to make the alert stateful. When an alert is stateful, the alert is resolved when the condition is no longer met for a specific time range. The time range differs based on the frequency of the alert:<br>**1 minute**: The alert condition isn't met for 10 minutes.<br>**5-15 minutes**: The alert condition isn't met for three frequency periods.<br>**15 minutes - 11 hours**: The alert condition isn't met for two frequency periods.<br>**11 to 12 hours**: The alert condition isn't met for one frequency period.|
         |Mute actions |Select to set a period of time to wait before alert actions are triggered again. If you select this checkbox, the **Mute actions for** field appears to select the amount of time to wait after an alert is fired before triggering actions again.|
         |Check workspace linked storage|Select if logs workspace linked storage for alerts is configured. If no linked storage is configured, the rule isn't created.|
 

@@ -210,7 +210,7 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
     /tmp/ssh-rfSUL1ldCldQ/agent.1792
     ```
 
-    If nothing is returned, then `ssh-agent` isn't running. For more information, see the agent startup scripts information at [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) or consult your SSH client documentation.
+    If nothing is returned, then `ssh-agent` isn't running.
 
 4. Once you've verified that **ssh-agent** is running, use the following to add your SSH private key to the agent:
 
