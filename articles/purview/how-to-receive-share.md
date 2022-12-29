@@ -116,7 +116,22 @@ To delete a *received share*, select the share and then select **Delete**.
 
 Deleting a received share will stop the sharing relationship, and you'll no longer be able to access shared data. Deleting a received share can take a few minutes.
 
+## Guest user verification
+
+If you're a guest user in Azure, to be able to receive shares your account must first be associated with the Azure Active Directory. You can start this process from within Microsoft Purview.
+
+1. In the [Microsoft Purview Governance Portal](https://web.purview.azure.com/), select the Data Map and then **Share invites**.
+
+1. You'll see text indicating that you need to be associated with Azure Active Directory. Select the **Get verification code** button.
+
+    :::image type="content" source="./media/how-to-receive-share/get-verification-code.png" alt-text="Screenshot of the Share invites page with the Get verification code button highlighted." border="true":::
+
+1. You'll receive an email from Microsoft Azure with the verification code. Copy it.
+
+1. Return to the **Share invites** page in the Microsoft Purview Governance Portal, select **Verify**, and enter the code you received.
+
 ## Troubleshoot
+
 Here are some common issues for receiving share and how to troubleshoot them.
 
 ### Can't create Microsoft Purview account
@@ -132,9 +147,9 @@ If both *sent shares* and *received shares* are disabled in the navigation, you 
 If you've been notified that you've received a share, but can't view pending share in your Microsoft Purview account, it could be due to the following reasons:
 
 * You don't have **Data Share Contributor** role to any collections in this Microsoft Purview account. Contact your *Microsoft Purview Collection Admin* to grant you access to **Data Share Contributor** role to view, accept and configure the received share. 
-* Pending share invitation is sent to your email alias or an email distribution group instead of your Azure sign-in email. Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address..
+* Pending share invitation is sent to your email alias or an email distribution group instead of your Azure sign-in email. Contact your data provider and ensure that they've sent the invitation to your Azure sign-in e-mail address.
 * Share has already been accepted.  If you've already accepted the share, it will no longer show up in *Pending* tab. Select *Accepted* tab under *Received shares* to see your active shares.
-* You're a guest user of the tenant. If you're a guest user of a tenant, you need to verify your email address for the tenant in order to view pending share for the first time. Once verified, it's valid for 12 months.
+* You're a guest user of the tenant. If you're a guest user of a tenant, [you need to verify your email address for the tenant in order to view pending share for the first time](#guest-user-verification). Once verified, it's valid for 12 months.
 
 ### Can't select a collection when accepting a pending share or register a data source
 
