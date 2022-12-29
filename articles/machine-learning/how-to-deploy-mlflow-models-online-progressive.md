@@ -467,6 +467,12 @@ Let's imagine that there is a new version of the model created by the developmen
     az ml model create --name $MODEL_NAME --type "mlflow_model" --path "model"
     ```
     
+    Let's get the version number of the new model:
+
+    ```azurecli
+    VERSION=$(az ml model show -n heart-classifier --label latest | jq -r ".version")
+    ```
+    
     # [Python (Azure ML SDK)](#tab/sdk)
     
     ```python
@@ -476,6 +482,7 @@ Let's imagine that there is a new version of the model created by the developmen
     model = ml_client.models.create_or_update(
          Model(name=model_name, path=model_local_path, type=AssetTypes.MLFLOW_MODEL)
     )
+    version = model.version
     ```
     
     # [Python (MLflow SDK)](#tab/mlflow)
@@ -498,11 +505,17 @@ Let's imagine that there is a new version of the model created by the developmen
 
     ```yml
     $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-    name: xgboost-model-new
+    name: xgboost-model
     endpoint_name: heart-classifier-edp
     model: azureml:heart-classifier@latest
     instance_type: Standard_DS2_v2
     instance_count: 1
+    ```
+    
+    We will name the deployment as follows:
+
+    ```azurecli
+    GREEN_DEPLOYMENT_NAME="xgboost-model-$VERSION"
     ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
@@ -554,7 +567,7 @@ Let's imagine that there is a new version of the model created by the developmen
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    az ml online-deployment create --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
+    az ml online-deployment create -n $GREEN_DEPLOYMENT_NAME --endpoint-name $ENDPOINT_NAME -f green-deployment.yml
     ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
@@ -611,7 +624,7 @@ One we are confident with the new deployment, we can update the traffic to route
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=90 xgboost-model-new=10"
+    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=90 $GREEN_DEPLOYMENT_NAME=10"
     ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
@@ -662,7 +675,7 @@ One we are confident with the new deployment, we can update the traffic to route
     # [Azure CLI](#tab/cli)
     
     ```azurecli
-    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=0 xgboost-model-new=100"
+    az ml online-endpoint update --name $ENDPOINT_NAME --traffic "default=0 $GREEN_DEPLOYMENT_NAME=100"
     ```
     
     # [Python (Azure ML SDK)](#tab/sdk)
