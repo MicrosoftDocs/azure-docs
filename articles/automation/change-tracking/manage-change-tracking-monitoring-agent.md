@@ -78,7 +78,7 @@ To configure the monitoring of files and folders using wildcards, do the followi
 
 ## Disable Change Tracking from a virtual machine 
 
-To remove change tracking with Azure Monitoring Agent from a virtual machine, follow these steps :
+To remove change tracking with Azure Monitoring Agent from a virtual machine, follow these steps:
 
 ### Disassociate Data Collection Rule (DCR) from a VM
 
@@ -88,7 +88,7 @@ To remove change tracking with Azure Monitoring Agent from a virtual machine, fo
 1. Select the specific VM for which you want to disable the DCR.
 1. Select **Delete**.
    
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshort of selecting a VM to dissaciate the DCR from the VM." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/disable-dcr-inline.png" alt-text="Screenshot of selecting a VM to dissociate the DCR from the VM." lightbox="media/manage-change-tracking-monitoring-agent/disable-dcr-expanded.png":::
 
    A notification appears to confirm the disassociation of the DCR for the selected VM.
 
@@ -98,7 +98,7 @@ To remove change tracking with Azure Monitoring Agent from a virtual machine, fo
 1. In the Virtual Machines page, under **Settings**, select **Extensions + applications**.
 1. In the **VM |Extensions + applications** page, under **Extensions** tab, select **MicrosoftAzureChangeTrackingAndInventoryChangeTracking-Windows/Linux**.
 
-   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR ." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
+   :::image type="content" source="media/manage-change-tracking-monitoring-agent/uninstall-extensions-inline.png" alt-text="Screenshort of selecting the extension for a VM that is already disassociated from the DCR." lightbox="media/manage-change-tracking-monitoring-agent/uninstall-extensions-expanded.png":::
 
 1. Select **Uninstall**.
 
