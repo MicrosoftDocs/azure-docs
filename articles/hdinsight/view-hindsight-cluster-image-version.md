@@ -17,7 +17,7 @@ ms.date: 12/29/2022
 
     :::image type="content" source="./media/find-image-version/json-view.png" alt-text="Screenshot showing how to view the HDInsight image version.":::
 
-## Next steps
+**Next steps**
 
 * [Create Apache Hadoop cluster in HDInsight](./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
 * [Create Apache Spark cluster - Portal](./spark/apache-spark-jupyter-spark-sql-use-portal.md)
