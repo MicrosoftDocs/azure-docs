@@ -20,11 +20,11 @@ In this article, you'll learn how you can progressively update and deploy MLflow
 
 ## About this example
 
-Online Endpoints have the concept of __Endpoint__ and __Deployment__. An endpoint represent the API that customers uses to consume the model, while the deployment indicates the specific implementation of that API. This distinction allows users to decouple the API from the implementation and to change the underlying implementation without affecting the consumer. This example will use this concepts to update the deployed model in endpoints without introducing service disruption. 
+Online Endpoints have the concept of __Endpoint__ and __Deployment__. An endpoint represents the API that customers use to consume the model, while the deployment indicates the specific implementation of that API. This distinction allows users to decouple the API from the implementation and to change the underlying implementation without affecting the consumer. This example will use such concepts to update the deployed model in endpoints without introducing service disruption. 
 
 The model we will deploy is based on the [UCI Heart Disease Data Set](https://archive.ics.uci.edu/ml/datasets/Heart+Disease). The database contains 76 attributes, but we are using a subset of 14 of them. The model tries to predict the presence of heart disease in a patient. It is integer valued from 0 (no presence) to 1 (presence). It has been trained using an `XGBBoost` classifier and all the required preprocessing has been packaged as a `scikit-learn` pipeline, making this model an end-to-end pipeline that goes from raw data to predictions.
 
-The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to `sdk/using-mlflow/deploy`.
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo, and then change directories to `sdk/using-mlflow/deploy`.
 
 ### Follow along in Jupyter Notebooks
 
@@ -36,7 +36,7 @@ Before following the steps in this article, make sure you have the following pre
 
 - Install the Mlflow SDK package: `mlflow`.
 - Install the Azure Machine Learning plug-in for MLflow: `azureml-mlflow`.
-- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. For more information about how to Set up tracking environment, see [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
+- If you are not running in Azure Machine Learning compute, configure the MLflow tracking URI or MLflow's registry URI to point to the workspace you are working on. See [Track runs using MLflow with Azure Machine Learning](how-to-use-mlflow-cli-runs.md#set-up-tracking-environment) for more details.
 
 ### Registering the model in the registry
 
@@ -204,7 +204,7 @@ We are going to exploit this functionality by deploying multiple versions of the
 
 ### Create a blue deployment
 
-So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default" and this will represent our "blue deployment".
+So far, the endpoint is empty. There are no deployments on it. Let's create the first one by deploying the same model we were working on before. We will call this deployment "default" and it will represent our "blue deployment".
 
 #. Configure the deployment
 
