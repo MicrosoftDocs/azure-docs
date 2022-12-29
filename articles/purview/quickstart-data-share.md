@@ -58,45 +58,35 @@ You've now created your share. The recipients of your share will receive an invi
 
 ## Receive share
 
-1. You can view your pending shares in any Microsoft Purview account. In the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share.
-1. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Share** icon from the left navigation. Then select **pending received share**. If you received an email invitation, you can also select the **View pending share** link in the email to select a Microsoft Purview account. 
+1. You can view your share invitations in any Microsoft Purview account. In the [Azure portal](https://portal.azure.com), search for and select the Microsoft Purview account you want to use to receive the share. Open [the Microsoft Purview governance portal](https://web.purview.azure.com/). Select the **Data Map** icon from the left navigation. Then select **Share invites**. If you received an email invitation, you can also select the **View share invite** link in the email to select a Microsoft Purview account.
 
-    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing pending received share for the first time. Once verified, it's valid for 12 months.
+    If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant before viewing pending received share for the first time. [You can see our guide below for steps.](#guest-user-verification) Once verified, it's valid for 12 months.
 
-   :::image type="content" source="./media/how-to-receive-share/receive-share-invitation.png" alt-text="Screenshot showing pending received share button in the Microsoft Purview governance portal." border="true"::: 
+    :::image type="content" source="./media/how-to-receive-share/view-invites.png" alt-text="Screenshot showing the Share invites page in the Microsoft Purview governance portal." border="true":::  
 
-1. Select name of the pending share you want to view. 
+1. Select name of the pending share you want to view or configure.
 
-   :::image type="content" source="./media/how-to-receive-share/receive-share-select-invitation.png" alt-text="Screenshot showing the received shares window under the pending tab, with a pending share highlighted to select it." border="true"::: 
+1. If you don't want to accept the invitation, select **Delete**.
 
-1. Specify a **Received share name** and a collection. Select **Accept and configure**. If you don't want to accept the invitation, select *Reject*.
+    :::image type="content" source="./media/how-to-receive-share/select-delete-invitation.png" alt-text="Screenshot showing the share attachment page with the delete button highlighted." border="true":::  
 
-   :::image type="content" source="./media/how-to-receive-share/receive-share-accept.png" alt-text="Screenshot showing pending share configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
+    >[!NOTE]
+    > If you delete an invitation, if you want to accept the share in future it will need to be resent. To deselect the share without deleting select the **Cancel** button instead.
 
-1. Continue to map asset. Select **Map** next to the asset to specify a target data store to receive or access shared data. 
- 
-    :::image type="content" source="./media/how-to-receive-share/receive-share-map.png" alt-text="Screenshot showing the map asset window, with the map button highlighted next to the asset to specify a target data store to receive or access shared data." border="true":::  
+1. You can edit the **Received share name** if you like. Then select a **Storage account name** for a target storage account in the same region as the source. You can choose to **Register a new storage account to map assets** in the drop-down as well.
 
-1. For in-place sharing, target type and locations are determined by the data provider's source type and location. Select a storage account with the same type and location as the source.
+    >[!IMPORTANT]
+    >The target storage account needs to be in the same Azure region as the source storage account.
 
-    If you don't see a storage account from the drop-down list, select the **Register a new data store to map assets** link below to register your storage account. Azure resource needs to be registered with Microsoft Purview before you can receive data into that resource. Your storage account needs to be registered in the same collection as the received share.
+1. Configure the **Path** (either a new container name, or the name of an existing share container) and **New folder** (a new folder name for the share within in your container).
 
-    Enter additional information required to map asset. Select **Map to target**.
+1. Select **Attach to target**.
 
-    > [!NOTE] 
-    > The container where shared data is mapped to is read-only. You cannot write to the container. You can map multiple shares into the same container.
+   :::image type="content" source="./media/how-to-receive-share/attach-shared-data.png" alt-text="Screenshot showing pending share configuration page, with a share name added, a collection selected, and the accept and configure button highlighted." border="true":::  
 
-    :::image type="content" source="./media/how-to-receive-share/receive-share-map-target.png" alt-text="Screenshot showing the map assets window with a storage account, path, and folder added, and the map to target button highlighted at the bottom of the page." border="true":::    
+1. On the Manage data shares page, you'll see the new share with the status of **Creating** until it has completed and is attached.
 
-1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Select **Close**. 
-
-    You can select "Close" after you've configured the asset mapping. You don't need to wait for the mapping to complete.
-
-    :::image type="content" source="./media/how-to-receive-share/receive-share-map-in-progress.png" alt-text="Screenshot showing the map assets window with a mapping in progress and the close button highlighted at the bottom of the window." border="true":::  
-
-1. Select **Assets** tab to monitor mapping status. Once mapping is completed, you'll get a notification in the screen. The status will change from *Mapping* to *Mapped*. 
-
-    :::image type="content" source="./media/how-to-receive-share/receive-share-asset-mapped.png" alt-text="Screenshot showing received shares in the Microsoft Purview governance portal, with the share selected, the Assets menu opened, and the status showing as Mapped." border="true"::: 
+    :::image type="content" source="./media/how-to-receive-share/manage-data-shares-window-creating.png" alt-text="Screenshot showing the map asset window, with the map button highlighted next to the asset to specify a target data store to receive or access shared data." border="true":::  
 
 1. You can access shared data from the target storage account through Azure portal, Azure Storage Explorer, Azure Storage SDK, PowerShell or CLI. You can also analyze the shared data by connecting your storage account to Azure Synapse Analytics Spark or Databricks.
 
