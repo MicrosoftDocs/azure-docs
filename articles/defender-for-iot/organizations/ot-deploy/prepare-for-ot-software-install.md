@@ -21,7 +21,7 @@ Before preparing to install the software, make sure you've completed the followi
 
 - [Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
 
-## Download software files from the Azure portal
+## Download the software files from the Azure portal
 
 Download OT sensor and on-premises management console software from the Azure portal.
 

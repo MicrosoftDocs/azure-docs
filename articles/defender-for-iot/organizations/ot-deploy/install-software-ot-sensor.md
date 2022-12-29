@@ -11,11 +11,36 @@ This article describes how to install Microsoft Defender for IoT monitoring soft
 
 ## Prerequisites
 
-Before starting the software installation, make sure that you have:
+Before preparing to install the software, make sure you've completed the following:
 
-- Completed [Prepare for OT agentless monitoring software installation](prepare-for-ot-software-install.md). Make sure you've completed any additional steps and procedures for your appliance. For more information, see [OT monitoring appliance catalog](../appliance-catalog/index.yml).
+- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
 
-- Access to the appliance where you want to install your software. For more information, see [Which appliances do I need?](../ot-appliance-sizing.md).
+- [Configure traffic mirroring in your network](../best-practices/traffic-mirroring-methods.md)
+
+- [Manage OT plans on Azure subscriptions](../how-to-manage-subscriptions.md)
+
+- [Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
+
+- [Pre-installation configuration of your specific appliance](#pre-installation-appliance-configuration)
+
+### Pre-installation appliance configuration
+
+Each appliance type comes with its own set of instructions that are required before installing Defender for IoT software.
+
+Make sure that you've completed any specific procedures required for your appliance before installing Defender for IoT software. For more information, see:
+
+- The [OT monitoring appliance catalog](../appliance-catalog/index.yml)
+- [Which appliances do I need?](../ot-appliance-sizing.md)
+- [Pre-configured physical appliances for OT monitoring](../ot-pre-configured-appliances.md), including the catalog of available appliances
+- [OT monitoring with virtual appliances](../ot-virtual-appliances.md)
+
+## Download software files from the Azure portal
+
+Download OT sensor software from the Azure portal.
+
+On the Defender for IoT > **Getting started** page, select the **Sensor** or **Updates** tab and locate the software you need.
+
+If you're updating from a previous version, check the options carefully to ensure that you have the correct update path for your situation.
 
 ## Install sensor software
 
@@ -23,6 +48,17 @@ This procedure describes how to install OT monitoring software on a sensor.
 
 > [!Note]
 > Towards the end of this process you will be presented with the usernames and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+
+1. Mount the ISO file onto your hardware appliance or VM using one of the following options:
+
+    - **Physical media** – burn the ISO file to your external storage, and then boot from the media.
+
+        -	DVDs: First burn the software to the DVD as an image
+        -	USB drive: First make sure that you’ve created a bootable USB drive with software such as [Rufus](https://rufus.ie/en/), and then save the software to the USB drive. USB drives must have USB version 3.0 or later.
+
+        Your physical media must have a minimum of 4-GB storage.
+
+    - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
 1. When the installation boots, you're first prompted to select the hardware profile you want to install.
 
