@@ -1,12 +1,12 @@
 ---
-title: Subscribe to GitHub Release Notes Repo and view Azure HDInsight clusters image version
-description: Learn how to subscribe to GitHub Release Notes Repo and view Azure HDInsight clusters image version
+title: Subscribe to GitHub release notes repo
+description: Learn how to subscribe to GitHub release notes repo
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/29/2022
 ---
 
-# Subscribe to HDInsight Release Notes GitHub Repo
+# Subscribe to HDInsight release notes GitHub repo
 
 **Prerequisites**
 
@@ -22,4 +22,8 @@ If you would like to subscribe to HDInsight release notes, go to this [GitHub re
 
 :::image type="content" source="./media/subscribe-to-github-repo/subscribe-to-github-repo.png" alt-text="Screenshot showing how to select release option.":::
 
-Whenever there's a Release Note is published, a notification will be sent to the subscribed e-mail ID.
+Whenever there's a new Release Note is published, a notification will be sent to the subscribed e-mail ID.
+
+## Next steps
+
+* [View HDInsight clusters image version](./view-hdinsight-cluster-version.md)
