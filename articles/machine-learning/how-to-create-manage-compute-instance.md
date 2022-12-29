@@ -136,9 +136,6 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 
 ---
 
-
-
-
 ## Create on behalf of (preview)
 
 > [!IMPORTANT]
@@ -189,7 +186,15 @@ Activity on custom applications installed on the compute instance isn't consider
 
 Also, if a compute instance has already been idle for a certain amount of time, if idle shutdown settings are updated to  an amount of time shorter than the current idle duration, the idle time clock will be reset to 0. For example, if the compute instance has already been idle for 20 minutes, and the shutdown settings are updated to 15 minutes, the idle time clock will be reset to 0.
 
-This setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
+Use **Manage preview features** to access this feature.
+
+1. In the workspace toolbar, select the **Manage preview features** image.
+1. Scroll down until you see **Configure auto-shutdown for idle compute instances**.
+1. Toggle the switch to enable the feature.
+
+:::image type="content" source="media/how-to-enable-preview-features/enable-feature.png" alt-text="Screenshot: Enable auto-shutdown.":::
+
+Once enabled, the setting can be configured during compute instance creation or for existing compute instances via the following interfaces:
 
 # [Python SDK](#tab/python)
 
