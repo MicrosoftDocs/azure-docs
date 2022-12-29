@@ -210,24 +210,11 @@ passwd: all authentication tokens updated successfully.
 cyberx_host@xsense:/#
 ```
 
-### Adjust protection against failed sign-in
+### Define maximum number of failed sign-ins
 
-In the case of too many failed sign-ins, the failed sign-in protection mechanism will disallow any user from logging in from that IP address.
+Define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
 
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx**  |   `nano /var/cyberx/components/xsense-web/cyberx_web/settings.py` | No attributes   |
-
-1. By using SSH, log in as **cyberx** to sensor
-
-1. To change the setting, run the following command: <br>`nano /var/cyberx/components/xsense-web/cyberx_web/settings.py`
-
-1. Set  `"MAX_FAILED_LOGINS = 5"` to a desired value (eg. 10, 20 up to 100), taking into account the number of concurrent users.
-
-1. Write to the file and exit
-
-1. To apply changes, run the following command: `sudo monit restart all`
-
+For more information, see [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins).
 
 ## Validate network settings
 
@@ -433,11 +420,11 @@ root@xsense:/# sudo dpkg-reconfigure iot-sensor
 The configuration wizard starts automatically after you run this command. 
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
-## Manage SSL and TLS certificates
+## Manage TLS/SSL certificates
 
-### Import SSL and TLS certificates to your OT sensor
+### Import TLS/SSL certificates to your OT sensor
 
-Use the following command to import SSL and TLS certificates to the sensor from the CLI.
+Use the following command to import TLS/SSL certificates to the sensor from the CLI.
 
 To use this command:
 
@@ -491,7 +478,7 @@ root@xsense:/#
 
 ## Update sensor software from CLI
 
-For more information, see [Update your sensors](update-ot-software#update-your-sensors?tabs=cli).
+For more information, see [Update your sensors](update-ot-software.md#update-your-sensors&tabs=cli).
 
 ## Back up and restore appliance snapshot
 
@@ -657,12 +644,12 @@ Supported attributes for the *cyberx* user are defined as follows:
 |`-itp <INCLUDE_TCP_PORT>`, `--include-tcp-port <INCLUDE_TCP_PORT>`     |   Includes TCP traffic on any specified ports, where the `<INCLUDE_TCP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                   |
 |`-iup <INCLUDE_UDP_PORT>`, `--include-udp-port <INCLUDE_UDP_PORT>`     |  Includes UDP traffic on any specified ports, where the `<INCLUDE_UDP_PORT>` defines the port or ports you want to include. Delimitate multiple ports by commas, with no spaces.                    |
 |`-vlan <INCLUDE_VLAN_IDS>`, `--include-vlan-ids <INCLUDE_VLAN_IDS>`     |  Includes VLAN traffic by specified VLAN IDs, `<INCLUDE_VLAN_IDS>` defines the VLAN ID or IDs you want to include. Delimitate multiple VLAN IDs by commas, with no spaces.                          |
-|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter. Use `all` for basic use cases, to create a single capture filter for all components. <br><br>For advanced use cases, create separate capture filters for each component. For more information, see [Creating a capture filter: Advanced configuration](#creating-a-capture-filter-advanced-configuration).|
+|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter. Use `all` for basic use cases, to create a single capture filter for all components. <br><br>For advanced use cases, create separate capture filters for each component. For more information, see [Create an advanced filter for specific components](#create-an-advanced-filter-for-specific-components).|
 |`-m <MODE>`, `--mode <MODE>`     | Defines an include list mode, and is relevant only when an include list is used. Use one of the following values: <br><br>- `internal`: Includes all communication between the specified source and destination <br>- `all-connected`: Includes all communication between either of the specified endpoints and external endpoints. <br><br>For example, for endpoints A and B, if you use the `internal` mode, included traffic will only include communications between endpoints **A** and **B**. <br>However, if you use the `all-connected` mode, included traffic will include all communications between A *or* B and other, external endpoints. |
 
 #### Create a basic capture filter using the support user
 
-If you are creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#creating-a-capture-filter-basic-configuration). Instead, a series of prompts are displayed to help you create the capture filter interactively.
+If you are creating a basic capture filter as the *support* user, no attributes are passed in the [original command](#create-a-basic-filter-for-all-components). Instead, a series of prompts are displayed to help you create the capture filter interactively.
 
 Reply to the prompts displayed as follows:
 
@@ -709,7 +696,7 @@ Reply to the prompts displayed as follows:
 
 1. `In which component do you wish to apply this capture filter?`
 
-    Enter `all` for a basic capture filter. For [advanced use cases](#creating-a-capture-filter-advanced-configuration), create capture filters for each Defender for IoT component separately.
+    Enter `all` for a basic capture filter. For [advanced use cases](#create-an-advanced-capture-filter-using-the-support-user), create capture filters for each Defender for IoT component separately.
 
 1. `Type Y for "internal" otherwise N for "all-connected" (custom operation mode enabled) [Y/N]:`
 
@@ -742,16 +729,16 @@ The following extra attributes are used for the *cyberx* user to create capture 
 
 |Attribute  |Description  |
 |---------|---------|
-|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Creates a single capture filter for all components. For more information, see [Creating a capture filter: Basic configuration](#creating-a-capture-filter-basic-configuration).|
+|`-p <PROGRAM>`, `--program <PROGRAM>`     | Defines the component for which you want to configure a capture filter, where `<PROGRAM>` has the following supported values: <br>- `traffic-monitor` <br>- `collector` <br>- `horizon` <br>- `all`: Creates a single capture filter for all components. For more information, see [Create a basic filter for all components](#create-a-basic-filter-for-all-components).|
 |`-o <BASE_HORIZON>`, `--base-horizon <BASE_HORIZON>`     | Defines a base capture filter for the `horizon` component, where `<BASE_HORIZON>` is the filter you want to use. <br> Default value = `""`       |
 |`-s BASE_TRAFFIC_MONITOR`, `--base-traffic-monitor BASE_TRAFFIC_MONITOR`     |     Defines a base capture filter for the `traffic-monitor` component. <br> Default value = `""`    |
 |`-c BASE_COLLECTOR`, `--base-collector BASE_COLLECTOR`     |  Defines a base capture filter for the `collector` component.  <br> Default value = `""`             |
 
-Other attribute values have the same descriptions as in the basic use case, described [above](#creating-a-capture-filter-basic-configuration).
+Other attribute values have the same descriptions as in the basic use case, described [above](#create-a-basic-filter-for-all-components).
 
 #### Create an advanced capture filter using the support user
 
-If you are creating a capture filter for each component separately as the *support* user, no attributes are passed in the [original command](#creating-a-capture-filter-advanced-configuration). Instead, a series of prompts are displayed to help you create the capture filter interactively.
+If you are creating a capture filter for each component separately as the *support* user, no attributes are passed in the [original command](#create-an-advanced-filter-for-specific-components). Instead, a series of prompts are displayed to help you create the capture filter interactively.
 
 Most of the prompts are identical to [basic use case](#create-a-basic-capture-filter-using-the-support-user). Reply to the following extra prompts as follows:
 
@@ -797,9 +784,9 @@ Use the following command to reset your sensor to the default capture configurat
 |---------|---------|---------|
 | **cyberx**  | `cyberx-xsense-capture-filter -p all -m all-connected` | No attributes |
 
-If you want to modify the existing capture filters, run the [earlier](#creating-a-capture-filter-basic-configuration) command again, with new attribute values.
+If you want to modify the existing capture filters, run the [earlier](#create-a-basic-filter-for-all-components) command again, with new attribute values.
 
-To reset all capture filters using the *support* user, run the [earlier](#creating-a-capture-filter-basic-configuration) command again, and respond `N` to all [prompts](#create-a-basic-capture-filter-using-the-support-user) to reset all capture filters.
+To reset all capture filters using the *support* user, run the [earlier](#create-a-basic-filter-for-all-components) command again, and respond `N` to all [prompts](#create-a-basic-capture-filter-using-the-support-user) to reset all capture filters.
 
 The following example shows the command syntax and response for the *cyberx* user:
 

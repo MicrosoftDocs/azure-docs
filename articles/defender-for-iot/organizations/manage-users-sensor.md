@@ -162,10 +162,27 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 1. Select **Next** again to sign into your sensor with the new password.
 
+### Define maximum number of failed sign-ins
+
+Use the OT sensor's CLI access to define the number of maximum failed sign-ins before an OT sensor will prevent the user from signing in again from the same IP address.
+
+For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
+
+**Prerequisites**: This procedure is available for the *cyberx* user only.
+
+1. Sign into your OT sensor via SSH and run:
+
+    ```bash
+    nano /var/cyberx/components/xsense-web/cyberx_web/settings.py
+    ```
+
+1. In the **settings.py** file, set the the `"MAX_FAILED_LOGINS"` value to the maximum number of failed sign ins you want to define. Make sure that you consider the number of concurrent users in your system.
+
+1. Exit the file and run `sudo monit restart all` to apply your changes.
+
 ## Control user session timeouts
 
-By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI to either turn this feature on or off, or to adjust the inactivity thresholds.
-For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Admin users can use the local CLI access to either turn this feature on or off, or to adjust the inactivity thresholds. For more information, see [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md).
 
 > [!NOTE]
 > Any changes made to user session timeouts are reset to defaults when you [update the OT monitoring software](update-ot-software.md).

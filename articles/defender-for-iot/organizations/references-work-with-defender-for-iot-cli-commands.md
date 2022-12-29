@@ -26,7 +26,7 @@ The following table describes the access available to each privileged user:
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
 |**support**     |   The OT sensor or on-premises management console's `configuration shell`        | A powerful administrative account with access to:<br>- All CLI commands<br>- The ability to manage log files<br>- Start and stop services<br><br>This user has no filesystem access   |
-|**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
+|**cyberx**     |    The OT sensor or on-premises management console's `terminal (root)`       | Serves as a root user and has unlimited privileges on the appliance. <br><br>Used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>- Filesystem access      |
 |**cyberx_host**     | The OT sensor's host OS `terminal (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS.<br><br>Used for: <br>- Network configuration<br>- Application container control <br>- Filesystem access |
 
 > [!NOTE]
@@ -48,10 +48,11 @@ The following table lists the activities available by CLI and the [privileged us
 |Unscheduled backup     |   *support*, *cyberx*      | [Start an immediate, unscheduled backup](cli-ot-sensor.md#start-an-immediate-unscheduled-backup)        |
 |Restore     | *support*, *cyberx*        | [Restore data from the most recent backup](cli-ot-sensor.md#restore-data-from-the-most-recent-backup)        |
 | **SSL and TLS certificates**    |         |         |
-|Certificate management     | *cyberx*        | [Import SSL and TLS certificates to your OT sensor](cli-ot-sensor.md#import-ssl-and-tls-certificates-to-your-ot-sensor)<br>[Restore default self-signed certificate](cli-ot-sensor.md#restore-default-self-signed-certificate)        |
+|Certificate management     | *cyberx*        | [Import TLS/SSL certificates to your OT sensor](cli-ot-sensor.md#import-tlsssl-certificates-to-your-ot-sensor)<br>[Restore the default self-signed certificate](cli-ot-sensor.md#restore-the-default-self-signed-certificate)        |
 | **Local user management** | | |
 |Password changes     | *cyberx*, *cyberx-host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
-|Failed sign-in protections     | *cyberx*        | [Adjust protection against failed sign-in](cli-ot-sensor.md#adjust-protection-against-failed-sign-in)        |
+|Failed sign-in protections     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
+| User timeouts | *support*, *cyberx*, *cyberx-host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
 |**Network settings**     |         |         |
 |Bandwidth limits     |    *cyberx*     | [Set bandwidth limit for the management network interface](cli-ot-sensor.md#set-bandwidth-limit-for-the-management-network-interface)        |
 |Internet connections     |  *cyberx*       | [Check internet connection](cli-ot-sensor.md#check-internet-connection)        |
