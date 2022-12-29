@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/28/2022
+ms.date: 12/29/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to deploy and configure Azure Kubernetes Service on Azure Stack Edge.
 ---
@@ -20,14 +20,14 @@ This article describes how to deploy and manage Azure Kubernetes Service (AKS) o
 The intended audience for this article is IT administrators who are familiar with setup and deployment of workloads on the Azure Stack Edge device.
 
 > [!NOTE]
->- Use this feature for a single node device implementation only if you are an SAP or PMEC customer.
+>- Use this feature for a single node device implementation only if you are an SAP or a PMEC customer.
 >- Use this feature for a two node device implementation only if you are an SAP customer.
 
 ## About Azure Kubernetes Service on Azure Stack Edge
 
 Azure Stack Edge Pro with GPU is an AI-enabled edge computing device with high performance network I/O capabilities. Microsoft ships you a cloud-managed device that acts as a network storage gateway and has a built-in Graphical Processing Unit (GPU) that enables accelerated AI-inferencing.
 
-After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy the Kubernetes cluster including infrastructure VMs. The cluster is then used for workload deployment via kubectl or Azure Arc.
+After you configure compute on your Azure Stack Edge device, you can use the Azure portal to deploy the Kubernetes cluster including infrastructure VMs. The cluster is then used for workload deployment via `kubectl` or Azure Arc.
 
 ## Prerequisites
 

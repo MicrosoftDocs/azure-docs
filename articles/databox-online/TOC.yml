@@ -341,6 +341,11 @@
         - name: GPU extension issues
           href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
 
+    - name: Azure Kubernetes service
+      items:
+        - name: Deploy AKS on Azure Stack Edge
+          href: azure-stack-edge-deploy-aks-on-azure-stack-edge.md
+  
     - name: Kubernetes
       items:
       - name: What is Kubernetes?
