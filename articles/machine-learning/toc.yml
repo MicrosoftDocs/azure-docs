@@ -629,7 +629,7 @@
                   href: how-to-use-event-grid-batch.md
                 - name: Use REST to deploy a model as batch endpoints
                   href: how-to-deploy-batch-with-rest.md
-        - name: Deploying MLflow models
+        - name: MLflow guide
           items:
             - name: Guidelines for deploying MLflow models
               displayName: mlflow models deployment plugin
