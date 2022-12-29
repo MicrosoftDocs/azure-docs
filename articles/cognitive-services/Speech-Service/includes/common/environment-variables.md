@@ -18,6 +18,7 @@ To set the environment variable for your Speech resource key, open a console win
 
 ```console
 setx SPEECH_KEY your-key
+setx SPEECH_REGION your-chosen-region
 ```
 
 > [!NOTE]
