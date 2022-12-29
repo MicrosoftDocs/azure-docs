@@ -9,7 +9,7 @@ ms.author: vamehta
 ms.date: 06/08/2021 
 ---
 
-# How to configure Azure Database for MySQL Flexible Server Data-in replication
+# How to configure Azure Database for MySQL Flexible Server data-in replication
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 

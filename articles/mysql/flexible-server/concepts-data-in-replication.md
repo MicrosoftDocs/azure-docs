@@ -1,5 +1,5 @@
 ---
-title: Data-in replication - Azure Database for MySQL Flexible
+title: Data-in replication - Azure Database for MySQL Flexible Server
 description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
 ms.service: mysql
 ms.subservice: flexible-server
@@ -9,13 +9,13 @@ ms.author: vamehta
 ms.date: 06/08/2021
 ---
 
-# Replicate data into Azure Database for MySQL Flexible  Server
+# Replicate data into Azure Database for MySQL Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 Data-in replication allows you to synchronize data from an external MySQL server into the Azure Database for MySQL Flexible service. The external server can be on-premises, in virtual machines, Azure Database for MySQL Single Server, or a database service hosted by other cloud providers. Data-in replication is based on the binary log (binlog) file position-based. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-> [!Note]
+> [!NOTE]
 > GTID-based replication is currently not supported for Azure Database for MySQL Flexible Servers.<br>
 > Configuring Data-in replication for zone-redundant high availability servers is not supported.
 
@@ -40,7 +40,7 @@ It is not supported to configure Data-in replication for servers which have high
 > [!Tip]
 >If you are using HA server as a source server, MySQL native binary log (binlog) file position-based replication would fail, when failover happens on the server. If replica server supports GTID based replication, we should configure GTID based replication.
 
-### Filtering
+### Filter
 
 Modifying the parameter `replicate_wild_ignore_table` used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible server.
 
