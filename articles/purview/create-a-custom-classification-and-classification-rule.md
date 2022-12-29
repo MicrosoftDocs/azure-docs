@@ -81,6 +81,9 @@ These details include the count of how many instances there are, the formal name
 
 The catalog service provides a set of default classification rules, which are used by the scanner to automatically detect certain data types. You can also add your own custom classification rules to detect other types of data that you might be interested in finding across your data estate. This capability can be powerful when you're trying to find data within your data estate.
 
+>[!NOTE]
+>Custom classification rules are only supported in the English language.
+
 As an example, let\'s say that a company named Contoso has employee IDs that are standardized throughout the company with the word \"Employee\" followed by a GUID to create EMPLOYEE{GUID}. For example, one instance of an employee ID looks like `EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55`.
 
 Contoso can configure the scanning system to find instances of these IDs by creating a custom classification rule. They can supply a regular expression that matches the data pattern, in this
@@ -118,7 +121,7 @@ To create a custom classification rule:
 
 ### Creating a Regular Expression Rule
 
-1. If creating a regular expression rule, you'll see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule.
+1. If creating a regular expression rule, you'll see the following screen. You may optionally upload a file that will be used to **generate suggested regex patterns** for your rule. Only English language rules are supported.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/create-new-regex-rule.png" alt-text="Create new regex rule" border="true":::
 
@@ -147,7 +150,7 @@ To create a custom classification rule:
 
 ### Creating a Dictionary Rule
 
-1. If creating a dictionary rule, you'll see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
+1. If creating a dictionary rule, you'll see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column. Only English language rules are supported.
 
    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
 
