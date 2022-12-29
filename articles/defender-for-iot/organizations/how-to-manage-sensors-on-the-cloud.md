@@ -114,7 +114,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png" alt-text="Screenshot showing the sensor health widgets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-widgets.png":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-widgets.png" alt-text="Screenshot showing the sensor health widgets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-health-widgets.png":::
 
     - **Unhealthy** indicates one of the following scenarios:
 
@@ -130,7 +130,7 @@ This procedure describes how to view sensor health data from the Azure portal. S
 
 1. To check on specific sensor issues, filter the grid by sensor health, and select one or more issues to verify. For example:
 
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png" alt-text="Screenshot of the sensor health filter." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-health-filter.png":::
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-filters.png" alt-text="Screenshot of the sensor health filter." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-health-filters.png":::
 
 1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
 
