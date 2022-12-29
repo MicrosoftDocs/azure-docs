@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/13/2022
+ms.date: 12/29/2022
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 # Replicate on-premises machines by using private endpoints
@@ -49,7 +49,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 ### URLs to be allowed
 
-When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allow list. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
+When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allowlist. If proxy-based configuration is used then make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
   |  **URL**                  |     **Details**                            |
   | ------------------------- | -------------------------------------------|
@@ -109,7 +109,7 @@ To protect the machines in the on-premises source network, you'll need one priva
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Screenshot that shows how to  create a private endpoint in Private Link Center.":::
 
 1. On the **Create a private endpoint** page, under the **Basics** > **Project details** section, do the following: 
-   1. Under **Subscription** we're using **Contoso Environment**. 
+   1. Under **Subscription** select **Contoso Environment**. 
    1. In **Resource group**, select an existing resource group or create a new one. For example, **ContosoCloudRG**.
 
 1. In the **Create a private endpoint** page, under **Basics** > **Instance details** section, do the following:
@@ -122,7 +122,7 @@ To protect the machines in the on-premises source network, you'll need one priva
 
 1. On the **Resource** section, do the following:
     1. In **Connection method**, select the **Connect to an Azure resource in my directory**.
-    1. In **Subscription**, we're using **Contoso Environment**.
+    1. In **Subscription**, select **Contoso Environment**.
     1. In **Resource type** for your selected subscription, select **Microsoft.RecoveryServices/vaults**.
     1. Choose the name of your Recovery Services vault under **Resource**.
     1. Select **AzureSiteRecovery** as the **Target sub-resource**.
@@ -136,7 +136,7 @@ To protect the machines in the on-premises source network, you'll need one priva
     1. Under **Private IP configuration**, retain the default selection.
     1. Select **Next**.
     
-    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/virtual-network-tab.png" alt-text="Screenshot that shows the Resource tab for linking to a private endpoint.":::
+    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/virtual-network-tab.png" alt-text="Screenshot that shows the Virtual network tab for linking to a private endpoint.":::
 
 1. On the **DNS** section, do the following:
     1. Enable integration with a private DNS zone by selecting **Yes**.

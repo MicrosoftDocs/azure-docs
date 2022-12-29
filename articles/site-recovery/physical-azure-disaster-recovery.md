@@ -3,7 +3,7 @@ title: Set up disaster recovery of physical on-premises servers with Azure Site 
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/07/2022
+ms.date: 12/29/2022
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -17,9 +17,7 @@ The [Azure Site Recovery](site-recovery-overview.md) service contributes to your
 This tutorial shows how to set up disaster recovery of on-premises physical Windows and Linux servers to Azure. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up Azure and on-premises prerequisites
 > * Create a Recovery Services vault for Site Recovery
-> * Set up the source and target replication environments
 > * Create a replication policy
 > * Enable replication for a server
 
@@ -94,22 +92,43 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
 Select what to replicate, and to replicate it to.
 
-1. Click **Recovery Services vaults** > vault.
+1. In the [Azure portal](https://portal.azure.com), search **Recovery Services vaults** and select the vault. 
 2. In the Resource Menu, click **Site Recovery** > **Prepare Infrastructure** > **Protection goal**.
 3. In **Protection goal**, select **To Azure** > **Not virtualized/Other**.
 
-## Set up the source environment
+To set up the source environment, set up the configuration server, register it in the vault, and discover VMs.
 
-Set up the configuration server, register it in the vault, and discover VMs.
+## Prepare Infrastructure
 
-1. Click **Site Recovery** > **Prepare Infrastructure**.
-2. Ensure that you have done your deployment planning and run the deployment planner to estimate various requirements. Click **Next**.
-3. Select if your machines are virtual or physical in the **Are your machines virtualized?** option.
-4. If you don’t have a configuration server, click **+Configuration server**.
-5. If you’re enabling protection for virtual machines, then download the Configuration server virtual machine template.
-6. If you’re enabling protection for physical machines, then download the Site Recovery Unified Setup installation file. You will also need to download the vault registration key. You need it when you run Unified Setup. The key is valid for five days after you generate it.
+It is important to prepare the infrastructure before you set up disaster recovery of physical VMware machines to Azure.
 
-   ![Screenshot showing the options to download the installation file and registration key.](./media/physical-azure-disaster-recovery/source-environment.png)
+## Deployment planning
+
+1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
+2.	On the vault home page, select **Enable Site Recovery**.
+3.	Navigate to the bottom of the page, and select **Prepare infrastructure (Classic)** under the **VMware machines to Azure** section. This opens the Prepare infrastructure pane.
+
+In the **Prepare infrastructure** pane, under **Deployment planning** tab do the following:
+  > [!TIP]
+  > If you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. 
+
+  1.	For this tutorial, we don't need the Deployment Planner. In **Deployment planning completed?**, select **I will do it later**.
+  2.	Select **Next**.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/deployment-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+
+
+## Source settings
+
+On the **Source settings** tab, do the following:
+1. Select if your machines are virtual or physical in the **Are your machines virtualized?** option. For this tutorial, select **No**.
+1. Under **Configuration Server**, specify the server you want to use. If you don't have a configuration server ready, you can use the **Add Configuration Server** option.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/source-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+1. On the **Add Server** pane, do the following:
+    1. If you’re enabling protection for virtual machines, then download the Configuration server virtual machine template. [Learn more](#register-the-configuration-server-in-the-vault).
+    1. If you’re enabling protection for physical machines, then download the Site Recovery Unified Setup installation file. You will also need to download the vault registration key. You need it when you run Unified Setup. The key is valid for five days after you generate it. [Learn more](#run-setup).
+        :::image type="content" source="./media/physical-azure-disaster-recovery/add-server.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+1. Select **Next**.
+
 
 
 ### Register the configuration server in the vault
@@ -135,53 +154,81 @@ Run Unified Setup as a Local Administrator, to install the configuration server.
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 
-## Set up the target environment
+## Target Settings
 
 Select and verify target resources.
 
-1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the target deployment model.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+On the **Target settings** tab, do the following:
+
+1. Under **Subscription**, select the Azure subscription you want to use.
+2. Under **Post-failover deployment model**, specify the target deployment model.
+    Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+1. Select **Next**
 
    ![Screenshot of the options for setting up the target environment.](./media/physical-azure-disaster-recovery/network-storage.png)
+    :::image type="content" source="./media/physical-azure-disaster-recovery/target-setting.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
 
-## Create a replication policy
+## Replication policy
 
-1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
-2. In **Create replication policy**, specify a policy name.
-3. In **RPO threshold**, specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit.
-4. In **Recovery point retention**, specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
-5. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. Click **OK** to create the policy.
+Enable replication for each server. Site Recovery will install the Mobility service when replication is enabled. When you enable replication for a server, it can take 15 minutes or longer for changes to take effect, and appear in the portal.
 
-    ![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
+Under **Replication policy** tab, do the following:
 
+1.	Under **Replication policy**, specify the replication policy.  
+2.	If you do not have a replication policy, use the **Create new policy and associate** option to create a new policy.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/replication-policy-vm.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+3.	In the **Create and associate policy** page, do the following:
+    1. **Name** - specify a policy name.
+    1. **Source type** - select **VMware / Physical machines**.
+    1. **Target type** - select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
+    1. **RPO threshold in mins** - specify the recovery point objective (RPO) limit. This value specifies how often data recovery points are created. An alert is generated if continuous replication exceeds this limit..
+    1. **Retention period (in days)** - specify how long (in days) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 15 days retention is supported.
+    1. In **App-consistent snapshot frequency**, specify how often (in hours) recovery points containing application-consistent snapshots will be created. 
+    4.	After the policy is created, select **OK**.
+        :::image type="content" source="./media/physical-azure-disaster-recovery/create-policy.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
 By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
+![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 ## Enable replication
 
-Enable replication for each server.
+1.	In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault. 
+2.	On the vault home page, select **Enable Site Recovery**.
+3.	Navigate to the bottom of the page, and select **Enable replication (Classic)** under the **VMware machines to Azure** section.
+1. Under **Source environment** tab, do the following:
+    1. In **Configuration server**, specify the configuration server name.
+    1. In **Machine type**, select **Physical machines**.
+    1. In **Process server**, retain the default selection. Optionally, you can use the **Add Process Server** to add a new server for this step.
+    1. Select **Next**.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-source.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
-- Site Recovery will install the Mobility service when replication is enabled.
-- When you enable replication for a server, it can take 15 minutes or longer for changes to take effect, and appear in the portal.
+1. Under **Target environment** tab, do the following:
+    1. In **Target subscription**, specify the subscription name.
+    1. In **Resource group**, specify the resource group name.
+    1. For **Post-failover deployment model**, specify **Resource Manager**.
+    1. Under **Target azure network**, choose the Azure storage account you want to use for replicating data.
+    1. In **Subnet**, select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
+    1. Select **Next**.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-target.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
 
-1. Click **Replicate application** > **Source**.
-2. In **Source**, select the configuration server.
-3. In **Machine type**, select **Physical machines**.
-4. Select the process server (the configuration server). Then click **OK**.
-5. In **Target**, select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
-6. Select the Azure storage account you want to use for replicating data.
-7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
-8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine.
-9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed.
-10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
-12. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+1. Under **Physical machine selection** tab, do the following:
+    1. Select **Add Physical machine**. 
+        :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-physical.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+    1. Specify the name and IP address. 
+    1. Select the operating system of the machine you want to replicate. 
+       It takes a few minutes for the servers to be discovered and listed.
+       :::image type="content" source="./media/physical-azure-disaster-recovery/add-physical-machines.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+
+1. Under **Replication settings** tab, select and verify the the user account details.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+1. Under **Replication policy** tab, verify that the correct replication policy is selected.
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of the Create Recovery Services vault page.":::
+1. Under **Review** tab, review your selections and select **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
 To monitor servers you add, you can check the last discovered time for them in **Configuration Servers** > **Last Contact At**. To add machines without waiting for a scheduled discovery time, highlight the configuration server (don’t click it), and click **Refresh**.
 
 ## Next steps
 
-[Run a disaster recovery drill](tutorial-dr-drill-azure.md).
+[Learn more](tutorial-dr-drill-azure.md) about run a disaster recovery drill.
