@@ -81,11 +81,11 @@ To configure the cloud sync setup, do the following:
 
 1.  Select **New Configuration**.
 
-    ![Screenshot of the Azure AD Connect cloud sync pane with the "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
+    ![Screenshot of the Azure AD Connect cloud sync page, with the "New configuration" link highlighted.](media/tutorial-single-forest/configure-1.png)
 
-1.  On the **Configuration** pane, enter a **Notification email**, move the selector to **Enable**, and then select **Save**.
+1.  On the **Configuration** page, enter a **Notification email**, move the selector to **Enable**, and then select **Save**.
 
-    ![Screenshot of the "Edit provisioning configuration" pane.](media/how-to-configure/configure-2.png)
+    ![Screenshot of the "Edit provisioning configuration" page.](media/how-to-configure/configure-2.png)
 
 1.  The configuration status should now be **Healthy**.
 
