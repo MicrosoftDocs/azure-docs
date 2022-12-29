@@ -220,7 +220,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 - **To map parameters**:
 
-    The deployment script will accept three methods to map parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and will guarantee that a given parameter file will be mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
+    The deployment script will accept three methods of mapping parameters as described in [Scale your deployments with parameter files](ci-cd-custom-deploy.md#scale-your-deployments-with-parameter-files). Mapping parameters through the sentinel-deployment.config takes the highest precedence and will guarantee that a given parameter file will be mapped to its associated content files. Simply modify the `"parameterfilemappings":` section with your target connection's workspace ID and full path names of individual .json files.
 
 
 ## Next steps
