@@ -4,7 +4,7 @@ description: Learn about the availability of Microsoft Defender for Cloud contai
 ms.topic: overview
 author: bmansheim
 ms.author: benmansheim
-ms.date: 12/28/2022
+ms.date: 12/29/2022
 ms.custom: references_regions, ignite-2022
 ---
 
@@ -203,8 +203,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote4"></a>4</sup> Runtime protection can detect threats for these [Supported host operating systems](#supported-host-operating-systems).
 
-> [!NOTE]
-> Adding the Defender agent on a cluster with [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to a cluster with Defender agent installed) is currently not supported.
 
 ## Additional information
 
@@ -226,8 +224,10 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 <sup><a name="footnote2"></a>2</sup> To get [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) protection for your environments, you'll need to onboard [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and enable Defender for Containers as an Arc extension.
 
+For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+
 > [!NOTE]
-> For additional requirements for Kuberenetes workload protection, see [existing limitations](../governance/policy/concepts/policy-for-kubernetes.md#limitations).
+> Adding the Defender agent on a cluster with [ARM64 node pool](../aks/use-multiple-node-pools.md) (or adding ARM64 node pool to a cluster with Defender agent installed) is currently not supported.
 
 ### Supported host operating systems
 
