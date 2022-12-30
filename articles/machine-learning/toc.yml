@@ -63,7 +63,7 @@
   expanded: true
   items:
     - name: Set up your cloud workstation
-      href: tutorial-set-up-workstation.md
+      href: quickstart-create-resources.md
     - name: Overview of Azure ML
       href: tutorial-azure-ml-in-a-day.md
 - name: Tutorials
