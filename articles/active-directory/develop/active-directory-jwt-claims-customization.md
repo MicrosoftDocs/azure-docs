@@ -19,7 +19,7 @@ The Microsoft identity platform supports single sign-on (SSO) with most enterpri
 
 These JSON Web tokens (JWT) used by OIDC & OAuth applications contain pieces of information about the user known as *claims*. A *claim* is information that an identity provider states about a user inside the token they issue for that user.
 
-In an [OIDC response](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-protocols-oidc), *claims* data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
+In an [OIDC response](v2-protocols-oidc.md), *claims* data is typically contained in the ID Token issued by the identity provider in the form of a JWT.
 
 ## View or edit claims
 
@@ -47,7 +47,7 @@ You can use the following special claims transformations functions.
 
 | Function | Description |
 |----------|-------------|
-| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This funtion extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This function extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
 | **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 
@@ -74,8 +74,8 @@ You can use the following functions to transform claims.
 
 | Function | Description |
 |----------|-------------|
-| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the Join() function has specific behavior when the transformation input has a domain part. It removes the domain part from input before joining it with the separator and the selected parameter. For example, if the input of the transformation is 'joe_smith@contoso.com' and the separator is '@' and the parameter is 'fabrikam.com', this input combiniation results in 'joe_smith@fabrikam.com'. |
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This function extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the Join() function has specific behavior when the transformation input has a domain part. It removes the domain part from input before joining it with the separator and the selected parameter. For example, if the input of the transformation is 'joe_smith@contoso.com' and the separator is '@' and the parameter is 'fabrikam.com', this input combination results in 'joe_smith@fabrikam.com'. |
 | **ToLowercase()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUppercase()** | Converts the characters of the selected attribute into uppercase characters. |
 | **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there's no match. <br/>For example, if you want to emit a claim where the value is the user's email address if it contains the domain "@contoso.com", otherwise you want to output the user principal name. To perform this function, you configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
@@ -124,7 +124,7 @@ The following table provides information about using transformations. The action
 | 18 | Test transformation result | If evaluation succeeds, an output of test transformation will be rendered against the **Test transformation result** label. |
 | 19 | Remove transformation | The administrator can remove the second level transformation by selecting **Remove transformation**. |
 | 20 | Specify output if no match | When a regex input value is configured against the **Parameter 1** which doesn't matches the **Regular expression**, the transformation is skipped. In such cases, the administrator can configure the alternate user attribute, which is added to the token for the claim by checking **Specify output if no match**. |
-| 21 | Parameter 3 | If an administrator wants to return alternate user attribute when there is no match and **Specify output if no match** is checked, they can select an alternate user attribute by using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
+| 21 | Parameter 3 | If an administrator wants to return alternate user attribute when there's no match and **Specify output if no match** is checked, they can select an alternate user attribute by using the dropdown. This dropdown is available against **Parameter 3 (output if no match)**. |
 | 22 | Summary | At the bottom of the blade, a full summary of the format is displayed that explains the meaning of the transformation in simple text. |
 | 23 | Add | Once the administrator is satisfied with the configuration settings for the transformation, they can save it to claims policy by selecting **Add**. Changes won't be saved unless the administrator manually selects **Save** available on **Manage Claim** blade. |
 
@@ -137,7 +137,7 @@ When the following conditions occur after **Add** or **Run test** is selected, a
 * Input parameters with duplicate user attributes aren't allowed.
 * Unused input parameters found. Defined input parameters should have respective usage into the Replacement pattern text.
 * The provided test regex input doesn't match with the provided regular expression.
-* The source for the groups into the replacement pattern aren't found.
+* The source for the groups into the replacement pattern isn't found.
 
 ## Emit claims based on conditions
 
