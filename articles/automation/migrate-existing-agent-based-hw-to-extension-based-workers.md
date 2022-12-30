@@ -8,7 +8,7 @@ ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
 ---
 
-# Migrate existing Agent-based Hybrid Workers to Extension-based Workers
+# Migrate existing Agent-based Hybrid Workers to Extension-based Hybrid Workers
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers. 
 
@@ -90,7 +90,7 @@ If agent-based Hybrid Worker is using custom Hybrid Worker credentials, then ens
 > [!NOTE]
 > Hybrid Runbook Worker is currently not supported for Virtual Machine Scale Sets (VMSS).
 
-## Migrate an existing Agent based to Extension based Hybrid Workers
+## Migrate an existing Agent based Hybrid Worker to Extension based Hybrid Worker
 
 To utilize the benefits of extension based Hybrid Workers, you must migrate all existing agent based User Hybrid Workers to extension based Workers. A hybrid worker machine can co-exist on both **Agent based (V1)** and **Extension based (V2)** platforms. The extension based installation doesn't affect the installation or management of an agent based Worker.
 
