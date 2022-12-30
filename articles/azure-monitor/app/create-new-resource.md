@@ -2,7 +2,7 @@
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
 ms.topic: conceptual
-ms.date: 11/15/9999
+ms.date: 01/28/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.reviewer: dalek
 ---
