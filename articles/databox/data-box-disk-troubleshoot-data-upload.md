@@ -49,7 +49,7 @@ After you review the errors and confirm you're ready to proceed, the data is sec
 
 ## Review errors and proceed
 
-How you proceed with an upload depends on whether the errors can be fixed and the current upload resumed (see **Retryable errors** tab), or the errors can't be fixed in the current order (see the **Non-retryable errors** tab).
+How you proceed with an upload depends on whether the errors can be fixed and the current upload resumed (see **Retryable errors** tab), or the errors can't be fixed in the current order (see the **Non-retryable errors** tab). 
 
 # [Retryable errors](#tab/retryable-errors)
 
