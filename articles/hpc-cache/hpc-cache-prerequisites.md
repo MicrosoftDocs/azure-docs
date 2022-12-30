@@ -148,6 +148,12 @@ A successful connection gives this response:
 OCSP Response Status: successful (0x0)
 ```
 
+### Event server access
+
+Azure HPC Cache uses Azure event server endpoints to monitor cache health and send diagnostic information.
+
+Make sure that the cache can securely access hosts in the domain events.data.microsoft.com - that is, open TCP port 443 for traffic to `*.events.data.microsoft.com`.
+
 ## Permissions
 
 Check these permission-related prerequisites before starting to create your cache.
