@@ -45,7 +45,7 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 
 ## Conditional Access policy components
 
-Conditional Access policies answer questions about who should access your resources, what resources they should access, and under what conditions. Policies can be designed to grant access, limit access with session controls, or to block access. You [build a Conditional Access policy](concept-conditional-access-policies.md) by defining the if-then statements like: 
+Conditional Access policies answer questions about who can access your resources, what resources they can access, and under what conditions. Policies can be designed to grant access, limit access with session controls, or to block access. You [build a Conditional Access policy](concept-conditional-access-policies.md) by defining the if-then statements like: 
 
 | If an assignment is met | Apply the access controls |
 | --- | --- |
@@ -177,7 +177,7 @@ If you rely on a single access control such as multifactor authentication or a n
 
 ![Screenshot that shows the naming standards for policies.](media/plan-conditional-access/11.png)
 
-**Example**; A policy to require MFA for marketing users accessing the Dynamics CRP app from external networks might be:
+**Example**: A policy to require MFA for marketing users accessing the Dynamics CRP app from external networks might be:
 
 ![Naming standard](media/plan-conditional-access/naming-example.png)
 
@@ -191,9 +191,7 @@ In addition to your active policies, implement disabled policies that act as sec
 * The name of disruption it should apply to.
 * An ordering sequence number to help the administrator to know in which order policies should be enabled.
 
-**Example**
-
-The following name indicates that this policy is the first of four policies to enable if there's an MFA disruption:
+**Example**: The following name indicates that this policy is the first of four policies to enable if there's an MFA disruption:
 
 * EM01 - ENABLE IN EMERGENCY: MFA Disruption [1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users.
 
@@ -211,13 +209,10 @@ Refer to [Conditional Access policy templates](concept-conditional-access-policy
 
 #### Evaluate the policy impact
 
-We recommend that you use the following tools to evaluate the impact of your policies both before and after making changes.
+We recommend that you use the following tools to evaluate the impact of your policies both before and after making changes. A simulated run gives you a good idea of the impact a Conditional Access policy has, it does not replace an actual test run in a properly configured development environment.
 
 - [Report-only mode](concept-conditional-access-report-only.md) and the Conditional Access insights and Reporting workbook.
 - The [What If tool](concept-conditional-access-policies.md)
-
-> [!IMPORTANT] 
-> While a simulated run gives you a good idea of the impact a Conditional Access policy has, it does not replace an actual test run in a properly configured development environment.
 
 ### Test your policies
 
