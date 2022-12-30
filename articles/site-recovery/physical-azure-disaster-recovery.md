@@ -165,7 +165,7 @@ On the **Target settings** tab, do the following:
     Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 1. Select **Next**
 
-    :::image type="content" source="./media/physical-azure-disaster-recovery/target-setting.png" alt-text="Screenshot of the target setting page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/target-settings.png" alt-text="Screenshot of the target setting page.":::
 
 
 ## Replication policy
@@ -188,7 +188,7 @@ Under **Replication policy** tab, do the following:
         :::image type="content" source="./media/physical-azure-disaster-recovery/create-policy.png" alt-text="Screenshot of replication policy page.":::
 
 By default, a matching policy is automatically created for failback. For example, if the replication policy is **rep-policy** then a failback policy **rep-policy-failback** is created. This policy isn't used until you initiate a failback from Azure.
-![Screenshot of the options for creating a replication policy.](./media/physical-azure-disaster-recovery/replication-policy.png)
+
 
 ## Enable replication
 
@@ -200,7 +200,7 @@ By default, a matching policy is automatically created for failback. For example
     1. In **Machine type**, select **Physical machines**.
     1. In **Process server**, retain the default selection. Optionally, you can use the **Add Process Server** to add a new server for this step.
     1. Select **Next**.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-source.png" alt-text="Screenshot of source setting page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-source.png" alt-text="Screenshot of enable replication source setting page.":::
 
 1. Under **Target environment** tab, do the following:
     1. In **Target subscription**, specify the subscription name.
@@ -220,9 +220,9 @@ By default, a matching policy is automatically created for failback. For example
        :::image type="content" source="./media/physical-azure-disaster-recovery/add-physical-machines.png" alt-text="Screenshot of add machine page.":::
 
 1. Under **Replication settings** tab, select and verify the the user account details.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of replication setting page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-settings.png" alt-text="Screenshot of enable replication setting page.":::
 1. Under **Replication policy** tab, verify that the correct replication policy is selected.
-    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of replication policy page.":::
+    :::image type="content" source="./media/physical-azure-disaster-recovery/enable-replication-policy.png" alt-text="Screenshot of enable replication policy page.":::
 1. Under **Review** tab, review your selections and select **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
