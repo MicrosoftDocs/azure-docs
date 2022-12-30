@@ -779,10 +779,6 @@ VirtualNetworkName PeeringState
 myVNetA            Initiated
 ```
 
-The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
-
-Sign-out of the PowerShell session.
-
 # [**Azure CLI**](#tab/create-peering-cli)
 
 ### Sign in to SubscriptionA
@@ -847,9 +843,9 @@ az network vnet peering list \
     --output table
 ```
 
-The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
-
 ---
+
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
 
 ## Create peering connection - myVNetB to myVNetA
 
@@ -969,6 +965,67 @@ myVNetB            Connected
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
+### Sign in to SubscriptionB
+
+Use [az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionB**.
+
+```azurecli-interactive
+az login
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionB** with [az account set](/cli/azure/account#az-account-set).
+
+```azurecli-interactive
+az account set --subscription "SubscriptionB"
+```
+
+### Sign in to SubscriptionA (optional)
+
+If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+
+Use [[az login](/cli/azure/reference-index#az-login) to sign in to **SubscriptionA**.
+
+```azurecli-interactive
+az login
+```
+
+### Change to SubscriptionB (optional)
+
+If you are using two accounts, you may have to switch back to **SubscriptionB**.
+
+Use [[az login](/cli/azure/reference-index#az-login) to sign back in to **SubscriptionB**.
+
+```azurecli-interactive
+az login
+```
+
+If you are using one account for both subscriptions, change context to **SubscriptionB**.
+
+```azurecli-interactive
+az account set --subscription "SubscriptionB"
+```
+
+### Create peering connection
+
+Use [az network vnet peering create](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering connection between **myVNetB** and **myVNetA**.
+
+```azurecli-interactive
+az network vnet peering create \
+    --name myVNetBToMyVNetA \
+    --resource-group myResourceGroupB \
+    --vnet-name myVNetB \
+    --remote-vnet /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVNetA \
+    --allow-vnet-access
+```
+
+Use [az network vnet peering list](/cli/azure/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-list) to obtain the status of the peering connections from **myVNetB** to **myVNetA**.
+
+```azurecli-interactive
+az network vnet peering list \
+    --resource-group myResourceGroupB \
+    --vnet-name myVNetB \
+    --output table
+```
 ---
 
 The peering is successfully established after you see **Connected** in the **Peering status** column for both virtual networks in the peering. Any Azure resources you create in either virtual network are now able to communicate with each other through their IP addresses. If you're using default Azure name resolution for the virtual networks, the resources in the virtual networks are not able to resolve names across the virtual networks. If you want to resolve names across virtual networks in a peering, you must create your own DNS server or use Azure DNS.
@@ -977,31 +1034,8 @@ For more information about using your own DNS for name resolution see, [Name res
 
 For more information about Azure DNS, see [What is Azure DNS?](/azure/dns/dns-overview).
 
-## Clean up resources
-
-If you're not going to continue to use this application, delete the virtual networks with the following steps:
-
-# [**Portal**](#tab/create-peering-portal)
-
-1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
-
-2. Select **myResourceGroupA**.
-
-3. In the **Overview** of **myResourceGroupA**, select **Delete resource group**.
-
-4. In **TYPE THE RESOURCE GROUP NAME:**, enter **myResourceGroupA**.
-
-5. Select **Delete**.
-
-6. Repeat steps 1-5 for **myResourceGroupB** in **SubscriptionB**.
-
-# [**PowerShell**](#tab/create-peering-powershell)
-
-# [**Azure CLI**](#tab/create-peering-cli)
-
----
-
 ## Next steps
 <!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+- Thoroughly familiarize yourself with important [virtual network peering constraints and behaviors](virtual-network-manage-peering.md#requirements-and-constraints) before creating a virtual network peering for production use.
+- Learn about all [virtual network peering settings](virtual-network-manage-peering.md#create-a-peering).
+- Learn how to [create a hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) with virtual network peering.
