@@ -65,7 +65,7 @@ ml_client.begin_create_or_update(online_deployment, local=True)
 
 ## [Studio](#tab/studio)
 
-The studio doesn't support local endpoints/deployments. See the Azure CLI or Python tabs for steps to test the deployment locally.
+The studio doesn't support local endpoints/deployments. See the Azure CLI or Python tabs for steps to perform deployment locally.
 
 ---
 
