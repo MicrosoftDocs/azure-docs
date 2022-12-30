@@ -105,6 +105,8 @@
       items: 
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
+    - name: Deploy an ML model
+      href: tutorial-deploy-model.md
 - name: Samples
   items:
     - name: Jupyter Notebooks
