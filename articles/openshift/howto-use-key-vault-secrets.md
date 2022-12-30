@@ -14,7 +14,7 @@ keywords: azure, openshift, red hat, key vault
 Azure Key Vault Provider for Secrets Store CSI Driver allows you to get secret contents stored in an [Azure Key Vault instance](/azure/key-vault/general/basic-concepts) and use the [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html) to mount them into Kubernetes pods. This article explains how to use Azure Key Vault Provider for Secrets Store CSI Driver on Azure Red Hat OpenShift.
 
 > [!NOTE]
-> Azure Key Vault Provider for Secrets Store CSI Driver is an extension of AKS that works with Azure Red Hat OpenShift. As such, support for it is provided through open-source communities.
+> Azure Key Vault Provider for Secrets Store CSI Driver is an Open Source project that works with Azure Red Hat OpenShift. While the instructions presented in this article show an example of how the Secrets Store CSI driver can be implemented, they are intended as a general guide to using the driver with ARO. Support for this implementation of an Open Source project would be provided by the project.
 
 ## Prerequisites 
 
@@ -26,16 +26,16 @@ The following prerequisites are required:
 
 ### Set environment variables
 
-Run the following command to set some environment variables that will be used throughout this procedure:
+Set the following variables that will be used throughout this procedure:
 
-```azurecli
-export KEYVAULT_RESOURCE_GROUP=${AZR_RESOURCE_GROUP:-"openshift"}
-export KEYVAULT_LOCATION=${AZR_RESOURCE_LOCATION:-"eastus"}
-export KEYVAULT_NAME=secret-store-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 10 | head -n 1)
-export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
+```console
+KEYVAULT_RESOURCE_GROUP=\<name of your ARO resource group\>
+KEYVAULT_LOCATION=\<location for your key vault\>
+KEYVAULT_NAME=\<name for key vault\>
+AZ_TENANT_ID=\<the tenant ID for your Azure account\>
 ```
 
-## Install the Kubernetes Secrets Store CSI
+## Install the Kubernetes Secrets Store CSI Driver
 
 1. Create an ARO project; you'll deploy the CSI Driver into this project:
 
@@ -89,7 +89,7 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
      csi-secrets-store-secrets-store-csi-driver-gbz27   3/3     Running   0          57s
     ```
 
-## Deploy Azure Key Store CSI
+## Deploy Azure Key Vault Provider for Secrets Store CSI Driver
 
 1. Add the Azure Helm repository:
 
@@ -261,7 +261,11 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
 
 ## Cleanup
 
-1. Uninstall Helm:
+Finally, uninstall the Key Vault Provider and the CSI Driver.
+
+### Uninstall the Key Vault Provider
+
+1. Uninstall Helm chart:
 
     ```azurecli
     helm uninstall -n k8s-secrets-store-csi azure-csi-provider
@@ -285,12 +289,12 @@ export AZ_TENANT_ID=$(az account show -o tsv --query tenantId)
     az ad sp delete --id ${SERVICE_PRINCIPAL_CLIENT_ID}
     ```
 
-## Uninstall the Kubernetes Secret Store CSI
+## Uninstall the Kubernetes Secret Store CSI Driver
 
 1. Delete the Secrets Store CSI Driver:
 
     ```
-    helm delete -n k8s-secrets-store-csi csi-secrets-store
+    helm uninstall -n k8s-secrets-store-csi csi-secrets-store
     ```
 
 1. Delete the SecurityContextConstraints:
