@@ -293,10 +293,12 @@ items:
       href: how-to-manage-term-templates.md
   - name: Classify
     items:
+    - name: Automatically apply classifications
+      href: apply-classifications.md
+    - name: Manually apply classifications
+      href: apply-classifications.md
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
-    - name: Apply classifications
-      href: apply-classifications.md
   - name: Label
     items:
     - name: Labeling in Microsoft Purview
