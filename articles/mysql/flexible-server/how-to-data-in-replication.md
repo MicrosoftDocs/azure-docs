@@ -145,6 +145,8 @@ The results should appear similar to the following. Make sure to note the binary
 
 <-----------Content here----------->
 
+---
+
 ## Dump and restore the source server
 
 1. Determine which databases and tables you want to replicate into Azure Database for MySQL Flexible Server and perform the dump from the source server.
