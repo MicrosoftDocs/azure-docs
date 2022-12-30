@@ -1,5 +1,5 @@
 ---
-title: Prepare to deploy a private mobile network
+title: Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools
 titleSuffix: Azure Private 5G Core Preview
 description: Complete the prerequisite tasks for enabling Azure Active Directory to access Azure Private 5G Core's local monitoring tools. 
 author: b-branco
@@ -10,7 +10,7 @@ ms.date: 12/29/2022
 ms.custom: template-how-to
 ---
 
-# Complete the prerequisite steps for enabling Azure Active Directory (Azure AD) for local monitoring tools
+# Complete the prerequisites for enabling Azure Active Directory (Azure AD) for local monitoring tools
 
 In this how-to guide, you'll carry out the steps you need to complete before you can deploy a site that uses Azure Active Directory (Azure AD) to authenticate access to distributed tracing and the packet core dashboards.
 
@@ -18,7 +18,9 @@ In this how-to guide, you'll carry out the steps you need to complete before you
 
 - You must have completed the steps in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 - Identify the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
-- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope. <!-- TODO: update with correct permissions -->
+- Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have permission to manage applications in Azure AD. Roles that include the required permissions are, for example, [Application administrator](../articles/active-directory/roles/permissions-reference.md#application-administrator), [Application developer](../articles/active-directory/roles/permissions-reference.md#application-developer), and [Cloud application administrator](../articles/active-directory/roles/permissions-reference.md#cloud-application-administrator).
+
+## Configure DNS for local monitoring IP
 
 ## Register application
 
