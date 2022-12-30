@@ -25,7 +25,7 @@ The configuration of the deployer is performed in a Terraform tfvars variable fi
 
 ## Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
+This table shows the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                                                                                  | Type       |
@@ -35,7 +35,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ### Environment Parameters
 
-The table below contains the parameters that define the resource naming.
+This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                       | Type       | Notes                                                                                       |
@@ -46,7 +46,7 @@ The table below contains the parameters that define the resource naming.
 
 ### Resource Group
 
-The table below contains the parameters that define the resource group.
+This table shows the parameters that define the resource group.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
@@ -67,7 +67,7 @@ The recommended CIDR of the virtual network address space is /27, which allows s
 The recommended CIDR value for the management subnet is /28 that allows 16 IP addresses.
 The recommended CIDR value for the firewall subnet is /26 that allows 64 IP addresses.
 
-The table below contains the networking parameters.
+This table shows the networking parameters.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                                    | Description                                                      | Type       | Notes  |
@@ -99,7 +99,7 @@ The table below contains the networking parameters.
 
 ### Deployer Virtual Machine Parameters
 
-The table below contains the parameters related to the deployer virtual machine.
+This table shows the parameters related to the deployer virtual machine.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                        | Description                                                                            | Type       |
@@ -225,7 +225,7 @@ The configuration of the SAP Library is performed in a Terraform tfvars variable
 
 ### Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
+This table shows the Terraform parameters, these parameters need to be entered manually when not using the deployment scripts
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                           | Type       | Notes |
@@ -234,7 +234,7 @@ The table below contains the Terraform parameters, these parameters need to be 
 
 ### Environment Parameters
 
-The table below contains the parameters that define the resource naming.
+This table shows the parameters that define the resource naming.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                       | Type       | Notes                                                                                       |
@@ -245,7 +245,7 @@ The table below contains the parameters that define the resource naming.
 
 ### Resource Group
 
-The table below contains the parameters that define the resource group.
+This table shows the parameters that define the resource group.
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                | Description                                              | Type       |
