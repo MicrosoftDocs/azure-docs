@@ -99,7 +99,7 @@ You can't get direct access to the VM where the model is deployed. However, you 
 
 There are two types of containers that you can get the logs from:
 - Inference server: Logs include the console log (from [the inference server](how-to-inference-server-http.md)) which contains the output of print/logging functions from your scoring script (`score.py` code). 
-- Storage initializer. Logs contain information on whether code and model data were successfully downloaded to the container. The container will run before the inference server container starts to run.
+- Storage initializer: Logs contain information on whether code and model data were successfully downloaded to the container. The container will run before the inference server container starts to run.
 
 # [Azure CLI](#tab/cli)
 
