@@ -155,6 +155,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 
 ## Next steps
 
-- [Apply system classification](./apply-classifications.md)
+- [Automatically apply classifications](./apply-classifications.md)
+- [Manually apply classifications](./manually-apply-classifications.md)
 - [Create custom classification](./create-a-custom-classification-and-classification-rule.md)
 

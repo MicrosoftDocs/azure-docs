@@ -296,7 +296,7 @@ items:
     - name: Automatically apply classifications
       href: apply-classifications.md
     - name: Manually apply classifications
-      href: apply-classifications.md
+      href: manually-apply-classifications.md
     - name: System classifications
       href: supported-classifications.md
     - name: Create custom classifications
