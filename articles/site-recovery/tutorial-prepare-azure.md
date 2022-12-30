@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - Review the architecture for [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), and [physical server](physical-azure-architecture.md) disaster recovery.
 - Read common questions for [VMware](vmware-azure-common-questions.md) and [Hyper-V](hyper-v-azure-common-questions.md)
 
-**Verify account permissions**
+### Verify account permissions
 
 If you just created your free Azure account, you're the administrator of your subscription and you have the permissions you need. If you're not the subscription administrator, work with the administrator to assign the permissions you need. To enable replication for a new virtual machine, you must have permission to:
 
@@ -77,7 +77,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
     1. In **Virtual network name**, enter a network name. The name must be unique within the Azure resource group. For example, **ContosoASRnet**.
     1.  In **Region**, choose **(Europe) West Europe**. The network must be in the same region as the Recovery Services vault.
     
-       :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options."::: 
+    :::image type="Protection state" source="media/tutorial-prepare-azure/create-network.png" alt-text="Screenshot of the Create virtual network options."::: 
 
 1. In **Create virtual network**  > **IP addresses** tab, do the following:
     1. As there's no subnet for this network, you will first delete the pre-existing address range. To do so, select the ellipsis (...), under available IP address range, then select **Delete address space**.
