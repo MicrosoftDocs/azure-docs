@@ -126,6 +126,7 @@ To trigger the logic app using automatic workflow, follow these steps:
    - **Alert severity**: Select *High*.
    - **Logic app**: Select the logic app you deployed.
 1. Select **Create**.
+
 ## Email alerts
 
 When the backup policy on the backup item gets disabled, the logic app also sends an email to the ID you've entered during deployment. The email ID should ideally be of the *Backup Admin*. You can then investigate the alert and resume the backups when the issue is resolved or if it's a false alarm.
