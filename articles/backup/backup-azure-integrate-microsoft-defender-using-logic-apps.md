@@ -1,9 +1,9 @@
 ---
-title: Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points
-description: This article explains how to integrate Microsoft Defender for Cloud and Azure Backup using Azure Logic Apps.
+title: Integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points
+description: Learn how to integrate Microsoft Defender for Cloud and Azure Backup using logic app.
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 12/24/2022
+ms.date: 12/30/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -11,19 +11,29 @@ ms.author: v-amallick
 
 # Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points
 
-This article describes how the deployed logic app helps prevent the loss of recovery points in a malware attack by disabling the backup policy (Stop Backup and Retain Data). This ensures that the recovery points don’t expire or are cleaned up based on the schedule  for retention. When the operation on the backup item is complete, the Backup admin receives a notification via email. 
+This article describes the sample solution that demonstrates how to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points. Assume there has been a breach on the Virtual Machine that is protected by both Defender and Azure Backup. Defender detects the ransomware, raises an alert which includes details of the activity and suggested recommendations to remediate. As soon as a ransomware signal is detected from Defender, ensuring backups are preserved (i.e., paused from expiring) to minimize the data loss is top of our customers’ mind.
 
-Microsoft Defender for Cloud (MDC) helps detect and resolve threats on resources and services. During a malware or a ransomware attack, MDC helps detect malicious activities against the resource and raise [Security Alerts](../defender-for-cloud/managing-and-responding-alerts.md). When this helps identify malicious activities, backups play a crucial role to help you to recover the workload to a clean state and ensure business continuity.
+Azure Backup provides several security capabilities to help you protect your backup data. [Soft delete](backup-azure-security-feature-cloud.md), [Immutable vaults](backup-azure-immutable-vault-concept.md), [Multi-User Authorization (MUA)](multi-user-authorization-concept.md) are part of a comprehensive data protection strategy for backup data. Soft delete is enabled by default, with option to make it always-on (irreversible). Soft deleted backup data is retained at no additional cost for *14* days, with option to [extend the duration](backup-azure-enhanced-soft-delete-about.md). Enabling immutability on vaults can protect backup data by blocking any operations that could lead to loss of recovery points. You can configure Multi-user authorization (MUA) for Azure Backup as an additional layer of protection to critical operations on your Recovery Services vaults. By default, critical alert for destructive operation (such as stop protection with delete backup data) is raised and an email is sent to subscription owners, admins, and co-admins.
+
+Microsoft Defender for Cloud (MDC) is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. Defender for Cloud generates security alerts when threats are identified in your cloud, hybrid, or on-premises environment. It's available when you enable enhanced security features. Each alert provides details of affected resources along with the information you need to quickly investigate the issue and steps to take to remediate an attack. If a malware or a ransomware attacks on an Azure Virtual Machine, Microsoft Defender for Cloud detects suspicious activity and indicators associated with ransomware on an Azure VM and generates a Security Alert. Examples of the Defender for Cloud Alerts that trigger on a Ransomware detection: *Ransomware indicators detected*, *Behavior similar to ransomware detected*, and so on.
+
+>[!Note]
+> This sample solution is scoped to Azure Virtual Machines. You can deployed the logic app only at a subscription level, which means all Azure VMs under the subscription can use the logic app to pause expiry of recovery points in the event of a security alert.
+
+## Solution details
+
+This sample solution demonstrates integration of Azure Backup with Microsoft Defender for Cloud (MDC) for detection and response to alerts to accelerate response. Sample illustrates the following three use cases:
+
+1. Ability to send email alerts to the Backup Admin.
+1. Security Admin to triage and manually trigger logic app to secure backups. 
+1. Workflow to automatically respond to the alert by performing the *Disable Backup Policy (Stop backup and retain data)* operation.
+
+:::image type="content" source="./media/backup-azure-integrate-microsoft-defender-using-logic-apps/logic-apps-flow-diagram.png" alt-text="Diagram shows how Microsoft Defender for Cloud and Azure Backup using Logic apps helps protecting the backup data.":::
 
 ## Prerequisites
 
 - [Enable Azure Backup for Azure virtual machines](tutorial-backup-vm-at-scale.md).
 - [Enable Microsoft Defender for Servers Plan 2 for the Subscription](../defender-for-cloud/enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription).
-
->[!Note]
-> This sample solution is scoped to Azure Virtual Machines. You can deployed the logic app only at a subscription level, which means all Azure VMs under the subscription can use the logic app to pause expiry of recovery points in the event of a security alert.
-
-:::image type="content" source="./media/backup-azure-integrate-microsoft-defender-using-logic-apps/logic-apps-flow-diagram.png" alt-text="Diagram shows how Microsoft Defender for Cloud and Azure Backup using Logic apps helps protecting the backup data.":::
 
 ## Deploy Azure Logic Apps
 
@@ -42,9 +52,9 @@ To deploy Azure Logic Apps, follow these steps:
    - **Resource group**: Select the resource group with which logic apps need to be associated for deployment. 
    - **Managed Identity**: [Create and assign a Managed Identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity) with the below minimum permissions for the service to perform the *Stop backup and retain data* operation on the backup item automatically during a malware alert.
 
-     - Virtual Machine Contributor on the subscription 
-     - Backup Operator on the subscription 
-     - Security Reader 
+     - Virtual Machine Contributor on the subscription
+     - The Backup Operator on the subscription
+     - Security Reader
 
      >[!Note]
      >To further tighten the security, we recommend you create a custom role and assign that to the Managed Identity instead of the above built-in roles. This ensures that all the calls run with least privileges. For more information on custom role, see the [Github article](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Protect%20Azure%20VM%20Backup%20from%20Ransomware).
@@ -114,7 +124,8 @@ To trigger the logic app using automatic workflow, follow these steps:
    - **Defender for Cloud Data Type**: Select *Security Alert*.
    - **Alert name contains**: Select *Malware* or *ransomware*.
    - **Alert severity**: Select *High*.
-   - **Logic app**: Select the logic app you deployed.
+
+1. Select **Create**.   - **Logic app**: Select the logic app you deployed.
 
 ## Email alerts
 
