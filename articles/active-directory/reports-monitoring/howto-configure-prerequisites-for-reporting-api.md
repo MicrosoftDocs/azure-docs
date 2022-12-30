@@ -74,11 +74,11 @@ To access the Azure AD reporting API, you must grant your app *Read directory da
     - If you need more permissions to run the queries you need, you can add them now or modify the permissions as needed in Microsoft Graph.
     - For more information, see [Work with Graph Explorer](/graph/graph-explorer/graph-explorer-features).
 
-    ![Screenshot shows the Request A P I permissions page where you can select Application permissions.](./media/howto-configure-prerequisites-for-reporting-api/directory-read-all.png)
+    ![Screenshot shows the Request API permissions page where you can select Application permissions.](./media/howto-configure-prerequisites-for-reporting-api/directory-read-all.png)
 
 1. On the **Reporting API Application - API Permissions** page, select **Grant admin consent for Default Directory**.
 
-    ![Screenshot shows the Reporting A P I Application A P I permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-grant-consent.png)
+    ![Screenshot shows the Reporting API Application API permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/api-permissions-grant-consent.png)
 
 ## Gather configuration settings 
 
