@@ -20,7 +20,7 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 * The IP address of the IoT hub will change.
 
 > [!NOTE]
-> We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please email [iot-ca-updates@microsoft.com](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
+> We are collecting this information to help with the Baltimore migration. We will hold onto this information until October 15th, 2023, when this migration is slated to complete. If you would like us to delete this information, please [email us](mailto:iot-ca-updates@microsoft.com) and we can assist you. For any additional questions about the Microsoft privacy policy, see the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839).
 
 ## Timeline
 
