@@ -116,7 +116,7 @@ Connect-AzAccount
 If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionA** with [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
-Set-AzContext -Name SubscriptionA
+Set-AzContext -Subscription SubscriptionA
 ```
 
 ### Create a resource group - myResourceGroupA
@@ -135,11 +135,11 @@ New-AzResourceGroup @rsg
 
 ### Create the virtual network
 
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNet** in the **EastUS** location:
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNetA** in the **West US 3** location:
 
 ```azurepowershell-interactive
 $vnet = @{
-    Name = 'myVNet'
+    Name = 'myVNetA'
     ResourceGroupName = 'myResourceGroupA'
     Location = 'westus3'
     AddressPrefix = '10.1.0.0/16'
@@ -205,7 +205,9 @@ A user account in the other subscription that you want to peer with must be adde
 
 Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**. Assign **UserB** from **SubscriptionB** to **myVNetA** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). 
 
-**UserB@fabrikam.com** is used in this example for the user account. Replace this value with the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if your using the same account for both subscriptions.
+Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **UserB**.
+
+**UserB** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionB** that you wish to assign permissions to **myVNetA**. You can skip this step if your using the same account for both subscriptions.
 
 ```azurepowershell-interactive
 $id = @{
@@ -214,11 +216,12 @@ $id = @{
 }
 $vnet = Get-AzVirtualNetwork @id
 
+$obj = Get-AzADUser -DisplayName 'UserB'
+
 $role = @{
-    SignInName = 'UserB@fabrikam.com'
-    ResourceGroupName = 'myResourceGroupA'
+    ObjectId = $obj.id
     RoleDefinitionName = 'Network Contributor'
-    Scope = vnet.id
+    Scope = $vnet.id
 }
 New-AzRoleAssignment @role
 ```
@@ -305,6 +308,68 @@ In this section, you'll sign in as **UserB** and create a virtual network for th
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
+### Sign in to SubscriptionB
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionB** with [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+
+```azurepowershell-interactive
+Set-AzContext -Subscription SubscriptionB
+```
+
+### Create a resource group - myResourceGroupB
+
+An Azure resource group is a logical container where Azure resources are deployed and managed.
+
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+
+```azurepowershell-interactive
+$rsg = @{
+    Name = 'myResourceGroupB'
+    Location = 'westus3'
+}
+New-AzResourceGroup @rsg
+```
+
+### Create the virtual network
+
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates a default virtual network named **myVNetB** in the **West US 3** location:
+
+```azurepowershell-interactive
+$vnet = @{
+    Name = 'myVNetB'
+    ResourceGroupName = 'myResourceGroupB'
+    Location = 'westus3'
+    AddressPrefix = '10.2.0.0/16'
+}
+$virtualNetwork = New-AzVirtualNetwork @vnet
+```
+### Add a subnet
+
+Azure deploys resources to a subnet within a virtual network, so you need to create a subnet. Create a subnet configuration named **default** with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
+
+```azurepowershell-interactive
+$subnet = @{
+    Name = 'default'
+    VirtualNetwork = $virtualNetwork
+    AddressPrefix = '10.2.0.0/24'
+}
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig @subnet
+```
+
+### Associate the subnet to the virtual network
+
+You can write the subnet configuration to the virtual network with [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). This command creates the subnet:
+
+```azurepowershell-interactive
+$virtualNetwork | Set-AzVirtualNetwork
+```
+
 # [**Azure CLI**](#tab/create-peering-cli)
 
 ---
@@ -341,6 +406,29 @@ A user account in the other subscription that you want to peer with must be adde
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
+Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetA**. Assign **UserA** from **SubscriptionA** to **myVNetB** with [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). 
+
+Use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to obtain the object ID for **UserA**.
+
+**UserA** is used in this example for the user account. Replace this value with the display name for the user from **SubscriptionA** that you wish to assign permissions to **myVNetB**. You can skip this step if your using the same account for both subscriptions.
+
+```azurepowershell-interactive
+$id = @{
+    Name = 'myVNetB'
+    ResourceGroupName = 'myResourceGroupB'
+}
+$vnet = Get-AzVirtualNetwork @id
+
+$obj = Get-AzADUser -DisplayName 'UserA'
+
+$role = @{
+    ObjectId = $obj.id
+    RoleDefinitionName = 'Network Contributor'
+    Scope = $vnet.id
+}
+New-AzRoleAssignment @role
+```
+
 # [**Azure CLI**](#tab/create-peering-cli)
 
 ---
@@ -364,8 +452,17 @@ The resource ID of **myVNetB** is required to setup the peering connection from 
 
 # [**PowerShell**](#tab/create-peering-powershell)
 
+The resource ID of **myVNetB** is required to setup the peering connection from **myVNetA** to **myVNetB**. Use Use [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) to obtain the resource ID for **myVNetB**.
 
+```azurepowershell-interactive
+$id = @{
+    Name = 'myVNetB'
+    ResourceGroupName = 'myResourceGroupB'
+}
+$vnet = Get-AzVirtualNetwork @id
 
+$vnet.id
+```
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
@@ -373,7 +470,7 @@ The resource ID of **myVNetB** is required to setup the peering connection from 
 
 ## Create peering connection - myVNetA to myVNetB
 
-You'll need the **Resource IDs** for **myVNetB** from the previous steps to setup the peering connection.
+You'll need the **Resource ID** for **myVNetB** from the previous steps to setup the peering connection.
 
 # [**Portal**](#tab/create-peering-portal)
 
@@ -408,11 +505,92 @@ You'll need the **Resource IDs** for **myVNetB** from the previous steps to setu
 
 9. Select **Add**.
 
-The peering connection will show in **Peerings** in a **Intiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
 
 10. Sign out of the portal as **UserA**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
+
+### Sign in to SubscriptionA
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionA**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionA** with [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+
+```azurepowershell-interactive
+Set-AzContext -Subscription SubscriptionB
+```
+
+## Sign in to SubscriptionB (optional)
+
+If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+### Change to SubscriptionA (optional)
+
+If you are using two accounts, you have to switch back to **SubscriptionA**.
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionA**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you are using one account for both subscriptions, change context to **SubscriptionA**.
+
+```azurepowershell-interactive
+Set-AzContext -Subscription SubscriptionB
+```
+
+### Create peering connection
+
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering connection between **myVNetA** and **myVNetB**.
+
+```azurepowershell-interactive
+$netA = @{
+    Name = 'myVNetA'
+    ResourceGroupName = 'myResourceGroupA'
+}
+$vnetA = Get-AzVirtualNetwork @netA
+
+$peer = @{
+    Name = 'myVNetAToMyVNetB'
+    VirtualNetwork = $vnetA
+    RemoteVirtualNetworkId = '/subscriptions/<SubscriptionB-Id>/resourceGroups/myResourceGroupB/providers/Microsoft.Network/virtualNetworks/myVnetB'
+}
+Add-AzVirtualNetworkPeering @peer
+```
+
+User [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to obtain the status of the peering connections from **myVNetA** to **myVNetB**.
+
+```azurepowershell-interactive
+$status = @{
+    ResourceGroupName =  'myResourceGroupA'
+    VirtualNetworkName = 'myVNetA'
+}
+Get-AzVirtualNetworkPeering @status | Format-Table VirtualNetworkName, PeeringState
+```
+
+```powershell
+PS /home/azureuser> Get-AzVirtualNetworkPeering @status | Format-Table VirtualNetworkName, PeeringState
+
+VirtualNetworkName PeeringState
+------------------ ------------
+myVNetA            Initiated
+```
+
+The peering connection will show in **Peerings** in a **Initiated** state. To complete the peer, a corresponding connection must be setup in **myVNetB**.
+
+Sign-out of the PowerShell session.
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
@@ -456,6 +634,83 @@ You'll need the **Resource IDs** for **myVNetA** from the previous steps to setu
 9. Select **Add**.
 
 # [**PowerShell**](#tab/create-peering-powershell)
+
+### Sign in to SubscriptionB
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionB**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you're using one account for both subscriptions, sign in to that account and change the subscription context to **SubscriptionB** with [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+
+```azurepowershell-interactive
+Set-AzContext -Subscription SubscriptionB
+```
+
+## Sign in to SubscriptionA (optional)
+
+If you are using one account for both subscriptions, skip this section. If you are using two accounts, both accounts must authenticate to your PowerShell session so that the peering can be setup.
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to **SubscriptionA**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+### Change to SubscriptionB (optional)
+
+If you are using two accounts, you have to switch back to **SubscriptionB**.
+
+Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign back in to **SubscriptionB**.
+
+```azurepowershell-interactive
+Connect-AzAccount
+```
+
+If you are using one account for both subscriptions, change context to **SubscriptionB**.
+
+```azurepowershell-interactive
+Set-AzContext -Subscription SubscriptionB
+```
+
+### Create peering connection
+
+Use [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) to create a peering connection between **myVNetB** and **myVNetA**.
+
+```azurepowershell-interactive
+$netB = @{
+    Name = 'myVNetB'
+    ResourceGroupName = 'myResourceGroupB'
+}
+$vnetB = Get-AzVirtualNetwork @netB
+
+$peer = @{
+    Name = 'myVNetBToMyVNetA'
+    VirtualNetwork = $vnetB
+    RemoteVirtualNetworkId = '/subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVNetA'
+}
+Add-AzVirtualNetworkPeering @peer
+```
+
+User [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to obtain the status of the peering connections from **myVNetB** to **myVNetA**.
+
+```azurepowershell-interactive
+$status = @{
+    ResourceGroupName =  'myResourceGroupB'
+    VirtualNetworkName = 'myVNetB'
+}
+Get-AzVirtualNetworkPeering @status | Format-Table VirtualNetworkName, PeeringState
+```
+
+```powershell
+PS /home/azureuser> Get-AzVirtualNetworkPeering @status | Format-Table VirtualNetworkName, PeeringState
+
+VirtualNetworkName PeeringState
+------------------ ------------
+myVNetB            Connected
+```
 
 # [**Azure CLI**](#tab/create-peering-cli)
 
