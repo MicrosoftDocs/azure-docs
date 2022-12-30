@@ -297,6 +297,8 @@ items:
       href: apply-classifications.md
     - name: Manually apply classifications
       href: apply-classifications.md
+    - name: System classifications
+      href: supported-classifications.md
     - name: Create custom classifications
       href: create-a-custom-classification-and-classification-rule.md
   - name: Label
@@ -421,8 +423,6 @@ items:
       href: available-metadata.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported classifications
-      href: supported-classifications.md
     - name: Limits
       href: how-to-manage-quotas.md
     - name: Java

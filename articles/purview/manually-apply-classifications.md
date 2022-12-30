@@ -6,13 +6,20 @@ ms.author: ankitgup
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 12/30/2022
 ---
 # Manually apply classifications on assets in Microsoft Purview
 
-This article discusses how to manually apply classifications on assets. Microsoft Purview [automatically applies classifications to some assets during the scanning process](apply-classifications.md), but there are some scenarios when you may want to manually apply more classifications. For example, Microsoft Purview doesn't automatically apply classifications to table assets (only their columns), or you might want to apply custom classifications, or add classifications to assets grouped a [resource set](concept-resource-sets.md).
+This article discusses how to manually apply classifications on assets in the Microsoft Purview Governance Portal.
 
-We've provided steps to manually apply classifications to file, table, and column assets.
+[Classifications](concept-classification.md) are logical labels to help you and your team identify the kinds of data you have across your data estate. For example: if files or tables contain credit card numbers, or addresses.
+
+Microsoft Purview [automatically applies classifications to some assets during the scanning process](apply-classifications.md), but there are some scenarios when you may want to manually apply more classifications. For example, Microsoft Purview doesn't automatically apply classifications to table assets (only their columns), or you might want to apply custom classifications, or add classifications to assets grouped a [resource set](concept-resource-sets.md).
+
+>[!NOTE]
+>Some custom classifications can be [automatically applied](apply-classifications.md) after setting up a [custom classification rule.](create-a-custom-classification-and-classification-rule.md#custom-classification-rules)
+
+Follow the steps in this article to manually apply classifications to [file](#manually-apply-classification-to-a-file-asset), [table](#manually-apply-classification-to-a-table-asset), and [column](#manually-add-classification-to-a-column-asset) assets.
 
 ## Manually apply classification to a file asset
 
@@ -76,24 +83,9 @@ Microsoft Purview automatically scans and adds classifications to all column ass
 
     :::image type="content" source="./media/apply-classifications/confirm-classification-added.png" alt-text="Screenshot showing how to confirm that a classification was added to a column schema.":::
 
-## View classification details
-
-Microsoft Purview captures important details like who applied a classification and when it was applied. To view the details, hover over the classification to revel the Classification details card. The classification details card shows the following information:
-
-- Classification name - Name of the classification applied on the asset or column.
-- Applied by - Who applied the classification. Possible values are scan and user name.
-- Applied time - Local timestamp when the classification was applied via scan or manually.
-- Classification type - System or custom.
-
-Users with *Data Curator* role will see more details for classifications that were applied automatically via scan. These details will include sample count that the scanner read to classify the data and distinct data count in the sample that the scanner found.
-
-:::image type="content" source="./media/apply-classifications/view-classification-detail.png" alt-text="Screenshot showing how to view classification detail.":::
-
-## Impact of rescanning on existing classifications
-
-Classifications are applied the first time, based on sample set check on your data and matching it against the set regex pattern. At the time of rescan, if new classifications apply, the column gets more classifications on it. Existing classifications stay on the column, and must be removed manually.
+[!INCLUDE [classification-details](includes/classification-details.md)]
 
 ## Next steps
 
 - To learn how to create a custom classification, see [create a custom classification](create-a-custom-classification-and-classification-rule.md).
-- To learn about how to automatically apply classifications, see [automatically apply classifications](automatically-apply-classifications.md).
+- To learn about how to automatically apply classifications, see [automatically apply classifications](apply-classifications.md).
