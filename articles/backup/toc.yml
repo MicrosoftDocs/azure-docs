@@ -118,8 +118,8 @@
       href: backup-azure-monitor-alert-faq.yml
     - name: FAQ-Protection against Ransomware
       href: protect-backups-from-ransomware-faq.yml
-  - name: Integrate with Microsoft Defender's ransomware alerts
-    href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
+    - name: Integrate with Microsoft Defender's ransomware alerts
+      href: backup-azure-integrate-microsoft-defender-using-logic-apps.md
   - name: Backup center
     href: backup-center-overview.md
   - name: SAP HANA database on Azure VM backup
