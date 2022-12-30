@@ -32,7 +32,7 @@ Set the following variables that will be used throughout this procedure:
 KEYVAULT_RESOURCE_GROUP=<name of your ARO resource group>
 KEYVAULT_LOCATION=<location for your key vault>
 KEYVAULT_NAME=<name for key vault>
-AZ_TENANT_ID=<the tenant ID for your Azure account>
+AZ_TENANT_ID=<tenant ID for your Azure account>
 ```
 
 ## Install the Kubernetes Secrets Store CSI Driver
@@ -261,7 +261,7 @@ AZ_TENANT_ID=<the tenant ID for your Azure account>
 
 ## Cleanup
 
-Finally, uninstall the Key Vault Provider and the CSI Driver.
+Uninstall the Key Vault Provider and the CSI Driver.
 
 ### Uninstall the Key Vault Provider
 
