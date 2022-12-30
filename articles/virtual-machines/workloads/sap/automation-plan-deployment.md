@@ -20,7 +20,7 @@ For generic SAP on Azure design considerations, visit [Introduction to an SAP ad
 
 ## Control Plane planning
 
-You can perform the deployment and configuration activities from either Azure DevOps Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
+You can perform the deployment and configuration activities from either Azure Pipelines or by using the provided shell scripts directly from Azure hosted Linux virtual machines. This environment is referred to as the control plane. For setting up Azure DevOps for the deployment framework, see [Set up Azure DevOps for SDAF](/azure/virtual-machines/workloads/sap/automation-configure-control-plane.md).
 
 Before you design your control plane, consider the following questions:
 
@@ -147,7 +147,7 @@ For more information, see [the Azure CLI documentation for creating a service pr
 
 ### Permissions management
 
-In a locked down environment, you might need to assign additional permissions to the service principals. For example, you might need to assign the User Access Administrator role to the service principal. 
+In a locked down environment, you might need to assign another permissions to the service principals. For example, you might need to assign the User Access Administrator role to the service principal. 
 
 #### Required permissions
 
@@ -168,14 +168,17 @@ The following table shows the required permissions for the service principal:
 
 ### Firewall configuration
 
-> [!div class="mx-tdCol2BreakAll "]
-> | Component                           | Adresses                                     | Duration                       | Notes                          |
-> | ----------------------------------- | -------------------------------------------- | ------------------------------ | ------------------------------ |
-> | Terraform                           | releases.hashicorp.com, registry.terraform.io, checkpoint-api.hashicorp.com                    | Setup of Deployer | See [Terraform] (https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
-> | Azure CLI                           | The firewall requirements for Azure CLI installation are defined here: [Azure CLI] (https://learn.microsoft.com/en-us/cli/azure/azure-cli-endpoints)                   | Setup of Deployer and during deployments | 
-
-> | PowerShell Gallery                  | onegetcdn.azureedge.net, psg-prod-centralus.azureedge.net, psg-prod-eastus.azureedge.net                    | Setup of Windows based systems | See [PowerShell Gallery] (/powershell/scripting/gallery/getting-started?#network-access-to-the-powershell-gallery)
-> | Windows components                  | download.visualstudio.microsoft.com, download.visualstudio.microsoft.com, download.visualstudio.com                    | Setup of Windows based systems | See [Visual Studio] (/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server#install-visual-studio)
+| Component                           | Addresses                                     | Duration                       | Notes                          |
+| ----------------------------------- | -------------------------------------------- | ------------------------------ | ------------------------------ |
+| Terraform                           | releases.hashicorp.com, 
+registry.terraform.io, 
+checkpoint-api.hashicorp.com                                                         | Setup of Deployer              | See [Terraform] (https://developer.hashicorp.com/terraform/downloads?product_intent=terraform) |
+| Azure CLI                           | The firewall requirements for Azure CLI 
+installation are defined here: 
+[Azure CLI] (https://learn.microsoft.com/en-us/cli/azure/azure-cli-endpoints)        | Setup of Deployer and during deployments |                      |
+| Ansible                             | pypi.org, galaxy.ansible.com                 | Setup of Deployer              | See [Terraform] (https://developer.hashicorp.com/terraform/downloads?product_intent=terraform) |
+| PowerShell Gallery                  | onegetcdn.azureedge.net, psg-prod-centralus.azureedge.net, psg-prod-eastus.azureedge.net  | Setup of Windows based systems | See [PowerShell Gallery] (/powershell/scripting/gallery/getting-started?#network-access-to-the-powershell-gallery) |
+| Windows components                  | download.visualstudio.microsoft.com, download.visualstudio.microsoft.com, download.visualstudio.com                    | Setup of Windows based systems | See [Visual Studio] (/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server#install-visual-studio) |
 
 
 
