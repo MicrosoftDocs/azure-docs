@@ -97,7 +97,7 @@ To debug conda installation problems, try the following:
 
 You can't get direct access to the VM where the model is deployed. However, you can get logs from some of the containers that are running on the VM. The amount of information you get depends on the provisioning status of the deployment. If the specified container is up and running, you'll see its console output; otherwise, you'll get a message to try again later.
 
-There are two types of containers that you can get the log from:
+There are two types of containers that you can get the logs from:
 - Inference server. Logs include the console log from [the inference server](how-to-inference-server-http.md), which contains print/logging functions' output from your scoring script (`score.py` code). 
 - Storage initializer. Logs contain information on whether code and model data were successfully downloaded to the container. The container will run before the inference server container starts to run.
 
