@@ -12,15 +12,15 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 
 # IoT Hub message routing query syntax
 
-Message routing enables users to route different data types, namely device telemetry messages, device lifecycle events, and device twin change events, to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns.
+Message routing enables users to route different data types, including device telemetry messages, device lifecycle events, and device twin change events, to various endpoints. You can also apply rich queries to this data before routing it to receive the data that matters to you. This article describes the IoT Hub message routing query language, and provides some common query patterns.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body is not in JavaScript Object Notation (JSON) format, message routing can still route the message, but queries cannot be applied to the message body.  Queries are described as Boolean expressions where a Boolean true value makes the query succeed and route all the incoming data, and a Boolean false value makes the query fail and no data is routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value and an error is generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes). The query syntax must be correct for the route to be saved and evaluated.  
+Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. If the message body isn't in JavaScript Object Notation (JSON) format, message routing can still route the message, but queries can't be applied to the message body.  Queries are described as Boolean expressions where, if true, the query succeeds and routes all the incoming data; otherwise, the query fails and the incoming data isn't routed. If the expression evaluates to a null or undefined value, it's treated as a Boolean false value and an error is generated in IoT Hub [routes resource logs](monitor-iot-hub-reference.md#routes). The query syntax must be correct for the route to be saved and evaluated.  
 
 ## Message routing query based on message properties
 
-IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names because IoT Hub device-to-cloud messaging is not case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
+IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names because IoT Hub device-to-cloud messaging isn't case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
 
 ```json
 { 
@@ -44,7 +44,7 @@ IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for al
 
 ### System properties
 
-System properties help identify the contents and source of the messages.
+System properties help identify the contents and source of the messages, some of which are described in the following table.
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
@@ -56,7 +56,7 @@ System properties help identify the contents and source of the messages.
 | dt-dataschema | string |  This value is set by IoT Hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
 | dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |
 
-As described in [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to the properties listed in the previous table, you can also query the  **connectionDeviceId** and **connectionModuleId** system properties.
+The previous table describes only some of the system properties available in a message. For more information about the other available system properties, see [Create and read IoT Hub messages](iot-hub-devguide-messages-construct.md). 
 
 ### Application properties
 
@@ -64,7 +64,7 @@ Application properties are user-defined strings that can be added to the message
 
 ### Query expressions
 
-A query on message system properties must be prefixed with the `$` symbol. Queries on application properties are accessed with their name and should not be prefixed with the `$`symbol. If an application property name begins with `$`, then IoT Hub first searches for it in the system properties, and if it's not found will then search for it in the application properties. For example: 
+A query on message system properties must be prefixed with the `$` symbol. Queries on application properties are accessed with their name and shouldn't be prefixed with the `$`symbol. If an application property name begins with `$`, then IoT Hub first searches for it in the system properties, and if it's not found will then search for it in the application properties. The following examples show how to query on system properties and application properties.
 
 To query on the system property contentEncoding:
 
@@ -88,7 +88,7 @@ A full list of supported operators and functions is provided in the [Expression 
 
 ## Message routing query based on message body
 
-To enable querying on a message body, the message should be in a JSON format and encoded in either UTF-8, UTF-16 or UTF-32. The `contentType` system property must be set to `application/JSON`. The `contentEncoding` system property must be set to one of the UTF encoding values supported by that system property. If these system properties are not specified, IoT Hub won't evaluate the query expression on the message body. 
+To enable querying on a message body, the message should be in a JSON format and encoded in either UTF-8, UTF-16 or UTF-32. The `contentType` system property must be set to `application/JSON`. The `contentEncoding` system property must be set to one of the UTF encoding values supported by that system property. If these system properties aren't specified, IoT Hub won't evaluate the query expression on the message body. 
 
 The following example shows how to create a message with a properly formed and encoded JSON body: 
 
@@ -219,7 +219,7 @@ Message routing enables you to query on [Device Twin](iot-hub-devguide-device-tw
 
 ### Query expressions
 
-A query on a device twin or module twin needs to be prefixed with `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, a message system properties reference, or a message application properties reference. We recommend using unique names in tags and properties because the query is not case-sensitive. This applies to both device twins and module twins. We recommend also that you avoid using `twin`, `$twin`, `body`, or `$body` as property names. For example, the following examples are all valid query expressions: 
+A query on a device twin or module twin needs to be prefixed with `$twin`. Your query expression can also combine a twin tag or property reference with a body reference, a message system properties reference, or a message application properties reference. We recommend using unique names in tags and properties because the query isn't case-sensitive. This recommendation applies to both device twins and module twins. We also recommend that you avoid using `twin`, `$twin`, `body`, or `$body` as property names. For example, the following examples are all valid query expressions: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
