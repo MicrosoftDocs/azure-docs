@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/01/2022
+ms.date: 11/07/2022
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -33,6 +33,7 @@ Ensure that you meet the following requirements about network topology and confi
 
 * Ensure that a [supported network topology for Azure NetApp Files](azure-netapp-files-network-topologies.md) is used.
 * Ensure that AD DS domain controllers have network connectivity from the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
+    * Peered virtual network topologies with AD DS domain controllers must have peering configured correctly to support Azure NetApp Files to AD DS domain controller network connectivity.
 * Network Security Groups (NSGs) and AD DS domain controller firewalls must have appropriately configured rules to support Azure NetApp Files connectivity to AD DS and DNS.
 * Ensure that the latency is less than 10ms RTT between Azure NetApp Files and AD DS domain controllers.
 

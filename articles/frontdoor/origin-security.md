@@ -119,8 +119,8 @@ metadata:
   nginx.ingress.kubernetes.io/enable-modsecurity: "true"
   nginx.ingress.kubernetes.io/modsecurity-snippet: |
     SecRuleEngine On
-    SecAuditLog /var/log/modsec_audit.log
-    SecRule REQUEST_HEADERS:X-Azure-FDID "!@eq xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" "log,deny,id:107,status:403,msg:\'Traffic incoming from a different Frontdoor\'"
+    SecRule &REQUEST_HEADERS:X-Azure-FDID \"@eq 0\"  \"log,deny,id:106,status:403,msg:\'Front Door ID not present\'\"
+    SecRule REQUEST_HEADERS:X-Azure-FDID \"@rx ^(?!xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).*$\"  \"log,deny,id:107,status:403,msg:\'Wrong Front Door ID\'\"
 spec:
   #section omitted on purpose
 ```

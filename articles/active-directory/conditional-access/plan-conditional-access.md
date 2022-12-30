@@ -31,7 +31,13 @@ Microsoft provides [security defaults](../fundamentals/concept-fundamentals-secu
 
 * A working Azure AD tenant with Azure AD Premium P1, P2, or trial license enabled. If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
    * Azure AD Premium P2 is required to include Identity Protection risk in Conditional Access policies.
-* An account assigned at minimum the [Conditional Access Administrator](../roles/permissions-reference.md#conditional-access-administrator) role.
+* Conditional Access policies can be created or modified by anyone assigned the following roles:
+   * Conditional Access Administrator
+   * Security Administrator
+   * Global Administrator
+* Conditional Access policies can be read by anyone assigned the following roles:
+   * Security Reader
+   * Global Reader
 * A test user (non-administrator) that allows you to verify policies work as expected before you impact real users. If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of. If you need to create a group, see [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 

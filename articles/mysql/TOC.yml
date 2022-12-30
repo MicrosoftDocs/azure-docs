@@ -135,6 +135,8 @@
         href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
+    - name: Azure Redis
+      href: flexible-server/tutorial-add-redis-to-mysql.md
     - name: Power BI
       href: flexible-server/connect-with-powerbi-desktop.md
     - name: Azure advisor

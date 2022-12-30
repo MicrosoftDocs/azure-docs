@@ -134,7 +134,7 @@ When the default sensor backup location is changed, the on-premises management c
 
 When the sensors aren't registered with the on-premises management console, the **Sensor Backup Schedule** dialog box indicates that no sensors are managed.  
 
-The restore process is the same regardless of where the files are stored.
+The restore process is the same regardless of where the files are stored. For more information on how to restore a sensor, see [Restore sensors](how-to-manage-individual-sensors.md#restore-sensors).
 
 ### Backup storage for sensors
 
@@ -210,23 +210,7 @@ Failures might occur because:
 
 - There's not enough room allocated to the on-premises management console to complete the backup.  
 
-You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **System Notifications**. 
-
-### Restoring sensors 
-
-You can restore backups from the on-premises management console and by using the CLI.  
-
-**To restore from the console:**
-
-- Select **Restore Image** from the **Sensor System** setting window.
-
-  :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/restore.png" alt-text="Restore a backup of your image.":::
-
-  The console then displays restore failures.  
-
-To restore by using the CLI: 
-
-- Sign in to an administrative account and enter `$ sudo cyberx-xsense-system-restore`. 
+You can send an email notification, syslog updates, and system notifications when a failure occurs. To do this, create a forwarding rule in **Forwarding**.
 
 ### Save a sensor backup to an external SMB server
 

@@ -4,7 +4,7 @@ description: Learn how to create a template VM with multiple VMs inside.  In oth
 author: emaher
 ms.topic: how-to
 ms.date: 01/27/2022
-ms.author: enewman
+ms.service: lab-services
 ---
 
 # Enable nested virtualization manually on a template VM in Azure Lab Services

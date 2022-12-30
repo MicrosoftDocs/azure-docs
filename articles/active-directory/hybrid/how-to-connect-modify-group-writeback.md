@@ -43,7 +43,7 @@ To configure directory settings to disable automatic writeback of newly created 
   New-AzureADDirectorySetting -DirectorySetting $Setting 
   ``` 
 
-- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta) resource type. 
+- Microsoft Graph: Use the [directorySetting](/graph/api/resources/directorysetting?view=graph-rest-beta&preserve-view=true) resource type. 
 
 ### Disable writeback for each existing Microsoft 365 group 
 
@@ -51,7 +51,7 @@ To configure directory settings to disable automatic writeback of newly created 
 - PowerShell: Use the [Microsoft Identity Tools PowerShell module](https://www.powershellgallery.com/packages/MSIdentityTools/2.0.16). For example: 
   
   `Get-mggroup -filter "groupTypes/any(c:c eq 'Unified')" | Update-MsIdGroupWritebackConfiguration -WriteBackEnabled $false` 
-- Microsoft Graph: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta). 
+- Microsoft Graph: Use a [group object](/graph/api/group-update?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
 ## Delete groups when they're disabled for writeback or soft deleted 
 

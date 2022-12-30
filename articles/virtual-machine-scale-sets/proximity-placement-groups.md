@@ -6,9 +6,9 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: proximity-placement-groups
-ms.date: 11/01/2022
-ms.reviewer: cynthn
-ms.custom: mimckitt, devx-track-azurepowershell
+ms.date: 11/22/2022
+ms.reviewer: mimckitt
+ms.custom: cynthn, devx-track-azurepowershell
 
 ---
 

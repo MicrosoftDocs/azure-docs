@@ -21,6 +21,12 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## November 2022
+
+### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
+
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](../azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](../azure-arc/vmware-vsphere/overview.md) in preview.
+
 
 ## October 2022
 
@@ -30,13 +36,13 @@ Azure Automation now supports runbooks in latest Runtime versions - PowerShell 7
 
 ### Guidance for Disaster Recovery of Azure Automation account
 
-Build your own disaster recovery strategy to handle a region-wide or zone-wide failure [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
+Set up disaster recovery for your Automation accounts to handle a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
 
 ## September 2022
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones).
+Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#availability-zones) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones).
 
 
 ## July 2022
@@ -54,7 +60,7 @@ Azure Automation Run As Account will retire on September 30, 2023 and will be re
 
 **Type:** Enhancement to an existing feature
 
-In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMWare VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
+In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMware VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
 
 
 ## March 2022

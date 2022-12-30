@@ -2,7 +2,7 @@
 title: Create & deploy template specs
 description: Describes how to create template specs and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 11/17/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2022
 ---
 
@@ -40,6 +40,15 @@ Template specs enable you to create canonical templates and share them with team
 If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. To deploy the template, you need to either make the template publicly accessible or manage access with SAS tokens. To get around this limitation, users might create local copies, which eventually diverge from your original template. Template specs simplify sharing templates.
 
 The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
+
+## Required permissions
+
+There are two Azure build-in roles defined for template spec:
+
+- [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
+- [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
+
+In addition, you also need the permissions for deploying a Bicep file. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 ## Create template spec
 
@@ -216,7 +225,7 @@ az ts show \
 
 ## Deploy template spec
 
-After you've created the template spec, users with **read** access to the template spec can deploy it. For information about granting access, see [Tutorial: Grant a group access to Azure resources using Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
+After you've created the template spec, users with the [template spec reader](#required-permissions) role can deploy it. In addition, you also need the permissions for deploying an ARM template. See [Deploy - CLI](./deploy-cli.md#required-permissions) or [Deploy - PowerShell](./deploy-powershell.md#required-permissions).
 
 Template specs can be deployed through the portal, PowerShell, Azure CLI, or as a linked template in a larger template deployment. Users in an organization can deploy a template spec to any scope in Azure (resource group, subscription, management group, or tenant).
 

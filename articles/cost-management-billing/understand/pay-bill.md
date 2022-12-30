@@ -8,7 +8,7 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 11/29/2022
 ms.author: banders
 ---
 
@@ -30,7 +30,9 @@ If you have Azure credits, they automatically apply to your invoice each billing
 
 **The Reserve Bank of India has issued new directives.**
 
-On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive won't affect the total amount you'll be charged for your Azure usage. 
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive won't affect the total amount you'll be charged for your Azure usage.
+
+On 8 June 2022, The Reserve Bank of India (RBI) increased the limit of e-mandates on cards for recurring payments from INR 5,000 to INR 15,000.
 
 [Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
 
