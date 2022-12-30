@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 11/01/2022
+ms.date: 12/22/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: jhenders, tracyyu, chuqiaoshi
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Plan an Azure Active Directory Identity Protection deployment guide
+# How To: Plan an Azure Active Directory Identity Protection deployment
 
 Azure AD Identity Protection contributes both a registration policy for and automated risk detection and remediation policies to the Azure AD Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign in is deemed risky. If you use Azure AD Identity Protection, configure the Azure AD MFA registration policy to prompt your users to register the next time they sign in interactively.
 
