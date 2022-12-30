@@ -109,11 +109,11 @@ To use the monitoring tab, you must select "**Enable Application Insight diagnos
 
 :::image type="content" source="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" lightbox="media/how-to-create-managed-online-endpoint-studio/monitor-endpoint.png" alt-text="A screenshot of monitoring endpoint-level metrics in the studio.":::
 
-For more information on how viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+For more information on viewing other monitors and alerts, see [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 
 ### Deployment logs
 
-You can get logs from the containers that are running on the VM where the model is deployed. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
+You can get logs from the containers that are running on the VM where the model is deployed. The amount of information you get depends on the provisioning status of the deployment. If the specified container is up and running, you'll see its console output; otherwise, you'll get a message to try again later.
 
 Use the **Deployment logs** tabs in the endpoint's details page to see log output from container.
 

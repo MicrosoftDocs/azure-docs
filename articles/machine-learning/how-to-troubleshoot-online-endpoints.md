@@ -160,13 +160,13 @@ ml_client.online_deployments.get_logs(
 
 # [Studio](#tab/studio)
 
-To see log output from container, use the **Endpoints** in the studio:
+To see log output from a container, use the **Endpoints** in the studio:
 
 1. In the left navigation bar, select Endpoints.
-1. (Optional) Create a Filter on Compute type to show only Managed compute types.
-1. Select an endpoint name to view the endpoint detail page.
-1. Select the **Deployment logs** tab in the endpoint's detail page.
-1. User the dropdown to select the deployment you want to see the log.
+1. (Optional) Create a filter on compute type to show only managed compute types.
+1. Select an endpoint's name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
 
 :::image type="content" source="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" lightbox="media/how-to-troubleshoot-online-endpoints/deployment-logs.png" alt-text="A screenshot of observing deployment logs in the studio.":::
 
@@ -314,9 +314,9 @@ Use the **Endpoints** in the studio:
 
 1. In the left navigation bar, select **Endpoints**.
 1. (Optional) Create a filter on compute type to show only managed compute types.
-1. Select an endpoint name to view the endpoint detail page.
-1. Select the **Deployment logs** tab in the endpoint's detail page.
-1. User the dropdown to select the deployment you want to see the log.
+1. Select an endpoint name to view the endpoint's details page.
+1. Select the **Deployment logs** tab in the endpoint's details page.
+1. Use the dropdown to select the deployment whose log you want to see.
 
 ---
 
@@ -370,7 +370,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model
 
-It is possible that the user model can't be found. Check [container logs](#get-container-logs) to get more details.
+It is possible that the user's model can't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure the model is registered to the same workspace as the deployment. To show details for a model in a workspace: 
   
@@ -391,12 +391,12 @@ ml_client.models.get(name="<model-name>", version=<version>)
 See the **Models** page in the studio:
 
 1. In the left navigation bar, select Models.
-1. Select a model name to view the model detail page.
+1. Select a model's name to view the model's details page.
 
 ---
 
 > [!WARNING]
-> You must specify either version or label to get the model information.
+> You must specify either version or label to get the model's information.
 
 You can also check if the blobs are present in the workspace storage account.
 
