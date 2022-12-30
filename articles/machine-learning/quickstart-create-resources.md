@@ -61,8 +61,13 @@ You'll use a *compute instance* as your online development environment. The comp
 If you already have a compute instance, skip this section and continue to [Upload files](#upload-files).  
 
 Create a compute instance now.  You'll also use this cloud-computing resource to run Jupyter notebooks and Python scripts in the rest of the tutorials.
- 
-**@@Steps for creating the compute instance with the new experience will go here.**
+
+1. On the left navigation, select **Notebooks**.
+1. Select **Create compute** in the middle of the page.  (You'll only see this if you don't yet have a compute instance in your workspace.)
+1. Supply a name, Keep all the defaults on the first page.
+1. Select **Create**.
+
+In about two minutes, you'll see the State of the compute instance change from Creating to Running. It's now ready to go.
 
 > [!NOTE]
 > If you're here to learn how to create a workspace and compute instance, you now have the resources you need to run other tutorials.  Continue reading to learn more about how to upload files, work with Jupyter notebooks, and run Python scripts.
