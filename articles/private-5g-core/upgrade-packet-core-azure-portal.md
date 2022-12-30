@@ -62,7 +62,7 @@ The following list contains data that will get lost over a packet core upgrade. 
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     
-    - If you use Azure AD, save a copy of the two Kubernetes Secret Object YAML files you created in [Create Kubernetes Secret Objects for distributed tracing and Grafana](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects-for-distributed-tracing-and-grafana).
+    - If you use Azure AD, save a copy of the two Kubernetes Secret Object YAML files you created in [Create Kubernetes Secret Objects](azure-active-directory-prerequisites.md#create-kubernetes-secret-objects).
     - If you use local usernames and passwords and want to keep using the same credentials, save a copy of the current passwords to a secure location.
 
 1. Any customizations made to the packet core dashboards won't be carried over the upgrade. Refer to [Exporting a dashboard](https://grafana.com/docs/grafana/v6.1/reference/export_import/#exporting-a-dashboard) in the Grafana documentation to save a backed-up copy of your dashboards.

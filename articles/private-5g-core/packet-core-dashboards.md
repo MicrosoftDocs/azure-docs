@@ -18,9 +18,18 @@ The packet core dashboards are powered by *Grafana*, an open-source, metric anal
 
 ## Access the packet core dashboards
 
-To sign in to the packet core dashboards:
+### Azure Active Directory
 
-1. In your browser, enter https://*\<LocalMonitoringIP\>*/grafana, where *\<LocalMonitoringIP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
+To sign in to the packet core dashboards if you enabled Azure Active Directory authentication:
+
+1. In your browser, enter https://*\<local monitoring domain\>*/grafana, where *\<local monitoring domain\>* is the domain name for your local monitoring tools that you set up in [Configure domain system name (DNS) for local monitoring IP](azure-active-directory-prerequisites.md#configure-domain-system-name-dns-for-local-monitoring-ip).
+1. Follow the prompts to sign in with your account credentials.
+
+### Local username and password
+
+To sign in to the packet core dashboards if you enabled local username and password authentication:
+
+1. In your browser, enter https://*\<local monitoring IP\>*/grafana, where *\<local monitoring IP\>* is the IP address for accessing the local monitoring tools that you set up in [Management network](complete-private-mobile-network-prerequisites.md#management-network).
 
     :::image type="content" source="media\packet-core-dashboards\grafana-sign-in.png" alt-text="Screenshot of the Grafana sign in page, with fields for the username and password.":::
 
