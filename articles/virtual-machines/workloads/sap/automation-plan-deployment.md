@@ -166,6 +166,19 @@ The following table shows the required permissions for the service principal:
 > | Web Application Identity                     | Target subscription                 | Reader                       |
 > | Cluster Virtual Machine Identity             | Resource Group                      | Fencing role                 |
 
+### Firewall configuration
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Component                           | Adresses                                     | Duration                       | Notes                          |
+> | ----------------------------------- | -------------------------------------------- | ------------------------------ | ------------------------------ |
+> | Terraform                           | releases.hashicorp.com, registry.terraform.io, checkpoint-api.hashicorp.com                    | Setup of Deployer | See [Terraform] (https://developer.hashicorp.com/terraform/downloads?product_intent=terraform)
+> | Azure CLI                           | The firewall requirements for Azure CLI installation are defined here: [Azure CLI] (https://learn.microsoft.com/en-us/cli/azure/azure-cli-endpoints)                   | Setup of Deployer and during deployments | 
+
+> | PowerShell Gallery                  | onegetcdn.azureedge.net, psg-prod-centralus.azureedge.net, psg-prod-eastus.azureedge.net                    | Setup of Windows based systems | See [PowerShell Gallery] (/powershell/scripting/gallery/getting-started?#network-access-to-the-powershell-gallery)
+> | Windows components                  | download.visualstudio.microsoft.com, download.visualstudio.microsoft.com, download.visualstudio.com                    | Setup of Windows based systems | See [Visual Studio] (/visualstudio/install/install-and-use-visual-studio-behind-a-firewall-or-proxy-server#install-visual-studio)
+
+
+
 ## DevOps structure
 
 The Terraform automation templates are in the [SAP on Azure Deployment Automation Framework repository](https://github.com/Azure/sap-automation/). For most use cases, consider this repository as read-only and don't modify it.
