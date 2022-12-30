@@ -29,7 +29,7 @@ To upgrade your version 4 Azure Cache for Redis instance, see [How to upgrade an
 
 ### Important upgrade timelines
 
-From now through 30 June 2023, you can continue to use existing Azure Cache for Redis version 4 instances. Retirement will occur in following stages, so you have the maximum amount of time to upgrade.
+From now through June 30, 2023, you can continue to use existing Azure Cache for Redis version 4 instances. Retirement will occur in following stages, so you have the maximum amount of time to upgrade.
 
 | Date    | Description |
 |-------- |-------------|
@@ -70,7 +70,7 @@ Azure Cache for Redis is the managed offering for the popular open-source cachin
 
 #### Will Redis 4 caches be supported until retirement?
 
-Redis version 4 caches continues to get critical bug fixes and security updates until June 20, 2023.
+Redis version 4 caches continues to get critical bug fixes and security updates until June 30, 2023.
 
 #### My Redis 4 caches are linked with geo-replication link. What happens to the geo-replication link during upgrade?
 

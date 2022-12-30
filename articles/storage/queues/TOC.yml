@@ -13,16 +13,14 @@
       href: storage-quickstart-queues-portal.md
   - name: Develop with queues
     items:
-    - name: .NET (v12)
+    - name: .NET
       href: storage-quickstart-queues-dotnet.md
-    - name: .NET (v11)
-      href: storage-quickstart-queues-dotnet-legacy.md
-    - name: Java (v12)
+    - name: Java
       href: storage-quickstart-queues-java.md
-    - name: Python (v12)
-      href: storage-quickstart-queues-python.md
-    - name: JavaScript (v12)
+    - name: JavaScript
       href: storage-quickstart-queues-nodejs.md
+    - name: Python
+      href: storage-quickstart-queues-python.md
 - name: Tutorials
   items:
   - name: Work with Azure storage queues
@@ -289,7 +287,7 @@
     - name: REST API
       href: /rest/api/storagerp/
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/storage/management
+      href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK
       href: /java/api/overview/azure/storage/management
     - name: Python SDK

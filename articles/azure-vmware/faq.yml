@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date:  12/08/2022
+  ms.date:  12/12/2022
   
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -47,7 +47,7 @@ sections:
         answer: For general questions on pricing, see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. 
           
       - question: Is VMware HCX Enterprise available, and if so, how much does it cost?
-        answer: VMware HCX Enterprise is available on Azure Vmware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
+        answer: VMware HCX Enterprise is available on Azure VMware Solution at no additional cost. If you plan to use VMware HCX Enterprise, make sure you've enabled the VMware HCX Enterprise add-on through a [support request](https://rc.portal.azure.com/#create/Microsoft.Support).
 
       - question: Will traffic between on-premises and Azure VMware Solution over ExpressRoute incur any outbound data transfer charge in the metered data plan?
         answer: |
@@ -56,6 +56,14 @@ sections:
           - **Azure VMware Solution to vNet** is through an internal ExpressRoute circuit and is free of cost within the same region as Azure VMware Solution. However, if the internal ExpressRoute circuit is connected cross-region, data transfer charges apply.
 
           - **Azure VMware Solution to on-premises** is done through vNet or ExpressRoute Global Reach (between the internal ExpressRoute and external ExpressRoute). It's still free provided the connection to vNet (mentioned above) or using ExpressRoute Global Reach is within the region where Azure VMware Solution is deployed. 
+
+          For example:
+          
+          - If we connect a vNET in Azure West Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
+          
+          - If we connect a vNET in Azure North Europe to an Azure VMware Solution private cloud in West Europe, then there are no ExpressRoute charges other than the ExpressRoute gateway charges.
+          
+          - If we connect an Azure VMware Solution private cloud in West Europe to an Azure VMware Solution private cloud in North Europe, which is connected to the vNET in Azure North Europe, you will not incur any ExpressRoute charges other than the ExpressRoute gateway charges.
 
       - question:  Is it necessary to procure additional VMware licensing and resources other than the AV36 instance when migrating from the on-premises VM environment with an L2 extension?  
         answer: | 

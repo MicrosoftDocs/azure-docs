@@ -9,8 +9,6 @@ ms.author: ofshezaf
 
 # Normalization and the Advanced Security Information Model (ASIM) (Public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
 
@@ -58,7 +56,7 @@ ASIM includes the following components:
 
 |Component  |Description  |
 |---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [User Management](user-management-normalization-schema.md)<br> - [Web Session](web-normalization-schema.md)<br><br>For more information, see [ASIM schemas](normalization-about-schemas.md).  |
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Audit Event](normalization-schema-audit.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normalization-schema.md)<br> - [DNS Activity](normalization-schema-dns.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [User Management](user-management-normalization-schema.md)<br> - [Web Session](web-normalization-schema.md)<br><br>For more information, see [ASIM schemas](normalization-about-schemas.md).  |
 |**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Many ASIM parsers are available out of the box with Microsoft Sentinel. More parsers, and versions of the built-in parsers that can be modified can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim). <br><br>For more information, see [ASIM parsers](normalization-parsers-overview.md).     |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [ASIM content](normalization-content.md).   |
 

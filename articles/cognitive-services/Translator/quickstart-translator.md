@@ -586,7 +586,7 @@ After a successful call, you should see the following response:
 
 ### Build your JavaScript application
 
-1. Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
+Add the following code sample to your `index.js` file. **Make sure you update the key variable with the value from your Azure portal Translator instance**:
 
 ```javascript
     const axios = require('axios').default;

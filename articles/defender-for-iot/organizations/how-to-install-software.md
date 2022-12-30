@@ -165,12 +165,6 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
    :::image type="content" source="media/tutorial-install-components/on-prem-language-select.png" alt-text="Select your preferred language for the installation process.":::
 
-1. Select your location. For example:
-
-1. Detect keyboard layout?  default no, then select a keyboard layout 
-
-1. Configure the network - your system has detected multiple interfaces. 
-
 1. Select **MANAGEMENT-RELEASE-\<version\>\<deployment type\>**.
 
    :::image type="content" source="media/tutorial-install-components/on-prem-install-screen.png" alt-text="Select your version.":::

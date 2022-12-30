@@ -13,7 +13,7 @@ services: iot-edge
 ---
 # Deploy and monitor IoT Edge modules at scale by using the Azure CLI
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure CLI to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 

@@ -89,7 +89,11 @@ To propagate routes to the spokes the NVA uses a second Azure Route Server 2, de
 
 The next hop for this `0.0.0.0/0` route will be the NVA, so the spokes still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where the new Azure Route Server 2 is deployed, otherwise it will not be able to create the BGP adjacency.
 
-This design allows automatic injection of routes in a spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment.
+If traffic from ExpressRoute to the spokes is to be sent to a firewall NVA for inspection, a route table in the GatewaySubnet is still required, otherwise the ExpressRoute Virtual Network Gateway will send packets straight to the Virtual Machines through the routes learnt from VNet peering. The routes in this route table should match the spoke prefixes, and the next hop should be the IP address of the firewall NVA (or the load balancer in front of the firewall NVAs, for redundancy). The firewall NVA can be the same as the SDWAN NVA in the diagram above, or it can be a different device such as Azure Firewall, since the SDWAN NVA can advertise routes with the next-hop pointing to other IP addresses. The following diagram shows this design with the addition of Azure Firewall:
+
+:::image type="content" source="./media/scenarios/route-injection-split-route-server-with-firewall.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via ExpressRoute, an Azure Firewall and two Route Servers.":::
+
+This design allows automatic injection of routes in a spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment, and the addition of firewall NVAs for traffic inspection.
 
 ## Next steps
 
