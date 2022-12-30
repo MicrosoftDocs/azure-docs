@@ -313,7 +313,7 @@ ml_client.online_deployments.get_logs(
 Use the **Endpoints** in the studio:
 
 1. In the left navigation bar, select **Endpoints**.
-1. (Optional) Create a Filter on Compute type to show only Managed compute types.
+1. (Optional) Create a filter on compute type to show only managed compute types.
 1. Select an endpoint name to view the endpoint detail page.
 1. Select the **Deployment logs** tab in the endpoint's detail page.
 1. User the dropdown to select the deployment you want to see the log.
