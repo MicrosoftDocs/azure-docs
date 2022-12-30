@@ -38,9 +38,9 @@ The following steps prepare and configure the Azure Database for MySQL Flexible 
    If the source server is on public access, then ensure that firewall rules allow the replica server IP address. If the replica server is hosted on Azure, please ensure that you select the option of allowing public access from any Azure service from the networking page in the Azure portal.
    If the source server is on private access, ensure that the replica server can connect to the source through Vnet peering or a VNet-to-VNet VPN gateway connection.
    
-> [!NOTE]  
-> For more information - [Networking overview - Azure Database for MySQL Flexible Server](concepts-networking.md).
-
+   > [!NOTE]  
+   > For more information - [Networking overview - Azure Database for MySQL Flexible Server](concepts-networking.md).
+   
 1. **Turn on binary logging**
 
    Check to see if binary logging has been enabled on the source by running the following command:
@@ -166,9 +166,9 @@ Restore the dump file to the server created in the Azure Database for MySQL Flex
    - master_log_file: binary log file name from running show master status
    - master_log_pos: binary log position from running show master status
 
-> [!NOTE]  
-> To use SSL for the connection, add the attribute SOURCE_SSL=1 to the command. For more information about using SSL in a replication context, visit - https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html
-
+   > [!NOTE]  
+   > To use SSL for the connection, add the attribute SOURCE_SSL=1 to the command. For more information about using SSL in a replication context, visit - https://dev.mysql.com/doc/refman/8.0/en/change-replication-source-to.html
+   
 1. Activate the replica server using the following command.
 
    ```sql
