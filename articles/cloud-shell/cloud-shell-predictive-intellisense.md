@@ -19,7 +19,7 @@ ms.author: jahelmic
 # Predictive IntelliSense in Cloud Shell
 
 Beginning February 2023 Azure Cloud Shell uses the version of [PSReadLine][01] that has Predictive
-IntelliSense enabled by default. We've also installed and enable the Azure PowerShell predictor
+IntelliSense enabled by default. We've also installed and enabled the Azure PowerShell predictor
 [Az.Tools.Predictor][02]] module. Together, these changes enhance the command-line experience by
 providing suggestions that help new and experienced users of Azure discover, edit, and execute
 complete commands.
