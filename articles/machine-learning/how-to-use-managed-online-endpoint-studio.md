@@ -115,7 +115,7 @@ For more information on how viewing other monitors and alerts, see [How to monit
 
 You can get logs from the containers that are running on the VM where the model is deployed. The amount of information depends on the provisioning status of the deployment. If the specified container is up and running you'll see its console output, otherwise you'll get a message to try again later.
 
-Use the **Deployment logs** tabs in the endpoints details page to see log output from container.
+Use the **Deployment logs** tabs in the endpoint's details page to see log output from container.
 
 1. Select the **Deployment logs** tab in the endpoint's details page.
 1. Use the dropdown to select the deployment whose log you want to see.
