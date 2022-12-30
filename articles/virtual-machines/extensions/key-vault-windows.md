@@ -80,7 +80,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KVVMExtensionForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -114,7 +114,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KVVMExtensionForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -174,7 +174,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2022-08-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
@@ -191,7 +191,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2022-08-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 3.0 | int |
@@ -221,7 +221,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KeyVaultForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
@@ -254,7 +254,7 @@ The JSON configuration for a key vault extension is nested inside the virtual ma
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
       "name": "KeyVaultForWindows",
-      "apiVersion": "2019-07-01",
+      "apiVersion": "2022-08-01",
       "location": "<location>",
       "dependsOn": [
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
