@@ -13,11 +13,15 @@ ms.author: juliako
 
 To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
-<!--* [Important notice](#upcoming-critical-changes) about planned changes-->
+* [Important notice](#important-notice) about planned changes
 * The latest releases
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## Important notice
+
+[!INCLUDE [announcement](./includes/deprecation-announcement.md)]
 
 ## November 2022
 
