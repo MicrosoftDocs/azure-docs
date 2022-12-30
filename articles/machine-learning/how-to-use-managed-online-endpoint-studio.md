@@ -124,7 +124,7 @@ Use the **Deployment logs** tabs in the endpoints details page to see log output
 
 The logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your scoring script (`score.py`).
 
-To get logs from the storage initializer container, use the Azure CLI or Python SDK. Those logs contain information on whether code and model data were successfully downloaded to the container. See [get container logs section in troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md#get-container-logs)
+To get logs from the storage initializer container, use the Azure CLI or Python SDK. These logs contain information on whether code and model data were successfully downloaded to the container. See the [get container logs section in troubleshooting online endpoints deployment](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ## Add a deployment to a managed online endpoint
 
